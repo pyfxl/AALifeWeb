@@ -1,0 +1,9 @@
+D:\fxlweb\AALifeWeb2015\DAL\bin\Release\AALife.DAL.dll
+D:\fxlweb\AALifeWeb2015\DAL\bin\Release\AALife.DAL.pdb
+D:\fxlweb\AALifeWeb2015\DAL\bin\Release\AALife.DBUtility.dll
+D:\fxlweb\AALifeWeb2015\DAL\bin\Release\AALife.Model.dll
+D:\fxlweb\AALifeWeb2015\DAL\bin\Release\AALife.DBUtility.pdb
+D:\fxlweb\AALifeWeb2015\DAL\bin\Release\AALife.Model.pdb
+D:\fxlweb\AALifeWeb2015\DAL\obj\Release\AALife.DAL.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWeb2015\DAL\obj\Release\AALife.DAL.dll
+D:\fxlweb\AALifeWeb2015\DAL\obj\Release\AALife.DAL.pdb

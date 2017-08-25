@@ -1,0 +1,9 @@
+D:\fxlweb\AALifeWebForApp\DBUtility\bin\Debug\DBUtility.dll
+D:\fxlweb\AALifeWebForApp\DBUtility\bin\Debug\DBUtility.pdb
+D:\fxlweb\AALifeWebForApp\DBUtility\obj\Debug\DBUtility.dll
+D:\fxlweb\AALifeWebForApp\DBUtility\obj\Debug\DBUtility.pdb
+D:\fxlweb\AALifeWebForApp\DBUtility\obj\Debug\DBUtility.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWebForApp\bin\DBUtility.dll
+D:\fxlweb\AALifeWebForApp\bin\DBUtility.pdb
+D:\fxlweb\AALifeWebDLL\DBUtility\obj\Debug\DBUtility.dll
+D:\fxlweb\AALifeWebDLL\DBUtility\obj\Debug\DBUtility.pdb

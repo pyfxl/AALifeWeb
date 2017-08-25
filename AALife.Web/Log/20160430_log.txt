@@ -1,0 +1,1199 @@
+2016-04-30 00:00:22.9193|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq51503, 鑫森淼焱垚, http://q.qlogo.cn/qqapp/100761541/8051BF8A53285756512657DF653DD14E/100, sjqq_tx, IsUpdate:1
+2016-04-30 00:00:22.9193|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 8051BF8A53285756512657DF653DD14E, 1FA4F2AE62CFFCEFE664EC3273448659, UserID:0, OldUserID:0, sjqq
+2016-04-30 00:00:28.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622224
+2016-04-30 00:00:28.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622225
+2016-04-30 00:00:28.7318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622226
+2016-04-30 00:00:28.9818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622227
+2016-04-30 00:00:29.2943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622228
+2016-04-30 00:00:29.5912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622229
+2016-04-30 00:00:29.8725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622230
+2016-04-30 00:00:30.1381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622231
+2016-04-30 00:00:30.4662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622232
+2016-04-30 00:00:30.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622233
+2016-04-30 00:00:31.0443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622234
+2016-04-30 00:00:31.2943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622235
+2016-04-30 00:00:31.6381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622236
+2016-04-30 00:00:31.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622237
+2016-04-30 00:00:32.2475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622238
+2016-04-30 00:00:32.4975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622240
+2016-04-30 00:00:32.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622241
+2016-04-30 00:00:33.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622242
+2016-04-30 00:00:33.4818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622243
+2016-04-30 00:00:33.7943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622244
+2016-04-30 00:00:34.0600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622245
+2016-04-30 00:00:34.3568|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622246
+2016-04-30 00:00:34.6381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622247
+2016-04-30 00:00:34.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622248
+2016-04-30 00:00:35.2162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622249
+2016-04-30 00:00:35.4662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622250
+2016-04-30 00:00:35.7318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622251
+2016-04-30 00:00:36.0131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622252
+2016-04-30 00:00:36.2631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622253
+2016-04-30 00:00:36.5131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622254
+2016-04-30 00:00:36.8568|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622255
+2016-04-30 00:00:37.1381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622256
+2016-04-30 00:00:37.4193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622257
+2016-04-30 00:00:37.6693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622258
+2016-04-30 00:00:37.9975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622259
+2016-04-30 00:00:38.2787|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622260
+2016-04-30 00:00:38.5443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622261
+2016-04-30 00:00:38.8256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622262
+2016-04-30 00:00:39.1381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622263
+2016-04-30 00:00:39.3725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622264
+2016-04-30 00:00:39.7787|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622265
+2016-04-30 00:00:40.7162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622266
+2016-04-30 00:00:40.9975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622267
+2016-04-30 00:00:41.2943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622268
+2016-04-30 00:00:41.6225|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622269
+2016-04-30 00:00:41.9037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622270
+2016-04-30 00:00:42.1225|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622271
+2016-04-30 00:00:42.4037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622272
+2016-04-30 00:00:42.6537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622273
+2016-04-30 00:00:42.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622274
+2016-04-30 00:00:43.2006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622275
+2016-04-30 00:00:43.5287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622276
+2016-04-30 00:00:43.8256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622277
+2016-04-30 00:00:44.1537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622278
+2016-04-30 00:00:44.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622279
+2016-04-30 00:00:44.7475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622280
+2016-04-30 00:00:45.0287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622281
+2016-04-30 00:00:45.3100|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622282
+2016-04-30 00:00:45.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:622283
+2016-04-30 00:00:45.8412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:624221
+2016-04-30 00:00:46.0912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:624222
+2016-04-30 00:00:46.4193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:624223
+2016-04-30 00:00:46.7475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:624623
+2016-04-30 00:00:46.9818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:624624
+2016-04-30 00:00:47.2631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630385
+2016-04-30 00:00:47.5131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630386
+2016-04-30 00:00:47.7475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630387
+2016-04-30 00:00:48.1068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630388
+2016-04-30 00:00:48.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630389
+2016-04-30 00:00:48.7006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630390
+2016-04-30 00:00:49.0600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630391
+2016-04-30 00:00:49.3725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630392
+2016-04-30 00:00:49.7006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630393
+2016-04-30 00:00:49.9662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630394
+2016-04-30 00:00:50.2943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630395
+2016-04-30 00:00:50.5287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630396
+2016-04-30 00:00:50.8256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630397
+2016-04-30 00:00:51.1068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630398
+2016-04-30 00:00:51.3568|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630399
+2016-04-30 00:00:51.6850|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630400
+2016-04-30 00:00:51.9662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630401
+2016-04-30 00:00:52.2162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630402
+2016-04-30 00:00:52.5443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630403
+2016-04-30 00:00:52.7943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630404
+2016-04-30 00:00:53.0912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630405
+2016-04-30 00:00:53.3412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630406
+2016-04-30 00:00:53.6225|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630407
+2016-04-30 00:00:53.8881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630408
+2016-04-30 00:00:54.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630409
+2016-04-30 00:00:54.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630410
+2016-04-30 00:00:54.7006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630411
+2016-04-30 00:00:54.9662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630412
+2016-04-30 00:00:55.2162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630413
+2016-04-30 00:00:55.4818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630414
+2016-04-30 00:00:55.8100|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630415
+2016-04-30 00:00:56.1537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630416
+2016-04-30 00:00:56.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630417
+2016-04-30 00:00:56.7475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630418
+2016-04-30 00:00:57.0131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630419
+2016-04-30 00:00:57.3412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630420
+2016-04-30 00:00:57.6537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630421
+2016-04-30 00:00:57.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630422
+2016-04-30 00:00:58.2006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630423
+2016-04-30 00:00:58.5131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630424
+2016-04-30 00:00:58.8725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630425
+2016-04-30 00:00:59.1068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630426
+2016-04-30 00:00:59.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630427
+2016-04-30 00:00:59.7318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630428
+2016-04-30 00:01:00.0131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630429
+2016-04-30 00:01:00.3100|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630430
+2016-04-30 00:01:00.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630431
+2016-04-30 00:01:00.8100|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630432
+2016-04-30 00:01:01.3881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630433
+2016-04-30 00:01:01.6068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630434
+2016-04-30 00:01:01.8881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630435
+2016-04-30 00:01:02.1537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630436
+2016-04-30 00:01:02.3881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:630437
+2016-04-30 00:01:02.6850|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651196
+2016-04-30 00:01:02.9662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651197
+2016-04-30 00:01:03.2631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651198
+2016-04-30 00:01:03.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651199
+2016-04-30 00:01:03.8568|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651200
+2016-04-30 00:01:04.1381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651201
+2016-04-30 00:01:04.4193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651202
+2016-04-30 00:01:04.8256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651203
+2016-04-30 00:01:05.0912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651204
+2016-04-30 00:01:05.3725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651205
+2016-04-30 00:01:05.7006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651206
+2016-04-30 00:01:05.9662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651207
+2016-04-30 00:01:06.3100|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651208
+2016-04-30 00:01:06.6381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651209
+2016-04-30 00:01:06.8725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651210
+2016-04-30 00:01:07.0912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651211
+2016-04-30 00:01:07.3881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651212
+2016-04-30 00:01:07.6693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651213
+2016-04-30 00:01:07.9506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651214
+2016-04-30 00:01:08.2475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651215
+2016-04-30 00:01:08.5131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651216
+2016-04-30 00:01:08.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651217
+2016-04-30 00:01:09.0756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651218
+2016-04-30 00:01:09.3412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651219
+2016-04-30 00:01:09.5912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651220
+2016-04-30 00:01:09.9037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651221
+2016-04-30 00:01:10.1850|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651222
+2016-04-30 00:01:10.4506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651223
+2016-04-30 00:01:10.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651224
+2016-04-30 00:01:11.0443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651225
+2016-04-30 00:01:11.3256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651226
+2016-04-30 00:01:11.6068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651227
+2016-04-30 00:01:11.9037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651228
+2016-04-30 00:01:12.1537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651229
+2016-04-30 00:01:12.4506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651230
+2016-04-30 00:01:12.7162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651231
+2016-04-30 00:01:12.9818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651232
+2016-04-30 00:01:13.2318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651233
+2016-04-30 00:01:13.5443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651234
+2016-04-30 00:01:13.8412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651235
+2016-04-30 00:01:14.0912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651236
+2016-04-30 00:01:14.3881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651237
+2016-04-30 00:01:14.6537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:651238
+2016-04-30 00:01:14.9037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666915
+2016-04-30 00:01:15.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666916
+2016-04-30 00:01:15.4506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666917
+2016-04-30 00:01:15.7475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666918
+2016-04-30 00:01:16.0443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666919
+2016-04-30 00:01:16.2943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666920
+2016-04-30 00:01:16.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666921
+2016-04-30 00:01:16.8725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666922
+2016-04-30 00:01:17.0912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666923
+2016-04-30 00:01:17.3881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666924
+2016-04-30 00:01:17.6537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666925
+2016-04-30 00:01:17.9193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666926
+2016-04-30 00:01:18.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666927
+2016-04-30 00:01:18.4818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666928
+2016-04-30 00:01:18.7787|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666929
+2016-04-30 00:01:19.0287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666930
+2016-04-30 00:01:19.3100|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666931
+2016-04-30 00:01:19.6068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666932
+2016-04-30 00:01:19.8725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666933
+2016-04-30 00:01:20.1537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666934
+2016-04-30 00:01:20.4193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:666935
+2016-04-30 00:02:37.8256|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:2 | ItemWebID:622224 | ItemInfo -> ItemID:622225, ItemAppID:2, CategoryTypeID:26, 程雪娇贺, 300.0, 2015-9-19 5:02:40, sr, CardID:0
+2016-04-30 00:02:38.2475|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:3 | ItemWebID:622225 | ItemInfo -> ItemID:622226, ItemAppID:3, CategoryTypeID:26, 王谦贺, 300.0, 2015-9-19 5:03:55, sr, CardID:0
+2016-04-30 00:02:38.6381|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:4 | ItemWebID:622226 | ItemInfo -> ItemID:622227, ItemAppID:4, CategoryTypeID:12, 交学校, 5600.0, 2015-9-20 14:57:58, zc, CardID:0
+2016-04-30 00:02:39.0912|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:5 | ItemWebID:622227 | ItemInfo -> ItemID:622228, ItemAppID:5, CategoryTypeID:24, 宿舍备品, 400.0, 2015-9-20 15:00:10, zc, CardID:0
+2016-04-30 00:02:39.5912|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:6 | ItemWebID:622228 | ItemInfo -> ItemID:622229, ItemAppID:6, CategoryTypeID:18, 晋同1日往6日返, 300.0, 2015-10-1 13:45:11, zc, CardID:0
+2016-04-30 00:02:39.9975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:8 | ItemWebID:622230 | ItemInfo -> ItemID:622231, ItemAppID:8, CategoryTypeID:32, 兰现金, 1000.0, 2015-10-6 6:46:22, sr, CardID:0
+2016-04-30 00:02:40.3881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:9 | ItemWebID:622231 | ItemInfo -> ItemID:622232, ItemAppID:9, CategoryTypeID:14, 兰转帐, 1000.0, 2015-10-7 15:11:52, sr, CardID:0
+2016-04-30 00:02:40.7787|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:10 | ItemWebID:622232 | ItemInfo -> ItemID:622233, ItemAppID:10, CategoryTypeID:30, 兰亲密付, 1300.0, 2015-10-22 6:45:26, sr, CardID:0
+2016-04-30 00:02:41.1693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:11 | ItemWebID:622233 | ItemInfo -> ItemID:622234, ItemAppID:11, CategoryTypeID:30, 兰转帐, 200.0, 2015-11-5 6:45:06, sr, CardID:0
+2016-04-30 00:02:42.1693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:12 | ItemWebID:622234 | ItemInfo -> ItemID:622235, ItemAppID:12, CategoryTypeID:30, 兰转帐, 300.0, 2015-11-9 6:44:52, sr, CardID:0
+2016-04-30 00:02:42.5912|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:13 | ItemWebID:622235 | ItemInfo -> ItemID:622236, ItemAppID:13, CategoryTypeID:30, 兰转帐, 200.0, 2015-11-15 6:44:38, sr, CardID:0
+2016-04-30 00:02:42.9975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:14 | ItemWebID:622236 | ItemInfo -> ItemID:622237, ItemAppID:14, CategoryTypeID:30, 兰转帐, 300.0, 2015-11-20 6:44:24, sr, CardID:0
+2016-04-30 00:02:43.4350|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:16 | ItemWebID:622238 | ItemInfo -> ItemID:622240, ItemAppID:16, CategoryTypeID:22, 衣服, 200.0, 2015-10-22 13:37:12, zc, CardID:0
+2016-04-30 00:02:43.8412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:20 | ItemWebID:622240 | ItemInfo -> ItemID:622244, ItemAppID:20, CategoryTypeID:14, 水果, 12.0, 2015-11-30 12:47:53, zc, CardID:0
+2016-04-30 00:02:44.3412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:24 | ItemWebID:622244 | ItemInfo -> ItemID:622248, ItemAppID:24, CategoryTypeID:30, 兰转帐, 300.0, 2015-12-6 6:43:43, sr, CardID:0
+2016-04-30 00:02:44.7787|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:25 | ItemWebID:622245 | ItemInfo -> ItemID:622249, ItemAppID:25, CategoryTypeID:16, 药, 6.0, 2015-11-5 16:07:26, zc, CardID:0
+2016-04-30 00:02:45.4506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:26 | ItemWebID:622246 | ItemInfo -> ItemID:622250, ItemAppID:26, CategoryTypeID:16, 洗衣, 3.0, 2015-11-8 16:07:52, zc, CardID:0
+2016-04-30 00:02:45.9975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:27 | ItemWebID:622247 | ItemInfo -> ItemID:622251, ItemAppID:27, CategoryTypeID:16, 洗澡, 6.0, 2015-11-9 16:08:12, zc, CardID:0
+2016-04-30 00:02:46.4193|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:28 | ItemWebID:622248 | ItemInfo -> ItemID:622252, ItemAppID:28, CategoryTypeID:20, 水卡, 50.0, 2015-11-10 16:08:44, zc, CardID:0
+2016-04-30 00:02:46.8725|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:29 | ItemWebID:622249 | ItemInfo -> ItemID:622253, ItemAppID:29, CategoryTypeID:22, 鞋练功, 23.0, 2015-11-20 12:54:08, zc, CardID:0
+2016-04-30 00:02:47.4037|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:30 | ItemWebID:622250 | ItemInfo -> ItemID:622254, ItemAppID:30, CategoryTypeID:18, 晋同13日往15日返, 100.0, 2015-11-13 13:09:59, zc, CardID:0
+2016-04-30 00:02:47.8412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:31 | ItemWebID:622251 | ItemInfo -> ItemID:622255, ItemAppID:31, CategoryTypeID:18, 晋同票往1月21日K7804, 44.0, 2015-11-28 13:32:06, zc, CardID:0
+2016-04-30 00:02:48.2162|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:58 | ItemWebID:622277 | ItemInfo -> ItemID:622282, ItemAppID:58, CategoryTypeID:30, 兰亲密付, 100.0, 2015-11-30 6:44:08, sr, CardID:0
+2016-04-30 00:02:48.6381|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:62 | ItemWebID:622281 | ItemInfo -> ItemID:624223, ItemAppID:62, CategoryTypeID:26, 兰奶贺礼, 500.0, 2015-9-18 6:46:56, sr, CardID:2
+2016-04-30 00:02:49.0131|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:63 | ItemWebID:622282 | ItemInfo -> ItemID:624623, ItemAppID:63, CategoryTypeID:26, 谢姥贺礼, 500.0, 2015-9-18 13:04:21, sr, CardID:2
+2016-04-30 00:02:49.3881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:64 | ItemWebID:622283 | ItemInfo -> ItemID:624624, ItemAppID:64, CategoryTypeID:30, 兰转帐, 6000.0, 2015-9-18 6:47:05, sr, CardID:0
+2016-04-30 00:02:49.7631|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:65 | ItemWebID:624221 | ItemInfo -> ItemID:630385, ItemAppID:65, CategoryTypeID:7, 6日转换器, 55.0, 2015-12-6 13:50:00, zc, CardID:0
+2016-04-30 00:02:50.2162|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:68 | ItemWebID:0 | ItemInfo -> ItemID:630388, ItemAppID:68, CategoryTypeID:7, 电脑配件, 800.0, 2015-10-22 13:38:13, zc, CardID:0
+2016-04-30 00:02:50.6381|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:113 | ItemWebID:0 | ItemInfo -> ItemID:630433, ItemAppID:113, CategoryTypeID:16, 冼澡理发, 16.0, 2015-11-2 6:27:39, zc, CardID:0
+2016-04-30 00:02:51.0131|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:118 | ItemWebID:0 | ItemInfo -> ItemID:651196, ItemAppID:118, CategoryTypeID:16, 理发洗澡洗衣, 20.0, 2015-11-30 12:49:33, zc, CardID:0
+2016-04-30 00:02:51.3881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:119 | ItemWebID:0 | ItemInfo -> ItemID:651197, ItemAppID:119, CategoryTypeID:18, 公交, 30.0, 2015-11-30 12:51:26, zc, CardID:0
+2016-04-30 00:02:51.7631|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:120 | ItemWebID:0 | ItemInfo -> ItemID:651198, ItemAppID:120, CategoryTypeID:18, 晋同11日往13日返, 100.0, 2015-12-11 22:08:16, zc, CardID:0
+2016-04-30 00:02:52.1693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:124 | ItemWebID:0 | ItemInfo -> ItemID:651202, ItemAppID:124, CategoryTypeID:5, 香蕉, 6.0, 2015-12-11 22:15:06, zc, CardID:0
+2016-04-30 00:02:52.5756|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:126 | ItemWebID:0 | ItemInfo -> ItemID:651204, ItemAppID:126, CategoryTypeID:10, 发红包, 2.0, 2015-12-9 22:18:22, zc, CardID:0
+2016-04-30 00:02:53.0287|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:127 | ItemWebID:0 | ItemInfo -> ItemID:651205, ItemAppID:127, CategoryTypeID:30, 兰转帐, 300.0, 2015-12-11 22:23:28, sr, CardID:0
+2016-04-30 00:02:53.4193|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:128 | ItemWebID:0 | ItemInfo -> ItemID:651206, ItemAppID:128, CategoryTypeID:7, 华硕笔记本, 4650.0, 2015-12-5 6:36:11, zc, CardID:10
+2016-04-30 00:02:54.1068|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:129 | ItemWebID:0 | ItemInfo -> ItemID:651207, ItemAppID:129, CategoryTypeID:26, 自攒, 2850.0, 2015-12-11 22:33:22, sr, CardID:4
+2016-04-30 00:02:54.6850|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:131 | ItemWebID:0 | ItemInfo -> ItemID:651209, ItemAppID:131, CategoryTypeID:18, 公交充值, 30.0, 2015-12-12 15:46:00, zc, CardID:0
+2016-04-30 00:02:55.3568|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:132 | ItemWebID:0 | ItemInfo -> ItemID:651210, ItemAppID:132, CategoryTypeID:32, 鞋安踏, 120.0, 2015-12-12 15:46:51, sr, CardID:0
+2016-04-30 00:02:56.3568|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:133 | ItemWebID:0 | ItemInfo -> ItemID:651211, ItemAppID:133, CategoryTypeID:32, 公交充值, 30.0, 2015-12-12 15:47:17, sr, CardID:0
+2016-04-30 00:02:57.2787|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:134 | ItemWebID:0 | ItemInfo -> ItemID:651212, ItemAppID:134, CategoryTypeID:22, 买裤子, 69.0, 2015-12-11 13:00:58, zc, CardID:0
+2016-04-30 00:02:57.8881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:135 | ItemWebID:0 | ItemInfo -> ItemID:651213, ItemAppID:135, CategoryTypeID:18, 大同站打车, 7.0, 2015-12-13 14:47:53, zc, CardID:0
+2016-04-30 00:02:58.2943|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:140 | ItemWebID:0 | ItemInfo -> ItemID:651218, ItemAppID:140, CategoryTypeID:16, 洗衣卡, 30.0, 2015-12-15 0:20:32, zc, CardID:10
+2016-04-30 00:02:59.0287|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:141 | ItemWebID:0 | ItemInfo -> ItemID:651219, ItemAppID:141, CategoryTypeID:20, 水卡充值, 50.0, 2015-12-15 0:09:47, zc, CardID:10
+2016-04-30 00:03:00.2475|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:142 | ItemWebID:0 | ItemInfo -> ItemID:651220, ItemAppID:142, CategoryTypeID:14, 餐16日, 36.0, 2015-12-16 20:28:55, zc, CardID:0
+2016-04-30 00:03:00.9506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:144 | ItemWebID:0 | ItemInfo -> ItemID:651222, ItemAppID:144, CategoryTypeID:30, 生活费, 300.0, 2015-12-18 9:05:40, sr, CardID:0
+2016-04-30 00:03:01.3256|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:152 | ItemWebID:0 | ItemInfo -> ItemID:651230, ItemAppID:152, CategoryTypeID:14, 洗澡, 5.0, 2015-12-21 19:39:28, zc, CardID:0
+2016-04-30 00:03:01.7006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:157 | ItemWebID:0 | ItemInfo -> ItemID:651235, ItemAppID:157, CategoryTypeID:7, 固态硬盘, 330.0, 2015-12-31 15:29:58, zc, CardID:0
+2016-04-30 00:03:02.0600|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:165 | ItemWebID:0 | ItemInfo -> ItemID:666919, ItemAppID:165, CategoryTypeID:18, 晋同31往3返, 54.0, 2015-12-31 15:33:55, zc, CardID:0
+2016-04-30 00:03:02.4506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:168 | ItemWebID:0 | ItemInfo -> ItemID:666922, ItemAppID:168, CategoryTypeID:18, 补票, 40.0, 2016-1-3 14:49:17, zc, CardID:0
+2016-04-30 00:03:02.8100|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:178 | ItemWebID:0 | ItemInfo -> ItemID:666932, ItemAppID:178, CategoryTypeID:16, 洗澡, 5.0, 2016-1-11 20:20:58, zc, CardID:0
+2016-04-30 00:03:03.1850|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:181 | ItemWebID:0 | ItemInfo -> ItemID:666935, ItemAppID:181, CategoryTypeID:14, 餐15日, 35.0, 2016-1-15 20:33:02, zc, CardID:0
+2016-04-30 00:03:03.6225|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:185 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:185, CategoryTypeID:14, 餐13曰, 43.0, 2016-1-13 20:33:55, zc, CardID:0
+2016-04-30 00:03:03.8412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:188 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:188, CategoryTypeID:30, 生活费, 108.0, 2016-1-19 16:37:10, sr, CardID:0
+2016-04-30 00:03:04.0443|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:189 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:189, CategoryTypeID:14, 餐20日, 34.0, 2016-1-20 20:31:08, zc, CardID:0
+2016-04-30 00:03:04.2787|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:190 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:190, CategoryTypeID:14, 餐21日, 34.0, 2016-1-21 20:54:36, zc, CardID:0
+2016-04-30 00:03:04.5131|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:191 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:191, CategoryTypeID:14, 寒假, 30.0, 2016-1-22 9:57:24, zc, CardID:0
+2016-04-30 00:03:04.7318|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:192 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:192, CategoryTypeID:34, 201308, 8443.95, 2013-8-15 23:47:52, sr, CardID:6
+2016-04-30 00:03:04.9662|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:194 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:194, CategoryTypeID:34, 201310, 7138.93, 2013-10-15 23:51:46, sr, CardID:6
+2016-04-30 00:03:05.2006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:195 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:195, CategoryTypeID:34, 201311, 6958.63, 2013-11-15 23:20:43, sr, CardID:6
+2016-04-30 00:03:05.4350|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:196 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:196, CategoryTypeID:34, 201312, 10747.73, 2013-12-15 23:21:34, sr, CardID:6
+2016-04-30 00:03:05.6850|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:197 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:197, CategoryTypeID:34, 201401, 9237.44, 2014-1-15 23:22:32, sr, CardID:6
+2016-04-30 00:03:05.9350|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:198 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:198, CategoryTypeID:34, 201402, 7670.74, 2014-2-15 23:23:06, sr, CardID:6
+2016-04-30 00:03:06.1381|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:199 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:199, CategoryTypeID:34, 201403, 7566.24, 2014-3-15 23:23:49, sr, CardID:6
+2016-04-30 00:03:06.3725|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:200 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:200, CategoryTypeID:34, 201404, 9216.04, 2014-4-15 23:24:27, sr, CardID:6
+2016-04-30 00:03:06.6225|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:201 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:201, CategoryTypeID:34, 201405, 9671.99, 2014-5-15 23:25:01, sr, CardID:6
+2016-04-30 00:03:06.8412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:202 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:202, CategoryTypeID:34, 201406, 6853.44, 2014-6-15 23:25:31, sr, CardID:6
+2016-04-30 00:03:07.0912|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:203 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:203, CategoryTypeID:34, 201407, 7002.38, 2014-7-15 23:26:33, sr, CardID:6
+2016-04-30 00:03:07.3100|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:204 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:204, CategoryTypeID:34, 201408, 9116.29, 2014-8-15 23:27:06, sr, CardID:6
+2016-04-30 00:03:07.5443|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:205 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:205, CategoryTypeID:34, 201409, 7629.69, 2014-9-15 23:27:37, sr, CardID:6
+2016-04-30 00:03:07.7787|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:206 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:206, CategoryTypeID:34, 201410, 7750.69, 2014-10-15 23:28:08, sr, CardID:6
+2016-04-30 00:03:07.9975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:207 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:207, CategoryTypeID:34, 201411, 9869.29, 2014-11-15 23:28:38, sr, CardID:6
+2016-04-30 00:03:08.2162|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:208 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:208, CategoryTypeID:34, 201412, 10250.79, 2014-12-15 23:29:08, sr, CardID:6
+2016-04-30 00:03:08.4350|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:209 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:209, CategoryTypeID:34, 201501, 9147.15, 2015-1-15 23:29:55, sr, CardID:6
+2016-04-30 00:03:08.6693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:210 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:210, CategoryTypeID:34, 201502, 11890.25, 2015-2-15 23:30:22, sr, CardID:6
+2016-04-30 00:03:08.8725|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:211 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:211, CategoryTypeID:34, 201503, 8249.95, 2015-3-15 23:56:49, sr, CardID:6
+2016-04-30 00:03:09.1693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:212 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:212, CategoryTypeID:34, 201504, 9641.35, 2015-4-15 23:32:51, sr, CardID:6
+2016-04-30 00:03:09.3881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:213 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:213, CategoryTypeID:34, 201505, 6975.35, 2015-5-15 23:33:23, sr, CardID:6
+2016-04-30 00:03:09.6068|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:214 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:214, CategoryTypeID:34, 201506, 8597.85, 2015-6-15 23:33:50, sr, CardID:6
+2016-04-30 00:03:09.8725|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:215 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:215, CategoryTypeID:34, 201507, 8165.65, 2015-7-15 23:34:21, sr, CardID:6
+2016-04-30 00:03:10.1068|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:216 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:216, CategoryTypeID:34, 201508, 7487.85, 2015-8-15 23:34:55, sr, CardID:6
+2016-04-30 00:03:10.3412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:217 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:217, CategoryTypeID:34, 201509, 9728.75, 2015-9-15 23:59:27, sr, CardID:6
+2016-04-30 00:03:10.5756|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:218 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:218, CategoryTypeID:34, 201510, 8801.45, 2015-10-15 23:38:26, sr, CardID:6
+2016-04-30 00:03:10.7943|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:219 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:219, CategoryTypeID:34, 201511, 9081.25, 2015-11-15 6:57:50, sr, CardID:6
+2016-04-30 00:03:11.0443|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:220 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:220, CategoryTypeID:34, 201512, 10200.55, 2015-12-15 0:02:24, sr, CardID:6
+2016-04-30 00:03:11.2943|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:221 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:221, CategoryTypeID:34, 201601, 11893.5, 2016-1-15 10:07:04, sr, CardID:6
+2016-04-30 00:03:11.5131|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:222 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:222, CategoryTypeID:34, 201309, 10164.48, 2013-9-15 23:50:21, sr, CardID:6
+2016-04-30 00:03:11.7475|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:224 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:224, CategoryTypeID:34, 1308-1501, 266949.64, 2016-1-16 10:06:31, zc, CardID:6
+2016-04-30 00:03:11.9662|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:225 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:225, CategoryTypeID:30, 生活费, 200.0, 2016-2-28 12:35:18, sr, CardID:0
+2016-04-30 00:03:12.2006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:226 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:226, CategoryTypeID:30, 生活费, 200.0, 2016-3-3 12:36:03, sr, CardID:0
+2016-04-30 00:03:12.5131|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:227 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:227, CategoryTypeID:30, 生活费, 200.0, 2016-3-8 12:36:27, sr, CardID:0
+2016-04-30 00:03:12.8100|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:228 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:228, CategoryTypeID:16, 洗发水, 25.0, 2016-2-28 12:37:54, zc, CardID:0
+2016-04-30 00:03:13.0131|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:229 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:229, CategoryTypeID:16, 香皂, 10.0, 2016-2-28 12:38:54, zc, CardID:0
+2016-04-30 00:03:13.2475|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:230 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:230, CategoryTypeID:20, 水卡充值, 50.0, 2016-3-7 12:39:45, zc, CardID:0
+2016-04-30 00:03:13.4818|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:231 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:231, CategoryTypeID:14, 餐28日, 40.0, 2016-2-28 12:41:17, zc, CardID:0
+2016-04-30 00:03:13.7006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:232 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:232, CategoryTypeID:14, 餐29日, 35.0, 2016-2-29 12:41:47, zc, CardID:0
+2016-04-30 00:03:13.9506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:233 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:233, CategoryTypeID:14, 餐01日, 34.0, 2016-3-1 12:42:11, zc, CardID:0
+2016-04-30 00:03:14.2006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:234 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:234, CategoryTypeID:14, 餐02日, 35.0, 2016-3-2 12:42:35, zc, CardID:0
+2016-04-30 00:03:14.4818|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:235 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:235, CategoryTypeID:14, 餐03日, 35.0, 2016-3-3 12:42:57, zc, CardID:0
+2016-04-30 00:03:14.7006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:236 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:236, CategoryTypeID:14, 餐04日, 34.0, 2016-3-4 12:43:21, zc, CardID:0
+2016-04-30 00:03:14.9193|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:237 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:237, CategoryTypeID:14, 餐05日, 35.0, 2016-3-5 12:43:52, zc, CardID:0
+2016-04-30 00:03:15.1537|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:238 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:238, CategoryTypeID:14, 餐06日, 33.0, 2016-3-6 12:44:32, zc, CardID:0
+2016-04-30 00:03:15.3725|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:239 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:239, CategoryTypeID:14, 餐07日, 33.0, 2016-3-7 12:44:49, zc, CardID:0
+2016-04-30 00:03:15.5756|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:240 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:240, CategoryTypeID:14, 餐08日, 35.0, 2016-3-8 12:47:02, zc, CardID:0
+2016-04-30 00:03:15.8100|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:241 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:241, CategoryTypeID:14, 餐09日, 35.0, 2016-3-9 12:47:39, zc, CardID:0
+2016-04-30 00:03:16.0287|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:242 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:242, CategoryTypeID:14, 餐10日, 34.0, 2016-3-10 16:38:10, zc, CardID:0
+2016-04-30 00:03:16.2631|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:243 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:243, CategoryTypeID:14, 餐11日, 35.0, 2016-3-11 12:49:26, zc, CardID:0
+2016-04-30 00:03:16.4975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:244 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:244, CategoryTypeID:14, 餐12日, 35.0, 2016-3-12 12:49:49, zc, CardID:0
+2016-04-30 00:03:16.7318|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:245 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:245, CategoryTypeID:14, 餐13曰, 34.0, 2016-3-13 16:38:48, zc, CardID:0
+2016-04-30 00:03:16.9506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:246 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:246, CategoryTypeID:22, 口罩耳塞, 60.0, 2016-3-14 16:41:49, zc, CardID:0
+2016-04-30 00:03:17.1693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:247 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:247, CategoryTypeID:30, 生活费, 200.0, 2016-3-14 16:42:59, sr, CardID:0
+2016-04-30 00:03:17.3881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:248 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:248, CategoryTypeID:7, U盘16G, 46.0, 2016-3-15 16:44:39, zc, CardID:0
+2016-04-30 00:03:17.6068|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:249 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:249, CategoryTypeID:14, 餐14日, 35.0, 2016-3-14 3:18:04, zc, CardID:0
+2016-04-30 00:03:17.8725|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:250 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:250, CategoryTypeID:14, 餐15日, 35.0, 2016-3-15 13:31:44, zc, CardID:0
+2016-04-30 00:03:18.1068|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:251 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:251, CategoryTypeID:14, 餐16日, 35.0, 2016-3-16 13:31:57, zc, CardID:0
+2016-04-30 00:03:18.3256|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:252 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:252, CategoryTypeID:14, 餐17日, 35.0, 2016-3-17 13:32:09, zc, CardID:0
+2016-04-30 00:03:18.5443|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:253 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:253, CategoryTypeID:14, 餐18日, 35.0, 2016-3-18 13:32:18, zc, CardID:0
+2016-04-30 00:03:18.7631|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:254 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:254, CategoryTypeID:14, 餐19日, 35.0, 2016-3-19 13:32:29, zc, CardID:0
+2016-04-30 00:03:18.9818|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:255 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:255, CategoryTypeID:30, 亲密付U盘16G, 46.0, 2016-3-15 16:59:14, sr, CardID:0
+2016-04-30 00:03:19.2162|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:256 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:256, CategoryTypeID:30, 生活费, 200.0, 2016-3-19 17:00:15, sr, CardID:0
+2016-04-30 00:03:19.4350|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:257 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:257, CategoryTypeID:14, 餐20日, 35.0, 2016-3-20 13:37:58, zc, CardID:0
+2016-04-30 00:03:19.6537|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:258 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:258, CategoryTypeID:14, 餐21日, 35.0, 2016-3-21 13:38:07, zc, CardID:0
+2016-04-30 00:03:19.8881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:259 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:259, CategoryTypeID:14, 餐25日, 35.0, 2016-3-25 7:45:32, zc, CardID:0
+2016-04-30 00:03:20.4818|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:260 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:260, CategoryTypeID:14, 餐24日, 35.0, 2016-3-24 7:45:07, zc, CardID:0
+2016-04-30 00:03:20.7162|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:261 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:261, CategoryTypeID:14, 餐23日, 35.0, 2016-3-23 7:46:03, zc, CardID:0
+2016-04-30 00:03:20.9506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:262 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:262, CategoryTypeID:14, 餐22日, 35.0, 2016-3-22 13:39:01, zc, CardID:0
+2016-04-30 00:03:21.2787|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:263 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:263, CategoryTypeID:14, 生活费, 200.0, 2016-3-25 8:00:41, sr, CardID:0
+2016-04-30 00:03:21.4975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:264 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:264, CategoryTypeID:5, 果梨奶, 49.0, 2016-3-26 6:29:33, zc, CardID:0
+2016-04-30 00:03:21.7318|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:265 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:265, CategoryTypeID:14, 餐26日, 35.0, 2016-3-26 6:31:07, zc, CardID:0
+2016-04-30 00:03:21.9662|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:266 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:266, CategoryTypeID:14, 餐27日, 35.0, 2016-3-27 6:32:44, zc, CardID:0
+2016-04-30 00:03:22.2006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:267 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:267, CategoryTypeID:14, 生活费, 200.0, 2016-3-27 6:34:07, sr, CardID:0
+2016-04-30 00:03:22.4350|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:268 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:268, CategoryTypeID:14, 餐28日, 35.0, 2016-3-28 22:12:29, zc, CardID:0
+2016-04-30 00:03:22.6693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:269 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:269, CategoryTypeID:14, 餐29日, 35.0, 2016-3-29 22:13:03, zc, CardID:0
+2016-04-30 00:03:22.9662|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:270 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:270, CategoryTypeID:14, 餐30日, 35.0, 2016-3-30 22:13:38, zc, CardID:0
+2016-04-30 00:03:23.2006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:271 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:271, CategoryTypeID:14, 餐31日, 35.0, 2016-3-31 22:14:02, zc, CardID:0
+2016-04-30 00:03:23.5287|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:272 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:272, CategoryTypeID:14, 餐01日, 35.0, 2016-4-1 22:14:51, zc, CardID:0
+2016-04-30 00:03:23.7475|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:273 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:273, CategoryTypeID:20, 水卡充值, 50.0, 2016-4-1 9:00:15, zc, CardID:0
+2016-04-30 00:03:23.9662|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:274 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:274, CategoryTypeID:18, 同太往返, 58.0, 2016-4-1 9:01:53, zc, CardID:0
+2016-04-30 00:03:24.2162|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:275 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:275, CategoryTypeID:30, 生活费, 100.0, 2016-4-1 9:04:15, sr, CardID:0
+2016-04-30 00:03:24.4506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:276 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:276, CategoryTypeID:30, 交际, 200.0, 2016-4-2 9:05:38, sr, CardID:0
+2016-04-30 00:03:24.6693|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:277 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:277, CategoryTypeID:14, 餐05日, 35.0, 2016-4-5 8:34:41, zc, CardID:0
+2016-04-30 00:03:24.9037|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:278 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:278, CategoryTypeID:14, 餐06日, 35.0, 2016-4-6 8:35:08, zc, CardID:0
+2016-04-30 00:03:25.4037|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:279 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:279, CategoryTypeID:14, 餐07日, 35.0, 2016-4-7 8:35:32, zc, CardID:0
+2016-04-30 00:03:25.6225|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:280 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:280, CategoryTypeID:14, 餐08日, 35.0, 2016-4-8 8:36:02, zc, CardID:0
+2016-04-30 00:03:25.8568|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:281 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:281, CategoryTypeID:14, 餐04日, 10.0, 2016-4-4 1:20:46, zc, CardID:0
+2016-04-30 00:03:26.0756|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:282 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:282, CategoryTypeID:14, 餐09日, 35.0, 2016-4-9 1:21:56, zc, CardID:0
+2016-04-30 00:03:26.3412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:283 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:283, CategoryTypeID:14, 餐10日, 35.0, 2016-4-10 1:22:26, zc, CardID:0
+2016-04-30 00:03:26.5600|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:284 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:284, CategoryTypeID:14, 餐11日, 35.0, 2016-4-11 1:22:48, zc, CardID:0
+2016-04-30 00:03:26.8256|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:285 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:285, CategoryTypeID:14, 餐12日, 35.0, 2016-4-12 1:23:14, zc, CardID:0
+2016-04-30 00:03:27.0600|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:286 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:286, CategoryTypeID:14, 餐13日, 35.0, 2016-4-13 1:23:45, zc, CardID:0
+2016-04-30 00:03:27.3256|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:287 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:287, CategoryTypeID:14, 袋奶, 30.0, 2016-4-10 1:24:59, zc, CardID:0
+2016-04-30 00:03:27.5443|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:288 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:288, CategoryTypeID:18, 公交自行车卡, 300.0, 2016-4-10 1:26:12, zc, CardID:0
+2016-04-30 00:03:27.7631|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:289 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:289, CategoryTypeID:18, 洗澡, 5.0, 2016-4-10 1:28:43, zc, CardID:0
+2016-04-30 00:03:27.9975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:290 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:290, CategoryTypeID:14, 转帐, 600.0, 2016-4-13 1:29:45, sr, CardID:0
+2016-04-30 00:03:28.2318|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:291 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:291, CategoryTypeID:14, 餐14日, 35.0, 2016-4-14 8:01:39, zc, CardID:0
+2016-04-30 00:03:28.4662|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:292 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:292, CategoryTypeID:14, 餐15日, 35.0, 2016-4-15 8:02:03, zc, CardID:0
+2016-04-30 00:03:28.7006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:293 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:293, CategoryTypeID:14, 餐16日, 35.0, 2016-4-16 8:02:32, zc, CardID:0
+2016-04-30 00:03:28.9193|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:294 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:294, CategoryTypeID:14, 餐17日, 35.0, 2016-4-17 8:02:59, zc, CardID:0
+2016-04-30 00:03:29.1537|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:295 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:295, CategoryTypeID:14, 餐18日, 35.0, 2016-4-18 8:03:20, zc, CardID:0
+2016-04-30 00:03:29.3881|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:296 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:296, CategoryTypeID:14, 餐19日, 35.0, 2016-4-19 8:03:45, zc, CardID:0
+2016-04-30 00:03:29.6068|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:297 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:297, CategoryTypeID:14, 餐20日, 35.0, 2016-4-20 8:04:12, zc, CardID:0
+2016-04-30 00:03:29.8412|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:298 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:298, CategoryTypeID:18, 同太往返, 60.0, 2016-4-18 8:06:12, zc, CardID:0
+2016-04-30 00:03:30.0756|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:299 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:299, CategoryTypeID:20, 水卡充值, 50.0, 2016-4-20 8:06:49, zc, CardID:0
+2016-04-30 00:03:30.3256|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:300 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:300, CategoryTypeID:16, 洗澡, 10.0, 2016-4-17 8:07:35, zc, CardID:0
+2016-04-30 00:03:30.5756|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:301 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:301, CategoryTypeID:14, 兰转帐, 600.0, 2016-4-20 8:11:31, sr, CardID:0
+2016-04-30 00:03:30.7943|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:302 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:302, CategoryTypeID:14, 餐21日, 35.0, 2016-4-21 14:50:00, zc, CardID:0
+2016-04-30 00:03:31.0131|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:303 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:303, CategoryTypeID:14, 餐22日, 35.0, 2016-4-22 14:50:23, zc, CardID:0
+2016-04-30 00:03:31.2475|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:304 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:304, CategoryTypeID:14, 餐23日, 35.0, 2016-4-23 14:50:47, zc, CardID:0
+2016-04-30 00:03:31.4975|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:305 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:305, CategoryTypeID:14, 餐24日, 35.0, 2016-4-24 14:51:08, zc, CardID:0
+2016-04-30 00:03:31.7318|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:306 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:306, CategoryTypeID:14, 餐25日, 35.0, 2016-4-25 14:51:35, zc, CardID:0
+2016-04-30 00:03:31.9506|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:307 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:307, CategoryTypeID:14, 餐26日, 35.0, 2016-4-26 12:43:14, zc, CardID:0
+2016-04-30 00:03:32.2006|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:308 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:308, CategoryTypeID:14, 餐27日, 35.0, 2016-4-27 12:44:56, zc, CardID:0
+2016-04-30 00:03:32.4350|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:309 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:309, CategoryTypeID:14, 餐28日, 35.0, 2016-4-28 12:44:03, zc, CardID:0
+2016-04-30 00:03:32.6537|INFO|AALifeWeb_SyncItemList| UserID:22510 | ItemAppID:310 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:310, CategoryTypeID:14, 餐29日, 35.0, 2016-4-29 12:44:28, zc, CardID:0
+2016-04-30 00:25:06.1693|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq95523, Clover, http://q.qlogo.cn/qqapp/100761541/3359B0B6F8C72A55691ED422DA7FA4AF/100, sjqq_360, IsUpdate:1
+2016-04-30 00:25:06.1693|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 3359B0B6F8C72A55691ED422DA7FA4AF, A68ABDD9C21959CA7BD0ADF9968B41E5, UserID:0, OldUserID:0, sjqq
+2016-04-30 00:32:02.9193|INFO|AALifeWeb_SyncItemList| UserID:23306 | ItemAppID:256 | ItemWebID:0 | ItemInfo -> ItemID:774676, ItemAppID:256, CategoryTypeID:1, 油，菜, 121.5, 2016-4-29 0:31:51, zc, CardID:0
+2016-04-30 00:32:04.3256|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, 小蚊子, chenwenzi0110, user.gif, 5.6.1_wdj, IsUpdate:1
+2016-04-30 00:32:08.1068|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq11950, 下一站ヤ翼, http://q.qlogo.cn/qqapp/100761541/973C5FA713B4024DC34526D4B875C2D0/100, sjqq_360, IsUpdate:1
+2016-04-30 00:32:08.1068|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 973C5FA713B4024DC34526D4B875C2D0, 8D18645D5F309F2D76CC1D2D21588122, UserID:0, OldUserID:0, sjqq
+2016-04-30 00:32:58.9193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742934
+2016-04-30 00:32:59.4037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742935
+2016-04-30 00:32:59.8881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742936
+2016-04-30 00:33:00.3725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742937
+2016-04-30 00:33:00.7162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742938
+2016-04-30 00:33:01.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742939
+2016-04-30 00:33:01.6225|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742940
+2016-04-30 00:33:02.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742941
+2016-04-30 00:33:02.5912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742942
+2016-04-30 00:33:03.0287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742943
+2016-04-30 00:33:03.3412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742944
+2016-04-30 00:33:03.7318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742945
+2016-04-30 00:33:04.0131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742946
+2016-04-30 00:33:04.3412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742947
+2016-04-30 00:33:04.7475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742948
+2016-04-30 00:33:05.1537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742949
+2016-04-30 00:33:05.5131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742950
+2016-04-30 00:33:05.9193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742951
+2016-04-30 00:33:06.4037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742952
+2016-04-30 00:33:06.7162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742953
+2016-04-30 00:33:07.0756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742954
+2016-04-30 00:33:07.4818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742955
+2016-04-30 00:33:07.8412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742956
+2016-04-30 00:33:08.2006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:742957
+2016-04-30 00:33:08.5287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767303
+2016-04-30 00:33:08.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767304
+2016-04-30 00:33:09.2787|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767305
+2016-04-30 00:33:09.7318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767306
+2016-04-30 00:33:10.0756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767307
+2016-04-30 00:33:10.4818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767308
+2016-04-30 00:33:10.8568|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767309
+2016-04-30 00:33:11.2006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767310
+2016-04-30 00:33:11.5600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767311
+2016-04-30 00:33:12.0131|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767312
+2016-04-30 00:33:12.5600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767313
+2016-04-30 00:33:12.8881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767314
+2016-04-30 00:33:13.2162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767315
+2016-04-30 00:33:13.5443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767316
+2016-04-30 00:33:13.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767317
+2016-04-30 00:33:14.2318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767318
+2016-04-30 00:33:14.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767319
+2016-04-30 00:33:14.9037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767320
+2016-04-30 00:33:15.2943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767321
+2016-04-30 00:33:15.6225|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767322
+2016-04-30 00:33:15.9818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767323
+2016-04-30 00:33:16.4975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767324
+2016-04-30 00:33:16.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767325
+2016-04-30 00:33:17.3881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767326
+2016-04-30 00:33:17.7943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767327
+2016-04-30 00:33:18.1693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767328
+2016-04-30 00:33:18.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767329
+2016-04-30 00:33:18.9506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767330
+2016-04-30 00:33:19.3100|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767331
+2016-04-30 00:33:19.7006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767332
+2016-04-30 00:33:20.0600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767333
+2016-04-30 00:33:20.4506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767334
+2016-04-30 00:33:20.7787|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767335
+2016-04-30 00:33:21.2475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767336
+2016-04-30 00:33:21.6850|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767337
+2016-04-30 00:33:22.0443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767338
+2016-04-30 00:33:22.4662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767339
+2016-04-30 00:33:22.8725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767340
+2016-04-30 00:33:23.3256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767341
+2016-04-30 00:33:23.7943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767342
+2016-04-30 00:33:24.1381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767343
+2016-04-30 00:33:24.6225|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767344
+2016-04-30 00:33:24.9975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767345
+2016-04-30 00:33:25.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767346
+2016-04-30 00:33:25.8412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767347
+2016-04-30 00:33:26.2006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767348
+2016-04-30 00:33:26.5600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767349
+2016-04-30 00:33:26.9975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767350
+2016-04-30 00:33:27.4506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767351
+2016-04-30 00:33:27.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767352
+2016-04-30 00:33:28.1068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767353
+2016-04-30 00:33:28.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767354
+2016-04-30 00:33:28.9037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767355
+2016-04-30 00:33:29.2943|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767356
+2016-04-30 00:33:29.6225|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767357
+2016-04-30 00:33:29.9662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767358
+2016-04-30 00:33:30.3881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767359
+2016-04-30 00:33:30.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767360
+2016-04-30 00:33:31.1381|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767361
+2016-04-30 00:33:31.5287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767362
+2016-04-30 00:33:31.9193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767363
+2016-04-30 00:33:32.3412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767364
+2016-04-30 00:33:32.7318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767365
+2016-04-30 00:33:33.1537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767366
+2016-04-30 00:33:33.5287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767367
+2016-04-30 00:33:33.8881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767368
+2016-04-30 00:33:34.2475|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767369
+2016-04-30 00:33:34.6693|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767370
+2016-04-30 00:33:35.0287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767371
+2016-04-30 00:33:35.3568|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767372
+2016-04-30 00:33:35.7006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767373
+2016-04-30 00:33:36.0912|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767374
+2016-04-30 00:33:36.4662|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767375
+2016-04-30 00:33:36.8412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767376
+2016-04-30 00:33:37.1850|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767377
+2016-04-30 00:33:37.5287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767378
+2016-04-30 00:33:37.8881|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767379
+2016-04-30 00:33:38.2318|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767380
+2016-04-30 00:33:38.6068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767381
+2016-04-30 00:33:38.9506|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767382
+2016-04-30 00:33:39.4193|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767383
+2016-04-30 00:33:39.8256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767384
+2016-04-30 00:33:40.2006|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767385
+2016-04-30 00:33:40.5756|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767386
+2016-04-30 00:33:40.9350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767387
+2016-04-30 00:33:41.3256|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767388
+2016-04-30 00:33:41.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767389
+2016-04-30 00:33:42.2162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767390
+2016-04-30 00:33:42.6068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767391
+2016-04-30 00:33:43.0600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767392
+2016-04-30 00:33:43.4975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767393
+2016-04-30 00:33:43.8725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767394
+2016-04-30 00:33:44.3725|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767395
+2016-04-30 00:33:44.9037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767396
+2016-04-30 00:33:45.4037|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767397
+2016-04-30 00:33:45.7631|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767398
+2016-04-30 00:33:46.1068|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767399
+2016-04-30 00:33:46.6537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767400
+2016-04-30 00:33:47.0600|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767401
+2016-04-30 00:33:47.4350|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767402
+2016-04-30 00:33:47.8412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767403
+2016-04-30 00:33:48.1850|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767404
+2016-04-30 00:33:48.6850|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767405
+2016-04-30 00:33:49.0443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767406
+2016-04-30 00:33:49.5443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767407
+2016-04-30 00:33:50.0287|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767408
+2016-04-30 00:33:50.4818|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767409
+2016-04-30 00:33:50.8412|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767410
+2016-04-30 00:33:51.2162|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767411
+2016-04-30 00:33:51.6537|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767412
+2016-04-30 00:33:52.0443|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767413
+2016-04-30 00:33:52.4975|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767414
+2016-04-30 01:11:25.3356|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq37773, 卑微的柔情, http://q.qlogo.cn/qqapp/100761541/49DCB4686EF435BA59E3E19CE2FBB33D/100, sjqq_tx, IsUpdate:1
+2016-04-30 01:11:25.3356|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 49DCB4686EF435BA59E3E19CE2FBB33D, 604CD42A490A2362BB1A9569D80DA3B0, UserID:0, OldUserID:0, sjqq
+2016-04-30 01:16:00.3182|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5826 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5826, CategoryTypeID:3, 雪糕巧乐兹, 3.0, 2016-4-29 1:15:43, zc, CardID:22
+2016-04-30 01:40:38.0900|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, 15013659539, ouyl202, user.gif, 5.6.1_360, IsUpdate:1
+2016-04-30 01:42:23.7456|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:1 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1, CategoryTypeID:8, 衣服一件（欧）, 48.5, 2016-4-27 7:52:12, zc, CardID:0
+2016-04-30 01:42:24.0581|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:2 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:2, CategoryTypeID:9, 银镯子一个（欧）, 28.0, 2016-4-27 7:52:43, zc, CardID:0
+2016-04-30 01:42:24.3862|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:3 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:3, CategoryTypeID:9, 朱嘉豪早餐, 3.0, 2016-4-28 7:17:56, zc, CardID:0
+2016-04-30 01:42:24.6831|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:6 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:6, CategoryTypeID:9, 买彩票, 4.0, 2016-4-28 19:10:52, zc, CardID:0
+2016-04-30 01:42:25.0112|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:8 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:8, CategoryTypeID:4, 吃烧烤, 12.0, 2016-4-28 23:04:17, zc, CardID:0
+2016-04-30 01:42:25.2456|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:9 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:9, CategoryTypeID:10, 爸给生活费, 200.0, 2016-4-27 19:26:42, sr, CardID:0
+2016-04-30 01:42:25.6049|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:16 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:16, CategoryTypeID:8, 内裤45（欧）, 45.0, 2016-4-25 19:26:10, zc, CardID:0
+2016-04-30 01:42:25.9331|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:17 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:17, CategoryTypeID:1, 家里买菜, 23.0, 2016-4-29 12:14:32, zc, CardID:0
+2016-04-30 01:42:26.2924|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:18 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:18, CategoryTypeID:1, 家里买菜, 13.5, 2016-4-28 12:18:54, zc, CardID:0
+2016-04-30 01:42:26.5268|INFO|AALifeWeb_SyncItemList| UserID:25300 | ItemAppID:19 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:19, CategoryTypeID:4, 吃零食, 15.0, 2016-4-29 19:25:19, zc, CardID:0
+2016-04-30 02:01:20.0352|INFO|AALifeWeb_SyncItemList| UserID:23510 | ItemAppID:152 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:152, CategoryTypeID:38, 2016年4月工资, 6230.3, 2016-4-30 1:22:04, sr, CardID:2
+2016-04-30 05:37:50.5308|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq85917, JamznChen., http://q.qlogo.cn/qqapp/100761541/F8B3D3D95528163CB53FE2C3719DF9AA/100, sjqq_mi, IsUpdate:1
+2016-04-30 05:37:50.5464|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, F8B3D3D95528163CB53FE2C3719DF9AA, 33DE4BFAF7B3F7CAAB9F5D94BA259697, UserID:0, OldUserID:0, sjqq
+2016-04-30 06:23:31.1401|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, zhang, 火龙, user.gif, 5.6.1_mz, IsUpdate:1
+2016-04-30 06:39:16.6401|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq11657, 幸福籠罩 , http://q.qlogo.cn/qqapp/100761541/9D60B55A4BF0A9977C40B9E44CEBA793/100, sjqq_tx, IsUpdate:1
+2016-04-30 06:39:16.6401|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 9D60B55A4BF0A9977C40B9E44CEBA793, 0CCC37BD5CBEA66058F1C20320588E68, UserID:0, OldUserID:0, sjqq
+2016-04-30 07:18:22.7964|INFO|AALifeWeb_SyncItemList| UserID:24099 | ItemAppID:75 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:75, CategoryTypeID:9, 总费用, 600.0, 2016-4-27 7:17:47, zc, CardID:0
+2016-04-30 07:18:23.0776|INFO|AALifeWeb_SyncItemList| UserID:24099 | ItemAppID:76 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:76, CategoryTypeID:9, 买东西, 500.0, 2016-4-30 7:18:12, zc, CardID:0
+2016-04-30 07:41:51.5308|INFO|AALifeWeb_SyncItemList| UserID:17283 | ItemAppID:782 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:782, CategoryTypeID:16, 车展早餐, 60.0, 2016-4-30 7:41:48, jc, CardID:0
+2016-04-30 08:35:21.2339|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq15710, 无双✎﹏₯㎕ζั͡✾, http://q.qlogo.cn/qqapp/100761541/EAC39872621491A3AA8AB2D4BEA76CC5/100, sjqq_mi, IsUpdate:1
+2016-04-30 08:35:21.2339|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, EAC39872621491A3AA8AB2D4BEA76CC5, 872411125EA41E219832FBD66A5E4A8F, UserID:0, OldUserID:0, sjqq
+2016-04-30 08:39:43.2808|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq72185, ootab, http://q.qlogo.cn/qqapp/100761541/A1FB089C29A0EA977395FBF5A1507731/100, sjqq_tx, IsUpdate:1
+2016-04-30 08:39:43.2808|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, A1FB089C29A0EA977395FBF5A1507731, FBBF42E2C995F6CB35F03B35EE413B81, UserID:0, OldUserID:0, sjqq
+2016-04-30 09:12:53.2183|INFO|AALifeWeb_SyncItemList| UserID:14588 | ItemAppID:1428 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1428, CategoryTypeID:1, 鲫鱼虾, 62.0, 2016-4-30 9:12:12, zc, CardID:0
+2016-04-30 09:12:53.4683|INFO|AALifeWeb_SyncItemList| UserID:14588 | ItemAppID:1429 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1429, CategoryTypeID:1, 肉, 15.0, 2016-4-30 9:12:21, zc, CardID:0
+2016-04-30 09:12:53.6714|INFO|AALifeWeb_SyncItemList| UserID:14588 | ItemAppID:1430 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1430, CategoryTypeID:1, 菜, 44.0, 2016-4-30 9:12:32, zc, CardID:0
+2016-04-30 09:12:53.8589|INFO|AALifeWeb_SyncItemList| UserID:14588 | ItemAppID:1431 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1431, CategoryTypeID:1, 面条, 3.0, 2016-4-30 9:12:41, zc, CardID:0
+2016-04-30 09:25:49.1089|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq32755, 悲傷…逆流成河, http://q.qlogo.cn/qqapp/100761541/190A2D8E7D3C9F06D77F0ACF1C299F29/100, sjqq_tx, IsUpdate:1
+2016-04-30 09:25:49.1089|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 190A2D8E7D3C9F06D77F0ACF1C299F29, C711E33630F1491E97BBAABFA994714F, UserID:0, OldUserID:0, sjqq
+2016-04-30 09:25:59.1089|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:760205
+2016-04-30 09:25:59.3433|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:760206
+2016-04-30 09:25:59.6558|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:761767
+2016-04-30 09:25:59.9370|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:761768
+2016-04-30 09:26:00.1870|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:764682
+2016-04-30 09:26:00.4058|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:764683
+2016-04-30 09:26:00.6870|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:764684
+2016-04-30 09:26:01.0464|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:764685
+2016-04-30 09:26:01.2964|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:764686
+2016-04-30 09:26:01.5308|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:764687
+2016-04-30 09:26:01.7026|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:764855
+2016-04-30 09:26:01.9370|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:765986
+2016-04-30 09:26:02.1558|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:765987
+2016-04-30 09:26:02.3433|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:765988
+2016-04-30 09:26:02.5776|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:765989
+2016-04-30 09:26:02.7808|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767121
+2016-04-30 09:26:03.0151|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767122
+2016-04-30 09:26:03.2026|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767123
+2016-04-30 09:26:03.4214|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:767124
+2016-04-30 09:28:36.1245|INFO|AALifeWeb_SyncItemList| UserID:25143 | ItemAppID:20 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:20, CategoryTypeID:1, 给茆, 100.0, 2016-4-28 9:27:19, zc, CardID:0
+2016-04-30 09:28:36.4526|INFO|AALifeWeb_SyncItemList| UserID:25143 | ItemAppID:21 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:21, CategoryTypeID:1, 水果+蛋糕, 27.0, 2016-4-29 9:27:57, zc, CardID:0
+2016-04-30 09:28:36.7964|INFO|AALifeWeb_SyncItemList| UserID:25143 | ItemAppID:22 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:22, CategoryTypeID:1, 宝零食+菜, 30.0, 2016-4-29 9:28:25, zc, CardID:0
+2016-04-30 10:07:23.8433|INFO|AALifeWeb_SyncItemList| UserID:22826 | ItemAppID:41 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:41, CategoryTypeID:4, 零食, 31.0, 2016-4-29 18:06:14, zc, CardID:0
+2016-04-30 10:07:24.3745|INFO|AALifeWeb_SyncItemList| UserID:22826 | ItemAppID:42 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:42, CategoryTypeID:22, 陈晓文, 500.0, 2016-4-30 10:07:15, jc, CardID:0
+2016-04-30 10:28:54.2026|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq58044, binbin, http://q.qlogo.cn/qqapp/100761541/2AC356E09773540E32289A48053B112B/100, sjqq_mi, IsUpdate:1
+2016-04-30 10:28:54.2026|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 2AC356E09773540E32289A48053B112B, D635C1815F494D0F6DB61EFC3A5E83CA, UserID:0, OldUserID:0, sjqq
+2016-04-30 10:43:06.0308|INFO|AALifeWeb_SyncItemList| UserID:18672 | ItemAppID:756 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:756, CategoryTypeID:14, 利息, 0.68, 2016-4-30 10:42:47, sr, CardID:4
+2016-04-30 10:51:12.7651|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:23 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:23, CategoryTypeID:4, 雪碧, 6.5, 2016-1-18 9:20:10, zc, CardID:0
+2016-04-30 10:51:13.0933|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:24 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:24, CategoryTypeID:2, 包子, 6.0, 2016-1-19 6:00:21, zc, CardID:0
+2016-04-30 10:51:13.3901|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:25 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:25, CategoryTypeID:4, 面包薯片, 8.0, 2016-1-19 6:01:39, zc, CardID:0
+2016-04-30 10:51:13.7026|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:26 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:26, CategoryTypeID:2, 自助餐, 30.0, 2016-1-20 13:42:28, zc, CardID:0
+2016-04-30 10:51:14.0308|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:27 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:27, CategoryTypeID:2, 包子, 5.0, 2016-1-20 13:42:38, zc, CardID:0
+2016-04-30 10:51:14.3120|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:28 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:28, CategoryTypeID:16, 苏大大, 200.0, 2016-1-20 13:43:20, sr, CardID:0
+2016-04-30 10:51:14.6245|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:29 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:29, CategoryTypeID:14, 苏大大任性, 34.5, 2016-1-20 22:40:06, zc, CardID:0
+2016-04-30 10:51:14.8901|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:30 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:30, CategoryTypeID:2, 自助餐, 102.0, 2016-1-21 11:51:27, zc, CardID:0
+2016-04-30 10:51:15.1558|INFO|AALifeWeb_SyncItemList| UserID:23397 | ItemAppID:31 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:31, CategoryTypeID:4, 零食, 63.5, 2016-1-21 11:51:46, zc, CardID:0
+2016-04-30 11:30:19.9839|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1333 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1333, CategoryTypeID:2, 面, 6.0, 2016-4-30 11:29:02, zc, CardID:0
+2016-04-30 11:30:20.1245|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1334 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1334, CategoryTypeID:20, 摇摇, 1.0, 2016-4-30 11:29:11, zc, CardID:0
+2016-04-30 11:30:20.2651|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1335 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1335, CategoryTypeID:4, 零食, 7.8, 2016-4-30 11:29:52, zc, CardID:0
+2016-04-30 11:30:20.4839|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1336 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1336, CategoryTypeID:18, 小玩具, 3.0, 2016-4-30 11:30:06, zc, CardID:0
+2016-04-30 11:42:17.1089|INFO|AALifeWeb_SyncItemList| UserID:20511 | ItemAppID:267 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:267, CategoryTypeID:9, 坐车, 12.0, 2016-4-30 11:42:04, zc, CardID:0
+2016-04-30 11:42:17.4370|INFO|AALifeWeb_SyncItemList| UserID:20511 | ItemAppID:268 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:268, CategoryTypeID:9, 煎饺, 5.0, 2016-4-30 11:42:12, zc, CardID:0
+2016-04-30 11:42:33.8276|INFO|AALifeWeb_SyncItemList| UserID:20511 | ItemAppID:269 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:269, CategoryTypeID:9, 给妈妈, 2.0, 2016-4-30 11:42:30, zc, CardID:0
+2016-04-30 11:54:41.2808|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:181 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:181, CategoryTypeID:14, 2楼粥, 2.5, 2016-4-27 12:53:31, zc, CardID:0
+2016-04-30 11:54:41.7808|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:182 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:182, CategoryTypeID:16, 炒饭, 6.0, 2016-4-27 12:53:41, zc, CardID:0
+2016-04-30 11:54:42.2339|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:183 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:183, CategoryTypeID:9, 冲饭卡, 50.0, 2016-4-27 12:53:54, zc, CardID:0
+2016-04-30 11:54:42.8433|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:184 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:184, CategoryTypeID:18, 鸡扒饭（2人）, 16.0, 2016-4-27 22:29:17, zc, CardID:2
+2016-04-30 11:54:43.3433|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:185 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:185, CategoryTypeID:14, 2楼粥, 2.5, 2016-4-28 12:46:20, zc, CardID:0
+2016-04-30 11:54:43.7808|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:186 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:186, CategoryTypeID:16, 芝士鸡柳, 12.0, 2016-4-28 12:46:40, zc, CardID:0
+2016-04-30 11:54:44.2026|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:187 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:187, CategoryTypeID:9, 团费, 5.0, 2016-4-28 12:46:51, zc, CardID:0
+2016-04-30 11:54:44.6089|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:188 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:188, CategoryTypeID:20, 数学, 12.0, 2016-4-27 12:47:18, zc, CardID:0
+2016-04-30 11:54:45.0308|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:189 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:189, CategoryTypeID:18, 水饺, 14.0, 2016-4-28 22:23:46, zc, CardID:0
+2016-04-30 11:54:45.6401|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:190 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:190, CategoryTypeID:14, 2楼粥, 2.5, 2016-4-29 22:23:54, zc, CardID:0
+2016-04-30 11:54:46.0308|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:191 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:191, CategoryTypeID:16, 混沌粿, 5.0, 2016-4-29 22:24:19, zc, CardID:0
+2016-04-30 11:54:46.4058|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:192 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:192, CategoryTypeID:18, 巴啡, 15.0, 2016-4-29 22:25:15, zc, CardID:0
+2016-04-30 11:54:46.8276|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:193 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:193, CategoryTypeID:14, 2楼粥, 2.5, 2016-4-30 11:52:49, zc, CardID:0
+2016-04-30 11:54:48.1089|INFO|AALifeWeb_SyncItemList| UserID:24087 | ItemAppID:194 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:194, CategoryTypeID:16, 拉面, 7.0, 2016-4-30 11:52:58, zc, CardID:0
+2016-04-30 12:19:33.6245|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:362 | ItemWebID:0 | ItemInfo -> ItemID:754661, ItemAppID:362, CategoryTypeID:18, 花卉, 40.0, 2016-4-17 18:16:04, zc, CardID:0
+2016-04-30 12:19:35.0308|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:365 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:365, CategoryTypeID:18, 头发, 260.0, 2016-4-19 16:30:21, zc, CardID:0
+2016-04-30 12:19:35.3745|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:366 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:366, CategoryTypeID:16, 短袖, 80.0, 2016-4-19 16:30:40, zc, CardID:0
+2016-04-30 12:19:35.7026|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:367 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:367, CategoryTypeID:5, 草莓🍓, 6.0, 2016-4-19 16:30:54, zc, CardID:0
+2016-04-30 12:19:35.9995|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:368 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:368, CategoryTypeID:1, 菜肉, 26.5, 2016-4-19 16:31:11, zc, CardID:0
+2016-04-30 12:19:36.2808|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:369 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:369, CategoryTypeID:16, 袜子, 51.6, 2016-4-20 20:48:51, zc, CardID:0
+2016-04-30 12:19:36.6089|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:370 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:370, CategoryTypeID:2, 午饭, 15.0, 2016-4-20 20:49:05, zc, CardID:0
+2016-04-30 12:19:36.9526|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:371 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:371, CategoryTypeID:2, 早饭, 6.0, 2016-4-21 10:23:25, zc, CardID:0
+2016-04-30 12:19:37.2183|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:372 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:372, CategoryTypeID:14, 同事添娃份子, 100.0, 2016-4-20 10:24:01, zc, CardID:0
+2016-04-30 12:19:37.5151|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:373 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:373, CategoryTypeID:1, 菜, 11.0, 2016-4-22 19:51:21, zc, CardID:0
+2016-04-30 12:19:37.8589|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:374 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:374, CategoryTypeID:2, 面条, 5.0, 2016-4-22 19:51:31, zc, CardID:0
+2016-04-30 12:19:38.2339|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:375 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:375, CategoryTypeID:2, 午饭, 15.0, 2016-4-23 18:22:08, zc, CardID:0
+2016-04-30 12:19:38.4995|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:376 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:376, CategoryTypeID:2, 午饭, 9.0, 2016-4-24 18:23:20, zc, CardID:0
+2016-04-30 12:19:38.7808|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:377 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:377, CategoryTypeID:12, 高速费济南～德州往返, 120.0, 2016-4-24 18:23:36, zc, CardID:0
+2016-04-30 12:19:39.1558|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:378 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:378, CategoryTypeID:16, 男鞋安踏, 280.0, 2016-4-24 18:24:27, zc, CardID:0
+2016-04-30 12:19:39.4214|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:379 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:379, CategoryTypeID:16, 男裤安踏, 119.0, 2016-4-24 18:24:38, zc, CardID:0
+2016-04-30 12:19:39.6870|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:380 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:380, CategoryTypeID:5, 蛋糕, 4.5, 2016-4-24 18:24:54, zc, CardID:0
+2016-04-30 12:19:39.9370|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:381 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:381, CategoryTypeID:1, 菜水果, 28.5, 2016-4-24 18:25:42, zc, CardID:0
+2016-04-30 12:19:40.2026|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:382 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:382, CategoryTypeID:2, 晚饭, 9.5, 2016-4-25 18:25:59, zc, CardID:0
+2016-04-30 12:19:40.4370|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:383 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:383, CategoryTypeID:12, 小赛油油, 100.0, 2016-4-24 18:26:18, zc, CardID:0
+2016-04-30 12:19:40.7026|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:384 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:384, CategoryTypeID:18, 物业费, 477.0, 2016-4-26 9:59:20, zc, CardID:0
+2016-04-30 12:19:40.9370|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:385 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:385, CategoryTypeID:18, 水费, 118.0, 2016-4-26 9:59:31, zc, CardID:0
+2016-04-30 12:19:41.1870|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:386 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:386, CategoryTypeID:18, 电费, 605.0, 2016-4-26 9:59:40, zc, CardID:0
+2016-04-30 12:19:41.4839|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:387 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:387, CategoryTypeID:18, 燃气费, 300.0, 2016-4-26 9:59:48, zc, CardID:0
+2016-04-30 12:19:41.9058|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:388 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:388, CategoryTypeID:12, 处理, 300.0, 2016-4-26 12:07:02, zc, CardID:0
+2016-04-30 12:19:42.1401|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:389 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:389, CategoryTypeID:18, 话费, 100.0, 2016-4-26 12:07:27, zc, CardID:0
+2016-04-30 12:19:42.4058|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:390 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:390, CategoryTypeID:12, 小赛定位, 70.0, 2016-4-26 12:07:41, zc, CardID:0
+2016-04-30 12:19:42.6558|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:391 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:391, CategoryTypeID:5, 沙琪玛等, 79.2, 2016-4-26 12:08:12, zc, CardID:0
+2016-04-30 12:19:42.9058|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:392 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:392, CategoryTypeID:14, 香水, 85.0, 2016-4-26 16:58:53, zc, CardID:0
+2016-04-30 12:19:43.1558|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:393 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:393, CategoryTypeID:18, 医药, 100.0, 2016-4-26 20:53:10, zc, CardID:0
+2016-04-30 12:19:43.4058|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:394 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:394, CategoryTypeID:2, 早饭, 15.5, 2016-4-28 11:17:52, zc, CardID:0
+2016-04-30 12:19:43.6870|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:395 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:395, CategoryTypeID:2, 午饭, 17.5, 2016-4-27 11:18:19, zc, CardID:0
+2016-04-30 12:19:43.9370|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:396 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:396, CategoryTypeID:1, 菜, 2.5, 2016-4-28 11:18:42, zc, CardID:0
+2016-04-30 12:19:44.1870|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:397 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:397, CategoryTypeID:1, 菜, 32.0, 2016-4-28 11:39:29, zc, CardID:0
+2016-04-30 12:19:44.4526|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:398 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:398, CategoryTypeID:1, 菜, 10.2, 2016-4-29 6:34:08, zc, CardID:0
+2016-04-30 12:19:44.7026|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:399 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:399, CategoryTypeID:1, 菜, 19.5, 2016-4-30 12:16:34, zc, CardID:0
+2016-04-30 12:19:44.9683|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:400 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:400, CategoryTypeID:14, 童装, 175.0, 2016-4-30 12:16:55, zc, CardID:0
+2016-04-30 12:19:45.2183|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:401 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:401, CategoryTypeID:14, 蜂蜜零食等, 267.8, 2016-4-30 12:17:53, zc, CardID:0
+2016-04-30 12:19:45.4839|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:402 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:402, CategoryTypeID:6, 牙刷, 17.4, 2016-4-30 12:18:12, zc, CardID:0
+2016-04-30 12:19:45.7495|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:403 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:403, CategoryTypeID:1, 麻汁, 12.0, 2016-4-30 12:18:45, zc, CardID:0
+2016-04-30 12:19:46.0464|INFO|AALifeWeb_SyncItemList| UserID:21765 | ItemAppID:404 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:404, CategoryTypeID:5, 火龙果, 15.4, 2016-4-30 12:19:02, zc, CardID:0
+2016-04-30 12:36:08.1401|INFO|AALifeWeb_SyncItemList| UserID:24772 | ItemAppID:35 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:35, CategoryTypeID:9, 包包里的, 11.0, 2016-4-29 16:47:01, sr, CardID:0
+2016-04-30 12:40:09.0151|INFO|AALifeWeb_SyncItemList| UserID:24022 | ItemAppID:230 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:230, CategoryTypeID:7, 手机, 1717.53, 2016-4-30 12:39:58, zc, CardID:0
+2016-04-30 12:49:52.9370|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5827 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5827, CategoryTypeID:2, 早餐油条, 2.0, 2016-4-30 10:09:21, zc, CardID:22
+2016-04-30 12:49:53.1558|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5828 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5828, CategoryTypeID:1, 猪肉, 10.0, 2016-4-30 10:09:34, zc, CardID:22
+2016-04-30 12:49:53.3745|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5829 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5829, CategoryTypeID:1, 苦瓜, 3.5, 2016-4-30 10:09:45, zc, CardID:22
+2016-04-30 12:49:53.5776|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5830 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5830, CategoryTypeID:1, 花生米, 2.0, 2016-4-30 10:09:57, zc, CardID:22
+2016-04-30 12:49:53.7964|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5831 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5831, CategoryTypeID:1, 四季豆, 2.0, 2016-4-30 12:45:11, zc, CardID:22
+2016-04-30 12:49:54.0308|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5832 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5832, CategoryTypeID:1, 蒜心, 3.0, 2016-4-30 12:48:38, zc, CardID:22
+2016-04-30 12:49:54.2495|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5833 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5833, CategoryTypeID:5, 橙子, 8.0, 2016-4-30 12:49:52, zc, CardID:22
+2016-04-30 12:49:54.4370|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5834 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5834, CategoryTypeID:1, 青菜, 2.0, 2016-4-30 12:49:43, zc, CardID:22
+2016-04-30 13:01:45.6401|INFO|AALifeWeb_SyncItemList| UserID:17365 | ItemAppID:498 | ItemWebID:0 | ItemInfo -> ItemID:774262, ItemAppID:498, CategoryTypeID:5, 水晶柚+车厘子+红心橙+芒果, 500.0, 2016-4-29 21:57:16, zc, CardID:0
+2016-04-30 13:01:46.1558|INFO|AALifeWeb_SyncItemList| UserID:17365 | ItemAppID:499 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:499, CategoryTypeID:2, 充饭卡, 300.0, 2016-4-29 21:54:59, zc, CardID:0
+2016-04-30 13:01:46.2964|INFO|AALifeWeb_SyncItemList| UserID:17365 | ItemAppID:500 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:500, CategoryTypeID:18, 4月电费, 158.0, 2016-4-29 21:55:21, zc, CardID:0
+2016-04-30 13:01:46.4214|INFO|AALifeWeb_SyncItemList| UserID:17365 | ItemAppID:501 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:501, CategoryTypeID:9, 固定电话, 22.0, 2016-4-29 21:55:40, zc, CardID:0
+2016-04-30 13:01:46.5308|INFO|AALifeWeb_SyncItemList| UserID:17365 | ItemAppID:502 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:502, CategoryTypeID:2, 中饭, 105.0, 2016-4-30 13:00:45, zc, CardID:0
+2016-04-30 13:01:46.6714|INFO|AALifeWeb_SyncItemList| UserID:17365 | ItemAppID:503 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:503, CategoryTypeID:8, 裤子, 138.0, 2016-4-30 13:01:34, zc, CardID:0
+2016-04-30 13:16:40.2026|INFO|AALifeWeb_SyncItemList| UserID:17283 | ItemAppID:783 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:783, CategoryTypeID:16, 午餐补，订书机, 94.0, 2016-4-30 13:16:35, jc, CardID:0
+2016-04-30 13:37:10.0151|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:24 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:24, CategoryTypeID:18, 老妈补贴, 200.0, 2016-4-29 18:36:25, sr, CardID:0
+2016-04-30 13:37:10.4214|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:25 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:25, CategoryTypeID:32, 面包、奶, 12.0, 2016-4-29 13:35:02, zc, CardID:0
+2016-04-30 13:37:10.9058|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:26 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:26, CategoryTypeID:34, 和儿子洗澡(一个澡巾), 20.0, 2016-4-29 18:38:16, zc, CardID:0
+2016-04-30 13:37:11.3589|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:27 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:27, CategoryTypeID:2, 打包 晚餐 家里, 48.0, 2016-4-29 18:38:53, zc, CardID:0
+2016-04-30 13:37:11.9058|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:28 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:28, CategoryTypeID:36, 庆店开业(买花篮), 100.0, 2016-4-29 18:40:46, zc, CardID:0
+2016-04-30 13:37:12.5620|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:29 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:29, CategoryTypeID:36, 酱油, 10.0, 2016-4-29 19:07:45, zc, CardID:0
+2016-04-30 13:37:13.1089|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:30 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:30, CategoryTypeID:36, 借款(钟月), 500.0, 2016-4-30 13:31:07, jr, CardID:0
+2016-04-30 13:37:13.6089|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:31 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:31, CategoryTypeID:36, 笑笑朋友结婚(周雪), 300.0, 2016-4-30 13:36:45, zc, CardID:0
+2016-04-30 13:55:44.0776|INFO|AALifeWeb_SyncItemList| UserID:20684 | ItemAppID:660 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:660, CategoryTypeID:24, 早饭，热干面, 5.0, 2016-4-30 9:46:41, zc, CardID:0
+2016-04-30 14:19:29.7808|INFO|AALifeWeb_SyncItemList| UserID:23399 | ItemAppID:51 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:51, CategoryTypeID:10, 泡椒, 684.0, 2016-4-30 14:18:38, zc, CardID:2
+2016-04-30 14:50:37.2495|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq49395, warrior, http://q.qlogo.cn/qqapp/100761541/94E3DF08FA4FE6EA1F7C0D5FE9AF7884/100, sjqq_360, IsUpdate:1
+2016-04-30 14:50:37.2495|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 94E3DF08FA4FE6EA1F7C0D5FE9AF7884, 4600EC31E0A339CB152ED8A02737CA82, UserID:0, OldUserID:0, sjqq
+2016-04-30 15:15:41.6870|INFO|AALifeWeb_SyncItemList| UserID:20684 | ItemAppID:661 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:661, CategoryTypeID:34, 山姆，红糖, 59.0, 2016-4-30 15:13:52, zc, CardID:0
+2016-04-30 15:15:41.9683|INFO|AALifeWeb_SyncItemList| UserID:20684 | ItemAppID:662 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:662, CategoryTypeID:14, 山姆，杂粮, 131.4, 2016-4-30 15:14:35, zc, CardID:0
+2016-04-30 15:15:42.3589|INFO|AALifeWeb_SyncItemList| UserID:20684 | ItemAppID:663 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:663, CategoryTypeID:14, 东湖保税店，奶粉, 2028.0, 2016-4-30 15:15:07, zc, CardID:0
+2016-04-30 15:15:42.7339|INFO|AALifeWeb_SyncItemList| UserID:20684 | ItemAppID:664 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:664, CategoryTypeID:46, 永旺，牛排店充值, 100.0, 2016-4-30 15:15:37, zc, CardID:0
+2016-04-30 15:18:20.3433|INFO|AALifeWeb_SyncItemList| UserID:25306 | ItemAppID:1 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1, CategoryTypeID:22, 汽油, 100.0, 2016-4-30 15:12:07, zc, CardID:0
+2016-04-30 15:18:20.7339|INFO|AALifeWeb_SyncItemList| UserID:25306 | ItemAppID:2 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:2, CategoryTypeID:14, 王, 5000.0, 2016-4-30 15:14:37, sr, CardID:0
+2016-04-30 15:18:21.1245|INFO|AALifeWeb_SyncItemList| UserID:25306 | ItemAppID:3 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:3, CategoryTypeID:28, 2, 90.0, 2016-4-30 15:15:18, zc, CardID:0
+2016-04-30 15:18:21.5933|INFO|AALifeWeb_SyncItemList| UserID:25306 | ItemAppID:4 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:4, CategoryTypeID:26, 6, 12.0, 2016-4-30 15:15:37, zc, CardID:0
+2016-04-30 16:13:47.6191|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, 小小可心i, 小小可心i, user.gif, 5.6.1_mi, IsUpdate:1
+2016-04-30 16:22:24.9406|INFO|AALifeWeb_SyncItemList| UserID:14961 | ItemAppID:516 | ItemWebID:0 | ItemInfo -> ItemID:774579, ItemAppID:516, CategoryTypeID:5, 橙子、梨, 15.2, 2016-4-27 16:21:28, zc, CardID:0
+2016-04-30 16:22:26.4405|INFO|AALifeWeb_SyncItemList| UserID:14961 | ItemAppID:518 | ItemWebID:0 | ItemInfo -> ItemID:774581, ItemAppID:518, CategoryTypeID:22, 年终奖A2（清）, 3915.0, 2016-4-28 16:18:33, sr, CardID:0
+2016-04-30 16:22:28.4405|INFO|AALifeWeb_SyncItemList| UserID:14961 | ItemAppID:519 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:519, CategoryTypeID:11, 139号交话费, 50.0, 2016-4-29 16:18:57, zc, CardID:0
+2016-04-30 16:22:30.5499|INFO|AALifeWeb_SyncItemList| UserID:14961 | ItemAppID:520 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:520, CategoryTypeID:11, 138号码交话费, 50.0, 2016-4-29 16:19:09, zc, CardID:0
+2016-04-30 16:42:45.8156|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1337 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1337, CategoryTypeID:4, 零食, 5.1, 2016-4-30 16:41:17, zc, CardID:0
+2016-04-30 16:42:46.0031|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1338 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1338, CategoryTypeID:4, 凉糕, 4.0, 2016-4-30 16:41:25, zc, CardID:0
+2016-04-30 16:42:46.2062|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1339 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1339, CategoryTypeID:20, 夹娃娃打弹子, 3.0, 2016-4-30 16:41:58, zc, CardID:0
+2016-04-30 16:42:46.4093|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1340 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1340, CategoryTypeID:8, 袜子, 6.0, 2016-4-30 16:42:27, zc, CardID:0
+2016-04-30 17:15:32.5560|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:105 | ItemWebID:0 | ItemInfo -> ItemID:703081, ItemAppID:105, CategoryTypeID:54, 借入(珊♥), 5000.0, 2016-2-23 17:13:07, jr, CardID:0
+2016-04-30 17:15:33.1029|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:354 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:354, CategoryTypeID:58, 取现(工), 100.0, 2016-4-29 17:14:14, sr, CardID:0
+2016-04-30 17:33:39.3904|INFO|AALifeWeb_SyncItemList| UserID:20345 | ItemAppID:647 | ItemWebID:0 | ItemInfo -> ItemID:765992, ItemAppID:647, CategoryTypeID:5, 葡萄，香蕉，梨, 44.0, 2016-4-27 17:32:47, zc, CardID:0
+2016-04-30 17:33:40.2186|INFO|AALifeWeb_SyncItemList| UserID:20345 | ItemAppID:652 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:652, CategoryTypeID:1, 菜，包子, 59.5, 2016-4-30 17:33:30, zc, CardID:0
+2016-04-30 17:34:53.1556|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:29 | ItemWebID:0 | ItemInfo -> ItemID:774923, ItemAppID:29, CategoryTypeID:1, 酱油, 10.0, 2016-4-29 17:29:07, zc, CardID:0
+2016-04-30 17:34:53.8900|INFO|AALifeWeb_SyncItemList| UserID:25091 | ItemAppID:30 | ItemWebID:0 | ItemInfo -> ItemID:774924, ItemAppID:30, CategoryTypeID:38, 借款(钟月), 500.0, 2016-4-30 14:05:57, jr, CardID:0
+2016-04-30 17:35:56.6864|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, 邱汉堡彬, 哆啦M梦, user.gif, 5.6.1_tx, IsUpdate:1
+2016-04-30 17:53:39.9453|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:174 | ItemWebID:0 | ItemInfo -> ItemID:760093, ItemAppID:174, CategoryTypeID:22, 水果，吃饭, 17.0, 2016-4-20 16:45:55, zc, CardID:0
+2016-04-30 17:53:40.5234|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:175 | ItemWebID:0 | ItemInfo -> ItemID:760094, ItemAppID:175, CategoryTypeID:22, 书, 50.0, 2016-4-20 16:46:27, zc, CardID:0
+2016-04-30 17:53:41.1171|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:176 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:176, CategoryTypeID:22, 健腹机, 109.0, 2016-4-22 5:37:32, zc, CardID:0
+2016-04-30 17:53:41.2734|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:177 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:177, CategoryTypeID:8, 杨杨T恤, 108.0, 2016-4-22 21:57:28, zc, CardID:0
+2016-04-30 17:53:41.4921|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:178 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:178, CategoryTypeID:22, 午餐, 17.0, 2016-4-22 21:57:10, zc, CardID:0
+2016-04-30 17:53:41.6484|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:179 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:179, CategoryTypeID:22, 4.25--4.28共计约, 150.0, 2016-4-28 16:46:12, zc, CardID:0
+2016-04-30 17:53:41.8359|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:180 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:180, CategoryTypeID:22, 早餐4.28-4.30, 30.0, 2016-4-29 17:50:13, zc, CardID:0
+2016-04-30 17:53:41.9921|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:181 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:181, CategoryTypeID:22, 淘宝购物4.29-4.30, 150.8, 2016-4-30 17:51:01, zc, CardID:0
+2016-04-30 17:53:42.1327|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:182 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:182, CategoryTypeID:22, 🍉西瓜, 28.0, 2016-4-30 17:51:56, zc, CardID:0
+2016-04-30 17:53:42.2734|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:183 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:183, CategoryTypeID:22, 午餐, 30.0, 2016-4-29 17:52:37, zc, CardID:0
+2016-04-30 17:53:42.4140|INFO|AALifeWeb_SyncItemList| UserID:23581 | ItemAppID:184 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:184, CategoryTypeID:22, 妈咪骨折缴费, 1500.0, 2016-4-28 17:53:31, zc, CardID:0
+2016-04-30 17:54:22.8981|INFO|AALifeWeb_SyncItemList| UserID:23510 | ItemAppID:153 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:153, CategoryTypeID:22, 银行卡取现, 500.0, 2016-4-30 16:22:55, zc, CardID:2
+2016-04-30 17:54:23.1325|INFO|AALifeWeb_SyncItemList| UserID:23510 | ItemAppID:154 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:154, CategoryTypeID:26, 取现现金, 500.0, 2016-4-30 16:23:21, sr, CardID:0
+2016-04-30 17:54:23.3044|INFO|AALifeWeb_SyncItemList| UserID:23510 | ItemAppID:155 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:155, CategoryTypeID:34, 买菜, 16.0, 2016-4-30 17:51:25, zc, CardID:0
+2016-04-30 17:54:23.5387|INFO|AALifeWeb_SyncItemList| UserID:23510 | ItemAppID:156 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:156, CategoryTypeID:34, 零食, 11.2, 2016-4-30 17:51:51, zc, CardID:0
+2016-04-30 17:54:23.8200|INFO|AALifeWeb_SyncItemList| UserID:23510 | ItemAppID:157 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:157, CategoryTypeID:60, 生活用品-投币洗衣, 8.0, 2016-4-30 17:52:15, zc, CardID:0
+2016-04-30 18:27:15.6064|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq39720, 诺, http://q.qlogo.cn/qqapp/100761541/28CC55553A2E3C61024E0FB527CB5CB8/100, sjqq_web, IsUpdate:1
+2016-04-30 18:27:15.6064|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 28CC55553A2E3C61024E0FB527CB5CB8, DFC24AE0DFE97BCFD838AF8692F7B30A, UserID:0, OldUserID:0, sjqq
+2016-04-30 18:27:35.5907|INFO|AALifeWeb_SyncItemList| UserID:25079 | ItemAppID:1 | ItemWebID:0 | ItemInfo -> ItemID:753778, ItemAppID:1, CategoryTypeID:6, 纸尿裤, 134.0, 2016-2-20 19:42:28, zc, CardID:2
+2016-04-30 18:27:36.0595|INFO|AALifeWeb_SyncItemList| UserID:25079 | ItemAppID:2 | ItemWebID:0 | ItemInfo -> ItemID:753781, ItemAppID:2, CategoryTypeID:9, 火车票 奉, 379.0, 2016-2-23 19:55:07, zc, CardID:2
+2016-04-30 18:27:36.4189|INFO|AALifeWeb_SyncItemList| UserID:25079 | ItemAppID:3 | ItemWebID:0 | ItemInfo -> ItemID:753782, ItemAppID:3, CategoryTypeID:6, 儿童衣架。家, 13.9, 2016-2-26 19:48:36, zc, CardID:2
+2016-04-30 18:27:36.7470|INFO|AALifeWeb_SyncItemList| UserID:25079 | ItemAppID:5 | ItemWebID:0 | ItemInfo -> ItemID:753787, ItemAppID:5, CategoryTypeID:9, 。。。, 860.0, 2016-2-26 19:49:48, zc, CardID:6
+2016-04-30 18:27:37.0751|INFO|AALifeWeb_SyncItemList| UserID:25079 | ItemAppID:6 | ItemWebID:0 | ItemInfo -> ItemID:753789, ItemAppID:6, CategoryTypeID:9, 练字帖, 11.8, 2016-2-28 19:55:33, zc, CardID:2
+2016-04-30 18:27:37.4814|INFO|AALifeWeb_SyncItemList| UserID:25079 | ItemAppID:7 | ItemWebID:0 | ItemInfo -> ItemID:753791, ItemAppID:7, CategoryTypeID:9, 火车票 幺爸, 164.0, 2016-2-29 19:56:43, zc, CardID:2
+2016-04-30 18:27:37.8095|INFO|AALifeWeb_SyncItemList| UserID:25079 | ItemAppID:8 | ItemWebID:0 | ItemInfo -> ItemID:753793, ItemAppID:8, CategoryTypeID:9, 奉老板转, 2000.0, 2016-2-29 19:57:49, sr, CardID:2
+2016-04-30 18:34:50.9970|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:30 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:30, CategoryTypeID:16, 晚班, 7.0, 2016-4-27 19:34:21, zc, CardID:4
+2016-04-30 18:34:51.4189|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:31 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:31, CategoryTypeID:16, 年糕, 4.0, 2016-4-27 20:20:05, zc, CardID:4
+2016-04-30 18:34:51.8407|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:32 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:32, CategoryTypeID:16, 杂费, 20.0, 2016-4-28 10:06:56, hc, CardID:4
+2016-04-30 18:34:52.3720|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:33 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:33, CategoryTypeID:16, 牛奶, 2.0, 2016-4-28 10:07:10, zc, CardID:4
+2016-04-30 18:34:52.7626|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:34 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:34, CategoryTypeID:16, 午餐, 7.5, 2016-4-28 16:53:38, zc, CardID:4
+2016-04-30 18:34:53.1845|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:35 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:35, CategoryTypeID:16, 晚餐, 10.0, 2016-4-28 21:36:13, zc, CardID:4
+2016-04-30 18:34:53.5595|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:36 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:36, CategoryTypeID:16, 午餐, 8.0, 2016-4-29 13:29:08, zc, CardID:4
+2016-04-30 18:34:53.9345|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:37 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:37, CategoryTypeID:16, 晚餐, 10.0, 2016-4-29 19:55:03, zc, CardID:4
+2016-04-30 18:34:54.3564|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:38 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:38, CategoryTypeID:16, 出租车z, 40.0, 2016-4-30 8:01:33, zc, CardID:4
+2016-04-30 18:34:54.7782|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:39 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:39, CategoryTypeID:16, 汽车票z, 75.0, 2016-4-30 8:01:41, zc, CardID:4
+2016-04-30 18:34:55.4657|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:40 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:40, CategoryTypeID:16, 公交, 1.0, 2016-4-30 18:33:58, zc, CardID:0
+2016-04-30 18:34:55.8564|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:41 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:41, CategoryTypeID:16, 农村公交, 6.0, 2016-4-30 18:34:15, zc, CardID:0
+2016-04-30 18:34:56.2626|INFO|AALifeWeb_SyncItemList| UserID:25140 | ItemAppID:42 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:42, CategoryTypeID:16, 水, 1.5, 2016-4-30 18:34:33, zc, CardID:0
+2016-04-30 18:39:39.4189|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq16340, 龙 昕, http://q.qlogo.cn/qqapp/100761541/3903FCFDB3A1DD41BFC5A6530102DD23/100, sjqq_tx, IsUpdate:1
+2016-04-30 18:39:39.4189|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 3903FCFDB3A1DD41BFC5A6530102DD23, 68C060B45773C6C4B0219663E36D313D, UserID:0, OldUserID:0, sjqq
+2016-04-30 18:44:48.4189|INFO|AALifeWeb_SyncItemList| UserID:23809 | ItemAppID:206 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:206, CategoryTypeID:4, 大卡司, 100.0, 2016-4-30 18:44:04, zc, CardID:0
+2016-04-30 18:44:48.7314|INFO|AALifeWeb_SyncItemList| UserID:23809 | ItemAppID:207 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:207, CategoryTypeID:4, 车费, 24.0, 2016-4-30 18:44:14, zc, CardID:0
+2016-04-30 18:44:49.0439|INFO|AALifeWeb_SyncItemList| UserID:23809 | ItemAppID:208 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:208, CategoryTypeID:12, 衣服, 70.0, 2016-4-30 18:44:33, zc, CardID:12
+2016-04-30 18:47:31.6689|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:408 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:408, CategoryTypeID:2, 早餐, 2.0, 2016-4-27 16:44:56, zc, CardID:12
+2016-04-30 18:47:32.1064|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:409 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:409, CategoryTypeID:2, 午餐, 6.5, 2016-4-27 16:45:02, zc, CardID:12
+2016-04-30 18:47:32.5439|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:410 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:410, CategoryTypeID:2, 早餐, 2.0, 2016-4-28 14:19:02, zc, CardID:12
+2016-04-30 18:47:33.0595|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:411 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:411, CategoryTypeID:2, 午餐, 6.3, 2016-4-28 14:19:22, zc, CardID:12
+2016-04-30 18:47:33.4970|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:412 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:412, CategoryTypeID:2, 晚餐, 8.0, 2016-4-27 14:19:31, zc, CardID:12
+2016-04-30 18:47:33.9814|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:413 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:413, CategoryTypeID:2, 酸奶, 3.5, 2016-4-28 14:49:41, zc, CardID:12
+2016-04-30 18:47:34.4501|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:414 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:414, CategoryTypeID:2, 晚餐, 7.3, 2016-4-28 20:02:52, zc, CardID:12
+2016-04-30 18:47:34.8876|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:415 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:415, CategoryTypeID:2, 早餐, 1.5, 2016-4-29 19:34:57, zc, CardID:12
+2016-04-30 18:47:35.3407|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:416 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:416, CategoryTypeID:2, 午餐, 8.5, 2016-4-29 19:35:04, zc, CardID:12
+2016-04-30 18:47:35.7626|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:417 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:417, CategoryTypeID:2, 晚餐, 6.3, 2016-4-29 19:35:18, zc, CardID:12
+2016-04-30 18:47:36.2314|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:418 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:418, CategoryTypeID:2, 嘉怡晚餐, 3.6, 2016-4-29 19:35:26, jc, CardID:12
+2016-04-30 18:47:36.6376|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:419 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:419, CategoryTypeID:2, 早餐, 3.5, 2016-4-30 12:46:17, zc, CardID:12
+2016-04-30 18:47:37.0751|INFO|AALifeWeb_SyncItemList| UserID:21551 | ItemAppID:420 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:420, CategoryTypeID:9, vpn一个月, 18.0, 2016-4-30 18:47:03, zc, CardID:12
+2016-04-30 18:49:03.1689|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq98426, 像天真一样光脚丫, http://q.qlogo.cn/qqapp/100761541/1A7F1B9B2E5293DE8C8A0BDB97DA73B6/100, sjqq_mi, IsUpdate:1
+2016-04-30 18:49:03.1689|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 1A7F1B9B2E5293DE8C8A0BDB97DA73B6, 871820FC432F819F41ACBC03E8C735B1, UserID:0, OldUserID:0, sjqq
+2016-04-30 19:10:27.6821|INFO|AALifeWeb_SyncItemList| UserID:24919 | ItemAppID:40 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:40, CategoryTypeID:28, 易到   信用, 100.0, 2016-4-30 14:44:49, zc, CardID:0
+2016-04-30 19:10:27.7915|INFO|AALifeWeb_SyncItemList| UserID:24919 | ItemAppID:41 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:41, CategoryTypeID:28, 地铁, 4.0, 2016-4-30 14:45:27, zc, CardID:0
+2016-04-30 19:10:27.8852|INFO|AALifeWeb_SyncItemList| UserID:24919 | ItemAppID:42 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:42, CategoryTypeID:3, 甘蔗汁, 6.0, 2016-4-30 14:46:19, zc, CardID:0
+2016-04-30 19:27:46.5974|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, 18871496419, 鹿汜yume, user.gif, 5.6.1_360, IsUpdate:1
+2016-04-30 19:32:46.9704|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq23481, 野子, http://q.qlogo.cn/qqapp/100761541/DC691263FEBAB8306E1E52DBFFD4B19E/100, sjqq_tx, IsUpdate:1
+2016-04-30 19:32:46.9704|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, DC691263FEBAB8306E1E52DBFFD4B19E, 2BB75C90C38F7CAC50FC96579F803148, UserID:0, OldUserID:0, sjqq
+2016-04-30 19:38:43.8588|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq13834, 邰熊熊会发光 ✨, http://q.qlogo.cn/qqapp/100761541/34775AFA8416713464A293F6B0D9ECB8/100, sjqq_tx, IsUpdate:1
+2016-04-30 19:38:43.8588|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 34775AFA8416713464A293F6B0D9ECB8, A4E1FB383C709C793B41122214CB3769, UserID:0, OldUserID:0, sjqq
+2016-04-30 19:53:54.5717|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq26190, 犯困的猫, http://q.qlogo.cn/qqapp/100761541/9480B833ABD23C5FDE912431B22E41ED/100, sjqq_az, IsUpdate:1
+2016-04-30 19:53:54.5717|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, 9480B833ABD23C5FDE912431B22E41ED, AF1AA829EC134F573FF94CA6E34CE832, UserID:0, OldUserID:0, sjqq
+2016-04-30 20:09:49.8625|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:1 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1, CategoryTypeID:10, 动车117.5+50＋公交1, 168.5, 2016-4-30 20:05:25, zc, CardID:0
+2016-04-30 20:09:50.1593|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:2 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:2, CategoryTypeID:10, 大巴车, 140.0, 2016-4-26 19:58:10, zc, CardID:0
+2016-04-30 20:09:50.4874|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:3 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:3, CategoryTypeID:10, 午餐, 12.0, 2016-4-26 19:57:30, zc, CardID:0
+2016-04-30 20:09:50.8156|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:4 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:4, CategoryTypeID:10, 晚餐, 12.0, 2016-4-26 19:57:46, zc, CardID:0
+2016-04-30 20:09:51.0968|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:5 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5, CategoryTypeID:10, 午餐, 12.0, 2016-4-27 19:58:34, zc, CardID:0
+2016-04-30 20:09:51.4406|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:6 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:6, CategoryTypeID:10, 面包, 12.0, 2016-4-26 19:59:13, zc, CardID:0
+2016-04-30 20:09:51.7062|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:7 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:7, CategoryTypeID:10, 香蕉牛奶, 16.0, 2016-4-26 19:59:21, zc, CardID:0
+2016-04-30 20:09:51.9874|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:8 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:8, CategoryTypeID:10, 晚餐, 13.5, 2016-4-28 20:00:39, zc, CardID:0
+2016-04-30 20:09:52.3312|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:9 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:9, CategoryTypeID:10, 酸奶, 5.0, 2016-4-28 20:00:49, zc, CardID:0
+2016-04-30 20:09:52.6124|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:10 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:10, CategoryTypeID:10, 面包, 12.0, 2016-4-28 20:01:05, zc, CardID:0
+2016-04-30 20:09:52.8781|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:11 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:11, CategoryTypeID:10, 午餐, 38.0, 2016-4-29 20:02:13, zc, CardID:0
+2016-04-30 20:09:53.1281|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:12 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:12, CategoryTypeID:10, 晚餐, 10.0, 2016-4-29 20:02:21, zc, CardID:0
+2016-04-30 20:09:53.4249|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:13 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:13, CategoryTypeID:10, 刮刮券, 10.0, 2016-4-29 20:02:36, zc, CardID:0
+2016-04-30 20:09:53.7687|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:16 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:16, CategoryTypeID:10, 话费, 30.0, 2016-4-28 20:04:34, zc, CardID:0
+2016-04-30 20:09:54.0968|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:17 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:17, CategoryTypeID:14, 燕惠结婚, 800.0, 2016-4-25 20:06:17, zc, CardID:0
+2016-04-30 20:09:54.3780|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:18 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:18, CategoryTypeID:10, 宾馆住宿费, 250.0, 2016-4-29 20:06:56, zc, CardID:0
+2016-04-30 20:09:54.6124|INFO|AALifeWeb_SyncItemList| UserID:25314 | ItemAppID:19 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:19, CategoryTypeID:10, 绿豆饼, 6.0, 2016-4-30 20:08:45, zc, CardID:0
+2016-04-30 20:33:28.8587|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5835 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5835, CategoryTypeID:8, 妈妈睡衣, 29.0, 2016-4-30 20:31:25, zc, CardID:22
+2016-04-30 20:33:29.4368|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5836 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5836, CategoryTypeID:5, 苹果, 14.26, 2016-4-30 20:31:54, zc, CardID:2
+2016-04-30 20:33:29.9212|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5837 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5837, CategoryTypeID:6, 洗澡海绵, 1.8, 2016-4-30 20:32:12, zc, CardID:2
+2016-04-30 20:33:30.1400|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5838 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5838, CategoryTypeID:6, 花露水, 12.1, 2016-4-30 20:32:26, zc, CardID:2
+2016-04-30 20:33:30.5306|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5839 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5839, CategoryTypeID:5, 无仔红提, 11.6, 2016-4-30 20:32:49, zc, CardID:2
+2016-04-30 20:33:30.8743|INFO|AALifeWeb_SyncItemList| UserID:1 | ItemAppID:5840 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:5840, CategoryTypeID:1, 泡椒, 5.31, 2016-4-30 20:33:12, zc, CardID:2
+2016-04-30 20:48:57.2650|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq41928,  yeah., http://q.qlogo.cn/qqapp/100761541/FE0980768D011D985DAC820F1B96EABB/100, sjqq_360, IsUpdate:1
+2016-04-30 20:48:57.2650|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, FE0980768D011D985DAC820F1B96EABB, 9FBB9EE3158C66019DE245C67B408EF9, UserID:0, OldUserID:0, sjqq
+2016-04-30 20:54:44.9212|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1341 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1341, CategoryTypeID:4, 零食, 3.5, 2016-4-30 20:54:11, zc, CardID:0
+2016-04-30 20:54:45.7181|INFO|AALifeWeb_SyncItemList| UserID:17624 | ItemAppID:1342 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1342, CategoryTypeID:6, 工具, 16.0, 2016-4-30 20:54:27, zc, CardID:0
+2016-04-30 21:25:55.1243|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:291 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:291, CategoryTypeID:1, 猪骨, 13.0, 2016-4-15 9:28:53, zc, CardID:0
+2016-04-30 21:25:55.4681|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:292 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:292, CategoryTypeID:1, 苦瓜, 7.0, 2016-4-15 9:29:03, zc, CardID:0
+2016-04-30 21:25:55.7650|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:293 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:293, CategoryTypeID:1, 沙拉包, 5.0, 2016-4-15 9:29:14, zc, CardID:0
+2016-04-30 21:25:56.1868|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:294 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:294, CategoryTypeID:12, 黄莲上清片2盒, 6.0, 2016-4-16 10:06:09, zc, CardID:0
+2016-04-30 21:25:56.5618|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:295 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:295, CategoryTypeID:12, 夏桑菊, 14.0, 2016-4-16 10:06:46, zc, CardID:0
+2016-04-30 21:25:57.1712|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:296 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:296, CategoryTypeID:12, 小儿感冒冲剂, 14.5, 2016-4-16 10:07:03, zc, CardID:0
+2016-04-30 21:25:57.7493|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:297 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:297, CategoryTypeID:12, 七星茶, 11.5, 2016-4-16 10:07:13, zc, CardID:0
+2016-04-30 21:25:58.4525|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:298 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:298, CategoryTypeID:12, 清火片, 1.2, 2016-4-16 10:07:27, zc, CardID:0
+2016-04-30 21:26:00.1087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:299 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:299, CategoryTypeID:1, 马蹄果, 4.0, 2016-4-16 10:07:38, zc, CardID:0
+2016-04-30 21:26:01.1556|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:300 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:300, CategoryTypeID:1, 包子馒头, 2.0, 2016-4-16 10:07:49, zc, CardID:0
+2016-04-30 21:26:01.5150|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:301 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:301, CategoryTypeID:1, 豆芽, 1.5, 2016-4-16 10:07:56, zc, CardID:0
+2016-04-30 21:26:01.8275|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:302 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:302, CategoryTypeID:9, 少澄, 10.0, 2016-4-16 10:08:15, zc, CardID:0
+2016-04-30 21:26:02.1243|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:303 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:303, CategoryTypeID:9, 表舅汇的, 1000.0, 2016-4-16 21:59:53, sr, CardID:0
+2016-04-30 21:26:02.4056|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:304 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:304, CategoryTypeID:9, 老公拿的, 300.0, 2016-4-16 22:00:07, zc, CardID:0
+2016-04-30 21:26:02.7493|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:305 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:305, CategoryTypeID:9, 游戏机, 15.0, 2016-4-16 22:00:20, zc, CardID:0
+2016-04-30 21:26:03.0462|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:306 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:306, CategoryTypeID:1, 猪骨, 14.0, 2016-4-17 14:05:07, zc, CardID:0
+2016-04-30 21:26:03.3118|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:307 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:307, CategoryTypeID:1, 苦瓜, 8.5, 2016-4-17 14:05:15, zc, CardID:0
+2016-04-30 21:26:03.6087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:308 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:308, CategoryTypeID:1, 马蹄果, 8.0, 2016-4-17 14:05:25, zc, CardID:0
+2016-04-30 21:26:03.9368|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:309 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:309, CategoryTypeID:2, 蒸饭, 30.0, 2016-4-17 14:05:41, zc, CardID:0
+2016-04-30 21:26:04.3118|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:310 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:310, CategoryTypeID:12, 挂号费, 20.0, 2016-4-18 10:35:16, zc, CardID:0
+2016-04-30 21:26:05.7493|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:311 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:311, CategoryTypeID:12, 检验费, 13.5, 2016-4-18 10:35:30, zc, CardID:0
+2016-04-30 21:26:06.3431|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:312 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:312, CategoryTypeID:12, 药费, 27.0, 2016-4-18 10:35:39, zc, CardID:0
+2016-04-30 21:26:07.3431|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:313 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:313, CategoryTypeID:12, 检查费, 20.0, 2016-4-18 10:35:48, zc, CardID:0
+2016-04-30 21:26:07.6400|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:314 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:314, CategoryTypeID:9, 老公拿的, 20.0, 2016-4-18 10:36:05, zc, CardID:0
+2016-04-30 21:26:08.2337|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:315 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:315, CategoryTypeID:12, 优优药费, 18.0, 2016-4-18 20:49:23, zc, CardID:0
+2016-04-30 21:26:08.9368|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:316 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:316, CategoryTypeID:9, 烟, 13.0, 2016-4-18 20:49:43, zc, CardID:0
+2016-04-30 21:26:09.4212|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:317 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:317, CategoryTypeID:2, 老公夜宵, 68.0, 2016-4-19 10:00:39, zc, CardID:0
+2016-04-30 21:26:10.0306|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:318 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:318, CategoryTypeID:9, 六合, 50.0, 2016-4-19 19:42:09, zc, CardID:0
+2016-04-30 21:26:10.5775|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:319 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:319, CategoryTypeID:12, 霍香正气口服液, 12.0, 2016-4-19 19:42:40, zc, CardID:0
+2016-04-30 21:26:10.9368|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:320 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:320, CategoryTypeID:12, 优优药费, 22.0, 2016-4-20 18:30:09, zc, CardID:0
+2016-04-30 21:26:11.2025|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:321 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:321, CategoryTypeID:12, 整肠生, 8.0, 2016-4-20 18:30:25, zc, CardID:0
+2016-04-30 21:26:11.4681|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:322 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:322, CategoryTypeID:1, 烧仙草，奶茶, 8.0, 2016-4-20 18:30:47, zc, CardID:0
+2016-04-30 21:26:11.6868|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:323 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:323, CategoryTypeID:9, 学习用品, 21.0, 2016-4-20 18:31:05, zc, CardID:0
+2016-04-30 21:26:12.0150|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:324 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:324, CategoryTypeID:4, 果冻饼干, 17.5, 2016-4-20 21:12:04, zc, CardID:0
+2016-04-30 21:26:12.3118|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:325 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:325, CategoryTypeID:1, 六绑, 12.5, 2016-4-21 13:04:58, zc, CardID:0
+2016-04-30 21:26:12.6243|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:326 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:326, CategoryTypeID:9, 老公拿的, 200.0, 2016-4-22 9:26:45, zc, CardID:0
+2016-04-30 21:26:13.1087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:327 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:327, CategoryTypeID:2, 夜宵, 20.0, 2016-4-22 9:26:54, zc, CardID:0
+2016-04-30 21:26:13.6868|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:328 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:328, CategoryTypeID:9, 爸借的, 1000.0, 2016-4-22 9:27:27, sr, CardID:0
+2016-04-30 21:26:14.1712|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:329 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:329, CategoryTypeID:9, 洗衣机, 1000.0, 2016-4-22 9:28:07, zc, CardID:0
+2016-04-30 21:26:14.7806|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:330 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:330, CategoryTypeID:9, 老公工资, 3000.0, 2016-4-22 9:28:21, sr, CardID:0
+2016-04-30 21:26:16.3743|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:331 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:331, CategoryTypeID:9, 还爸, 2000.0, 2016-4-22 9:28:34, zc, CardID:0
+2016-04-30 21:26:16.8900|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:332 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:332, CategoryTypeID:1, 猪骨, 11.0, 2016-4-22 10:23:51, zc, CardID:0
+2016-04-30 21:26:17.5150|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:333 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:333, CategoryTypeID:1, 菜, 11.0, 2016-4-22 10:24:01, zc, CardID:0
+2016-04-30 21:26:18.3743|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:334 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:334, CategoryTypeID:9, 拼图, 8.0, 2016-4-22 10:24:11, zc, CardID:0
+2016-04-30 21:26:18.7962|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:335 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:335, CategoryTypeID:9, 洗衣袋, 9.0, 2016-4-22 10:24:24, zc, CardID:0
+2016-04-30 21:26:19.1087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:336 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:336, CategoryTypeID:9, 午餐, 45.0, 2016-4-23 15:53:57, zc, CardID:0
+2016-04-30 21:26:19.6243|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:337 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:337, CategoryTypeID:9, 老公拿的, 255.0, 2016-4-23 15:54:07, zc, CardID:0
+2016-04-30 21:26:20.0931|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:338 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:338, CategoryTypeID:1, 鹅仔被5块, 7.5, 2016-4-23 22:45:53, zc, CardID:0
+2016-04-30 21:26:20.6243|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:339 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:339, CategoryTypeID:12, 优优药费, 28.0, 2016-4-24 10:41:46, zc, CardID:0
+2016-04-30 21:26:21.0462|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:340 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:340, CategoryTypeID:9, 老公拿的, 100.0, 2016-4-24 16:17:16, zc, CardID:0
+2016-04-30 21:26:21.5462|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:341 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:341, CategoryTypeID:9, 猪头肉, 16.0, 2016-4-24 16:17:25, zc, CardID:0
+2016-04-30 21:26:23.6243|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:342 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:342, CategoryTypeID:9, 菜, 12.0, 2016-4-24 16:17:35, zc, CardID:0
+2016-04-30 21:26:24.2493|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:343 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:343, CategoryTypeID:9, 鱼册, 13.0, 2016-4-24 16:17:42, zc, CardID:0
+2016-04-30 21:26:24.5462|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:344 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:344, CategoryTypeID:9, 紫菜2包, 5.0, 2016-4-24 16:17:53, zc, CardID:0
+2016-04-30 21:26:24.8900|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:345 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:345, CategoryTypeID:9, 蒜头, 3.0, 2016-4-24 16:18:08, zc, CardID:0
+2016-04-30 21:26:25.2025|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:346 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:346, CategoryTypeID:9, 微信红包, 10.0, 2016-4-24 16:19:55, zc, CardID:0
+2016-04-30 21:26:25.4681|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:347 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:347, CategoryTypeID:9, 洗发露牙刷, 78.0, 2016-4-24 20:16:10, zc, CardID:0
+2016-04-30 21:26:25.7493|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:348 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:348, CategoryTypeID:1, 面包, 8.5, 2016-4-24 20:16:25, zc, CardID:0
+2016-04-30 21:26:26.0306|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:349 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:349, CategoryTypeID:1, 鞋2双, 68.0, 2016-4-24 20:16:46, zc, CardID:0
+2016-04-30 21:26:26.3431|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:350 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:350, CategoryTypeID:9, 垃圾袋, 3.0, 2016-4-24 20:17:48, sr, CardID:0
+2016-04-30 21:26:26.6087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:351 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:351, CategoryTypeID:1, 菜, 10.0, 2016-4-25 9:30:16, zc, CardID:0
+2016-04-30 21:26:27.0775|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:352 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:352, CategoryTypeID:1, 猪骨, 8.0, 2016-4-25 9:30:24, zc, CardID:0
+2016-04-30 21:26:27.4056|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:353 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:353, CategoryTypeID:1, 面, 7.0, 2016-4-25 9:30:38, zc, CardID:0
+2016-04-30 21:26:27.6556|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:354 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:354, CategoryTypeID:1, 玉米, 4.0, 2016-4-25 9:30:45, zc, CardID:0
+2016-04-30 21:26:27.9681|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:355 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:355, CategoryTypeID:1, 鸭肉, 13.5, 2016-4-25 11:58:27, zc, CardID:0
+2016-04-30 21:26:28.2181|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:356 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:356, CategoryTypeID:1, 鱼, 11.0, 2016-4-25 17:43:20, zc, CardID:0
+2016-04-30 21:26:28.5462|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:357 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:357, CategoryTypeID:1, 贝壳, 17.0, 2016-4-25 17:43:33, zc, CardID:0
+2016-04-30 21:26:28.8275|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:358 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:358, CategoryTypeID:1, 鸡肉, 15.0, 2016-4-25 17:43:41, zc, CardID:0
+2016-04-30 21:26:29.1087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:359 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:359, CategoryTypeID:9, 气球, 5.0, 2016-4-25 17:44:25, zc, CardID:0
+2016-04-30 21:26:29.3587|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:360 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:360, CategoryTypeID:9, 旺众, 53.5, 2016-4-26 13:31:31, zc, CardID:0
+2016-04-30 21:26:29.6087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:361 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:361, CategoryTypeID:1, 菜, 6.0, 2016-4-26 13:31:45, zc, CardID:0
+2016-04-30 21:26:29.8900|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:362 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:362, CategoryTypeID:1, 猪肉, 6.0, 2016-4-26 13:31:53, zc, CardID:0
+2016-04-30 21:26:30.1087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:363 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:363, CategoryTypeID:1, 面包, 9.0, 2016-4-26 13:32:00, zc, CardID:0
+2016-04-30 21:26:30.4368|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:364 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:364, CategoryTypeID:1, 鱼, 20.0, 2016-4-26 13:32:07, zc, CardID:0
+2016-04-30 21:26:30.7025|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:365 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:365, CategoryTypeID:1, 芹菜葱, 1.0, 2016-4-26 13:32:45, zc, CardID:0
+2016-04-30 21:26:30.9525|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:366 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:366, CategoryTypeID:9, 废品, 20.0, 2016-4-26 13:33:11, sr, CardID:0
+2016-04-30 21:26:32.0306|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:367 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:367, CategoryTypeID:12, 药费, 40.0, 2016-4-26 12:26:11, zc, CardID:0
+2016-04-30 21:26:32.3431|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:368 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:368, CategoryTypeID:9, 六合, 20.0, 2016-4-26 12:26:23, zc, CardID:0
+2016-04-30 21:26:32.6087|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:369 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:369, CategoryTypeID:9, 爸报销, 50.0, 2016-4-26 12:26:42, sr, CardID:0
+2016-04-30 21:26:32.8587|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:370 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:370, CategoryTypeID:1, 西洋菜豆芽, 5.0, 2016-4-27 12:27:20, zc, CardID:0
+2016-04-30 21:26:33.1400|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:371 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:371, CategoryTypeID:1, 黄瓜, 12.0, 2016-4-27 12:27:41, zc, CardID:0
+2016-04-30 21:26:33.4525|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:372 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:372, CategoryTypeID:2, 午餐, 20.0, 2016-4-27 12:28:01, zc, CardID:0
+2016-04-30 21:26:33.6868|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:373 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:373, CategoryTypeID:1, 夜宵啤酒, 10.0, 2016-4-27 12:28:16, zc, CardID:0
+2016-04-30 21:26:34.1556|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:374 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:374, CategoryTypeID:1, 咸金枣, 1.0, 2016-4-27 12:28:43, zc, CardID:0
+2016-04-30 21:26:34.4681|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:375 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:375, CategoryTypeID:9, 桌上拿的, 2.0, 2016-4-26 12:31:09, sr, CardID:0
+2016-04-30 21:26:34.8275|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:376 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:376, CategoryTypeID:9, 阳光超市, 20.0, 2016-4-26 12:31:32, zc, CardID:0
+2016-04-30 21:26:35.2025|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:377 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:377, CategoryTypeID:1, 面包, 4.0, 2016-4-28 2:56:20, zc, CardID:0
+2016-04-30 21:26:35.5618|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:378 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:378, CategoryTypeID:1, 猪肉猪骨, 21.0, 2016-4-28 2:56:32, zc, CardID:0
+2016-04-30 21:26:35.9368|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:379 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:379, CategoryTypeID:1, 优优拖鞋, 6.0, 2016-4-28 2:57:16, zc, CardID:0
+2016-04-30 21:26:36.2181|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:380 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:380, CategoryTypeID:1, 豆腐, 3.0, 2016-4-28 2:57:37, zc, CardID:0
+2016-04-30 21:26:36.5931|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:381 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:381, CategoryTypeID:1, 鱼, 13.5, 2016-4-28 2:57:44, zc, CardID:0
+2016-04-30 21:26:37.0618|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:382 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:382, CategoryTypeID:1, 芹菜葱, 1.0, 2016-4-28 2:57:54, zc, CardID:0
+2016-04-30 21:26:37.2962|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:383 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:383, CategoryTypeID:9, 老公拿的, 100.0, 2016-4-28 2:58:18, sr, CardID:0
+2016-04-30 21:26:37.5306|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:384 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:384, CategoryTypeID:9, 姜, 2.5, 2016-4-28 4:59:49, zc, CardID:0
+2016-04-30 21:26:37.7962|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:385 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:385, CategoryTypeID:1, 玉米, 3.0, 2016-4-28 5:00:00, zc, CardID:0
+2016-04-30 21:26:38.8118|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:386 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:386, CategoryTypeID:1, 502胶2罐, 2.0, 2016-4-28 5:00:20, zc, CardID:0
+2016-04-30 21:26:39.3431|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:387 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:387, CategoryTypeID:9, 老公拿的, 200.0, 2016-4-28 21:17:53, sr, CardID:0
+2016-04-30 21:26:39.6243|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:388 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:388, CategoryTypeID:1, 菜, 8.5, 2016-4-28 21:18:11, zc, CardID:0
+2016-04-30 21:26:39.9056|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:389 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:389, CategoryTypeID:1, 猪骨, 15.0, 2016-4-28 21:18:20, zc, CardID:0
+2016-04-30 21:26:40.3118|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:390 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:390, CategoryTypeID:1, 熟肉, 10.0, 2016-4-28 21:18:39, zc, CardID:0
+2016-04-30 21:26:42.3275|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:391 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:391, CategoryTypeID:1, 鱼, 20.0, 2016-4-28 21:18:44, zc, CardID:0
+2016-04-30 21:26:42.5931|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:392 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:392, CategoryTypeID:9, 老公拿的, 400.0, 2016-4-29 22:32:14, sr, CardID:0
+2016-04-30 21:26:42.8743|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:393 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:393, CategoryTypeID:9, 老公拿的, 160.0, 2016-4-29 22:32:26, zc, CardID:0
+2016-04-30 21:26:43.1400|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:394 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:394, CategoryTypeID:1, 快餐, 30.0, 2016-4-29 22:32:39, zc, CardID:0
+2016-04-30 21:26:43.4681|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:395 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:395, CategoryTypeID:1, 冬瓜, 5.0, 2016-4-29 22:32:46, zc, CardID:0
+2016-04-30 21:26:43.7337|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:396 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:396, CategoryTypeID:1, 面包, 16.0, 2016-4-30 9:10:28, zc, CardID:0
+2016-04-30 21:26:44.0150|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:397 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:397, CategoryTypeID:8, 优优衣服, 162.0, 2016-4-30 9:10:46, zc, CardID:0
+2016-04-30 21:26:44.3275|INFO|AALifeWeb_SyncItemList| UserID:24515 | ItemAppID:398 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:398, CategoryTypeID:8, 优优药费, 33.0, 2016-4-30 9:11:00, zc, CardID:0
+2016-04-30 21:37:42.3900|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq40881, `承諾變枷鎖の, http://q.qlogo.cn/qqapp/100761541/B0C79020CB795587B2B75B68F91FED4B/100, sjqq_tx, IsUpdate:1
+2016-04-30 21:37:42.3900|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, B0C79020CB795587B2B75B68F91FED4B, E8B8B116C9F3C0D86ECDF72573145576, UserID:0, OldUserID:0, sjqq
+2016-04-30 21:39:12.6243|INFO|AALifeWeb_SyncItemList| UserID:18672 | ItemAppID:757 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:757, CategoryTypeID:4, 奶茶, 25.6, 2016-4-30 21:39:10, zc, CardID:16
+2016-04-30 21:39:35.7337|INFO|AALifeWeb_SyncItemList| UserID:20684 | ItemAppID:665 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:665, CategoryTypeID:46, 沌口武商，饮料, 8.9, 2016-4-30 21:39:32, zc, CardID:0
+2016-04-30 21:40:08.2650|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq54517, 未命名, http://q.qlogo.cn/qqapp/100761541/C99D8F9B0E8EB16B5679488F181C9EA6/100, sjqq_tx, IsUpdate:1
+2016-04-30 21:40:08.2650|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, C99D8F9B0E8EB16B5679488F181C9EA6, 42E1588D81C3592F76607DBCC109F647, UserID:0, OldUserID:0, sjqq
+2016-04-30 21:43:43.9525|INFO|AALifeWeb_SyncItemList| UserID:25315 | ItemAppID:1 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:1, CategoryTypeID:12, 米粉, 5.0, 2016-4-30 21:43:20, zc, CardID:0
+2016-04-30 21:48:44.6087|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq23378, 未命名, http://q.qlogo.cn/qqapp/100761541/C99D8F9B0E8EB16B5679488F181C9EA6/100, sjqq_web, IsUpdate:1
+2016-04-30 21:48:44.6087|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, C99D8F9B0E8EB16B5679488F181C9EA6, 42E1588D81C3592F76607DBCC109F647, UserID:0, OldUserID:0, sjqq
+2016-04-30 21:57:58.3118|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq65114, 爱点心房—客服, http://q.qlogo.cn/qqapp/100761541/E6B956CF3A858BC04111D4F1CF2D3E48/100, sjqq_tx, IsUpdate:1
+2016-04-30 21:57:58.3118|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, E6B956CF3A858BC04111D4F1CF2D3E48, CE993268102A86B00AA988257DA0E4D2, UserID:0, OldUserID:0, sjqq
+2016-04-30 22:23:22.9837|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:208 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:208, CategoryTypeID:6, 袜子, 5.0, 2016-4-25 21:15:56, zc, CardID:0
+2016-04-30 22:23:23.3118|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:209 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:209, CategoryTypeID:6, 芒果, 30.0, 2016-4-25 21:16:02, zc, CardID:0
+2016-04-30 22:23:23.5462|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:210 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:210, CategoryTypeID:6, 租车, 66.0, 2016-4-26 23:50:24, zc, CardID:0
+2016-04-30 22:23:23.8431|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:211 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:211, CategoryTypeID:6, 买菜, 2.5, 2016-4-26 23:50:34, zc, CardID:0
+2016-04-30 22:23:24.0931|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:212 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:212, CategoryTypeID:6, 车费, 104.0, 2016-4-28 12:04:21, sr, CardID:0
+2016-04-30 22:23:24.3431|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:213 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:213, CategoryTypeID:6, 租车, 66.0, 2016-4-28 12:04:28, zc, CardID:0
+2016-04-30 22:23:24.5931|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:214 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:214, CategoryTypeID:6, 修车, 100.0, 2016-4-28 12:04:35, zc, CardID:0
+2016-04-30 22:23:24.8587|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:215 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:215, CategoryTypeID:6, 买菜, 23.0, 2016-4-28 12:05:00, zc, CardID:0
+2016-04-30 22:23:25.1400|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:216 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:216, CategoryTypeID:6, 肥皂, 8.0, 2016-4-28 12:05:08, zc, CardID:0
+2016-04-30 22:23:25.3900|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:217 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:217, CategoryTypeID:6, 葱, 3.0, 2016-4-28 12:05:16, zc, CardID:0
+2016-04-30 22:23:25.6868|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:218 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:218, CategoryTypeID:6, 租车, 66.0, 2016-4-28 15:22:26, zc, CardID:0
+2016-04-30 22:23:25.9368|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:219 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:219, CategoryTypeID:6, 外快, 300.0, 2016-4-28 15:23:07, sr, CardID:0
+2016-04-30 22:23:26.2650|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:220 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:220, CategoryTypeID:6, 车费, 256.0, 2016-4-28 21:51:37, sr, CardID:0
+2016-04-30 22:23:26.5306|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:221 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:221, CategoryTypeID:6, 鞋, 210.0, 2016-4-28 21:51:48, zc, CardID:0
+2016-04-30 22:23:26.8275|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:222 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:222, CategoryTypeID:6, 拿药, 13.0, 2016-4-28 21:52:12, zc, CardID:0
+2016-04-30 22:23:27.1087|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:223 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:223, CategoryTypeID:6, 眼镜, 20.0, 2016-4-28 21:52:20, zc, CardID:0
+2016-04-30 22:23:27.3743|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:224 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:224, CategoryTypeID:6, 零食, 2.0, 2016-4-28 21:52:28, zc, CardID:0
+2016-04-30 22:23:27.6556|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:225 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:225, CategoryTypeID:6, 租车, 66.0, 2016-4-29 20:19:22, zc, CardID:0
+2016-04-30 22:23:27.9681|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:226 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:226, CategoryTypeID:6, 超市, 37.0, 2016-4-29 20:20:07, zc, CardID:0
+2016-04-30 22:23:28.2650|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:227 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:227, CategoryTypeID:6, 馒头菜, 6.0, 2016-4-29 20:20:23, zc, CardID:0
+2016-04-30 22:23:28.5306|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:228 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:228, CategoryTypeID:6, 租车, 66.0, 2016-4-30 21:10:41, zc, CardID:0
+2016-04-30 22:23:28.8743|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:229 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:229, CategoryTypeID:6, 车费, 6.0, 2016-4-30 21:10:48, zc, CardID:0
+2016-04-30 22:23:29.1556|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:230 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:230, CategoryTypeID:6, 话费, 100.0, 2016-4-30 21:11:00, zc, CardID:0
+2016-04-30 22:23:29.4368|INFO|AALifeWeb_SyncItemList| UserID:25032 | ItemAppID:231 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:231, CategoryTypeID:6, 车费, 144.0, 2016-4-30 22:22:56, sr, CardID:0
+2016-04-30 22:24:45.9525|INFO|AALifeWeb_SyncItemList| UserID:20507 | ItemAppID:537 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:537, CategoryTypeID:3, 烟, 22.0, 2016-4-30 22:24:02, zc, CardID:0
+2016-04-30 22:24:46.1712|INFO|AALifeWeb_SyncItemList| UserID:20507 | ItemAppID:538 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:538, CategoryTypeID:2, 午饭, 65.0, 2016-4-30 22:24:22, zc, CardID:0
+2016-04-30 22:24:46.3743|INFO|AALifeWeb_SyncItemList| UserID:20507 | ItemAppID:539 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:539, CategoryTypeID:9, 驾考，练车, 5.0, 2016-4-30 22:24:35, zc, CardID:0
+2016-04-30 22:27:49.7025|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:138 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:138, CategoryTypeID:9, 车费, 20.0, 2016-4-1 19:16:25, zc, CardID:0
+2016-04-30 22:27:49.8431|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:139 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:139, CategoryTypeID:12, 车费, 20.0, 2016-4-2 10:55:25, zc, CardID:0
+2016-04-30 22:27:49.9837|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:141 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:141, CategoryTypeID:12, 车费, 20.0, 2016-4-3 10:56:37, zc, CardID:0
+2016-04-30 22:27:50.1556|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:142 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:142, CategoryTypeID:12, 车费, 20.0, 2016-4-5 20:47:44, zc, CardID:0
+2016-04-30 22:27:50.3275|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:143 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:143, CategoryTypeID:12, 车费, 20.0, 2016-4-7 8:21:43, zc, CardID:0
+2016-04-30 22:27:50.4837|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:144 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:144, CategoryTypeID:12, 回武汉车费, 4.0, 2016-4-21 9:25:28, zc, CardID:0
+2016-04-30 22:27:50.6712|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:145 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:145, CategoryTypeID:9, 胡圣大借支生活费, 2000.0, 2016-4-20 9:26:35, sr, CardID:0
+2016-04-30 22:27:50.8587|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:153 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:153, CategoryTypeID:12, 上下班车费, 20.0, 2016-4-19 9:32:14, zc, CardID:0
+2016-04-30 22:27:51.0150|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:154 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:154, CategoryTypeID:12, 上下班车费, 20.0, 2016-4-20 9:33:15, zc, CardID:0
+2016-04-30 22:27:51.1712|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:155 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:155, CategoryTypeID:12, 上下班车费, 20.0, 2016-4-11 9:37:37, zc, CardID:0
+2016-04-30 22:27:51.3587|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:156 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:156, CategoryTypeID:12, 上下班车费, 20.0, 2016-4-12 9:37:37, zc, CardID:0
+2016-04-30 22:27:51.4993|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:157 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:157, CategoryTypeID:12, 上下班车费, 20.0, 2016-4-13 9:37:37, zc, CardID:0
+2016-04-30 22:27:51.6556|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:158 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:158, CategoryTypeID:12, 上下班车费, 20.0, 2016-4-14 9:37:37, zc, CardID:0
+2016-04-30 22:27:51.8431|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:159 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:159, CategoryTypeID:12, 回家车费, 11.0, 2016-4-21 22:22:45, zc, CardID:0
+2016-04-30 22:27:51.9681|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:160 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:160, CategoryTypeID:12, 上班车费, 2.0, 2016-4-27 22:25:53, zc, CardID:0
+2016-04-30 22:27:52.1087|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:161 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:161, CategoryTypeID:12, 上班车费, 2.0, 2016-4-28 22:25:53, zc, CardID:0
+2016-04-30 22:27:52.2650|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:162 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:162, CategoryTypeID:12, 上班车费, 2.0, 2016-4-29 22:25:53, zc, CardID:0
+2016-04-30 22:27:52.4993|INFO|AALifeWeb_SyncItemList| UserID:24723 | ItemAppID:163 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:163, CategoryTypeID:9, 住宿费, 60.0, 2016-4-29 22:26:34, zc, CardID:0
+2016-04-30 22:31:50.1087|INFO|AALifeWeb_SyncItemList| UserID:14470 | ItemAppID:602 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:602, CategoryTypeID:16, 冰淇淋, 10.0, 2016-4-27 14:50:59, zc, CardID:0
+2016-04-30 22:31:52.9681|INFO|AALifeWeb_SyncItemList| UserID:14470 | ItemAppID:603 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:603, CategoryTypeID:16, 摸奖, 40.0, 2016-4-28 14:59:46, zc, CardID:0
+2016-04-30 22:31:53.2025|INFO|AALifeWeb_SyncItemList| UserID:14470 | ItemAppID:604 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:604, CategoryTypeID:14, 彩票, 30.0, 2016-4-29 16:37:40, zc, CardID:0
+2016-04-30 22:31:53.4368|INFO|AALifeWeb_SyncItemList| UserID:14470 | ItemAppID:605 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:605, CategoryTypeID:16, 彩票, 12.0, 2016-4-30 22:31:44, zc, CardID:0
+2016-04-30 22:37:46.8118|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540253
+2016-04-30 22:37:47.2806|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540254
+2016-04-30 22:37:58.1400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540255
+2016-04-30 22:38:02.3587|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540256
+2016-04-30 22:38:02.8431|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540257
+2016-04-30 22:38:03.4368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540258
+2016-04-30 22:38:03.9056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540259
+2016-04-30 22:38:04.4056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540260
+2016-04-30 22:38:05.2650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540261
+2016-04-30 22:38:09.2806|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540262
+2016-04-30 22:38:10.1868|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540263
+2016-04-30 22:38:10.6243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540264
+2016-04-30 22:38:11.1243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540265
+2016-04-30 22:38:11.7181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540266
+2016-04-30 22:38:12.7025|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540267
+2016-04-30 22:38:14.1400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540268
+2016-04-30 22:38:15.2806|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540269
+2016-04-30 22:38:16.0306|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540270
+2016-04-30 22:38:16.7181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540271
+2016-04-30 22:38:17.6556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540272
+2016-04-30 22:38:19.4681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540273
+2016-04-30 22:38:20.1400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540274
+2016-04-30 22:38:23.8900|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540275
+2016-04-30 22:38:24.4056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540276
+2016-04-30 22:38:25.7962|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540278
+2016-04-30 22:38:27.0306|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540279
+2016-04-30 22:38:27.4056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:540280
+2016-04-30 22:38:27.7493|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554899
+2016-04-30 22:38:28.2181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554900
+2016-04-30 22:38:28.6556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554901
+2016-04-30 22:38:29.1556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554902
+2016-04-30 22:38:29.5775|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554903
+2016-04-30 22:38:29.9681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554904
+2016-04-30 22:38:30.4681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554905
+2016-04-30 22:38:30.8900|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554906
+2016-04-30 22:38:31.2650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554907
+2016-04-30 22:38:31.6556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554908
+2016-04-30 22:38:32.0931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554909
+2016-04-30 22:38:32.4993|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554910
+2016-04-30 22:38:32.9368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554911
+2016-04-30 22:38:33.4681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554912
+2016-04-30 22:38:33.9525|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554913
+2016-04-30 22:38:34.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554914
+2016-04-30 22:38:34.7650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554915
+2016-04-30 22:38:35.2025|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554916
+2016-04-30 22:38:35.6556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554917
+2016-04-30 22:38:36.0618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554918
+2016-04-30 22:38:36.4368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554919
+2016-04-30 22:38:36.8118|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554920
+2016-04-30 22:38:37.1556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554921
+2016-04-30 22:38:37.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554922
+2016-04-30 22:38:37.9681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:554923
+2016-04-30 22:38:38.3275|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558449
+2016-04-30 22:38:38.6556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558450
+2016-04-30 22:38:39.0150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558451
+2016-04-30 22:38:39.4368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558452
+2016-04-30 22:38:39.8587|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558453
+2016-04-30 22:38:43.3275|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558454
+2016-04-30 22:38:43.7181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558455
+2016-04-30 22:38:44.1243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558456
+2016-04-30 22:38:47.7337|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558457
+2016-04-30 22:38:48.1868|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:558458
+2016-04-30 22:38:48.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:566009
+2016-04-30 22:38:48.8900|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:566010
+2016-04-30 22:38:49.2493|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:566011
+2016-04-30 22:38:49.6400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:566012
+2016-04-30 22:38:50.0462|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578526
+2016-04-30 22:38:50.3900|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578527
+2016-04-30 22:38:50.7337|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578528
+2016-04-30 22:38:54.1087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578529
+2016-04-30 22:38:54.6087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578530
+2016-04-30 22:38:55.1712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578531
+2016-04-30 22:38:55.5775|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578532
+2016-04-30 22:38:55.9681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578533
+2016-04-30 22:38:56.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578534
+2016-04-30 22:38:56.8118|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578535
+2016-04-30 22:38:57.2025|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578536
+2016-04-30 22:38:57.6243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578537
+2016-04-30 22:38:58.0618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578538
+2016-04-30 22:38:58.4525|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578539
+2016-04-30 22:38:58.8587|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578540
+2016-04-30 22:38:59.3431|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578541
+2016-04-30 22:38:59.7025|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578542
+2016-04-30 22:38:59.9993|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578543
+2016-04-30 22:39:00.3900|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578544
+2016-04-30 22:39:00.7337|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578545
+2016-04-30 22:39:01.0306|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578546
+2016-04-30 22:39:01.4056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578547
+2016-04-30 22:39:01.7650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578548
+2016-04-30 22:39:02.0775|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578549
+2016-04-30 22:39:02.4681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578550
+2016-04-30 22:39:02.8587|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578551
+2016-04-30 22:39:03.1868|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578552
+2016-04-30 22:39:03.5150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578553
+2016-04-30 22:39:03.8431|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578554
+2016-04-30 22:39:04.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578555
+2016-04-30 22:39:04.9056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578556
+2016-04-30 22:39:05.2650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578557
+2016-04-30 22:39:05.5931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578558
+2016-04-30 22:39:05.9368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578559
+2016-04-30 22:39:06.3118|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578560
+2016-04-30 22:39:06.6712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578561
+2016-04-30 22:39:06.9993|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578562
+2016-04-30 22:39:07.2962|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578563
+2016-04-30 22:39:08.0150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578564
+2016-04-30 22:39:08.4056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578565
+2016-04-30 22:39:08.7650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578566
+2016-04-30 22:39:09.2025|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578567
+2016-04-30 22:39:09.5931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578568
+2016-04-30 22:39:09.9681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578569
+2016-04-30 22:39:13.3900|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578570
+2016-04-30 22:39:13.9525|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:578571
+2016-04-30 22:39:14.4212|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597221
+2016-04-30 22:39:15.1087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597222
+2016-04-30 22:39:16.1087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597223
+2016-04-30 22:39:16.8275|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597224
+2016-04-30 22:39:18.2493|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597225
+2016-04-30 22:39:18.6087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597226
+2016-04-30 22:39:19.5462|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597227
+2016-04-30 22:39:20.6712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597228
+2016-04-30 22:39:21.6400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597229
+2016-04-30 22:39:22.7493|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597230
+2016-04-30 22:39:23.4681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597231
+2016-04-30 22:39:23.9212|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597232
+2016-04-30 22:39:29.7650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597233
+2016-04-30 22:39:30.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597234
+2016-04-30 22:39:33.7337|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597235
+2016-04-30 22:39:37.5775|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597236
+2016-04-30 22:39:38.2181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597237
+2016-04-30 22:39:38.5931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597238
+2016-04-30 22:39:39.0306|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597239
+2016-04-30 22:39:39.6243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597240
+2016-04-30 22:39:42.0775|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597241
+2016-04-30 22:39:50.4525|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597242
+2016-04-30 22:40:53.4056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597245
+2016-04-30 22:40:58.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597246
+2016-04-30 22:40:59.2181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597247
+2016-04-30 22:40:59.9056|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597248
+2016-04-30 22:41:00.6087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597249
+2016-04-30 22:41:01.1087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597250
+2016-04-30 22:41:01.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597251
+2016-04-30 22:41:02.0931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597252
+2016-04-30 22:41:02.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597253
+2016-04-30 22:41:03.1087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597254
+2016-04-30 22:41:03.6400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597255
+2016-04-30 22:41:06.2337|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:602852
+2016-04-30 22:41:06.8118|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:602853
+2016-04-30 22:41:07.4525|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:602854
+2016-04-30 22:41:08.1400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:602855
+2016-04-30 22:41:08.7962|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:602856
+2016-04-30 22:41:09.8743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:602857
+2016-04-30 22:41:10.6243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:606623
+2016-04-30 22:41:11.1868|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:606624
+2016-04-30 22:41:11.8743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:606625
+2016-04-30 22:41:12.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:606626
+2016-04-30 22:41:13.1400|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:606627
+2016-04-30 22:41:13.8431|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:606628
+2016-04-30 22:41:14.5150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:606629
+2016-04-30 22:41:15.0775|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617324
+2016-04-30 22:41:15.5931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617325
+2016-04-30 22:41:16.1087|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617326
+2016-04-30 22:41:16.6556|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617327
+2016-04-30 22:41:17.3275|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617328
+2016-04-30 22:41:17.7181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617329
+2016-04-30 22:41:18.0306|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617330
+2016-04-30 22:41:18.4212|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617331
+2016-04-30 22:41:18.7962|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617332
+2016-04-30 22:41:19.1712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:617333
+2016-04-30 22:41:19.5150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632935
+2016-04-30 22:41:20.0931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632936
+2016-04-30 22:41:20.7337|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632937
+2016-04-30 22:41:21.5931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632938
+2016-04-30 22:41:23.2650|INFO|AALifeWeb_SyncItemList| UserID:23809 | ItemAppID:209 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:209, CategoryTypeID:6, 一次性杯, 3.0, 2016-4-30 22:39:42, zc, CardID:12
+2016-04-30 22:41:23.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632939
+2016-04-30 22:41:23.7181|INFO|AALifeWeb_SyncItemList| UserID:23809 | ItemAppID:210 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:210, CategoryTypeID:6, 电蚊液, 36.0, 2016-4-30 22:39:32, zc, CardID:12
+2016-04-30 22:41:23.9212|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632940
+2016-04-30 22:41:24.1400|INFO|AALifeWeb_SyncItemList| UserID:23809 | ItemAppID:211 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:211, CategoryTypeID:6, 纸巾, 17.0, 2016-4-30 22:40:23, zc, CardID:0
+2016-04-30 22:41:24.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632943
+2016-04-30 22:41:24.9368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632946
+2016-04-30 22:41:25.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632948
+2016-04-30 22:41:25.8118|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632950
+2016-04-30 22:41:26.1712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632952
+2016-04-30 22:41:26.5618|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632955
+2016-04-30 22:41:26.9525|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632957
+2016-04-30 22:41:27.7025|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632958
+2016-04-30 22:41:28.5462|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632959
+2016-04-30 22:41:29.2493|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632960
+2016-04-30 22:41:29.7337|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632961
+2016-04-30 22:41:30.1712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:632962
+2016-04-30 22:41:30.6243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757678
+2016-04-30 22:41:30.9681|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757679
+2016-04-30 22:41:31.3587|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757680
+2016-04-30 22:41:31.6868|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757682
+2016-04-30 22:41:32.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757683
+2016-04-30 22:41:33.0306|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757684
+2016-04-30 22:41:33.4368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757685
+2016-04-30 22:41:33.7181|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757686
+2016-04-30 22:41:34.0150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757687
+2016-04-30 22:41:34.3431|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757689
+2016-04-30 22:41:34.8900|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757690
+2016-04-30 22:41:35.4525|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757691
+2016-04-30 22:41:36.0150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757692
+2016-04-30 22:41:36.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757693
+2016-04-30 22:41:36.6712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757695
+2016-04-30 22:41:37.0150|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757696
+2016-04-30 22:41:37.4368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757697
+2016-04-30 22:41:37.7962|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757698
+2016-04-30 22:41:38.1712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757699
+2016-04-30 22:41:38.4993|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757701
+2016-04-30 22:41:38.9368|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757702
+2016-04-30 22:41:39.3431|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757703
+2016-04-30 22:41:39.6868|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757705
+2016-04-30 22:41:40.0462|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757706
+2016-04-30 22:41:40.3743|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757707
+2016-04-30 22:41:40.6712|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757708
+2016-04-30 22:41:40.9993|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757710
+2016-04-30 22:41:41.3431|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757711
+2016-04-30 22:41:41.7650|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757712
+2016-04-30 22:41:42.0306|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757713
+2016-04-30 22:41:42.2962|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:757714
+2016-04-30 22:46:06.4368|INFO|AALifeWeb_SyncItemList| UserID:20363 | ItemAppID:207 | ItemWebID:757699 | ItemInfo -> ItemID:757699, ItemAppID:207, CategoryTypeID:2, 美团, 17.0, 2016-4-16 22:45:33, zc, CardID:0
+2016-04-30 22:46:08.1087|INFO|AALifeWeb_SyncItemList| UserID:20363 | ItemAppID:208 | ItemWebID:757701 | ItemInfo -> ItemID:757701, ItemAppID:208, CategoryTypeID:4, 口水刘, 11.0, 2016-4-16 22:45:42, zc, CardID:0
+2016-04-30 22:46:14.1243|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597243
+2016-04-30 22:46:14.5931|INFO|AALifeWeb_SyncItemListWebBack| Success:True | ItemID:True | ItemAppID:597244
+2016-04-30 22:48:34.1243|INFO|AALifeWeb_SyncItemList| UserID:18811 | ItemAppID:897 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:897, CategoryTypeID:6, 零食等, 72.0, 2016-4-29 22:47:49, zc, CardID:0
+2016-04-30 22:48:34.4368|INFO|AALifeWeb_SyncItemList| UserID:18811 | ItemAppID:898 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:898, CategoryTypeID:6, 公共基础知识, 26.0, 2016-4-30 22:23:08, zc, CardID:0
+2016-04-30 22:48:34.7181|INFO|AALifeWeb_SyncItemList| UserID:18811 | ItemAppID:899 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:899, CategoryTypeID:6, 大米, 10.0, 2016-4-30 22:23:17, zc, CardID:0
+2016-04-30 22:48:34.9368|INFO|AALifeWeb_SyncItemList| UserID:18811 | ItemAppID:900 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:900, CategoryTypeID:6, 交房租平日生活费, 56.0, 2016-4-30 22:42:54, zc, CardID:0
+2016-04-30 22:48:35.1712|INFO|AALifeWeb_SyncItemList| UserID:18811 | ItemAppID:901 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:901, CategoryTypeID:6, 砂锅粉, 8.0, 2016-4-29 22:47:28, zc, CardID:0
+2016-04-30 22:50:57.8900|INFO|AALifeWeb_SyncItemList| UserID:25143 | ItemAppID:23 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:23, CategoryTypeID:1, 给茆支付宝, 90.0, 2016-4-30 22:50:40, zc, CardID:0
+2016-04-30 22:53:06.0462|INFO|AALifeWeb_SyncItemList| UserID:25143 | ItemAppID:24 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:24, CategoryTypeID:1, 晚饭, 22.0, 2016-4-30 22:53:03, zc, CardID:0
+2016-04-30 23:14:35.8900|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:97 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:97, CategoryTypeID:9, 午饭, 6.1, 2016-4-29 11:42:00, zc, CardID:0
+2016-04-30 23:14:36.1712|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:98 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:98, CategoryTypeID:9, 地铁费(潭村-车陂), 3.0, 2016-5-1 17:06:38, zc, CardID:0
+2016-04-30 23:14:36.4837|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:99 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:99, CategoryTypeID:9, 👨寄钱, 1000.0, 2016-5-1 17:07:31, sr, CardID:0
+2016-04-30 23:14:36.7650|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:100 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:100, CategoryTypeID:9, 地铁费(车陂-石基), 6.0, 2016-5-1 17:09:23, zc, CardID:0
+2016-04-30 23:14:37.0150|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:101 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:101, CategoryTypeID:9, 石基搭公交, 2.0, 2016-5-1 17:09:39, zc, CardID:0
+2016-04-30 23:14:37.2337|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:102 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:102, CategoryTypeID:9, 虎皮卷, 3.5, 2016-5-1 17:10:04, zc, CardID:0
+2016-04-30 23:14:37.4837|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:103 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:103, CategoryTypeID:9, 石基搭公交, 2.0, 2016-5-1 17:10:18, zc, CardID:0
+2016-04-30 23:14:37.7337|INFO|AALifeWeb_SyncItemList| UserID:24438 | ItemAppID:104 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:104, CategoryTypeID:9, 地铁费(石基-昌岗), 7.0, 2016-5-1 17:14:21, zc, CardID:0
+2016-04-30 23:22:10.1868|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq99684, 天台太挤了，下来, http://q.qlogo.cn/qqapp/100761541/CF04DC44B4FDE4A393DD29953A1AA112/100, sjqq_tx, IsUpdate:1
+2016-04-30 23:22:10.1868|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, CF04DC44B4FDE4A393DD29953A1AA112, 64184FB6461261BA7B22B2F24A3EC6EE, UserID:0, OldUserID:0, sjqq
+2016-04-30 23:27:31.9681|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, sjqq15306, 伴✧妳、, http://q.qlogo.cn/qqapp/100761541/F304846F2A736C0DA8E2FC2B2DE5D300/100, sjqq_tx, IsUpdate:1
+2016-04-30 23:27:31.9681|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> OAuthID:0, F304846F2A736C0DA8E2FC2B2DE5D300, D8AE728335DA66D76F809F41B1E05140, UserID:0, OldUserID:0, sjqq
+2016-04-30 23:35:57.0150|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:355 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:355, CategoryTypeID:62, 晚餐🍱, 8.0, 2016-4-30 20:01:31, zc, CardID:0
+2016-04-30 23:35:57.2337|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:356 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:356, CategoryTypeID:1, 晚餐🍱, 8.0, 2016-4-30 20:01:19, zc, CardID:0
+2016-04-30 23:35:57.4837|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:357 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:357, CategoryTypeID:34, 收入(龙)💰💰💰, 1000.0, 2016-4-30 23:31:27, sr, CardID:0
+2016-04-30 23:35:57.6243|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:358 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:358, CategoryTypeID:70, 静给予龙, 800.0, 2016-4-30 23:31:21, zc, CardID:0
+2016-04-30 23:35:57.7962|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:359 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:359, CategoryTypeID:1, 口香糖, 19.0, 2016-4-30 23:35:52, zc, CardID:0
+2016-04-30 23:43:07.5618|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:356 | ItemWebID:0 | ItemInfo -> ItemID:775220, ItemAppID:356, CategoryTypeID:1, 早餐🍜🍱, 12.0, 2016-4-30 23:42:20, zc, CardID:0
+2016-04-30 23:43:07.8587|INFO|AALifeWeb_SyncItemList| UserID:23669 | ItemAppID:359 | ItemWebID:0 | ItemInfo -> ItemID:775223, ItemAppID:359, CategoryTypeID:1, 口香糖, 15.0, 2016-4-30 23:42:30, zc, CardID:0
+2016-04-30 23:49:04.6400|INFO|AALifeWeb_SyncItemList| UserID:24022 | ItemAppID:231 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:231, CategoryTypeID:8, 鞋, 303.0, 2016-4-30 23:46:19, zc, CardID:0
+2016-04-30 23:49:05.8431|INFO|AALifeWeb_SyncItemList| UserID:24022 | ItemAppID:232 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:232, CategoryTypeID:8, 段志彬还, 2000.0, 2016-4-30 23:46:36, hr, CardID:0
+2016-04-30 23:50:01.4681|INFO|AALifeWeb_SyncItemList| UserID:24022 | ItemAppID:233 | ItemWebID:0 | ItemInfo -> ItemID:0, ItemAppID:233, CategoryTypeID:9, 住宿，零食等, 450.0, 2016-4-30 23:49:53, zc, CardID:0

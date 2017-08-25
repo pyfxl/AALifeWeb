@@ -1,0 +1,5 @@
+D:\fxlweb\AALifeWeb2015\DBUtility\bin\Release\AALife.DBUtility.dll
+D:\fxlweb\AALifeWeb2015\DBUtility\bin\Release\AALife.DBUtility.pdb
+D:\fxlweb\AALifeWeb2015\DBUtility\obj\Release\AALife.DBUtility.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWeb2015\DBUtility\obj\Release\AALife.DBUtility.dll
+D:\fxlweb\AALifeWeb2015\DBUtility\obj\Release\AALife.DBUtility.pdb

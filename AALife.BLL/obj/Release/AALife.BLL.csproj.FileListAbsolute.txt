@@ -1,0 +1,11 @@
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.BLL.dll
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.BLL.pdb
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.DAL.dll
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.Model.dll
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.DBUtility.dll
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.DAL.pdb
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.Model.pdb
+D:\fxlweb\AALifeWeb2015\BLL\bin\Release\AALife.DBUtility.pdb
+D:\fxlweb\AALifeWeb2015\BLL\obj\Release\AALife.BLL.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWeb2015\BLL\obj\Release\AALife.BLL.dll
+D:\fxlweb\AALifeWeb2015\BLL\obj\Release\AALife.BLL.pdb

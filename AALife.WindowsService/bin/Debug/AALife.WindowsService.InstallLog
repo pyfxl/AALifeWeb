@@ -1,0 +1,30 @@
+﻿正在安装程序集“D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.InstallLog
+   assemblypath = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe
+   servicename = AALifeService
+正在安装服务 AALifeService...
+正在日志 Application 中创建 EventLog 源 AALifeService...
+正在回滚程序集“D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.InstallLog
+   assemblypath = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe
+   servicename = AALifeService
+正在将事件日志还原到源 AALifeService 的前一状态。
+正在安装程序集“D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.InstallLog
+   assemblypath = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe
+   servicename = AALifeService
+正在安装服务 AALifeService...
+已成功安装服务 AALifeService。
+正在日志 Application 中创建 EventLog 源 AALifeService...
+正在提交程序集“D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe”。
+受影响的参数是:
+   logtoconsole = 
+   logfile = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.InstallLog
+   assemblypath = D:\fxlweb\AALifeWeb2015\AALife.WindowsService\bin\Debug\AALife.WindowsService.exe
+   servicename = AALifeService

@@ -1,0 +1,72 @@
+﻿html,body,tbody,div,p,a,img,table,tr,td,th,h1,h2,h3,h4,h5,span,li,form,input,select
+{
+    font-family: "Microsoft YaHei", "黑体";
+    padding: 0;
+    margin: 0;
+    border: 0;
+    /*overflow: hidden;*/
+}
+body 
+{
+    background: #222;
+    font-size: 16px;
+    font-weight: normal;
+}
+#box 
+{
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#content
+{
+    clear: both;
+}
+#content .left
+{
+    width: 100%;
+    float: left;
+    background: #FFF;
+}
+#content .right
+{
+    width: 50%;
+    float: right;
+    background: #FFF;
+    display: none;
+}
+#content .title 
+{
+    height: 44px;
+    line-height: 44px;
+    border-bottom: 2px solid #BBB;
+    padding-left: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #FFF;
+}
+table.tablelist 
+{
+    border-collapse: collapse;
+    border: 1px solid #FFF;
+}
+table.tablelist td, table.tablelist th
+{
+    background: #F4F4F4;
+    border: 1px solid #FFF;
+    height: 44px;
+    text-align: center;
+}
+table.tablelist td.cellprice, table.tablelist th.cellprice, table.tablelist td.cellprice input
+{
+    text-align: right;
+    padding-right: 6px;
+}
+.h10 
+{
+    height: 10px;
+    clear: both;
+}
+
+

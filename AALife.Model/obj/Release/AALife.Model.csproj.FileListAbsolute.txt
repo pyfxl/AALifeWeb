@@ -1,0 +1,5 @@
+D:\fxlweb\AALifeWeb2015\Model\bin\Release\AALife.Model.dll
+D:\fxlweb\AALifeWeb2015\Model\bin\Release\AALife.Model.pdb
+D:\fxlweb\AALifeWeb2015\Model\obj\Release\AALife.Model.dll
+D:\fxlweb\AALifeWeb2015\Model\obj\Release\AALife.Model.pdb
+D:\fxlweb\AALifeWeb2015\Model\obj\Release\AALife.Model.csprojResolveAssemblyReference.cache

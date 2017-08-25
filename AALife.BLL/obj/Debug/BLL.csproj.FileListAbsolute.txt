@@ -1,0 +1,16 @@
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\BLL.dll
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\BLL.pdb
+D:\fxlweb\AALifeWebForApp\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWebForApp\BLL\obj\Debug\BLL.dll
+D:\fxlweb\AALifeWebForApp\BLL\obj\Debug\BLL.pdb
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\DAL.dll
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\Model.dll
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\DAL.pdb
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\Model.pdb
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\DBUtility.dll
+D:\fxlweb\AALifeWebForApp\BLL\bin\Debug\DBUtility.pdb
+D:\fxlweb\AALifeWebForApp\bin\BLL.dll
+D:\fxlweb\AALifeWebForApp\bin\BLL.pdb
+D:\fxlweb\AALifeWebDLL\BLL\obj\Debug\BLL.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWebDLL\BLL\obj\Debug\BLL.dll
+D:\fxlweb\AALifeWebDLL\BLL\obj\Debug\BLL.pdb

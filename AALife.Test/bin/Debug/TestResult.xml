@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="D:\fxlweb\AALifeWebForApp\NUnitTest\bin\Debug\NUnitTest.dll" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2015-03-08" time="02:41:48">
+  <environment nunit-version="2.6.4.14350" clr-version="2.0.50727.8009" os-version="Microsoft Windows NT 6.2.9200.0" platform="Win32NT" cwd="C:\Program Files (x86)\NUnit 2.6.4\bin" machine-name="IFCA-FENGXL" user="fengxl" user-domain="ifca-fengxl" />
+  <culture-info current-culture="zh-CN" current-uiculture="zh-CN" />
+  <test-suite type="Assembly" name="D:\fxlweb\AALifeWebForApp\NUnitTest\bin\Debug\NUnitTest.dll" executed="True" result="Success" success="True" time="0.101" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="AALife" executed="True" result="Success" success="True" time="0.070" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="NUnitTest" executed="True" result="Success" success="True" time="0.070" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="UserTableTest" executed="True" result="Success" success="True" time="0.067" asserts="0">
+                <results>
+                  <test-case name="AALife.NUnitTest.UserTableTest.AddTwoNumbers" executed="True" result="Success" success="True" time="0.037" asserts="1" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

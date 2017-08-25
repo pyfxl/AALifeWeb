@@ -1,0 +1,9 @@
+D:\fxlweb\AALifeWebForApp\Model\bin\Debug\Model.dll
+D:\fxlweb\AALifeWebForApp\Model\bin\Debug\Model.pdb
+D:\fxlweb\AALifeWebForApp\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWebForApp\Model\obj\Debug\Model.dll
+D:\fxlweb\AALifeWebForApp\Model\obj\Debug\Model.pdb
+D:\fxlweb\AALifeWebForApp\bin\Model.dll
+D:\fxlweb\AALifeWebForApp\bin\Model.pdb
+D:\fxlweb\AALifeWebDLL\Model\obj\Debug\Model.dll
+D:\fxlweb\AALifeWebDLL\Model\obj\Debug\Model.pdb

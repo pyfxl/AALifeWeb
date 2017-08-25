@@ -1,0 +1,754 @@
+﻿html,body,tbody,div,p,a,img,table,tr,td,th,h1,h2,h3,h4,h5,span,ul,li,form,input,select {
+    font-family: "Microsoft YaHei", "黑体";
+    padding: 0;
+    margin: 0;
+    font-size: 12px;
+    vertical-align: middle;
+}
+body {
+    padding: 0;
+    background-color: #ececec; 
+}
+table {
+    border-collapse: collapse;
+    float: left;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+a:hover {
+    font-weight: bold;
+}
+img {
+    border: none;
+}
+/************************************************公共************************************************/
+.clear {
+    clear: both;
+}
+.h30 {
+    height: 30px;
+    clear: both;
+    width: 100%;
+}
+
+.cellright, 
+td.cellright input {
+    text-align: right;
+}
+.cellleft, 
+td.cellleft input {
+    text-align: left;
+}
+.cellpadding {
+    /*padding: 0 4px;*/
+}
+
+
+.shoucolor {
+    color: #ff3300;
+}
+.zhicolor {
+    color: #33cc33;
+}
+.countcolor {
+    color: #66CCFF;
+}
+.jiecolor {
+    color: #ff9900;
+}
+.qiancolor, 
+.qiancolor a {
+    color: #cc9933;
+    font-weight: bold;
+}
+.totalprice {
+    font-weight: bold;
+    font-size: 14px;
+}
+.hometotal {
+    font-weight: bold;
+}
+/************************************************框架************************************************/
+#m_box {
+    margin: 5px auto;
+    width: 938px;
+    position: relative;
+}
+#m_main {
+    width: 936px;
+    height: 560px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    /*border-top-right-radius: 0;*/
+    background-color: white;
+}
+#m_top {
+    width: 100%;
+    height: 46px;
+    color: white;
+    padding-top: 5px;
+    position: relative;
+}
+
+#m_left {
+    width: 90px;
+    height: 100%;
+    padding: 0 5px;
+    border-right: 1px solid #ccc;
+    background-color: transparent;
+    float: left;
+}
+#m_right {
+    height: 560px;
+    padding: 0 5px;
+    background-color: transparent;
+    float: right;
+    width: 926px;
+}
+/************************************************上边************************************************/
+#m_top h1 {
+    height: 46px;
+    overflow: hidden;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "FangSong";
+}
+#m_top ul.theme {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#m_top ul.theme li {
+    float: left;
+    margin-right: 6px;
+}
+#m_top h3 {
+    position: absolute;
+    right: 0;
+    top: 30px;
+    font-weight: normal;
+}
+#m_top a {
+    /*color: #66CCFF;*/
+}
+#m_top span {
+    vertical-align: top;
+}
+#m_top span a {
+    margin-right: 5px;
+}
+/************************************************公共************************************************/
+#menu_div, .menu_nav {
+    position: absolute;
+    color: black;
+}
+.menu_nav {
+    bottom: 0;
+    right: 0;
+    height: 29px;
+    text-align: center;
+}
+.menu_nav li {
+    float: left;
+    /*width: 80px;*/
+    height: 29px;
+    line-height: 29px;
+    overflow: hidden;
+    padding: 0 8px;
+}
+.menu_nav li a {
+    display: block;
+    height: 29px;
+    color: #ddd;
+}
+.menu_nav li a:hover,
+.menu_nav .cur a {
+    color: white;
+}
+.menu_nav .on {
+    background-color: #f2f2f2;
+    border: 1px solid #d8d8d8;
+    border-bottom: none;
+    /*width: 78px;*/
+    padding: 0 6px;
+    height: 31px;
+    font-weight: bold;
+}
+.menu_nav .on a,
+.menu_nav .on a:hover {
+    color: black;
+}
+.menu_nav .cur {
+    font-weight: bold;
+}
+.menu_nav .menu_more {
+    padding-right: 0;
+}
+#menu_div {
+    padding: 20px;
+    right: 0;
+    top: 51px;
+    z-index: 99;
+    opacity: 0.95;
+    display: none;
+    background-color: #f2f2f2;
+    border: 1px solid #d8d8d8;
+    border-top: none;
+}
+#menu_div ul {
+    float: left;
+    width: 90px;
+}
+#menu_div ul li {
+    height: 29px;
+    line-height: 100%;
+}
+#menu_div a {
+    color: black;
+}
+#menu_div .cur {
+    font-weight: bold;
+}
+/************************************************菜单************************************************/
+#m_menu {
+    width: 100%;
+    height: 31px;
+    line-height: 31px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom: 1px solid #666;
+    display: none;
+}
+#m_menu ul {
+}
+#m_menu li {
+    float: left;
+    text-align: center;
+    width: 72px;
+}
+/************************************************左边************************************************/
+#m_left h1 {
+    font-size: 20px;
+    height: 44px;
+    line-height: 44px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    font-weight: normal;
+    text-align: center;
+}
+#m_left ul {
+    padding: 5px 0;
+    border-bottom: 1px solid #ccc;
+}
+#m_left ul.l_lastul {
+    border-bottom: none;
+}
+#m_left a {
+    padding: 6px;
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+#m_left a:hover, 
+#m_left .l_curli a:hover {
+    background-color: #999;
+    color: #ddd;
+}
+#m_left .l_curli a {
+    color: #999;
+    font-weight: bold;
+}
+/************************************************右边************************************************/
+#m_right .r_title {
+    height: 44px;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    position: relative;
+    overflow: hidden;
+}
+#m_right .r_title ul {
+    position: absolute;
+    right: 0;
+    top: 22px;
+}
+#m_right li {
+    float: left;
+    margin-right: 5px;
+}
+#m_right .r_title a {
+    color: black;
+}
+#m_right .r_title h1 {
+    line-height: 44px;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+}
+#m_right .r_title h1 span, 
+#m_right .r_title h1 input {
+    font-size: 20px;
+    text-align: center;
+}
+#m_right .r_title h1 span {
+    vertical-align: top;
+}
+#m_right .r_title h1 input {
+    border: 1px solid #e4e4e4;
+}
+/************************************************右边首页************************************************/
+#m_right .r_title_home {
+    padding: 12px 6px;
+}
+#r_home {
+    padding-top: 10px;
+}
+#r_home .r_home_top {
+    height: 238px;
+}
+#r_home .r_home_chart {
+    height: auto;
+}
+table.tablehome {
+    margin-right: 7px;
+    text-align: center;
+}
+table.tablehome th {
+    height: 20px;
+    font-weight: normal;
+    border: 1px solid #f2f2f2;
+}
+table.tablehome td {
+    height: 40px;
+    border: 1px solid #f2f2f2;
+}
+.tablehome {    
+    border-collapse: collapse;
+    border: 1px solid #f2f2f2;
+}
+.tablehome .coltitle {
+    background-color: #f8f8f8;
+}
+.tablehome .homelink a {
+    color: black;
+}
+.tablehome .homelink a:hover {
+    color: #999;
+}
+.tablehome .shoutitle {
+    background-color: #ffad99;
+    color: white;
+}
+.tablehome .zhititle {
+    background-color: #adebad;
+    color: white;
+}
+.tablehome .jietitle {
+    background-color: #ffd699;
+    color: black;
+}
+.tablehome .qiantitle {
+    background-color: #ebd6ad;
+    color: white;
+}
+.tablehome .qianprice, 
+.qianprice a {
+    font-size: 20px;
+}
+.tablehome .firsttitle {
+    background-color: #eaeaea;
+}
+/************************************************右边查询************************************************/
+#m_right .r_query {
+    height: 30px;
+    padding-top: 8px;
+    width: 100%;
+    overflow: hidden;
+}
+#m_right .r_query_item {    
+    height: 55px;
+}
+#m_right .r_query li {
+    margin-bottom: 6px;
+	+margin-bottom: 0;
+}
+#m_right .r_query .queryinput input[type=button] {
+    width: 18px;
+    height: 18px;
+    border: none;
+    background: url("../theme/images/i_search.gif") 50% 50% no-repeat;
+    cursor: pointer;
+}
+/************************************************右边总计************************************************/
+#m_right .r_total em {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    font-style: normal;
+}
+#m_right .r_total {
+    position: relative;
+    border-top: 1px solid #e4e4e4;
+}
+#m_right .r_total .mymoney {
+    font-size: 26px;
+    font-weight: bold;
+}
+#m_right .r_total p {
+    padding-top: 5px;
+}
+.tabletotal {
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+.tabletotal th, 
+.tabletotal td {
+    height: 24px;
+    border: none;
+}
+.tabletotal th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+/************************************************右边GridView************************************************/
+#r_gridview div, #r_gridview_item div {
+    height: 396px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    clear: both;
+}
+#r_gridview_item div {
+    height: 360px;
+}
+/************************************************表格tablelist************************************************/
+.tablelist {
+    width: 100%;
+    text-align: center;
+    border: none;
+}
+.tablelist th {
+    background-color: #f2f2f2;
+    height: 29px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+}
+.tablelist td {
+    height: 35px;
+    line-height: 100%;
+    border: none;
+    border-bottom: 1px solid #e4e4e4;
+}
+.tablelist th a {
+    color: black;
+    text-decoration: underline;
+}
+.tablelist th a:hover {
+    text-decoration: none;
+}
+.tablelist input, 
+.tablelist select {
+    width: 93%;
+    height: 23px;
+    border: 1px solid #e4e4e4;
+    /*background-color: #f4f4f4;*/
+    text-align: center;
+    color: blue;
+    border-radius: 3px;
+}
+.tablelist th input {    
+    border: 1px solid #d8d8d8;
+    background-color: white;
+    color: black;
+}
+.tablelist input {
+    height: 21px;
+}
+.tablelist .baselink {
+    color: black;
+}
+.tablelist .editlink {
+    color: blue;
+}
+.tablelist .radioinput input {
+    width: 13px;
+    height: 13px;
+}
+
+
+.tablelist .trcolor1 {
+    background-color: #fff;
+}
+.tablelist .trcolor2 {
+    background-color: #f8f8f8;
+}
+.tablelist .expandtr1 {
+    background-color: #e8e8e8;
+}
+.tablelist .expandtr2 {
+    background-color: #ededed;
+}
+.tablelist .expandtr3 {
+    background-color: #f2f2f2;
+}
+.tablelist .expandtr4 {
+    background-color: #f8f8f8;
+}
+.tablelist .expandtr {
+    font-weight: bold;
+}
+/************************************************右边内容************************************************/
+#r_content {
+    padding-top: 12px;
+    width: 100%;
+}
+/************************************************表格tabletitle************************************************/
+#r_tablemenu {
+    border: 1px solid #ccc;
+    /*padding: 10px;*/
+    height: 506px;
+    overflow: auto;
+    border-top: none;
+}
+#r_tablemenu .tips {
+    height: 45px;
+    line-height: 45px;
+    text-indent: 1em;
+}
+.r_usergrid div {
+    height: 395px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    clear: both;
+}
+.r_usergrid a {
+    color: black;
+}
+.usermenu {
+    width: 100%;
+    border: none;
+    text-align: center;
+}
+.usermenu th, 
+.usermenu td {
+    height: 29px;
+    border: 1px solid #ccc;
+    border-bottom: 2px solid #ccc;
+}
+.usermenu .on {
+    color: #ddd;
+    background-color: #f2f2f2;
+    border-bottom: none;
+}
+.usermenu a {
+    display: block;
+    color: black;
+    height: 29px;
+    line-height: 29px;
+}
+.usermenu a:hover, 
+.usermenu .on a:hover {
+    background-color: #f2f2f2;
+    color: #ddd;
+}
+.usermenu .on a {
+    color: #ddd;
+    font-weight: bold;
+    border: 1px solid #ccc;
+    border-bottom: none;
+}
+/************************************************表格tablebound************************************************/
+.r_bound {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.r_bound a {
+    color: black;
+}
+.r_bound .title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    height: 34px;
+    line-height: 34px;
+}
+.tablebound {
+    border: none;
+    text-align: center;
+    margin-left: 30px;
+}
+.tablebound th, 
+.tablebound td {
+    height: 29px;
+    border: 1px solid #ccc;
+}
+.tablebound th {
+    background-color: #f2f2f2;
+}
+.tablebound td input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    text-align: center;
+}
+/************************************************表格tableform************************************************/
+.tableform {
+    width: 100%;
+    border: none;
+}
+.tableform th, 
+.tableform td {
+    border: none;
+    padding-bottom: 10px;
+    height: 29px;
+}
+.tableform td input, 
+.tableform th input {
+    height: 27px;
+    line-height: 27px;
+    padding: 0 5px;
+    border: 1px solid #ccc;
+}
+.tableform td select {
+    height: 29px;
+    border: 1px solid #ccc;
+}
+.tableform input.btninput {
+    border: none;
+}
+.tableform tr.userline td,
+.tableform tr.userline th {
+    border-bottom: 1px solid #BBB;
+}
+/************************************************右边添加************************************************/
+.r_add {
+    margin-top: 20px;
+}
+.r_add .tableform .smartitem {
+    padding-left: 3px;
+    padding-right: 10px;
+    height: 29px;
+    display: block;
+    overflow: hidden;
+}
+.r_add .tableform .smartitem p {
+    border: 1px solid #E4E4E4;
+    float: left;
+    height: 27px;
+    line-height: 27px;
+    padding: 0 2px;
+    margin-right: 3px;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+.r_add .tableform .smartitem p:hover {
+    border: 1px solid #CCC;
+    font-weight: bold;
+}
+.r_add .tableform .smartitem .on {
+    border: 1px solid #CCC;
+    font-weight: bold;
+    background: #F4F4F4;
+}
+.r_add .tableform .smartitem img {
+    padding-top: 7px;
+}
+.r_add .tableform .region2 {
+    display: none;
+}
+.r_add .tableform td input, 
+.r_add .tableform th input {
+    width: 98px;
+}
+.r_add .tableform td select {
+    width: 110px;
+}
+.r_add .tableform .radioinput input {
+    width: 13px;
+    height: 13px;
+}
+.r_add .tableform input.btninput {
+    width: 112px;
+}
+.r_add .tableform input.btninput2 {
+    width: 56px;
+}
+/************************************************右边登录************************************************/
+.r_login {
+    width: 100%;
+}
+.r_login a {
+    color: black;
+}
+.r_login em {
+    color: #ccc;
+}
+.r_login .tableform td input[type=text], 
+.r_login .tableform td input[type=password],
+.r_login .tableform td input[type=file] {
+    width: 208px;
+}
+.r_login .tableform td select {
+    width: 220px;
+}
+.r_login .tableform input.btninput {
+    width: 104px;
+}
+.r_login .radioinput span {
+    vertical-align: top;
+}
+/************************************************表格tableform************************************************/
+.tableadd th {
+    border-top: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #e4e4e4;
+    height: 35px;
+}
+.tableadd th input.btninput {
+    background-color: #f2f2f2;
+    color: black;
+    font-weight: bold;
+}
+/************************************************dialog************************************************/
+#dialog div {
+    text-align: center;
+}
+#dialog td,
+#dialog th {
+    height: 25px;
+    border: 1px solid #ddd;
+}
+#dialog input,
+#dialog select {
+    height: 25px;
+    width: 90px;
+}
+#dialog .btninput {
+    margin-top: 5px;
+}
+#dialog th {
+    background-color: #f2f2f2;
+}
+#dialog p {
+    height: 40px;
+    line-height: 40px;
+}
+
+#site_tips {
+    position: absolute;
+    top: 0;
+    z-index: 101;
+    left: 50%;
+    color: white;
+    width: 300px;
+    margin-left: -150px;
+    text-align: center;
+}
+/************************************************公共************************************************/
+input.celldisable {
+    background-color: #e8e8e8;
+    color: #ccc;
+}

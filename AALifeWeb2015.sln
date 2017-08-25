@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AALife.Web", "http://localhost:3759", "{240AC001-E20D-4E12-8253-5C779E910FEA}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
+		ProjectReferences = ""
+		Debug.AspNetCompiler.VirtualPath = "/AALifeWeb2015Web"
+		Debug.AspNetCompiler.PhysicalPath = "AALife.Web\"
+		Debug.AspNetCompiler.TargetPath = "..\AALifeWeb2015Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/AALifeWeb2015Web"
+		Release.AspNetCompiler.PhysicalPath = "AALife.Web\"
+		Release.AspNetCompiler.TargetPath = "..\AALifeWeb2015Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "AALife.Web\"
+		StartServerOnDebug = "false"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.BLL", "AALife.BLL\AALife.BLL.csproj", "{32B50478-4D92-4648-9A56-0E75639C97DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.DAL", "AALife.DAL\AALife.DAL.csproj", "{CA2E36E5-6247-486B-818C-591D4A82FCAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.DBUtility", "AALife.DBUtility\AALife.DBUtility.csproj", "{023380F9-DD98-4D97-862A-9D4A965DB1D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Model", "AALife.Model\AALife.Model.csproj", "{E458099D-6C03-40EE-AC70-480FFD645987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Test", "AALife.Test\AALife.Test.csproj", "{D8B896E7-0BAE-42E6-B06E-3DF1215AB2D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.WindowsService", "AALife.WindowsService\AALife.WindowsService.csproj", "{1711C529-0FC1-4652-B9E6-9D085EFE9490}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B896E7-0BAE-42E6-B06E-3DF1215AB2D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B896E7-0BAE-42E6-B06E-3DF1215AB2D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B896E7-0BAE-42E6-B06E-3DF1215AB2D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B896E7-0BAE-42E6-B06E-3DF1215AB2D8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

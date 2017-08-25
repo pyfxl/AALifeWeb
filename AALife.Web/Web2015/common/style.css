@@ -1,0 +1,1076 @@
+﻿dl,dt,dd,ul,li,h1,h2,h3,p,table,th,td,img,body,html,option,select,em 
+{
+    border: 0; margin: 0; padding: 0; list-style: none; font-style: normal;
+}
+a
+{
+    outline: none;
+}
+/*
+html
+{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");
+    filter: progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);
+    -webkit-filter: grayscale(1);
+}
+*/
+body
+{
+    font-size: 12px;
+    font-family: "微软雅黑", Arial;
+    _background-attachment: fixed;
+    _background-image: url(about:black);
+}
+a:visited, a:link
+{
+    color: #333;
+    text-decoration: none;
+}
+a:hover
+{
+    font-weight: bold;
+    color: #000;
+}
+input, select, textarea
+{
+    border: 1px solid #0072C6;
+    font-family: "微软雅黑", Arial;
+    padding: 3px;
+    _padding: 4px 3px;
+    font-size: 12px;
+    vertical-align: middle;
+}
+.inputfocus 
+{
+    border: 1px solid #FF9000;
+}
+input::-moz-focus-inner
+{ 
+    border: 0; 
+}
+select 
+{
+    padding: 0px;
+    height: 25px;
+}
+.btninput
+{
+    outline: none;
+    background-color: #0072C6;
+    color: #FFF;
+    border: none;
+    padding: 4px 6px;
+    _padding: 6px 4px 2px;
+}
+.btninput:hover 
+{
+    background-color: #FF9000;
+}
+.inputcenter 
+{
+    text-align: center;
+}
+.inputselect
+{
+    text-align: center;
+}
+.radioinput label
+{
+    color: #000;
+}
+.radioinput input
+{
+    border: none;
+}
+.inputright
+{
+    text-align: right;
+}
+#hid, center
+{
+    visibility: hidden;
+    display: none;
+}
+/*-------------------------------------- Box --*/
+#Box 
+{
+    width: 100%;
+    overflow: hidden;
+    /*margin-bottom: 20px;*/
+}
+#Login 
+{
+    width: 290px;
+    margin: 100px auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -145px;
+}
+.welcome
+{
+    font-size: 18px;
+    font-style: italic;
+    height: 35px;
+    line-height: 35px;
+}
+.qrcss 
+{
+    display: none;  
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: -183px;
+}
+.qrdown 
+{
+    margin: 10px 0;
+    background-color: #F0F0F0;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+.qrdown p 
+{
+    padding: 8px 0;
+    font-size: 14px;
+}
+.qrdown .qrdownul 
+{
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+.qrdown .qrdownul ul 
+{
+    width: 780px;
+    height: 130px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.qrdown .qrdownul ul li 
+{
+    float: left;
+}
+.qrdown .qrdownarrow 
+{
+    position: absolute;
+    top: 80px;
+    cursor: pointer;
+    z-index: 10;
+}
+.qrdown .al
+{
+    left: 6px;
+    display: none;
+}
+.qrdown .ar
+{
+    right: 6px;
+}
+.bshare-custom 
+{
+    background: url("http://static.bshare.cn/frame/images/logos/s4/more-style-addthis.png") right center no-repeat transparent;
+}
+/*-------------------------------------- TopMenu --*/
+#TopMenu 
+{
+    width: 100%;
+    height: 34px;
+    overflow: hidden;
+    font-size: 13px;
+    border-bottom: 2px solid #0072C6;
+}
+#TopMenu .menuleft
+{
+    height: 34px;
+    margin-right: 260px;
+    position: relative;
+}
+#TopMenu .android 
+{
+    width: 109px;
+    height: 34px;
+    position: absolute;
+    right: 0;
+    top: 4px;
+}
+#TopMenu ul 
+{
+    list-style: none;
+    height: 34px;
+    overflow: hidden;
+}
+#TopMenu ul li 
+{
+    float: left;
+    height: 34px;
+    line-height: 34px;
+    width: 82px;
+    text-align: center;
+    margin-right: 4px;
+}
+#TopMenu ul li a
+{
+    display: block;
+    height: 34px;
+    line-height: 34px;
+    width: 82px;
+    text-decoration: none;
+}
+#TopMenu ul li.cur 
+{
+    background-color: #0072C6;
+    font-weight: bold;
+}
+#TopMenu ul li.cur a
+{
+    color: #FFF;
+}
+#TopMenu .menuright
+{
+    float: right;
+    overflow: hidden;
+    width: 250px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 34px;
+    line-height: 34px;
+    _padding-top: 10px;
+}
+#TopMenu .menuright .themelink
+{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+}
+#TopMenu .menuright img 
+{
+    vertical-align: middle;
+}
+#TopMenu .menuright .darkredcolor 
+{
+    background-color: #C6524A;
+}
+#TopMenu .menuright .bluecolor 
+{
+    background-color: #0072C6;
+}
+#TopMenu .menuright .pinkcolor 
+{
+    background-color: #EF5284;
+}
+#TopMenu .menuright .changecolor
+{
+    width: 18px;
+    height: 18px;
+    display: block;
+    float: left;
+    margin-left: 7px;
+}
+
+/*-------------------------------------- Left --*/
+#Main 
+{
+    margin: 10px;
+    /*position: relative;*/
+    min-height: 545px;
+    zoom: 1;
+}
+#Left 
+{
+    margin-right: 250px;
+}
+/*-------------------------------------- ItemList --*/
+#ItemList
+{
+    overflow: hidden;
+    width: 100%;
+}
+#ItemList .quickadditem
+{
+    margin-top: 5px;
+    text-align: right;
+}
+#ItemList .alt_pinyin
+{
+    color: #999;
+}
+#ItemList .radio_pinyin
+{
+    display: inline;
+}
+.radio_pinyin input
+{
+    border: none;
+}
+#ItemList .userlist .addprice 
+{
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    height: 125px;
+    padding-left: 60px;
+    width: 145px;
+}
+#ItemList .userlist .addprice li 
+{
+    background-color: #F6F6F6;
+    border: 1px solid #CCC;
+    float: left;
+    font-size: 14px;
+    height: 26px;
+    line-height: 26px;
+    margin: 0 3px 3px 0;
+    text-align: center;
+    width: 42px;
+}
+/*-------------------------------------- ItemList .ranklist --*/
+#ItemList .itemranklist 
+{
+    height: 30px;
+    line-height: 30px;
+    background-color: #FCF7E8;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 8px;
+    display: none;
+}
+#ItemList .ranklist 
+{
+    height: 30px;
+    background-color: #FFF;
+    width: 100%;
+}
+#ItemList .ranklist ul li a 
+{
+    color: #000;
+    display: block;
+}
+#ItemList .ranklist ul li span 
+{
+    color: #FFF;
+    margin-right: 3px;
+}
+#ItemList .ranklist ul 
+{
+    height: 30px;
+    list-style: none;
+    overflow: hidden;
+    width: 100%;
+    border-bottom: 2px solid #0072C6;
+}
+#ItemList .ranklist ul li 
+{
+    float: left;
+    height: 28px;
+    line-height: 28px;
+    margin: 0;
+    padding: 0 10px;
+    font-size: 13px;
+}
+#ItemList .ranklist ul li.cur
+{
+    background-color: #0072C6;
+    font-weight: bold;
+    border-bottom: 2px solid #FFF;
+}
+#ItemList .ranklist ul li.cur a
+{
+    color: #000;
+}
+/*-------------------------------------- ItemList .userlist --*/
+#ItemList h1
+{
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    background-color: #0072C6;
+    padding: 0 8px;
+    color: #FFF;
+}
+#ItemList .userlist
+{
+    /*width: 570px;*/
+    border-left: 1px solid #0072C6;
+    border-bottom: 1px solid #0072C6;
+    border-right: 1px solid #0072C6;
+    padding: 9px 0 3px 9px;
+    overflow: hidden;
+    background-color: #FFF;
+    clear: both;
+    zoom: 1;
+}
+#ItemList .userlist .smarttitle
+{
+    width: 145px;
+}
+#ItemList .userlist .smartlist
+{
+    overflow: hidden;
+    height: 27px;
+    position: absolute;
+    left: 145px;
+    right: 0;
+}
+#ItemList .userlist .smartlist p 
+{
+    border: 1px solid #CCC;
+    padding: 3px;
+    margin-bottom: 6px;
+    margin-right: 2px;
+    float: left;
+    cursor: pointer;
+}
+#ItemList .userlist .smartlist p:hover 
+{
+    font-weight: bold;
+}
+#ItemList .userlist .smartlist img 
+{
+    border: 0;
+    padding: 4px;
+}
+#ItemList .userlist .smartlist p.on
+{
+    font-weight: bold;
+    border: 1px solid #FF9000;
+}
+#ItemList .userlist dl 
+{
+    width: 84px;
+    height: 120px;
+    float: left;
+    padding-right: 8px;
+    /*text-align: center;*/
+    overflow: hidden;
+}
+#ItemList .userlist dl dt img 
+{
+    border: 1px solid #E0E0E0;
+    display: block;
+}
+#ItemList .userlist dl dt
+{
+    width: 84px;
+    height: 84px;
+}
+#ItemList .userlist dl dd 
+{
+    text-align: center;
+    height: 22px;
+    line-height: 22px;
+}
+#ItemList .userlist .linktext
+{
+    display: inline;
+    margin-right: 3px;
+    padding: 5px;
+    /*background-color: #CCC;*/
+    border: 1px solid #CCC;
+}
+#ItemList .userlist .cur
+{
+    background-color: #0072C6;
+    display: inline;
+    margin: 0 2px;
+    padding: 6px;
+    color: #FFF;
+    font-weight: bold;
+}
+#ItemList .userlist span.groupspan
+{
+    /*display: inline-block;*/
+    color: #999;
+}
+#ItemList .userlist .usergrouplive 
+{
+    width: 320px;
+    height: 90px;
+    float: left;
+}
+#ItemList .userlist .usergrouplive p
+{
+    margin-bottom: 5px;
+}
+#ItemList .noitem 
+{
+    text-align: center;
+    height: 28px;
+}
+#ItemList .noitemcell 
+{
+    height: 0;
+}
+#ItemList .noitemcell span
+{
+    line-height: 28px;
+    height: 28px;
+}
+/*-------------------------------------- ItemList .bottompager --*/
+#ItemList .bottompager  
+{
+    text-align: center;
+    padding: 15px 0;
+    border-bottom: 1px solid #DDD;
+}
+#ItemList .bottompager table 
+{
+    /*border-collapse: collapse;*/
+    border: 1px solid #F2F4F7;
+    float: left;
+}
+#ItemList .bottompager td 
+{
+    background: #FFF;
+}
+#ItemList .bottompager a, #ItemList .bottompager span
+{
+    display: inline-block;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    background: #F2F4F7;
+    border: 1px solid #E0E0E0;
+    /*padding: 3px 6px;
+    margin-bottom: 3px;*/
+}
+
+#ItemList .bottompager span
+{
+    background: #FDFDFD;
+    font-weight: bold;
+}
+#ItemList .bottompager .pagelink
+{
+    padding: 3px 9px;
+}
+#ItemList .bottompager .cur
+{
+    padding: 3px 9px;
+    border: 1px solid #E0E0E0;
+    background-color: #FF9000;
+    cursor: default;
+    font-weight: bold; 
+    color: #000;
+}
+#ItemList .bottompager .textlink
+{
+    margin: 0 7px;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+#ItemList .bottompager a.nolink
+{
+    color: #C0C0C0;
+    font-weight: normal; 
+    cursor: default;
+    margin: 0 7px;
+    display: inline-block;
+    margin-bottom: 3px;
+}
+/*-------------------------------------- ItemList left right --*/
+#ItemList .itemlist_l 
+{
+    float: left;
+    /*width: 310px;*/
+    width: 50%;
+}
+#ItemList .itemlist_r
+{
+    float: right;
+    /*width: 265px;*/
+    width: 49%;
+}
+/*-------------------------------------- ItemList table --*/
+#ItemList th, #ItemList td 
+{
+    text-align: center;
+    background-color: #FFF;
+    border: 1px solid #FFF;
+}
+#ItemList th 
+{
+    height: 30px;
+    font-size: 13px;
+    background-color: #0072C6;
+    color: #FFF;
+}
+#ItemList td 
+{
+    height: 28px;
+    background-color: #F2F4F7;
+}
+#ItemList .cellprice
+{
+    text-align: right;
+    padding-right: 8px;
+}
+#ItemList .totalprice
+{
+    font-weight: bold;
+}
+#ItemList th.morecell
+{
+    text-align: right;
+    padding-right: 8px;
+}
+#ItemList th.morecell a
+{
+    color: #FFF;
+}
+/*-------------------------------------- ItemList .typelist --*/
+#ItemList .typelist 
+{
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 5px;
+}
+#ItemList .typelist .typelist_l 
+{
+    float: left;
+}
+#ItemList .typelist .typelist_r
+{
+    float: right;
+}
+/*-------------------------------------- ItemList ul --*/
+#ItemList .userlist ul 
+{
+    list-style: none;
+}
+#ItemList .userlist ul li 
+{
+    margin: 5px 0;
+}
+#ItemList .userlist ul li em 
+{
+    color: #999;
+    margin-left: 5px;
+    height: 30px;
+    /*display: inline-block;*/
+    line-height: 30px;
+}
+#ItemList .userlist ul li span.error
+{
+    color: Red;
+    margin-left: 0;
+    height: 22px;
+    line-height: 22px;
+    display: block;
+}
+#ItemList .userlist ul li.userimage
+{
+    height: 52px;
+}
+#ItemList .userlist ul li .userimg 
+{
+    vertical-align: middle;
+    border: 1px solid #E0E0E0;
+    display: inline-block;
+}
+/*-------------------------------------- ItemList .selectdate --*/
+#ItemList .selectdate 
+{
+    position: absolute;
+    /*display: none;*/
+    display: inline;
+    z-index: 10;
+    /*zoom: 1;*/
+    width: 135px;
+}
+#ItemList .selectdate a
+{
+    text-decoration: none;
+    display: block;
+}
+#ItemList .selectdate td, #ItemList .selectdate th
+{
+    background: none;
+    border: none;
+    height: 0;
+}
+#ItemList .selectdate th
+{    
+    color: #000;
+}
+#ItemList .selectdate .caltoday
+{
+    background: #0072C6;
+}
+
+/*-------------------------------------- BottomMenu --*/
+#BottomMenu 
+{
+    height: 30px;
+    line-height: 30px;
+}
+#BottomMenu a
+{
+    display: block;
+}
+#BottomMenu ul 
+{
+    list-style: none;
+    height: 20px;
+}
+#BottomMenu ul li 
+{
+    float: left;
+    margin-right: 10px;
+}
+
+/*-------------------------------------- Right .user --*/
+#Right 
+{
+    /*margin-left: 10px;*/
+    width: 240px;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#Right .user 
+{
+    border: 1px solid #0072C6;
+    /*height: 100px;*/
+    margin-bottom: 5px;
+    overflow: hidden;
+    background-color: #FFF;
+}
+#Right .user ul
+{
+    margin: 10px 0;
+    overflow: hidden;
+}
+#Right .user ul li 
+{
+    width: 20%;
+    float: left;
+    text-align: center;
+    height: 24px;
+    line-height: 24px;
+}
+#Right .user ul li a
+{
+    display: block;
+}
+#Right .user ul li.cur
+{
+    background-color: #2F7079;
+    color: #FFF;
+}
+#Right .user dl 
+{
+    padding: 5px;
+    min-height: 52px;
+    _height: 52px;
+}
+#Right .user dl dt 
+{
+    width: 52px;
+    height: 52px;
+    float: right;
+}
+#Right .user dl dt img
+{
+    border: 1px solid #E0E0E0;
+    display: block;
+}
+#Right .user dl dd 
+{
+    font-size: 11px;
+    padding: 2px 0;
+    /*position: relative;*/
+}
+#Right .user dl dd img
+{
+    vertical-align: middle;
+}
+#Right .user h1
+{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background-color: #0072C6;
+    font-size: 13px;
+    color: #FFF;
+}
+#Right .user h2
+{
+    height: 20px;
+    font-size: 13px;
+}
+#Right .user .user_l
+{
+    padding: 5px;
+    padding-right: 60px;
+    position: relative;
+    min-height: 52px;
+    _height: 52px;
+}
+#Right .user .usergroup
+{
+    text-align: left;
+    font-weight: normal;
+    padding: 0 5px 5px;
+    clear: both;
+}
+#Right .user .grouplive
+{
+    color: Blue;
+}
+#Right .user .userbound
+{
+    color: Red;
+    font-weight: bold;
+}
+#Right .user .newcss
+{
+    position: absolute;
+    top: -2px;
+    left: 22px;
+}
+#Right .user .cur 
+{
+    font-weight: bold;
+}
+#Right .user a.cur
+{
+    background-color: #E2E2E2;
+}
+#Right .user .logout 
+{
+    clear: both;
+    height: 18px;
+    line-height: 18px;
+    /*background-color: #F0F0F0;*/
+    margin: 1px;
+    text-align: center;
+    overflow: hidden;
+}
+#Right .user .todaytext
+{
+    text-align: center;
+    height: 38px;
+    line-height: 38px;
+    font-weight: bold;
+    overflow: hidden;
+    font-size: 15px;
+}
+#Right .date
+{
+    
+}
+#Right .date table a
+{
+    text-decoration: none;
+    display: block;
+    padding: 3px;
+    text-align: center;
+}
+#Right .date table a:hover
+{
+    background-color: #E0E0E0;
+}
+#Right .date table.caltitle a:hover
+{
+    background-color: transparent;
+    text-decoration: underline;
+}
+#Right .date .todaydate
+{
+    height: 30px;
+    line-height: 30px;
+    border-right: 1px solid #0072C6;
+    border-bottom: 1px solid #0072C6;
+    border-left: 1px solid #0072C6;
+    background-color: #F2F4F7;
+    padding: 0 10px;
+    overflow: hidden;
+}
+#Right .date .todaydate a
+{
+    padding: 0;
+    margin-left: 23px;
+}
+.calcss 
+{
+    border: 1px solid #0072C6;
+    font-size: 11px;
+    padding: 5px;
+    background: #FFF;
+}
+.caltitle
+{
+    background-color: #0072C6;
+    height: 30px;
+    font-size: 13px;
+    color: #FFF;
+    font-weight: bold;
+}
+.calhead
+{
+    height: 26px;
+}
+.caltoday
+{
+    background-color: #0072C6;
+}
+.bottom 
+{
+    border: 1px solid #E5C365;
+    position: fixed;
+    bottom: -32px;
+    left: 50%;
+    z-index: 100;
+    background-color: #FFF3CD;
+    padding: 5px 15px 5px 10px;
+    display: none;
+    vertical-align: middle;
+    _position: absolute;
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight)+32);
+    _bottom: 0;
+}
+.fixie6
+{
+    _top: expression(eval(document.documentElement.scrollTop+document.documentElement.clientHeight-this.offsetHeight)-5);
+}
+.bottom a
+{
+    color: Blue;
+}
+.bottom img 
+{
+    vertical-align: middle;
+}
+.bottom em 
+{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-style: normal;
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    cursor: pointer;
+}
+
+.bgwin 
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #000;
+    z-index: 200;
+    filter: alpha(opacity=90);
+    -moz-opacity: 0.90;
+    opacity: 0.90;
+    display: none;
+}
+.popwin 
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 256px;
+    height: 128px;
+    margin-left: -128px;
+    margin-top: -64px;
+    z-index: 300;
+    display: none;
+}
+.popwin span 
+{
+    position: absolute;
+    color: #FFF;
+    display: block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    top: 0;
+    right: 0;
+}
+.menuimg 
+{
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 3px;
+    right: 10px; 
+}
+
+/** DatePicker */
+.ui-corner-all { border-bottom-right-radius: 0; }
+.ui-corner-all { border-bottom-left-radius: 0; }
+.ui-corner-all { border-top-right-radius: 0; }
+.ui-corner-all { border-top-left-radius: 0; }
+.ui-datepicker { padding: 0; }
+.ui-widget { font-size: 0.8em; }
+.ui-widget-content { background: #FFF; border-color: #FF9000; }
+.ui-widget-header { background: #FF9000; border-color: transparent; color: #FFF; }
+.ui-widget-content .ui-state-default { background: #FFF; color: #000; border-color: transparent; }
+.ui-widget-content .ui-priority-secondary { color: Gray; }
+.ui-widget-content .ui-state-highlight { background: Silver; border-color: transparent; }
+.ui-widget-content .ui-state-hover { font-weight: bold; background: #E0E0E0; border-color: transparent; }
+.ui-widget-header .ui-state-hover { background-color: transparent; border-color: transparent; }
+.ui-widget-header .ui-icon { background-image: url("../common/development-bundle/themes/base/images/ui-icons_ffffff_256x240.png"); }
+.ui-state-hover .ui-icon { background-image: url("../common/development-bundle/themes/base/images/ui-icons_888888_256x240.png"); }
+
+/*-------------------------------------- Common --*/
+.error 
+{ 
+    color: Red; 
+}
+.status 
+{ 
+    color: Green; 
+}
+.clear 
+{ 
+    clear: both; 
+    display: block; 
+}
+.h2 
+{ 
+    height: 2px; 
+    overflow: hidden; 
+}
+.h5 
+{ 
+    height: 5px; 
+    overflow: hidden; 
+}
+.h8 
+{ 
+    height: 8px; 
+    overflow: hidden; 
+}
+.h10 
+{ 
+    height: 10px; 
+    overflow: hidden; 
+}
+.h20 
+{ 
+    height: 20px; 
+    overflow: hidden; 
+}
+
+/*-------------------------------------- New --*/
+.usertable input 
+{
+    text-align: center;
+}
