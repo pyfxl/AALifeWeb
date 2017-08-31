@@ -1,2 +1,16 @@
 /packages
 /AALife.Web/Images/Users
+/AALife.Web/Bin
+/AALife.BLL/obj
+/AALife.BLL/bin
+/.vs
+/AALife.DAL/obj
+/AALife.DAL/bin
+/AALife.DBUtility/obj
+/AALife.DBUtility/bin
+/AALife.Model/obj
+/AALife.Model/bin
+/AALife.Test/obj
+/AALife.Test/bin
+/AALife.WindowsService/obj
+/AALife.WindowsService/bin
