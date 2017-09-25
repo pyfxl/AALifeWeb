@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="AAlifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“bds261774413_db.dbo.UserTableView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="UserTableView">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="UserPassword" />
+            <PropertyRef Name="UserLevel" />
+            <PropertyRef Name="UserFrom" />
+            <PropertyRef Name="ModifyDate" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="UserMoney" />
+            <PropertyRef Name="UserWorkDay" />
+            <PropertyRef Name="CategoryRate" />
+            <PropertyRef Name="Synchronize" />
+            <PropertyRef Name="UserFromName" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserNickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserImage" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="UserTheme" Type="nvarchar" MaxLength="10" />
+          <Property Name="UserLevel" Type="tinyint" Nullable="false" />
+          <Property Name="UserFrom" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UserCity" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserMoney" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="UserWorkDay" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="UserFunction" Type="nvarchar" MaxLength="20" />
+          <Property Name="CategoryRate" Type="int" Nullable="false" />
+          <Property Name="Synchronize" Type="tinyint" Nullable="false" />
+          <Property Name="MoneyStart" Type="decimal" Precision="10" Scale="3" />
+          <Property Name="IsUpdate" Type="tinyint" />
+          <Property Name="UserFromName" Type="nvarchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AAlifeModelStoreContainer">
+          <EntitySet Name="UserTableView" EntityType="Self.UserTableView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserTableView].[UserID] AS [UserID], 
+    [UserTableView].[UserName] AS [UserName], 
+    [UserTableView].[UserPassword] AS [UserPassword], 
+    [UserTableView].[UserNickName] AS [UserNickName], 
+    [UserTableView].[UserImage] AS [UserImage], 
+    [UserTableView].[UserPhone] AS [UserPhone], 
+    [UserTableView].[UserEmail] AS [UserEmail], 
+    [UserTableView].[UserTheme] AS [UserTheme], 
+    [UserTableView].[UserLevel] AS [UserLevel], 
+    [UserTableView].[UserFrom] AS [UserFrom], 
+    [UserTableView].[ModifyDate] AS [ModifyDate], 
+    [UserTableView].[CreateDate] AS [CreateDate], 
+    [UserTableView].[UserCity] AS [UserCity], 
+    [UserTableView].[UserMoney] AS [UserMoney], 
+    [UserTableView].[UserWorkDay] AS [UserWorkDay], 
+    [UserTableView].[UserFunction] AS [UserFunction], 
+    [UserTableView].[CategoryRate] AS [CategoryRate], 
+    [UserTableView].[Synchronize] AS [Synchronize], 
+    [UserTableView].[MoneyStart] AS [MoneyStart], 
+    [UserTableView].[IsUpdate] AS [IsUpdate], 
+    [UserTableView].[UserFromName] AS [UserFromName]
+    FROM [dbo].[UserTableView] AS [UserTableView]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AAlifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UserTableView">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="UserPassword" />
+            <PropertyRef Name="UserLevel" />
+            <PropertyRef Name="UserFrom" />
+            <PropertyRef Name="ModifyDate" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="UserMoney" />
+            <PropertyRef Name="UserWorkDay" />
+            <PropertyRef Name="CategoryRate" />
+            <PropertyRef Name="Synchronize" />
+            <PropertyRef Name="UserFromName" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserTheme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserLevel" Type="Byte" Nullable="false" />
+          <Property Name="UserFrom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserMoney" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="UserWorkDay" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserFunction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryRate" Type="Int32" Nullable="false" />
+          <Property Name="Synchronize" Type="Byte" Nullable="false" />
+          <Property Name="MoneyStart" Type="Decimal" Precision="10" Scale="3" />
+          <Property Name="IsUpdate" Type="Byte" />
+          <Property Name="UserFromName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AALifeDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserTableView" EntityType="Self.UserTableView" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AAlifeModelStoreContainer" CdmEntityContainer="AALifeDbContext">
+          <EntitySetMapping Name="UserTableView">
+            <EntityTypeMapping TypeName="AAlifeModel.UserTableView">
+              <MappingFragment StoreEntitySet="UserTableView">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserTheme" ColumnName="UserTheme" />
+                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserCity" ColumnName="UserCity" />
+                <ScalarProperty Name="UserMoney" ColumnName="UserMoney" />
+                <ScalarProperty Name="UserWorkDay" ColumnName="UserWorkDay" />
+                <ScalarProperty Name="UserFunction" ColumnName="UserFunction" />
+                <ScalarProperty Name="CategoryRate" ColumnName="CategoryRate" />
+                <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+                <ScalarProperty Name="MoneyStart" ColumnName="MoneyStart" />
+                <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
+                <ScalarProperty Name="UserFromName" ColumnName="UserFromName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

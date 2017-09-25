@@ -1,0 +1,9 @@
+﻿body {
+    font-family: 'Microsoft YaHei', SimSun;
+}
+
+.nav-tabs.aa_tabs {
+    padding-top: 9px;
+    background: none;
+    border: none;
+}
