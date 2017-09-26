@@ -7,20 +7,20 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AALife.Web", "http://localh
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = ""
+		ProjectReferences = "{62c63866-f75c-489c-bd6a-1d2b92c0db80}|AALife.EF.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/AALifeWeb2015Web"
 		Debug.AspNetCompiler.PhysicalPath = "AALife.Web\"
 		Debug.AspNetCompiler.TargetPath = "..\AALifeWeb2015Web\"
 		Debug.AspNetCompiler.Updateable = "true"
 		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.FixedNames = "true"
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.VirtualPath = "/AALifeWeb2015Web"
 		Release.AspNetCompiler.PhysicalPath = "AALife.Web\"
 		Release.AspNetCompiler.TargetPath = "..\AALifeWeb2015Web\"
 		Release.AspNetCompiler.Updateable = "true"
 		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.FixedNames = "true"
 		Release.AspNetCompiler.Debug = "False"
 		SlnRelativePath = "AALife.Web\"
 		StartServerOnDebug = "false"
@@ -37,6 +37,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Test", "AALife.Test\AALife.Test.csproj", "{D8B896E7-0BAE-42E6-B06E-3DF1215AB2D8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.WindowsService", "AALife.WindowsService\AALife.WindowsService.csproj", "{1711C529-0FC1-4652-B9E6-9D085EFE9490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.EF", "AALife.EF\AALife.EF.csproj", "{62C63866-F75C-489C-BD6A-1D2B92C0DB80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -72,6 +74,10 @@ Global
 		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
