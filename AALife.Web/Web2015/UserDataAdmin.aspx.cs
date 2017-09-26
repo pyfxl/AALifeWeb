@@ -142,12 +142,12 @@ public partial class UserDataAdmin_2015 : BasePage
     //导入数据
     protected void Button1_Click(object sender, EventArgs e)
     {
-        if (this.FileUpload1.HasFile == false)
+        if (this.FileUpload2.HasFile == false)
         {
             Utility.Alert(this, "请选择导入的Excel文件！");
             return;
         }
-        string fileName = FileUpload1.FileName;
+        string fileName = FileUpload2.FileName;
         string fileExt = System.IO.Path.GetExtension(fileName).ToString().ToLower();
         if (fileExt != ".xls" && fileExt != ".xlsx")
         {
@@ -157,7 +157,7 @@ public partial class UserDataAdmin_2015 : BasePage
 
         fileName = "(" + userId + userName + ")" + fileName;
         string savePath = Server.MapPath("/Backup/Import/") + fileName;
-        FileUpload1.SaveAs(savePath);
+        FileUpload2.SaveAs(savePath);
         DataTable dt = AsposeImport(savePath);
 
         if (dt.Rows.Count > 0)
