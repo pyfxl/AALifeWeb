@@ -7,3 +7,17 @@
     background: none;
     border: none;
 }
+
+.user {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+}
+
+.user>img {
+    border-radius: 100%;
+    border: 2px solid #5293C4;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}

@@ -25,6 +25,7 @@ namespace AALife.EF.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<UserTable> UserTable { get; set; }
         public virtual DbSet<UserTableView> UserTableView { get; set; }
     }
 }

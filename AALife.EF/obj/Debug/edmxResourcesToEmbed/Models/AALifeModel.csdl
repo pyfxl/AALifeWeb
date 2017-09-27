@@ -1,5 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="AAlifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="AALifeDbContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="UserTable" EntityType="AAlifeModel.UserTable" />
+    <EntitySet Name="UserTableView" EntityType="AAlifeModel.UserTableView" />
+  </EntityContainer>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UserNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UserImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="UserTheme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="UserLevel" Type="Byte" Nullable="false" />
+    <Property Name="UserFrom" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="UserCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UserMoney" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="UserWorkDay" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="UserFunction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryRate" Type="Int32" Nullable="false" />
+    <Property Name="Synchronize" Type="Byte" Nullable="false" />
+    <Property Name="MoneyStart" Type="Decimal" Precision="10" Scale="3" />
+    <Property Name="IsUpdate" Type="Byte" />
+  </EntityType>
   <EntityType Name="UserTableView">
     <Key>
       <PropertyRef Name="UserID" />
@@ -16,28 +45,25 @@
       <PropertyRef Name="UserFromName" />
     </Key>
     <Property Name="UserID" Type="Int32" Nullable="false" />
-    <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="UserNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="UserImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
     <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
     <Property Name="UserTheme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="UserLevel" Type="Byte" Nullable="false" />
-    <Property Name="UserFrom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserFrom" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="UserCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-    <Property Name="UserMoney" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
-    <Property Name="UserWorkDay" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserMoney" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+    <Property Name="UserWorkDay" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
     <Property Name="UserFunction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
     <Property Name="CategoryRate" Type="Int32" Nullable="false" />
     <Property Name="Synchronize" Type="Byte" Nullable="false" />
     <Property Name="MoneyStart" Type="Decimal" Precision="10" Scale="3" />
     <Property Name="IsUpdate" Type="Byte" />
-    <Property Name="UserFromName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserFromName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
   </EntityType>
-  <EntityContainer Name="AALifeDbContext" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="UserTableView" EntityType="Self.UserTableView" />
-  </EntityContainer>
 </Schema>

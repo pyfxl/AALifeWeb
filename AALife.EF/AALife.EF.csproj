@@ -66,6 +66,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AALifeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\UserTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\UserTableView.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
