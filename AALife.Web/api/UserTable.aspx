@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="GetUserTable.aspx.cs" Inherits="api_UserTable_GetUserTable" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserTable.aspx.cs" Inherits="api_UserTable" %>
 
 <!DOCTYPE html>
 

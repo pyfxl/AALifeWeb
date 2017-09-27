@@ -30,13 +30,20 @@
                 dataSource: {
                     transport: {
                         read: {
-                            url: "/api/UserTable/GetUserTable.aspx",
-                            dataType: "json"
+                            url: "/api/UserTable.aspx/GetUserTable",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            type: "POST",
+                            beforeSend: function (xhr) {
+                                xhr.setRequestHeader('Accept-Encoding', "gzip");
+                            }
                         }
                     },
                     pageSize: 60,
                     serverPaging: false,
                     schema: {
+                        data: "d.List",
+                        total: "d.Total",
                         model: {
                             id: "UserID",
                             fields: {

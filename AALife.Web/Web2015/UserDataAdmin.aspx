@@ -18,7 +18,7 @@
                 <td>1. 将外部Excel记账文件导入到AA生活记账。<asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><img src="/Images/Others/page_excel.png" alt="" title="" /> 模板下载</asp:LinkButton></td>
             </tr>
             <tr>
-                <td><asp:FileUpload ID="FileUpload1" runat="server" CssClass="fileinput" />&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" Text="导入" CssClass="btninput" Width="60" onclick="Button1_Click" /></td>
+                <td><asp:FileUpload ID="FileUpload2" runat="server" CssClass="fileinput" />&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" Text="导入" CssClass="btninput" Width="60" onclick="Button1_Click" /></td>
             </tr>
             <tr>
                 <td></td>
