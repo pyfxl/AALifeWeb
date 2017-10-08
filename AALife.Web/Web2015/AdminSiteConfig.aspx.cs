@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class AdminSiteConfig_2015 : AdminPage
+public partial class AdminSiteConfig : AdminPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

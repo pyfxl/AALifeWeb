@@ -1,4 +1,4 @@
-﻿<%@ Page Title="钱包消费明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserCardDetail.aspx.cs" Inherits="UserCardDetail_2015" %>
+﻿<%@ Page Title="钱包消费明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserCardDetail.aspx.cs" Inherits="UserCardDetail" %>
 
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 

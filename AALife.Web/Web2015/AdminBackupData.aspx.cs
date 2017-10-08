@@ -7,7 +7,7 @@ using System.Web;
 using AALife.BLL;
 using AALife.Model;
 
-public partial class AdminBackupData_2015 : AdminPage
+public partial class AdminBackupData : AdminPage
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private UserCategoryTableBLL cat_bll = new UserCategoryTableBLL();

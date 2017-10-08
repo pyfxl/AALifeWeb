@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using AALife.Model;
 using System.Data.SqlTypes;
 
-public partial class AdminItemList_2015 : AdminPage
+public partial class AdminItemList : AdminPage
 {
     private ItemTableBLL bll = new ItemTableBLL();
 

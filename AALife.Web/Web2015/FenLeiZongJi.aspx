@@ -1,4 +1,4 @@
-﻿<%@ Page Title="消费类别排行" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="FenLeiZongJi.aspx.cs" Inherits="FenLeiZongJi_2015" %>
+﻿<%@ Page Title="消费类别排行" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="FenLeiZongJi.aspx.cs" Inherits="FenLeiZongJi" %>
 
 <%@ Register Src="UserControl/RankMenu.ascx" TagName="RankMenu" TagPrefix="uc3" %>
 <%@ Register Src="UserControl/DateTitle.ascx" TagName="DateTitle" TagPrefix="uc5" %>

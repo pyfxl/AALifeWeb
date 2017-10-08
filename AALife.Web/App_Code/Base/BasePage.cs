@@ -21,7 +21,7 @@ public class BasePage : System.Web.UI.Page
     {
         if (object.Equals(Session["UserID"], null))
         {
-            Response.Write("<script>window.location.href='/Web2015/UserLogin.aspx?url=" + HttpUtility.UrlEncode(url) + "';</script>");
+            Response.Write("<script>window.location.href='/UserLogin.aspx?url=" + HttpUtility.UrlEncode(url) + "';</script>");
             Response.End();
         }
     }

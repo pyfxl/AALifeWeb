@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminUserList.aspx.cs" Inherits="AdminUserList_2015" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AdminUserList.aspx.cs" Inherits="AdminUserList" %>
 
 <%@ Register Src="UserControl/AdminMenu.ascx" TagName="AdminMenu" TagPrefix="uc8" %>
 

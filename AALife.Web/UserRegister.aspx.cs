@@ -2,7 +2,7 @@
 using AALife.Model;
 using System;
 
-public partial class Web2016_UserRegister : FirstPage
+public partial class UserRegister : FirstPage
 {
     private UserTableBLL bll = new UserTableBLL();
 

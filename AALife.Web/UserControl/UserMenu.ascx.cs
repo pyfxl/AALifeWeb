@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data;
 
-public partial class Web2016_UserControl_UserMenu : System.Web.UI.UserControl
+public partial class UserControl_UserMenu : System.Web.UI.UserControl
 {
     private MenuHelper menuHelper = new MenuHelper();
 

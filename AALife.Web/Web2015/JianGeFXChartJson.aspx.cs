@@ -3,7 +3,7 @@ using System.Text;
 using System.Data;
 using AALife.BLL;
 
-public partial class JianGeFXChartJson_2015 : BasePage
+public partial class JianGeFXChartJson : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

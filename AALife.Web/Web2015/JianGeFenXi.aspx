@@ -1,4 +1,4 @@
-﻿<%@ Page Title="消费间隔分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="JianGeFenXi.aspx.cs" Inherits="JianGeFenXi_2015" %>
+﻿<%@ Page Title="消费间隔分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="JianGeFenXi.aspx.cs" Inherits="JianGeFenXi" %>
 
 <%@ Register Src="UserControl/FenXiMenu.ascx" TagName="FenXiMenu" TagPrefix="uc4" %>
 <%@ Register Src="UserControl/ViewTitle.ascx" TagName="ViewTitle" TagPrefix="uc8" %>

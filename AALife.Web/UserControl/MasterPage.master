@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Web2016_UserControl_MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="UserControl_MasterPage" %>
 
 <!DOCTYPE html>
 
@@ -88,8 +88,8 @@
             <h1><a href="/Default.aspx"><img src="/theme/images/logo72.png" title="AA生活记账" /></a>AA生活记账 2016</h1>
             <ul class="theme">
                 <li><asp:Button ID="ImageButton1" runat="server" UseSubmitBehavior="false" Style="background: url(/theme/images/u58.png); cursor: pointer; border: none;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="main" ToolTip="低调红"></asp:Button></li>
-	            <li><asp:Button ID="ImageButton2" runat="server" UseSubmitBehavior="false" Style="background: url(/theme/images/u60.png); cursor: pointer; border: none;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="gold" ToolTip="土豪金"></asp:Button></li>
-	            <li><asp:Button ID="ImageButton3" runat="server" UseSubmitBehavior="false" Style="background: url(/theme/images/u62.png); cursor: pointer; border: none;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="blue" ToolTip="屌丝蓝"></asp:Button></li>
+                <li><asp:Button ID="ImageButton2" runat="server" UseSubmitBehavior="false" Style="background: url(/theme/images/u60.png); cursor: pointer; border: none;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="gold" ToolTip="土豪金"></asp:Button></li>
+                <li><asp:Button ID="ImageButton3" runat="server" UseSubmitBehavior="false" Style="background: url(/theme/images/u62.png); cursor: pointer; border: none;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="blue" ToolTip="屌丝蓝"></asp:Button></li>
             </ul> 
             <div style="display:none;">           
                 <% if (Session["UserID"] != null && Session["UserID"].ToString() != "") { %>
@@ -99,7 +99,7 @@
             <div class="menu_nav">
                 <ul>
                     <li><a href="/Default.aspx"><img src="/theme/images/home_icon.gif" title="首页" /> 首页</a></li>
-                    <li><a href="/ItemAddSmart.aspx"><img src="/theme/images/ico_meet.gif" title="添加消费" /> 添加消费</a></li>
+                    <li><a href="/ItemAddSmart.aspx"><img src="/theme/images/re_pro_i.gif" title="添加消费" /> 添加消费</a></li>
                     <li><a href="/ItemQuery.aspx">消费明细</a></li>
                     <asp:Repeater ID="MenuList" runat="server">
                         <ItemTemplate>
@@ -132,10 +132,11 @@
                 </asp:Repeater>
                 </ul>
                 <ul style='display:<%=((Session["UserLevel"] != null && Session["UserLevel"].ToString() == "9") ? "block" : "none") %>;'>
-                    <li><a href="/Web2015/AdminUserList.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/admin.gif" title="网站管理" /> 网站管理</a></li>
-                    <li>&nbsp;<a href="/Tools/ClearCache.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/i_6.gif" title="清除Cookie" /> 清除Cookie</a></li>
-                    <li><a href="/Tools/DeleteUserImage.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/crime.gif" title="删除头像" /> 删除头像</a></li>
-                    <li>&nbsp;<a href="/Tools/QQLoginFix.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/48_icon08.gif" title="修复头像" /> 修复头像</a></li>
+                    <li><a href="/Web2015/AdminUserList.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/behome.gif" title="网站管理" /> 网站管理</a></li>
+                    <li><a href="/Manage/Home.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/n_b62.gif" title="网站管理(新)" /> 网站管理(新)</a></li>
+                    <li><a href="/Tools/ClearCache.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/e1closewin.gif" title="清除Cookie" /> 清除Cookie</a></li>
+                    <li><a href="/Tools/DeleteUserImage.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/m01.gif" title="删除头像" /> 删除头像</a></li>
+                    <li><a href="/Tools/QQLoginFix.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/f20.gif" title="修复头像" /> 修复头像</a></li>
                 </ul>
             </div>
         </div>

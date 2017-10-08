@@ -1,4 +1,4 @@
-﻿<%@ Page Title="消费价格明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="JiaGeFenXiMingXi.aspx.cs" Inherits="JiaGeFenXiMingXi_2015" %>
+﻿<%@ Page Title="消费价格明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="JiaGeFenXiMingXi.aspx.cs" Inherits="JiaGeFenXiMingXi" %>
 
 <%@ Register Src="UserControl/FenXiMenu.ascx" TagName="FenXiMenu" TagPrefix="uc4" %>
 

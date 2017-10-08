@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DayMenu.ascx.cs" Inherits="UserControl_DayMenu_2015" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DayMenu.ascx.cs" Inherits="UserControl_DayMenu" %>
 <table border="0" cellspacing="0" style="width:100%;" class="tabletitle">
     <tr>
         <td style="width:20%;"><asp:HyperLink ID="HyperLink3" runat="server"></asp:HyperLink></td>

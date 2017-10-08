@@ -1,4 +1,4 @@
-﻿<%@ Page Title="消费天数分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="TianShuFenXi.aspx.cs" Inherits="TianShuFenXi_2015" %>
+﻿<%@ Page Title="消费天数分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="TianShuFenXi.aspx.cs" Inherits="TianShuFenXi" %>
 
 <%@ Register Src="UserControl/FenXiMenu.ascx" TagName="FenXiMenu" TagPrefix="uc4" %>
 <%@ Register Src="UserControl/ViewTitle.ascx" TagName="ViewTitle" TagPrefix="uc8" %>

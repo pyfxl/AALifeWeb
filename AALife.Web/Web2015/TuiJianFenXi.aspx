@@ -1,4 +1,4 @@
-﻿<%@ Page Title="商品推荐统计" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="TuiJianFenXi.aspx.cs" Inherits="TuiJianFenXi_2015" %>
+﻿<%@ Page Title="商品推荐统计" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="TuiJianFenXi.aspx.cs" Inherits="TuiJianFenXi" %>
 
 <%@ Register Src="UserControl/RankMenu.ascx" TagName="RankMenu" TagPrefix="uc3" %>
 <%@ Register Src="UserControl/ViewTitle.ascx" TagName="ViewTitle" TagPrefix="uc8" %>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="数据管理" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserDataAdmin.aspx.cs" Inherits="UserDataAdmin_2015" %>
+﻿<%@ Page Title="数据管理" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserDataAdmin.aspx.cs" Inherits="UserDataAdmin" %>
 
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 

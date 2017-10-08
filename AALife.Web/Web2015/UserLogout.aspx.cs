@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class UserLogout_2015 : FirstPage
+public partial class UserLogout : FirstPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

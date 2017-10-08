@@ -4,9 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="da46d345247c409f9011d7d9fcd6b002" Name="Diagram1" ZoomLevel="106">
-        <EntityTypeShape EntityType="AAlifeModel.UserTable" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="AAlifeModel.UserTableView" Width="1.5" PointX="3.375" PointY="0.75" />
+      <Diagram DiagramId="3454784098404543818c4afff7daebf0" Name="Diagram1">
+        <EntityTypeShape EntityType="AALifeModel.UserFromTable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AALifeModel.UserTable" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AALifeModel.WorkDayTable" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AALifeModel.ItemTable" Width="1.5" PointX="5.375" PointY="3.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class ItemNumTop_2015 : BasePage
+public partial class ItemNumTop : BasePage
 {
     private MonthBLL bll = new MonthBLL();
     private int userId = 0;

@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UserMenu.ascx.cs" Inherits="Web2016_UserControl_UserMenu" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="UserMenu.ascx.cs" Inherits="UserControl_UserMenu" %>
 <table border="1" style="width:100%;" class="usermenu">
     <tr>
         <td style="width:12%;display:none;" class="u1"><a href="/UserAdmin.aspx"><img src="/theme/images/48_icon08.gif" title="用户资料" />&nbsp;&nbsp;用户资料</a></td>

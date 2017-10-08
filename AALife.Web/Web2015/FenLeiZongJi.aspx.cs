@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class FenLeiZongJi_2015 : BasePage
+public partial class FenLeiZongJi : BasePage
 {
     private MonthBLL bll = new MonthBLL();
     private int userId = 0;

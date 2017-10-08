@@ -8,7 +8,7 @@ using System.Text;
 using AALife.BLL;
 using AALife.Model;
 
-public partial class UserDataAdmin_2015 : BasePage
+public partial class UserDataAdmin : BasePage
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private UserCategoryTableBLL cat_bll = new UserCategoryTableBLL();

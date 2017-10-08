@@ -4,7 +4,7 @@ using System.Data;
 using System.Web;
 using AALife.BLL;
 
-public partial class TuiJianChartJson_2015 : BasePage
+public partial class TuiJianChartJson : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

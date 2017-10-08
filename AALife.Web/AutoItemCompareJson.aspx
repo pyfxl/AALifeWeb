@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AutoItemCompareJson.aspx.cs" Inherits="Web2016_AutoItemCompareJson" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AutoItemCompareJson.aspx.cs" Inherits="AutoItemCompareJson" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

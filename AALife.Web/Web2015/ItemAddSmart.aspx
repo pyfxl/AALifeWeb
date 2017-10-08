@@ -1,4 +1,4 @@
-﻿<%@ Page Title="智能添加消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="ItemAddSmart.aspx.cs" Inherits="ItemAddSmart_2015" %>
+﻿<%@ Page Title="智能添加消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="ItemAddSmart.aspx.cs" Inherits="ItemAddSmart" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <style type="text/css">

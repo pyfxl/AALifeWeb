@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Web.UI.WebControls;
 
-public partial class SearchItem_2015 : BasePage
+public partial class SearchItem : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="查看用户专题" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserZhuanTiShow.aspx.cs" Inherits="UserZhuanTiShow_2015" %>
+﻿<%@ Page Title="查看用户专题" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserZhuanTiShow.aspx.cs" Inherits="UserZhuanTiShow" %>
 
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 

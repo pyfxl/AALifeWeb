@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class UserControl_FenXiMenu_2015 : System.Web.UI.UserControl
+public partial class UserControl_FenXiMenu : System.Web.UI.UserControl
 {
     protected void Page_Load(object sender, EventArgs e)
     {

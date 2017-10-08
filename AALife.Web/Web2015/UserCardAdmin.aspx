@@ -1,4 +1,4 @@
-﻿<%@ Page Title="钱包管理" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserCardAdmin.aspx.cs" Inherits="UserCardAdmin_2015" %>
+﻿<%@ Page Title="钱包管理" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserCardAdmin.aspx.cs" Inherits="UserCardAdmin" %>
 
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 

@@ -4,7 +4,7 @@ using AALife.BLL;
 using AALife.Model;
 using System.Data;
 
-public partial class UserAdmin_2015 : BasePage
+public partial class UserAdmin : BasePage
 {
     private UserTableBLL bll = new UserTableBLL();
     private OAuthTableBLL oauth_bll = new OAuthTableBLL();

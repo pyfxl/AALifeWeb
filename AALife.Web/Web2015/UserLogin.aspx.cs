@@ -2,7 +2,7 @@
 using AALife.Model;
 using System;
 
-public partial class UserLogin_2015 : FirstPage
+public partial class UserLogin : FirstPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

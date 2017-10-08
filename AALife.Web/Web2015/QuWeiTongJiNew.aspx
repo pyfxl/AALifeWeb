@@ -1,4 +1,4 @@
-﻿<%@ Page Title="趣味统计" Language="C#" AutoEventWireup="true" CodeFile="QuWeiTongJi.aspx.cs" Inherits="QuWeiTongJi_2015" %>
+﻿<%@ Page Title="趣味统计" Language="C#" AutoEventWireup="true" CodeFile="QuWeiTongJiNew.aspx.cs" Inherits="QuWeiTongJiNew" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

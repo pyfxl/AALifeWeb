@@ -5,7 +5,7 @@ using AALife.BLL;
 using System.Collections.Generic;
 using AALife.Model;
 
-public partial class AdminUserList_2015 : AdminPage
+public partial class AdminUserList : AdminPage
 {
     private UserTableBLL bll = new UserTableBLL();
     private DateTime curDate = DateTime.Now;

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="用户转账明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserZhuanZhangDetail.aspx.cs" Inherits="UserZhuanZhangDetail_2015" %>
+﻿<%@ Page Title="用户转账明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserZhuanZhangDetail.aspx.cs" Inherits="UserZhuanZhangDetail" %>
 
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 

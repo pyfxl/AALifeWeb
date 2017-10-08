@@ -1,4 +1,4 @@
-﻿<%@ Page Title="搜索消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="SearchItem.aspx.cs" Inherits="SearchItem_2015" %>
+﻿<%@ Page Title="搜索消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="SearchItem.aspx.cs" Inherits="SearchItem" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <script type="text/javascript">

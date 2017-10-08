@@ -2,6 +2,10 @@
     font-family: 'Microsoft YaHei', SimSun;
 }
 
+.page-content {
+    padding: 15px;
+}
+
 .nav-tabs.aa_tabs {
     padding-top: 9px;
     background: none;
@@ -20,4 +24,33 @@
     width: 40px;
     height: 40px;
     position: relative;
+}
+
+.km-widget.km-buttongroup .km-button {
+    padding: 3px 7px;
+}
+
+label {
+    font-weight: 700;
+}
+
+.k-grid tbody .k-command-cell .k-button {
+    min-width: 26px;
+}
+
+.k-command-cell .k-button {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.k-command-cell .k-button-icontext .k-icon {
+    margin: 0;
+}
+
+.k-dropzone {
+    padding: .45em .8em;
+}
+
+.form-group {
+    margin-right: 5px;
 }

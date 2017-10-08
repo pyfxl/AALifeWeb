@@ -3,7 +3,7 @@ using System.Text;
 using System.Data;
 using AALife.BLL;
 
-public partial class AutoSmartItemPriceJson_2015 : BasePage
+public partial class AutoSmartItemPriceJson : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

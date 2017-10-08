@@ -3,7 +3,7 @@ using System.Text;
 using System.Data;
 using AALife.BLL;
 
-public partial class Web2016_AutoItemCompareJson : WebPage
+public partial class AutoItemCompareJson : WebPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

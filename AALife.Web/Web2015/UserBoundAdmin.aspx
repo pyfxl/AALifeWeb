@@ -1,4 +1,4 @@
-﻿<%@ Page Title="用户绑定" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserBoundAdmin.aspx.cs" Inherits="UserBoundAdmin_2015" %>
+﻿<%@ Page Title="用户绑定" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserBoundAdmin.aspx.cs" Inherits="UserBoundAdmin" %>
 
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 

@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class BiJiaoFenXi_2015 : BasePage
+public partial class BiJiaoFenXi : BasePage
 {
     private MonthBLL bll = new MonthBLL();
     private DateTime today = DateTime.Now;

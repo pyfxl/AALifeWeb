@@ -4,7 +4,7 @@ using System.Data;
 using System.Transactions;
 using System.Web.UI.WebControls;
 
-public partial class QuJianTongJi_2015 : BasePage
+public partial class QuJianTongJi : BasePage
 {
     private MonthBLL bll = new MonthBLL();
     private ItemTableBLL item_bll = new ItemTableBLL();

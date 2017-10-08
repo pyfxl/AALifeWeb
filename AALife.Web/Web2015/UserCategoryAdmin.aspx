@@ -1,4 +1,4 @@
-﻿<%@ Page Title="类别管理" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserCategoryAdmin.aspx.cs" Inherits="UserCategoryAdmin_2015" %>
+﻿<%@ Page Title="类别管理" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserCategoryAdmin.aspx.cs" Inherits="UserCategoryAdmin" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <script type="text/javascript">

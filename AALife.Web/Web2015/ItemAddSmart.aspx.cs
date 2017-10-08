@@ -5,7 +5,7 @@ using System.Data;
 using System.Transactions;
 using System.Web.UI.WebControls;
 
-public partial class ItemAddSmart_2015 : BasePage
+public partial class ItemAddSmart : BasePage
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private UserCategoryTableBLL cat_bll = new UserCategoryTableBLL();

@@ -3,7 +3,7 @@ using System.Text;
 using System.Data;
 using AALife.BLL;
 
-public partial class ItemPriceChartJson_2015 : BasePage
+public partial class ItemPriceChartJson : BasePage
 {
     private string curDate = "";
 

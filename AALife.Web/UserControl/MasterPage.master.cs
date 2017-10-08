@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Web2016_UserControl_MasterPage : System.Web.UI.MasterPage
+public partial class UserControl_MasterPage : System.Web.UI.MasterPage
 {
     private MenuHelper menuHelper = new MenuHelper();
     private int userId = 0;

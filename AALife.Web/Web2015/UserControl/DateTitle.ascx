@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DateTitle.ascx.cs" Inherits="UserControl_DateTitle_2015" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="DateTitle.ascx.cs" Inherits="UserControl_DateTitle" %>
 <table cellspacing="0" border="0" style="width:100%;" class="tabledate">
     <tr>
         <td style="width:25%;">&nbsp;</td>

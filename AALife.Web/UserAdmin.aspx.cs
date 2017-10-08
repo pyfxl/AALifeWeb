@@ -4,7 +4,7 @@ using AALife.BLL;
 using AALife.Model;
 using System.Data;
 
-public partial class Web2016_UserAdmin : WebPage
+public partial class UserAdmin : WebPage
 {
     private UserTableBLL bll = new UserTableBLL();
     private OAuthTableBLL oauth_bll = new OAuthTableBLL();

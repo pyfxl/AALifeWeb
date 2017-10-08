@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AdminMenu.ascx.cs" Inherits="UserControl_AdminMenu_2015" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="AdminMenu.ascx.cs" Inherits="UserControl_AdminMenu" %>
 <div id="TopMenu">
     <ul>
         <li class="m1"><a href="/Default.aspx">返回首页</a></li>

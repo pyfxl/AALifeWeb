@@ -4,7 +4,35 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AAlifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="AALifeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CategoryTypeID" Type="int" Nullable="false" />
+          <Property Name="ItemPrice" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="ItemBuyDate" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Recommend" Type="tinyint" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="Synchronize" Type="tinyint" Nullable="false" />
+          <Property Name="ItemAppID" Type="int" />
+          <Property Name="RegionID" Type="int" />
+          <Property Name="RegionType" Type="nvarchar" MaxLength="10" />
+          <Property Name="ItemType" Type="nvarchar" MaxLength="10" />
+          <Property Name="ZhuanTiID" Type="int" />
+          <Property Name="CardID" Type="int" />
+        </EntityType>
+        <EntityType Name="UserFromTable">
+          <Key>
+            <PropertyRef Name="UserFrom" />
+          </Key>
+          <Property Name="UserFrom" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserFromName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Rank" Type="tinyint" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserTable">
           <Key>
             <PropertyRef Name="UserID" />
@@ -30,199 +58,159 @@
           <Property Name="MoneyStart" Type="decimal" Precision="10" Scale="3" />
           <Property Name="IsUpdate" Type="tinyint" />
         </EntityType>
-        <!--生成过程中发现错误:
-警告 6002: 表/视图“aalife_20170122.dbo.UserTableView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
-        <EntityType Name="UserTableView">
+        <EntityType Name="WorkDayTable">
           <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="UserPassword" />
-            <PropertyRef Name="UserLevel" />
-            <PropertyRef Name="UserFrom" />
-            <PropertyRef Name="ModifyDate" />
-            <PropertyRef Name="CreateDate" />
-            <PropertyRef Name="UserMoney" />
-            <PropertyRef Name="UserWorkDay" />
-            <PropertyRef Name="CategoryRate" />
-            <PropertyRef Name="Synchronize" />
-            <PropertyRef Name="UserFromName" />
+            <PropertyRef Name="WorkDay" />
           </Key>
-          <Property Name="UserID" Type="int" Nullable="false" />
-          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="UserPassword" Type="nvarchar" MaxLength="20" Nullable="false" />
-          <Property Name="UserNickName" Type="nvarchar" MaxLength="50" />
-          <Property Name="UserImage" Type="nvarchar" MaxLength="200" />
-          <Property Name="UserPhone" Type="nvarchar" MaxLength="20" />
-          <Property Name="UserEmail" Type="nvarchar" MaxLength="100" />
-          <Property Name="UserTheme" Type="nvarchar" MaxLength="10" />
-          <Property Name="UserLevel" Type="tinyint" Nullable="false" />
-          <Property Name="UserFrom" Type="nvarchar" MaxLength="10" Nullable="false" />
-          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
-          <Property Name="CreateDate" Type="datetime" Nullable="false" />
-          <Property Name="UserCity" Type="nvarchar" MaxLength="20" />
-          <Property Name="UserMoney" Type="decimal" Precision="10" Scale="3" Nullable="false" />
-          <Property Name="UserWorkDay" Type="nvarchar" MaxLength="2" Nullable="false" />
-          <Property Name="UserFunction" Type="nvarchar" MaxLength="20" />
-          <Property Name="CategoryRate" Type="int" Nullable="false" />
-          <Property Name="Synchronize" Type="tinyint" Nullable="false" />
-          <Property Name="MoneyStart" Type="decimal" Precision="10" Scale="3" />
-          <Property Name="IsUpdate" Type="tinyint" />
-          <Property Name="UserFromName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="WorkDay" Type="tinyint" Nullable="false" />
+          <Property Name="WorkDayName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Rank" Type="tinyint" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="AAlifeModelStoreContainer">
+        <EntityContainer Name="AALifeModelStoreContainer">
+          <EntitySet Name="ItemTable" EntityType="Self.ItemTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserFromTable" EntityType="Self.UserFromTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="UserTableView" EntityType="Self.UserTableView" store:Type="Views" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [UserTableView].[UserID] AS [UserID], 
-    [UserTableView].[UserName] AS [UserName], 
-    [UserTableView].[UserPassword] AS [UserPassword], 
-    [UserTableView].[UserNickName] AS [UserNickName], 
-    [UserTableView].[UserImage] AS [UserImage], 
-    [UserTableView].[UserPhone] AS [UserPhone], 
-    [UserTableView].[UserEmail] AS [UserEmail], 
-    [UserTableView].[UserTheme] AS [UserTheme], 
-    [UserTableView].[UserLevel] AS [UserLevel], 
-    [UserTableView].[UserFrom] AS [UserFrom], 
-    [UserTableView].[ModifyDate] AS [ModifyDate], 
-    [UserTableView].[CreateDate] AS [CreateDate], 
-    [UserTableView].[UserCity] AS [UserCity], 
-    [UserTableView].[UserMoney] AS [UserMoney], 
-    [UserTableView].[UserWorkDay] AS [UserWorkDay], 
-    [UserTableView].[UserFunction] AS [UserFunction], 
-    [UserTableView].[CategoryRate] AS [CategoryRate], 
-    [UserTableView].[Synchronize] AS [Synchronize], 
-    [UserTableView].[MoneyStart] AS [MoneyStart], 
-    [UserTableView].[IsUpdate] AS [IsUpdate], 
-    [UserTableView].[UserFromName] AS [UserFromName]
-    FROM [dbo].[UserTableView] AS [UserTableView]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="WorkDayTable" EntityType="Self.WorkDayTable" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="AAlifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="AALifeDbContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="UserTable" EntityType="AAlifeModel.UserTable" />
-          <EntitySet Name="UserTableView" EntityType="AAlifeModel.UserTableView" />
-        </EntityContainer>
+      <Schema Namespace="AALifeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UserFromTable">
+          <Key>
+            <PropertyRef Name="UserFrom" />
+          </Key>
+          <Property Name="UserFrom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserFromName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rank" Type="Byte" Nullable="false" />
+        </EntityType>
         <EntityType Name="UserTable">
           <Key>
             <PropertyRef Name="UserID" />
           </Key>
           <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UserPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UserImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
           <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="UserTheme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
           <Property Name="UserLevel" Type="Byte" Nullable="false" />
-          <Property Name="UserFrom" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserFrom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="UserMoney" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
-          <Property Name="UserWorkDay" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UserMoney" Type="Decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="UserWorkDay" Type="String" MaxLength="2" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UserFunction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <Property Name="CategoryRate" Type="Int32" Nullable="false" />
           <Property Name="Synchronize" Type="Byte" Nullable="false" />
           <Property Name="MoneyStart" Type="Decimal" Precision="10" Scale="3" />
           <Property Name="IsUpdate" Type="Byte" />
         </EntityType>
-        <EntityType Name="UserTableView">
+        <EntityType Name="WorkDayTable">
           <Key>
-            <PropertyRef Name="UserID" />
-            <PropertyRef Name="UserName" />
-            <PropertyRef Name="UserPassword" />
-            <PropertyRef Name="UserLevel" />
-            <PropertyRef Name="UserFrom" />
-            <PropertyRef Name="ModifyDate" />
-            <PropertyRef Name="CreateDate" />
-            <PropertyRef Name="UserMoney" />
-            <PropertyRef Name="UserWorkDay" />
-            <PropertyRef Name="CategoryRate" />
-            <PropertyRef Name="Synchronize" />
-            <PropertyRef Name="UserFromName" />
+            <PropertyRef Name="WorkDay" />
           </Key>
+          <Property Name="WorkDay" Type="Byte" Nullable="false" />
+          <Property Name="WorkDayName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Rank" Type="Byte" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AALifeDbContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserFromTable" EntityType="Self.UserFromTable" />
+          <EntitySet Name="UserTable" EntityType="Self.UserTable" />
+          <EntitySet Name="WorkDayTable" EntityType="Self.WorkDayTable" />
+          <EntitySet Name="ItemTable" EntityType="AALifeModel.ItemTable" />
+        </EntityContainer>
+        <EntityType Name="ItemTable">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ItemPrice" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+          <Property Name="ItemBuyDate" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="UserID" Type="Int32" Nullable="false" />
-          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="UserPassword" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="UserNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UserImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
-          <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="UserTheme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="UserLevel" Type="Byte" Nullable="false" />
-          <Property Name="UserFrom" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Recommend" Type="Byte" Nullable="false" />
           <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="UserCity" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="UserMoney" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
-          <Property Name="UserWorkDay" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
-          <Property Name="UserFunction" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
-          <Property Name="CategoryRate" Type="Int32" Nullable="false" />
           <Property Name="Synchronize" Type="Byte" Nullable="false" />
-          <Property Name="MoneyStart" Type="Decimal" Precision="10" Scale="3" />
-          <Property Name="IsUpdate" Type="Byte" />
-          <Property Name="UserFromName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemAppID" Type="Int32" />
+          <Property Name="RegionID" Type="Int32" />
+          <Property Name="RegionType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ZhuanTiID" Type="Int32" />
+          <Property Name="CardID" Type="Int32" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AAlifeModelStoreContainer" CdmEntityContainer="AALifeDbContext">
-          <EntitySetMapping Name="UserTable">
-            <EntityTypeMapping TypeName="AAlifeModel.UserTable">
-              <MappingFragment StoreEntitySet="UserTable">
-                <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
-                <ScalarProperty Name="MoneyStart" ColumnName="MoneyStart" />
-                <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
-                <ScalarProperty Name="CategoryRate" ColumnName="CategoryRate" />
-                <ScalarProperty Name="UserFunction" ColumnName="UserFunction" />
-                <ScalarProperty Name="UserWorkDay" ColumnName="UserWorkDay" />
-                <ScalarProperty Name="UserMoney" ColumnName="UserMoney" />
-                <ScalarProperty Name="UserCity" ColumnName="UserCity" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+        <EntityContainerMapping StorageEntityContainer="AALifeModelStoreContainer" CdmEntityContainer="AALifeDbContext">
+          <EntitySetMapping Name="UserFromTable">
+            <EntityTypeMapping TypeName="AALifeModel.UserFromTable">
+              <MappingFragment StoreEntitySet="UserFromTable">
                 <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
-                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
-                <ScalarProperty Name="UserTheme" ColumnName="UserTheme" />
-                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
-                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
-                <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
-                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserFromName" ColumnName="UserFromName" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="UserTableView">
-            <EntityTypeMapping TypeName="AAlifeModel.UserTableView">
-              <MappingFragment StoreEntitySet="UserTableView">
-                <ScalarProperty Name="UserFromName" ColumnName="UserFromName" />
-                <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
-                <ScalarProperty Name="MoneyStart" ColumnName="MoneyStart" />
-                <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
-                <ScalarProperty Name="CategoryRate" ColumnName="CategoryRate" />
-                <ScalarProperty Name="UserFunction" ColumnName="UserFunction" />
-                <ScalarProperty Name="UserWorkDay" ColumnName="UserWorkDay" />
-                <ScalarProperty Name="UserMoney" ColumnName="UserMoney" />
-                <ScalarProperty Name="UserCity" ColumnName="UserCity" />
-                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
-                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
-                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
-                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
-                <ScalarProperty Name="UserTheme" ColumnName="UserTheme" />
-                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
-                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
-                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
-                <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
-                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <EntitySetMapping Name="UserTable">
+            <EntityTypeMapping TypeName="AALifeModel.UserTable">
+              <MappingFragment StoreEntitySet="UserTable">
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+                <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserTheme" ColumnName="UserTheme" />
+                <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserCity" ColumnName="UserCity" />
+                <ScalarProperty Name="UserMoney" ColumnName="UserMoney" />
+                <ScalarProperty Name="UserWorkDay" ColumnName="UserWorkDay" />
+                <ScalarProperty Name="UserFunction" ColumnName="UserFunction" />
+                <ScalarProperty Name="CategoryRate" ColumnName="CategoryRate" />
+                <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+                <ScalarProperty Name="MoneyStart" ColumnName="MoneyStart" />
+                <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WorkDayTable">
+            <EntityTypeMapping TypeName="AALifeModel.WorkDayTable">
+              <MappingFragment StoreEntitySet="WorkDayTable">
+                <ScalarProperty Name="WorkDay" ColumnName="WorkDay" />
+                <ScalarProperty Name="WorkDayName" ColumnName="WorkDayName" />
+                <ScalarProperty Name="Rank" ColumnName="Rank" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTable">
+            <EntityTypeMapping TypeName="AALifeModel.ItemTable">
+              <MappingFragment StoreEntitySet="ItemTable">
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="ZhuanTiID" ColumnName="ZhuanTiID" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="RegionType" ColumnName="RegionType" />
+                <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+                <ScalarProperty Name="ItemAppID" ColumnName="ItemAppID" />
+                <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Recommend" ColumnName="Recommend" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ItemBuyDate" ColumnName="ItemBuyDate" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

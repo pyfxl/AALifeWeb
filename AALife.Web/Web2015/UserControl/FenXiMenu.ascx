@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="FenXiMenu.ascx.cs" Inherits="UserControl_FenXiMenu_2015" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="FenXiMenu.ascx.cs" Inherits="UserControl_FenXiMenu" %>
 <table border="0" cellspacing="0" style="width:100%;" class="tabletitle">
     <tr>
         <td style="width:16%;" class="f1"><a href="BiJiaoFenXi.aspx">消费比较分析</a></td>

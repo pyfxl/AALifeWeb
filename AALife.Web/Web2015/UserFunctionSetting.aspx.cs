@@ -2,7 +2,7 @@
 using AALife.BLL;
 using AALife.Model;
 
-public partial class UserFunctionSetting_2015 : BasePage
+public partial class UserFunctionSetting : BasePage
 {
     private UserTableBLL bll = new UserTableBLL();
     private int userId = 0;

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FLZJMXChartJson.aspx.cs" Inherits="FLZJMXChartJson_2015" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="FLZJMXChartJson.aspx.cs" Inherits="FLZJMXChartJson" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 

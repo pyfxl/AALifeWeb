@@ -3,7 +3,7 @@ using System.Text;
 using System.Data;
 using AALife.BLL;
 
-public partial class AutoJianGeFXJson_2015 : BasePage
+public partial class AutoJianGeFXJson : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

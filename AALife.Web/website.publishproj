@@ -41,5 +41,27 @@ website.publishproj
       <Value>$(AssemblyVersion)</Value>
     </AssemblyAttributes>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AALife.BLL\AALife.BLL.csproj">
+      <Project>{32B50478-4D92-4648-9A56-0E75639C97DB}</Project>
+      <Name>AALife.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.DAL\AALife.DAL.csproj">
+      <Project>{CA2E36E5-6247-486B-818C-591D4A82FCAA}</Project>
+      <Name>AALife.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.DBUtility\AALife.DBUtility.csproj">
+      <Project>{023380F9-DD98-4D97-862A-9D4A965DB1D4}</Project>
+      <Name>AALife.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.EF\AALife.EF.csproj">
+      <Project>{62C63866-F75C-489C-BD6A-1D2B92C0DB80}</Project>
+      <Name>AALife.EF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.Model\AALife.Model.csproj">
+      <Project>{E458099D-6C03-40EE-AC70-480FFD645987}</Project>
+      <Name>AALife.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />
 </Project>

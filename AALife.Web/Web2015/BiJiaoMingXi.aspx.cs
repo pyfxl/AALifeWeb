@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class BiJiaoMingXi_2015 : BasePage
+public partial class BiJiaoMingXi : BasePage
 {
     private int userId = 0;
     private DateTime today = DateTime.Now;

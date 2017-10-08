@@ -1,4 +1,4 @@
-﻿<%@ Page Title="每月消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="MonthList.aspx.cs" Inherits="MonthList_2015" %>
+﻿<%@ Page Title="每月消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="MonthList.aspx.cs" Inherits="MonthList" %>
 
 <%@ Register Src="UserControl/MonthMenu.ascx" TagName="MonthMenu" TagPrefix="uc2" %>
 

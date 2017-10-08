@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class UserZhuanZhangDetail_2015 : BasePage
+public partial class UserZhuanZhangDetail : BasePage
 {
     private ZhuanZhangTableBLL bll = new ZhuanZhangTableBLL();
     private int userId = 0;

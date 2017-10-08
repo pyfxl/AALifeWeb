@@ -6,7 +6,7 @@ using AALife.BLL;
 using AALife.Model;
 using System.Transactions;
 
-public partial class ItemList_2015 : BasePage
+public partial class ItemList : BasePage
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private MonthBLL month_bll = new MonthBLL();

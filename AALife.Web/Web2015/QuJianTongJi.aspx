@@ -1,4 +1,4 @@
-﻿<%@ Page Title="消费区间统计" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="QuJianTongJi.aspx.cs" Inherits="QuJianTongJi_2015" %>
+﻿<%@ Page Title="消费区间统计" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="QuJianTongJi.aspx.cs" Inherits="QuJianTongJi" %>
 
 <%@ Register Src="UserControl/RankMenu.ascx" TagName="RankMenu" TagPrefix="uc3" %>
 <%@ Register Src="UserControl/ViewTitle.ascx" TagName="ViewTitle" TagPrefix="uc8" %>

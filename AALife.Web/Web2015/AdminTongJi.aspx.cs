@@ -6,7 +6,7 @@ using System.IO;
 using System.Web;
 using AALife.BLL;
 
-public partial class AdminTongJi_2015 : AdminPage
+public partial class AdminTongJi : AdminPage
 {
     private MonthBLL bll = new MonthBLL();
 

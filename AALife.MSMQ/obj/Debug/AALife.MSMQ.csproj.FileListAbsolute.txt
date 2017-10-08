@@ -1,0 +1,5 @@
+D:\fxlweb\AALifeWeb2018\AALife.MSMQ\bin\Debug\AALife.MSMQ.exe
+D:\fxlweb\AALifeWeb2018\AALife.MSMQ\bin\Debug\AALife.MSMQ.pdb
+D:\fxlweb\AALifeWeb2018\AALife.MSMQ\obj\Debug\AALife.MSMQ.csprojResolveAssemblyReference.cache
+D:\fxlweb\AALifeWeb2018\AALife.MSMQ\obj\Debug\AALife.MSMQ.exe
+D:\fxlweb\AALifeWeb2018\AALife.MSMQ\obj\Debug\AALife.MSMQ.pdb

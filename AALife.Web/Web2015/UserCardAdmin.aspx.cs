@@ -5,7 +5,7 @@ using AALife.BLL;
 using AALife.Model;
 using System.Transactions;
 
-public partial class UserCardAdmin_2015 : BasePage
+public partial class UserCardAdmin : BasePage
 {
     private CardTableBLL bll = new CardTableBLL();
     private ItemTableBLL item_bll = new ItemTableBLL();

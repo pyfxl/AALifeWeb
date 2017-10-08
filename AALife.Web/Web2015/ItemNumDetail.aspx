@@ -1,4 +1,4 @@
-﻿<%@ Page Title="消费次数明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="ItemNumDetail.aspx.cs" Inherits="ItemNumDetail_2015" %>
+﻿<%@ Page Title="消费次数明细" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="ItemNumDetail.aspx.cs" Inherits="ItemNumDetail" %>
 
 <%@ Register Src="UserControl/RankMenu.ascx" TagName="RankMenu" TagPrefix="uc3" %>
 

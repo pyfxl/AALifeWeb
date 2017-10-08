@@ -1,4 +1,4 @@
-﻿<%@ Page Title="网站说明" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="Helper.aspx.cs" Inherits="Helper_2015" %>
+﻿<%@ Page Title="网站说明" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="Helper.aspx.cs" Inherits="Helper" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 <script type="text/javascript">    

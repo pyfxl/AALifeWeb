@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Web.UI.WebControls;
 
-public partial class AdminUserDetail_2015 : AdminPage
+public partial class AdminUserDetail : AdminPage
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private UserCategoryTableBLL cat_bll = new UserCategoryTableBLL();

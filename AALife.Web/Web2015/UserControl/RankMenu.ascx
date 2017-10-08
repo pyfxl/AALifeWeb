@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RankMenu.ascx.cs" Inherits="UserControl_RankMenu_2015" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeFile="RankMenu.ascx.cs" Inherits="UserControl_RankMenu" %>
 <table border="0" cellspacing="0" style="width:100%;" class="tabletitle">
     <tr>
         <td style="width:16%;" class="r5"><a href="FenLeiZongJi.aspx">消费类别排行</a></td>

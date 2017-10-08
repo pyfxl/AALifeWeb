@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class UserCardDetail_2015 : BasePage
+public partial class UserCardDetail : BasePage
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private int userId = 0;

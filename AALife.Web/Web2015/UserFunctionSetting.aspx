@@ -1,4 +1,4 @@
-﻿<%@ Page Title="功能设置" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserFunctionSetting.aspx.cs" Inherits="UserFunctionSetting_2015" %>
+﻿<%@ Page Title="功能设置" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserFunctionSetting.aspx.cs" Inherits="UserFunctionSetting" %>
 
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 

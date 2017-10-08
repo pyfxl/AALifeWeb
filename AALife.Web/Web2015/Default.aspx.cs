@@ -6,7 +6,7 @@ using System.Web;
 using AALife.BLL;
 using AALife.Model;
 
-public partial class _Default_2015 : BasePage
+public partial class _Default : BasePage
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private MonthBLL month_bll = new MonthBLL();

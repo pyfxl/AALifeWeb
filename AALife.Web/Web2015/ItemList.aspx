@@ -1,4 +1,4 @@
-﻿<%@ Page Title="每日消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true"  CodeFile="ItemList.aspx.cs" Inherits="ItemList_2015" %>
+﻿<%@ Page Title="每日消费" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true"  CodeFile="ItemList.aspx.cs" Inherits="ItemList" %>
 
 <%@ Register Src="UserControl/DayMenu.ascx" TagName="DayMenu" TagPrefix="uc1" %>
 

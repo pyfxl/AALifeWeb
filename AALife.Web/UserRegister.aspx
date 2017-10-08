@@ -1,4 +1,4 @@
-﻿<%@ Page Title="用户注册" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserRegister.aspx.cs" Inherits="Web2016_UserRegister" %>
+﻿<%@ Page Title="用户注册" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="UserRegister.aspx.cs" Inherits="UserRegister" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="js" Runat="Server">
 <script type="text/javascript">

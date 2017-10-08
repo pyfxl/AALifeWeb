@@ -4,7 +4,7 @@ using System.Data;
 using AALife.BLL;
 using AALife.Model;
 
-public partial class UserZhuanTiShow_2015 : BasePage
+public partial class UserZhuanTiShow : BasePage
 {
     private ItemTableBLL item_bll = new ItemTableBLL();
     private ZhuanTiTableBLL bll = new ZhuanTiTableBLL();

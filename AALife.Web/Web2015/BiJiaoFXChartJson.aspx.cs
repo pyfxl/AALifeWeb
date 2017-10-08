@@ -3,7 +3,7 @@ using System.Text;
 using System.Data;
 using AALife.BLL;
 
-public partial class BiJiaoFXChartJson_2015 : BasePage
+public partial class BiJiaoFXChartJson : BasePage
 {
     protected void Page_Load(object sender, EventArgs e)
     {

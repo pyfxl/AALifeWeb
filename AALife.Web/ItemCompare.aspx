@@ -227,7 +227,7 @@
                 <asp:LinkButton ID="ButtonRename" runat="server" OnClick="ButtonRename_Click"><img src="theme/images/ga.gif" title="重命名" /> 重命名</asp:LinkButton>
                 <asp:LinkButton ID="ButtonBack" runat="server" OnClick="ButtonBack_Click" Visible="false"><img src="theme/images/dot_19.gif" title="返回" /> 返回</asp:LinkButton>
             </li>
-            <li><asp:LinkButton ID="ButtonSave" runat="server" OnClick="ButtonSave_Click"><img src="theme/images/zip1.gif" title="保存" /> 保存</asp:LinkButton></li>                        
+            <li><asp:LinkButton ID="ButtonSave" runat="server" OnClick="ButtonSave_Click"><img src="theme/images/s_file.gif" title="保存" /> 保存</asp:LinkButton></li>                        
             <li><asp:LinkButton ID="ButtonDelete" runat="server" OnClick="ButtonDelete_Click" OnClientClick="return confirm('确定要删除此查询吗？');"><img src="theme/images/ic_dead.gif" title="删除" /> 删除</asp:LinkButton></li>
         </ul>
     </div>

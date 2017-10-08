@@ -1,4 +1,4 @@
-﻿<%@ Page Title="趣味统计分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="QuWeiTongJi.aspx.cs" Inherits="QuWeiTongJi_2015" %>
+﻿<%@ Page Title="趣味统计分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="QuWeiTongJi.aspx.cs" Inherits="QuWeiTongJi" %>
 
 <%@ Register Src="UserControl/FenXiMenu.ascx" TagName="FenXiMenu" TagPrefix="uc4" %>
 

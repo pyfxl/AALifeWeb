@@ -3,7 +3,7 @@ using System.Web.UI.WebControls;
 using System.Data;
 using AALife.BLL;
 
-public partial class QuWeiTongJi_2015 : FirstPage
+public partial class QuWeiTongJi : FirstPage
 {
     private MonthBLL bll = new MonthBLL();
 

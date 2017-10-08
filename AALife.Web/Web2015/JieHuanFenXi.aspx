@@ -1,4 +1,4 @@
-﻿<%@ Page Title="收支借还分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="JieHuanFenXi.aspx.cs" Inherits="JieHuanFenXi_2015" %>
+﻿<%@ Page Title="收支借还分析" Language="C#" MasterPageFile="UserControl/MasterPage.master" AutoEventWireup="true" CodeFile="JieHuanFenXi.aspx.cs" Inherits="JieHuanFenXi" %>
 
 <%@ Register Src="UserControl/FenXiMenu.ascx" TagName="FenXiMenu" TagPrefix="uc4" %>
 
