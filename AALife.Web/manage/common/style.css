@@ -6,7 +6,7 @@
     padding: 15px;
 }
 
-.nav-tabs.aa_tabs {
+.nav-tabs.tabs-aa {
     padding-top: 9px;
     background: none;
     border: none;
@@ -53,4 +53,28 @@ label {
 
 .form-group {
     margin-right: 5px;
+    display: inline-block;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+.overflow-y {
+    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .page-content {
+        padding: 8px !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .hidden-aa {
+        display: none !important;
+    }
+}
+
+@media (min-width: 419px) {
+    .show-aa {
+        display: none !important;
+    }
 }

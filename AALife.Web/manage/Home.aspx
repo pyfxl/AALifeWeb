@@ -6,26 +6,28 @@
     <span id="notification"></span>
     <div class="row">
         <div class="col-xs-12">
-            <form class="form-inline">
-                <div class="form-group">
-                    <ul id="select-period">
-                    </ul>
-                </div>
-                <div class="form-group">
-                    <button type="button" id="prevBtn">前</button>
-                    <button type="button" id="nextBtn">后</button>
-                </div>
-                <div class="form-group">
-                    <label>日期</label>
-                    <input id="start" value="" style="width: 120px;" />
-                    &minus;
-                    <input id="end" value="" style="width: 120px;" />
-                </div>
-                <div class="form-group">
-                    <label>关键字</label>
-                    <input class="k-textbox" id="key" value="" placeholder="用户名/密码/昵称" />
-                </div>
-            </form>
+            <div class="overflow-y">
+                <form class="form-inline" style="width: 875px;">
+                    <div class="form-group">
+                        <ul id="select-period">
+                        </ul>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" id="prevBtn">前</button>
+                        <button type="button" id="nextBtn">后</button>
+                    </div>
+                    <div class="form-group">
+                        <label>日期</label>
+                        <input id="start" value="" style="width: 120px;" />
+                        &minus;
+                        <input id="end" value="" style="width: 120px;" />
+                    </div>
+                    <div class="form-group">
+                        <label>关键字</label>
+                        <input class="k-textbox" id="key" value="" placeholder="用户名/密码/昵称" />
+                    </div>
+                </form>
+            </div>
         </div><!-- /.col -->
     </div><!-- /.row -->
     <div class="space-2"></div>
@@ -197,7 +199,7 @@
                     model: {
                         id: "UserID",
                         fields: {
-                            UserID: { type: "number", editable: false, nullable: true, defaultValue: 0 },
+                            UserID: { type: "number", editable: false, nullable: false, defaultValue: 0 },
                             UserName: {
                                 type: "string",
                                 validation: {
