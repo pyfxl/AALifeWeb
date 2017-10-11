@@ -16,3 +16,7 @@
 /AALife.WindowsService/bin
 /AALife.Web/Backup
 /AALife.Web/Log
+/AALife.EF/bin
+/AALife.EF/obj
+/AALife.MSMQ/obj
+/AALife.MSMQ/bin

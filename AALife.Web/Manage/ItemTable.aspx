@@ -99,7 +99,8 @@
 
             //设置按钮组toall
             function setBtnGroup(i) {
-                btnGroup.select(9);
+                if (i == -1) i = 9;
+                btnGroup.select(i);
             }
 
             //设置按钮状态
@@ -335,6 +336,12 @@
             //初始化
             function init() {
                 var userId = getUrlParam("userId");
+
+                setBtnGroup(5);
+                start.value(today_date());
+                end.value(today_date());
+                setBtnStatus(true);
+
                 if (!$.isEmptyObject(userId)) {
                     setBtnGroup(-1);
                     start.value(max_date());

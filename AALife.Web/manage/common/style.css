@@ -78,3 +78,9 @@ label {
         display: none !important;
     }
 }
+
+@media (max-width: 479px) {
+    .navbar-fixed-top + .main-container {
+        padding-top: 45px;
+    }
+}

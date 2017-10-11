@@ -99,7 +99,8 @@
 
             //设置按钮组toall
             function setBtnGroup(i) {
-                btnGroup.select(9);
+                if (i == -1) i = 9;
+                btnGroup.select(i);
             }
 
             //设置按钮状态
@@ -523,6 +524,14 @@
                 dataSource.read();
             }
 
+            //初始化
+            function init() {
+                setBtnGroup(5);
+                start.value(today_date());
+                end.value(today_date());
+                setBtnStatus(true);
+            }
+
             //关键字定时器
             var keyTime;
 
@@ -561,6 +570,7 @@
             }).data("kendoNotification");
 
             resizeGrid();
+            init();
             queryList();
             navbarActive(0);
 
