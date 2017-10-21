@@ -12,7 +12,7 @@ public partial class AALifeWeb_SyncUserInfo : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         int userId = Convert.ToInt32(Request.Form["userid"]);
-        string userFrom = Request.Form["userfrom"].ToString();
+        string userFrom = "sjapp";// Request.Form["userfrom"].ToString();
         string userMoney = Request.Form["usermoney"] ?? "";
         string userWorkDay = Request.Form["userworkday"] ?? "";
         string categoryRate = Request.Form["categoryrate"] ?? "";
@@ -21,7 +21,7 @@ public partial class AALifeWeb_SyncUserInfo : System.Web.UI.Page
         if (userFrom.Length > 5)
         {
             userFrom = userFrom.Replace("_", "");
-            userFrom = userFrom.Insert(5, "_");
+            userFrom = userFrom.Substring(5);
         }
 
         bool success = false;

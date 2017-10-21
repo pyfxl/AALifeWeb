@@ -18,58 +18,21 @@ public class ItemTable  : System.Web.Services.WebService
 {
 
     [WebMethod]
-    public ListViewModel<AALife.EF.Models.ItemTable> GetItemTableDapper(AALife.EF.ViewModel.QueryPageModel pageModels)
+    public ListViewModel<ItemTableViewModel> GetItemTable(QueryPageModel pageModels)
     {
         ApiBase.GZipEncodePage();
 
-        var result = new ListViewModel<AALife.EF.Models.ItemTable>();
+        var result = new ListViewModel<ItemTableViewModel>();
 
         try
         {
             ItemTableBLL bll = new ItemTableBLL();
 
-            var lists = bll.GetItemTableDapper(pageModels.startDate, pageModels.endDate);
+            int count = 0;
+            var lists = bll.GetItemTable(pageModels, out count);
 
             result.rows = lists.ToList();
-        }
-        catch(Exception ex)
-        {
-            result.error = "加载出错！";
-        }
-
-        return result;
-    }
-
-    [WebMethod]
-    public ListViewModel<AALife.EF.Models.ItemTable> GetItemTable(AALife.EF.ViewModel.QueryPageModel pageModels)
-    {
-        ApiBase.GZipEncodePage();
-
-        var result = new ListViewModel<AALife.EF.Models.ItemTable>();
-
-        try
-        {
-            ItemTableBLL bll = new ItemTableBLL();
-
-            var lists = new List<AALife.EF.Models.ItemTable>();
-            if (pageModels.key != "" && pageModels.key != null)
-            {
-                lists = bll.GetItemTable(pageModels.key).ToList();
-            }
-            else
-            {
-                if (pageModels.userId > 0 && pageModels.userId != null)
-                {
-                    lists = bll.GetItemTable(pageModels.startDate, pageModels.endDate, pageModels.userId.Value).ToList();
-                }
-                else
-                {
-                    lists = bll.GetItemTable(pageModels.startDate, pageModels.endDate).ToList();
-                }
-            }
-
-            result.rows = lists.Skip(pageModels.skip).Take(pageModels.take).ToList();
-            result.total = lists.Count();
+            result.total = count;
         }
         catch(Exception ex)
         {

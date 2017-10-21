@@ -18,7 +18,7 @@ public partial class AALifeWeb_SyncNewUser : System.Web.UI.Page
         string userNickName = Request.Form["usernickname"].ToString();
         string userImage = "user.gif";
         string userEmail = Request.Form["useremail"].ToString();
-        string userFrom = Request.Form["userfrom"] ?? "sjapp";
+        string userFrom = "sjapp";
         string userWorkDay = Request.Form["userworkday"].ToString();
         string userMoney = Request.Form["usermoney"] ?? "0";
         string categoryRate = Request.Form["categoryrate"] ?? "90";
@@ -27,7 +27,7 @@ public partial class AALifeWeb_SyncNewUser : System.Web.UI.Page
         if (userFrom.Length > 5)
         {
             userFrom = userFrom.Replace("_", "");
-            userFrom = userFrom.Insert(5, "_");
+            userFrom = userFrom.Substring(5);
         }
 
         UserInfo user = new UserInfo();

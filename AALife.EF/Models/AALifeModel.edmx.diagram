@@ -4,11 +4,30 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3454784098404543818c4afff7daebf0" Name="Diagram1">
-        <EntityTypeShape EntityType="AALifeModel.UserFromTable" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AALifeModel.UserTable" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AALifeModel.WorkDayTable" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="AALifeModel.ItemTable" Width="1.5" PointX="5.375" PointY="3.75" />
+      <Diagram DiagramId="3454784098404543818c4afff7daebf0" Name="AALifeWeb" ZoomLevel="74">
+        <EntityTypeShape EntityType="AALifeModel.CardTable" Width="1.5" PointX="11.5" PointY="1" />
+        <EntityTypeShape EntityType="AALifeModel.ItemTable" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="AALifeModel.ItemTypeTable" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="AALifeModel.OAuthTable" Width="1.5" PointX="4.625" PointY="6.125" />
+        <AssociationConnector Association="AALifeModel.FK_ItemTable_ItemTypeTable" />
+        <EntityTypeShape EntityType="AALifeModel.UserCategoryTable" Width="1.5" PointX="10.125" PointY="7.875" />
+        <EntityTypeShape EntityType="AALifeModel.UserFromTable" Width="1.5" PointX="10.875" PointY="5.25" />
+        <EntityTypeShape EntityType="AALifeModel.UserTable" Width="1.5" PointX="6.875" PointY="2.75" />
+        <AssociationConnector Association="AALifeModel.FK_CardTable_UserTable" />
+        <AssociationConnector Association="AALifeModel.FK_ItemTable_UserTable" />
+        <AssociationConnector Association="AALifeModel.FK_OAuthTable_UserTable" />
+        <AssociationConnector Association="AALifeModel.FK_UserCategoryTable_UserTable" />
+        <AssociationConnector Association="AALifeModel.FK_UserTable_UserFromTable" />
+        <EntityTypeShape EntityType="AALifeModel.WorkDayTable" Width="1.5" PointX="6.5" PointY="0.5" />
+        <EntityTypeShape EntityType="AALifeModel.ZhuanTiTable" Width="1.5" PointX="9.5" PointY="0.5" />
+        <EntityTypeShape EntityType="AALifeModel.ZhuanZhangTable" Width="1.5" PointX="5.25" PointY="9.625" />
+        <AssociationConnector Association="AALifeModel.FK_UserTable_WorkDayTable" />
+        <AssociationConnector Association="AALifeModel.FK_ZhuanTiTable_UserTable" />
+        <AssociationConnector Association="AALifeModel.FK_ZhuanZhangTable_UserTable" />
+        <EntityTypeShape EntityType="AALifeModel.CategoryTypeTable" Width="1.5" PointX="0.5" PointY="4.5" />
+        <AssociationConnector Association="AALifeModel.FK_ItemTable_CategoryTypeTable" />
+        <EntityTypeShape EntityType="AALifeModel.RegionTypeTable" Width="1.5" PointX="2.125" PointY="7" />
+        <AssociationConnector Association="AALifeModel.FK_ItemTable_RegionTypeTable" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

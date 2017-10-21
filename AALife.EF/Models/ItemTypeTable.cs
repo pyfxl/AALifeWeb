@@ -12,19 +12,20 @@ namespace AALife.EF.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class UserFromTable
+    public partial class ItemTypeTable
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public UserFromTable()
+        public ItemTypeTable()
         {
-            this.UserTable = new HashSet<UserTable>();
+            this.ItemTable = new HashSet<ItemTable>();
         }
     
-        public string UserFrom { get; set; }
-        public string UserFromName { get; set; }
+        public string ItemType { get; set; }
+        public string ItemTypeName { get; set; }
+        public string ItemTypeSymbol { get; set; }
         public byte Rank { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<UserTable> UserTable { get; set; }
+        public virtual ICollection<ItemTable> ItemTable { get; set; }
     }
 }

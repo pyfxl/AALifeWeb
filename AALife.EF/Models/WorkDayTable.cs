@@ -14,8 +14,17 @@ namespace AALife.EF.Models
     
     public partial class WorkDayTable
     {
-        public byte WorkDay { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public WorkDayTable()
+        {
+            this.UserTable = new HashSet<UserTable>();
+        }
+    
+        public string WorkDay { get; set; }
         public string WorkDayName { get; set; }
         public byte Rank { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserTable> UserTable { get; set; }
     }
 }

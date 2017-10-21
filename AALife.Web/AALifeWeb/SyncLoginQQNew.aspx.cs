@@ -21,14 +21,14 @@ public partial class AALifeWeb_SyncLoginQQNew : System.Web.UI.Page
         string oAuthFrom = "sjqq";
         string nickName = Request.Form["nickname"].ToString();
         string userImage = Request.Form["userimage"].ToString();
-        string userFrom = Request.Form["userfrom"].ToString() ?? Request.Form["oauthfrom"].ToString();
+        string userFrom = "sjqq";// Request.Form["userfrom"].ToString() ?? Request.Form["oauthfrom"].ToString();
         int type = Convert.ToInt32(Request.Form["type"]);
         string isUpdate = Request.Form["isupdate"] ?? "0";
 
         if (userFrom.Length > 5)
         {
             userFrom = userFrom.Replace("_", "");
-            userFrom = userFrom.Insert(5, "_");
+            userFrom = userFrom.Substring(5);
         }
 
         UserInfo user = user_bll.GetUserByUserName(userName);

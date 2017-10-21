@@ -17,27 +17,23 @@ public class UserTable : System.Web.Services.WebService
 {
 
     [WebMethod]
-    public ListViewModel<AALife.EF.Models.UserTable> GetUserTable(DateTime startDate, DateTime endDate, string key)
+    public ListViewModel<UserTableViewModel> GetUserTable(DateTime startDate, DateTime endDate, string keySearch)
     {
         ApiBase.GZipEncodePage();
 
-        var result = new ListViewModel<AALife.EF.Models.UserTable>();
+        var result = new ListViewModel<UserTableViewModel>();
 
         try
         {
             UserTableBLL bll = new UserTableBLL();
 
-            var lists = new List<AALife.EF.Models.UserTable>();
-            if (key != "" && key != null)
+            var lists = bll.GetUserTable(startDate, endDate);
+            if (keySearch != "" && keySearch != null)
             {
-                lists = bll.GetUserTable(key).ToList();
-            }
-            else
-            {
-                lists = bll.GetUserTable(startDate, endDate).ToList();
+                lists = bll.GetUserTable(keySearch);
             }
 
-            result.rows = lists;
+            result.rows = lists.ToList();
             result.total = lists.Count();
         }
         catch(Exception ex)
@@ -49,7 +45,7 @@ public class UserTable : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public ResultModel UpdateUserTable(AALife.EF.Models.UserTable models)
+    public ResultModel UpdateUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -66,7 +62,7 @@ public class UserTable : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public ResultModel AddUserTable(AALife.EF.Models.UserTable models)
+    public ResultModel AddUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -91,7 +87,7 @@ public class UserTable : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public ResultModel RemoveUserTable(AALife.EF.Models.UserTable models)
+    public ResultModel RemoveUserTable(UserTableViewModel models)
     {
         string error = "";
         try

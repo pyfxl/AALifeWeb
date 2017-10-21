@@ -30,6 +30,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper.Net4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\AutoMapper.Net4.dll</HintPath>
+    </Reference>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.1.50.2\lib\net40\Dapper.dll</HintPath>
       <Private>True</Private>
@@ -60,6 +68,8 @@
     <Compile Include="BLL\UserFromBLL.cs" />
     <Compile Include="BLL\UserTableBLL.cs" />
     <Compile Include="BLL\WorkDayBLL.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="Enum\SortEnum.cs" />
     <Compile Include="Models\AALifeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -75,7 +85,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AALifeModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\CardTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryTypeTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ItemTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemTypeTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OAuthTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegionTypeTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserCategoryTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserFromTable.cs">
@@ -87,11 +115,21 @@
     <Compile Include="Models\WorkDayTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ZhuanTiTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ZhuanZhangTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QueryableExtensions.cs" />
+    <Compile Include="ViewModel\ItemTableViewModel.cs" />
     <Compile Include="ViewModel\ListViewModel.cs" />
     <Compile Include="ViewModel\QueryPageModel.cs" />
     <Compile Include="ViewModel\QueryModel.cs" />
     <Compile Include="ViewModel\ResultModel.cs" />
+    <Compile Include="ViewModel\SortModel.cs" />
+    <Compile Include="ViewModel\UserTableViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config">

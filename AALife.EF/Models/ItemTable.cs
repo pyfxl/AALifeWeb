@@ -29,5 +29,10 @@ namespace AALife.EF.Models
         public string ItemType { get; set; }
         public Nullable<int> ZhuanTiID { get; set; }
         public Nullable<int> CardID { get; set; }
+    
+        public virtual ItemTypeTable ItemTypeTable { get; set; }
+        public virtual UserTable UserTable { get; set; }
+        public virtual CategoryTypeTable CategoryTypeTable { get; set; }
+        public virtual RegionTypeTable RegionTypeTable { get; set; }
     }
 }

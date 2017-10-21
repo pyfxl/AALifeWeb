@@ -1,4 +1,4 @@
-﻿<%@ Page Title="后台管理 | 消费列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="ItemTable.aspx.cs" Inherits="Manage_ItemTable" %>
+﻿<%@ Page Title="后台管理 | 消费列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="ItemTable - 复制.aspx.cs" Inherits="Manage_ItemTable" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="common/kendo-custom-ui.js"></script>
@@ -86,20 +86,24 @@
                             ItemID: { type: "number" },
                             ItemName: { type: "string" },
                             CategoryTypeID: { type: "number" },
+                            CategoryTypeName: { type: "string" },
                             ItemPrice: { type: "number" },
                             ItemBuyDate: { type: "date" },
                             UserID: { type: "number" },
+                            UserName: { type: "string" },
                             Recommend: { type: "number" },
                             ModifyDate: { type: "date" },
                             Synchronize: { type: "number" },
                             ItemAppID: { type: "number" },
                             RegionID: { type: "number" },
                             RegionType: { type: "string" },
-                            RegionTypeName: { type: "string" },
+                            RegionTypeFull: { type: "string" },
                             ItemType: { type: "string" },
                             ItemTypeName: { type: "string" },
                             ZhuanTiID: { type: "number" },
-                            CardID: { type: "number" }
+                            ZhuanTiName: { type: "string" },
+                            CardID: { type: "number" },
+                            CardName: { type: "string" }
                         }
                     },
                     errors: "d.error"
@@ -164,7 +168,7 @@
                         width: 150
                     },
                     {
-                        field: "CategoryTypeID",
+                        field: "CategoryTypeName",
                         title: "商品类别",
                         width: 150
                     },
@@ -178,12 +182,12 @@
                     {
                         field: "ItemBuyDate",
                         title: "日期",
-                        width: 100,
+                        width: 90,
                         format: "{0:yyyy/MM/dd}"
                     },
                     {
-                        template: "<a href='ItemTable.aspx?userId=#:UserID#'>#:UserID#</a>",
-                        field: "UserID",
+                        template: "<a href='ItemTable.aspx?userId=#:UserID#'>#:UserName#</a>",
+                        field: "UserName",
                         title: "用户名",
                         width: 90
                     },
@@ -202,22 +206,28 @@
                     {
                         field: "Synchronize",
                         title: "同步否",
+                        format: "0",
                         width: 80,
                         filterable: { multi: true }
                     },
                     {
-                        field: "RegionTypeName",
+                        field: "RegionID",
+                        title: "固定ID",
+                        width: 80
+                    },
+                    {
+                        field: "RegionTypeFull",
                         title: "固定",
                         width: 80,
                         filterable: { multi: true }
                     },
                     {
-                        field: "CardID",
+                        field: "CardName",
                         title: "钱包",
                         width: 80
                     },
                     {
-                        field: "ZhuanTiID",
+                        field: "ZhuanTiName",
                         title: "专题",
                         width: 80
                     }
@@ -316,7 +326,7 @@
                 var userId = getUrlParam("userId");
                 if (!$.isEmptyObject(userId)) {
                     setButtonDown("");
-                    setDate(min_date(), max_date());
+                    setDate(max_date(), today_date());
                     return;
                 }
 

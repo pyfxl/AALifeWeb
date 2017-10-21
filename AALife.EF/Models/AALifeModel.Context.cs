@@ -18,6 +18,7 @@ namespace AALife.EF.Models
         public AALifeDbContext()
             : base("name=AALifeDbContext")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -25,9 +26,17 @@ namespace AALife.EF.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<CardTable> CardTable { get; set; }
+        public virtual DbSet<ItemTable> ItemTable { get; set; }
+        public virtual DbSet<ItemTypeTable> ItemTypeTable { get; set; }
+        public virtual DbSet<OAuthTable> OAuthTable { get; set; }
+        public virtual DbSet<UserCategoryTable> UserCategoryTable { get; set; }
         public virtual DbSet<UserFromTable> UserFromTable { get; set; }
         public virtual DbSet<UserTable> UserTable { get; set; }
         public virtual DbSet<WorkDayTable> WorkDayTable { get; set; }
-        public virtual DbSet<ItemTable> ItemTable { get; set; }
+        public virtual DbSet<ZhuanTiTable> ZhuanTiTable { get; set; }
+        public virtual DbSet<ZhuanZhangTable> ZhuanZhangTable { get; set; }
+        public virtual DbSet<CategoryTypeTable> CategoryTypeTable { get; set; }
+        public virtual DbSet<RegionTypeTable> RegionTypeTable { get; set; }
     }
 }

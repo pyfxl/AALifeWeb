@@ -11,7 +11,7 @@ namespace AALife.EF.ViewModel
 
         public DateTime endDate { get; set; }
 
-        public string key { get; set; }
+        public string keySearch { get; set; }
 
         public int? userId { get; set; }
     }

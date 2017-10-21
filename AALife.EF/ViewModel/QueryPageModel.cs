@@ -14,5 +14,7 @@ namespace AALife.EF.ViewModel
         public int skip { get; set; }
 
         public int take { get; set; }
+
+        public List<SortModel> sort { get; set; }
     }
 }

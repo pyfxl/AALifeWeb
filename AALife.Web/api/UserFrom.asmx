@@ -21,11 +21,11 @@ public class UserFrom  : System.Web.Services.WebService
     {
         UserFromBLL bll = new UserFromBLL();
 
-        List<UserFromTable> lists = bll.GetUserFrom().ToList();
+        var lists = bll.GetUserFrom();
 
         var result = new ListViewModel<UserFromTable>
         {
-            rows = lists,
+            rows = lists.ToList(),
             total = lists.Count()
         };
 

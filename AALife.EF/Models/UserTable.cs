@@ -14,6 +14,17 @@ namespace AALife.EF.Models
     
     public partial class UserTable
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public UserTable()
+        {
+            this.CardTable = new HashSet<CardTable>();
+            this.ItemTable = new HashSet<ItemTable>();
+            this.OAuthTable = new HashSet<OAuthTable>();
+            this.UserCategoryTable = new HashSet<UserCategoryTable>();
+            this.ZhuanTiTable = new HashSet<ZhuanTiTable>();
+            this.ZhuanZhangTable = new HashSet<ZhuanZhangTable>();
+        }
+    
         public int UserID { get; set; }
         public string UserName { get; set; }
         public string UserPassword { get; set; }
@@ -34,5 +45,20 @@ namespace AALife.EF.Models
         public byte Synchronize { get; set; }
         public Nullable<decimal> MoneyStart { get; set; }
         public Nullable<byte> IsUpdate { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CardTable> CardTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ItemTable> ItemTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<OAuthTable> OAuthTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<UserCategoryTable> UserCategoryTable { get; set; }
+        public virtual UserFromTable UserFromTable { get; set; }
+        public virtual WorkDayTable WorkDayTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ZhuanTiTable> ZhuanTiTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ZhuanZhangTable> ZhuanZhangTable { get; set; }
     }
 }

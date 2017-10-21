@@ -21,11 +21,11 @@ public class WorkDay  : System.Web.Services.WebService
     {
         WorkDayBLL bll = new WorkDayBLL();
 
-        List<WorkDayTable> lists = bll.GetWorkDay().ToList();
+        var lists = bll.GetWorkDay();
 
         var result = new ListViewModel<WorkDayTable>
         {
-            rows = lists,
+            rows = lists.ToList(),
             total = lists.Count()
         };
 

@@ -1,28 +1,13 @@
-﻿<%@ Page Title="后台管理 | 用户列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Manage_Home" %>
+﻿<%@ Page Title="后台管理 | 用户列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="HomeToolBar.aspx.cs" Inherits="Manage_Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="common/kendo-custom-ui.js"></script>
+    <script src="common/buttondown-ui.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <span id="notification"></span>
     <div class="row">
         <div class="col-xs-12">
-            <form class="form-inline">
-                <div class="form-group">
-                    <div class="km-widget km-buttongroup k-widget k-button-group k-buttondown" id="buttondown">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label>日期</label>
-                    <input id="start" value="" style="width: 120px;" />
-                    &minus;
-                    <input id="end" value="" style="width: 120px;" />
-                </div>
-                <div class="form-group">
-                    <label>关键字</label>
-                    <input class="k-textbox" id="keysearch" value="" placeholder="用户名/密码/昵称" />
-                </div>
-            </form>
+            <div id="toolbar"></div>
         </div><!-- /.col -->
     </div><!-- /.row -->
     <div class="space-2"></div>
@@ -36,22 +21,152 @@
 
         $(document).ready(function () {
 
+            $("#toolbar").kendoToolBar({
+                items: [
+                    {
+                        type: "buttonGroup",
+                        buttons: [
+                            { text: "全部", id: "b_all", togglable: true, group: "button-down", toggle: buttonToggleHandler },
+                            { text: "本年", id: "b_year", togglable: true, group: "button-down", toggle: buttonToggleHandler },
+                            { text: "本季", id: "b_quarter", togglable: true, group: "button-down", toggle: buttonToggleHandler },
+                            { text: "本月", id: "b_month", togglable: true, group: "button-down", toggle: buttonToggleHandler },
+                            { text: "本周", id: "b_week", togglable: true, group: "button-down", toggle: buttonToggleHandler },
+                            { text: "本日", id: "b_day", togglable: true, group: "button-down", toggle: buttonToggleHandler }
+                        ],
+                        overflow: "never"
+                    },
+                    { type: "separator" },
+                    {
+                        type: "buttonGroup",
+                        buttons: [
+                            { text: "前天", id: "b_previous", togglable: true, group: "button-down", toggle: buttonToggleHandler },
+                            { text: "后天", id: "b_next", togglable: true, group: "button-down", toggle: buttonToggleHandler }
+                        ]
+                    },
+                    { type: "separator" },
+                    { template: "<label for='dropdown'>日期：</label>" },
+                    {
+                        template: '<input id="start" value="" style="width: 120px;" />&minus;<input id="end" value="" style="width: 120px;" />',                        
+                    },
+                    { type: "separator" },
+                    { template: "<label for='dropdown'>关键字：</label>" },
+                    {
+                        template: '<input class="k-textbox" id="key" value="" placeholder="用户名/密码/昵称" />',
+                    }
+                ]
+            });
+            
             //查询对象
-            var query = { startDate: "", endDate: "", keySearch: "", buttonDown: "" };
+            var query = { startDate:"", endDate:"", key: "" };
 
             //开始日期
             var start = $("#start").kendoDatePicker({
-                change: changeDate,
+                change: function () {
+                    setBtnGroup(-1);
+                    queryList();
+                },
                 value: month_start(),
                 format: "yyyy/MM/dd"
             }).data("kendoDatePicker");
 
             //结束日期
             var end = $("#end").kendoDatePicker({
-                change: changeDate,
+                change: function () {
+                    setBtnGroup(-1);
+                    queryList();
+                },
                 value: month_end(),
                 format: "yyyy/MM/dd"
             }).data("kendoDatePicker");
+            
+            //设置按钮组
+            function setBtnGroup(i) {
+                if (i == -1) i = 9;
+                //btnGroup.select(i);
+            }
+
+            //按钮组init
+            $.each(btnGroupData, function (i, v) {
+                $("#select-period").append("<li>" + v + "</li>");
+            });
+
+            //按钮组kendo
+            var btnGroup = $("#select-period").kendoMobileButtonGroup({
+                select: function (e) {
+                    setBtnStatus(false);
+                    switch (e.index) {
+                        case 0://全部
+                            start.value(max_date());
+                            end.value(today_date());
+                            break;
+                        case 1://今年
+                            start.value(year_start());
+                            end.value(year_end());
+                            break;
+                        case 2://本季
+                            start.value(quarter_start());
+                            end.value(quarter_end());
+                            break;
+                        case 3://本月
+                            start.value(month_start());
+                            end.value(month_end());
+                            break;
+                        case 4://本周
+                            start.value(week_start());
+                            end.value(week_end());
+                            break;
+                        case 5://今日
+                            start.value(today_date());
+                            end.value(today_date());
+                            setBtnStatus(true);
+                            break;
+                    }
+                    queryList();
+                },
+                index: 3
+            }).data("kendoMobileButtonGroup");
+
+            //toolbar按钮事件
+            function buttonToggleHandler(e) {
+                switch (e.id) {
+                    case "b_all"://全部
+                        start.value(max_date());
+                        end.value(today_date());
+                        break;
+                    case "b_year"://今年
+                        start.value(year_start());
+                        end.value(year_end());
+                        break;
+                    case "b_quarter"://本季
+                        start.value(quarter_start());
+                        end.value(quarter_end());
+                        break;
+                    case "b_month"://本月
+                        start.value(month_start());
+                        end.value(month_end());
+                        break;
+                    case "b_week"://本周
+                        start.value(week_start());
+                        end.value(week_end());
+                        break;
+                    case "b_day"://今日
+                        start.value(today_date());
+                        end.value(today_date());
+                        //setBtnStatus(true);
+                        break;
+                    case "b_previous"://前天
+                        var date = set_date_number(start.value(), -1)
+                        start.value(date);
+                        end.value(date);
+                        break;
+                    case "b_next"://后天
+                        var date = set_date_number(start.value(), 1);
+                        start.value(date);
+                        end.value(date);
+                        break;
+                }
+                queryList();
+            }
 
             //列表数据源
             var dataSource = new kendo.data.DataSource({
@@ -90,11 +205,12 @@
                             return kendo.stringify({ models: options.models[0] });
                         }
                         return kendo.stringify(options);
+                        //return '{"startDate":"2017-09-01","endDate":"2017-09-30"}';
+                        //return '{"startDate":"' + kendo.toString(start.value(), "yyyy/MM/dd 00:00:00") + '","endDate":"' + kendo.toString(end.value(), "yyyy/MM/dd 23:59:59") + '"}';
                     }
                 },
                 pageSize: 30,
                 serverPaging: false,
-                serverSorting: false,
                 batch: true,
                 schema: {
                     data: "d.rows",
@@ -110,8 +226,8 @@
                                     validationMessage: "用户名为必填项",
                                     usernamevalidation: function (input) {
                                         if (input.is("[name='UserName']") && input.val() != "") {
-                                            input.attr("data-usernamevalidation-msg", "用户名必须3-20位");
-                                            return input.val().length >= 3 && input.val().length <= 20;
+                                            input.attr("data-usernamevalidation-msg", "用户名必须3-10位");
+                                            return input.val().length >= 3 && input.val().length < 10;
                                         }
                                         return true;
                                     }
@@ -135,14 +251,12 @@
                             UserEmail: { type: "string", validation: { email: true, validationMessage: "不是合法的邮件地址" } },
                             UserTheme: { type: "string", defaultValue: "main" },
                             UserLevel: { type: "number", defaultValue: 9, editable: false },
-                            UserFrom: { type: "string", defaultValue: "web" },
-                            UserFromName: { type: "string" },
+                            UserFrom: { type: "string", editable: false },
                             ModifyDate: { type: "date", editable: false },
                             CreateDate: { type: "date", editable: false },
                             UserCity: { type: "string" },
                             UserMoney: { type: "number" },
-                            UserWorkDay: { type: "string", defaultValue: "5" },
-                            UserWorkDayName: { type: "string" },
+                            UserWorkDay: { type: "string", defaultValue: 5 },
                             UserFunction: { type: "string", editable: false },
                             CategoryRate: { type: "number", validation: { min: 0, max: 100 } },
                             Synchronize: { type: "number", validation: { min: 0, max: 1 } },
@@ -270,7 +384,7 @@
                         width: 100
                     },
                     {
-                        template: "<div class='k-user'><img src='#if(UserImage.indexOf('http')){#/Images/Users/#:UserImage##}else{##:UserImage##}#'></div>",
+                        template: "<div class='user'><img src='#if(UserImage.indexOf('http')){#/Images/Users/#:UserImage##}else{##:UserImage##}#'></div>",
                         field: "UserImage",
                         title: "头像",
                         width: 100,
@@ -339,22 +453,9 @@
                         filterable: { multi: true }
                     },
                     {
-                        template: "#= UserFromName #",
                         field: "UserFrom",
                         title: "来自",
                         width: 120,
-                        editor: function (container, options) {
-                            var input = $("<input required validationmessage='来自为必选项' />");
-                            input.attr("name", options.field);
-                            input.appendTo(container);
-                            input.kendoDropDownList({
-                                dataTextField: "UserFromName",
-                                dataValueField: "UserFrom",
-                                dataSource: dataUserFrom,
-                                animation: false
-                            });
-                            $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
-                        },
                         filterable: { multi: true }
                     },
                     {
@@ -376,7 +477,6 @@
                         format: "{0:yyyy/MM/dd HH:mm:ss}"
                     },
                     {
-                        template: "#= UserWorkDayName #",
                         field: "UserWorkDay",
                         title: "工作日",
                         width: 110,
@@ -397,6 +497,7 @@
                     {
                         field: "CategoryRate",
                         title: "预警率",
+                        format: "0",
                         width: 80
                     },
                     {
@@ -412,12 +513,14 @@
                     {
                         field: "Synchronize",
                         title: "同步否",
+                        format: "0",
                         width: 80,
                         filterable: { multi: true }
                     },
                     {
                         field: "IsUpdate",
                         title: "更新否",
+                        format: "0",
                         width: 80,
                         filterable: { multi: true }
                     },
@@ -429,43 +532,53 @@
                 ]
             }).data("kendoGrid");
 
-            //自定义按钮组
-            var buttonDown = $("#buttondown").kendoButtomDown({
-                dataSource: [
-                    { title: "全部", code: "b_all" },
-                    { title: "本年", code: "b_year", sub: true },
-                    { title: "本季", code: "b_quarter", sub: true },
-                    { title: "本月", code: "b_month", sub: true },
-                    { title: "本周", code: "b_week", sub: true },
-                    { title: "本日", code: "b_day", sub: true }
-                ],
-                callback: function (data) {
-                    setDate(data.startDate, data.endDate);
-                    query.buttonDown = data.buttonDown;
-                    queryList(true);
-                }
-            }).data("kendoButtomDown");
+            //查询对象
+            function setQuery() {
+                query.startDate = kendo.toString(start.value(), "yyyy/MM/dd 00:00:00");
+                query.endDate = kendo.toString(end.value(), "yyyy/MM/dd 23:59:59");
+                query.key = $("#key").val();
+            }
 
-            //关键字组件
-            var keySearch = $("#keysearch").kendoKeySearch({
-                minLength: 1,
-                done: function (key) {
-                    setButtonDown("");
-                    setDate(min_date(), max_date());
-                    queryList();
-                },
-                focus: function (e) {
-                    if (!e.key) {
-                        setQuery();
-                        e.data = { "startDate": query.startDate, "endDate": query.endDate, "buttonDown": query.buttonDown };
-                    }
-                },
-                empty: function (data) {
-                    setDate(data.startDate, data.endDate);
-                    setButtonDown(data.buttonDown);
-                    queryList();
+            //列表查询
+            function queryList() {
+                setQuery();
+                clearKey();
+                dataSource.read();
+            }
+
+            //初始化
+            function init() {
+                setBtnGroup(5);
+                start.value(today_date());
+                end.value(today_date());
+            }
+
+            //关键字定时器
+            var keyTime;
+
+            //关键字查询
+            $("#key").keyup(function () {
+                if (keyTime != null) {
+                    clearTimeout(keyTime);
                 }
-            }).data("kendoKeySearch");
+                keyTime = setTimeout(function () {
+                    var str = $("#key").val().trim();
+                    if (str.length < 1) return;
+
+                    setBtnGroup(-1);
+                    start.value(max_date());
+                    end.value(today_date());
+
+                    setQuery();
+                    dataSource.read();
+                }, 1000);
+            });
+
+            //关键字清除
+            function clearKey() {
+                query.key = "";
+                $("#key").val("");
+            }
 
             //提示
             var notification = $("#notification").kendoNotification({
@@ -476,50 +589,6 @@
                 }
             }).data("kendoNotification");
 
-            //更改日期事件
-            function changeDate() {
-                setButtonDown("");
-                queryList(true);
-            }
-
-            //设置日期值
-            function setDate(startDate, endDate) {
-                start.value(startDate);
-                end.value(endDate);
-            }
-
-            //关键字清除
-            function clearKey() {
-                query.keySearch = "";
-                keySearch.clear();
-            }
-
-            //设置按钮下拉
-            function setButtonDown(code) {
-                query.buttonDown = code;
-                buttonDown.selected(code);
-            }
-
-            //设置查询条件
-            function setQuery() {
-                query.startDate = kendo.toString(start.value(), "yyyy/MM/dd 00:00:00");
-                query.endDate = kendo.toString(end.value(), "yyyy/MM/dd 23:59:59");
-                query.keySearch = keySearch.value();
-            }
-
-            //列表查询
-            function queryList(flag) {
-                if(flag) clearKey();
-                setQuery();
-                dataSource.read();
-            }
-
-            //初始化
-            function init() {
-                setButtonDown("b_day");
-                setDate(today_date(), today_date());
-            }
-            
             resizeGrid();
             init();
             queryList();
