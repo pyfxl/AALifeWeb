@@ -4,6 +4,8 @@
 
     self.moment_format = "YYYY-MM-DD";
 
+    self.moment_format_full = "YYYY-MM-DD HH:mm:SS";
+
     //今天日期
     self.today_date = function () {
         return moment().format(self.moment_format);

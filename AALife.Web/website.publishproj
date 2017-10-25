@@ -19,7 +19,7 @@ website.publishproj
     <ProjectGuid>{06e25b31-7cf4-44ef-a1fb-9969d2315363}</ProjectGuid>
     <SourceWebPhysicalPath>$(MSBuildThisFileDirectory)</SourceWebPhysicalPath>
     <SourceWebVirtualPath>/AALife.Web</SourceWebVirtualPath>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <SourceWebProject>http://localhost:3759</SourceWebProject>
     <SourceWebMetabasePath>/IISExpress/7.5/LM/W3SVC/2/ROOT</SourceWebMetabasePath>
   </PropertyGroup>
@@ -54,13 +54,13 @@ website.publishproj
       <Project>{023380F9-DD98-4D97-862A-9D4A965DB1D4}</Project>
       <Name>AALife.DBUtility</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AALife.EF\AALife.EF.csproj">
-      <Project>{62C63866-F75C-489C-BD6A-1D2B92C0DB80}</Project>
-      <Name>AALife.EF</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AALife.Model\AALife.Model.csproj">
       <Project>{E458099D-6C03-40EE-AC70-480FFD645987}</Project>
       <Name>AALife.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.Service\AALife.Service.csproj">
+      <Project>{62C63866-F75C-489C-BD6A-1D2B92C0DB80}</Project>
+      <Name>AALife.Service</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(_WebPublishTargetsPath)\Web\Microsoft.WebSite.Publishing.targets" />

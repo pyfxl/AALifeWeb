@@ -1,0 +1,184 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62C63866-F75C-489C-BD6A-1D2B92C0DB80}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AALife.Service</RootNamespace>
+    <AssemblyName>AALife.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.2\lib\net451\Dapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Mapster, Version=3.1.6.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
+      <HintPath>..\packages\Mapster.3.1.6\lib\net45\Mapster.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.4.12\lib\net45\NLog.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Dapper\BaseBLL.cs" />
+    <Compile Include="Dapper\ItemTableBLL.cs" />
+    <Compile Include="EF\BaseBLL.cs" />
+    <Compile Include="EF\ItemTableBLL.cs" />
+    <Compile Include="EF\UserFromBLL.cs" />
+    <Compile Include="EF\UserTableBLL.cs" />
+    <Compile Include="EF\WorkDayBLL.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="Models\AALifeModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AALifeModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AALifeModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AALifeModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AALifeModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CardTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CategoryTypeTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ItemTypeTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OAuthTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RegionTypeTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserCategoryTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserFromTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WorkDayTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ZhuanTiTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ZhuanZhangTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Enum\SortEnum.cs" />
+    <Compile Include="Model\KendoUI\ListViewModel.cs" />
+    <Compile Include="Model\KendoUI\ResultViewModel.cs" />
+    <Compile Include="Model\Query\QueryModel.cs" />
+    <Compile Include="Model\Query\QueryPageModel.cs" />
+    <Compile Include="Model\Query\SortModel.cs" />
+    <Compile Include="Model\ViewModel\ItemTableViewModel.cs" />
+    <Compile Include="Model\ViewModel\UserTableViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="Models\AALifeModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AALifeModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Models\AALifeModel.edmx.diagram">
+      <DependentUpon>AALifeModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\AALifeModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AALifeModel.edmx</DependentUpon>
+      <LastGenOutput>AALifeModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\AALifeModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AALifeModel.edmx</DependentUpon>
+      <LastGenOutput>AALifeModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AALife.Model\AALife.Model.csproj">
+      <Project>{e458099d-6c03-40ee-ac70-480ffd645987}</Project>
+      <Name>AALife.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

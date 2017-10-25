@@ -9,13 +9,20 @@
     <title>后台管理</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+                     
+    <!-- kendo ui 以ace为主kendo放前面 -->
+    <link href="../theme/kendoui/kendo.common.min.css" rel="stylesheet" />
+    <link href="../theme/kendoui/kendo.default.min.css" rel="stylesheet" />
+    <link href="../theme/kendoui/kendo.default.mobile.min.css" rel="stylesheet" />
 
     <!-- bootstrap & fontawesome -->
     <link rel="stylesheet" href="../ace/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="../ace/assets/font-awesome/4.5.0/css/font-awesome.min.css" />
-
+            
     <!-- page specific plugin styles -->
-
+    <link rel="stylesheet" href="../ace/assets/css/bootstrap-multiselect.min.css" />
+    <link rel="stylesheet" href="../ace/assets/css/bootstrap-datepicker3.min.css" />
+    
     <!-- ace styles -->
     <%= "<link rel=\"stylesheet\" href=\"../ace/assets/css/ace.min.css\" class=\"ace-main-stylesheet\" id=\"main-ace-style\" />" %>
 
@@ -40,38 +47,47 @@
     <script src="../ace/assets/js/html5shiv.min.js"></script>
     <script src="../ace/assets/js/respond.min.js"></script>
     <![endif]-->
-    
+           
     <!-- basic scripts -->
 
     <!--[if !IE]> -->
     <script src="../ace/assets/js/jquery-2.1.4.min.js"></script>
-
     <!-- <![endif]-->
 
     <!--[if IE]>
     <script src="../ace/assets/js/jquery-1.11.3.min.js"></script>
     <![endif]-->
     <script type="text/javascript">
-        if('ontouchstart' in document.documentElement) document.write("<script src='../ace/assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+        if ('ontouchstart' in document.documentElement) document.write("<script src='../ace/assets/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
     </script>
     <script src="../ace/assets/js/bootstrap.min.js"></script>
-                        
+        
+    <!-- page specific plugin scripts -->
+    <script src="../ace/assets/js/jquery.dataTables.min.js"></script>
+    <script src="../ace/assets/js/jquery.dataTables.bootstrap.min.js"></script>
+
+    <!-- page specific plugin scripts -->
+    <script src="../ace/assets/js/bootstrap-multiselect.min.js"></script>
+    <script src="../ace/assets/js/bootstrap-datepicker.min.js"></script>
+    <script src="../ace/assets/js/locales/bootstrap-datepicker.zh-CN.js"></script>
+                 
     <!-- kendo ui 以ace为主kendo放前面 -->
-    <link href="../theme/kendoui/kendo.common.min.css" rel="stylesheet" />
-    <link href="../theme/kendoui/kendo.default.min.css" rel="stylesheet" />
-    <link href="../theme/kendoui/kendo.default.mobile.min.css" rel="stylesheet" />
     <script src="../theme/kendoui/kendo.all.min.js"></script>
     <script src="../theme/kendoui/cultures/kendo.culture.zh-CN.min.js"></script>
     <script src="../theme/kendoui/messages/kendo.messages.zh-CN.min.js"></script>
-    
+           
+    <!-- ace scripts -->
+    <script src="../ace/assets/js/ace-elements.min.js"></script>
+    <script src="../ace/assets/js/ace.min.js"></script>
+     
     <!-- js -->
     <script src="../common/moment.js"></script>
     <script src="../common/fn-date.js"></script>
-    <script src="../common/data.js"></script>
+    <script src="../common/const-data.js"></script>
+    <script src="../common/main.js"></script>
 
     <!-- css -->
-    <link href="common/style.css" rel="stylesheet" />
-    <script src="common/main.js"></script>
+    <link href="assets/style.css" rel="stylesheet" />
 
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -117,12 +133,12 @@
             </div>
         </div><!-- /.navbar-container -->
     </div>
-
+      
     <div class="main-container ace-save-state" id="main-container">
         <script type="text/javascript">
             try{ace.settings.loadState('main-container')}catch(e){}
         </script>
-        
+  
         <div class="main-content">
             <div class="main-content-inner">
                 <div class="page-content">
@@ -137,18 +153,6 @@
         </a>
     </div><!-- /.main-container -->
 
-    <!-- page specific plugin scripts -->
-
-    <!--[if lte IE 8]>
-        <script src="../ace/assets/js/excanvas.min.js"></script>
-    <![endif]-->
-    <script src="../ace/assets/js/jquery-ui.custom.min.js"></script>
-    <script src="../ace/assets/js/jquery.ui.touch-punch.min.js"></script>
-
-    <!-- ace scripts -->
-    <script src="../ace/assets/js/ace-elements.min.js"></script>
-    <script src="../ace/assets/js/ace.min.js"></script>
-
     <!-- inline scripts related to this page -->
     <script type="text/javascript">
 
@@ -156,21 +160,25 @@
 
         //重设大小
         function resizeGrid() {
-            //是否手机
-            if ('ontouchstart' in document.documentElement) return;
+            try {
+                //是否手机
+                if ('ontouchstart' in document.documentElement) return;
 
-            var grid = $("#grid");
-            var contentArea = grid.find(".k-grid-content");
+                var grid = $("#grid");
+                var contentArea = grid.find(".k-grid-content");
 
-            var windowHeight = $(window).innerHeight();
-            var gridHeight = grid.height();
-            var contentHeight = contentArea.height();
-            var offsetTop = grid.offset().top;
+                var windowHeight = $(window).innerHeight();
+                var gridHeight = grid.height();
+                var contentHeight = contentArea.height();
+                var offsetTop = grid.offset().top;
 
-            var calculatedHeight = windowHeight - offsetTop - 15 - 2 - gridHeight;
+                var calculatedHeight = windowHeight - offsetTop - 15 - 2 - gridHeight;
 
-            grid.height(gridHeight + calculatedHeight);
-            contentArea.height(contentHeight + calculatedHeight);
+                grid.height(gridHeight + calculatedHeight);
+                contentArea.height(contentHeight + calculatedHeight);
+
+            } catch (e){
+            }
         }
 
         $(window).resize(function () {
@@ -192,7 +200,7 @@
             ace.settingFunction.breadcrumbs_fixed(null, true);
 
             // kendo ui
-            kendo.culture("zh-CN");
+            try { kendo.culture("zh-CN"); } catch (e) { }
 
         })
     </script>

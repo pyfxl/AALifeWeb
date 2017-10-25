@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="后台管理 | 用户列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="Home.aspx.cs" Inherits="Manage_Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="common/kendo-custom-ui.js"></script>
+    <script src="assets/kendo-custom-ui.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <span id="notification"></span>
@@ -89,12 +89,12 @@
                         if (operation !== "read" && options.models) {
                             return kendo.stringify({ models: options.models[0] });
                         }
-                        return kendo.stringify(options);
+                        return kendo.stringify({ query: options });
                     }
                 },
                 pageSize: 30,
-                serverPaging: false,
-                serverSorting: false,
+                serverPaging: true,
+                serverSorting: true,
                 batch: true,
                 schema: {
                     data: "d.rows",
@@ -224,7 +224,11 @@
                 editable: "inline",
                 resizable: true,
                 filterable: true,
-                sortable: true,
+                sortable: {
+                    mode: "multiple",
+                    allowUnsort: true,
+                    showIndexes: true
+                },
                 groupable: false,
                 //selectable: "multiple",
                 pageable: {
@@ -511,7 +515,8 @@
             function queryList(flag) {
                 if(flag) clearKey();
                 setQuery();
-                dataSource.read();
+                dataSource.page(1);
+                dataSource.skip(0);
             }
 
             //初始化

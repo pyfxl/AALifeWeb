@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AALifeModelStoreContainer" CdmEntityContainer="AALifeDbContext">
+    <EntitySetMapping Name="CardTable">
+      <EntityTypeMapping TypeName="AALifeModel.CardTable">
+        <MappingFragment StoreEntitySet="CardTable">
+          <ScalarProperty Name="CardShow" ColumnName="CardShow" />
+          <ScalarProperty Name="MoneyStart" ColumnName="MoneyStart" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CDID" ColumnName="CDID" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+          <ScalarProperty Name="CardLive" ColumnName="CardLive" />
+          <ScalarProperty Name="CardMoney" ColumnName="CardMoney" />
+          <ScalarProperty Name="CardImage" ColumnName="CardImage" />
+          <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+          <ScalarProperty Name="CardName" ColumnName="CardName" />
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemTable">
+      <EntityTypeMapping TypeName="AALifeModel.ItemTable">
+        <MappingFragment StoreEntitySet="ItemTable">
+          <ScalarProperty Name="CardID" ColumnName="CardID" />
+          <ScalarProperty Name="ZhuanTiID" ColumnName="ZhuanTiID" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="RegionType" ColumnName="RegionType" />
+          <ScalarProperty Name="RegionID" ColumnName="RegionID" />
+          <ScalarProperty Name="ItemAppID" ColumnName="ItemAppID" />
+          <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="Recommend" ColumnName="Recommend" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ItemBuyDate" ColumnName="ItemBuyDate" />
+          <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+          <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+          <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+          <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ItemTypeTable">
+      <EntityTypeMapping TypeName="AALifeModel.ItemTypeTable">
+        <MappingFragment StoreEntitySet="ItemTypeTable">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="ItemTypeSymbol" ColumnName="ItemTypeSymbol" />
+          <ScalarProperty Name="ItemTypeName" ColumnName="ItemTypeName" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OAuthTable">
+      <EntityTypeMapping TypeName="AALifeModel.OAuthTable">
+        <MappingFragment StoreEntitySet="OAuthTable">
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="OAuthFrom" ColumnName="OAuthFrom" />
+          <ScalarProperty Name="OAuthBound" ColumnName="OAuthBound" />
+          <ScalarProperty Name="OldUserID" ColumnName="OldUserID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AccessToken" ColumnName="AccessToken" />
+          <ScalarProperty Name="OpenID" ColumnName="OpenID" />
+          <ScalarProperty Name="OAuthID" ColumnName="OAuthID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserFromTable">
+      <EntityTypeMapping TypeName="AALifeModel.UserFromTable">
+        <MappingFragment StoreEntitySet="UserFromTable">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="UserFromName" ColumnName="UserFromName" />
+          <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTable">
+      <EntityTypeMapping TypeName="AALifeModel.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
+          <ScalarProperty Name="MoneyStart" ColumnName="MoneyStart" />
+          <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+          <ScalarProperty Name="CategoryRate" ColumnName="CategoryRate" />
+          <ScalarProperty Name="UserFunction" ColumnName="UserFunction" />
+          <ScalarProperty Name="UserWorkDay" ColumnName="UserWorkDay" />
+          <ScalarProperty Name="UserMoney" ColumnName="UserMoney" />
+          <ScalarProperty Name="UserCity" ColumnName="UserCity" />
+          <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserTheme" ColumnName="UserTheme" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
+          <ScalarProperty Name="UserPassword" ColumnName="UserPassword" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WorkDayTable">
+      <EntityTypeMapping TypeName="AALifeModel.WorkDayTable">
+        <MappingFragment StoreEntitySet="WorkDayTable">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="WorkDayName" ColumnName="WorkDayName" />
+          <ScalarProperty Name="WorkDay" ColumnName="WorkDay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZhuanTiTable">
+      <EntityTypeMapping TypeName="AALifeModel.ZhuanTiTable">
+        <MappingFragment StoreEntitySet="ZhuanTiTable">
+          <ScalarProperty Name="ZTID" ColumnName="ZTID" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+          <ScalarProperty Name="ZhuanTiLive" ColumnName="ZhuanTiLive" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ZhuanTiImage" ColumnName="ZhuanTiImage" />
+          <ScalarProperty Name="ZhuanTiName" ColumnName="ZhuanTiName" />
+          <ScalarProperty Name="ZhuanTiID" ColumnName="ZhuanTiID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZhuanZhangTable">
+      <EntityTypeMapping TypeName="AALifeModel.ZhuanZhangTable">
+        <MappingFragment StoreEntitySet="ZhuanZhangTable">
+          <ScalarProperty Name="ZZID" ColumnName="ZZID" />
+          <ScalarProperty Name="ZhuanZhangNote" ColumnName="ZhuanZhangNote" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="ZhuanZhangLive" ColumnName="ZhuanZhangLive" />
+          <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+          <ScalarProperty Name="ZhuanZhangMoney" ColumnName="ZhuanZhangMoney" />
+          <ScalarProperty Name="ZhuanZhangDate" ColumnName="ZhuanZhangDate" />
+          <ScalarProperty Name="ZhuanZhangTo" ColumnName="ZhuanZhangTo" />
+          <ScalarProperty Name="ZhuanZhangFrom" ColumnName="ZhuanZhangFrom" />
+          <ScalarProperty Name="ZhuanZhangID" ColumnName="ZhuanZhangID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CategoryTypeTable">
+      <EntityTypeMapping TypeName="AALifeModel.CategoryTypeTable">
+        <MappingFragment StoreEntitySet="CategoryTypeTable">
+          <ScalarProperty Name="CategoryTypePrice" ColumnName="CategoryTypePrice" />
+          <ScalarProperty Name="CategoryTypeName" ColumnName="CategoryTypeName" />
+          <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserCategoryTable">
+      <EntityTypeMapping TypeName="AALifeModel.UserCategoryTable">
+        <MappingFragment StoreEntitySet="UserCategoryTable">
+          <ScalarProperty Name="CategoryTypePrice" ColumnName="CategoryTypePrice" />
+          <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+          <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+          <ScalarProperty Name="CategoryTypeLive" ColumnName="CategoryTypeLive" />
+          <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="CategoryTypeName" ColumnName="CategoryTypeName" />
+          <ScalarProperty Name="UserCategoryID" ColumnName="UserCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegionTypeTable">
+      <EntityTypeMapping TypeName="AALifeModel.RegionTypeTable">
+        <MappingFragment StoreEntitySet="RegionTypeTable">
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="RegionTypeSymbol" ColumnName="RegionTypeSymbol" />
+          <ScalarProperty Name="RegionTypeName" ColumnName="RegionTypeName" />
+          <ScalarProperty Name="RegionType" ColumnName="RegionType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

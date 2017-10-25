@@ -1,12 +1,11 @@
 ﻿<%@ WebService Language="C#" Class="UserTable" %>
 
-using AALife.EF.BLL;
-using AALife.EF.Models;
-using AALife.EF.ViewModel;
+using AALife.Service.EF;
+using AALife.Service.Model.KendoUI;
+using AALife.Service.Model.ViewModel;
+using AALife.Service.Model.Query;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Services;
 
 [WebService(Namespace = "http://tempuri.org/")]
@@ -17,7 +16,7 @@ public class UserTable : System.Web.Services.WebService
 {
 
     [WebMethod]
-    public ListViewModel<UserTableViewModel> GetUserTable(DateTime startDate, DateTime endDate, string keySearch)
+    public ListViewModel<UserTableViewModel> GetUserTable(QueryPageModel query)
     {
         ApiBase.GZipEncodePage();
 
@@ -27,14 +26,11 @@ public class UserTable : System.Web.Services.WebService
         {
             UserTableBLL bll = new UserTableBLL();
 
-            var lists = bll.GetUserTable(startDate, endDate);
-            if (keySearch != "" && keySearch != null)
-            {
-                lists = bll.GetUserTable(keySearch);
-            }
+            int count = 0;
+            var lists = bll.GetUserTable(query, out count);
 
             result.rows = lists.ToList();
-            result.total = lists.Count();
+            result.total = count;
         }
         catch(Exception ex)
         {
@@ -45,7 +41,7 @@ public class UserTable : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public ResultModel UpdateUserTable(UserTableViewModel models)
+    public ResultViewModel UpdateUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -58,11 +54,11 @@ public class UserTable : System.Web.Services.WebService
             error = "更新出错！";
         }
 
-        return new ResultModel { error = error };
+        return new ResultViewModel { error = error };
     }
 
     [WebMethod]
-    public ResultModel AddUserTable(UserTableViewModel models)
+    public ResultViewModel AddUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -83,11 +79,11 @@ public class UserTable : System.Web.Services.WebService
             error = "添加错误！";
         }
 
-        return new ResultModel { error = error };
+        return new ResultViewModel { error = error };
     }
 
     [WebMethod]
-    public ResultModel RemoveUserTable(UserTableViewModel models)
+    public ResultViewModel RemoveUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -100,7 +96,13 @@ public class UserTable : System.Web.Services.WebService
             error = "删除错误！";
         }
 
-        return new ResultModel { error = error };
+        return new ResultViewModel { error = error };
+    }
+
+    [WebMethod]
+    public string Hello(string name)
+    {
+        return "Hello" + name;
     }
 
 }

@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AALife.Web", "http://localhost:3759", "{240AC001-E20D-4E12-8253-5C779E910FEA}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{32b50478-4d92-4648-9a56-0e75639c97db}|AALife.BLL.dll;{ca2e36e5-6247-486b-818c-591d4a82fcaa}|AALife.DAL.dll;{023380f9-dd98-4d97-862a-9d4a965db1d4}|AALife.DBUtility.dll;{e458099d-6c03-40ee-ac70-480ffd645987}|AALife.Model.dll;{62c63866-f75c-489c-bd6a-1d2b92c0db80}|AALife.Service.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/AALifeWebDeploy"
+		Debug.AspNetCompiler.PhysicalPath = "AALife.Web\"
+		Debug.AspNetCompiler.TargetPath = "..\AALifeWebDeploy\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "true"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/AALifeWebDeploy"
+		Release.AspNetCompiler.PhysicalPath = "AALife.Web\"
+		Release.AspNetCompiler.TargetPath = "..\AALifeWebDeploy\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "true"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "AALife.Web\"
+		StartServerOnDebug = "false"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.BLL", "AALife.BLL\AALife.BLL.csproj", "{32B50478-4D92-4648-9A56-0E75639C97DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.DAL", "AALife.DAL\AALife.DAL.csproj", "{CA2E36E5-6247-486B-818C-591D4A82FCAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.DBUtility", "AALife.DBUtility\AALife.DBUtility.csproj", "{023380F9-DD98-4D97-862A-9D4A965DB1D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Model", "AALife.Model\AALife.Model.csproj", "{E458099D-6C03-40EE-AC70-480FFD645987}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.WindowsService", "AALife.WindowsService\AALife.WindowsService.csproj", "{1711C529-0FC1-4652-B9E6-9D085EFE9490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Service", "AALife.Service\AALife.Service.csproj", "{62C63866-F75C-489C-BD6A-1D2B92C0DB80}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{240AC001-E20D-4E12-8253-5C779E910FEA}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32B50478-4D92-4648-9A56-0E75639C97DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA2E36E5-6247-486B-818C-591D4A82FCAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{023380F9-DD98-4D97-862A-9D4A965DB1D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E458099D-6C03-40EE-AC70-480FFD645987}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

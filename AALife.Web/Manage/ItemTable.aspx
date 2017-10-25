@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="后台管理 | 消费列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="ItemTable.aspx.cs" Inherits="Manage_ItemTable" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="common/kendo-custom-ui.js"></script>
+    <script src="assets/kendo-custom-ui.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <span id="notification"></span>
@@ -77,6 +77,7 @@
                 pageSize: 30,
                 serverPaging: true,
                 serverSorting: true,
+                serverFiltering: false,
                 schema: {
                     data: "d.rows",
                     total: "d.total",
@@ -95,9 +96,7 @@
                             ItemAppID: { type: "number" },
                             RegionID: { type: "number" },
                             RegionType: { type: "string" },
-                            RegionTypeName: { type: "string" },
                             ItemType: { type: "string" },
-                            ItemTypeName: { type: "string" },
                             ZhuanTiID: { type: "number" },
                             CardID: { type: "number" }
                         }
@@ -164,7 +163,7 @@
                         width: 150
                     },
                     {
-                        field: "CategoryTypeID",
+                        field: "CategoryTypeName",
                         title: "商品类别",
                         width: 150
                     },
@@ -212,12 +211,12 @@
                         filterable: { multi: true }
                     },
                     {
-                        field: "CardID",
+                        field: "CardName",
                         title: "钱包",
                         width: 80
                     },
                     {
-                        field: "ZhuanTiID",
+                        field: "ZhuanTiName",
                         title: "专题",
                         width: 80
                     }
@@ -285,7 +284,7 @@
 
             //关键字清除
             function clearKey() {
-                query.key = "";
+                query.keySearch = "";
                 keySearch.clear();
             }
 

@@ -1,12 +1,9 @@
 ﻿<%@ WebService Language="C#" Class="UserFrom" %>
 
-using AALife.EF.BLL;
-using AALife.EF.Models;
-using AALife.EF.ViewModel;
-using System;
-using System.Collections.Generic;
+using AALife.Service.EF;
+using AALife.Service.Models;
+using AALife.Service.Model.KendoUI;
 using System.Linq;
-using System.Web;
 using System.Web.Services;
 
 [WebService(Namespace = "http://tempuri.org/")]

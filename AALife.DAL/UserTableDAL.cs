@@ -1,6 +1,5 @@
 ﻿using AALife.DBUtility;
 using AALife.Model;
-using NLog;
 using System;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,7 +8,6 @@ namespace AALife.DAL
 {
     public class UserTableDAL
     {
-        public static Logger log = LogManager.GetCurrentClassLogger();
 
         private static readonly string PARM_USER_ID = "@UserID";
         private static readonly string PARM_USER_NAME = "@UserName";

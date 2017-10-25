@@ -1,11 +1,10 @@
 ﻿<%@ WebHandler Language="C#" Class="FileUpload" %>
 
 using System;
-using System.Linq;
 using System.Web;
 using System.IO;
 using System.Net;
-using AALife.EF.BLL;
+using AALife.Service.EF;
 using System.Drawing;
 
 public class FileUpload : IHttpHandler

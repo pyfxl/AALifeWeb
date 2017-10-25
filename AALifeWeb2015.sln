@@ -6,8 +6,8 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AALife.Web", "http://localhost:3759", "{240AC001-E20D-4E12-8253-5C779E910FEA}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = "{32b50478-4d92-4648-9a56-0e75639c97db}|AALife.BLL.dll;{ca2e36e5-6247-486b-818c-591d4a82fcaa}|AALife.DAL.dll;{023380f9-dd98-4d97-862a-9d4a965db1d4}|AALife.DBUtility.dll;{62c63866-f75c-489c-bd6a-1d2b92c0db80}|AALife.EF.dll;{e458099d-6c03-40ee-ac70-480ffd645987}|AALife.Model.dll;"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		ProjectReferences = "{32b50478-4d92-4648-9a56-0e75639c97db}|AALife.BLL.dll;{ca2e36e5-6247-486b-818c-591d4a82fcaa}|AALife.DAL.dll;{023380f9-dd98-4d97-862a-9d4a965db1d4}|AALife.DBUtility.dll;{62c63866-f75c-489c-bd6a-1d2b92c0db80}|AALife.EF.dll;{e458099d-6c03-40ee-ac70-480ffd645987}|AALife.Model.dll;{6BF6709A-7B5C-459A-B7D6-C456D763BEB5}|AALife.ViewModel.dll;{810a14ad-1be8-4d9f-ace4-a91423409747}|AALife.Dapper.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/AALifeWebDeploy"
 		Debug.AspNetCompiler.PhysicalPath = "AALife.Web\"
 		Debug.AspNetCompiler.TargetPath = "..\AALifeWebDeploy\"
@@ -38,7 +38,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.WindowsService", "AA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.EF", "AALife.EF\AALife.EF.csproj", "{62C63866-F75C-489C-BD6A-1D2B92C0DB80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.MSMQ", "AALife.MSMQ\AALife.MSMQ.csproj", "{3CB14695-9908-4667-8BE6-18CA045316CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Dapper", "AALife.Dapper\AALife.Dapper.csproj", "{810A14AD-1BE8-4D9F-ACE4-A91423409747}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.ViewModel", "AALife.ViewModel\AALife.ViewModel.csproj", "{6BF6709A-7B5C-459A-B7D6-C456D763BEB5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,10 +76,14 @@ Global
 		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62C63866-F75C-489C-BD6A-1D2B92C0DB80}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3CB14695-9908-4667-8BE6-18CA045316CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3CB14695-9908-4667-8BE6-18CA045316CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3CB14695-9908-4667-8BE6-18CA045316CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3CB14695-9908-4667-8BE6-18CA045316CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{810A14AD-1BE8-4D9F-ACE4-A91423409747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{810A14AD-1BE8-4D9F-ACE4-A91423409747}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{810A14AD-1BE8-4D9F-ACE4-A91423409747}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{810A14AD-1BE8-4D9F-ACE4-A91423409747}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF6709A-7B5C-459A-B7D6-C456D763BEB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF6709A-7B5C-459A-B7D6-C456D763BEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF6709A-7B5C-459A-B7D6-C456D763BEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF6709A-7B5C-459A-B7D6-C456D763BEB5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
