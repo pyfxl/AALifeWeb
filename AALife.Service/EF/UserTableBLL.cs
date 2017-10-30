@@ -1,4 +1,4 @@
-﻿using AALife.Service.Model.Query;
+﻿using AALife.Service.Model.Common;
 using AALife.Service.Model.ViewModel;
 using AALife.Service.Models;
 using Mapster;

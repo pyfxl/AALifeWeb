@@ -2,6 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script src="assets/kendo-custom-ui.js"></script>
+    <script src="assets/kendo-main.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <span id="notification"></span>
@@ -455,7 +456,7 @@
                 minLength: 1,
                 done: function (key) {
                     setButtonDown("");
-                    setDate(min_date(), max_date());
+                    setDate("", "");
                     queryList();
                 },
                 focus: function (e) {
@@ -506,14 +507,22 @@
 
             //设置查询条件
             function setQuery() {
-                query.startDate = kendo.toString(start.value(), "yyyy/MM/dd 00:00:00");
-                query.endDate = kendo.toString(end.value(), "yyyy/MM/dd 23:59:59");
+                var _start = start.value();
+                if ($.isEmptyObject(_start)) _start = min_date();
+                query.startDate = kendo.toString(_start, "yyyy/MM/dd 00:00:00");
+
+                var _end = end.value();
+                if ($.isEmptyObject(_end)) _end = max_date();
+                query.endDate = kendo.toString(_end, "yyyy/MM/dd 23:59:59");
+
                 query.keySearch = keySearch.value();
             }
 
             //列表查询
             function queryList(flag) {
-                if(flag) clearKey();
+                if (flag) {
+                    clearKey();
+                }
                 setQuery();
                 dataSource.page(1);
                 dataSource.skip(0);

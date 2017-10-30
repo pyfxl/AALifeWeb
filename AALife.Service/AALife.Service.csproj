@@ -130,11 +130,11 @@
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Model\Enum\SortEnum.cs" />
-    <Compile Include="Model\KendoUI\ListViewModel.cs" />
-    <Compile Include="Model\KendoUI\ResultViewModel.cs" />
-    <Compile Include="Model\Query\QueryModel.cs" />
-    <Compile Include="Model\Query\QueryPageModel.cs" />
-    <Compile Include="Model\Query\SortModel.cs" />
+    <Compile Include="Model\Common\ListModel.cs" />
+    <Compile Include="Model\Common\ResultModel.cs" />
+    <Compile Include="Model\Common\QueryModel.cs" />
+    <Compile Include="Model\Common\QueryPageModel.cs" />
+    <Compile Include="Model\Common\SortModel.cs" />
     <Compile Include="Model\ViewModel\ItemTableViewModel.cs" />
     <Compile Include="Model\ViewModel\UserTableViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

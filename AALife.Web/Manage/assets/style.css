@@ -88,6 +88,16 @@ label {
     z-index: 999;
 }
 
+.dataTables_scrollHead {
+    color: #707070;
+    font-weight: 400;
+    background: repeat-x #F2F2F2;
+    background-image: -webkit-linear-gradient(top,#F8F8F8 0,#ECECEC 100%);
+    background-image: -o-linear-gradient(top,#F8F8F8 0,#ECECEC 100%);
+    background-image: linear-gradient(to bottom,#F8F8F8 0,#ECECEC 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#ffececec', GradientType=0);
+}
+
 @media (max-width: 768px) {
     .page-content {
         padding: 8px !important;

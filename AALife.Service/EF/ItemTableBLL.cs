@@ -7,7 +7,7 @@ using System.Text;
 using System.Linq.Dynamic;
 using Mapster;
 using AALife.Service.Model.ViewModel;
-using AALife.Service.Model.Query;
+using AALife.Service.Model.Common;
 using AALife.Service.Models;
 
 namespace AALife.Service.EF

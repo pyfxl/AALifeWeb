@@ -1,8 +1,7 @@
 ﻿<%@ WebService Language="C#" Class="ItemTable" %>
 
 using AALife.Service.Dapper;
-using AALife.Service.Model.KendoUI;
-using AALife.Service.Model.Query;
+using AALife.Service.Model.Common;
 using AALife.Service.Model.ViewModel;
 using System;
 using System.Linq;
@@ -16,11 +15,11 @@ public class ItemTable  : System.Web.Services.WebService
 {
 
     [WebMethod]
-    public ListViewModel<ItemTableViewModel> GetItemTable(QueryPageModel pageModels)
+    public ListModel<ItemTableViewModel> GetItemTable(QueryPageModel pageModels)
     {
         ApiBase.GZipEncodePage();
 
-        var result = new ListViewModel<ItemTableViewModel>();
+        var result = new ListModel<ItemTableViewModel>();
 
         try
         {

@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="后台管理 | 用户列表DT" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" CodeFile="UserTableDT.aspx.cs" Inherits="Manage_UserTableDT" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-
+    <script src="assets/datatables-main.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="row">
@@ -59,9 +59,13 @@
         jQuery(function ($) {
 
             //查询对象
-            var query = { startDate: today_date(), endDate: today_date(), keySearch: "", filter: [], sort: [], skip: 0, take: 30 };
+            var query = { startDate: "", endDate: "", keySearch: "", filter: [], sort: [], skip: 0, take: 30 };
+
+            var tablesHeight = 400;
             
-            //初始化日期
+            //初始化
+            calcTableHeight();
+            init();
             setDate();
 
             //initiate dataTables plugin
@@ -79,7 +83,7 @@
                 "ajax": {
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
-                    url: '../api/UserTable.asmx/GetUserTable',
+                    url: '/api/UserTable.asmx/GetUserTable',
                     data: function (d) {
                         query.skip = d.start;
                         query.take = d.length;
@@ -113,7 +117,7 @@
                     { data: 'IsUpdate', width: '80px' }
                 ],
                 "displayLength": 30,
-                "scrollY": "400",
+                "scrollY": tablesHeight,
                 "scrollX": true,
             });
 
@@ -123,8 +127,6 @@
                 language: 'zh-CN',
                 format: 'yyyy-mm-dd'
             }).on("changeDate", function (e) {
-                query.startDate = $("input[name=start]").val();
-                query.endDate = $("input[name=end]").val();
                 queryList();
             });
 
@@ -134,14 +136,11 @@
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
                 url: "/api/UserFrom.asmx/GetUserFrom", success: function (msg) {
-                    //alert(msg.d);
-
                     $.each(msg.d.rows, function (i, v) {
                         $("#UserFrom").append($("<option/>").text(v.UserFromName).val(v.UserFrom));
                     });
-
-
-                    //多选下拉
+                    
+                    //js组件
                     $('#UserFrom').multiselect({
                         enableFiltering: false,
                         enableHTML: true,
@@ -181,14 +180,20 @@
 
             //查询列表
             function queryList() {
+                setDate();
                 myTable.page(0);
                 myTable.draw(false);
             }
             
             //设置日期
             function setDate() {
-                $("input[name=start]").val(today_date());
-                $("input[name=end]").val(today_date());
+                var _start = $("input[name=start]").val();
+                if ($.isEmptyObject(_start)) _start = today_date();
+                query.startDate = _start + " 00:00:00";
+
+                var _end = $("input[name=end]").val();
+                if ($.isEmptyObject(_end)) _end = today_date();
+                query.endDate = _end + " 23:59:59";
             }
 
             //取排序
@@ -197,6 +202,22 @@
                 var field = d.columns[col_index].data;
                 var dir = d.order[0].dir;
                 return [{ "field": field, "dir": dir }];
+            }
+
+            //初始化
+            function init() {
+                $("input[name=start]").val(today_date());
+                $("input[name=end]").val(today_date());
+            }
+
+            //计算tables高度
+            function calcTableHeight() {
+                var tables = $("#dynamic-table");
+
+                var windowHeight = $(window).innerHeight();
+                var offsetTop = tables.offset().top;
+
+                tablesHeight = windowHeight - offsetTop - 35 - 62 - 15 - 2;
             }
 
             navbarActive(0);

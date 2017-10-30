@@ -2,7 +2,7 @@
 
 using AALife.Service.EF;
 using AALife.Service.Models;
-using AALife.Service.Model.KendoUI;
+using AALife.Service.Model.Common;
 using System.Linq;
 using System.Web.Services;
 
@@ -14,13 +14,13 @@ public class UserFrom  : System.Web.Services.WebService
 {
 
     [WebMethod]
-    public ListViewModel<UserFromTable> GetUserFrom()
+    public ListModel<UserFromTable> GetUserFrom()
     {
         UserFromBLL bll = new UserFromBLL();
 
         var lists = bll.GetUserFrom();
 
-        var result = new ListViewModel<UserFromTable>
+        var result = new ListModel<UserFromTable>
         {
             rows = lists.ToList(),
             total = lists.Count()

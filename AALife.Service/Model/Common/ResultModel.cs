@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AALife.Service.Model.KendoUI
+namespace AALife.Service.Model.Common
 {
-    public class ResultViewModel
+    public class ResultModel
     {
         public string success { get; set; }
 

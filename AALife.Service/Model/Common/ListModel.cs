@@ -3,14 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace AALife.Service.Model.KendoUI
+namespace AALife.Service.Model.Common
 {
-    public class ListViewModel<T>
+    public class ListModel<T> : ResultModel
     {
         public List<T> rows { get; set; }
 
         public int total { get; set; }
-
-        public string error { get; set; }
+        
     }
 }

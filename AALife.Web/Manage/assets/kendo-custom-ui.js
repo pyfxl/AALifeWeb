@@ -67,8 +67,8 @@
             var code = e.currentTarget.id;
             switch (code) {
                 case "b_all":
-                    that.startDate = min_date();
-                    that.endDate = max_date();
+                    that.startDate = "";
+                    that.endDate = "";
                     break;
                 case "b_year":
                     that.startDate = year_start();

@@ -2,7 +2,7 @@
 
 using AALife.Service.EF;
 using AALife.Service.Models;
-using AALife.Service.Model.KendoUI;
+using AALife.Service.Model.Common;
 using System.Linq;
 using System.Web.Services;
 
@@ -14,13 +14,13 @@ public class WorkDay  : System.Web.Services.WebService
 {
 
     [WebMethod]
-    public ListViewModel<WorkDayTable> GetWorkDay()
+    public ListModel<WorkDayTable> GetWorkDay()
     {
         WorkDayBLL bll = new WorkDayBLL();
 
         var lists = bll.GetWorkDay();
 
-        var result = new ListViewModel<WorkDayTable>
+        var result = new ListModel<WorkDayTable>
         {
             rows = lists.ToList(),
             total = lists.Count()

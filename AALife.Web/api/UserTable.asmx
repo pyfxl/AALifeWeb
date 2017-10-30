@@ -1,9 +1,8 @@
 ﻿<%@ WebService Language="C#" Class="UserTable" %>
 
 using AALife.Service.EF;
-using AALife.Service.Model.KendoUI;
+using AALife.Service.Model.Common;
 using AALife.Service.Model.ViewModel;
-using AALife.Service.Model.Query;
 using System;
 using System.Linq;
 using System.Web.Services;
@@ -16,11 +15,11 @@ public class UserTable : System.Web.Services.WebService
 {
 
     [WebMethod]
-    public ListViewModel<UserTableViewModel> GetUserTable(QueryPageModel query)
+    public ListModel<UserTableViewModel> GetUserTable(QueryPageModel query)
     {
         ApiBase.GZipEncodePage();
 
-        var result = new ListViewModel<UserTableViewModel>();
+        var result = new ListModel<UserTableViewModel>();
 
         try
         {
@@ -41,7 +40,7 @@ public class UserTable : System.Web.Services.WebService
     }
 
     [WebMethod]
-    public ResultViewModel UpdateUserTable(UserTableViewModel models)
+    public ResultModel UpdateUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -54,11 +53,11 @@ public class UserTable : System.Web.Services.WebService
             error = "更新出错！";
         }
 
-        return new ResultViewModel { error = error };
+        return new ResultModel { error = error };
     }
 
     [WebMethod]
-    public ResultViewModel AddUserTable(UserTableViewModel models)
+    public ResultModel AddUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -79,11 +78,11 @@ public class UserTable : System.Web.Services.WebService
             error = "添加错误！";
         }
 
-        return new ResultViewModel { error = error };
+        return new ResultModel { error = error };
     }
 
     [WebMethod]
-    public ResultViewModel RemoveUserTable(UserTableViewModel models)
+    public ResultModel RemoveUserTable(UserTableViewModel models)
     {
         string error = "";
         try
@@ -96,7 +95,7 @@ public class UserTable : System.Web.Services.WebService
             error = "删除错误！";
         }
 
-        return new ResultViewModel { error = error };
+        return new ResultModel { error = error };
     }
 
     [WebMethod]
