@@ -12,7 +12,7 @@ public partial class AALifeWeb_SyncUserInfo : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
         int userId = Convert.ToInt32(Request.Form["userid"]);
-        string userFrom = "sjapp";// Request.Form["userfrom"].ToString();
+        string userFrom = Request.Form["userfrom"].ToString();
         string userMoney = Request.Form["usermoney"] ?? "";
         string userWorkDay = Request.Form["userworkday"] ?? "";
         string categoryRate = Request.Form["categoryrate"] ?? "";

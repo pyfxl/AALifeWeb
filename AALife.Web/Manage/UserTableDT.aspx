@@ -188,11 +188,11 @@
             //设置日期
             function setDate() {
                 var _start = $("input[name=start]").val();
-                if ($.isEmptyObject(_start)) _start = today_date();
+                //if ($.isEmptyObject(_start)) _start = today_date();
                 query.startDate = _start + " 00:00:00";
 
                 var _end = $("input[name=end]").val();
-                if ($.isEmptyObject(_end)) _end = today_date();
+                //if ($.isEmptyObject(_end)) _end = today_date();
                 query.endDate = _end + " 23:59:59";
             }
 

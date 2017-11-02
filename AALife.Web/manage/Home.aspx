@@ -462,7 +462,7 @@
                 focus: function (e) {
                     if (!e.key) {
                         setQuery();
-                        e.data = { "startDate": query.startDate, "endDate": query.endDate, "buttonDown": query.buttonDown };
+                        e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": query.buttonDown };
                     }
                 },
                 empty: function (data) {
@@ -508,11 +508,11 @@
             //设置查询条件
             function setQuery() {
                 var _start = start.value();
-                if ($.isEmptyObject(_start)) _start = min_date();
+                if (_start == null) _start = min_date();
                 query.startDate = kendo.toString(_start, "yyyy/MM/dd 00:00:00");
 
                 var _end = end.value();
-                if ($.isEmptyObject(_end)) _end = max_date();
+                if (_end == null) _end = max_date();
                 query.endDate = kendo.toString(_end, "yyyy/MM/dd 23:59:59");
 
                 query.keySearch = keySearch.value();

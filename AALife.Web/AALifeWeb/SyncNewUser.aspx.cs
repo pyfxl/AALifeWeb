@@ -18,7 +18,7 @@ public partial class AALifeWeb_SyncNewUser : System.Web.UI.Page
         string userNickName = Request.Form["usernickname"].ToString();
         string userImage = "user.gif";
         string userEmail = Request.Form["useremail"].ToString();
-        string userFrom = "sjapp";
+        string userFrom = Request.Form["userfrom"].ToString();
         string userWorkDay = Request.Form["userworkday"].ToString();
         string userMoney = Request.Form["usermoney"] ?? "0";
         string categoryRate = Request.Form["categoryrate"] ?? "90";

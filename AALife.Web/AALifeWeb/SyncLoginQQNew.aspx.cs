@@ -21,7 +21,7 @@ public partial class AALifeWeb_SyncLoginQQNew : System.Web.UI.Page
         string oAuthFrom = "sjqq";
         string nickName = Request.Form["nickname"].ToString();
         string userImage = Request.Form["userimage"].ToString();
-        string userFrom = "sjqq";// Request.Form["userfrom"].ToString() ?? Request.Form["oauthfrom"].ToString();
+        string userFrom = Request.Form["userfrom"].ToString() ?? Request.Form["oauthfrom"].ToString();//5.9.1web
         int type = Convert.ToInt32(Request.Form["type"]);
         string isUpdate = Request.Form["isupdate"] ?? "0";
 
