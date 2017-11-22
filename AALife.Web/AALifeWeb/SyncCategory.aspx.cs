@@ -3,7 +3,7 @@ using AALife.Model;
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncCategory : System.Web.UI.Page
+public partial class AALifeWeb_SyncCategory : SyncBase
 {
     private UserCategoryTableBLL bll = new UserCategoryTableBLL();
 

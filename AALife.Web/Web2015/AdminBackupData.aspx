@@ -47,8 +47,8 @@
                     <asp:Button ID="Button4" runat="server" Text="恢复" OnCommand="Button4_Click" CssClass="btninput" OnClientClick="return confirm('确定要恢复吗？');" />&nbsp;&nbsp;
                     <asp:TextBox ID="UserIDBox" runat="server" Width="60px"></asp:TextBox>
                     <asp:Button ID="Button1" runat="server" Text="导出到APP数据" CssClass="btninput" OnClick="Button1_Click" UseSubmitBehavior="false" />
-                    <asp:Button ID="Button3" runat="server" Text="删除用户数据" CssClass="btninput" OnClick="Button3_Click" UseSubmitBehavior="false" />
-                    <asp:Button ID="Button5" runat="server" Text="恢复APP数据" CssClass="btninput" OnClick="Button5_Click" UseSubmitBehavior="false" />
+                    <asp:Button ID="Button3" runat="server" Text="(1)删除用户数据" CssClass="btninput" OnClick="Button3_Click" UseSubmitBehavior="false" />
+                    <asp:Button ID="Button5" runat="server" Text="(2)恢复APP数据" CssClass="btninput" OnClick="Button5_Click" UseSubmitBehavior="false" />
                 </div>
             </div>
         </div>

@@ -23,6 +23,7 @@ namespace AALife.Service.Models
             this.ZhuanTiTable = new HashSet<ZhuanTiTable>();
             this.ZhuanZhangTable = new HashSet<ZhuanZhangTable>();
             this.UserCategoryTable = new HashSet<UserCategoryTable>();
+            this.ViewTable = new HashSet<ViewTable>();
         }
     
         public int UserID { get; set; }
@@ -60,5 +61,7 @@ namespace AALife.Service.Models
         public virtual ICollection<ZhuanZhangTable> ZhuanZhangTable { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<UserCategoryTable> UserCategoryTable { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ViewTable> ViewTable { get; set; }
     }
 }

@@ -137,7 +137,7 @@ public class BackupHelper
                 comm.ExecuteNonQuery();
                 trans.Commit();
             }
-            catch
+            catch(Exception ex)
             {
                 trans.Rollback();
                 throw;

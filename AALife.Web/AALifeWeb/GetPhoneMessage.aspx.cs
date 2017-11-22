@@ -1,6 +1,6 @@
 ﻿using System;
 
-public partial class AALifeWeb_GetPhoneMessage : System.Web.UI.Page
+public partial class AALifeWeb_GetPhoneMessage : SyncBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {

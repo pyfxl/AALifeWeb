@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncGetCardWeb : System.Web.UI.Page
+public partial class AALifeWeb_SyncGetCardWeb : SyncBase
 {
     private CardTableBLL bll = new CardTableBLL();
 

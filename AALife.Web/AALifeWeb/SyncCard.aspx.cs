@@ -3,7 +3,7 @@ using AALife.Model;
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncCard : System.Web.UI.Page
+public partial class AALifeWeb_SyncCard : SyncBase
 {
     private CardTableBLL bll = new CardTableBLL();
 

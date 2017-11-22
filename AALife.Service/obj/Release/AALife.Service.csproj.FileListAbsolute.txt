@@ -13,8 +13,7 @@ D:\fxlweb\AALifeWeb2018\AALife.Service\bin\Release\Dapper.xml
 D:\fxlweb\AALifeWeb2018\AALife.Service\bin\Release\EntityFramework.xml
 D:\fxlweb\AALifeWeb2018\AALife.Service\bin\Release\EntityFramework.SqlServer.xml
 D:\fxlweb\AALifeWeb2018\AALife.Service\bin\Release\NLog.xml
-D:\fxlweb\AALifeWeb2018\AALife.Service\bin\Release\zh-Hans\EntityFramework.resources.dll
-D:\fxlweb\AALifeWeb2018\AALife.Service\bin\Release\zh-Hans\EntityFramework.SqlServer.resources.dll
 D:\fxlweb\AALifeWeb2018\AALife.Service\obj\Release\AALife.Service.csprojResolveAssemblyReference.cache
 D:\fxlweb\AALifeWeb2018\AALife.Service\obj\Release\AALife.Service.dll
 D:\fxlweb\AALifeWeb2018\AALife.Service\obj\Release\AALife.Service.pdb
+D:\fxlweb\AALifeWeb2018\AALife.Service\bin\Release\Kendo.DynamicLinq.dll

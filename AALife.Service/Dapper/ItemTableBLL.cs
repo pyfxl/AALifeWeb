@@ -24,6 +24,7 @@ namespace AALife.Service.Dapper
             {
                 var param = new DynamicParameters();
                 param.Add("@UserID", pageModels.userId);
+                param.Add("@DateType", pageModels.dateType);
                 param.Add("@BeginDate", pageModels.startDate);
                 param.Add("@EndDate", pageModels.endDate);
                 param.Add("@Keywords", pageModels.keySearch);

@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncCheckWebData : System.Web.UI.Page
+public partial class AALifeWeb_SyncCheckWebData : SyncBase
 {
     private ItemTableBLL bll = new ItemTableBLL();
     private UserCategoryTableBLL cat_bll = new UserCategoryTableBLL();

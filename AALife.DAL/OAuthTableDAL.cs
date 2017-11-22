@@ -53,9 +53,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = beginDate;
             parms[1].Value = endDate;
 
@@ -213,15 +213,15 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(OAuthInfo oauth)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@OAuthID", SqlDbType.Int),
-					new SqlParameter("@OpenID", SqlDbType.NVarChar, 100),
-					new SqlParameter("@AccessToken", SqlDbType.NVarChar, 100),
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@OldUserID", SqlDbType.Int),
-					new SqlParameter("@OAuthBound", SqlDbType.TinyInt),
-					new SqlParameter("@OAuthFrom", SqlDbType.NVarChar, 10),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime)
-			};
+                    new SqlParameter("@OAuthID", SqlDbType.Int),
+                    new SqlParameter("@OpenID", SqlDbType.NVarChar, 100),
+                    new SqlParameter("@AccessToken", SqlDbType.NVarChar, 100),
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@OldUserID", SqlDbType.Int),
+                    new SqlParameter("@OAuthBound", SqlDbType.TinyInt),
+                    new SqlParameter("@OAuthFrom", SqlDbType.NVarChar, 10),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime)
+            };
             parms[0].Value = oauth.OAuthID;
             parms[1].Value = oauth.OpenID;
             parms[2].Value = oauth.AccessToken;

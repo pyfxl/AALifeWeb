@@ -3,9 +3,8 @@ using AALife.Model;
 using NLog;
 using System;
 
-public partial class AALifeWeb_SyncUserEdit : System.Web.UI.Page
+public partial class AALifeWeb_SyncUserEdit : SyncBase
 {
-    public static Logger log = LogManager.GetCurrentClassLogger();
     private UserTableBLL bll = new UserTableBLL();
 
     protected void Page_Load(object sender, EventArgs e)

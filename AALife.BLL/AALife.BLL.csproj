@@ -33,6 +33,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ViewTableBLL.cs" />
     <Compile Include="UserQueryTableBLL.cs" />
     <Compile Include="ZhuanZhangTableBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

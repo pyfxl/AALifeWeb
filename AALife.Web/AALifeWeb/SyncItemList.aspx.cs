@@ -4,9 +4,8 @@ using NLog;
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncItemList : System.Web.UI.Page
+public partial class AALifeWeb_SyncItemList : SyncBase
 {
-    public static Logger log = LogManager.GetCurrentClassLogger();
     private ItemTableBLL bll = new ItemTableBLL();
 
     protected void Page_Load(object sender, EventArgs e)

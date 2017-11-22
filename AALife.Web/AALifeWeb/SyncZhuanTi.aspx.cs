@@ -3,7 +3,7 @@ using AALife.Model;
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncZhuanTi : System.Web.UI.Page
+public partial class AALifeWeb_SyncZhuanTi : SyncBase
 {
     private ZhuanTiTableBLL bll = new ZhuanTiTableBLL();
 

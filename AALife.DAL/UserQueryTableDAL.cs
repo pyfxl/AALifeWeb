@@ -170,14 +170,14 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(UserQueryInfo query)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@UserQueryID", SqlDbType.Int),
-					new SqlParameter("@UserQueryName", SqlDbType.NVarChar, 20),
-					new SqlParameter("@UserQueryURL", SqlDbType.NVarChar, 200),
-					new SqlParameter("@UserQueryValue", SqlDbType.NVarChar, 200),
-					new SqlParameter("@UserQueryLive", SqlDbType.TinyInt),
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime)
-			};
+                    new SqlParameter("@UserQueryID", SqlDbType.Int),
+                    new SqlParameter("@UserQueryName", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@UserQueryURL", SqlDbType.NVarChar, 200),
+                    new SqlParameter("@UserQueryValue", SqlDbType.NVarChar, 200),
+                    new SqlParameter("@UserQueryLive", SqlDbType.TinyInt),
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime)
+            };
             parms[0].Value = query.UserQueryID;
             parms[1].Value = query.UserQueryName;
             parms[2].Value = query.UserQueryURL;

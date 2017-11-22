@@ -6,7 +6,7 @@
         proxy = $.proxy,
 
         startDate = endDate = today_date(),
-        b_year_sub = ["2012年", "2013年", "2014年", "2015年", "2016年", "2017年", "2018年", "2019年", "2020年"],
+        b_year_sub = ["2012年", "2013年", "2014年", "2015年", "2016年", "2017年", "2018年", "2019年", "2020年", "2021年", "2022年"],
         b_quarter_sub = ["第1季", "第2季", "第3季", "第4季"],
         b_month_sub = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         b_week_sub = ["上周", "下周"],
@@ -64,6 +64,9 @@
             that.current().removeClass(ACTIVE);
             currTarget.parent().addClass(ACTIVE);
 
+            //子类状态
+            var idx = 0;
+
             var code = e.currentTarget.id;
             switch (code) {
                 case "b_all":
@@ -71,14 +74,17 @@
                     that.endDate = "";
                     break;
                 case "b_year":
+                    idx = getYear(that.startDate) - 2012;
                     that.startDate = year_start();
                     that.endDate = year_end();
                     break;
                 case "b_quarter":
+                    idx = getQuarter(that.startDate) - 1;
                     that.startDate = quarter_start();
                     that.endDate = quarter_end();
                     break;
                 case "b_month":
+                    idx = getMonth(that.startDate)
                     that.startDate = month_start();
                     that.endDate = month_end();
                     break;
@@ -91,6 +97,8 @@
                     that.endDate = today_date();
                     break;
             }
+
+            that.current().find("li>span").eq(idx).addClass("active");
 
             //回调
             that.options.callback({ "startDate": that.startDate, "endDate": that.endDate, "buttonDown": code });
@@ -185,7 +193,7 @@
         _templates: {
             //模板
             content: '<li class="k-button km-button">' +
-                        '<span class="k-link" role="button" id="#= data.code #">#= data.title #</span>' +
+                        '<span class="k-link #if(data.sub){#f-link#}#" role="button" id="#= data.code #">#= data.title #</span>' +
                         '# if (data.sub) {#' +
                         '<span class="k-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">' +
                             '<span class="k-icon k-i-arrow-60-down"></span>' +

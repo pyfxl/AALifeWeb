@@ -1,7 +1,7 @@
 ﻿using AALife.BLL;
 using System;
 
-public partial class AALifeWeb_SyncCategoryWebBack : System.Web.UI.Page
+public partial class AALifeWeb_SyncCategoryWebBack : SyncBase
 {
     private UserCategoryTableBLL bll = new UserCategoryTableBLL();
 

@@ -1,7 +1,7 @@
 ﻿using AALife.BLL;
 using System;
 
-public partial class AALifeWeb_SyncUserInfoWebBack : System.Web.UI.Page
+public partial class AALifeWeb_SyncUserInfoWebBack : SyncBase
 {
     private UserTableBLL bll = new UserTableBLL();
 

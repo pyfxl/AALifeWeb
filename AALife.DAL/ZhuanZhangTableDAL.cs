@@ -48,9 +48,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = beginDate;
             parms[1].Value = endDate;
 
@@ -161,18 +161,18 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(ZhuanZhangInfo zhuan)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@ZhuanZhangID", SqlDbType.Int),
-					new SqlParameter("@ZhuanZhangFrom", SqlDbType.Int),
-					new SqlParameter("@ZhuanZhangTo", SqlDbType.Int),
-					new SqlParameter("@ZhuanZhangDate", SqlDbType.DateTime),
-					new SqlParameter("@ZhuanZhangMoney", SqlDbType.Decimal),
-					new SqlParameter("@ZhuanZhangLive", SqlDbType.TinyInt),
-					new SqlParameter("@Synchronize", SqlDbType.TinyInt),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime),
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@ZhuanZhangNote", SqlDbType.NVarChar, 100),
-					new SqlParameter("@ZZID", SqlDbType.Int)
-			};
+                    new SqlParameter("@ZhuanZhangID", SqlDbType.Int),
+                    new SqlParameter("@ZhuanZhangFrom", SqlDbType.Int),
+                    new SqlParameter("@ZhuanZhangTo", SqlDbType.Int),
+                    new SqlParameter("@ZhuanZhangDate", SqlDbType.DateTime),
+                    new SqlParameter("@ZhuanZhangMoney", SqlDbType.Decimal),
+                    new SqlParameter("@ZhuanZhangLive", SqlDbType.TinyInt),
+                    new SqlParameter("@Synchronize", SqlDbType.TinyInt),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime),
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@ZhuanZhangNote", SqlDbType.NVarChar, 100),
+                    new SqlParameter("@ZZID", SqlDbType.Int)
+            };
             parms[0].Value = zhuan.ZhuanZhangID;
             parms[1].Value = zhuan.ZhuanZhangFrom;
             parms[2].Value = zhuan.ZhuanZhangTo;

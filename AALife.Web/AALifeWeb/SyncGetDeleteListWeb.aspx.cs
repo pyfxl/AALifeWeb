@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncGetDeleteListWeb : System.Web.UI.Page
+public partial class AALifeWeb_SyncGetDeleteListWeb : SyncBase
 {
     private DeleteTableBLL bll = new DeleteTableBLL();
 

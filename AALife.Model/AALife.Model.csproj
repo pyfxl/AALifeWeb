@@ -33,6 +33,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ViewInfo.cs" />
     <Compile Include="UserQueryInfo.cs" />
     <Compile Include="ZhuanZhangInfo.cs" />
     <Compile Include="CardInfo.cs" />

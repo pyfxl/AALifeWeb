@@ -6,9 +6,8 @@ using System.Text.RegularExpressions;
 using System.Transactions;
 using NLog;
 
-public partial class AALifeWeb_SyncLoginQQNew : System.Web.UI.Page
+public partial class AALifeWeb_SyncLoginQQNew : SyncBase
 {
-    public static Logger log = LogManager.GetCurrentClassLogger();
     private ItemTableBLL bll = new ItemTableBLL();
     private UserTableBLL user_bll = new UserTableBLL();
     private OAuthTableBLL oauth_bll = new OAuthTableBLL();

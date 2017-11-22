@@ -57,9 +57,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = beginDate;
             parms[1].Value = endDate;
 
@@ -216,14 +216,14 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(UserCategoryInfo category)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@CategoryTypeID", SqlDbType.Int),
-					new SqlParameter("@CategoryTypeName", SqlDbType.NVarChar, 20),
-					new SqlParameter("@CategoryTypePrice", SqlDbType.Decimal),
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@CategoryTypeLive", SqlDbType.TinyInt),
-					new SqlParameter("@Synchronize", SqlDbType.TinyInt),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime)
-			};
+                    new SqlParameter("@CategoryTypeID", SqlDbType.Int),
+                    new SqlParameter("@CategoryTypeName", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@CategoryTypePrice", SqlDbType.Decimal),
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@CategoryTypeLive", SqlDbType.TinyInt),
+                    new SqlParameter("@Synchronize", SqlDbType.TinyInt),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime)
+            };
             parms[0].Value = category.CategoryTypeID;
             parms[1].Value = category.CategoryTypeName;
             parms[2].Value = category.CategoryTypePrice;

@@ -50,9 +50,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = beginDate;
             parms[1].Value = endDate;
 
@@ -210,15 +210,15 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(ZhuanTiInfo zhuanTi)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@ZhuanTiID", SqlDbType.Int),
-					new SqlParameter("@ZhuanTiName", SqlDbType.NVarChar, 20),
-					new SqlParameter("@ZhuanTiImage", SqlDbType.NVarChar, 200),
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@ZhuanTiLive", SqlDbType.TinyInt),
-					new SqlParameter("@Synchronize", SqlDbType.TinyInt),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime),
-					new SqlParameter("@ZTID", SqlDbType.Int)
-			};
+                    new SqlParameter("@ZhuanTiID", SqlDbType.Int),
+                    new SqlParameter("@ZhuanTiName", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@ZhuanTiImage", SqlDbType.NVarChar, 200),
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@ZhuanTiLive", SqlDbType.TinyInt),
+                    new SqlParameter("@Synchronize", SqlDbType.TinyInt),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime),
+                    new SqlParameter("@ZTID", SqlDbType.Int)
+            };
             parms[0].Value = zhuanTi.ZhuanTiID;
             parms[1].Value = zhuanTi.ZhuanTiName;
             parms[2].Value = zhuanTi.ZhuanTiImage;

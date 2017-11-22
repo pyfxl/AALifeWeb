@@ -1,7 +1,7 @@
 ﻿using AALife.BLL;
 using System;
 
-public partial class AALifeWeb_SyncCardWebBack : System.Web.UI.Page
+public partial class AALifeWeb_SyncCardWebBack : SyncBase
 {
     private CardTableBLL bll = new CardTableBLL();
 

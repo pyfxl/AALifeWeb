@@ -21,7 +21,7 @@
                 </div>
                 <div class="form-group">
                     <label>关键字</label>
-                    <input class="k-textbox" id="keysearch" value="" placeholder="用户名/密码/昵称" />
+                    <input class="k-textbox" id="keysearch" value="" placeholder="用户名/密码/昵称/邮箱" />
                 </div>
             </form>
         </div><!-- /.col -->
@@ -63,7 +63,7 @@
                         contentType: "application/json; charset=utf-8",
                         type: "POST",
                         cache: false,
-                        data: function () { return query },
+                        data: function (d) { return query },
                         beforeSend: function (xhr) {
                             xhr.setRequestHeader('Content-Encoding', "gzip");
                         }
@@ -96,6 +96,7 @@
                 pageSize: 30,
                 serverPaging: true,
                 serverSorting: true,
+                serverFiltering: true,
                 batch: true,
                 schema: {
                     data: "d.rows",
@@ -224,7 +225,7 @@
                 navigatable: true,
                 editable: "inline",
                 resizable: true,
-                filterable: true,
+                filterable: false,
                 sortable: {
                     mode: "multiple",
                     allowUnsort: true,
@@ -335,13 +336,21 @@
                             });
                             $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
                         },
-                        filterable: { multi: true }
+                        filterable: {
+                            multi: true,
+                            dataSource: [{
+                                UserTheme: "main",
+                            }, {
+                                UserTheme: "blue",
+                            }, {
+                                UserTheme: "gold",
+                            }]
+                        }
                     },
                     {
                         field: "UserLevel",
                         title: "等级",
-                        width: 80,
-                        filterable: { multi: true }
+                        width: 80
                     },
                     {
                         template: "#= UserFromName #",
@@ -360,13 +369,25 @@
                             });
                             $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
                         },
-                        filterable: { multi: true }
+                        filterable: {
+                            multi: true,
+                            dataSource: dataUserFrom,
+                            itemTemplate: function (e) {
+                                if (e.field == "all") {
+                                    //handle the check-all checkbox template
+                                    return "<li class='k-item'><label class='k-label'><input type='checkbox' class='k-check-all'/>#=all#</label></li>";
+                                } else {
+                                    //handle the other checkboxes
+                                    return "<li class='k-item'><label class='k-label'><input type='checkbox' value='#=UserFrom#'/>#=UserFromName#</label></li>"
+                                }
+                            }
+                        }
                     },
                     {
                         field: "UserCity",
                         title: "城市",
                         width: 80,
-                        filterable: { multi: true }
+                        filterable: false
                     },
                     {
                         field: "CreateDate",

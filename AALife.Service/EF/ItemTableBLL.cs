@@ -22,7 +22,7 @@ namespace AALife.Service.EF
         /// </summary>
         public ItemTableBLL()
         {
-            TypeAdapterConfig<Models.ItemTable, ItemTableViewModel>.NewConfig()
+            TypeAdapterConfig<ItemTable, ItemTableViewModel>.NewConfig()
                 .Map(dest => dest.ItemID, src => src.ItemID)
                 .Map(dest => dest.ItemName, src => src.ItemName)
                 .Map(dest => dest.CategoryTypeID, src => src.CategoryTypeID)
@@ -54,14 +54,14 @@ namespace AALife.Service.EF
             using (var db = new AALifeDbContext())
             {
                 //默认
-                var lists = db.Set<Models.ItemTable>()
+                var lists = db.Set<ItemTable>()
                     .AsNoTracking()
                     .Where(a => a.ItemBuyDate >= pageModels.startDate && a.ItemBuyDate <= pageModels.endDate);
 
                 //关键字
                 if (pageModels.keySearch != null && pageModels.keySearch.Any())
                 {
-                    lists = db.Set<Models.ItemTable>().AsNoTracking().Where(a => a.ItemName.Contains(pageModels.keySearch));
+                    lists = db.Set<ItemTable>().AsNoTracking().Where(a => a.ItemName.Contains(pageModels.keySearch));
                 }
 
                 //用户id

@@ -3,9 +3,8 @@ using NLog;
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncGetItemListWeb : System.Web.UI.Page
+public partial class AALifeWeb_SyncGetItemListWeb : SyncBase
 {
-    public static Logger log = LogManager.GetCurrentClassLogger();
     private ItemTableBLL bll = new ItemTableBLL();
     private UserTableBLL user_bll = new UserTableBLL();
 

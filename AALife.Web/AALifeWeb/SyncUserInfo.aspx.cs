@@ -4,7 +4,7 @@ using System;
 using System.Data;
 using System.Web;
 
-public partial class AALifeWeb_SyncUserInfo : System.Web.UI.Page
+public partial class AALifeWeb_SyncUserInfo : SyncBase
 {
     private UserTableBLL bll = new UserTableBLL();
     private CardTableBLL card_bll = new CardTableBLL();

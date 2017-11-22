@@ -77,9 +77,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_ITEM_BUY_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_ITEM_BUY_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = userId;
             parms[1].Value = itemBuyDate;
 
@@ -99,10 +99,10 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = userId;
             parms[1].Value = beginDate;
             parms[2].Value = endDate;
@@ -123,13 +123,13 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_QUERY, SqlDbType.NVarChar, 100),
-					new SqlParameter(PARM_LABEL, SqlDbType.NVarChar, 100),
-					new SqlParameter(PARM_SORT, SqlDbType.NVarChar, 10)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_QUERY, SqlDbType.NVarChar, 100),
+                    new SqlParameter(PARM_LABEL, SqlDbType.NVarChar, 100),
+                    new SqlParameter(PARM_SORT, SqlDbType.NVarChar, 10)
+            };
             parms[0].Value = userId;
             parms[1].Value = beginDate;
             parms[2].Value = endDate;
@@ -153,15 +153,15 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_BEGIN_DATE_2, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE_2, SqlDbType.DateTime),
-					new SqlParameter(PARM_QUERY, SqlDbType.NVarChar, 100),
-					new SqlParameter(PARM_LABEL, SqlDbType.NVarChar, 100),
-					new SqlParameter(PARM_SORT, SqlDbType.NVarChar, 10)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_BEGIN_DATE_2, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE_2, SqlDbType.DateTime),
+                    new SqlParameter(PARM_QUERY, SqlDbType.NVarChar, 100),
+                    new SqlParameter(PARM_LABEL, SqlDbType.NVarChar, 100),
+                    new SqlParameter(PARM_SORT, SqlDbType.NVarChar, 10)
+            };
             parms[0].Value = userId;
             parms[1].Value = beginDate;
             parms[2].Value = endDate;
@@ -187,11 +187,11 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_LABEL, SqlDbType.NVarChar, 100),
-					new SqlParameter(PARM_VALUE, SqlDbType.NVarChar, 100),
-					new SqlParameter(PARM_SORT, SqlDbType.NVarChar, 10)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_LABEL, SqlDbType.NVarChar, 100),
+                    new SqlParameter(PARM_VALUE, SqlDbType.NVarChar, 100),
+                    new SqlParameter(PARM_SORT, SqlDbType.NVarChar, 10)
+            };
             parms[0].Value = userId;
             parms[1].Value = myLabel;
             parms[2].Value = myValue;
@@ -213,9 +213,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_KEYWORDS, SqlDbType.NVarChar, 20)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_KEYWORDS, SqlDbType.NVarChar, 20)
+            };
             parms[0].Value = userId;
             parms[1].Value = keywords;
 
@@ -235,9 +235,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = beginDate;
             parms[1].Value = endDate;
 
@@ -330,15 +330,15 @@ namespace AALife.DAL
         public bool CheckItemExists(ItemInfo item)
         {
             SqlParameter[] parms = {
-					new SqlParameter(PARM_ITEM_NAME, SqlDbType.NVarChar, 20),
-					new SqlParameter(PARM_ITEM_BUY_DATE, SqlDbType.Date),
-					new SqlParameter(PARM_RECOMMEND, SqlDbType.TinyInt),
-					new SqlParameter(PARM_ZT_ID, SqlDbType.Int),
-					new SqlParameter(PARM_CD_ID, SqlDbType.Int),
-					new SqlParameter(PARM_CATEGORY_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_ITEM_NAME, SqlDbType.NVarChar, 20),
+                    new SqlParameter(PARM_ITEM_BUY_DATE, SqlDbType.Date),
+                    new SqlParameter(PARM_RECOMMEND, SqlDbType.TinyInt),
+                    new SqlParameter(PARM_ZT_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_CD_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_CATEGORY_ID, SqlDbType.Int),
                     new SqlParameter(PARM_ITEM_PRICE, SqlDbType.Decimal), 
                     new SqlParameter(PARM_ITEM_TYPE, SqlDbType.NVarChar, 10)
-			};
+            };
             parms[0].Value = item.ItemName;
             parms[1].Value = item.ItemBuyDate.ToString("yyyy-MM-dd");
             parms[2].Value = item.Recommend;
@@ -361,9 +361,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_REGION_ID, SqlDbType.Int)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_REGION_ID, SqlDbType.Int)
+            };
             parms[0].Value = userId;
             parms[1].Value = regionId;
 
@@ -383,9 +383,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_ZT_ID, SqlDbType.Int)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_ZT_ID, SqlDbType.Int)
+            };
             parms[0].Value = userId;
             parms[1].Value = ztId;
 
@@ -405,9 +405,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_ZT_ID, SqlDbType.Int)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_ZT_ID, SqlDbType.Int)
+            };
             parms[0].Value = userId;
             parms[1].Value = ztId;
 
@@ -427,9 +427,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_CD_ID, SqlDbType.Int)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_CD_ID, SqlDbType.Int)
+            };
             parms[0].Value = userId;
             parms[1].Value = cardId;
 
@@ -449,9 +449,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_CATEGORY_ID, SqlDbType.Int)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_CATEGORY_ID, SqlDbType.Int)
+            };
             parms[0].Value = userId;
             parms[1].Value = catTypeId;
 
@@ -574,9 +574,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_CATEGORY_ID, SqlDbType.Int)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_CATEGORY_ID, SqlDbType.Int)
+            };
             parms[0].Value = userId;
             parms[1].Value = catTypeId;
 
@@ -596,9 +596,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_KEYWORDS, SqlDbType.NVarChar, 20)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_KEYWORDS, SqlDbType.NVarChar, 20)
+            };
             parms[0].Value = userId;
             parms[1].Value = keywords;
 
@@ -618,9 +618,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_ITEM_NAME, SqlDbType.NVarChar, 20)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_ITEM_NAME, SqlDbType.NVarChar, 20)
+            };
             parms[0].Value = userId;
             parms[1].Value = itemName;
 
@@ -658,10 +658,10 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = userId;
             parms[1].Value = beginDate;
             parms[2].Value = endDate;
@@ -737,9 +737,9 @@ namespace AALife.DAL
             ItemInfo item = new ItemInfo();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_USER_ID, SqlDbType.Int),
-					new SqlParameter(PARM_ITEM_APP_ID, SqlDbType.Int)
-			};
+                    new SqlParameter(PARM_USER_ID, SqlDbType.Int),
+                    new SqlParameter(PARM_ITEM_APP_ID, SqlDbType.Int)
+            };
             parms[0].Value = userId;
             parms[1].Value = itemAppId;
 
@@ -791,22 +791,22 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(ItemInfo item)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@ItemID", SqlDbType.Int),
-					new SqlParameter("@ItemName", SqlDbType.NVarChar, 20),
-					new SqlParameter("@CategoryTypeID", SqlDbType.Int),
-					new SqlParameter("@ItemPrice", SqlDbType.Decimal),
-					new SqlParameter("@ItemBuyDate", SqlDbType.DateTime),
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@Recommend", SqlDbType.TinyInt),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime),
-					new SqlParameter("@Synchronize", SqlDbType.TinyInt),
-					new SqlParameter("@ItemAppID", SqlDbType.Int),
-					new SqlParameter("@RegionID", SqlDbType.Int),
-					new SqlParameter("@RegionType", SqlDbType.NVarChar, 10),
-					new SqlParameter("@ItemType", SqlDbType.NVarChar, 10),
-					new SqlParameter("@ZhuanTiID", SqlDbType.Int),
-					new SqlParameter("@CardID", SqlDbType.Int),
-			};
+                    new SqlParameter("@ItemID", SqlDbType.Int),
+                    new SqlParameter("@ItemName", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@CategoryTypeID", SqlDbType.Int),
+                    new SqlParameter("@ItemPrice", SqlDbType.Decimal),
+                    new SqlParameter("@ItemBuyDate", SqlDbType.DateTime),
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@Recommend", SqlDbType.TinyInt),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime),
+                    new SqlParameter("@Synchronize", SqlDbType.TinyInt),
+                    new SqlParameter("@ItemAppID", SqlDbType.Int),
+                    new SqlParameter("@RegionID", SqlDbType.Int),
+                    new SqlParameter("@RegionType", SqlDbType.NVarChar, 10),
+                    new SqlParameter("@ItemType", SqlDbType.NVarChar, 10),
+                    new SqlParameter("@ZhuanTiID", SqlDbType.Int),
+                    new SqlParameter("@CardID", SqlDbType.Int),
+            };
             parms[0].Value = item.ItemID;
             parms[1].Value = item.ItemName;
             parms[2].Value = item.CategoryTypeID;

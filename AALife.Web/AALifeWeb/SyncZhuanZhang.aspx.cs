@@ -3,7 +3,7 @@ using AALife.Model;
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncZhuanZhang : System.Web.UI.Page
+public partial class AALifeWeb_SyncZhuanZhang : SyncBase
 {
     private ZhuanZhangTableBLL bll = new ZhuanZhangTableBLL();
 

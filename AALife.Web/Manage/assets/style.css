@@ -21,6 +21,10 @@
     position: relative;
 }
 
+.k-dropzone {
+    padding: .45em;
+}
+
 /*buttondown控件*/
 .k-buttondown .k-button {
     padding: 0 !important;
@@ -33,8 +37,13 @@
 }
 
 .k-buttondown .k-link[role=button] {
-    padding-left: 7px !important;
-    padding-right: 7px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.k-buttondown .f-link[role=button] {
+    padding-left: 8px !important;
+    padding-right: 3px !important;
 }
 
 .k-buttondown .dropdown-menu {
@@ -83,6 +92,47 @@ label {
     border: none !important;
 }
 
+.nav-tabs .f-dropdown-link {
+    float: left;
+    margin-right: 0 !important;
+    border-right: none !important;
+    padding-right: 0;
+}
+.nav-tabs .f-dropdown-fa {
+    float: left;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-left: none !important;
+}
+
+.nav>li.dropdown.open.active>a:focus, .nav>li.dropdown.open.active>a:hover {
+    background-color: #fff;
+    color: #4c718a;
+    border-color: #7DB4D8 #7DB4D8 transparent;
+}
+
+.nav>li.dropdown.open.active>a:focus>.ace-icon, .nav>li.dropdown.open.active>a:hover>.ace-icon,
+.nav-tabs>li.open .dropdown-toggle>.ace-icon {
+    color: #4c718a!important;
+}
+
+.nav-tabs>li.open .dropdown-toggle,
+.nav .open>a:hover {
+    background-color: #7DB4D8;
+    border-color: transparent;
+}
+
+.nav-tabs[class*=tab-color-]>li:not(.active)>a:hover {
+    opacity: 1;
+    border-color: transparent;
+    border-bottom-color: transparent;
+    color: rgba(0,0,0,.55);
+}
+
+.nav-tabs[class*=tab-color-]>li:not(.active)>a>.ace-icon:first-child:hover {
+    color: rgba(0,0,0,.55)!important;
+}
+
 /*列表process*/
 .dataTables_processing {
     z-index: 999;
@@ -105,13 +155,13 @@ label {
 }
 
 @media (max-width: 420px) {
-    .k-hidden {
+    .f-hidden {
         display: none !important;
     }
 }
 
 @media (min-width: 419px) {
-    .k-show {
+    .f-show {
         display: none !important;
     }
 }

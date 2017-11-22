@@ -122,6 +122,33 @@
     <Property Name="MoneyStart" Type="decimal" Precision="10" Scale="3" />
     <Property Name="IsUpdate" Type="tinyint" />
   </EntityType>
+  <EntityType Name="ViewPageTable">
+    <Key>
+      <PropertyRef Name="PageID" />
+    </Key>
+    <Property Name="PageID" Type="int" Nullable="false" />
+    <Property Name="PageName" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PageTitle" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="ViewTable">
+    <Key>
+      <PropertyRef Name="ViewID" />
+    </Key>
+    <Property Name="ViewID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PageID" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="DateStart" Type="datetime" Nullable="false" />
+    <Property Name="DateEnd" Type="datetime" Nullable="false" />
+    <Property Name="Portal" Type="nvarchar" MaxLength="10" />
+    <Property Name="Version" Type="nvarchar" MaxLength="10" />
+    <Property Name="Browser" Type="nvarchar" MaxLength="10" />
+    <Property Name="Width" Type="int" />
+    <Property Name="Height" Type="int" />
+    <Property Name="IP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Synchronize" Type="tinyint" Nullable="false" />
+    <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreateDate" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="WorkDayTable">
     <Key>
       <PropertyRef Name="WorkDay" />
@@ -243,6 +270,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_ViewTable_UserTable">
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
+    <End Role="ViewTable" Type="Self.ViewTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ViewTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewTable_ViewPageTable">
+    <End Role="ViewPageTable" Type="Self.ViewPageTable" Multiplicity="1" />
+    <End Role="ViewTable" Type="Self.ViewTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewPageTable">
+        <PropertyRef Name="PageID" />
+      </Principal>
+      <Dependent Role="ViewTable">
+        <PropertyRef Name="PageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_ZhuanTiTable_UserTable">
     <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
     <End Role="ZhuanTiTable" Type="Self.ZhuanTiTable" Multiplicity="*" />
@@ -277,6 +328,8 @@
     <EntitySet Name="UserCategoryTable" EntityType="Self.UserCategoryTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserFromTable" EntityType="Self.UserFromTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewPageTable" EntityType="Self.ViewPageTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ViewTable" EntityType="Self.ViewTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="WorkDayTable" EntityType="Self.WorkDayTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ZhuanTiTable" EntityType="Self.ZhuanTiTable" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="ZhuanZhangTable" EntityType="Self.ZhuanZhangTable" Schema="dbo" store:Type="Tables" />
@@ -307,6 +360,14 @@
     <AssociationSet Name="FK_UserTable_WorkDayTable" Association="Self.FK_UserTable_WorkDayTable">
       <End Role="WorkDayTable" EntitySet="WorkDayTable" />
       <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewTable_UserTable" Association="Self.FK_ViewTable_UserTable">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="ViewTable" EntitySet="ViewTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewTable_ViewPageTable" Association="Self.FK_ViewTable_ViewPageTable">
+      <End Role="ViewPageTable" EntitySet="ViewPageTable" />
+      <End Role="ViewTable" EntitySet="ViewTable" />
     </AssociationSet>
     <AssociationSet Name="FK_ZhuanTiTable_UserTable" Association="Self.FK_ZhuanTiTable_UserTable">
       <End Role="UserTable" EntitySet="UserTable" />

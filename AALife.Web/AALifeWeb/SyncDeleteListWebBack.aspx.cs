@@ -1,7 +1,7 @@
 ﻿using AALife.BLL;
 using System;
 
-public partial class AALifeWeb_SyncDeleteListWebBack : System.Web.UI.Page
+public partial class AALifeWeb_SyncDeleteListWebBack : SyncBase
 {
     private DeleteTableBLL bll = new DeleteTableBLL();
 

@@ -38,5 +38,7 @@ namespace AALife.Service.Models
         public virtual DbSet<CategoryTypeTable> CategoryTypeTable { get; set; }
         public virtual DbSet<UserCategoryTable> UserCategoryTable { get; set; }
         public virtual DbSet<RegionTypeTable> RegionTypeTable { get; set; }
+        public virtual DbSet<ViewPageTable> ViewPageTable { get; set; }
+        public virtual DbSet<ViewTable> ViewTable { get; set; }
     }
 }

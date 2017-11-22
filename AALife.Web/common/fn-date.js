@@ -95,6 +95,21 @@
     self.week_end = function () {
         return moment().endOf("week").format(self.moment_format);
     }
+
+    //取年份
+    self.getYear = function (d) {
+        return moment(d).year();
+    }
+
+    //取季度
+    self.getQuarter = function (d) {
+        return moment(d).quarter();
+    }
+
+    //取月份
+    self.getMonth = function (d) {
+        return moment(d).month();
+    }
     
     return self;
     

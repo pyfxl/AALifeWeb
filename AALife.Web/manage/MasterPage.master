@@ -97,23 +97,37 @@
     <div id="navbar" class="navbar navbar-default ace-save-state">
         <div class="navbar-container ace-save-state" id="navbar-container">
             <div class="navbar-header pull-left">
-                <ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab4">
+                <ul class="nav nav-tabs padding-12 tab-color-blue background-blue" id="myTab">
                     <li>
                         <a href="Home.aspx">用户列表</a>
                     </li>
-                    <li>
-                        <a href="ItemTable.aspx">消费列表</a>
+                    <li class="dropdown">
+                        <a class="f-dropdown-link" href="ItemTable.aspx">
+                            消费列表
+                        </a>
+                        <a data-toggle="dropdown" class="dropdown-toggle f-dropdown-fa" href="#" aria-expanded="false">
+                            <i class="ace-icon fa fa-caret-down bigger-110 width-auto"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-info">
+                            <li>
+                                <a href="ItemTable.aspx?dateType=1">按修改日期</a>
+                            </li>
+
+                            <li>
+                                <a href="ItemTable.aspx?dateType=0">按消费日期</a>
+                            </li>
+                        </ul>
                     </li>                    
                     <li>
-                        <a data-toggle="tab" href="#dropdown14">数据管理</a>
+                        <a href="ViewTable.aspx">访问列表</a>
                     </li>
-                    <li class="k-hidden">
+                    <li class="f-hidden">
                         <a data-toggle="tab" href="#dropdown14">数据统计</a>
                     </li>
-                    <li class="k-hidden">
+                    <li class="f-hidden">
                         <a data-toggle="tab" href="#dropdown14">网站管理</a>
                     </li>
-                    <li class="k-show dropdown">
+                    <li class="f-show dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                              更多功能 &nbsp;
                             <i class="ace-icon fa fa-caret-down bigger-110 width-auto"></i>
@@ -165,9 +179,9 @@
 
         //设置头部选中
         function navbarActive(i) {
-            var navbar = $("#navbar");
-            navbar.find("li").removeClass("active");
-            navbar.find("li").eq(i).addClass("active");
+            var navbar = $("#myTab>li");
+            navbar.removeClass("active");
+            navbar.eq(i).addClass("active");
         }
 
         jQuery(function($) {

@@ -49,6 +49,16 @@
       <End Role="UserCategoryTable" EntitySet="UserCategoryTable" />
     </AssociationSet>
     <EntitySet Name="RegionTypeTable" EntityType="AALifeModel.RegionTypeTable" />
+    <EntitySet Name="ViewPageTable" EntityType="AALifeModel.ViewPageTable" />
+    <EntitySet Name="ViewTable" EntityType="AALifeModel.ViewTable" />
+    <AssociationSet Name="FK_ViewTable_UserTable" Association="AALifeModel.FK_ViewTable_UserTable">
+      <End Role="ViewPageTable" EntitySet="ViewPageTable" />
+      <End Role="ViewTable" EntitySet="ViewTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ViewTable_UserTable1" Association="AALifeModel.FK_ViewTable_UserTable1">
+      <End Role="UserTable" EntitySet="UserTable" />
+      <End Role="ViewTable" EntitySet="ViewTable" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="CardTable">
     <Key>
@@ -167,6 +177,7 @@
     <NavigationProperty Name="ZhuanTiTable" Relationship="AALifeModel.FK_ZhuanTiTable_UserTable" FromRole="UserTable" ToRole="ZhuanTiTable" />
     <NavigationProperty Name="ZhuanZhangTable" Relationship="AALifeModel.FK_ZhuanZhangTable_UserTable" FromRole="UserTable" ToRole="ZhuanZhangTable" />
     <NavigationProperty Name="UserCategoryTable" Relationship="AALifeModel.FK_UserCategoryTable_UserTable" FromRole="UserTable" ToRole="UserCategoryTable" />
+    <NavigationProperty Name="ViewTable" Relationship="AALifeModel.FK_ViewTable_UserTable1" FromRole="UserTable" ToRole="ViewTable" />
   </EntityType>
   <Association Name="FK_CardTable_UserTable">
     <End Type="AALifeModel.UserTable" Role="UserTable" Multiplicity="1" />
@@ -335,4 +346,59 @@
     <Property Name="RegionTypeSymbol" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
     <Property Name="Rank" Type="Byte" Nullable="false" />
   </EntityType>
+  <EntityType Name="ViewPageTable">
+    <Key>
+      <PropertyRef Name="PageID" />
+    </Key>
+    <Property Name="PageID" Type="Int32" Nullable="false" />
+    <Property Name="PageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PageTitle" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ViewTable" Relationship="AALifeModel.FK_ViewTable_UserTable" FromRole="ViewPageTable" ToRole="ViewTable" />
+  </EntityType>
+  <EntityType Name="ViewTable">
+    <Key>
+      <PropertyRef Name="ViewID" />
+    </Key>
+    <Property Name="ViewID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PageID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="DateEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Portal" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Version" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Browser" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Width" Type="Int32" />
+    <Property Name="Height" Type="Int32" />
+    <Property Name="IP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Synchronize" Type="Byte" Nullable="false" />
+    <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="ViewPageTable" Relationship="AALifeModel.FK_ViewTable_UserTable" FromRole="ViewTable" ToRole="ViewPageTable" />
+    <NavigationProperty Name="UserTable" Relationship="AALifeModel.FK_ViewTable_UserTable1" FromRole="ViewTable" ToRole="UserTable" />
+    <Property Name="Network" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_ViewTable_UserTable">
+    <End Type="AALifeModel.ViewPageTable" Role="ViewPageTable" Multiplicity="1" />
+    <End Type="AALifeModel.ViewTable" Role="ViewTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ViewPageTable">
+        <PropertyRef Name="PageID" />
+      </Principal>
+      <Dependent Role="ViewTable">
+        <PropertyRef Name="PageID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ViewTable_UserTable1">
+    <End Type="AALifeModel.UserTable" Role="UserTable" Multiplicity="1" />
+    <End Type="AALifeModel.ViewTable" Role="ViewTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserTable">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="ViewTable">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

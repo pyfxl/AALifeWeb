@@ -4,7 +4,7 @@ using System;
 using System.Data;
 using System.Text.RegularExpressions;
 
-public partial class AALifeWeb_SyncBoundNew : System.Web.UI.Page
+public partial class AALifeWeb_SyncBoundNew : SyncBase
 {
     private OAuthTableBLL bll = new OAuthTableBLL();
 

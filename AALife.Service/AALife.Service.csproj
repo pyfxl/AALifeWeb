@@ -38,11 +38,15 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Kendo.DynamicLinq, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Kendo.DynamicLinq.1.1.2.0\lib\net40\Kendo.DynamicLinq.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Mapster, Version=3.1.6.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
@@ -76,6 +80,7 @@
     <Compile Include="EF\ItemTableBLL.cs" />
     <Compile Include="EF\UserFromBLL.cs" />
     <Compile Include="EF\UserTableBLL.cs" />
+    <Compile Include="EF\ViewTableBLL.cs" />
     <Compile Include="EF\WorkDayBLL.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="Models\AALifeModel.Context.cs">
@@ -120,6 +125,12 @@
     <Compile Include="Models\UserTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ViewPageTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ViewTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\WorkDayTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
@@ -129,6 +140,9 @@
     <Compile Include="Models\ZhuanZhangTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Common\FilterModel.cs" />
+    <Compile Include="Model\Common\UserQueryModel.cs" />
+    <Compile Include="Model\Enum\LogicEnum.cs" />
     <Compile Include="Model\Enum\SortEnum.cs" />
     <Compile Include="Model\Common\ListModel.cs" />
     <Compile Include="Model\Common\ResultModel.cs" />
@@ -137,6 +151,7 @@
     <Compile Include="Model\Common\SortModel.cs" />
     <Compile Include="Model\ViewModel\ItemTableViewModel.cs" />
     <Compile Include="Model\ViewModel\UserTableViewModel.cs" />
+    <Compile Include="Model\ViewModel\ViewTableViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

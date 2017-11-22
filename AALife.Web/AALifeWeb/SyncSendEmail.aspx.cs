@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Web;
 
-public partial class AALifeWeb_SyncSendEmail : System.Web.UI.Page
+public partial class AALifeWeb_SyncSendEmail : SyncBase
 {
     protected void Page_Load(object sender, EventArgs e)
     {

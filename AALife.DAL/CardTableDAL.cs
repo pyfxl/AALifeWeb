@@ -69,9 +69,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = beginDate;
             parms[1].Value = endDate;
 
@@ -229,19 +229,19 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(CardInfo card)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@CardID", SqlDbType.Int),
-					new SqlParameter("@CardName", SqlDbType.NVarChar, 20),
-					new SqlParameter("@CardNumber", SqlDbType.NVarChar, 50),
-					new SqlParameter("@CardImage", SqlDbType.NVarChar, 50),
-					new SqlParameter("@CardMoney", SqlDbType.Decimal),
-					new SqlParameter("@CardLive", SqlDbType.TinyInt),
-					new SqlParameter("@Synchronize", SqlDbType.TinyInt),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime),
-					new SqlParameter("@CDID", SqlDbType.Int),
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@MoneyStart", SqlDbType.Decimal),
-					new SqlParameter("@CardShow", SqlDbType.TinyInt)
-			};
+                    new SqlParameter("@CardID", SqlDbType.Int),
+                    new SqlParameter("@CardName", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@CardNumber", SqlDbType.NVarChar, 50),
+                    new SqlParameter("@CardImage", SqlDbType.NVarChar, 50),
+                    new SqlParameter("@CardMoney", SqlDbType.Decimal),
+                    new SqlParameter("@CardLive", SqlDbType.TinyInt),
+                    new SqlParameter("@Synchronize", SqlDbType.TinyInt),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime),
+                    new SqlParameter("@CDID", SqlDbType.Int),
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@MoneyStart", SqlDbType.Decimal),
+                    new SqlParameter("@CardShow", SqlDbType.TinyInt)
+            };
             parms[0].Value = card.CardID;
             parms[1].Value = card.CardName;
             parms[2].Value = card.CardNumber;

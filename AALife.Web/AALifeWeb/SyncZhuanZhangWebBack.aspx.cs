@@ -1,7 +1,7 @@
 ﻿using AALife.BLL;
 using System;
 
-public partial class AALifeWeb_SyncZhuanZhangWebBack : System.Web.UI.Page
+public partial class AALifeWeb_SyncZhuanZhangWebBack : SyncBase
 {
     private ZhuanZhangTableBLL bll = new ZhuanZhangTableBLL();
 

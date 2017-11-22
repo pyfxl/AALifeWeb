@@ -57,7 +57,9 @@ namespace AALife.Service.EF
         {
             using (var db = new AALifeDbContext())
             {
-                var lists = db.Set<UserTable>().Where(a => a.CreateDate >= query.startDate && a.CreateDate <= query.endDate);
+                //默认
+                var lists = db.Set<UserTable>()
+                    .Where(a => a.CreateDate >= query.startDate && a.CreateDate <= query.endDate);
                 
                 //关键字
                 if (query.keySearch != null && query.keySearch.Any())
@@ -68,13 +70,14 @@ namespace AALife.Service.EF
                     lists = db.Set<UserTable>().Where(a => a.UserID == userId || a.UserName.Contains(query.keySearch) || a.UserPassword.Contains(query.keySearch) || a.UserNickName.Contains(query.keySearch) || a.UserEmail.Contains(query.keySearch));
                 }
 
+                //结果
                 var result = lists
                     .Include(a => a.UserFromTable)
                     .Include(a => a.WorkDayTable)
                     .ProjectToType<UserTableViewModel>();
                 
                 //where查询
-                if (query.filter != null && query.filter.Count > 0)
+                if (query.filter != null)
                 {
                     result = result.Where(query.filterString);
                 }

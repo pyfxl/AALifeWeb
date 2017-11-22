@@ -35,6 +35,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ViewTableDAL.cs" />
     <Compile Include="UserQueryTableDAL.cs" />
     <Compile Include="ZhuanZhangTableDAL.cs" />
     <Compile Include="CardTableDAL.cs">

@@ -38,7 +38,7 @@
         $(document).ready(function () {
 
             //查询对象
-            var query = { startDate: "", endDate: "", keySearch: "", buttonDown: "", userId: 0 };
+            var query = { startDate: "", endDate: "", keySearch: "", dateType: "1", buttonDown: "", userId: 0 };
 
             //开始日期
             var start = $("#start").kendoDatePicker({
@@ -128,7 +128,7 @@
                 height: 500,
                 navigatable: true,
                 resizable: true,
-                filterable: true,
+                filterable: false,
                 sortable: {
                     mode: "multiple",
                     allowUnsort: true,
@@ -270,7 +270,7 @@
                     pinning: false
                 }
             }).data("kendoNotification");
-
+            
             //更改日期事件
             function changeDate() {
                 setButtonDown("");
@@ -324,6 +324,11 @@
                     setButtonDown("");
                     setDate("", "");
                     return;
+                }
+
+                var dateType = getUrlParam("dateType");
+                if (!$.isEmptyObject(dateType)) {
+                    query.dateType = dateType;
                 }
 
                 setButtonDown("b_day");

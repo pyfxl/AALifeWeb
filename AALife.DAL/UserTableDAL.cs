@@ -126,9 +126,9 @@ namespace AALife.DAL
             DataTable lists = new DataTable();
 
             SqlParameter[] parms = {
-					new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
-					new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
-			};
+                    new SqlParameter(PARM_BEGIN_DATE, SqlDbType.DateTime),
+                    new SqlParameter(PARM_END_DATE, SqlDbType.DateTime)
+            };
             parms[0].Value = beginDate;
             parms[1].Value = endDate;
 
@@ -318,27 +318,27 @@ namespace AALife.DAL
         public static SqlParameter[] ModelToParms(UserInfo user)
         {
             SqlParameter[] parms = {
-					new SqlParameter("@UserID", SqlDbType.Int),
-					new SqlParameter("@UserName", SqlDbType.NVarChar, 20),
-					new SqlParameter("@UserPassword", SqlDbType.NVarChar, 20),
-					new SqlParameter("@UserNickName", SqlDbType.NVarChar, 50),
-					new SqlParameter("@UserImage", SqlDbType.NVarChar, 200),
-					new SqlParameter("@UserPhone", SqlDbType.NVarChar, 20),
-					new SqlParameter("@UserEmail", SqlDbType.NVarChar, 100),
-					new SqlParameter("@UserTheme", SqlDbType.NVarChar, 10),
-					new SqlParameter("@UserLevel", SqlDbType.TinyInt),
-					new SqlParameter("@UserFrom", SqlDbType.NVarChar, 10),
-					new SqlParameter("@ModifyDate", SqlDbType.DateTime),
-					new SqlParameter("@CreateDate", SqlDbType.DateTime),
-					new SqlParameter("@UserCity", SqlDbType.NVarChar, 20),
-					new SqlParameter("@UserMoney", SqlDbType.Decimal),
-					new SqlParameter("@UserWorkDay", SqlDbType.NVarChar, 2),
-					new SqlParameter("@UserFunction", SqlDbType.NVarChar, 20),
-					new SqlParameter("@CategoryRate", SqlDbType.Int),
-					new SqlParameter("@Synchronize", SqlDbType.TinyInt),
-					new SqlParameter("@MoneyStart", SqlDbType.Decimal),
-					new SqlParameter("@IsUpdate", SqlDbType.TinyInt)
-			};
+                    new SqlParameter("@UserID", SqlDbType.Int),
+                    new SqlParameter("@UserName", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@UserPassword", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@UserNickName", SqlDbType.NVarChar, 50),
+                    new SqlParameter("@UserImage", SqlDbType.NVarChar, 200),
+                    new SqlParameter("@UserPhone", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@UserEmail", SqlDbType.NVarChar, 100),
+                    new SqlParameter("@UserTheme", SqlDbType.NVarChar, 10),
+                    new SqlParameter("@UserLevel", SqlDbType.TinyInt),
+                    new SqlParameter("@UserFrom", SqlDbType.NVarChar, 10),
+                    new SqlParameter("@ModifyDate", SqlDbType.DateTime),
+                    new SqlParameter("@CreateDate", SqlDbType.DateTime),
+                    new SqlParameter("@UserCity", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@UserMoney", SqlDbType.Decimal),
+                    new SqlParameter("@UserWorkDay", SqlDbType.NVarChar, 2),
+                    new SqlParameter("@UserFunction", SqlDbType.NVarChar, 20),
+                    new SqlParameter("@CategoryRate", SqlDbType.Int),
+                    new SqlParameter("@Synchronize", SqlDbType.TinyInt),
+                    new SqlParameter("@MoneyStart", SqlDbType.Decimal),
+                    new SqlParameter("@IsUpdate", SqlDbType.TinyInt)
+            };
             parms[0].Value = user.UserID;
             parms[1].Value = user.UserName;
             parms[2].Value = user.UserPassword;

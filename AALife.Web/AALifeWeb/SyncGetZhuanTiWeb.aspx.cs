@@ -2,7 +2,7 @@
 using System;
 using System.Data;
 
-public partial class AALifeWeb_SyncGetZhuanTiWeb : System.Web.UI.Page
+public partial class AALifeWeb_SyncGetZhuanTiWeb : SyncBase
 {
     private ZhuanTiTableBLL bll = new ZhuanTiTableBLL();
 
