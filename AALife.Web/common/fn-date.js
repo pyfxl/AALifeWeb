@@ -4,7 +4,7 @@
 
     self.moment_format = "YYYY-MM-DD";
 
-    self.moment_format_full = "YYYY-MM-DD HH:mm:SS";
+    self.moment_format_full = "YYYY-MM-DD HH:mm:ss";
 
     //今天日期
     self.today_date = function () {
@@ -98,16 +98,19 @@
 
     //取年份
     self.getYear = function (d) {
+		d = d == "" ? moment() : d;
         return moment(d).year();
     }
 
     //取季度
     self.getQuarter = function (d) {
+		d = d == "" ? moment() : d;
         return moment(d).quarter();
     }
 
     //取月份
     self.getMonth = function (d) {
+		d = d == "" ? moment() : d;
         return moment(d).month();
     }
     

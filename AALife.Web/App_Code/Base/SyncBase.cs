@@ -1,6 +1,7 @@
 ﻿using NLog;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 
@@ -10,6 +11,8 @@ using System.Web;
 public class SyncBase : System.Web.UI.Page
 {
     public static Logger log = LogManager.GetCurrentClassLogger();
+
+    public static bool useMsmq = ConfigurationManager.AppSettings["useMsmq"] == "1";
 
     public SyncBase()
     {

@@ -1,5 +1,6 @@
 ﻿using AALife.BLL;
 using AALife.Model;
+using AALife.MSMQ;
 using NLog;
 using System;
 using System.Data;
@@ -24,7 +25,7 @@ public partial class AALifeWeb_SyncItemList : SyncBase
         string ztId = Request.Form["ztid"] ?? "0";
         string cardId = Request.Form["cardid"] ?? "0";
 
-        ItemInfo item = bll.GetItemByItemAppId(userId, itemAppId);
+        ItemInfo item = useMsmq ? new ItemInfo() : bll.GetItemByItemAppId(userId, itemAppId);
         item.ItemType = itemType;
         item.ItemName = itemName;
         item.CategoryTypeID = catId;
@@ -44,40 +45,49 @@ public partial class AALifeWeb_SyncItemList : SyncBase
         log.Info(string.Format(" ItemInfo -> {0}", item.ToString()));
 
         bool success = false;
-        if (item.ItemID > 0)
-        {
-            success = bll.UpdateItemByItemAppId(item);
-        }
-        else if (itemId > 0)
-        {
-            item = bll.GetItemByItemId(itemId);
-            item.ItemType = itemType;
-            item.ItemName = itemName;
-            item.CategoryTypeID = catId;
-            item.ItemPrice = itemPrice;
-            item.ItemBuyDate = itemBuyDate;
-            item.ItemAppID = itemAppId;
-            item.Recommend = recommend;
-            item.RegionID = regionId;
-            item.RegionType = regionType;
-            item.Synchronize = 0;
-            item.UserID = userId;
-            item.ZhuanTiID = Convert.ToInt32(ztId);
-            item.CardID = Convert.ToInt32(cardId);
-            item.ModifyDate = DateTime.Now;
 
+        if (useMsmq)
+        {
+            //string json = Newtonsoft.Json.JsonConvert.SerializeObject(item);
+            success = MsmqHelper.SendMessage(item);
+        }
+        else
+        {
             if (item.ItemID > 0)
             {
-                success = bll.UpdateItemWithSync(item);
+                success = bll.UpdateItemByItemAppId(item);
+            }
+            else if (itemId > 0)
+            {
+                item = bll.GetItemByItemId(itemId);
+                item.ItemType = itemType;
+                item.ItemName = itemName;
+                item.CategoryTypeID = catId;
+                item.ItemPrice = itemPrice;
+                item.ItemBuyDate = itemBuyDate;
+                item.ItemAppID = itemAppId;
+                item.Recommend = recommend;
+                item.RegionID = regionId;
+                item.RegionType = regionType;
+                item.Synchronize = 0;
+                item.UserID = userId;
+                item.ZhuanTiID = Convert.ToInt32(ztId);
+                item.CardID = Convert.ToInt32(cardId);
+                item.ModifyDate = DateTime.Now;
+
+                if (item.ItemID > 0)
+                {
+                    success = bll.UpdateItemWithSync(item);
+                }
+                else
+                {
+                    success = bll.InsertItemWithSync(item);
+                }
             }
             else
             {
                 success = bll.InsertItemWithSync(item);
             }
-        }
-        else
-        {
-            success = bll.InsertItemWithSync(item);
         }
 
         string result = "{";

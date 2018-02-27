@@ -117,15 +117,15 @@
                                 <a href="ItemTable.aspx?dateType=0">按消费日期</a>
                             </li>
                         </ul>
-                    </li>                    
+                    </li>
                     <li>
                         <a href="ViewTable.aspx">访问列表</a>
                     </li>
                     <li class="f-hidden">
-                        <a data-toggle="tab" href="#dropdown14">数据统计</a>
+                        <a href="BackupData.aspx">数据管理</a>
                     </li>
                     <li class="f-hidden">
-                        <a data-toggle="tab" href="#dropdown14">网站管理</a>
+                        <a href="SiteConfig.aspx">网站管理</a>
                     </li>
                     <li class="f-show dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -135,11 +135,11 @@
 
                         <ul class="dropdown-menu dropdown-info">
                             <li>
-                                <a data-toggle="tab" href="#dropdown1">数据统计</a>
+                                <a href="BackupData.aspx">数据管理</a>
                             </li>
 
                             <li>
-                                <a data-toggle="tab" href="#dropdown2">网站管理</a>
+                                <a href="SiteConfig.aspx">网站管理</a>
                             </li>
                         </ul>
                     </li>

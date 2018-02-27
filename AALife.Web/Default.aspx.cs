@@ -49,51 +49,51 @@ public partial class _Default : WebPage
         //收入支出
         decimal shouRuPrice = Convert.ToDecimal(total.Rows[0]["ShouRuPrice"]);
         decimal zhiChuPrice = Convert.ToDecimal(total.Rows[0]["ZhiChuPrice"]);
-        ShouRuLab.Text = shouRuPrice.ToString("0.0##");
-        ZhiChuLab.Text = zhiChuPrice.ToString("0.0##");
-        JieCunLab.Text = (shouRuPrice - zhiChuPrice).ToString("0.0##");
+        this.ShouRuLab.Text = shouRuPrice.ToString("0.0##");
+        this.ZhiChuLab.Text = zhiChuPrice.ToString("0.0##");
+        this.JieCunLab.Text = (shouRuPrice - zhiChuPrice).ToString("0.0##");
 
         //周收入支出
         decimal shouRuPriceWeek = Convert.ToDecimal(total.Rows[0]["ShouRuPriceWeek"]);
         decimal zhiChuPriceWeek = Convert.ToDecimal(total.Rows[0]["ZhiChuPriceWeek"]);
-        ShouRuWeekLab.Text = shouRuPriceWeek.ToString("0.0##");
-        ZhiChuWeekLab.Text = zhiChuPriceWeek.ToString("0.0##");
-        JieCunWeekLab.Text = (shouRuPriceWeek - zhiChuPriceWeek).ToString("0.0##");
+        this.ShouRuWeekLab.Text = shouRuPriceWeek.ToString("0.0##");
+        this.ZhiChuWeekLab.Text = zhiChuPriceWeek.ToString("0.0##");
+        this.JieCunWeekLab.Text = (shouRuPriceWeek - zhiChuPriceWeek).ToString("0.0##");
 
         //月收入支出
         decimal shouRuPriceMonth = Convert.ToDecimal(total.Rows[0]["ShouRuPriceMonth"]);
         decimal zhiChuPriceMonth = Convert.ToDecimal(total.Rows[0]["ZhiChuPriceMonth"]);
-        ShouRuMonthLab.Text = shouRuPriceMonth.ToString("0.0##");
-        ZhiChuMonthLab.Text = zhiChuPriceMonth.ToString("0.0##");
-        JieCunMonthLab.Text = (shouRuPriceMonth - zhiChuPriceMonth).ToString("0.0##");
+        this.ShouRuMonthLab.Text = shouRuPriceMonth.ToString("0.0##");
+        this.ZhiChuMonthLab.Text = zhiChuPriceMonth.ToString("0.0##");
+        this.JieCunMonthLab.Text = (shouRuPriceMonth - zhiChuPriceMonth).ToString("0.0##");
 
         //年收入支出
         decimal shouRuPriceYear = Convert.ToDecimal(total.Rows[0]["ShouRuPriceYear"]);
         decimal zhiChuPriceYear = Convert.ToDecimal(total.Rows[0]["ZhiChuPriceYear"]);
-        ShouRuYearLab.Text = shouRuPriceYear.ToString("0.0##");
-        ZhiChuYearLab.Text = zhiChuPriceYear.ToString("0.0##");
-        JieCunYearLab.Text = (shouRuPriceYear - zhiChuPriceYear).ToString("0.0##");
+        this.ShouRuYearLab.Text = shouRuPriceYear.ToString("0.0##");
+        this.ZhiChuYearLab.Text = zhiChuPriceYear.ToString("0.0##");
+        this.JieCunYearLab.Text = (shouRuPriceYear - zhiChuPriceYear).ToString("0.0##");
 
         //全部收入支出
         decimal shouRuPriceAll = Convert.ToDecimal(total.Rows[0]["ShouRuPriceAll"]);
         decimal zhiChuPriceAll = Convert.ToDecimal(total.Rows[0]["ZhiChuPriceAll"]);
-        ShouRuAllLab.Text = shouRuPriceAll.ToString("0.0##");
-        ZhiChuAllLab.Text = zhiChuPriceAll.ToString("0.0##");
-        JieCunAllLab.Text = (shouRuPriceAll - zhiChuPriceAll).ToString("0.0##");
+        this.ShouRuAllLab.Text = shouRuPriceAll.ToString("0.0##");
+        this.ZhiChuAllLab.Text = zhiChuPriceAll.ToString("0.0##");
+        this.JieCunAllLab.Text = (shouRuPriceAll - zhiChuPriceAll).ToString("0.0##");
 
         //借入还出
         decimal jieRuPriceAll = Convert.ToDecimal(total.Rows[0]["JieRuPriceAll"]);
         decimal huanChuPriceAll = Convert.ToDecimal(total.Rows[0]["HuanChuPriceAll"]);
-        JieRuAllLab.Text = jieRuPriceAll.ToString("0.###");
-        HuanChuAllLab.Text = huanChuPriceAll.ToString("0.###");
-        WeiHuanAllLab.Text = (jieRuPriceAll - huanChuPriceAll).ToString("0.###");
+        this.JieRuAllLab.Text = jieRuPriceAll.ToString("0.###");
+        this.HuanChuAllLab.Text = huanChuPriceAll.ToString("0.###");
+        this.WeiHuanAllLab.Text = (jieRuPriceAll - huanChuPriceAll).ToString("0.###");
 
         //借出还入
         decimal jieChuPriceAll = Convert.ToDecimal(total.Rows[0]["JieChuPriceAll"]);
         decimal huanRuPriceAll = Convert.ToDecimal(total.Rows[0]["HuanRuPriceAll"]);
-        JieChuAllLab.Text = jieChuPriceAll.ToString("0.###");
-        HuanRuAllLab.Text = huanRuPriceAll.ToString("0.###");
-        QianHuanAllLab.Text = (huanRuPriceAll - jieChuPriceAll).ToString("0.###");
+        this.JieChuAllLab.Text = jieChuPriceAll.ToString("0.###");
+        this.HuanRuAllLab.Text = huanRuPriceAll.ToString("0.###");
+        this.QianHuanAllLab.Text = (huanRuPriceAll - jieChuPriceAll).ToString("0.###");
 
     }
 
@@ -102,20 +102,20 @@ public partial class _Default : WebPage
     {
         DataTable lists = card_bll.GetCardListWithHome(userId);
         lists.DefaultView.RowFilter = "RowNumber < 3";
-        CardList.DataSource = lists;
-        CardList.DataBind();
+        this.CardList.DataSource = lists;
+        this.CardList.DataBind();
     }
 
     //显示下拉
     private void BindChartTypeDropDown()
     {
-        ChartTypeDropDown.Items.Add(new ListItem("消费日期排行图表", "datechart"));
-        ChartTypeDropDown.Items.Add(new ListItem("消费次数排行图表", "numchart"));
-        ChartTypeDropDown.Items.Add(new ListItem("消费单价排行图表", "pricechart"));
+        this.ChartTypeDropDown.Items.Add(new ListItem("消费日期排行图表", "datechart"));
+        this.ChartTypeDropDown.Items.Add(new ListItem("消费次数排行图表", "numchart"));
+        this.ChartTypeDropDown.Items.Add(new ListItem("消费单价排行图表", "pricechart"));
         
         if (chartType != "")
         {
-            ChartTypeDropDown.Items.FindByValue(chartType).Selected = true;
+            this.ChartTypeDropDown.Items.FindByValue(chartType).Selected = true;
         }
     }
 
