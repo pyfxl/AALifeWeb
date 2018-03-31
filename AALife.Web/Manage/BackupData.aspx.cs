@@ -276,7 +276,7 @@ public partial class Manage_BackupData : AdminPage
             BackupHelper.ReaderBackupFileFromApp(userId, filePathName);
             Utility.Alert(this, "恢复成功。");
         }
-        catch
+        catch(Exception ex)
         {
             Utility.Alert(this, "恢复失败！");
             return;

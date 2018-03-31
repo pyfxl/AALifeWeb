@@ -42,6 +42,7 @@ public class Utility
     public static string ReplaceSql(string str)
     {
         str = str.Replace("'", "''");
+        str = str.Replace("\n", "");
         return str;
     }
 

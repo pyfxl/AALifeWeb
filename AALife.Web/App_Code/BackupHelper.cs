@@ -1,4 +1,5 @@
 ﻿using AALife.Model;
+using NLog;
 using System;
 using System.Data;
 using System.Data.Common;
@@ -7,6 +8,8 @@ using System.Text;
 
 public class BackupHelper
 {
+    public static Logger log = LogManager.GetCurrentClassLogger();
+
     static BackupHelper()
     {
     }
@@ -175,6 +178,8 @@ public class BackupHelper
     //商品
     public static string GetItemTableSqlFromWeb(int userId, string str)
     {
+        log.Info(str);
+
         string[] arr = GetSqlArray(str);
 
         string result = string.Format(@"INSERT INTO ItemTable (ItemID, ItemType, ItemName, CategoryTypeID, ItemPrice, ItemBuyDate, UserID, ModifyDate, Recommend, Synchronize, RegionID, RegionType, ZhuanTiID, CardID) VALUES ({0},{1},{2},{3},{4},{5}, '{6}',{7},{8},{9},{10},{11},{12},{13})",
