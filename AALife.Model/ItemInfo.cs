@@ -23,6 +23,7 @@ namespace AALife.Model
             ItemType = "zc";
             ZhuanTiID = 0;
             CardID = 0;
+            Remark = "";
         }
         #region Model
         private int _itemid;
@@ -40,6 +41,7 @@ namespace AALife.Model
         private string _itemtype;
         private int? _zhuantiid;
         private int? _cardid;
+        private string _remark;
         /// <summary>
         /// 编号
         /// </summary>
@@ -160,6 +162,14 @@ namespace AALife.Model
             set { _cardid = value; }
             get { return _cardid; }
         }
+        /// <summary>
+        /// 商品备注
+        /// </summary>
+        public string Remark
+        {
+            set { _remark = value; }
+            get { return _remark; }
+        }
         #endregion Model
 
         public override bool Equals(object obj)
@@ -171,7 +181,7 @@ namespace AALife.Model
             ItemInfo item = (ItemInfo)obj;
             return item.ItemName.Equals(this.ItemName) && item.ItemBuyDate.ToString("yyyy-MM-dd").Equals(this.ItemBuyDate.ToString("yyyy-MM-dd")) &&
                    item.Recommend == this.Recommend && item.ZhuanTiID == this.ZhuanTiID && item.CardID == this.CardID && item.CategoryTypeID == this.CategoryTypeID &&
-                   item.ItemPrice == this.ItemPrice && item.ItemType.Equals(this.ItemType);
+                   item.ItemPrice == this.ItemPrice && item.ItemType.Equals(this.ItemType) && item.Remark.Equals(this.Remark);
         }
 
         public override int GetHashCode()
@@ -181,7 +191,7 @@ namespace AALife.Model
 
         public override string ToString()
         {
-            return string.Format("UserID: {0}, ItemID:{1}, AppID:{2}, CatID:{3}, Name:{4}, Price:{5}, Date:{6}, CardID:{7}, Type: {8}, Recommend: {9}, ReginID: {10}, ReginType: {11}, ZTID: {12}", UserID, ItemID, ItemAppID, CategoryTypeID, ItemName, ItemPrice, ItemBuyDate, CardID, ItemType, Recommend, RegionID, RegionType == null ? "" : RegionType, ZhuanTiID);
+            return string.Format("UserID: {0}, ItemID:{1}, AppID:{2}, CatID:{3}, Name:{4}, Price:{5}, Date:{6}, CardID:{7}, Type: {8}, Recommend: {9}, ReginID: {10}, ReginType: {11}, ZTID: {12}, Remark: {13}", UserID, ItemID, ItemAppID, CategoryTypeID, ItemName, ItemPrice, ItemBuyDate, CardID, ItemType, Recommend, RegionID, RegionType == null ? "" : RegionType, ZhuanTiID, Remark);
         }
 
     }

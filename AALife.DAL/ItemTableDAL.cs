@@ -22,6 +22,7 @@ namespace AALife.DAL
         private static readonly string PARM_ITEM_NAME = "@ItemName";
         private static readonly string PARM_ITEM_TYPE = "@ItemType";
         private static readonly string PARM_ITEM_PRICE = "@ItemPrice";
+        private static readonly string PARM_ITEM_REMARK = "@ItemRemark";
         private static readonly string PARM_BEGIN_DATE = "@BeginDate";
         private static readonly string PARM_END_DATE = "@EndDate";
         private static readonly string PARM_BEGIN_DATE_2 = "@BeginDate2";
@@ -47,7 +48,7 @@ namespace AALife.DAL
         private static readonly string SQL_INSERT_ITEM = "InsertItem_v5";
         private static readonly string SQL_UPDATE_ITEM = "UpdateItem_v5";
         private static readonly string SQL_SELECT_ITEM_BY_ITEM_ID = string.Format(@"select * from ItemTable with(nolock) where ItemID = {0}", PARM_ITEM_ID);
-        private static readonly string SQL_CHECK_ITEM_EXISTS = string.Format(@"select * from ItemTable with(nolock) where ItemName = {0} and Convert(nvarchar(10), ItemBuyDate, 23) = {1} and Recommend = {2} and ZhuanTiID = {3} and CardID = {4} and CategoryTypeID = {5} and ItemPrice = {6} and ItemType = {7}", PARM_ITEM_NAME, PARM_ITEM_BUY_DATE, PARM_RECOMMEND, PARM_ZT_ID, PARM_CD_ID, PARM_CATEGORY_ID, PARM_ITEM_PRICE, PARM_ITEM_TYPE);
+        private static readonly string SQL_CHECK_ITEM_EXISTS = string.Format(@"select * from ItemTable with(nolock) where ItemName = {0} and Convert(nvarchar(10), ItemBuyDate, 23) = {1} and Recommend = {2} and ZhuanTiID = {3} and CardID = {4} and CategoryTypeID = {5} and ItemPrice = {6} and ItemType = {7} and Remark = {8}", PARM_ITEM_NAME, PARM_ITEM_BUY_DATE, PARM_RECOMMEND, PARM_ZT_ID, PARM_CD_ID, PARM_CATEGORY_ID, PARM_ITEM_PRICE, PARM_ITEM_TYPE, PARM_ITEM_REMARK);
         private static readonly string SQL_SELECT_ITEM_LIST_BY_REGION_ID = string.Format(@"select * from ItemTable with(nolock) where UserID = {0} and RegionID = {1}", PARM_USER_ID, PARM_REGION_ID);
         private static readonly string SQL_DELETE_ITEM = "DeleteItem_v5";
         private static readonly string SQL_SELECT_MAX_REGION_ID = string.Format(@"select isnull(max(RegionID),0)+1 from ItemTable with(nolock) where UserID = {0}", PARM_USER_ID);
@@ -337,7 +338,8 @@ namespace AALife.DAL
                     new SqlParameter(PARM_CD_ID, SqlDbType.Int),
                     new SqlParameter(PARM_CATEGORY_ID, SqlDbType.Int),
                     new SqlParameter(PARM_ITEM_PRICE, SqlDbType.Decimal), 
-                    new SqlParameter(PARM_ITEM_TYPE, SqlDbType.NVarChar, 10)
+                    new SqlParameter(PARM_ITEM_TYPE, SqlDbType.NVarChar, 10),
+                    new SqlParameter(PARM_ITEM_REMARK, SqlDbType.NVarChar, 100)
             };
             parms[0].Value = item.ItemName;
             parms[1].Value = item.ItemBuyDate.ToString("yyyy-MM-dd");
@@ -347,6 +349,7 @@ namespace AALife.DAL
             parms[5].Value = item.CategoryTypeID;
             parms[6].Value = item.ItemPrice;
             parms[7].Value = item.ItemType;
+            parms[8].Value = item.Remark;
 
             int result = Convert.ToInt32(SqlHelper.ExecuteScalar(SqlHelper.ConnectionString, CommandType.Text, SQL_CHECK_ITEM_EXISTS, parms));
             
@@ -806,6 +809,7 @@ namespace AALife.DAL
                     new SqlParameter("@ItemType", SqlDbType.NVarChar, 10),
                     new SqlParameter("@ZhuanTiID", SqlDbType.Int),
                     new SqlParameter("@CardID", SqlDbType.Int),
+                    new SqlParameter("@Remark", SqlDbType.NVarChar, 100)
             };
             parms[0].Value = item.ItemID;
             parms[1].Value = item.ItemName;
@@ -822,6 +826,7 @@ namespace AALife.DAL
             parms[12].Value = item.ItemType;
             parms[13].Value = item.ZhuanTiID;
             parms[14].Value = item.CardID;
+            parms[15].Value = item.Remark;
 
             return parms;
         }
@@ -847,6 +852,7 @@ namespace AALife.DAL
             if (!rdr.IsDBNull(12)) item.ItemType = rdr.GetString(12);
             if (!rdr.IsDBNull(13)) item.ZhuanTiID = rdr.GetInt32(13);
             if (!rdr.IsDBNull(14)) item.CardID = rdr.GetInt32(14);
+            if (!rdr.IsDBNull(15)) item.Remark = rdr.GetString(15);
 
             return item;
         }

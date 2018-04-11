@@ -24,6 +24,7 @@ public partial class AALifeWeb_SyncItemList : SyncBase
         string itemType = Request.Form["itemtype"].ToString();
         string ztId = Request.Form["ztid"] ?? "0";
         string cardId = Request.Form["cardid"] ?? "0";
+        string remark = Request.Form["remark"] ?? "";
 
         ItemInfo item = useMsmq ? new ItemInfo() : bll.GetItemByItemAppId(userId, itemAppId);
         item.ItemType = itemType;
@@ -40,6 +41,7 @@ public partial class AALifeWeb_SyncItemList : SyncBase
         item.ZhuanTiID = Convert.ToInt32(ztId);
         item.CardID = Convert.ToInt32(cardId);
         item.ModifyDate = DateTime.Now;
+        item.Remark = remark;
 
         //写日志
         log.Info(string.Format(" ItemInfo -> {0}", item.ToString()));
@@ -74,6 +76,7 @@ public partial class AALifeWeb_SyncItemList : SyncBase
                 item.ZhuanTiID = Convert.ToInt32(ztId);
                 item.CardID = Convert.ToInt32(cardId);
                 item.ModifyDate = DateTime.Now;
+                item.Remark = remark;
 
                 if (item.ItemID > 0)
                 {

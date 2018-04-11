@@ -150,4 +150,17 @@ public class QueryHelper
         return result ? url : "";
     }
 
+    //取备注
+    public static string GetRemark(string str)
+    {
+        if (str != "")
+        {
+            return string.Format("<img src=\"/theme/images/ico_meet.gif\" title=\"{0}\" />", str);
+        }
+        else
+        {
+            return "";
+        }
+    }
+
 }

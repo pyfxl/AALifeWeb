@@ -163,7 +163,8 @@ public partial class ItemAddSmart : WebPage
         string regionType = "";
         DateTime itemBuyDate = DateTime.Now;
         string itemBuyTime = DateTime.Now.ToString("HH:mm:ss");
-        
+        string remark = this.Remark.Text.Trim();
+
         Response.Cookies["CatTypeID"].Value = catTypeId.ToString();
         Response.Cookies["CatTypeID"].Expires = DateTime.MaxValue;
 
@@ -193,6 +194,7 @@ public partial class ItemAddSmart : WebPage
         item.Synchronize = 1;
         item.ZhuanTiID = zhuanTiId;
         item.CardID = cardId;
+        item.Remark = remark;
 
         bool success = false;
         if (this.RegionID.Checked)

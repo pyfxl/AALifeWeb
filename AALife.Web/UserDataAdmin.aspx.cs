@@ -207,7 +207,7 @@ public partial class UserDataAdmin : WebPage
     private bool CheckExcel(DataTable dt)
     {
         return dt.Columns.Contains("分类 *") && dt.Columns.Contains("商品类别 *") && dt.Columns.Contains("商品名称 *") && dt.Columns.Contains("商品价格 *") && dt.Columns.Contains("购买日期 *") &&
-               dt.Columns.Contains("推荐否") && dt.Columns.Contains("专题") && dt.Columns.Contains("钱包");
+               dt.Columns.Contains("推荐否") && dt.Columns.Contains("专题") && dt.Columns.Contains("钱包") && dt.Columns.Contains("备注");
     }
 
     //Aspose导入
@@ -217,7 +217,8 @@ public partial class UserDataAdmin : WebPage
         Worksheet sheet = workbook.Worksheets[0];
         Cells cells = sheet.Cells;
 
-        return cells.ExportDataTableAsString(0, 0, cells.MaxDataRow + 1, 8, true);
+        //增加列数要修改9
+        return cells.ExportDataTableAsString(0, 0, cells.MaxDataRow + 1, 9, true);
     }
 
     //导入保存
@@ -251,6 +252,7 @@ public partial class UserDataAdmin : WebPage
                     int _recommend = (dr["推荐否"].ToString() == "是" ? 1 : 0);
                     int? _zhuanTiId = GetZhuanTiId(dr["专题"].ToString());
                     int? _cardId = GetCardId(dr["钱包"].ToString());
+                    string _itemRemark = dr["备注"].ToString();
 
                     ItemInfo item = new ItemInfo();
                     item.ItemType = _itemType;
@@ -263,16 +265,17 @@ public partial class UserDataAdmin : WebPage
                     item.CardID = _cardId;
                     item.Synchronize = 1;
                     item.ModifyDate = DateTime.Now;
+                    item.Remark = _itemRemark;
 
                     if (CheckRepeat(item))
                     {
                         n2++;
                         continue;
                     }
-                    sql = "INSERT INTO ItemTable(ItemType, ItemName, CategoryTypeID, ItemPrice, ItemBuyDate, UserID, Recommend, ZhuanTiID, CardID, Synchronize, ModifyDate) VALUES('" +
+                    sql = "INSERT INTO ItemTable(ItemType, ItemName, CategoryTypeID, ItemPrice, ItemBuyDate, UserID, Recommend, ZhuanTiID, CardID, Synchronize, ModifyDate, Remark) VALUES('" +
                                 item.ItemType + "','" + item.ItemName + "','" + item.CategoryTypeID + "','" + item.ItemPrice + "','" +
                                 item.ItemBuyDate.ToString("yyyy-MM-dd") + " " + DateTime.Now.ToString("HH:mm:ss") + "','" + userId + "','" + item.Recommend + "','" +
-                                item.ZhuanTiID + "','" + item.CardID + "','" + item.Synchronize + "','" + item.ModifyDate + "');";
+                                item.ZhuanTiID + "','" + item.CardID + "','" + item.Synchronize + "','" + item.ModifyDate + "','" + item.Remark + "');";
                     
                     comm.CommandText = sql;
                     comm.ExecuteNonQuery();
@@ -309,6 +312,7 @@ public partial class UserDataAdmin : WebPage
             int _catTypeId = GetCategoryTypeId(dr["商品类别"].ToString());
             Decimal _itemPrice = Convert.ToDecimal(dr["商品价格"]);
             string _itemType = GetItemTypeValue(dr["分类"].ToString());
+            string _itemRemark = dr["备注"].ToString();
 
             ItemInfo item = new ItemInfo();
             item.ItemName = _itemName;
@@ -319,6 +323,7 @@ public partial class UserDataAdmin : WebPage
             item.CategoryTypeID = _catTypeId;
             item.ItemPrice = _itemPrice;
             item.ItemType = _itemType;
+            item.Remark = _itemRemark;
 
             if (item.Equals(_item))
             {

@@ -169,8 +169,8 @@ public class BackupHelper
     {
         string[] arr = GetSqlArray(str);
 
-        string result = string.Format(@"INSERT INTO ItemTable (ItemAppID, ItemType, ItemName, CategoryTypeID, ItemPrice, ItemBuyDate, UserID, ModifyDate, Recommend, Synchronize, RegionID, RegionType, ZhuanTiID, CardID) VALUES ({0},{1},{2},{3},{4},{5}, '{6}',{7},{8},{9},{10},{11},{12},{13})",
-                                      arr[0], arr[9], arr[1], arr[4], arr[2], arr[3], userId, arr[3], arr[5], arr[6], arr[7], arr[8], arr[10], arr[11]);
+        string result = string.Format(@"INSERT INTO ItemTable (ItemAppID, ItemType, ItemName, CategoryTypeID, ItemPrice, ItemBuyDate, UserID, ModifyDate, Recommend, Synchronize, RegionID, RegionType, ZhuanTiID, CardID, Remark) VALUES ({0},{1},{2},{3},{4},{5}, '{6}',{7},{8},{9},{10},{11},{12},{13},{14})",
+                                      arr[0], arr[9], arr[1], arr[4], arr[2], arr[3], userId, arr[3], arr[5], arr[6], arr[7], arr[8], arr[10], arr[11], arr[12]);
 
         return result;
     }
@@ -182,8 +182,8 @@ public class BackupHelper
 
         string[] arr = GetSqlArray(str);
 
-        string result = string.Format(@"INSERT INTO ItemTable (ItemID, ItemType, ItemName, CategoryTypeID, ItemPrice, ItemBuyDate, UserID, ModifyDate, Recommend, Synchronize, RegionID, RegionType, ZhuanTiID, CardID) VALUES ({0},{1},{2},{3},{4},{5}, '{6}',{7},{8},{9},{10},{11},{12},{13})",
-                                      arr[0], arr[9], arr[1], arr[4], arr[2], arr[3], userId, arr[3], arr[5], arr[6], arr[7], arr[8], arr[10], arr[11]);
+        string result = string.Format(@"INSERT INTO ItemTable (ItemID, ItemType, ItemName, CategoryTypeID, ItemPrice, ItemBuyDate, UserID, ModifyDate, Recommend, Synchronize, RegionID, RegionType, ZhuanTiID, CardID, Remark) VALUES ({0},{1},{2},{3},{4},{5}, '{6}',{7},{8},{9},{10},{11},{12},{13},{14})",
+                                      arr[0], arr[9], arr[1], arr[4], arr[2], arr[3], userId, arr[3], arr[5], arr[6], arr[7], arr[8], arr[10], arr[11], arr[12]);
 
         return result;
     }

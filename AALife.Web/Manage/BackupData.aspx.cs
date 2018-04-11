@@ -88,7 +88,7 @@ public partial class Manage_BackupData : AdminPage
             for (int i = itemListTab.Rows.Count - 1; i >= 0; i--)
             {
                 DataRow dr = itemListTab.Rows[i];
-                sb.AppendLine("INSERT INTO ItemTable (ItemWebID, ItemName, ItemPrice, ItemBuyDate, CategoryID, Recommend, Synchronize, RegionID, RegionType, ItemType, ZhuanTiID, CardID) VALUES ('" +
+                sb.AppendLine("INSERT INTO ItemTable (ItemWebID, ItemName, ItemPrice, ItemBuyDate, CategoryID, Recommend, Synchronize, RegionID, RegionType, ItemType, ZhuanTiID, CardID, Remark) VALUES ('" +
                                 dr["ItemID"].ToString() + "', '" +
                                 Utility.ReplaceSql(dr["ItemName"].ToString()) + "', '" +
                                 dr["ItemPrice"].ToString() + "', '" +
@@ -99,7 +99,8 @@ public partial class Manage_BackupData : AdminPage
                                 dr["RegionType"].ToString() + "', '" +
                                 dr["ItemType"].ToString() + "', '" +
                                 dr["ZhuanTiID"].ToString() + "', '" +
-                                dr["CardID"].ToString() + "');");
+                                dr["CardID"].ToString() + "', '" +
+                                dr["Remark"].ToString() + "');");
             }
             sb.AppendLine("");
         }

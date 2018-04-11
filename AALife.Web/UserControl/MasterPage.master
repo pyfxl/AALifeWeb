@@ -99,7 +99,7 @@
             <div class="menu_nav">
                 <ul>
                     <li><a href="/Default.aspx"><img src="/theme/images/home_icon.gif" title="首页" /> 首页</a></li>
-                    <li><a href="/ItemAddSmart.aspx"><img src="/theme/images/re_pro_i.gif" title="添加消费" /> 添加消费</a></li>
+                    <li><a href="/ItemAddSmart.aspx"><img src="/theme/images/ico_005.gif" title="添加消费" /> 添加消费</a></li>
                     <li><a href="/ItemQuery.aspx">消费明细</a></li>
                     <asp:Repeater ID="MenuList" runat="server">
                         <ItemTemplate>

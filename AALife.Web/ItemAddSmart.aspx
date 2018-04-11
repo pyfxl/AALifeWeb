@@ -350,6 +350,11 @@
                 <td></td>
             </tr>
             <tr>
+                <th>商品备注</th>
+                <td><asp:TextBox ID="Remark" runat="server" MaxLength="100" autocomplete="off"></asp:TextBox></td>
+                <td></td>
+            </tr> 
+            <tr>
                 <th></th>
                 <td></td>
                 <td></td>

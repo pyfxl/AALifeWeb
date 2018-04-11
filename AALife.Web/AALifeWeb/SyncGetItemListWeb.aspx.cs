@@ -47,7 +47,8 @@ public partial class AALifeWeb_SyncGetItemListWeb : SyncBase
                 result += "\"regiontype\":\"" + dt.Rows[i]["RegionType"].ToString() + "\",";
                 result += "\"itemtype\":\"" + dt.Rows[i]["ItemType"].ToString() + "\",";
                 result += "\"ztid\":\"" + dt.Rows[i]["ZhuanTiID"].ToString() + "\",";
-                result += "\"cardid\":\"" + dt.Rows[i]["CardID"].ToString() + "\"},";
+                result += "\"cardid\":\"" + dt.Rows[i]["CardID"].ToString() + "\",";
+                result += "\"remark\":\"" + dt.Rows[i]["Remark"].ToString() + "\"},";
             }
             result = result.Substring(0, result.Length - 1);
             result += "]";

@@ -288,7 +288,7 @@
                         <asp:TextBox ID="ItemNameBox" runat="server" Text='<%# Bind("ItemName") %>' MaxLength="20"></asp:TextBox>
                     </EditItemTemplate>
                     <ItemTemplate>
-                        <asp:Label ID="ItemNameLab" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label>
+                        <asp:Label ID="ItemNameLab" runat="server" Text='<%# Eval("ItemName") %>'></asp:Label> <%# QueryHelper.GetRemark(Eval("Remark").ToString()) %>
                     </ItemTemplate>
                     <ItemStyle Width="120px" CssClass="cellleft" />
                 </asp:TemplateField>
