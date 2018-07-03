@@ -279,6 +279,7 @@ public partial class UserCardAdmin : WebPage
         int toCardId = Convert.ToInt32(this.CardDownEdit.SelectedValue);
         string cardMoney = this.CardMoneyEdit.Text.Trim();
         string cardDate = this.CardDateEdit.Text;
+        string cardNote = this.CardNoteEdit.Text;
 
         if (!ValidHelper.CheckDouble(cardMoney))
         {
@@ -372,6 +373,7 @@ public partial class UserCardAdmin : WebPage
             zhuan.ModifyDate = DateTime.Now;
             zhuan.UserID = userId;
             zhuan.ZZID = zhuan_bll.GetMaxZhuanZhangId(userId);
+            zhuan.ZhuanZhangNote = cardNote;
 
             bool success = zhuan_bll.InsertZhuanZhang(zhuan);
             if (!success)

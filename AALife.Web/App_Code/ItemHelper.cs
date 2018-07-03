@@ -41,6 +41,7 @@ public class ItemHelper
         string result = name;
         if (name.StartsWith("aa") || name.StartsWith("qz") || name.StartsWith("qq") || name.StartsWith("py") || name.StartsWith("qw") || name.StartsWith("sjqq"))
         {
+            if (name.Length < 5) return "***";
             //result = name.Remove(name.Length - 2) + "**";
             result = name.Replace(name.Substring(name.Length-5, 3), "***");
         }

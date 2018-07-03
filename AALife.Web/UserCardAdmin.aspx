@@ -37,6 +37,7 @@
     <p>转入钱包：<asp:DropDownList ID="CardDownEdit" runat="server"></asp:DropDownList></p>
     <p>转入日期：<asp:TextBox ID="CardDateEdit" runat="server"></asp:TextBox></p>
     <p>转入金额：<asp:TextBox ID="CardMoneyEdit" runat="server" onkeyup="getprice(this);"></asp:TextBox></p>
+    <p>转账说明：<asp:TextBox ID="CardNoteEdit" runat="server" Width="200px"></asp:TextBox></p>
     <p><asp:Button ID="SubmitButtom" runat="server" Text="确定" CssClass="btninput" OnClick="SubmitButtom_Click" /></p>
     <asp:HiddenField ID="CardMoneyEditHid" runat="server" Value="0" />
     <asp:HiddenField ID="CardIDEditHid" runat="server" Value="0" />

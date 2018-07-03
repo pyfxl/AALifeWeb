@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "AALife.Web", "http://localhost:3759", "{240AC001-E20D-4E12-8253-5C779E910FEA}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Service", "AALife.Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.MSMQ", "AALife.MSMQ\AALife.MSMQ.csproj", "{3CB14695-9908-4667-8BE6-18CA045316CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{2BEADCC6-923D-4DA9-978A-618B1A1F01EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{3CB14695-9908-4667-8BE6-18CA045316CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CB14695-9908-4667-8BE6-18CA045316CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CB14695-9908-4667-8BE6-18CA045316CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEADCC6-923D-4DA9-978A-618B1A1F01EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEADCC6-923D-4DA9-978A-618B1A1F01EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEADCC6-923D-4DA9-978A-618B1A1F01EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEADCC6-923D-4DA9-978A-618B1A1F01EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

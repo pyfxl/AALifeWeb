@@ -99,7 +99,8 @@
                             RegionType: { type: "string" },
                             ItemType: { type: "string" },
                             ZhuanTiID: { type: "number" },
-                            CardID: { type: "number" }
+                            CardID: { type: "number" },
+                            Remark: { type: "string" }
                         }
                     },
                     errors: "d.error"
@@ -220,6 +221,11 @@
                         field: "ZhuanTiName",
                         title: "专题",
                         width: 80
+                    },
+                    {
+                        field: "Remark",
+                        title: "备注",
+                        width: 150
                     }
                 ]
             }).data("kendoGrid");

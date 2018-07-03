@@ -29,5 +29,6 @@ namespace AALife.Service.Model.ViewModel
         public string RegionTypeName { get; set; }
         public string CardName { get; set; }
         public string ZhuanTiName { get; set; }
+        public string Remark { get; set; }
     }
 }

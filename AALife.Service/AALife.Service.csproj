@@ -83,6 +83,7 @@
     <Compile Include="EF\ViewTableBLL.cs" />
     <Compile Include="EF\WorkDayBLL.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="Helper\EnumHelper.cs" />
     <Compile Include="Models\AALifeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -149,6 +150,7 @@
     <Compile Include="Model\Common\QueryModel.cs" />
     <Compile Include="Model\Common\QueryPageModel.cs" />
     <Compile Include="Model\Common\SortModel.cs" />
+    <Compile Include="Model\Enum\StepEnum.cs" />
     <Compile Include="Model\ViewModel\ItemTableViewModel.cs" />
     <Compile Include="Model\ViewModel\UserTableViewModel.cs" />
     <Compile Include="Model\ViewModel\ViewTableViewModel.cs" />
