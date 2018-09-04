@@ -233,7 +233,7 @@
         </ul>
     </div>
     <div id="r_gridview">
-        <table border="0" style="width:100%;" class="tablelist">
+        <table border="0" style="width:926px;" class="tablelist">
             <tr>
                 <th style="width:65px;">选择</th>
                 <th style="width:65px;"><a href="ItemQuery.aspx?date=<%=curDate %>&showType=<%=showType %>&itemType=<%=HttpUtility.UrlEncode(itemType) %>&regionType=<%=HttpUtility.UrlEncode(regionType) %>&catId=<%=HttpUtility.UrlEncode(catId) %>&ztId=<%=HttpUtility.UrlEncode(ztId) %>&cardId=<%=cardId %>&recommend=<%=HttpUtility.UrlEncode(recommend) %>&sort=ItemType&by=<%=this.sortHid.Value %>">分类 <%=QueryHelper.GetSortArrow("ItemType", sort, this.sortHid.Value) %></a></th>
@@ -249,7 +249,7 @@
             </tr>
         </table>
         <asp:GridView ID="ItemGrid" runat="server" AutoGenerateColumns="False" CssClass="tablelist tablegrid"
-            BorderWidth="0" Width="100%" BorderStyle="None" onrowcancelingedit="ItemGrid_RowCancelingEdit" 
+            BorderWidth="0" Width="926" BorderStyle="None" onrowcancelingedit="ItemGrid_RowCancelingEdit" 
             onrowdeleting="ItemGrid_RowDeleting" onrowediting="ItemGrid_RowEditing" AllowSorting="true" ShowHeader="false"
             onrowupdating="ItemGrid_RowUpdating" DataKeyNames="ItemID" OnRowDataBound="ItemGrid_RowDataBound">
             <Columns>
@@ -263,7 +263,7 @@
                         <asp:HiddenField ID="ItemIDHid" runat="server" Value='<%# Eval("ItemID") %>' />                                
                         <asp:HiddenField ID="ItemAppIDHid" runat="server" Value='<%# Eval("ItemAppID") %>' />
                         <asp:HiddenField ID="RegionIDHid" runat="server" Value='<%# Eval("RegionID") %>' />
-                    </ItemTemplate>                           
+                    </ItemTemplate>
                     <ItemStyle Width="65px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="分类" SortExpression="ItemType">
@@ -396,6 +396,7 @@
         //顶部菜单
         var thisname = "<%=this.titleHid.Value %>";
         cur_menu(thisname, ".query_ul");
+
     });
 </script>
 </asp:Content>

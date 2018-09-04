@@ -51,7 +51,7 @@ public class ValidHelper
     //验证数字
     public static bool CheckNumber(string str)
     {
-        Regex regex = new Regex(@"^[1-9]+[0-9]*$");
+        Regex regex = new Regex(@"^[0-9]+[0-9]*$");
         if (regex.IsMatch(str))
         {
             return true;

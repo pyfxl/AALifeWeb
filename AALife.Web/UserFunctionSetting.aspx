@@ -21,7 +21,7 @@
                     <td class="radioinput">
                         <asp:Repeater ID="SystemMenu" runat="server">
                             <ItemTemplate>
-                            <asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click" Enabled='<%# Eval("MenuLive") %>'></asp:CheckBox><asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' />&nbsp;&nbsp;<%# Eval("MenuName") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="li"><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click" Enabled='<%# Eval("MenuLive") %>'></asp:CheckBox><asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' />&nbsp;&nbsp;<%# Eval("MenuName") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </ItemTemplate>
                         </asp:Repeater>
                     </td>
@@ -37,7 +37,7 @@
                     <td class="radioinput">
                          <asp:Repeater ID="QueryList" runat="server">
                             <ItemTemplate>
-                            <asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox><asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' />&nbsp;&nbsp;<%# Eval("MenuName") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="li"><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox><asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' />&nbsp;&nbsp;<%# Eval("MenuName") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </ItemTemplate>
                         </asp:Repeater>
                     </td>
@@ -53,7 +53,7 @@
                     <td class="radioinput">
                         <asp:Repeater ID="UserMenu" runat="server">
                             <ItemTemplate>
-                            <asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox><asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' />&nbsp;&nbsp;<%# Eval("MenuName") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span class="li"><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox><asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' />&nbsp;&nbsp;<%# Eval("MenuName") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                             </ItemTemplate>
                         </asp:Repeater>
                     </td>

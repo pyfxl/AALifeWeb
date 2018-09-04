@@ -134,6 +134,7 @@ public partial class UserCardAdmin : WebPage
 
         if (success)
         {
+            CacheHelper.RemoveCache(string.Format("cardtype_{0}", userId));
             Utility.Alert(this, "更新成功。");
 
             CardList.EditIndex = -1;
@@ -260,6 +261,7 @@ public partial class UserCardAdmin : WebPage
         bool success = bll.UpdateCard(card);
         if (success)
         {
+            CacheHelper.RemoveCache(string.Format("cardtype_{0}", userId));
             Utility.Alert(this, "删除成功。");
 
             CardList.EditIndex = -1;

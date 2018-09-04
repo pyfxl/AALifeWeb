@@ -91,6 +91,7 @@ public partial class UserCategoryAdmin : WebPage
             
         if (success)
         {
+            CacheHelper.RemoveCache(string.Format("cattype_{0}", userId));
             Utility.Alert(this, "更新成功。");
 
             CatTypeList.EditIndex = -1;
@@ -215,6 +216,7 @@ public partial class UserCategoryAdmin : WebPage
         bool success = bll.DeleteUserCategory(category);
         if (success)
         {
+            CacheHelper.RemoveCache(string.Format("cattype_{0}", userId));
             Utility.Alert(this, "删除成功。");
 
             CatTypeList.EditIndex = -1;

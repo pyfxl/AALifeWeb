@@ -18,8 +18,8 @@
     <uc6:UserMenu ID="UserMenu1" runat="server" />
     <div id="r_tablemenu">
         <div class="r_usergrid">
-            <p class="tips"><img src="theme/images/pinber_01.gif" title="用户专题" /> 用户专题：用于记录相关专题全部消费，比如小孩专题、学习专题、汽车专题等。</p>
-            <table border="0" style="width:100%;" class="tablelist">
+            <p class="tips" style="width:924px;"><img src="theme/images/pinber_01.gif" title="用户专题" /> 用户专题：用于记录相关专题全部消费，比如小孩专题、学习专题、汽车专题等。</p>
+            <table border="0" style="width:924px;" class="tablelist">
                 <tr>
                     <th style="width:185px;">专题图片</th>
                     <th style="width:185px;">专题名称</th>
@@ -29,7 +29,7 @@
                 </tr>
             </table>
             <asp:GridView ID="List" runat="server" AutoGenerateColumns="False" CssClass="tablelist tablegrid"
-                Width="100%" BorderWidth="1px" BorderStyle="None"
+                Width="924px" BorderWidth="1px" BorderStyle="None"
                 onrowcancelingedit="List_RowCancelingEdit" ShowHeader="false"
                 onrowupdating="List_RowUpdating" onrowdeleting="List_RowDeleting"
                 onrowediting="List_RowEditing" DataKeyNames="ZTID" OnRowDataBound="List_RowDataBound">
@@ -83,7 +83,7 @@
                     没有专题记录。
                 </EmptyDataTemplate>
             </asp:GridView>
-            <table border="1" style="width:100%;" class="tablelist tableadd">
+            <table border="1" style="width:924px;" class="tablelist tableadd">
                 <tr>
                     <th style="width:185px;"><asp:FileUpload ID="ZhuanTiImageIns" runat="server" Size="4" /></th>
                     <th style="width:185px;"><asp:TextBox ID="ZhuanTiNameIns" runat="server" MaxLength="20"></asp:TextBox></th>

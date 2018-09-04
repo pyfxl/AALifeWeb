@@ -74,6 +74,7 @@ public partial class UserZhuanTi : WebPage
         bool success = bll.UpdateZhuanTi(zhuanTi);
         if (success)
         {
+            CacheHelper.RemoveCache(string.Format("zttype_{0}", userId));
             Utility.Alert(this, "更新成功。");
 
             List.EditIndex = -1;
@@ -215,6 +216,7 @@ public partial class UserZhuanTi : WebPage
             
             if (success)
             {
+                CacheHelper.RemoveCache(string.Format("zttype_{0}", userId));
                 Utility.Alert(this, "删除成功。");
 
                 List.EditIndex = -1;

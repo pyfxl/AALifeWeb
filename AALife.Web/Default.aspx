@@ -86,7 +86,7 @@
     </div>
     <div id="r_home">
         <div class="r_home_top">
-            <table border="1" class="tablehome">
+            <table border="1" class="tablehome" id="shouzhi">
                 <tr>
                     <th style="width:115px;" class="firsttitle">&nbsp;</th>
                     <th style="width:115px;" class="shoutitle">收入</th>
@@ -124,7 +124,7 @@
                     <td><asp:HyperLink ID="JieCunAllLab" runat="server" CssClass="jiecolor hometotal" NavigateUrl='<%# "ItemQuery.aspx?date=" + curDate + "&showType=a&itemType=sr,zc" %>' /></td>
                 </tr>
             </table> 
-            <table border="1" class="tablehome">
+            <table border="1" class="tablehome" id="jiehuan">
                 <tr>
                     <th style="width:115px;" class="shoutitle">借入</th>
                     <th style="width:115px;" class="zhititle">借出</th>
@@ -153,7 +153,7 @@
                     <td colspan="2" class="homelink"><a href="ItemGroup.aspx?date=&showType=a&groupType=ItemTypeName&subGroup=ItemName">借还明细&gt;&gt;</a></td>
                 </tr>
             </table>
-            <table border="1" class="tablehome" style="margin-right:0;">
+            <table border="1" class="tablehome" id="qianbao" style="margin-right:0;">
                 <asp:Repeater ID="CardList" runat="server">
                     <ItemTemplate>
                     <tr>
@@ -170,7 +170,7 @@
             </table>
             <div class="clear"></div>
         </div>
-        <div class="r_home_chart clear">
+        <div class="r_home_chart clear mbhide">
             <asp:DropDownList ID="ChartTypeDropDown" runat="server"></asp:DropDownList>
             <script type="text/javascript" src="/ofcgwt/swfobject.js"></script>
             <script type="text/javascript">

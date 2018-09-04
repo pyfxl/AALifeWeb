@@ -10,8 +10,8 @@
     <uc6:UserMenu ID="UserMenu1" runat="server" />
     <div id="r_tablemenu">
         <div class="r_usergrid">
-            <p class="tips"><img src="theme/images/pinber_01.gif" title="转账明细" /> <strong>转账明细</strong>&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserCardAdmin.aspx">&lt;&lt; 返回列表</a></p>
-            <table border="0" style="width:100%;" class="tablelist">
+            <p class="tips" style="width:924px;"><img src="theme/images/pinber_01.gif" title="转账明细" /> <strong>转账明细</strong>&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserCardAdmin.aspx">&lt;&lt; 返回列表</a></p>
+            <table border="0" style="width:924px;" class="tablelist">
                 <tr>
                     <th style="width:132px;">编号</th>
                     <th style="width:132px;">转账来自</th>
@@ -23,7 +23,7 @@
                 </tr>
             </table>
             <div style="height:430px;">
-                <table border="0" style="width:100%;" class="tablelist">
+                <table border="0" style="width:924px;" class="tablelist">
                     <asp:Repeater ID="ItemList" runat="server" OnItemCommand="List_ItemCommand">
                     <ItemTemplate>
                     <tr class='<%# ItemList.Items.Count % 2 == 0 ? "trcolor1" : "trcolor2" %>'>

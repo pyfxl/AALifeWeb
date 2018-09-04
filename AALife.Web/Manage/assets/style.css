@@ -54,6 +54,9 @@
     width: 100%;
     text-align: left;
 }
+.k-link .k-icon:hover {
+    color: #999;
+}
 
 /*grid命令按钮*/
 .k-grid tbody .k-command-cell .k-button {
@@ -148,31 +151,16 @@ label {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#ffececec', GradientType=0);
 }
 
-@media (max-width: 768px) {
-    .page-content {
-        padding: 8px !important;
-    }
-}
-
-@media (max-width: 420px) {
+@media (max-width: 767px) {
     .f-hidden {
         display: none !important;
     }
-}
-
-@media (min-width: 419px) {
-    .f-show {
-        display: none !important;
+    .page-content {
+        padding: 8px !important;
     }
-}
-
-@media (max-width: 479px) {
     .navbar-fixed-top + .main-container {
         padding-top: 45px;
     }
-}
-
-@media only screen and (max-width: 640px) {
     .k-edge .k-pager-info, .k-ff .k-pager-info, .k-ie11 .k-pager-info, .k-safari .k-pager-info, .k-webkit .k-pager-info {
         display: block;
     }

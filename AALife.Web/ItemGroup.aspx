@@ -199,7 +199,7 @@
         </ul>
     </div>
     <div id="r_gridview">
-        <table border="0" style="width:100%;" class="tablelist">
+        <table border="0" style="width:926px;" class="tablelist">
             <tr>
                 <th style="width:140px;">分组名称</th>
                 <th style="width:100px;"><a href="ItemGroup.aspx?date=<%=curDate %>&showType=<%=showType %>&groupType=<%=groupType %>&subGroup=<%=subGroup %>&sort=CountNum&by=<%=this.sortHid.Value %>">数量 <%=QueryHelper.GetSortArrow("CountNum", sort, this.sortHid.Value) %></a></th>
@@ -213,7 +213,7 @@
             </tr>
         </table>
         <asp:GridView ID="GroupList" runat="server" AutoGenerateColumns="False" CssClass="tablelist"
-            BorderWidth="0" Width="100%" BorderStyle="None" AllowSorting="true" ShowHeader="False" OnRowDataBound="GroupList_RowDataBound">
+            BorderWidth="0" Width="926px" BorderStyle="None" AllowSorting="true" ShowHeader="False" OnRowDataBound="GroupList_RowDataBound">
             <Columns>
                 <asp:TemplateField HeaderText="分组名称">
                     <ItemTemplate>
@@ -275,9 +275,7 @@
         <asp:HiddenField ID="sortHid" runat="server" Value="" />
         <asp:HiddenField ID="urlHid" runat="server" Value="" />
         <asp:HiddenField ID="titleHid" runat="server" Value="" />
-    </div>
-    <div class="r_total clear">
-        <table border="0" style="width:100%;" class="tabletotal">
+        <table border="0" style="width:926px;" class="tabletotal">
             <tr>
                 <th style="width:140px;">合计</th>
                 <th style="width:100px;"><asp:Label ID="CountNumTotalLab" runat="server" Text="0" CssClass="countcolor totalprice"></asp:Label></th>
@@ -298,7 +296,6 @@
                 <td></td>
             </tr>
         </table>
-        <div class="clear"></div>
     </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="end" Runat="Server">

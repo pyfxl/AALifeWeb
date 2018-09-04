@@ -18,8 +18,8 @@
     <uc6:UserMenu ID="UserMenu1" runat="server" />
     <div id="r_tablemenu">
         <div class="r_usergrid">
-            <p class="tips"><img src="theme/images/pinber_01.gif" title="类别管理" /> 类别预警范围计算：先由【预算-预算x(预算率/100)】得出值，再根据预算加减值得出范围。&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserAdmin.aspx#info">预算率设置 >></a></p>
-            <table border="0" style="width:100%;" class="tablelist">
+            <p class="tips" style="width:924px;"><img src="theme/images/pinber_01.gif" title="类别管理" /> 类别预警范围计算：先由【预算-预算x(预算率/100)】得出值，再根据预算加减值得出范围。&nbsp;&nbsp;&nbsp;&nbsp;<a href="UserAdmin.aspx#info">预算率设置 >></a></p>
+            <table border="0" style="width:924px;" class="tablelist">
                 <tr>
                     <th style="width:185px;">编号</th>
                     <th style="width:185px;">类别名称</th>
@@ -29,7 +29,7 @@
                 </tr>
             </table>
             <asp:GridView ID="CatTypeList" runat="server" AutoGenerateColumns="False" CssClass="tablelist tablegrid"
-                Width="100%" BorderWidth="1px" BorderStyle="None"
+                Width="924px" BorderWidth="1px" BorderStyle="None"
                 onrowcancelingedit="CatTypeList_RowCancelingEdit" ShowHeader="false"
                 onrowupdating="CatTypeList_RowUpdating" onrowdeleting="CatTypeList_RowDeleting" 
                 onrowediting="CatTypeList_RowEditing" DataKeyNames="CategoryTypeID" OnRowDataBound="CatTypeList_RowDataBound">
@@ -78,7 +78,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <table border="0" style="width:100%;" class="tablelist tableadd">
+            <table border="0" style="width:924px;" class="tablelist tableadd">
                 <tr>
                     <th style="width:185px;"><asp:Label ID="CatIdEmpIns" runat="server" /></th>
                     <th style="width:185px;"><asp:TextBox ID="CatTypeNameEmpIns" runat="server" MaxLength="20"></asp:TextBox></th>

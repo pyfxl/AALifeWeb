@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server"><%="\r\n" %>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><%="\r\n" %>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><%="\r\n" %>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><%="\r\n" %>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><%="\r\n" %>
 <title><%=Page.Header.Title %><%=WebConfiguration.SiteName %></title><%="\r\n" %>
 <%="<meta name=\"Keywords\" content=\"" + WebConfiguration.SiteKeywords + "\"/>" + "\r\n" %>
 <%="<meta name=\"Description\" content=\"" + WebConfiguration.SiteDescription + "\"/>" + "\r\n" %>
@@ -85,7 +86,7 @@
     <div id="m_box">
         <div id="site_tips"><%=Utility.UnReplaceString(WebConfiguration.SiteTips)%></div>
         <div id="m_top">
-            <h1><a href="/Default.aspx"><img src="/theme/images/logo72.png" title="AA生活记账" /></a>AA生活记账 2016</h1>
+            <h1><a href="/Default.aspx"><img src="/theme/images/logo72.png" title="AA生活记账" /></a>AA生活记账</h1>
             <ul class="theme">
                 <li><asp:Button ID="ImageButton1" runat="server" UseSubmitBehavior="false" Style="background: url(/theme/images/u58.png); cursor: pointer; border: none;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="main" ToolTip="低调红"></asp:Button></li>
                 <li><asp:Button ID="ImageButton2" runat="server" UseSubmitBehavior="false" Style="background: url(/theme/images/u60.png); cursor: pointer; border: none;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="gold" ToolTip="土豪金"></asp:Button></li>
@@ -99,11 +100,11 @@
             <div class="menu_nav">
                 <ul>
                     <li><a href="/Default.aspx"><img src="/theme/images/home_icon.gif" title="首页" /> 首页</a></li>
-                    <li><a href="/ItemAddSmart.aspx"><img src="/theme/images/ico_005.gif" title="添加消费" /> 添加消费</a></li>
-                    <li><a href="/ItemQuery.aspx">消费明细</a></li>
+                    <li class="mbhide"><a href="/ItemAddSmart.aspx"><img src="/theme/images/ico_005.gif" title="添加消费" /> 添加消费</a></li>
+                    <li class="mbhide"><a href="/ItemQuery.aspx">消费明细</a></li>
                     <asp:Repeater ID="MenuList" runat="server">
                         <ItemTemplate>
-                        <li><a href="<%# Eval("MenuURL") %>"><%# Eval("MenuName") %></a></li>
+                        <li class="mbhide"><a href="<%# Eval("MenuURL") %>"><%# Eval("MenuName") %></a></li>
                         </ItemTemplate>
                     </asp:Repeater>
                     <li class="menu_more"><a href="javascript:void(0);">更多菜单<img src="/theme/images/arr_plus.gif" title="更多菜单" /></a></li>
@@ -152,6 +153,7 @@
                 <asp:ContentPlaceHolder id="content" runat="server">        
                 </asp:ContentPlaceHolder>
             </div>
+            <div class="clear"></div>
         </div>
     </div>
     </form>    

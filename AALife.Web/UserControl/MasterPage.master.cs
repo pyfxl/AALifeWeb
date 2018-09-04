@@ -136,5 +136,5 @@ public partial class UserControl_MasterPage : System.Web.UI.MasterPage
 
         Response.Redirect(Request.Url.ToString());
     }
-    
+
 }

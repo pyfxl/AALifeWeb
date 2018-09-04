@@ -47,8 +47,8 @@
     <uc6:UserMenu ID="UserMenu1" runat="server" />
     <div id="r_tablemenu">
         <div class="r_usergrid">
-            <div class="tips"><img src="theme/images/pinber_01.gif" title="钱包管理" /> 钱包管理：是管理您的钱包、银行卡、支付宝等多种消费账户。</div>
-            <table border="0" style="width:100%;" class="tablelist">
+            <div class="tips" style="width:924px;"><img src="theme/images/pinber_01.gif" title="钱包管理" /> 钱包管理：是管理您的钱包、银行卡、支付宝等多种消费账户。</div>
+            <table border="0" style="width:924px;" class="tablelist">
                 <tr>
                     <th style="width:154px;">编号</th>
                     <th style="width:154px;">钱包名称</th>
@@ -59,7 +59,7 @@
                 </tr>
             </table>
             <asp:GridView ID="CardList" runat="server" AutoGenerateColumns="False" CssClass="tablelist tablegrid"
-                Width="100%" BorderWidth="1px" BorderStyle="None" ShowFooter="true"
+                Width="924px" BorderWidth="1px" BorderStyle="None" ShowFooter="true"
                 onrowcancelingedit="CardList_RowCancelingEdit" ShowHeader="false"
                 onrowupdating="CardList_RowUpdating" onrowdeleting="CardList_RowDeleting" 
                 onrowediting="CardList_RowEditing" DataKeyNames="CDID" OnRowDataBound="CardList_RowDataBound">
@@ -128,7 +128,7 @@
                     </asp:TemplateField>
                 </Columns>
             </asp:GridView>
-            <table border="1" style="width:100%;" class="tablelist tableadd">
+            <table border="1" style="width:924px;" class="tablelist tableadd">
                 <tr>
                     <th style="width:154px;"><asp:Label ID="CardIdEmpIns" runat="server" /></th>
                     <th style="width:154px;"><asp:TextBox ID="CardNameEmpIns" runat="server" MaxLength="20"></asp:TextBox></th>

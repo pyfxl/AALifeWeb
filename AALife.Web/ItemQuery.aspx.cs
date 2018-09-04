@@ -268,15 +268,17 @@ public partial class ItemQuery : WebPage
     //分类下拉
     private void BindItemTypeListBox()
     {
+        string itemtype = string.Format("itemtype_{0}", userId);
+
         DataTable dt = new DataTable();
-        if (Cache["itemtype"] != null)
+        if (Cache[itemtype] != null)
         {
-            dt = (DataTable)Cache["itemtype"];
+            dt = (DataTable)Cache[itemtype];
         }
         else
         {
             dt = bll.GetListBoxData(userId, "ItemTypeName", "ItemType", "DESC");
-            CacheHelper.AddCache("itemtype", dt, CacheItemPriority.Normal);
+            CacheHelper.AddCache(itemtype, dt, CacheItemPriority.Normal);
         }
         this.ItemTypeListBox.DataSource = dt;
         this.ItemTypeListBox.DataTextField = "ItemTypeName";
@@ -303,15 +305,17 @@ public partial class ItemQuery : WebPage
     //商品类别下拉
     private void BindCategoryTypeListBox()
     {
+        string cattype = string.Format("cattype_{0}", userId);
+
         DataTable dt = new DataTable();
-        if (Cache["cattype"] != null)
+        if (Cache[cattype] != null)
         {
-            dt = (DataTable)Cache["cattype"];
+            dt = (DataTable)Cache[cattype];
         }
         else
         {
             dt = bll.GetListBoxData(userId, "CategoryTypeName", "CategoryTypeID", "ASC");
-            CacheHelper.AddCache("cattype", dt, CacheItemPriority.Normal);
+            CacheHelper.AddCache(cattype, dt, CacheItemPriority.Normal);
         }
         this.CategoryTypeListBox.DataSource = dt;
         this.CategoryTypeListBox.DataTextField = "CategoryTypeName";
@@ -338,15 +342,17 @@ public partial class ItemQuery : WebPage
     //区间下拉
     private void BindRegionTypeListBox()
     {
+        string regiontype = string.Format("regiontype_{0}", userId);
+
         DataTable dt = new DataTable();
-        if (Cache["regiontype"] != null)
+        if (Cache[regiontype] != null)
         {
-            dt = (DataTable)Cache["regiontype"];
+            dt = (DataTable)Cache[regiontype];
         }
         else
         {
             dt = bll.GetListBoxData(userId, "RegionTypeFull", "RegionType", "ASC");
-            CacheHelper.AddCache("regiontype", dt, CacheItemPriority.Normal);
+            CacheHelper.AddCache(regiontype, dt, CacheItemPriority.Normal);
         }
         this.RegionTypeListBox.DataSource = dt;
         this.RegionTypeListBox.DataTextField = "RegionTypeFull";
@@ -369,15 +375,17 @@ public partial class ItemQuery : WebPage
     //专题下拉
     private void BindZhuanTiListBox()
     {
+        string zttype = string.Format("zttype_{0}", userId);
+
         DataTable dt = new DataTable();
-        if (Cache["zttype"] != null)
+        if (Cache[zttype] != null)
         {
-            dt = (DataTable)Cache["zttype"];
+            dt = (DataTable)Cache[zttype];
         }
         else
         {
             dt = bll.GetListBoxData(userId, "ZhuanTiName", "ZhuanTiID", "ASC");
-            CacheHelper.AddCache("zttype", dt, CacheItemPriority.Normal);
+            CacheHelper.AddCache(zttype, dt, CacheItemPriority.Normal);
         }
         this.ZhuanTiListBox.DataSource = dt;
         this.ZhuanTiListBox.DataTextField = "ZhuanTiName";
@@ -400,15 +408,17 @@ public partial class ItemQuery : WebPage
     //钱包下拉
     private void BindCardListBox()
     {
+        string cardtype = string.Format("cardtype_{0}", userId);
+
         DataTable dt = new DataTable();
-        if (Cache["cardtype"] != null)
+        if (Cache[cardtype] != null)
         {
-            dt = (DataTable)Cache["cardtype"];
+            dt = (DataTable)Cache[cardtype];
         }
         else
         {
             dt = bll.GetListBoxData(userId, "CardName", "CardID", "ASC");
-            CacheHelper.AddCache("cardtype", dt, CacheItemPriority.Normal);
+            CacheHelper.AddCache(cardtype, dt, CacheItemPriority.Normal);
         }
         this.CardListBox.DataSource = dt;
         this.CardListBox.DataTextField = "CardName";

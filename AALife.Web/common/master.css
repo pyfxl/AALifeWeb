@@ -274,6 +274,7 @@ td.cellleft input {
     position: absolute;
     right: 0;
     top: 22px;
+    background-color: #fff;
 }
 #m_right li {
     float: left;
@@ -361,9 +362,12 @@ table.tablehome td {
 .tablehome .firsttitle {
     background-color: #eaeaea;
 }
+.tablegrid thead {
+    display: none;
+}
 /************************************************右边查询************************************************/
 #m_right .r_query {
-    height: 30px;
+    height: 28px;
     padding-top: 8px;
     width: 100%;
     overflow: hidden;
@@ -700,6 +704,10 @@ table.tablehome td {
 .r_login .radioinput span {
     vertical-align: top;
 }
+.r_login .radioinput span.li {
+    vertical-align: middle;
+    float: left;
+}
 /************************************************表格tableform************************************************/
 .tableadd th {
     border-top: 1px solid #ccc;
@@ -752,3 +760,74 @@ input.celldisable {
     background-color: #e8e8e8;
     color: #ccc;
 }
+
+/************************************************手机************************************************/
+@media screen and (max-width: 767px) {
+    #m_box, #m_main, #m_right {
+        width: 100%;
+    }
+    #m_main, #m_right {
+        height: auto;
+    }
+    #m_right {
+        padding: 0;
+        background-color: #fff;
+    }
+    #menu_div {
+        padding: 15px;
+    }
+    table.tablehome {
+        margin-right: 0;
+    }
+    #shouzhi {
+        width: 100%;
+    }
+    #shouzhi th {
+        width: 25% !important;
+    }
+    #jiehuan, #qianbao {
+        width: 50%;
+    }
+    #qianbao, #qianbao th, #qianbao td {
+        border-left: none;
+    }
+    .usermenu th, .usermenu td {
+        overflow: hidden;
+    }
+    .mbhide {
+        display: none;
+    }
+    .r_login em {
+        float: left;
+    }
+    .tablegrid thead {
+        display: table-header-group;
+    }
+    #r_gridview div, #r_gridview_item div, .r_usergrid div {
+        height: auto;
+        overflow: unset;
+    }
+    #r_gridview {
+        overflow: auto;
+    }
+    /*#m_right .r_total p {
+        width: 72%;
+    }*/
+    #m_right .r_total em {
+        background: #fff;
+    }
+    #m_right .r_query {
+        overflow: auto;
+    }
+    .r_add {
+        overflow: auto;
+    }
+    .usermenu span {
+        display: none;
+    }
+
+    /* jquery-ui */
+    .ui-dialog {
+        width: 90% !important;
+    }
+} 

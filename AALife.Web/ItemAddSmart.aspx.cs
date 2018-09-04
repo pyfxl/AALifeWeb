@@ -116,6 +116,7 @@ public partial class ItemAddSmart : WebPage
         int result = SaveItem();
         if (result == 1)
         {
+            CacheHelper.RemoveAllCache();
             Utility.Confirm(this, "添加成功，是否继续添加？", "ItemAddSmart.aspx", "ItemQuery.aspx?date=&showType=d");
         }
         else
@@ -141,6 +142,7 @@ public partial class ItemAddSmart : WebPage
         int result = SaveItem();
         if (result == 1)
         {
+            CacheHelper.RemoveAllCache();
             Utility.Alert(this, "添加成功。");
         }
         else

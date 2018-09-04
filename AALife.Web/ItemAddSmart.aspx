@@ -280,7 +280,7 @@
 <div id="r_content">
     <!--内容开始-->
     <div class="r_add">
-        <table border="0" style="width:100%;" class="tableform">
+        <table border="0" style="width:926px;" class="tableform">
             <tr>
                 <th style="width:14%;">消费分类</th>
                 <td style="width:110px;">
