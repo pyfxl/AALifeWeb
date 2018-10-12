@@ -142,6 +142,7 @@
             </div>
         </div>
         <div id="m_main">
+            <%--<div id="add-item" title="添加消费"><a href="/ItemAddSmart.aspx">添加</a></div>--%>
             <div id="m_menu">
                 <ul>
                     <li class="on"><a href="/Default.aspx">首页</a></li>

@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.Service", "AALife.Se
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.MSMQ", "AALife.MSMQ\AALife.MSMQ.csproj", "{3CB14695-9908-4667-8BE6-18CA045316CE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AALife.WindowsService", "AALife.WindowsService\AALife.WindowsService.csproj", "{1711C529-0FC1-4652-B9E6-9D085EFE9490}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,6 +74,10 @@ Global
 		{3CB14695-9908-4667-8BE6-18CA045316CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3CB14695-9908-4667-8BE6-18CA045316CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3CB14695-9908-4667-8BE6-18CA045316CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1711C529-0FC1-4652-B9E6-9D085EFE9490}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

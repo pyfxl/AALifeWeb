@@ -15,7 +15,7 @@
 '*   http://www.dimac.net                        *
 '*                                               *
 '*************************************************
-    
+
 	' 接收参数
 	Dim mSubject
 	mSubject = Request.QueryString("subject")
@@ -41,7 +41,7 @@
 
 	' Most mailservers require a valid email address
 	' for the sender
-	msg.From = "pyfxl@163.com"
+	msg.From = "67936108@qq.com"
 	msg.FromName = "AA生活记账"
 	
     msg.ReplyTo = mEmail
@@ -56,8 +56,8 @@
 	' The subject of the message
 	msg.Subject = mSubject
 
-	msg.MailServerUserName = "pyfxl"
-	msg.MailServerPassword = "7459235sss"
+	msg.MailServerUserName = "67936108@qq.com"
+	msg.MailServerPassword = "agwgckczozptbidf"
 
 	' The body property is both read and write.
 	' If you want to append text to the body you can
@@ -83,7 +83,7 @@
 	'
 	' To capture any errors which might occur, we wrap the call in an IF statement
 	
-    flag = msg.Send( "smtp.163.com" )
+    flag = msg.Send( "smtp.qq.com" )
     msg.Close()
 
     if flag then

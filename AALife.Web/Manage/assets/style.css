@@ -151,9 +151,16 @@ label {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#ffececec', GradientType=0);
 }
 
+.f-show {
+    display: none !important;
+}
+
 @media (max-width: 767px) {
     .f-hidden {
         display: none !important;
+    }
+    .f-show {
+        display: block !important;
     }
     .page-content {
         padding: 8px !important;
