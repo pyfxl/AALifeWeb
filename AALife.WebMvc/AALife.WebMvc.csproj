@@ -1,0 +1,2551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{68DEC265-9298-4B99-9B6B-367E5EF32497}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AALife.WebMvc</RootNamespace>
+    <AssemblyName>AALife.WebMvc</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Aspose.Cells, Version=7.4.1.0, Culture=neutral, PublicKeyToken=00725b1ceb58d0a9, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Aspose.Cells.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Messaging" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net45\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AALifeWeb\GetPhoneMessage.aspx.cs">
+      <DependentUpon>GetPhoneMessage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\GetPhoneMessage.aspx.designer.cs">
+      <DependentUpon>GetPhoneMessage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\GetWebVersion.aspx.cs">
+      <DependentUpon>GetWebVersion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\GetWebVersion.aspx.designer.cs">
+      <DependentUpon>GetWebVersion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\MsmqTest.aspx.cs">
+      <DependentUpon>MsmqTest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\MsmqTest.aspx.designer.cs">
+      <DependentUpon>MsmqTest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncBoundNew.aspx.cs">
+      <DependentUpon>SyncBoundNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncBoundNew.aspx.designer.cs">
+      <DependentUpon>SyncBoundNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCard.aspx.cs">
+      <DependentUpon>SyncCard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCard.aspx.designer.cs">
+      <DependentUpon>SyncCard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCardWebBack.aspx.cs">
+      <DependentUpon>SyncCardWebBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCardWebBack.aspx.designer.cs">
+      <DependentUpon>SyncCardWebBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCategory.aspx.cs">
+      <DependentUpon>SyncCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCategory.aspx.designer.cs">
+      <DependentUpon>SyncCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCategoryWebBack.aspx.cs">
+      <DependentUpon>SyncCategoryWebBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCategoryWebBack.aspx.designer.cs">
+      <DependentUpon>SyncCategoryWebBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCheckWebData.aspx.cs">
+      <DependentUpon>SyncCheckWebData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncCheckWebData.aspx.designer.cs">
+      <DependentUpon>SyncCheckWebData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncDeleteList.aspx.cs">
+      <DependentUpon>SyncDeleteList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncDeleteList.aspx.designer.cs">
+      <DependentUpon>SyncDeleteList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncDeleteListWebBack.aspx.cs">
+      <DependentUpon>SyncDeleteListWebBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncDeleteListWebBack.aspx.designer.cs">
+      <DependentUpon>SyncDeleteListWebBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetCardWeb.aspx.cs">
+      <DependentUpon>SyncGetCardWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetCardWeb.aspx.designer.cs">
+      <DependentUpon>SyncGetCardWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetCategoryWeb.aspx.cs">
+      <DependentUpon>SyncGetCategoryWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetCategoryWeb.aspx.designer.cs">
+      <DependentUpon>SyncGetCategoryWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetDeleteListWeb.aspx.cs">
+      <DependentUpon>SyncGetDeleteListWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetDeleteListWeb.aspx.designer.cs">
+      <DependentUpon>SyncGetDeleteListWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetItemListWeb.aspx.cs">
+      <DependentUpon>SyncGetItemListWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetItemListWeb.aspx.designer.cs">
+      <DependentUpon>SyncGetItemListWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetZhuanTiWeb.aspx.cs">
+      <DependentUpon>SyncGetZhuanTiWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetZhuanTiWeb.aspx.designer.cs">
+      <DependentUpon>SyncGetZhuanTiWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetZhuanZhangWeb.aspx.cs">
+      <DependentUpon>SyncGetZhuanZhangWeb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncGetZhuanZhangWeb.aspx.designer.cs">
+      <DependentUpon>SyncGetZhuanZhangWeb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncItemList.aspx.cs">
+      <DependentUpon>SyncItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncItemList.aspx.designer.cs">
+      <DependentUpon>SyncItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncItemListWebBack.aspx.cs">
+      <DependentUpon>SyncItemListWebBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncItemListWebBack.aspx.designer.cs">
+      <DependentUpon>SyncItemListWebBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncLoginNew.aspx.cs">
+      <DependentUpon>SyncLoginNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncLoginNew.aspx.designer.cs">
+      <DependentUpon>SyncLoginNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncLoginQQNew.aspx.cs">
+      <DependentUpon>SyncLoginQQNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncLoginQQNew.aspx.designer.cs">
+      <DependentUpon>SyncLoginQQNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncNewUser.aspx.cs">
+      <DependentUpon>SyncNewUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncNewUser.aspx.designer.cs">
+      <DependentUpon>SyncNewUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncSendEmail.aspx.cs">
+      <DependentUpon>SyncSendEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncSendEmail.aspx.designer.cs">
+      <DependentUpon>SyncSendEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncUserEdit.aspx.cs">
+      <DependentUpon>SyncUserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncUserEdit.aspx.designer.cs">
+      <DependentUpon>SyncUserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncUserInfo.aspx.cs">
+      <DependentUpon>SyncUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncUserInfo.aspx.designer.cs">
+      <DependentUpon>SyncUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncUserInfoWebBack.aspx.cs">
+      <DependentUpon>SyncUserInfoWebBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncUserInfoWebBack.aspx.designer.cs">
+      <DependentUpon>SyncUserInfoWebBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncView.aspx.cs">
+      <DependentUpon>SyncView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncView.aspx.designer.cs">
+      <DependentUpon>SyncView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanTi.aspx.cs">
+      <DependentUpon>SyncZhuanTi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanTi.aspx.designer.cs">
+      <DependentUpon>SyncZhuanTi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanTiWebBack.aspx.cs">
+      <DependentUpon>SyncZhuanTiWebBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanTiWebBack.aspx.designer.cs">
+      <DependentUpon>SyncZhuanTiWebBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanZhang.aspx.cs">
+      <DependentUpon>SyncZhuanZhang.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanZhang.aspx.designer.cs">
+      <DependentUpon>SyncZhuanZhang.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanZhangWebBack.aspx.cs">
+      <DependentUpon>SyncZhuanZhangWebBack.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeWeb\SyncZhuanZhangWebBack.aspx.designer.cs">
+      <DependentUpon>SyncZhuanZhangWebBack.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AALifeCode\BackupHelper.cs" />
+    <Compile Include="AALifeCode\Base\AdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeCode\Base\ApiBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeCode\Base\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeCode\Base\FirstPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeCode\Base\MsmqBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeCode\Base\SyncBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeCode\Base\WebPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AALifeCode\CacheHelper.cs" />
+    <Compile Include="AALifeCode\DateHelper.cs" />
+    <Compile Include="AALifeCode\FileHelper.cs" />
+    <Compile Include="AALifeCode\GenericDataAccess.cs" />
+    <Compile Include="AALifeCode\ImageHelper.cs" />
+    <Compile Include="AALifeCode\ItemHelper.cs" />
+    <Compile Include="AALifeCode\JsonHelper.cs" />
+    <Compile Include="AALifeCode\MenuHelper.cs" />
+    <Compile Include="AALifeCode\Message.cs" />
+    <Compile Include="AALifeCode\MsmqService.cs" />
+    <Compile Include="AALifeCode\QQOAuth\OpenApi.cs" />
+    <Compile Include="AALifeCode\QQOAuth\QPlusOpen.cs" />
+    <Compile Include="AALifeCode\QQOAuth\QQInfoClass.cs" />
+    <Compile Include="AALifeCode\QQOAuth\SnsNetWork.cs" />
+    <Compile Include="AALifeCode\QQOAuth\SnsSigCheck.cs" />
+    <Compile Include="AALifeCode\QQOAuth\SnsStat.cs" />
+    <Compile Include="AALifeCode\QueryHelper.cs" />
+    <Compile Include="AALifeCode\UserHelper.cs" />
+    <Compile Include="AALifeCode\Utility.cs" />
+    <Compile Include="AALifeCode\UtilityHelper.cs" />
+    <Compile Include="AALifeCode\ValidHelper.cs" />
+    <Compile Include="AALifeCode\WebConfiguration.cs" />
+    <Compile Include="AALifeCode\XmlControl.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Manage\Controllers\UsersController.cs" />
+    <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\ImageApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\ListApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\AppApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\SiteApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\SiteController.cs" />
+    <Compile Include="Areas\SexSpider\SexSpiderAreaRegistration.cs" />
+    <Compile Include="AuthorLogin\OAuth.aspx.cs">
+      <DependentUpon>OAuth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthorLogin\OAuth.aspx.designer.cs">
+      <DependentUpon>OAuth.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorLogin\PengYou.aspx.cs">
+      <DependentUpon>PengYou.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthorLogin\PengYou.aspx.designer.cs">
+      <DependentUpon>PengYou.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AuthorLogin\QZone.aspx.cs">
+      <DependentUpon>QZone.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AuthorLogin\QZone.aspx.designer.cs">
+      <DependentUpon>QZone.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoItemCompareJson.aspx.cs">
+      <DependentUpon>AutoItemCompareJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoItemCompareJson.aspx.designer.cs">
+      <DependentUpon>AutoItemCompareJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AutoItemGroupJson.aspx.cs">
+      <DependentUpon>AutoItemGroupJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoItemGroupJson.aspx.designer.cs">
+      <DependentUpon>AutoItemGroupJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Helper.aspx.cs">
+      <DependentUpon>Helper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Helper.aspx.designer.cs">
+      <DependentUpon>Helper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemAddSmart.aspx.cs">
+      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemAddSmart.aspx.designer.cs">
+      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCompare.aspx.cs">
+      <DependentUpon>ItemCompare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemCompare.aspx.designer.cs">
+      <DependentUpon>ItemCompare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemGroup.aspx.cs">
+      <DependentUpon>ItemGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemGroup.aspx.designer.cs">
+      <DependentUpon>ItemGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ItemQuery.aspx.cs">
+      <DependentUpon>ItemQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ItemQuery.aspx.designer.cs">
+      <DependentUpon>ItemQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\BackupData.aspx.cs">
+      <DependentUpon>BackupData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\BackupData.aspx.designer.cs">
+      <DependentUpon>BackupData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\ItemTable.aspx.cs">
+      <DependentUpon>ItemTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\ItemTable.aspx.designer.cs">
+      <DependentUpon>ItemTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\SiteConfig.aspx.cs">
+      <DependentUpon>SiteConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\SiteConfig.aspx.designer.cs">
+      <DependentUpon>SiteConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\UserTableDT.aspx.cs">
+      <DependentUpon>UserTableDT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\UserTableDT.aspx.designer.cs">
+      <DependentUpon>UserTableDT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Manage\ViewTable.aspx.cs">
+      <DependentUpon>ViewTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Manage\ViewTable.aspx.designer.cs">
+      <DependentUpon>ViewTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuWeiTongJiNew.aspx.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuWeiTongJiNew.aspx.designer.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ClearCache.aspx.cs">
+      <DependentUpon>ClearCache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\ClearCache.aspx.designer.cs">
+      <DependentUpon>ClearCache.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\DeleteUserImage.aspx.cs">
+      <DependentUpon>DeleteUserImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\DeleteUserImage.aspx.designer.cs">
+      <DependentUpon>DeleteUserImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\QQLoginFix.aspx.cs">
+      <DependentUpon>QQLoginFix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Tools\QQLoginFix.aspx.designer.cs">
+      <DependentUpon>QQLoginFix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserAdmin.aspx.cs">
+      <DependentUpon>UserAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserAdmin.aspx.designer.cs">
+      <DependentUpon>UserAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserBoundAdmin.aspx.cs">
+      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserBoundAdmin.aspx.designer.cs">
+      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCardAdmin.aspx.cs">
+      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserCardAdmin.aspx.designer.cs">
+      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserCategoryAdmin.aspx.cs">
+      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserCategoryAdmin.aspx.designer.cs">
+      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\UserMenu.ascx.cs">
+      <DependentUpon>UserMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControl\UserMenu.ascx.designer.cs">
+      <DependentUpon>UserMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserDataAdmin.aspx.cs">
+      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserDataAdmin.aspx.designer.cs">
+      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserFunctionSetting.aspx.cs">
+      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserFunctionSetting.aspx.designer.cs">
+      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogin.aspx.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserLogin.aspx.designer.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserLogout.aspx.cs">
+      <DependentUpon>UserLogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserLogout.aspx.designer.cs">
+      <DependentUpon>UserLogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserRegister.aspx.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserRegister.aspx.designer.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserZhuanTi.aspx.cs">
+      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserZhuanTi.aspx.designer.cs">
+      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UserZhuanZhangDetail.aspx.cs">
+      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserZhuanZhangDetail.aspx.designer.cs">
+      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AdminBackupData.aspx.cs">
+      <DependentUpon>AdminBackupData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AdminBackupData.aspx.designer.cs">
+      <DependentUpon>AdminBackupData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AdminItemList.aspx.cs">
+      <DependentUpon>AdminItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AdminItemList.aspx.designer.cs">
+      <DependentUpon>AdminItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AdminSiteConfig.aspx.cs">
+      <DependentUpon>AdminSiteConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AdminSiteConfig.aspx.designer.cs">
+      <DependentUpon>AdminSiteConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AdminTongJi.aspx.cs">
+      <DependentUpon>AdminTongJi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AdminTongJi.aspx.designer.cs">
+      <DependentUpon>AdminTongJi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AdminUserDetail.aspx.cs">
+      <DependentUpon>AdminUserDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AdminUserDetail.aspx.designer.cs">
+      <DependentUpon>AdminUserDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AdminUserList.aspx.cs">
+      <DependentUpon>AdminUserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AdminUserList.aspx.designer.cs">
+      <DependentUpon>AdminUserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoItemListJson.aspx.cs">
+      <DependentUpon>AutoItemListJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoItemListJson.aspx.designer.cs">
+      <DependentUpon>AutoItemListJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoItemNameJson.aspx.cs">
+      <DependentUpon>AutoItemNameJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoItemNameJson.aspx.designer.cs">
+      <DependentUpon>AutoItemNameJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoJiaGeFXJson.aspx.cs">
+      <DependentUpon>AutoJiaGeFXJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoJiaGeFXJson.aspx.designer.cs">
+      <DependentUpon>AutoJiaGeFXJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoJiaGeFXMXJson.aspx.cs">
+      <DependentUpon>AutoJiaGeFXMXJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoJiaGeFXMXJson.aspx.designer.cs">
+      <DependentUpon>AutoJiaGeFXMXJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoJianGeFXJson.aspx.cs">
+      <DependentUpon>AutoJianGeFXJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoJianGeFXJson.aspx.designer.cs">
+      <DependentUpon>AutoJianGeFXJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoSmartItemNameJson.aspx.cs">
+      <DependentUpon>AutoSmartItemNameJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoSmartItemNameJson.aspx.designer.cs">
+      <DependentUpon>AutoSmartItemNameJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoSmartItemPriceJson.aspx.cs">
+      <DependentUpon>AutoSmartItemPriceJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoSmartItemPriceJson.aspx.designer.cs">
+      <DependentUpon>AutoSmartItemPriceJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\AutoTSFXJson.aspx.cs">
+      <DependentUpon>AutoTSFXJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\AutoTSFXJson.aspx.designer.cs">
+      <DependentUpon>AutoTSFXJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\BiJiaoFenXi.aspx.cs">
+      <DependentUpon>BiJiaoFenXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\BiJiaoFenXi.aspx.designer.cs">
+      <DependentUpon>BiJiaoFenXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\BiJiaoFXChartJson.aspx.cs">
+      <DependentUpon>BiJiaoFXChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\BiJiaoFXChartJson.aspx.designer.cs">
+      <DependentUpon>BiJiaoFXChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\BiJiaoMingXi.aspx.cs">
+      <DependentUpon>BiJiaoMingXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\BiJiaoMingXi.aspx.designer.cs">
+      <DependentUpon>BiJiaoMingXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\BJMXChartJson.aspx.cs">
+      <DependentUpon>BJMXChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\BJMXChartJson.aspx.designer.cs">
+      <DependentUpon>BJMXChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\FenLeiZongJi.aspx.cs">
+      <DependentUpon>FenLeiZongJi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\FenLeiZongJi.aspx.designer.cs">
+      <DependentUpon>FenLeiZongJi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\FenLeiZongJiMingXi.aspx.cs">
+      <DependentUpon>FenLeiZongJiMingXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\FenLeiZongJiMingXi.aspx.designer.cs">
+      <DependentUpon>FenLeiZongJiMingXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\FLZJChartJson.aspx.cs">
+      <DependentUpon>FLZJChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\FLZJChartJson.aspx.designer.cs">
+      <DependentUpon>FLZJChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\FLZJMXChartJson.aspx.cs">
+      <DependentUpon>FLZJMXChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\FLZJMXChartJson.aspx.designer.cs">
+      <DependentUpon>FLZJMXChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\Helper.aspx.cs">
+      <DependentUpon>Helper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\Helper.aspx.designer.cs">
+      <DependentUpon>Helper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemAddSmart.aspx.cs">
+      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemAddSmart.aspx.designer.cs">
+      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemDateChartJson.aspx.cs">
+      <DependentUpon>ItemDateChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemDateChartJson.aspx.designer.cs">
+      <DependentUpon>ItemDateChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemDateTop.aspx.cs">
+      <DependentUpon>ItemDateTop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemDateTop.aspx.designer.cs">
+      <DependentUpon>ItemDateTop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemList.aspx.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemList.aspx.designer.cs">
+      <DependentUpon>ItemList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemNumChartJson.aspx.cs">
+      <DependentUpon>ItemNumChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemNumChartJson.aspx.designer.cs">
+      <DependentUpon>ItemNumChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemNumDetail.aspx.cs">
+      <DependentUpon>ItemNumDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemNumDetail.aspx.designer.cs">
+      <DependentUpon>ItemNumDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemNumDetailChartJson.aspx.cs">
+      <DependentUpon>ItemNumDetailChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemNumDetailChartJson.aspx.designer.cs">
+      <DependentUpon>ItemNumDetailChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemNumTop.aspx.cs">
+      <DependentUpon>ItemNumTop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemNumTop.aspx.designer.cs">
+      <DependentUpon>ItemNumTop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemPriceChartJson.aspx.cs">
+      <DependentUpon>ItemPriceChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemPriceChartJson.aspx.designer.cs">
+      <DependentUpon>ItemPriceChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\ItemPriceTop.aspx.cs">
+      <DependentUpon>ItemPriceTop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\ItemPriceTop.aspx.designer.cs">
+      <DependentUpon>ItemPriceTop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFenXi.aspx.cs">
+      <DependentUpon>JiaGeFenXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFenXi.aspx.designer.cs">
+      <DependentUpon>JiaGeFenXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFenXiMingXi.aspx.cs">
+      <DependentUpon>JiaGeFenXiMingXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFenXiMingXi.aspx.designer.cs">
+      <DependentUpon>JiaGeFenXiMingXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFXChartJson.aspx.cs">
+      <DependentUpon>JiaGeFXChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFXChartJson.aspx.designer.cs">
+      <DependentUpon>JiaGeFXChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFXMXChartJson.aspx.cs">
+      <DependentUpon>JiaGeFXMXChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\JiaGeFXMXChartJson.aspx.designer.cs">
+      <DependentUpon>JiaGeFXMXChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\JianGeFenXi.aspx.cs">
+      <DependentUpon>JianGeFenXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\JianGeFenXi.aspx.designer.cs">
+      <DependentUpon>JianGeFenXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\JianGeFXChartJson.aspx.cs">
+      <DependentUpon>JianGeFXChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\JianGeFXChartJson.aspx.designer.cs">
+      <DependentUpon>JianGeFXChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\JieHuanFenXi.aspx.cs">
+      <DependentUpon>JieHuanFenXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\JieHuanFenXi.aspx.designer.cs">
+      <DependentUpon>JieHuanFenXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\MonthList.aspx.cs">
+      <DependentUpon>MonthList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\MonthList.aspx.designer.cs">
+      <DependentUpon>MonthList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\QuJianChartJson.aspx.cs">
+      <DependentUpon>QuJianChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\QuJianChartJson.aspx.designer.cs">
+      <DependentUpon>QuJianChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\QuJianTongJi.aspx.cs">
+      <DependentUpon>QuJianTongJi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\QuJianTongJi.aspx.designer.cs">
+      <DependentUpon>QuJianTongJi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\QuWeiTongJi.aspx.cs">
+      <DependentUpon>QuWeiTongJi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\QuWeiTongJi.aspx.designer.cs">
+      <DependentUpon>QuWeiTongJi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\QuWeiTongJiNew.aspx.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\QuWeiTongJiNew.aspx.designer.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\SearchItem.aspx.cs">
+      <DependentUpon>SearchItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\SearchItem.aspx.designer.cs">
+      <DependentUpon>SearchItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\TianShuFenXi.aspx.cs">
+      <DependentUpon>TianShuFenXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\TianShuFenXi.aspx.designer.cs">
+      <DependentUpon>TianShuFenXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\TSFXChartJson.aspx.cs">
+      <DependentUpon>TSFXChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\TSFXChartJson.aspx.designer.cs">
+      <DependentUpon>TSFXChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\TuiJianChartJson.aspx.cs">
+      <DependentUpon>TuiJianChartJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\TuiJianChartJson.aspx.designer.cs">
+      <DependentUpon>TuiJianChartJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\TuiJianFenXi.aspx.cs">
+      <DependentUpon>TuiJianFenXi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\TuiJianFenXi.aspx.designer.cs">
+      <DependentUpon>TuiJianFenXi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserAdmin.aspx.cs">
+      <DependentUpon>UserAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserAdmin.aspx.designer.cs">
+      <DependentUpon>UserAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserBoundAdmin.aspx.cs">
+      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserBoundAdmin.aspx.designer.cs">
+      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserCardAdmin.aspx.cs">
+      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserCardAdmin.aspx.designer.cs">
+      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserCardDetail.aspx.cs">
+      <DependentUpon>UserCardDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserCardDetail.aspx.designer.cs">
+      <DependentUpon>UserCardDetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserCategoryAdmin.aspx.cs">
+      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserCategoryAdmin.aspx.designer.cs">
+      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\AdminMenu.ascx.cs">
+      <DependentUpon>AdminMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\AdminMenu.ascx.designer.cs">
+      <DependentUpon>AdminMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\DateTitle.ascx.cs">
+      <DependentUpon>DateTitle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\DateTitle.ascx.designer.cs">
+      <DependentUpon>DateTitle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\DayMenu.ascx.cs">
+      <DependentUpon>DayMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\DayMenu.ascx.designer.cs">
+      <DependentUpon>DayMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\FenXiMenu.ascx.cs">
+      <DependentUpon>FenXiMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\FenXiMenu.ascx.designer.cs">
+      <DependentUpon>FenXiMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\MonthMenu.ascx.cs">
+      <DependentUpon>MonthMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\MonthMenu.ascx.designer.cs">
+      <DependentUpon>MonthMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\RankMenu.ascx.cs">
+      <DependentUpon>RankMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\RankMenu.ascx.designer.cs">
+      <DependentUpon>RankMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\UserMenu.ascx.cs">
+      <DependentUpon>UserMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\UserMenu.ascx.designer.cs">
+      <DependentUpon>UserMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserControl\ViewTitle.ascx.cs">
+      <DependentUpon>ViewTitle.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserControl\ViewTitle.ascx.designer.cs">
+      <DependentUpon>ViewTitle.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserDataAdmin.aspx.cs">
+      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserDataAdmin.aspx.designer.cs">
+      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserFunctionSetting.aspx.cs">
+      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserFunctionSetting.aspx.designer.cs">
+      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserLogin.aspx.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserLogin.aspx.designer.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserLogout.aspx.cs">
+      <DependentUpon>UserLogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserLogout.aspx.designer.cs">
+      <DependentUpon>UserLogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserRegister.aspx.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserRegister.aspx.designer.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserZhuanTi.aspx.cs">
+      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserZhuanTi.aspx.designer.cs">
+      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserZhuanTiShow.aspx.cs">
+      <DependentUpon>UserZhuanTiShow.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserZhuanTiShow.aspx.designer.cs">
+      <DependentUpon>UserZhuanTiShow.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2015\UserZhuanZhangDetail.aspx.cs">
+      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2015\UserZhuanZhangDetail.aspx.designer.cs">
+      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AALifeWeb\GetPhoneMessage.aspx" />
+    <Content Include="AALifeWeb\GetWebVersion.aspx" />
+    <Content Include="AALifeWeb\index.html" />
+    <Content Include="AALifeWeb\MsmqTest.aspx" />
+    <Content Include="AALifeWeb\SyncBoundNew.aspx" />
+    <Content Include="AALifeWeb\SyncCard.aspx" />
+    <Content Include="AALifeWeb\SyncCard.html" />
+    <Content Include="AALifeWeb\SyncCardWebBack.aspx" />
+    <Content Include="AALifeWeb\SyncCategory.aspx" />
+    <Content Include="AALifeWeb\SyncCategory.html" />
+    <Content Include="AALifeWeb\SyncCategoryWebBack.aspx" />
+    <Content Include="AALifeWeb\SyncCheckWebData.aspx" />
+    <Content Include="AALifeWeb\SyncCheckWebData.html" />
+    <Content Include="AALifeWeb\SyncDeleteList.aspx" />
+    <Content Include="AALifeWeb\SyncDeleteListWebBack.aspx" />
+    <Content Include="AALifeWeb\SyncGetCardWeb.aspx" />
+    <Content Include="AALifeWeb\SyncGetCardWeb.html" />
+    <Content Include="AALifeWeb\SyncGetCategoryWeb.aspx" />
+    <Content Include="AALifeWeb\SyncGetCategoryWeb.html" />
+    <Content Include="AALifeWeb\SyncGetDeleteListWeb.aspx" />
+    <Content Include="AALifeWeb\SyncGetDeleteListWeb.html" />
+    <Content Include="AALifeWeb\SyncGetItemListWeb.aspx" />
+    <Content Include="AALifeWeb\SyncGetItemListWeb.html" />
+    <Content Include="AALifeWeb\SyncGetZhuanTiWeb.aspx" />
+    <Content Include="AALifeWeb\SyncGetZhuanTiWeb.html" />
+    <Content Include="AALifeWeb\SyncGetZhuanZhangWeb.aspx" />
+    <Content Include="AALifeWeb\SyncGetZhuanZhangWeb.html" />
+    <Content Include="AALifeWeb\SyncItemList.aspx" />
+    <Content Include="AALifeWeb\SyncItemList.html" />
+    <Content Include="AALifeWeb\SyncItemListWebBack.aspx" />
+    <Content Include="AALifeWeb\SyncLoginNew.aspx" />
+    <Content Include="AALifeWeb\SyncLoginNew.html" />
+    <Content Include="AALifeWeb\SyncLoginQQNew.aspx" />
+    <Content Include="AALifeWeb\SyncLoginQQNew.html" />
+    <Content Include="AALifeWeb\SyncNewUser.aspx" />
+    <Content Include="AALifeWeb\SyncNewUser.html" />
+    <Content Include="AALifeWeb\SyncSendEmail.asp" />
+    <Content Include="AALifeWeb\SyncSendEmail.aspx" />
+    <Content Include="AALifeWeb\SyncSendEmail.html" />
+    <Content Include="AALifeWeb\SyncUserEdit.aspx" />
+    <Content Include="AALifeWeb\SyncUserEdit.html" />
+    <Content Include="AALifeWeb\SyncUserInfo.aspx" />
+    <Content Include="AALifeWeb\SyncUserInfo.html" />
+    <Content Include="AALifeWeb\SyncUserInfoWebBack.aspx" />
+    <Content Include="AALifeWeb\SyncView.aspx" />
+    <Content Include="AALifeWeb\SyncView.html" />
+    <Content Include="AALifeWeb\SyncZhuanTi.aspx" />
+    <Content Include="AALifeWeb\SyncZhuanTiWebBack.aspx" />
+    <Content Include="AALifeWeb\SyncZhuanZhang.aspx" />
+    <Content Include="AALifeWeb\SyncZhuanZhangWebBack.aspx" />
+    <Content Include="AALifeWeb\SyncZhuanZhangWebBack.html" />
+    <Content Include="api\ItemTable.asmx" />
+    <Content Include="api\UserFrom.asmx" />
+    <Content Include="api\UserTable.asmx" />
+    <Content Include="api\ViewTable.asmx" />
+    <Content Include="api\WorkDay.asmx" />
+    <Content Include="assets\css\ace-ie.min.css" />
+    <Content Include="assets\css\ace-part2.min.css" />
+    <Content Include="assets\css\ace-rtl.min.css" />
+    <Content Include="assets\css\ace-skins.min.css" />
+    <Content Include="assets\css\ace.min.css" />
+    <Content Include="assets\css\bootstrap-colorpicker.min.css" />
+    <Content Include="assets\css\bootstrap-datepicker3.min.css" />
+    <Content Include="assets\css\bootstrap-datetimepicker.min.css" />
+    <Content Include="assets\css\bootstrap-duallistbox.min.css" />
+    <Content Include="assets\css\bootstrap-editable.min.css" />
+    <Content Include="assets\css\bootstrap-multiselect.min.css" />
+    <Content Include="assets\css\bootstrap-timepicker.min.css" />
+    <Content Include="assets\css\bootstrap.min.css" />
+    <Content Include="assets\css\chosen.min.css" />
+    <Content Include="assets\css\colorbox.min.css" />
+    <Content Include="assets\css\daterangepicker.min.css" />
+    <Content Include="assets\css\dropzone.min.css" />
+    <Content Include="assets\css\font-awesome.min.css" />
+    <Content Include="assets\css\fonts.googleapis.com.css" />
+    <Content Include="assets\css\fullcalendar.min.css" />
+    <Content Include="assets\css\jquery-ui.custom.min.css" />
+    <Content Include="assets\css\jquery-ui.min.css" />
+    <Content Include="assets\css\jquery.gritter.min.css" />
+    <Content Include="assets\css\prettify.min.css" />
+    <Content Include="assets\css\select2.min.css" />
+    <Content Include="assets\css\ui.jqgrid.min.css" />
+    <Content Include="assets\font-awesome\4.5.0\css\font-awesome.min.css" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\images\avatars\avatar.png" />
+    <Content Include="assets\images\avatars\avatar1.png" />
+    <Content Include="assets\images\avatars\avatar2.png" />
+    <Content Include="assets\images\avatars\avatar3.png" />
+    <Content Include="assets\images\avatars\avatar4.png" />
+    <Content Include="assets\images\avatars\avatar5.png" />
+    <Content Include="assets\images\avatars\profile-pic.jpg" />
+    <Content Include="assets\images\avatars\user.jpg" />
+    <Content Include="assets\images\bootstrap-colorpicker\alpha-horizontal.png" />
+    <Content Include="assets\images\bootstrap-colorpicker\alpha.png" />
+    <Content Include="assets\images\bootstrap-colorpicker\hue-horizontal.png" />
+    <Content Include="assets\images\bootstrap-colorpicker\hue.png" />
+    <Content Include="assets\images\bootstrap-colorpicker\saturation.png" />
+    <Content Include="assets\images\email\email1.png" />
+    <Content Include="assets\images\email\email2.png" />
+    <Content Include="assets\images\email\email3.png" />
+    <Content Include="assets\images\email\email4.png" />
+    <Content Include="assets\images\gallery\image-1.jpg" />
+    <Content Include="assets\images\gallery\image-2.jpg" />
+    <Content Include="assets\images\gallery\image-3.jpg" />
+    <Content Include="assets\images\gallery\image-4.jpg" />
+    <Content Include="assets\images\gallery\image-5.jpg" />
+    <Content Include="assets\images\gallery\image-6.jpg" />
+    <Content Include="assets\images\gallery\thumb-1.jpg" />
+    <Content Include="assets\images\gallery\thumb-2.jpg" />
+    <Content Include="assets\images\gallery\thumb-3.jpg" />
+    <Content Include="assets\images\gallery\thumb-4.jpg" />
+    <Content Include="assets\images\gallery\thumb-5.jpg" />
+    <Content Include="assets\images\gallery\thumb-6.jpg" />
+    <Content Include="assets\images\placeholder\165x90.png" />
+    <Content Include="assets\images\placeholder\255x150.png" />
+    <Content Include="assets\images\placeholder\530x270.png" />
+    <Content Include="assets\images\placeholder\550x280.png" />
+    <Content Include="assets\js\ace-editable.min.js" />
+    <Content Include="assets\js\ace-elements.min.js" />
+    <Content Include="assets\js\ace-extra.min.js" />
+    <Content Include="assets\js\ace.min.js" />
+    <Content Include="assets\js\autosize.min.js" />
+    <Content Include="assets\js\bootbox.js" />
+    <Content Include="assets\js\bootstrap-colorpicker.min.js" />
+    <Content Include="assets\js\bootstrap-datepicker.min.js" />
+    <Content Include="assets\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="assets\js\bootstrap-editable.min.js" />
+    <Content Include="assets\js\bootstrap-markdown.min.js" />
+    <Content Include="assets\js\bootstrap-multiselect.min.js" />
+    <Content Include="assets\js\bootstrap-tag.min.js" />
+    <Content Include="assets\js\bootstrap-timepicker.min.js" />
+    <Content Include="assets\js\bootstrap-wysiwyg.min.js" />
+    <Content Include="assets\js\bootstrap.min.js" />
+    <Content Include="assets\js\buttons.colVis.min.js" />
+    <Content Include="assets\js\buttons.flash.min.js" />
+    <Content Include="assets\js\buttons.html5.min.js" />
+    <Content Include="assets\js\buttons.print.min.js" />
+    <Content Include="assets\js\chosen.jquery.min.js" />
+    <Content Include="assets\js\dataTables.buttons.min.js" />
+    <Content Include="assets\js\dataTables.select.min.js" />
+    <Content Include="assets\js\daterangepicker.min.js" />
+    <Content Include="assets\js\dropzone.min.js" />
+    <Content Include="assets\js\excanvas.min.js" />
+    <Content Include="assets\js\fullcalendar.min.js" />
+    <Content Include="assets\js\grid.locale-en.js" />
+    <Content Include="assets\js\holder.min.js" />
+    <Content Include="assets\js\html5shiv.min.js" />
+    <Content Include="assets\js\jquery-1.11.3.min.js" />
+    <Content Include="assets\js\jquery-2.1.4.min.js" />
+    <Content Include="assets\js\jquery-additional-methods.min.js" />
+    <Content Include="assets\js\jquery-typeahead.js" />
+    <Content Include="assets\js\jquery-ui.custom.min.js" />
+    <Content Include="assets\js\jquery-ui.min.js" />
+    <Content Include="assets\js\jquery.bootstrap-duallistbox.min.js" />
+    <Content Include="assets\js\jquery.colorbox.min.js" />
+    <Content Include="assets\js\jquery.dataTables.bootstrap.min.js" />
+    <Content Include="assets\js\jquery.dataTables.min.js" />
+    <Content Include="assets\js\jquery.easypiechart.min.js" />
+    <Content Include="assets\js\jquery.flot.min.js" />
+    <Content Include="assets\js\jquery.flot.pie.min.js" />
+    <Content Include="assets\js\jquery.flot.resize.min.js" />
+    <Content Include="assets\js\jquery.gritter.min.js" />
+    <Content Include="assets\js\jquery.hotkeys.index.min.js" />
+    <Content Include="assets\js\jquery.inputlimiter.min.js" />
+    <Content Include="assets\js\jquery.jqGrid.min.js" />
+    <Content Include="assets\js\jquery.knob.min.js" />
+    <Content Include="assets\js\jquery.maskedinput.min.js" />
+    <Content Include="assets\js\jquery.mobile.custom.min.js" />
+    <Content Include="assets\js\jquery.nestable.min.js" />
+    <Content Include="assets\js\jquery.raty.min.js" />
+    <Content Include="assets\js\jquery.sparkline.index.min.js" />
+    <Content Include="assets\js\jquery.ui.touch-punch.min.js" />
+    <Content Include="assets\js\jquery.validate.min.js" />
+    <Content Include="assets\js\locales\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="assets\js\markdown.min.js" />
+    <Content Include="assets\js\moment.min.js" />
+    <Content Include="assets\js\prettify.min.js" />
+    <Content Include="assets\js\respond.min.js" />
+    <Content Include="assets\js\select2.min.js" />
+    <Content Include="assets\js\spin.js" />
+    <Content Include="assets\js\spinbox.min.js" />
+    <Content Include="assets\js\tree.min.js" />
+    <Content Include="assets\js\wizard.min.js" />
+    <Content Include="assets\swf\flashExport.swf" />
+    <Content Include="AuthorLogin\OAuth.aspx" />
+    <Content Include="AuthorLogin\PengYou.aspx" />
+    <Content Include="AuthorLogin\qq_login_ok.html" />
+    <Content Include="AuthorLogin\QZone.aspx" />
+    <Content Include="AutoItemCompareJson.aspx" />
+    <Content Include="AutoItemGroupJson.aspx" />
+    <Content Include="chromedriver.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="common\const-data.js" />
+    <Content Include="common\dataTables.bootstrap.js" />
+    <Content Include="common\dataTables.bootstrap.min.css" />
+    <Content Include="common\fn-date.js" />
+    <Content Include="common\jquery-1.10.2.js" />
+    <Content Include="common\jquery.cookie.js" />
+    <Content Include="common\jquery.dataTables.js" />
+    <Content Include="common\jquery.dataTables.min.css" />
+    <Content Include="common\jquery.multiselect.css" />
+    <Content Include="common\jquery.multiselect.min.js" />
+    <Content Include="common\jquery.multiselect.zh-cn.js" />
+    <Content Include="common\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="common\main.js" />
+    <Content Include="common\master.css" />
+    <Content Include="common\moment.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\sexspider.default.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Helper.aspx" />
+    <Content Include="Images\Others\18.gif" />
+    <Content Include="Images\Others\2_25.gif" />
+    <Content Include="Images\Others\accept.png" />
+    <Content Include="Images\Others\add-b.png" />
+    <Content Include="Images\Others\add.png" />
+    <Content Include="Images\Others\application_view_tile.png" />
+    <Content Include="Images\Others\bg1.jpg" />
+    <Content Include="Images\Others\bg2.jpg" />
+    <Content Include="Images\Others\bg3.jpg" />
+    <Content Include="Images\Others\bg9.gif" />
+    <Content Include="Images\Others\bricks.png" />
+    <Content Include="Images\Others\btn_01.gif" />
+    <Content Include="Images\Others\btn_03.gif" />
+    <Content Include="Images\Others\bul64.gif" />
+    <Content Include="Images\Others\Bullet-Blue.png" />
+    <Content Include="Images\Others\Bullet-Green.png" />
+    <Content Include="Images\Others\Bullet-Orange.png" />
+    <Content Include="Images\Others\Bullet-Red.png" />
+    <Content Include="Images\Others\Bullet-White.png" />
+    <Content Include="Images\Others\Bullet-Yellow.png" />
+    <Content Include="Images\Others\bullet_arrow_down.png" />
+    <Content Include="Images\Others\calendar.png" />
+    <Content Include="Images\Others\calendar_view_day-b.png" />
+    <Content Include="Images\Others\calendar_view_day.png" />
+    <Content Include="Images\Others\calendar_view_month.png" />
+    <Content Include="Images\Others\cancel.png" />
+    <Content Include="Images\Others\chart_bar.png" />
+    <Content Include="Images\Others\chart_curve.png" />
+    <Content Include="Images\Others\chart_organisation.png" />
+    <Content Include="Images\Others\chart_pie.png" />
+    <Content Include="Images\Others\cog.png" />
+    <Content Include="Images\Others\coins.png" />
+    <Content Include="Images\Others\coins_add.png" />
+    <Content Include="Images\Others\color_swatch.png" />
+    <Content Include="Images\Others\Connect_logo_1.png" />
+    <Content Include="Images\Others\Connect_logo_3.png" />
+    <Content Include="Images\Others\Connect_logo_7.png" />
+    <Content Include="Images\Others\control_eject_blue.png" />
+    <Content Include="Images\Others\counseling_style_52.png" />
+    <Content Include="Images\Others\creditcards.png" />
+    <Content Include="Images\Others\cross.png" />
+    <Content Include="Images\Others\database_go.png" />
+    <Content Include="Images\Others\date_next.png" />
+    <Content Include="Images\Others\date_previous.png" />
+    <Content Include="Images\Others\delete.png" />
+    <Content Include="Images\Others\disk.png" />
+    <Content Include="Images\Others\Feedicons_v2_031.png" />
+    <Content Include="Images\Others\font.png" />
+    <Content Include="Images\Others\ga.gif" />
+    <Content Include="Images\Others\gonggao.gif" />
+    <Content Include="Images\Others\group.png" />
+    <Content Include="Images\Others\group_add.png" />
+    <Content Include="Images\Others\group_edit.png" />
+    <Content Include="Images\Others\group_gear.png" />
+    <Content Include="Images\Others\group_go.png" />
+    <Content Include="Images\Others\group_key.png" />
+    <Content Include="Images\Others\group_link.png" />
+    <Content Include="Images\Others\heart_add.png" />
+    <Content Include="Images\Others\help.gif" />
+    <Content Include="Images\Others\help.png" />
+    <Content Include="Images\Others\home.gif" />
+    <Content Include="Images\Others\house-b.png" />
+    <Content Include="Images\Others\house.png" />
+    <Content Include="Images\Others\icn_blog_01.gif" />
+    <Content Include="Images\Others\icon_admin.gif" />
+    <Content Include="Images\Others\icon_edit.gif" />
+    <Content Include="Images\Others\icon_help.gif" />
+    <Content Include="Images\Others\ico_005.gif" />
+    <Content Include="Images\Others\ico_meet.gif" />
+    <Content Include="Images\Others\ico_service01_03.gif" />
+    <Content Include="Images\Others\ic_dead[1].gif" />
+    <Content Include="Images\Others\ic_download.gif" />
+    <Content Include="Images\Others\image.png" />
+    <Content Include="Images\Others\inputbg.jpg" />
+    <Content Include="Images\Others\inputbg.png" />
+    <Content Include="Images\Others\i_6.gif" />
+    <Content Include="Images\Others\i_9.gif" />
+    <Content Include="Images\Others\james.jpg" />
+    <Content Include="Images\Others\kksd1183_9_m.gif" />
+    <Content Include="Images\Others\light.gif" />
+    <Content Include="Images\Others\link_go.png" />
+    <Content Include="Images\Others\loading.gif" />
+    <Content Include="Images\Others\login-long.png" />
+    <Content Include="Images\Others\login-short.png" />
+    <Content Include="Images\Others\logo-big.png" />
+    <Content Include="Images\Others\logo72.png" />
+    <Content Include="Images\Others\magnifier-b.png" />
+    <Content Include="Images\Others\magnifier.png" />
+    <Content Include="Images\Others\minus.gif" />
+    <Content Include="Images\Others\money.png" />
+    <Content Include="Images\Others\money_yen.png" />
+    <Content Include="Images\Others\new.gif" />
+    <Content Include="Images\Others\pa.gif" />
+    <Content Include="Images\Others\page_excel.png" />
+    <Content Include="Images\Others\page_link.png" />
+    <Content Include="Images\Others\page_white_h.png" />
+    <Content Include="Images\Others\pencil.png" />
+    <Content Include="Images\Others\pencil_go.png" />
+    <Content Include="Images\Others\picture.png" />
+    <Content Include="Images\Others\plus.gif" />
+    <Content Include="Images\Others\qq_logo_7.png" />
+    <Content Include="Images\Others\qq_weiboicon16.png" />
+    <Content Include="Images\Others\qr.png" />
+    <Content Include="Images\Others\qrdown-al.gif" />
+    <Content Include="Images\Others\qrdown-ar.gif" />
+    <Content Include="Images\Others\qrdown.png" />
+    <Content Include="Images\Others\qr_pic1.jpg" />
+    <Content Include="Images\Others\qr_pic2.jpg" />
+    <Content Include="Images\Others\qr_pic3.jpg" />
+    <Content Include="Images\Others\qr_pic4.jpg" />
+    <Content Include="Images\Others\que.gif" />
+    <Content Include="Images\Others\question01.gif" />
+    <Content Include="Images\Others\qz.png" />
+    <Content Include="Images\Others\sina_weibo_16x16.png" />
+    <Content Include="Images\Others\star.png" />
+    <Content Include="Images\Others\style.png" />
+    <Content Include="Images\Others\s_file.gif" />
+    <Content Include="Images\Others\t01458b4c679692e485.png" />
+    <Content Include="Images\Others\t01e8d5a0e9db9da207.png" />
+    <Content Include="Images\Others\tips.gif" />
+    <Content Include="Images\Others\u58.png" />
+    <Content Include="Images\Others\u60.png" />
+    <Content Include="Images\Others\u62.png" />
+    <Content Include="Images\Others\ui-anim_basic_16x16.gif" />
+    <Content Include="Images\Others\yaan-s.gif" />
+    <Content Include="Images\Others\yaan.gif" />
+    <Content Include="Images\Others\zhuantidot.fw.png" />
+    <Content Include="Images\Others\zhuantidot.png" />
+    <Content Include="Images\Others\zim.gif" />
+    <Content Include="Images\ZhuanTi\none.gif" />
+    <Content Include="Images\ZhuanTi\zt_1_1582.jpg" />
+    <Content Include="Images\ZhuanTi\zt_1_2005.jpg" />
+    <Content Include="Images\ZhuanTi\zt_1_5570.jpg" />
+    <Content Include="Images\ZhuanTi\zt_1_9926.jpg" />
+    <Content Include="Images\ZhuanTi\zt_3_1.png" />
+    <Content Include="ItemAddSmart.aspx" />
+    <Content Include="ItemCompare.aspx" />
+    <Content Include="ItemGroup.aspx" />
+    <Content Include="ItemQuery.aspx" />
+    <Content Include="Manage\assets\datatables-main.js" />
+    <Content Include="Manage\assets\kendo-custom-ui.js" />
+    <Content Include="Manage\assets\kendo-main.js" />
+    <Content Include="Manage\assets\style.css" />
+    <Content Include="Manage\BackupData.aspx" />
+    <Content Include="Manage\Home.aspx" />
+    <Content Include="Manage\ItemTable.aspx" />
+    <Content Include="Manage\SiteConfig.aspx" />
+    <Content Include="Manage\UserTableDT.aspx" />
+    <Content Include="Manage\ViewTable.aspx" />
+    <Content Include="ofcgwt\expressInstall.swf" />
+    <Content Include="ofcgwt\open-flash-chart-SimplifiedChinese.swf" />
+    <Content Include="ofcgwt\open-flash-chart-Wyrm.swf" />
+    <Content Include="ofcgwt\open-flash-chart.swf" />
+    <Content Include="ofcgwt\open-flash-chart1.swf" />
+    <Content Include="ofcgwt\openflashchart.html" />
+    <Content Include="ofcgwt\swfobject.js" />
+    <Content Include="QuWeiTongJiNew.aspx" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="AALifeWeb\SyncCloudData.ashx" />
+    <Content Include="AALifeWeb\SyncUserImage.ashx" />
+    <Content Include="api\ImageUpload.ashx" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\font-awesome\4.5.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Backup\AA生活记账导入模板.xlsx" />
+    <Content Include="Backup\AA生活记账导入模板1.xlsx" />
+    <Content Include="Backup\Cloud\aalife2%281pyfxl%29.bak" />
+    <Content Include="Backup\Cloud\aalife2%2821075冰晴水隐%29.bak" />
+    <Content Include="Backup\Cloud\aalife2%2823669周愉静%29.bak" />
+    <Content Include="Backup\Cloud\aalife2%282616513773410580%29.bak" />
+    <Content Include="Backup\Cloud\aalife2%2827017sjqq13697%29.bak" />
+    <Content Include="Backup\Cloud\aalife2%282872713994419760%29.bak" />
+    <Content Include="Backup\Cloud\aalife2%283test%29.bak" />
+    <Content Include="Backup\Export\AA生活记账数据导出%281pyfxl_2016-06-01_2016-06-30%29.xlsx" />
+    <Content Include="Backup\Export\AA生活记账数据导出%281pyfxl_2016-07-01_2016-07-29%29.xlsx" />
+    <Content Include="Backup\Export\AA生活记账数据导出%281pyfxl_2018-08-01_2018-08-08%29.xlsx" />
+    <Content Include="Backup\Export\AA生活记账数据导出%283test_2016-07-01_2016-07-28%29.xlsx" />
+    <Content Include="Backup\Import\%281pyfxl%29AA生活记账数据导出%281pyfxl_2016-06-01_2016-06-30%29.xlsx" />
+    <Content Include="Backup\Import\%281pyfxl%29AA生活记账数据导出%281pyfxl_2016-07-01_2016-07-29%29.xlsx" />
+    <Content Include="Backup\Import\%283test%292016.xlsx" />
+    <Content Include="Backup\Import\%283test%29AA生活记账数据导出%283test_2016-07-01_2016-07-28%29 %281%29.xlsx" />
+    <Content Include="Backup\Import\%283test%29AA生活记账数据导出%283test_2016-07-01_2016-07-28%29.xlsx" />
+    <Content Include="Backup\Import\%283test%29bbb.xlsx" />
+    <Content Include="Backup\Template\AA生活记账导入模板%281pyfxl%29.xlsx" />
+    <Content Include="Backup\Template\AA生活记账导入模板%283test%29.xlsx" />
+    <Content Include="Manage\MasterPage.master" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap-theme.css" />
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap-theme.min.css" />
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap.css" />
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap.min.css" />
+    <Content Include="Scripts\bootstrap\dist\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\bootstrap\dist\js\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\dist\js\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\dist\js\npm.js" />
+    <Content Include="Scripts\chplayer\chplayer.js" />
+    <Content Include="Scripts\chplayer\chplayer.min.js" />
+    <Content Include="Scripts\chplayer\chplayer.swf" />
+    <Content Include="Scripts\chplayer\hls\hls.js" />
+    <Content Include="Scripts\chplayer\hls\hls.min.js" />
+    <Content Include="Scripts\jqthumb.min.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\LICENSE.txt" />
+    <Content Include="Scripts\jquery-validation\dist\additional-methods.js" />
+    <Content Include="Scripts\jquery-validation\dist\additional-methods.min.js" />
+    <Content Include="Scripts\jquery-validation\dist\jquery.validate.js" />
+    <Content Include="Scripts\jquery-validation\dist\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery\dist\jquery.js" />
+    <Content Include="Scripts\jquery\dist\jquery.min.js" />
+    <Content Include="Scripts\jquery\LICENSE.txt" />
+    <Content Include="Scripts\kendoui\js\angular.min.js" />
+    <Content Include="Scripts\kendoui\js\cultures\kendo.culture.zh-CN.min.js" />
+    <Content Include="Scripts\kendoui\js\jquery.min.js" />
+    <Content Include="Scripts\kendoui\js\jszip.min.js" />
+    <Content Include="Scripts\kendoui\js\kendo.all.min.js" />
+    <Content Include="Scripts\kendoui\js\kendo.web.min.js" />
+    <Content Include="Scripts\kendoui\js\messages\kendo.messages.zh-CN.min.js" />
+    <Content Include="Scripts\kendoui\js\pako_deflate.min.js" />
+    <Content Include="Scripts\kendoui\styles\all.css" />
+    <Content Include="Scripts\kendoui\styles\Black\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Black\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Black\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Black\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Black\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Black\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Black\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Black\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Black\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Black\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Black\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Black\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Black\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Black\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\editor.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\markers.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\BlueOpal\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Bootstrap\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Default\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Default\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Default\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Default\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Default\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Default\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Default\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Default\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Default\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Default\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Default\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Default\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Default\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Default\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Fiori\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Fiori\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Fiori\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Fiori\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Fiori\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Fiori\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Fiori\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Flat\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Flat\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Flat\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Flat\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Flat\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Flat\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Flat\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\WebComponentsIcons.svg" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\editor.png" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\markers.png" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\HighContrast\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\images\back.png" />
+    <Content Include="Scripts\kendoui\styles\images\kendoui.svg" />
+    <Content Include="Scripts\kendoui\styles\images\wp8_icons.png" />
+    <Content Include="Scripts\kendoui\styles\images\wp8_inverseicons.png" />
+    <Content Include="Scripts\kendoui\styles\kendo.black.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.black.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.blueopal.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.blueopal.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.bootstrap-v4.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.bootstrap.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.bootstrap.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-bootstrap.core.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-bootstrap.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-fiori.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-material.core.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-material.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-nova.core.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-nova.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-office365.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common.core.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.common.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.black.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.blueopal.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.bootstrap.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.default.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.fiori.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.flat.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.highcontrast.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.material.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.materialblack.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.metro.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.metroblack.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.moonlight.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.nova.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.office365.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.silver.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.uniform.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.default-v2.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.default.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.default.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.fiori.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.fiori.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.flat.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.flat.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.highcontrast.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.highcontrast.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.material.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.material.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.materialblack.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.materialblack.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.metro.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.metro.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.metroblack.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.metroblack.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.all.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.android.dark.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.android.light.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.blackberry.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.common.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.fiori.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.flat.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.ios.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.material.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.meego.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.nova.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.office365.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.wp8.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.moonlight.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.moonlight.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.nova.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.nova.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.office365.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.office365.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.rtl.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.silver.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.silver.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.uniform.min.css" />
+    <Content Include="Scripts\kendoui\styles\kendo.uniform.mobile.min.css" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\editor.png" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\markers.png" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\MaterialBlack\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Material\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Material\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Material\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Material\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Material\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Material\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Material\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Material\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Material\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Material\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Material\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Material\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Material\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Material\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\editor.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\markers.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\MetroBlack\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Metro\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Metro\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Metro\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Metro\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Metro\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Metro\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Metro\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Moonlight\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Nova\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Nova\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Nova\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Nova\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Nova\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Nova\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Nova\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Office365\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Office365\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Office365\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Office365\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Office365\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Office365\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Office365\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Silver\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Silver\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Silver\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Silver\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Silver\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Silver\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Silver\sprite_kpi_2x.png" />
+    <Content Include="Scripts\kendoui\styles\textures\brushed-metal.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots1.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots10.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots11.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots12.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots13.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots2.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots3.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots4.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots5.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots6.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots7.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots8.png" />
+    <Content Include="Scripts\kendoui\styles\textures\dots9.png" />
+    <Content Include="Scripts\kendoui\styles\textures\glass-lighter.png" />
+    <Content Include="Scripts\kendoui\styles\textures\glass.png" />
+    <Content Include="Scripts\kendoui\styles\textures\highlight.png" />
+    <Content Include="Scripts\kendoui\styles\textures\hsv-gradient.png" />
+    <Content Include="Scripts\kendoui\styles\textures\hue.png" />
+    <Content Include="Scripts\kendoui\styles\textures\leather1.png" />
+    <Content Include="Scripts\kendoui\styles\textures\leather2.png" />
+    <Content Include="Scripts\kendoui\styles\textures\noise.png" />
+    <Content Include="Scripts\kendoui\styles\textures\stripe1.png" />
+    <Content Include="Scripts\kendoui\styles\textures\stripe2.png" />
+    <Content Include="Scripts\kendoui\styles\textures\stripe3.png" />
+    <Content Include="Scripts\kendoui\styles\textures\stripe4.png" />
+    <Content Include="Scripts\kendoui\styles\textures\stripe5.png" />
+    <Content Include="Scripts\kendoui\styles\textures\stripe6.png" />
+    <Content Include="Scripts\kendoui\styles\textures\transparency.png" />
+    <Content Include="Scripts\kendoui\styles\textures\transtexture.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\editor.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\imagebrowser.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\indeterminate.gif" />
+    <Content Include="Scripts\kendoui\styles\Uniform\loading-image.gif" />
+    <Content Include="Scripts\kendoui\styles\Uniform\loading.gif" />
+    <Content Include="Scripts\kendoui\styles\Uniform\loading_2x.gif" />
+    <Content Include="Scripts\kendoui\styles\Uniform\markers.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\markers_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\slider-h.gif" />
+    <Content Include="Scripts\kendoui\styles\Uniform\slider-v.gif" />
+    <Content Include="Scripts\kendoui\styles\Uniform\sprite.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\sprite_2x.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\sprite_kpi.png" />
+    <Content Include="Scripts\kendoui\styles\Uniform\sprite_kpi_2x.png" />
+    <Content Include="Scripts\sexspider.js" />
+    <Content Include="Scripts\String.js" />
+    <Content Include="Web2015\AdminBackupData.aspx" />
+    <Content Include="Web2015\AdminItemList.aspx" />
+    <Content Include="Web2015\AdminSiteConfig.aspx" />
+    <Content Include="Web2015\AdminTongJi.aspx" />
+    <Content Include="Web2015\AdminUserDetail.aspx" />
+    <Content Include="Web2015\AdminUserList.aspx" />
+    <Content Include="Web2015\AutoItemListJson.aspx" />
+    <Content Include="Web2015\AutoItemNameJson.aspx" />
+    <Content Include="Web2015\AutoJiaGeFXJson.aspx" />
+    <Content Include="Web2015\AutoJiaGeFXMXJson.aspx" />
+    <Content Include="Web2015\AutoJianGeFXJson.aspx" />
+    <Content Include="Web2015\AutoSmartItemNameJson.aspx" />
+    <Content Include="Web2015\AutoSmartItemPriceJson.aspx" />
+    <Content Include="Web2015\AutoTSFXJson.aspx" />
+    <Content Include="Web2015\BiJiaoFenXi.aspx" />
+    <Content Include="Web2015\BiJiaoFXChartJson.aspx" />
+    <Content Include="Web2015\BiJiaoMingXi.aspx" />
+    <Content Include="Web2015\BJMXChartJson.aspx" />
+    <Content Include="Web2015\common\blue.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.all.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.base.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.button.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.core.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.slider.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Web2015\common\development-bundle\themes\base\jquery.ui.theme.css" />
+    <Content Include="Web2015\common\development-bundle\ui\i18n\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Web2015\common\development-bundle\ui\jquery.ui.datepicker.js" />
+    <Content Include="Web2015\common\development-bundle\ui\minified\jquery.ui.autocomplete.min.js" />
+    <Content Include="Web2015\common\development-bundle\ui\minified\jquery.ui.button.min.js" />
+    <Content Include="Web2015\common\development-bundle\ui\minified\jquery.ui.core.min.js" />
+    <Content Include="Web2015\common\development-bundle\ui\minified\jquery.ui.datepicker.min.js" />
+    <Content Include="Web2015\common\development-bundle\ui\minified\jquery.ui.position.min.js" />
+    <Content Include="Web2015\common\development-bundle\ui\minified\jquery.ui.widget.min.js" />
+    <Content Include="Web2015\common\development-bundle\ui\monthpicker.js" />
+    <Content Include="Web2015\common\gold.css" />
+    <Content Include="Web2015\common\jquery.cookie.min.js" />
+    <Content Include="Web2015\common\jquery.lazyload.min.js" />
+    <Content Include="Web2015\common\jquery.min.js" />
+    <Content Include="Web2015\common\main.css" />
+    <Content Include="Web2015\common\master-sj.css" />
+    <Content Include="Web2015\common\master.css" />
+    <Content Include="Web2015\common\style.css" />
+    <Content Include="Web2015\Default.aspx" />
+    <Content Include="Web2015\FenLeiZongJi.aspx" />
+    <Content Include="Web2015\FenLeiZongJiMingXi.aspx" />
+    <Content Include="Web2015\FLZJChartJson.aspx" />
+    <Content Include="Web2015\FLZJMXChartJson.aspx" />
+    <Content Include="Web2015\Helper.aspx" />
+    <Content Include="Web2015\ItemAddSmart.aspx" />
+    <Content Include="Web2015\ItemDateChartJson.aspx" />
+    <Content Include="Web2015\ItemDateTop.aspx" />
+    <Content Include="Web2015\ItemList.aspx" />
+    <Content Include="Web2015\ItemNumChartJson.aspx" />
+    <Content Include="Web2015\ItemNumDetail.aspx" />
+    <Content Include="Web2015\ItemNumDetailChartJson.aspx" />
+    <Content Include="Web2015\ItemNumTop.aspx" />
+    <Content Include="Web2015\ItemPriceChartJson.aspx" />
+    <Content Include="Web2015\ItemPriceTop.aspx" />
+    <Content Include="Web2015\JiaGeFenXi.aspx" />
+    <Content Include="Web2015\JiaGeFenXiMingXi.aspx" />
+    <Content Include="Web2015\JiaGeFXChartJson.aspx" />
+    <Content Include="Web2015\JiaGeFXMXChartJson.aspx" />
+    <Content Include="Web2015\JianGeFenXi.aspx" />
+    <Content Include="Web2015\JianGeFXChartJson.aspx" />
+    <Content Include="Web2015\JieHuanFenXi.aspx" />
+    <Content Include="Web2015\MonthList.aspx" />
+    <Content Include="Web2015\QuJianChartJson.aspx" />
+    <Content Include="Web2015\QuJianTongJi.aspx" />
+    <Content Include="Web2015\QuWeiTongJi.aspx" />
+    <Content Include="Web2015\QuWeiTongJiNew.aspx" />
+    <Content Include="Web2015\SearchItem.aspx" />
+    <Content Include="Web2015\TianShuFenXi.aspx" />
+    <Content Include="Web2015\TSFXChartJson.aspx" />
+    <Content Include="Web2015\TuiJianChartJson.aspx" />
+    <Content Include="Web2015\TuiJianFenXi.aspx" />
+    <Content Include="Web2015\UserAdmin.aspx" />
+    <Content Include="Web2015\UserBoundAdmin.aspx" />
+    <Content Include="Web2015\UserCardAdmin.aspx" />
+    <Content Include="Web2015\UserCardDetail.aspx" />
+    <Content Include="Web2015\UserCategoryAdmin.aspx" />
+    <Content Include="Web2015\UserControl\AdminMenu.ascx" />
+    <Content Include="Web2015\UserControl\DateTitle.ascx" />
+    <Content Include="Web2015\UserControl\DayMenu.ascx" />
+    <Content Include="Web2015\UserControl\FenXiMenu.ascx" />
+    <Content Include="Web2015\UserControl\MonthMenu.ascx" />
+    <Content Include="Web2015\UserControl\RankMenu.ascx" />
+    <Content Include="Web2015\UserControl\UserMenu.ascx" />
+    <Content Include="Web2015\UserControl\ViewTitle.ascx" />
+    <Content Include="Web2015\UserDataAdmin.aspx" />
+    <Content Include="Web2015\UserFunctionSetting.aspx" />
+    <Content Include="Web2015\UserLogin.aspx" />
+    <Content Include="Web2015\UserLogout.aspx" />
+    <Content Include="Web2015\UserRegister.aspx" />
+    <Content Include="Web2015\UserZhuanTi.aspx" />
+    <Content Include="Web2015\UserZhuanTiShow.aspx" />
+    <Content Include="Web2015\UserZhuanZhangDetail.aspx" />
+    <Content Include="Areas\SexSpider\Views\web.config" />
+    <Content Include="Areas\SexSpider\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\Image.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\Index.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\List.cshtml" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="Areas\Manage\Views\web.config" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\bootstrap\.bower.json" />
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap-theme.css.map" />
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap-theme.min.css.map" />
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap.css.map" />
+    <Content Include="Scripts\bootstrap\dist\css\bootstrap.min.css.map" />
+    <Content Include="Scripts\bootstrap\dist\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\bootstrap\dist\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\bootstrap\dist\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Scripts\bootstrap\dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\bootstrap\LICENSE" />
+    <Content Include="Scripts\chplayer\hls\LICENSE" />
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-validation-unobtrusive\.bower.json" />
+    <Content Include="Scripts\jquery-validation\.bower.json" />
+    <Content Include="Scripts\jquery-validation\LICENSE.md" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="theme\blue\bg.jpg" />
+    <Content Include="theme\blue\external\jquery\jquery.js" />
+    <Content Include="theme\blue\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="theme\blue\images\ui-bg_flat_0_eeeeee_40x100.png" />
+    <Content Include="theme\blue\images\ui-bg_flat_55_ffffff_40x100.png" />
+    <Content Include="theme\blue\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="theme\blue\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="theme\blue\images\ui-bg_highlight-soft_100_f6f6f6_1x100.png" />
+    <Content Include="theme\blue\images\ui-bg_highlight-soft_25_0073ea_1x100.png" />
+    <Content Include="theme\blue\images\ui-bg_highlight-soft_50_dddddd_1x100.png" />
+    <Content Include="theme\blue\images\ui-icons_0073ea_256x240.png" />
+    <Content Include="theme\blue\images\ui-icons_454545_256x240.png" />
+    <Content Include="theme\blue\images\ui-icons_666666_256x240.png" />
+    <Content Include="theme\blue\images\ui-icons_ff0084_256x240.png" />
+    <Content Include="theme\blue\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="theme\blue\index.html" />
+    <Content Include="theme\blue\jquery-ui.css" />
+    <Content Include="theme\blue\jquery-ui.js" />
+    <Content Include="theme\blue\jquery-ui.min.css" />
+    <Content Include="theme\blue\jquery-ui.min.js" />
+    <Content Include="theme\blue\jquery-ui.structure.css" />
+    <Content Include="theme\blue\jquery-ui.structure.min.css" />
+    <Content Include="theme\blue\jquery-ui.theme.css" />
+    <Content Include="theme\blue\jquery-ui.theme.min.css" />
+    <Content Include="theme\blue\style.css" />
+    <Content Include="theme\gold\bg.jpg" />
+    <Content Include="theme\gold\external\jquery\jquery.js" />
+    <Content Include="theme\gold\images\ui-bg_flat_75_aaaaaa_40x100.png" />
+    <Content Include="theme\gold\images\ui-bg_glass_100_f5f0e5_1x400.png" />
+    <Content Include="theme\gold\images\ui-bg_glass_25_cb842e_1x400.png" />
+    <Content Include="theme\gold\images\ui-bg_glass_70_ede4d4_1x400.png" />
+    <Content Include="theme\gold\images\ui-bg_highlight-hard_100_f4f0ec_1x100.png" />
+    <Content Include="theme\gold\images\ui-bg_highlight-hard_65_fee4bd_1x100.png" />
+    <Content Include="theme\gold\images\ui-bg_highlight-hard_75_f5f5b5_1x100.png" />
+    <Content Include="theme\gold\images\ui-bg_inset-soft_100_f4f0ec_1x100.png" />
+    <Content Include="theme\gold\images\ui-icons_c47a23_256x240.png" />
+    <Content Include="theme\gold\images\ui-icons_cb672b_256x240.png" />
+    <Content Include="theme\gold\images\ui-icons_f08000_256x240.png" />
+    <Content Include="theme\gold\images\ui-icons_f35f07_256x240.png" />
+    <Content Include="theme\gold\images\ui-icons_ff7519_256x240.png" />
+    <Content Include="theme\gold\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="theme\gold\index.html" />
+    <Content Include="theme\gold\jquery-ui.css" />
+    <Content Include="theme\gold\jquery-ui.js" />
+    <Content Include="theme\gold\jquery-ui.min.css" />
+    <Content Include="theme\gold\jquery-ui.min.js" />
+    <Content Include="theme\gold\jquery-ui.structure.css" />
+    <Content Include="theme\gold\jquery-ui.structure.min.css" />
+    <Content Include="theme\gold\jquery-ui.theme.css" />
+    <Content Include="theme\gold\jquery-ui.theme.min.css" />
+    <Content Include="theme\gold\style.css" />
+    <Content Include="theme\images\48_icon08.gif" />
+    <Content Include="theme\images\710.gif" />
+    <Content Include="theme\images\admin.gif" />
+    <Content Include="theme\images\arr_plus.gif" />
+    <Content Include="theme\images\behome.gif" />
+    <Content Include="theme\images\bul64.gif" />
+    <Content Include="theme\images\calendar.gif" />
+    <Content Include="theme\images\card.gif" />
+    <Content Include="theme\images\COMMUNITY_LABEL.gif" />
+    <Content Include="theme\images\Connect_logo_7.png" />
+    <Content Include="theme\images\crime.gif" />
+    <Content Include="theme\images\dm_icon11_yes.gif" />
+    <Content Include="theme\images\dot_10.gif" />
+    <Content Include="theme\images\dot_12.gif" />
+    <Content Include="theme\images\dot_19.gif" />
+    <Content Include="theme\images\e1closewin.gif" />
+    <Content Include="theme\images\f04.gif" />
+    <Content Include="theme\images\f20.gif" />
+    <Content Include="theme\images\ga.gif" />
+    <Content Include="theme\images\home_icon.gif" />
+    <Content Include="theme\images\icon19.gif" />
+    <Content Include="theme\images\icon_admin.gif" />
+    <Content Include="theme\images\icon_card2.gif" />
+    <Content Include="theme\images\icon_clubhome.gif" />
+    <Content Include="theme\images\icon_edit.gif" />
+    <Content Include="theme\images\icon_xls1.gif" />
+    <Content Include="theme\images\ico_005.gif" />
+    <Content Include="theme\images\ico_09.gif" />
+    <Content Include="theme\images\ico_heart.gif" />
+    <Content Include="theme\images\ico_meet.gif" />
+    <Content Include="theme\images\ico_myhompy.gif" />
+    <Content Include="theme\images\ico_software.gif" />
+    <Content Include="theme\images\ic_dead.gif" />
+    <Content Include="theme\images\i_28s.gif" />
+    <Content Include="theme\images\i_6.gif" />
+    <Content Include="theme\images\i_hexa.gif" />
+    <Content Include="theme\images\i_search.gif" />
+    <Content Include="theme\images\ku1.gif" />
+    <Content Include="theme\images\logo72.png" />
+    <Content Include="theme\images\m01.gif" />
+    <Content Include="theme\images\m02.gif" />
+    <Content Include="theme\images\nosmorking.gif" />
+    <Content Include="theme\images\n_b62.gif" />
+    <Content Include="theme\images\pinber_01.gif" />
+    <Content Include="theme\images\pinber_02.gif" />
+    <Content Include="theme\images\pin_icon_03.gif" />
+    <Content Include="theme\images\Recommendation.GIF" />
+    <Content Include="theme\images\re_pro_i.gif" />
+    <Content Include="theme\images\re_pro_i7.gif" />
+    <Content Include="theme\images\s_file.gif" />
+    <Content Include="theme\images\talkroom.gif" />
+    <Content Include="theme\images\u58.png" />
+    <Content Include="theme\images\u60.png" />
+    <Content Include="theme\images\u62.png" />
+    <Content Include="theme\images\ui-anim_basic_16x16.gif" />
+    <Content Include="theme\images\zip1.gif" />
+    <Content Include="theme\kendoui\cultures\kendo.culture.zh-CN.min.js" />
+    <Content Include="theme\kendoui\Default\editor.png" />
+    <Content Include="theme\kendoui\Default\imagebrowser.png" />
+    <Content Include="theme\kendoui\Default\indeterminate.gif" />
+    <Content Include="theme\kendoui\Default\loading-image.gif" />
+    <Content Include="theme\kendoui\Default\loading.gif" />
+    <Content Include="theme\kendoui\Default\loading_2x.gif" />
+    <Content Include="theme\kendoui\Default\markers.png" />
+    <Content Include="theme\kendoui\Default\markers_2x.png" />
+    <Content Include="theme\kendoui\Default\slider-h.gif" />
+    <Content Include="theme\kendoui\Default\slider-v.gif" />
+    <Content Include="theme\kendoui\Default\sprite.png" />
+    <Content Include="theme\kendoui\Default\sprite_2x.png" />
+    <Content Include="theme\kendoui\Default\sprite_kpi.png" />
+    <Content Include="theme\kendoui\Default\sprite_kpi_2x.png" />
+    <Content Include="theme\kendoui\fonts\DejaVu\LICENSE.txt" />
+    <Content Include="theme\kendoui\fonts\glyphs\KendoUIGlyphs.svg" />
+    <Content Include="theme\kendoui\fonts\glyphs\WebComponentsIcons.svg" />
+    <Content Include="theme\kendoui\images\back.png" />
+    <Content Include="theme\kendoui\images\kendoui.svg" />
+    <Content Include="theme\kendoui\images\wp8_icons.png" />
+    <Content Include="theme\kendoui\images\wp8_inverseicons.png" />
+    <Content Include="theme\kendoui\kendo.all.min.js" />
+    <Content Include="theme\kendoui\kendo.common.min.css" />
+    <Content Include="theme\kendoui\kendo.default.min.css" />
+    <Content Include="theme\kendoui\kendo.default.mobile.min.css" />
+    <Content Include="theme\kendoui\messages\kendo.messages.zh-CN.min.js" />
+    <Content Include="theme\main\bg.jpg" />
+    <Content Include="theme\main\external\jquery\jquery.js" />
+    <Content Include="theme\main\images\ui-bg_diagonals-thick_75_f3d8d8_40x40.png" />
+    <Content Include="theme\main\images\ui-bg_dots-small_65_a6a6a6_2x2.png" />
+    <Content Include="theme\main\images\ui-bg_flat_0_333333_40x100.png" />
+    <Content Include="theme\main\images\ui-bg_flat_65_ffffff_40x100.png" />
+    <Content Include="theme\main\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="theme\main\images\ui-bg_glass_55_fbf8ee_1x400.png" />
+    <Content Include="theme\main\images\ui-bg_highlight-hard_100_eeeeee_1x100.png" />
+    <Content Include="theme\main\images\ui-bg_highlight-hard_100_f6f6f6_1x100.png" />
+    <Content Include="theme\main\images\ui-bg_highlight-soft_15_cc0000_1x100.png" />
+    <Content Include="theme\main\images\ui-icons_004276_256x240.png" />
+    <Content Include="theme\main\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="theme\main\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="theme\main\index.html" />
+    <Content Include="theme\main\jquery-ui.css" />
+    <Content Include="theme\main\jquery-ui.js" />
+    <Content Include="theme\main\jquery-ui.min.css" />
+    <Content Include="theme\main\jquery-ui.min.js" />
+    <Content Include="theme\main\jquery-ui.structure.css" />
+    <Content Include="theme\main\jquery-ui.structure.min.css" />
+    <Content Include="theme\main\jquery-ui.theme.css" />
+    <Content Include="theme\main\jquery-ui.theme.min.css" />
+    <Content Include="theme\main\style.css" />
+    <Content Include="Tools\ClearCache.aspx" />
+    <Content Include="Tools\DeleteUserImage.aspx" />
+    <Content Include="Tools\QQLoginFix.aspx" />
+    <Content Include="UserAdmin.aspx" />
+    <Content Include="UserBoundAdmin.aspx" />
+    <Content Include="UserCardAdmin.aspx" />
+    <Content Include="UserCategoryAdmin.aspx" />
+    <Content Include="UserControl\UserMenu.ascx" />
+    <Content Include="UserDataAdmin.aspx" />
+    <Content Include="UserFunctionSetting.aspx" />
+    <Content Include="UserLogin.aspx" />
+    <Content Include="UserLogout.aspx" />
+    <Content Include="UserRegister.aspx" />
+    <Content Include="UserZhuanTi.aspx" />
+    <Content Include="UserZhuanZhangDetail.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="theme\kendoui\cultures\kendo.culture.zh-CN.min.js.map" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="theme\kendoui\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="theme\kendoui\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="theme\kendoui\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="theme\kendoui\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="theme\kendoui\fonts\glyphs\WebComponentsIcons.eot" />
+    <Content Include="theme\kendoui\fonts\glyphs\WebComponentsIcons.ttf" />
+    <Content Include="theme\kendoui\fonts\glyphs\WebComponentsIcons.woff" />
+    <Content Include="theme\kendoui\images\kendoui.ttf" />
+    <Content Include="theme\kendoui\images\kendoui.woff" />
+    <Content Include="theme\kendoui\kendo.all.min.js.map" />
+    <Content Include="theme\kendoui\kendo.common.min.css.map" />
+    <Content Include="theme\kendoui\kendo.default.min.css.map" />
+    <Content Include="theme\kendoui\kendo.default.mobile.min.css.map" />
+    <Content Include="theme\kendoui\messages\kendo.messages.zh-CN.min.js.map" />
+    <Content Include="UserControl\MasterPage.master" />
+    <Content Include="Site.Config" />
+    <Content Include="Web2015\UserControl\MasterPage.master" />
+    <Content Include="Scripts\jquery\.bower.json" />
+    <Content Include="Scripts\jquery\dist\jquery.min.map" />
+    <Content Include="Scripts\kendoui\js\cultures\kendo.culture.zh-CN.min.js.map" />
+    <Content Include="Scripts\kendoui\js\jquery.min.map" />
+    <Content Include="Scripts\kendoui\js\kendo.all.min.js.map" />
+    <Content Include="Scripts\kendoui\js\kendo.web.min.js.map" />
+    <Content Include="Scripts\kendoui\js\messages\kendo.messages.zh-CN.min.js.map" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSans-Bold.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSans-BoldOblique.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSans-ExtraLight.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSans-Oblique.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSans.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSansMono-Bold.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSansMono-BoldOblique.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSansMono-Oblique.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSansMono.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSerif-Bold.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSerif-BoldItalic.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSerif-Italic.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\DejaVu\DejaVuSerif.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\KendoUIGlyphs.eot" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\KendoUIGlyphs.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\KendoUIGlyphs.woff" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\WebComponentsIcons.eot" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\WebComponentsIcons.ttf" />
+    <Content Include="Scripts\kendoui\styles\fonts\glyphs\WebComponentsIcons.woff" />
+    <Content Include="Scripts\kendoui\styles\images\kendoui.ttf" />
+    <Content Include="Scripts\kendoui\styles\images\kendoui.woff" />
+    <Content Include="Scripts\kendoui\styles\kendo.black.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.black.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.blueopal.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.blueopal.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.bootstrap-v4.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.bootstrap.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.bootstrap.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-bootstrap.core.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-bootstrap.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-fiori.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-material.core.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-material.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-nova.core.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-nova.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common-office365.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common.core.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.common.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.black.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.blueopal.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.bootstrap.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.default.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.fiori.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.flat.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.highcontrast.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.material.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.materialblack.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.metro.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.metroblack.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.moonlight.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.nova.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.office365.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.silver.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.dataviz.uniform.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.default-v2.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.default.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.default.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.fiori.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.fiori.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.flat.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.flat.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.highcontrast.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.highcontrast.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.material.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.material.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.materialblack.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.materialblack.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.metro.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.metro.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.metroblack.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.metroblack.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.all.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.android.dark.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.android.light.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.blackberry.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.common.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.fiori.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.flat.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.ios.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.material.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.meego.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.nova.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.office365.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.mobile.wp8.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.moonlight.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.moonlight.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.nova.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.nova.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.office365.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.office365.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.rtl.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.silver.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.silver.mobile.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.uniform.min.css.map" />
+    <Content Include="Scripts\kendoui\styles\kendo.uniform.mobile.min.css.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Areas\Manage\Models\" />
+    <Folder Include="Areas\Manage\Views\Shared\" />
+    <Folder Include="Areas\Manage\Views\Users\" />
+    <Folder Include="Areas\SexSpider\Models\" />
+    <Folder Include="Backup\Bak\" />
+    <Folder Include="Images\Users\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AALife.BLL\AALife.BLL.csproj">
+      <Project>{32b50478-4d92-4648-9a56-0e75639c97db}</Project>
+      <Name>AALife.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.DAL\AALife.DAL.csproj">
+      <Project>{ca2e36e5-6247-486b-818c-591d4a82fcaa}</Project>
+      <Name>AALife.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.DBUtility\AALife.DBUtility.csproj">
+      <Project>{023380f9-dd98-4d97-862a-9d4a965db1d4}</Project>
+      <Name>AALife.DBUtility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.Model\AALife.Model.csproj">
+      <Project>{e458099d-6c03-40ee-ac70-480ffd645987}</Project>
+      <Name>AALife.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.MSMQ\AALife.MSMQ.csproj">
+      <Project>{3cb14695-9908-4667-8be6-18ca045316ce}</Project>
+      <Name>AALife.MSMQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AALife.Service\AALife.Service.csproj">
+      <Project>{62c63866-f75c-489c-bd6a-1d2b92c0db80}</Project>
+      <Name>AALife.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SexSpider.Core\SexSpider.Core.csproj">
+      <Project>{0DED42F6-BA1E-42E8-ACEB-952CCBC6CDAD}</Project>
+      <Name>SexSpider.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>13765</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9642/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

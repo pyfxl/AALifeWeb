@@ -1,0 +1,267 @@
+﻿@model SexSpider.Core.Models.SexSpiders
+
+@{
+    ViewData["Title"] = "List";
+}
+
+<style type="text/css">
+    .k-grid-toolbar { text-align: right; }
+</style>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="main">
+            <div id="splitter">
+                <div id="left-pane">
+                    <div class="pane-content">
+                        <span id="gridNotification" style="display:none;"></span>
+                        <div id="grid"></div>
+                    </div>
+                </div>
+                <div id="right-pane">
+                    <div class="pane-content">
+                        <span id="imageNotification" style="display:none;"></span>
+                        <div id="image">
+                            <div class="panel panel-default k-widget image-section" style="display:none;">
+                                <div class="panel-heading k-header">
+                                    <h3 class="panel-title image-title"></h3>
+                                </div>
+                                <div class="panel-body image-body">
+                                </div>
+                            </div>                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    
+<script>
+        var page = 1, resizeTimer;
+
+        $(document).ready(function() {
+
+            //刷新高度
+            resizeMain();
+
+            var splitter = $("#splitter").kendoSplitter({
+                panes: [
+                    { collapsible: true },
+                    { collapsible: true, collapsed: true }
+                ],
+                resize: function(e) {
+                    resizeImage();
+                }
+            });
+
+            var grid = $("#grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format(sex.api.list, @Model.SiteId, page),
+                            dataType: "json",
+                            cache: false
+                        }
+                    },
+                    error: function (e) {
+                        //debugger;
+                        //gridNotification.show({
+                        //    title: "error",
+                        //    message: "加载出错了！"
+                        //}, "error");
+                    },
+                    schema: {
+                        model: {
+                            fields: {
+                                thumb: { type: "string" },
+                                title: { type: "string" },
+                                domain: { type: "string" },
+                                link: { type: "string" }
+                            }
+                        }
+                    },
+                    requestEnd: function (e) {
+                        var grid = $("#grid").data("kendoGrid");
+                        grid.element.find(".k-grid-content").scrollTop(0);
+                    }
+                },
+                scrollable: true,
+                sortable: false,
+                pageable: false,
+                toolbar: [
+                    {
+                        name: "name",
+                        template: "<p class='bar-name pull-left'>@Model.SiteRank. @Html.Raw(Model.SiteName)&nbsp;&nbsp;<a href='@Model.Domain' target='_blank'>@Model.Domain</a></p>"
+                    },
+                    {
+                        name: "refresh",
+                        text: "刷新",
+                        iconClass: "k-icon k-i-refresh"
+                    },
+                    {
+                        name: "prevPage",
+                        text: "上页",
+                        iconClass: "k-icon k-i-arrow-chevron-left"
+                    },
+                    {
+                        name: "nextPage",
+                        text: "下页",
+                        iconClass: "k-icon k-i-arrow-chevron-right"
+                    }
+                ],
+                columns: [
+                    {
+                        template: "<img src='#=thumb#' title='' />",
+                        field: "thumb",
+                        title: "缩略图",
+                        width: "33%"
+                    },
+                    {
+                        template: "<a href='javascript:;' onclick='showImage(@Model.SiteId, \"#=link#\", \"#=title#\", \"#=link#\")'>#=title#</a>",
+                        field: "title",
+                        title: "标题（单击查看图片）",
+                        width: "34%"
+                    },
+                    {
+                        template: "<a href='#=link#' target='_blank'>#=link#</a>",
+                        field: "link",
+                        title: "链接",
+                        width: "33%"
+                    }
+                ],
+                noRecords: false,
+                dataBound: function () {
+                    $('#grid img').jqthumb();
+                }
+            });
+
+            $(window).resize(function () {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(function () {
+                    resizeMain();
+                    $("#splitter").data("kendoSplitter").resize();
+                    //resizeImage();
+                }, 200);
+            });
+
+            var gridNotification = $("#gridNotification").myNotification({
+                parentTarget: "#left-pane",
+                templates: [{
+                    type: "error",
+                    template: '<div class="notification-info"><span class="k-icon k-i-error pull-left"></span><p>#= message #</p></div>'
+                }]
+            });
+
+            var imageNotification = $("#imageNotification").myNotification({
+                parentTarget: "#right-pane",
+                templates: [{
+                    type: "info",
+                    template: '<div class="notification-info"><span class="k-icon k-i-info pull-left"></span><p>#= message #</p></div>'
+                }]
+            });
+
+            //imageNotification.show({
+            //    title: "error",
+            //    message: "图片查看区域。"
+            //}, "info");
+        });
+
+        $("#grid").on("click", ".k-grid-refresh", function () {
+            reloadGrid();
+        });
+
+        $("#grid").on("click", ".k-grid-nextPage", function () {
+            page += 1;
+            reloadGrid();
+        });
+
+        $("#grid").on("click", ".k-grid-prevPage", function () {
+            page > 1 ? page -= 1 : page = 1;
+            reloadGrid();
+        });
+
+        function reloadGrid() {
+            var grid = $("#grid").data("kendoGrid");
+            grid.dataSource.transport.options.read.url = String.format(sex.api.list, @Model.SiteId, page);
+            grid.dataSource.read();
+        }
+
+        function resizeImage() {
+            var div = $(".image-body");
+            var windowHeight = $(window).innerHeight();
+            var offsetTop = div.offset().top;
+            var paddingBottom = 0;
+            var fixHeight = 0;
+
+            var calculatedHeight = windowHeight - offsetTop - paddingBottom - fixHeight;
+            div.height(calculatedHeight);
+        }
+
+        function showImage(siteId, url, title, link) {
+            $(".image-title").html("").append(title + "&nbsp;<a href='" + link + "' target='_blank'>" + link);
+            $(".image-section").show();
+            //resizeImage();
+
+            var splitter = $("#splitter").data("kendoSplitter");
+            splitter.expand(".k-pane:last");
+
+            var _siteId = siteId;
+            var _url = encodeURIComponent(url);
+            var _viewUrl = String.format(sex.api.image, _siteId, _url);
+
+            $.ajax({
+                url: _viewUrl,
+                success: function(data) {
+                    //console.log(data);
+                    $(".image-body").html("");
+                    $.each(data, function(i, d) {
+                        if (isVideo(d.imageurl)) {
+                            $(".image-body").append('<p><a href="javascript:;" onclick="playVideo(\'' + d.imageurl + '\', 1)">播放html5</a>&nbsp;&nbsp;<a href="javascript:;" onclick="playVideo(\'' + d.imageurl + '\', 0)">播放flash</a></p>');
+                        } else {
+                            $(".image-body").append("<p><img src='" + d.imageurl + "' title=''/></p>");
+                        }
+                    });
+                },
+                beforeSend: function() {
+                    kendo.ui.progress($("#image"), true);
+                },
+                complete: function() {
+                    kendo.ui.progress($("#image"), false);
+                }
+            });
+        }
+
+        function isVideo(url) {
+            return url.lastIndexOf(".mp4")>0 || url.lastIndexOf(".m3u8")>0
+        }
+
+</script>
+
+    <script type="text/javascript" src="~/Scripts/chplayer/chplayer.js"></script>
+    <script type="text/javascript">
+        var player;
+        function playVideo(url, hls) {
+            $(".image-body").append('<div id="video" style="width: 100%; height: 450px;"></div>');
+            //console.log(url);
+            var videoObject = {
+                container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
+                variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+                video: url//视频地址
+            };
+            if (hls == 1) {
+                videoObject['html5m3u8'] = true;
+            }
+            player = new chplayer(videoObject);
+        }
+        function pause() {
+            player.pause();
+        }
+        function remove() {
+            player.removeChild();
+        }
+    </script>
+
+}

@@ -9,7 +9,7 @@ namespace AALife.Service.Dapper
 {
     public class BaseBLL
     {
-        private readonly string sqlconnection = ConfigurationManager.ConnectionStrings["AALifeWebForApp"].ToString();
+        private readonly string sqlconnection = ConfigurationManager.ConnectionStrings["DefaultConnString"].ToString();
 
         public SqlConnection OpenConnection()
         {

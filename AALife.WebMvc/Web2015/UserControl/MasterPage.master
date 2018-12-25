@@ -1,0 +1,151 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" Inherits="UserControl_MasterPage" Codebehind="MasterPage.master.cs" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server"><%= "\r\n" %>
+<title><%=Page.Header.Title %><%=WebConfiguration.SiteName%></title><%= "\r\n" %>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" /><%= "\r\n" %>
+<%= "<meta name=\"Author\" content=\"" + WebConfiguration.SiteAuthor + "\"/>" + "\r\n" %>
+<%= "<meta name=\"Keywords\" content=\"" + WebConfiguration.SiteKeywords + "\"/>" + "\r\n" %>
+<%= "<meta name=\"Description\" content=\"" + WebConfiguration.SiteDescription + "\"/>" + "\r\n" %>
+<script src="/Web2015/common/jquery.min.js" type="text/javascript"></script>
+<script src="/Web2015/common/jquery.cookie.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="/Web2015/common/development-bundle/ui/minified/jquery.ui.core.min.js"></script>
+<script type="text/javascript" src="/Web2015/common/development-bundle/ui/minified/jquery.ui.widget.min.js"></script>
+<script type="text/javascript" src="/Web2015/common/development-bundle/ui/minified/jquery.ui.position.min.js"></script>
+<script type="text/javascript" src="/Web2015/common/development-bundle/ui/minified/jquery.ui.autocomplete.min.js"></script>
+<script type="text/javascript" src="/Web2015/common/development-bundle/ui/minified/jquery.ui.datepicker.min.js"></script>
+<script type="text/javascript" src="/Web2015/common/development-bundle/ui/i18n/jquery.ui.datepicker-zh-CN.js"></script>
+<link rel="stylesheet" href="/Web2015/common/development-bundle/themes/base/jquery.ui.all.css"/>
+<style type="text/css">
+.ui-autocomplete-loading { background: white url('/Images/Others/ui-anim_basic_16x16.gif') right center no-repeat; }
+</style>
+<link href="/Web2015/common/master.css" rel="stylesheet" type="text/css" />
+<link href="/Web2015/common/<%=Request.Cookies["ThemeCookie"] == null || Request.Cookies["ThemeCookie"].Value == "" ? "main" : Request.Cookies["ThemeCookie"].Value %>.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+    var os = "android|iphone|ipad|windows phone|ucweb|opera|mobile|phone|blackberry|symbian|nokia|fennec";
+    var agent = navigator.userAgent.toLowerCase();
+    var reg = new RegExp(os, "gi");
+    if (reg.test(agent)) {
+        document.write('<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />');
+        document.write('<meta name="format-detection" content="telephone=no" />');
+        document.write('<meta name="apple-mobile-web-app-capable" content="yes" />');
+        document.write("<style type=\"text/css\">#box { width:98%; }</style>");
+    }
+</script>
+<script type="text/javascript">
+    //选择日期
+    function datechoose(obj) {
+        $("#datechoose").toggle();
+        var _top = $(obj).parent().position().top + $(obj).parent().height() + 2;
+        var _left = $(obj).parent().position().left + ($(obj).parent().width() / 2) - ($("#datechoose").width() / 2);
+        
+        $("#datechoose").css({ "top": _top, "left": _left });
+    }
+
+    function rankmenu(obj) {
+        obj.addClass("on");
+        var _txt = obj.children().text();
+        obj.html("<a href=\"javascript:void(0)\" id=\"datepicker\">" + _txt + "&nbsp;&nbsp;<img src=\"/Images/Others/calendar.png\" alt=\"\" title=\"\" /></a>");
+    }
+
+    function fullmonth(num) {
+        return num < 10 ? "0" + num : num;
+    }
+
+    //取图表视图
+    function getview() {
+        if ($.cookie("view") == "1") {
+            $(".tabledate input[type=radio]").eq(1).attr("checked", "checked");
+            $(".chartdiv").css("display", "block");
+            $(".tablehead").hide();
+        } else {
+            $(".tabledate input[type=radio]").eq(0).attr("checked", "checked");
+            $(".chartdiv").css("display", "none");
+            $(".tablehead").show();
+        }
+    }
+
+    //取当前日期
+    function gettoday() {
+        return "<%=Session["TodayDate"] ?? DateTime.Now.ToString("yyyy-MM-dd")%>";
+    }
+
+    //取价格dec
+    function getprice(obj) {
+        obj.value = obj.value.replace(/[^0-9\.\-]/g, '');
+        if (obj.value.split('.').length > 2 || obj.value.split('-').length > 2 || obj.value.indexOf('-') > 0) {
+            obj.value = obj.value.substr(0, obj.value.length - 1);
+        }
+    }
+
+    //取价格int
+    function getpriceint(obj) {
+        obj.value = obj.value.replace(/[^0-9]/g, '');
+    }
+
+    //列头固定
+    function fixhead() {
+        var _width = $(".tablelist").eq(0).width();
+        _width = (/Trident/.test(navigator.userAgent)) ? _width + 1 : _width + 2;
+        var _top = $(".tablelist").eq(0).position().top + 2;
+
+        var _tr = $(".tablelist").eq(0).find("tr:first").html();
+        $(".maindiv").append("<table cellspacing=\"0\" border=\"1\" style=\"width:100%;\" class=\"tablelist tablehead\"><tr>" + _tr + "</tr></table>");
+        //$(".tablelist tr:first").css("visibility", "hidden");
+
+        $(".tablehead").css({ "position": "absolute", "top": _top, "width": _width });
+    }
+    function fixheadtop() {
+        var _top = $(".tablelist").eq(0).position().top;
+        $(".tablehead").css("top", _top);
+    }
+</script>
+<asp:ContentPlaceHolder id="head" runat="server">
+</asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <!--总框架-->
+    <div id="box">
+        <div id="sitetip"><%=Utility.UnReplaceString(WebConfiguration.SiteTips)%></div>    
+        <!--顶部-->
+        <div id="top">
+            <div class="logo"><a href="/Web2015/Default.aspx"><img src="/Images/Others/logo72.png" width="72" height="72" border="0" alt="AA生活记账" title="AA生活记账" /></a></div>
+            <div class="name">
+                <h1>AA生活记账&nbsp;&nbsp;<a href="/Web2015/SearchItem.aspx"><img src="/Images/Others/magnifier.png" alt="搜索" title="搜索" /></a>&nbsp;&nbsp;<a href="/Web2015/Default.aspx"><img src="/Images/Others/house.png" alt="首页" title="首页" /></a></h1>
+                <h2>简单记账，AA生活记账。免费的在线记账网站。<a target="_blank" href="http://shang.qq.com/wpa/qunwpa?idkey=944c168235281af2bf07b97f297950d1502ac20a861f261fb0573c78c96abc9a"><img border="0" height="15" src="http://pub.idqqimg.com/wpa/images/group.png" alt="AA生活记账" title="AA生活记账"/></a></h2>
+            </div>
+            <div class="welcome">
+                <h1>
+                    <asp:Button ID="ImageButton1" runat="server" UseSubmitBehavior="false" Style="background: url(/Images/Others/u58.png); cursor: pointer;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="main" ToolTip="低调红"></asp:Button>
+                    <asp:Button ID="ImageButton2" runat="server" UseSubmitBehavior="false" Style="background: url(/Images/Others/u60.png); cursor: pointer;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="gold" ToolTip="土豪金"></asp:Button>
+                    <asp:Button ID="ImageButton3" runat="server" UseSubmitBehavior="false" Style="background: url(/Images/Others/u62.png); cursor: pointer;" Width="13px" Height="13px" OnCommand="ImageButton_Command" CommandArgument="blue" ToolTip="屌丝蓝"></asp:Button>
+                </h1>
+                <% if (Session["UserID"] != null && Session["UserID"].ToString() != "") { %>
+                <h3>欢迎 <%=Session["UserNickName"].ToString() == "" ? Session["UserName"].ToString() : Session["UserNickName"].ToString()%>。<a href="/Web2015/UserAdmin.aspx">设置</a>&nbsp;&nbsp;<a href="/Web2015/UserCategoryAdmin.aspx">类别</a><%if (Session["UserLevel"] != null && Session["UserLevel"].ToString() == "9"){ %>&nbsp;&nbsp;<a href="/Web2015/AdminUserList.aspx" target="_blank">管理</a><% } %></h3>
+                <% } %>
+            </div>
+        </div>
+        <!--菜单-->
+        <div id="menu">
+            <table border="0" cellspacing="0" style="width:100%;">
+                <tr>
+                    <td><a href="/Web2015/ItemList.aspx"><img src="/Images/Others/calendar_view_day.png" alt="" title="" /> 每日消费</a></td>
+                    <td><a href="/Web2015/MonthList.aspx"><img src="/Images/Others/calendar_view_month.png" alt="" title="" /> 每月消费</a></td>
+                    <td><a href="/Web2015/FenLeiZongJi.aspx"><img src="/Images/Others/chart_bar.png" alt="" title="" /> 消费排行</a></td>
+                    <td><a href="/Web2015/BiJiaoFenXi.aspx"><img src="/Images/Others/chart_pie.png" alt="" title="" /> 消费分析</a></td>
+                    <td><a href="/Web2015/ItemAddSmart.aspx"><img src="/Images/Others/add.png" alt="" title="" /> 添加消费</a></td>
+                </tr>
+            </table>
+        </div>
+        <!--内容-->
+        <asp:ContentPlaceHolder id="MainContent" runat="server">        
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+<asp:ContentPlaceHolder id="js" runat="server">
+</asp:ContentPlaceHolder>
+</html>

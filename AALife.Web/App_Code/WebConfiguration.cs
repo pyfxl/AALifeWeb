@@ -20,8 +20,8 @@ public class WebConfiguration
 
     static WebConfiguration()
     {
-        dbConnectionString = ConfigurationManager.ConnectionStrings["AALifeWebForApp"].ConnectionString;
-        dbProviderName = ConfigurationManager.ConnectionStrings["AALifeWebForApp"].ProviderName;
+        dbConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnString"].ConnectionString;
+        dbProviderName = ConfigurationManager.ConnectionStrings["DefaultConnString"].ProviderName;
         GetConfig();
     }
 

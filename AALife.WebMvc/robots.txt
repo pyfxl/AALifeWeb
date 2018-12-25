@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /UserLogin.aspx
+Disallow: /UserLogout.aspx
+Disallow: /UserRegister.aspx
+Disallow: /Manage
+Allow: /Default.aspx
+Allow: /ItemQuery.aspx
+Allow: /ItemGroup.aspx
+Allow: /ItemCompare.aspx
+Allow: /Helper.aspx

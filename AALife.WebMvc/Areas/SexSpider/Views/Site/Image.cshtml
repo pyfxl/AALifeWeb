@@ -1,0 +1,51 @@
+﻿@model IEnumerable<SexSpider.Core.Models.ImageModel>
+
+@{
+    ViewData["Title"] = "Image";
+}
+
+<style type="text/css">
+    body { padding-top: 0px; }
+    .navbar { display: none; }
+</style>
+
+<div>
+@foreach (var item in Model)
+{
+    @if(item.ImageUrl.EndsWith(".mp4") || item.ImageUrl.EndsWith(".m3u8")) 
+    {
+        <p><a href="javascript:;" onclick="playVideo('@item.ImageUrl', 1)">播放html5</a>&nbsp;&nbsp;<a href="javascript:;" onclick="playVideo('@item.ImageUrl', 0)">播放flash</a></p>
+    } 
+    else 
+    {
+        <p><img src="@item.ImageUrl" title="" /></p>
+    }    
+}
+</div>
+
+<div>
+    <script type="text/javascript" src="~/lib/chplayer/chplayer.js"></script>
+    <div id="video" style="width: 100%; height: 450px; display: none;"></div>
+    <script type="text/javascript">
+        var player;
+        function playVideo(url, hls) {
+            $("#video").show();
+            //console.log(url);
+            var videoObject = {
+                container: '#video',//“#”代表容器的ID，“.”或“”代表容器的class
+                variable: 'player',//该属性必需设置，值等于下面的new chplayer()的对象
+                video: url//视频地址
+            };
+            if (hls == 1) {
+                videoObject['html5m3u8'] = true;
+            }
+            player = new chplayer(videoObject);
+        }
+        function pause() {
+            player.pause();
+        }
+        function remove() {
+            player.removeChild();
+        }
+    </script>
+</div>

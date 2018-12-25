@@ -1,0 +1,58 @@
+﻿body {
+    background: url("bg.jpg") center top repeat;
+}
+
+.menu_nav li a {
+    color: #666;
+}
+.menu_nav li a:hover,
+.menu_nav .cur a {
+    color: black;
+}
+
+#m_right .r_query input, 
+#m_right .r_query select {
+    color: #3f3731;
+    font-weight: bold;
+}
+#m_right .r_query .queryinput input[type=text] {
+    border: 1px solid #e0cfc2;
+    background: #f4f0ec url("images/ui-bg_inset-soft_100_f4f0ec_1x100.png") 50% bottom repeat-x;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+#m_left a, 
+.tablehome .homelink a {
+    color: #3f3731;
+}
+#m_left a:hover, 
+#m_left .l_curli a:hover {
+    background-color: #cb842e;
+    color: white;
+}
+#m_left .l_curli a, 
+.tablehome .homelink a:hover {
+    color: #cb842e;
+}
+
+.tableform input.btninput {
+    background-color: #cb842e;
+    color: white;
+}
+
+.usermenu .on, 
+.usermenu .on a {
+    color: #cb842e;
+}
+.usermenu a {
+    color: #3f3731;
+}
+.usermenu a:hover, 
+.usermenu .on a:hover {
+    color: #cb842e;
+}
+
+#m_top h3 {
+    color: black;
+}

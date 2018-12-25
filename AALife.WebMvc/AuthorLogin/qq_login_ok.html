@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>QQ登录中...</title>
+<script type="text/javascript" src="/Web2015/common/jquery.min.js"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" data-appid="100294524" data-redirecturi="http%3A%2F%2Fwww.fxlweb.com%2FAuthorLogin%2Fqq_login_ok.html" charset="utf-8"></script>
+<script type="text/javascript" src="http://qzonestyle.gtimg.cn/qzone/openapi/qc_loader.js" charset="utf-8" data-callback="true"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+    if(QC.Login.check()){//如果已登录
+	    var oId = "";
+        var aToken = "";
+	    var userNickName = "";
+	    var userImage = "";
+
+	    var paras = {};
+	    QC.api("get_user_info", paras)
+	    .success(function(s){//成功回调
+		    userNickName = encodeURIComponent(s.data.nickname);
+		    userImage = s.data.figureurl_1;
+        
+		    QC.Login.getMe(function (openId, accessToken) {
+			    oId = openId;
+			    aToken = accessToken;
+
+		        self.location.href = "OAuth.aspx?u=qq&openId=" + oId + "&accessToken=" + aToken + "&name=" + userNickName + "&image=" + userImage;
+			    //alert("OAuth.aspx?u=qq&openId=" + oId + "&accessToken=" + aToken + "&name=" + userNickName + "&image=" + userImage);
+		    });
+	    })
+	    .error(function(f){//失败回调
+		    alert("获取用户信息失败！");
+	    })
+	    .complete(function(c){//完成请求回调
+		    //alert("获取用户信息完成！");
+	    });
+    } else {
+	    alert("登录失败！");
+	    self.location.href = "http://www.fxlweb.com";
+    }
+
+</script>
+<h3 style="text-align:center;">QQ登录中，请稍等片刻...</h3>
+</body>
+</html>

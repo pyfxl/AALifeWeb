@@ -1,0 +1,46 @@
+﻿body {
+    background: url("bg.jpg") center top repeat;
+}
+
+#m_right .r_query  input, 
+#m_right .r_query  select {
+    color: #0073ea;
+    font-weight: bold;
+}
+#m_right .r_query .queryinput input[type=text] {
+    border: 1px solid #ddd;
+    background: #fff url("images/ui-bg_flat_75_ffffff_40x100.png") 50% 50% repeat-x;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+#m_left a, 
+.tablehome .homelink a {
+    color: #0073ea;
+}
+#m_left a:hover, 
+#m_left .l_curli a:hover {
+    background-color: #0073ea;
+    color: white;
+}
+#m_left .l_curli a, 
+.tablehome .homelink a:hover {
+    color: #ff0084;
+}
+
+.tableform input.btninput {
+    background-color: #0073ea;
+    color: white;
+}
+
+.usermenu .on, 
+.usermenu .on a {
+    color: #ff0084;
+}
+.usermenu a {
+    color: #0073ea;
+}
+.usermenu a:hover, 
+.usermenu .on a:hover {
+    color: #ff0084;
+}

@@ -1,0 +1,151 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 35px;
+    padding-bottom: 0px;
+    font-size: 13px;
+    font-family: "Microsoft YaHei", "黑体";
+}
+
+.container-fluid {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding: 0px;
+    overflow: hidden;
+}
+
+.navbar {
+    min-height: 35px;
+    margin-bottom: 0px;
+    border-width: 0px;
+}
+
+.navbar-inverse {
+    background-color: #f45835;
+    color: #fff;
+    border-color: #f45835;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(255,255,255,.25)),to(rgba(255,255,255,0)));
+    background-image: -webkit-linear-gradient(rgba(255,255,255,.25) 0,rgba(255,255,255,0) 100%);
+    background-image: linear-gradient(rgba(255,255,255,.25) 0,rgba(255,255,255,0) 100%);
+    /* -webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.3);
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,.3); */
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+    font-size: 15px;
+}
+
+.navbar-brand {
+    height: 35px;
+    padding: 7px 15px;
+}
+
+.notification-info {
+    width: 200px;
+    height: 60px;
+}
+
+.notification-info p {
+    line-height: 60px;
+}
+
+.notification-info span {
+    margin: 22px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+.panel {
+    border-radius: 0;
+    height: 100%;
+    margin-bottom: 0;
+}
+
+.image-body {
+    overflow: auto;
+    padding: 0px;
+}
+
+.image-body p {
+    margin: 0;
+}
+
+.image-title {
+    font-size: 13px;
+    font-weight: 700;
+    /* overflow: hidden;
+    height: 14px; */
+}
+
+.panel-title > a {
+    color: #337ab7;
+}
+
+.panel-heading {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.panel-default > .panel-heading {
+    background-color: #eae8e8;
+    border-color: #c5c5c5;
+}
+
+#splitter {
+    border: none;
+}
+
+.k-splitter .k-splitbar-horizontal {
+    border-width: 0px;
+}
+
+#left-pane {
+    overflow: hidden;
+}
+
+#splitter, .left-pane, .right-pane, .pane-content, 
+#grid {
+    height: 100%;
+}
+
+#image {
+    height: 100%;
+    overflow: hidden;
+}
+
+.bar-name {
+    margin: 5px;
+    font-weight: 700;
+}
+
+.k-multiselect-wrap {
+    padding-right: 0 !important;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}

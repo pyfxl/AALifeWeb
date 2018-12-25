@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - SexSpider</title>
+
+    <link rel="stylesheet" href="~/Scripts/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Scripts/kendoui/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="~/Scripts/kendoui/styles/kendo.default.min.css" />
+    <link rel="stylesheet" href="~/Scripts/kendoui/styles/kendo.mobile.all.min.css" />
+    <link rel="stylesheet" href="~/Content/font-awesome.css" />
+    <link rel="stylesheet" href="~/Content/sexspider.default.css" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="/SexSpider/Site" class="navbar-brand"><i class="fa-icon fa fa-bug"></i> SexSpider</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid body-content">
+        @RenderBody()
+    </div>
+
+    <script src="~/Scripts/jquery/dist/jquery.js"></script>
+    <script src="~/Scripts/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/Scripts/kendoui/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendoui/js/cultures/kendo.culture.zh-CN.min.js"></script>
+    <script src="~/Scripts/kendoui/js/messages/kendo.messages.zh-CN.min.js"></script>
+    <script src="~/Scripts/jqthumb.min.js"></script>
+    <script src="~/Scripts/String.js"></script>
+    <script src="~/Scripts/sexspider.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    <script type="text/javascript">
+
+        function resizeMain() {
+            var div = $("#main");
+            var windowHeight = $(window).innerHeight();
+            var offsetTop = div.offset().top;
+            var paddingBottom = 0;
+            var fixHeight = 0;
+
+            var calculatedHeight = windowHeight - offsetTop - paddingBottom - fixHeight;
+            div.height(calculatedHeight);
+        }
+
+        //小屏幕
+        function IsSmallScreen() {
+            return $(window).width() < 768;
+        }
+
+        jQuery(function ($) {
+            // kendo ui
+            kendo.culture("zh-CN");
+        })
+
+    </script>
+
+</body>
+</html>

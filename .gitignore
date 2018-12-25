@@ -22,3 +22,8 @@
 /AALife.MSMQ/bin
 /AALife.Service/obj
 /AALife.Service/bin
+/deploy
+/AALife.WebMvc/bin
+/AALife.WebMvc/obj
+/SexSpider.Core/bin
+/SexSpider.Core/obj

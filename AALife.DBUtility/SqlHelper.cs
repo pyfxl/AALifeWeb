@@ -6,7 +6,7 @@ namespace AALife.DBUtility
 {
     public abstract class SqlHelper
     {
-        public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["AALifeWebForApp"].ConnectionString;
+        public static readonly string ConnectionString = ConfigurationManager.ConnectionStrings["DefaultConnString"].ConnectionString;
         //public static readonly string ConnectionString = "Server=(local); Initial Catalog=aalife20150404; Persist Security Info=True; Integrated Security=SSPI;";
 
         public static SqlDataReader ExecuteReader(string connectionString, CommandType cmdType, string cmdText, params SqlParameter[] commandParameters)

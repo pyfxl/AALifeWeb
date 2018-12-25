@@ -1,0 +1,736 @@
+﻿html,body,tbody,div,p,a,img,table,tr,td,th,h1,h2,h3,h4,h5,span,li,form,input,select
+{
+    font-family: "Microsoft YaHei", "黑体";
+    padding: 0;
+    margin: 0;
+    border: 0;
+    /*overflow: hidden;*/
+}
+html 
+{
+}
+body 
+{
+    background: #222;
+    font-size: 12px;
+    font-weight: normal;
+    /*-moz-user-select: none;/*禁止双击<body onselectstart="return false;">*/
+}
+img
+{
+    vertical-align: middle;
+}
+a 
+{
+    color: #000;
+    text-decoration: none;
+}
+a:hover 
+{
+    /*text-decoration: underline;*/
+    font-weight: bold;  
+}
+h1, h2, h3, h4, h5 
+{
+    font-size: 12px;
+    font-weight: normal;
+}
+table
+{
+    margin: 0 auto;
+}
+
+/************************************************总体************************************************/
+#sitetip
+{
+    position: absolute;
+    top: 8px;
+    color: #FFF;
+    left: 50%;
+    /*display: none;*/
+}
+#box 
+{
+    width: 760px;
+    height: 635px;
+    /*border: 1px solid #FFF;*/
+    margin: 0 auto;
+    position: relative;
+}
+
+/************************************************顶部************************************************/
+#top
+{
+    width: 100%;
+    height: 72px;
+    color: #FFF;
+	overflow: hidden;
+}
+#top .logo
+{
+    float: left;
+    margin: 0 4px;
+}
+#top h1
+{
+    font-size: 18px;
+}
+#top h1, #top h2, #top h3
+{
+    line-height: 200%;
+	white-space: nowrap;
+    overflow: hidden;
+}
+#top .name
+{
+    float: left;
+	width: 45%;
+}
+#top .welcome
+{
+    float: right;
+    margin-right: 10px;
+    text-align: right;
+	width: 35%;
+}
+#top a
+{
+    color: #99CCFF;
+}
+#top a:hover
+{
+    color: #FFF;
+}
+
+/************************************************菜单************************************************/
+#menu table
+{
+    clear: both;
+    width: 100%;    
+    font-size: 13px;
+	/*background: #BBB; /* 一些不支持背景渐变的浏览器 */     
+    filter: alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#222222,endcolorstr=#BBBBBB,gradientType=0);
+    -ms-filter: alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#222222,endcolorstr=#BBBBBB,gradientType=0);/*IE8*/
+    background: -moz-linear-gradient(top, #222222, #BBBBBB);  
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#222222), to(#BBBBBB));  
+    background: -o-linear-gradient(top, #222222, #BBBBBB);
+}
+#menu a
+{
+    color: #FFF;
+    display: block;
+    text-align: center;
+    height: 31px;
+    line-height: 31px;
+}
+#menu a:hover
+{
+    color: #000;
+}
+#menu table td 
+{
+    height: 31px;
+	overflow: hidden;
+}
+#menu table td.on a
+{
+    color: #000;
+    font-weight: bold;
+    /*text-shadow: #FFF 1px 1px 1px; 
+    FILTER: Shadow(Color=#FFF, Direction=90, Strength=1);*/
+}
+
+/************************************************内容************************************************/
+#content
+{
+    clear: both;
+    padding: 10px 0;
+    /*width: 760px;
+    height: 500px;
+    overflow-y: auto;*/
+}
+.maindiv
+{
+    background: #FFF;
+    max-height: 451px;
+    overflow-y: auto;
+}
+.userdiv
+{
+    max-height: 480px;
+}
+.tongjidiv
+{
+    max-height: 511px;
+    overflow-y: auto;
+}
+.groupdiv 
+{
+    width: 213px;
+    float: left;
+    margin-top: 30px;
+    margin-left: 30px;
+    border: 1px solid #CCC;
+}
+.chartdiv 
+{
+    padding: 10px;
+    background: #FFF;
+    display: none;
+}
+#content .left
+{
+    width: 50%;
+    float: left;
+    background: #FFF;
+    overflow-x: auto;
+}
+#content .right
+{
+    width: 49%;
+    float: right;
+    background: #FFF;
+    overflow-x: auto;
+}
+#content .title 
+{
+    height: 29px;
+    line-height: 29px;
+    border-bottom: 2px solid #BBB;
+    padding-left: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    background: #FFF;
+	position: relative;
+}
+#content .title span
+{
+    position: absolute;
+	right: 10px;
+	top: 0;
+    font-weight: normal;
+    font-size: 12px;
+}
+#content .userfunc
+{
+    height: 42px;
+    /*line-height: 42px;*/
+    padding-left: 10px;
+    position: relative;
+    white-space: normal;
+}
+#content .usermoney
+{
+    line-height: 42px;
+}
+#content .userfunc p
+{
+    font-weight: bold;
+    float: left;
+}
+#content .userfunc a
+{
+    margin-left: 10px;
+}
+#content .userfunc .linkedit
+{
+    color: #999;
+    font-style: italic;
+}
+#content .userfunc strong
+{
+    font-size: 20px;
+    font-weight: bold;
+}
+#content .userfunc em
+{
+    position: absolute;
+    right: 10px;
+}
+                                    /********** tabletitle **********/
+table.tabletitle
+{
+    background: #FFF;
+}
+table.tabletitle td 
+{
+    height: 27px;
+    border-bottom: 2px solid #BBB;
+	/*white-space: nowrap;*/
+	overflow: hidden;
+}
+table.tabletitle a
+{
+    display: block;
+    height: 29px;
+    line-height: 29px;
+    text-align: center;
+}
+table.tabletitle td.on
+{
+    border-left: 2px solid #BBB;
+    border-top: 2px solid #BBB;
+    border-right: 2px solid #BBB;
+    border-bottom: 2px solid #FFF;
+}
+table.tabletitle td.on a
+{
+    font-weight: bold;
+}
+                                    /********** tablelist **********/
+table.tablelist 
+{
+    border-collapse: collapse;
+    border: 1px solid #FFF;
+}
+table.tablelist td, table.tablelist th
+{
+    background: #F4F4F4;
+    border: 1px solid #FFF;
+    height: 29px;
+    text-align: center;
+    /*position: relative;*/
+}
+.zhuantidiv table.tablelist td 
+{
+    border: none;
+    height: 39px;
+}
+table.tablelist .bjcur
+{
+    /*background: #FFEAEA;*/
+}
+table.tablelist .bjprev
+{
+    background: #F0F0F0;
+}
+table.tablelist .bjlink
+{
+    
+}
+table.tablelist td.cellprice, table.tablelist th.cellprice, table.tablelist td.cellprice input
+{
+    text-align: right;
+    padding-right: 6px;
+	+padding-right: 0;
+}
+table.tablelist td.cellleft, table.tablelist th.cellleft, table.tablelist td.cellleft input
+{
+    text-align: left;
+    padding-left: 6px;
+	+padding-left: 0;
+}
+table.tablelist td.pricebold, table.tablelist th.pricebold, table.tablehome td.pricebold 
+{ 
+    font-weight: bold; 
+}
+table.tablelist td.pricered, table.tablelist th.pricered, table.tablehome td.pricered 
+{ 
+    color: red; 
+}
+table.tablelist td.priceblue, table.tablelist th.priceblue, table.tablehome td.priceblue 
+{ 
+    color: blue; 
+}
+table.tablelist td.pricenone, table.tablelist th.pricenone, table.tablehome td.pricenone  
+{ 
+    color: #DDD; 
+}
+table.tablelist th.pricepurple
+{
+    color: purple;
+}
+table.tablelist input.imginput
+{
+    background: none;
+    box-shadow: none;
+}
+
+table.tablelist tr.expanddiv table.tablelist
+{
+    border: none;
+    /*background: #BBB; /* 一些不支持背景渐变的浏览器 */     
+    filter: alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#F4F4F4,endcolorstr=#DDDDDD,gradientType=0);
+    -ms-filter: alpha(opacity=100 finishopacity=100 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#F4F4F4,endcolorstr=#DDDDDD,gradientType=0);/*IE8*/
+    background: -moz-linear-gradient(top, #F4F4F4, #DDDDDD);  
+    background: -webkit-gradient(linear, 0 0, 0 bottom, from(#F4F4F4), to(#DDDDDD));  
+    background: -o-linear-gradient(top, #F4F4F4, #DDDDDD);
+}
+table.tablelist tr.expanddiv table.tablelist th, table.tablelist tr.expanddiv table.tablelist td
+{
+    background: none;
+    border: none;
+    /*border-right: 1px solid #FFF;*/
+    color: #777;
+}
+table.tablelist tr.expanddiv a
+{
+    color: #777;
+}
+table.tablelist tr.expandtr td
+{
+    font-weight: bold;
+    background-color: #EEE;
+}
+
+table.tablelist .cellregion
+{
+    position: relative;
+    height: 29px;
+    line-height: 29px;
+}
+table.tablelist .regionname, table.tablelist .zhuantiname
+{
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    background-color: #BBB;
+    color: #FFF;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+table.tablelist .zhuantiname
+{
+    background-color: purple;
+}
+
+table.tablelist input, table.tablelist select
+{
+    width: 100%;
+    line-height: 29px;
+    background: #FFF;
+    text-align: center;
+    font-size: 12px;
+}
+table.tablelist input 
+{
+    height: 29px;
+    background: url("/Images/Others/inputbg.png") top left #FFF;
+}
+table.tablelist td.typeselect
+{
+    padding: 5px;
+    height: 17px;
+    background: url("/Images/Others/inputbg.png") top left #FFF;
+	+padding: 0;
+}
+table.tablelist td.noitemcell
+{
+    height: 0;
+    border-bottom: 1px solid #F4F4F4;
+}
+table.tablelist td.noitemcell span
+{
+    height: 29px;
+    line-height: 29px;
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid #FFF;
+}
+table.tablelist tr.totalcell td
+{
+    font-weight: bold;
+    height: 28px;
+}
+table.tablelist input.btninput
+{
+    border: none;
+    padding: 0;
+    background: #BBB;
+    color: #FFF;
+}
+table.tablelist input.btninput:hover
+{    
+    font-weight: bold;
+    color: #000;
+}
+table.tablelist .radioinput input
+{
+    width: 14px;
+    height: 14px;
+    background: none;
+}
+                                    /********** tableadd **********/
+table.tableadd td
+{
+    border-top: 1px solid #E4E4E4;
+    background: #E4E4E4;
+    height: 28px;
+}
+                                    /********** tablehome **********/
+table.tablehome 
+{
+}
+table.tablehome td 
+{
+    border-bottom: 1px dotted #666;
+    text-align: left;
+    padding: 0 10px;
+    height: 31px;
+	white-space: nowrap;
+}
+table.tablehome td.cellprice 
+{
+    text-align: right;
+}
+table.tablehome td.cellcenter
+{
+    text-align: center;
+    font-weight: bold;
+}
+table.tablehome td.cellright
+{
+    border-right: 1px dotted #DDD;
+}
+                                    /********** tableuser **********/
+table.tableuser td input, table.tableuser th input, #zhuantiedit input  
+{
+    width: 98px;
+    height: 29px;
+    line-height: 29px;
+    font-size: 12px;
+    background: url("/Images/Others/inputbg.png") top left #FFF;
+    border: 1px solid #E4E4E4;
+    padding: 0 5px;
+}
+table.tableuser td select, #zhuantiedit select
+{
+    border: 1px solid #E4E4E4;
+    height: 29px;
+    width: 110px;
+}
+table.tableuser .radioinput input
+{
+    width: 14px;
+    height: 14px;
+    background: none;
+    border: none;
+}
+table.tableuser .region2
+{
+    display: none;
+}
+table.tableuser input.btninput, #zhuantiedit input.btninput
+{
+    width: 110px;
+    text-align: center;
+    border: none;
+    padding: 0;
+    background: #999;
+    color: #FFF;
+    border-radius: 3px;
+}
+table.tableuser input.btninput:hover
+{    
+    font-weight: bold;
+    color: #000;
+}
+table.tableuser td, table.tableuser th
+{
+    padding-bottom: 10px;
+    height: 29px;
+}
+table.tableuser em
+{
+    padding-left: 10px;
+    color: #999;
+    font-size: 11px;
+}
+table.tableuser input.fileinput 
+{
+    background: none;
+    /*border: none;*/
+    padding: 0;
+    width: 210px;
+} 
+table.tableuser tr.userline td, table.tableuser tr.userline th
+{
+    border-bottom: 1px solid #BBB;
+}
+                                    /********** tabzhuanti **********/
+table.tabzhuanti input 
+{
+    font-size: 12px;
+    padding: 0 2px;
+    background: #FFF;
+    height: 24px;
+    line-height: 24px;
+    width: auto;
+    border: 1px solid #CCC;
+}
+table.tabzhuanti select 
+{
+    padding: 3px 0;
+    font-size: 12px;
+    background: #FFF;
+    border: 1px solid #CCC;
+}
+table.tabzhuanti td 
+{
+    white-space: nowrap;
+    overflow: hidden;
+    height: 29px;
+}
+.zhuantidiv 
+{
+    max-height: 420px;
+}
+table.tablelist td.zhuantidot 
+{
+    background: url("/Images/Others/zhuantidot.png") no-repeat center center #F4F4F4;
+}
+                                    /********** itemaddsmart **********/
+table.tableuser .smartitem p
+{
+    border: 1px solid #E4E4E4;
+    float: left;
+    height: 27px;
+    line-height: 27px;
+    padding: 0 2px;
+    margin-right: 3px;
+    cursor: pointer;
+    margin-bottom: 3px;
+}
+table.tableuser .smartitem p:hover
+{
+    border: 1px solid #CCC;
+    font-weight: bold;
+}
+table.tableuser .smartitem .on
+{
+    border: 1px solid #CCC;
+    font-weight: bold;
+    background: #F4F4F4;
+}
+table.tableuser .smartitem
+{
+    padding-left: 3px;
+    padding-right: 10px;
+    height: 29px;
+    display: block;
+    overflow: hidden;
+}
+table.tableuser .smartitem img
+{
+    padding-top: 7px;
+}
+                                    /********** tablelogin **********/
+table.tablelogin td input 
+{
+    width: 200px;
+}
+                                    /********** tabledate **********/
+table.tabledate td
+{
+    background: #FFF;
+    height: 29px;
+    text-align: center;
+	white-space: nowrap;
+}
+/************************************************日历************************************************/
+#zhuantiedit {
+    width: 200px;
+    height: 60px;
+    position: absolute;
+    z-index: 10;
+    top: 180px;
+    left: 50%;
+    margin-left: -120px;
+    background: #F4F4F4;
+    border: 2px solid #C4C4C4;
+    padding: 20px;
+    display: none;
+}
+#zhuantiedit a {
+    position: absolute;
+    right: 3px;
+    top: 0;
+}
+#zhuantiedit p {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+#zhuantiedit input.btninput {
+    width: 40px;
+}
+#datechoose
+{
+    background: #FFF;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: none;
+    z-index: 90;
+}
+#sitemsg 
+{
+    background: #F4F4F4;
+    position: absolute;
+    z-index: 100;
+    width: 400px;
+    height: 180px;
+    top: -224px;
+    left: 50%;
+    margin-left: -222px;
+    border: 2px solid #C4C4C4;
+    padding: 20px;
+}
+#sitemsg h3 
+{
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+#sitemsg p 
+{
+    font-size: 14px;
+    line-height: 160%;
+    /*text-indent: 2em;*/
+}
+#sitemsg .close 
+{
+    position: absolute;
+    right: 3px;
+    top: 0;
+    font-size: 16px;
+}
+
+.ui-corner-all { border-bottom-right-radius: 0; }
+.ui-corner-all { border-bottom-left-radius: 0; }
+.ui-corner-all { border-top-right-radius: 0; }
+.ui-corner-all { border-top-left-radius: 0; }
+.ui-datepicker { padding: 0; }
+.ui-datepicker th, .ui-datepicker td { width: 20px; height: 20px; }
+.ui-datepicker table { margin: 0; }
+.ui-widget { font-size: 1.0em; }
+.ui-widget-content { background: #FFF; border-color: #BBB; }
+.ui-widget-header { background: #BBB; border-color: transparent; color: #FFF; }
+.ui-widget-content .ui-state-default { background: #FFF; color: #000; border-color: transparent; text-align: center; }
+.ui-widget-content .ui-priority-secondary { color: Gray; }
+.ui-widget-content .ui-state-highlight { border-color: transparent; font-weight: bold; }
+.ui-widget-content .ui-state-hover { font-weight: bold; background: #99CCFF; border-color: transparent; }
+.ui-widget-header .ui-state-hover { background-color: transparent; border-color: transparent; }
+.ui-widget-header .ui-icon { background-image: url("../common/development-bundle/themes/base/images/ui-icons_ffffff_256x240.png"); }
+.ui-state-hover .ui-icon { background-image: url("../common/development-bundle/themes/base/images/ui-icons_222222_256x240.png"); }
+
+/************************************************公共************************************************/
+.h5 
+{
+    height: 5px;
+    clear: both;
+}
+.h10 
+{
+    height: 10px;
+    clear: both;
+}
+.h30 
+{
+    height: 30px;
+    clear: both;
+}
+.error
+{
+    color: #F00;
+}
