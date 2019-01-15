@@ -1,4 +1,12 @@
-﻿using Newtonsoft.Json.Serialization;
+﻿using AALife.Core;
+using AALife.Core.Services;
+using AALife.WebMvc.DependencyManagement;
+using AALife.WebMvc.Mapper;
+using Autofac;
+using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
+using AutoMapper;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,22 +30,53 @@ namespace AALife.WebMvc
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
+            //webapi返回json
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
 
-            var formatters = GlobalConfiguration.Configuration.Formatters;
-            var jsonFormatter = formatters.JsonFormatter;
-            var settings = jsonFormatter.SerializerSettings;
-            //settings.Formatting = Newtonsoft.Json.Formatting.Indented;
-            settings.DateFormatString = "yyyy-MM-dd HH:mm:ss";
-            settings.ContractResolver = new LowercaseContractResolver();
+            //register dependencies
+            RegisterDependencies();
+            
+            //register mapper configurations
+            RegisterMapperConfiguration();
         }
+
+        /// <summary>
+        /// Register dependencies
+        /// </summary>
+        /// <param name="config">Config</param>
+        protected virtual void RegisterDependencies()
+        {
+            var builder = new ContainerBuilder();
+
+            var dependencyRegistrar = new DependencyRegistrar();
+            dependencyRegistrar.Register(builder);
+
+            var container = builder.Build();
+
+            //set dependency resolver
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+
+            //注入webapi
+            GlobalConfiguration.Configuration.DependencyResolver = (new AutofacWebApiDependencyResolver(container));
+        }
+
+        /// <summary>
+        /// Register mapping
+        /// </summary>
+        /// <param name="config">Config</param>
+        protected virtual void RegisterMapperConfiguration()
+        {
+            //mapper配置
+            var mapper = new Mapper.MapperConfiguration();
+
+            //get configurations
+            var configurationActions = new List<Action<IMapperConfigurationExpression>>();
+            configurationActions.Add(mapper.GetConfiguration());
+
+            //register
+            AutoMapperConfiguration.Init(configurationActions);
+        }
+
     }
 
-    public class LowercaseContractResolver : Newtonsoft.Json.Serialization.DefaultContractResolver
-    {
-        protected override string ResolvePropertyName(string propertyName)
-        {
-            return propertyName.ToLower();
-        }
-    }
 }

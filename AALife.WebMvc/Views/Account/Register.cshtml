@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "注册新用户";
+    var siteName = WebConfiguration.SiteName;
+}
+
+<div class="signup-page">
+    <div class="signup-box">
+        <div class="logo">
+            <a href="javascript:void(0);">@siteName</a>
+        </div>
+        <div class="card">
+            <div class="body">
+                <form id="sign_up" method="POST">
+                    <div class="msg">@ViewBag.Title</div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">person</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="text" class="form-control" name="namesurname" placeholder="用户名" required autofocus>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">email</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="email" class="form-control" name="email" placeholder="邮箱" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="password" minlength="6" placeholder="密码" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        <div class="form-line">
+                            <input type="password" class="form-control" name="confirm" minlength="6" placeholder="确认密码" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="terms" id="terms" class="filled-in chk-col-pink">
+                        <label for="terms">我确认注册成新用户。</label>
+                    </div>
+
+                    <button class="btn btn-block btn-lg bg-pink waves-effect" type="submit">注册</button>
+
+                    <div class="m-t-25 m-b--5 align-center">
+                        <a href="@Url.Action("Login")">已经有账户？马上登录。</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,31 +1,515 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "消费列表";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+<div class="modal fade" id="region-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">查看</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-inline text-center">
+                    <div class="input-daterange input-group" id="region-date">
+                        <input type="text" class="form-control" id="start-region" placeholder="开始日期" />
+                        <span class="input-group-addon">-</span>
+                        <input type="text" class="form-control" id="end-region" placeholder="结束日期" />
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="btn-change">更改</button>
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-danger" id="btn-region">确定</button>
+                    </div>
+                </div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>分类</th>
+                            <th>商品名称</th>
+                            <th>商品类别</th>
+                            <th>价格</th>
+                            <th>日期</th>
+                            <th>专题</th>
+                            <th>钱包</th>
+                        </tr>
+                    </thead>
+                    <tbody id="region-tbody">
+
+                    </tbody>
+                </table>
+            </div>
+            @*<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btn-region">确定</button>
+            </div>*@
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="body-content">
+    <div class="container-fluid">
+        <div class="row clearfix margin-bm">
+            <ol class="breadcrumb">
+                <li><i class="glyphicon glyphicon-home"></i> <a href="#">首页</a></li>
+                <li class="active">消费列表</li>
+            </ol>
+        </div>
+        <div class="row clearfix margin-bm">
+            <div class="col-sm-12">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option value="10">本日</option>
+                            <option value="20">本周</option>
+                            <option value="30">本月</option>
+                            <option value="40">本季</option>
+                            <option value="50">本年</option>
+                            <option value="50">全部</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-daterange input-group" id="query-date">
+                            <input type="text" class="form-control" id="start-date" placeholder="开始日期" />
+                            <span class="input-group-addon">-</span>
+                            <input type="text" class="form-control" id="end-date" placeholder="结束日期" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="query-key" placeholder="搜索关键字" />
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-primary" id="btn-query">搜索</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row clearfix margin-bm">
+            <div class="col-xs-12">
+                <table id="jqGrid"></table>
+                <div id="jqGridPager"></div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">收入<span id="shourucount"></span>笔</div>
+                        <div class="h3 text-red" id="shouruamount">0.0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">支出<span id="zhichucount"></span>笔</div>
+                        <div class="h3 text-green" id="zhichuamount">0.0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">结存</div>
+                        <div class="h3 text-blue" id="jiecunamount">0.0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">借入欠还</div>
+                        <div class="h3 text-red" id="qianhuanamount">0.0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">借出未还</div>
+                        <div class="h3 text-green" id="weihuanamount">0.0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <button class="btn btn-large btn-danger" id="btn-add">添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            //Bootstrap datepicker plugin
+            $('#query-date').datepicker({
+                autoclose: true,
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd',
+                container: '#query-date'
+            });
+            $('#region-date').datepicker({
+                autoclose: true,
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd',
+                container: '#region-date'
+            });
+            //
+        });
+    </script>
+    <script type="text/javascript">
+
+        //查询对象
+        var query = { startDate: min_date_full(), endDate: max_date_full(), keyWords: "", userId: @Model.UserID };
+
+        var grid_selector = "#jqGrid";
+        var pager_selector = "#jqGridPager";
+
+        var parent_column = $(grid_selector).closest('[class*="col-"]');
+        //resize to fit page size
+        $(window).on('resize.jqGrid', function () {
+            $(grid_selector).jqGrid('setGridWidth', parent_column.width());
+        })
+
+        $(document).ready(function () {
+            $(grid_selector).jqGrid({
+                url: $.const.webapi.item,
+                mtype: "GET",
+                editurl: $.const.webapi.item,
+                datatype: "json",
+                postData: query,
+                styleUI: 'Bootstrap',
+                altRows: true,
+                colModel: [
+                    {
+                        label: "主键",
+                        name: 'ItemID',
+                        hidden: true,
+                        width: 70,
+                        editable: true,
+                        key: true
+                    },
+                    {
+                        label: "用户",
+                        name: 'UserID',
+                        hidden: true,
+                        width: 70,
+                        editable: true,
+                        editoptions: {
+                            defaultValue: '@Model.UserID'
+                        }
+                    },
+                    {
+                        label: "分类",
+                        name: 'ItemType',
+                        jsonmap: 'ItemTypeName',
+                        align: 'center',
+                        width: 70,
+                        editable: true, // must set editable to true if you want to make the field editable
+                        edittype: "select",
+                        editoptions: {
+                            value: $.const.data.itemtype
+                        }
+                    },
+                    {
+                        label: "固定",
+                        name: 'RegionType',
+                        jsonmap: 'RegionName',
+                        width: 70,
+                        editable: true,
+                        edittype: "select",
+                        editoptions: {
+                            value: $.const.data.regiontype
+                        }
+                    },
+                    {
+                        label: "固定ID",
+                        name: 'RegionID',
+                        hidden: true,
+                        width: 70,
+                        editable: true
+                    },
+                    {
+                        label: "商品名称",
+                        name: 'ItemName',
+                        width: 120,
+                        editable: true,
+                        editrules: {
+                            required: true
+                        },
+                        editoptions: {
+                            size: 20, maxlength: 20
+                        }
+                    },
+                    {
+                        label: "商品类别",
+                        name: 'CategoryTypeID',
+                        jsonmap: 'CategoryTypeName',
+                        align: 'center',
+                        width: 120,
+                        editable: true,
+                        edittype: 'select',
+                        editoptions: {
+                            dataUrl: String.format($.const.webapi.categorytype, @Model.UserID),
+                            buildSelect: function (data) {
+                                var _data = JSON.parse(data);
+                                var result = $("<select id='category' name='category' />");
+                                $.each(_data, function (i, d) {
+                                    result.append(String.format("<option value='{0}'>{1}</option>", d.CategoryTypeID, d.CategoryTypeName));
+                                });
+                                return result[0].outerHTML;
+                            }
+                        }
+                    },
+                    {
+                        label: "价格",
+                        name: 'ItemPrice',
+                        align: 'right',
+                        width: 100,
+                        editable: true,
+                        editrules: {
+                            required: true,
+                            number: true
+                        }
+                    },
+                    {
+                        label: "日期",
+                        name: 'ItemBuyDate',
+                        align: 'center',
+                        width: 100,
+                        formatter: 'date',
+                        datefmt: 'yyyy-mm-dd',
+                        editable: true,
+                        editrules: {
+                            required: true,
+                            date: true
+                        },
+                        editoptions: {
+                            // dataInit is the client-side event that fires upon initializing the toolbar search field for a column
+                            // use it to place a third party control to customize the toolbar
+                            dataInit: function (element) {
+                                $(element).datepicker({
+                                    autoclose: true,
+                                    language: 'zh-CN',
+                                    format: 'yyyy-mm-dd'
+                                });
+                            }
+                        }
+                    },
+                    {
+                        label: "日期开始",
+                        name: 'ItemBuyDateStart',
+                        hidden: true,
+                        align: 'center',
+                        width: 100,
+                        formatter: 'date',
+                        datefmt: 'yyyy-mm-dd',
+                        editable: true
+                    },
+                    {
+                        label: "日期结束",
+                        name: 'ItemBuyDateEnd',
+                        hidden: true,
+                        align: 'center',
+                        width: 100,
+                        formatter: 'date',
+                        datefmt: 'yyyy-mm-dd',
+                        editable: true
+                    },
+                    {
+                        label: "专题",
+                        name: 'ZhuanTiID',
+                        jsonmap: 'ZhuanTiName',
+                        align: 'center',
+                        width: 100,
+                        editable: true,
+                        edittype: 'select',
+                        editoptions: {
+                            dataUrl: String.format($.const.webapi.zhuanti, @Model.UserID),
+                            buildSelect: function (data) {
+                                var _data = JSON.parse(data);
+                                var result = $("<select id='zhuanti' name='zhuanti' />");
+                                result.append("<option value=''></option>");
+                                $.each(_data, function (i, d) {
+                                    result.append(String.format("<option value='{0}'>{1}</option>", d.ZTID, d.ZhuanTiName));
+                                });
+                                return result[0].outerHTML;
+                            }
+                        }
+                    },
+                    {
+                        label: "钱包",
+                        name: 'CardID',
+                        jsonmap: 'CardName',
+                        align: 'center',
+                        width: 100,
+                        editable: true,
+                        edittype: 'select',
+                        editoptions: {
+                            dataUrl: String.format($.const.webapi.card, @Model.UserID),
+                            buildSelect: function (data) {
+                                var _data = JSON.parse(data);
+                                var result = $("<select id='card' name='card' />");
+                                $.each(_data, function (i, d) {
+                                    result.append(String.format("<option value='{0}'>{1}</option>", d.CDID, d.CardName));
+                                });
+                                return result[0].outerHTML;
+                            }
+                        }
+                    },
+                    {
+                        label: "推荐",
+                        name: 'Recommend',
+                        align: 'center',
+                        width: 70,
+                        editable: true,
+                        edittype: 'checkbox',
+                        editoptions: {
+                            value: "1:0"
+                        },
+                        formatter: "checkbox"
+                    },
+                    {
+                        label: "操作",
+                        name: "actions",
+                        align: 'center',
+                        width: 70,
+                        formatter: "actions",
+                        formatoptions: {
+                            keys: true,
+                            mtype: 'PUT', //更新用的
+                            successfunc: function (response) {
+                                alert('saved');
+                            },
+                            editOptions: {},
+                            addOptions: {},
+                            delOptions: {
+                                mtype: 'DELETE',
+                                onclickSubmit: function (options, rowid) {
+                                    options.url = String.format($.const.webapi.item_id, rowid);
+                                }
+                            }
+                        }
+                    }
+                ],
+                sortname: 'ItemBuyDate',
+                rownumbers: false,
+                scroll: 1,
+                width: 780,
+                height: 340,
+                rowNum: 50,
+                loadComplete: function (data) {
+                    var item = $(grid_selector).jqGrid('getGridParam', 'userData');
+                    setTotal(item);
+                },
+                ajaxRowOptions: {
+                    contentType: "application/json"
+                },
+                serializeRowData: function (postdata) {
+                    return JSON.stringify(postdata);
+                }
+            });
+
+            var selfirst = true;
+            $.extend(true, $.jgrid.inlineEdit, {
+                successfunc: function (response) {
+                    jQuery("#jqGrid").trigger("reloadGrid");
+                },
+                beforeSubmitRow: function (options, rowid) {
+                    //if (options.extraparam.oper != 'add') return true;
+
+                    var region = "RegionType".jtv(rowid);
+                    if (!region) return true;
+
+                    if (selfirst) {
+                        var item = {
+                            ItemTypeName: "ItemType".jsv(rowid),
+                            ItemName: "ItemName".jtv(rowid),
+                            CategoryTypeName: "CategoryTypeID".jsv(rowid),
+                            ItemPrice: "ItemPrice".jtv(rowid),
+                            ItemBuyDate: "ItemBuyDate".jtv(rowid),
+                            ZhuanTiName: "ZhuanTiID".jsv(rowid),
+                            CardName: "CardID".jsv(rowid)
+                        };
+
+                        var date = "ItemBuyDate".jtv(rowid);
+                        var startd = "ItemBuyDateStart".jtv(rowid);
+                        var endd = "ItemBuyDateEnd".jtv(rowid);
+                        $("#region-modal").modal("show");
+
+                        $.fn.region.init("#start-region", "#end-region", region, date, startd, endd, item, function (data) {
+                            $("#region-tbody").empty();
+                            $("#region-tbody-tmpl").tmpl(data).appendTo("#region-tbody");
+                        });
+                        
+                        $("#btn-region").on("click", function () {
+                            selfirst = false;
+                            $.jqo("ItemBuyDate", rowid).val($("#start-region").val());
+                            $.jqo("ItemBuyDateStart", rowid).val($("#start-region").val());
+                            $.jqo("ItemBuyDateEnd", rowid).val($("#end-region").val());
+                            $(grid_selector).jqGrid('saveRow', rowid, options);
+                            $("#region-modal").modal("hide");
+                        });
+
+                        $("#btn-change").on("click", function () {
+                            var startd = $("#start-region").val();
+                            var endd = $("#end-region").val();
+                            $.fn.region.reload(startd, endd, function (data) {
+                                $("#region-tbody").empty();
+                                $("#region-tbody-tmpl").tmpl(data).appendTo("#region-tbody");
+                            });
+                        });
+
+                        return false;
+                    }
+
+                    selfirst = true;
+                    return true; // return false break submiting
+                }
+            });
+
+            $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+        });
+
+        function setTotal(item) {
+            $("#shourucount").html(item.ShouRuCount);
+            $("#shouruamount").html(item.ShouRuAmount);
+            $("#zhichucount").html(item.ZhiChuCount);
+            $("#zhichuamount").html(item.ZhiChuAmount);
+            $("#jiecunamount").html(item.JieCunAmount);
+            $("#qianhuanamount").html(item.QianHuanAmount);
+            $("#weihuanamount").html(item.WeiHuanAmount);
+        }
+
+        $("#btn-add").on("click", function () {
+            jQuery("#jqGrid").jqGrid('addRow', { useDefValues: true, useFormatter: true });
+        });
+
+        $("#btn-query").on("click", function () {
+            query.startDate = moment($("#start-date").val() || min_date()).format("YYYY-MM-DD 00:00:00");
+            query.endDate = moment($("#end-date").val() || max_date()).format("YYYY-MM-DD 23:59:59");
+            query.keyWords = $("#query-key").val();
+            jQuery("#jqGrid").jqGrid('setGridParam', { postData: query }).trigger("reloadGrid");
+        });
+
+    </script>
+
+    <script id="region-tbody-tmpl" type="text/x-jquery-tmpl">
+        <tr>
+            <td>${ItemRow}</td>
+            <td>${ItemTypeName}</td>
+            <td>${ItemName}</td>
+            <td>${CategoryTypeName}</td>
+            <td>${ItemPrice}</td>
+            <td>${ItemBuyDate}</td>
+            <td>${ZhuanTiName}</td>
+            <td>${CardName}</td>
+        </tr>
+    </script>
+}

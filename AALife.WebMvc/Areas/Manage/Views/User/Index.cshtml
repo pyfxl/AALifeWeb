@@ -1,0 +1,270 @@
+﻿@model AALife.Service.Model.ViewModel.UserTableViewModel
+
+@{
+    ViewBag.Title = "User";
+    var pageNumber = WebConfiguration.PageNumber;
+    var pagePerNumber = WebConfiguration.PagePerNumber;
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-sm nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">用户设置</a></li>
+    <li role="presentation"><a href="#items" aria-controls="items" role="tab" data-toggle="tab">消费列表</a></li>
+    <li role="presentation"><a href="#categorytype" aria-controls="categorytype" role="tab" data-toggle="tab">商品类别</a></li>
+    <li role="presentation"><a href="#card" aria-controls="card" role="tab" data-toggle="tab">我的钱包</a></li>
+    <li role="presentation"><a href="#zhuanti" aria-controls="zhuanti" role="tab" data-toggle="tab">我的专题</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="settings">
+        <div id="userdetail">
+            <div class="panel panel-default">
+                <div class="panel-heading">荣耀</div>
+                <div class="panel-body">
+                    您已记账 @Model.JoinDay 天，共添加消费 @Model.ItemCount 笔。
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="items">
+        <div id="items-grid"></div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="categorytype">
+        <div id="categorytype-grid"></div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="card">
+        <div id="card-grid"></div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="zhuanti">
+        <div id="zhuanti-grid"></div>
+    </div>
+</div>
+
+@section scripts {
+    <!--消费-->
+    <script>
+        $(document).ready(function () {
+
+            navActive(0);
+
+            //查询对象
+            var query = { startDate: min_date(), endDate: max_date(), keySearch: "", dateType: 0, buttonDown: "", userId: @Model.UserID };
+
+            $(".nav .Users").addClass("active");
+
+            $("#items-grid").kendoGrid({
+                dataSource: {
+                    type: "json",
+                    transport: {
+                        read: {
+                            url: "/api/v1/listsapi",
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            cache: false,
+                            data: function () { return query }
+                        }
+                    },
+                    schema: {
+                        data: "rows",
+                        total: "total"
+                    },
+                    pageSize: @(pagePerNumber),
+                    serverPaging: true,
+                    serverFiltering: true,
+                    serverSorting: true
+                },
+                pageable: {
+                    refresh: true,
+                    pageSizes: @(pageNumber),
+                },
+                columns: [
+                    {
+                        field: "ItemID",
+                        title: "编号",
+                        width: 80
+                    },
+                    {
+                        field: "ItemTypeName",
+                        title: "分类",
+                        width: 80
+                    },
+                    {
+                        field: "ItemName",
+                        title: "商品名称",
+                        width: 150
+                    },
+                    {
+                        field: "CategoryTypeName",
+                        title: "商品类别",
+                        width: 150
+                    },
+                    {
+                        field: "ItemPrice",
+                        title: "价格",
+                        format: "{0:#,0.###}",
+                        headerAttributes: { style: "text-align:right" },
+                        attributes: { style: "text-align: right" },
+                        width: 90
+                    },
+                    {
+                        field: "ItemBuyDate",
+                        title: "日期",
+                        width: 100,
+                        type: "date",
+                        format: "{0:yyyy/MM/dd}"
+                    },
+                    {
+                        field: "Recommend",
+                        title: "推荐否",
+                        width: 80,
+                        template: '# if(Recommend==1) {# <i class="fa fa-star"></i> #} else {# <i class="fa fa-star-o"></i> #} #'
+                    },
+                    {
+                        field: "ModifyDate",
+                        title: "修改日期",
+                        width: 150,
+                        type: "date",
+                        format: "{0:yyyy/MM/dd HH:mm:ss}"
+                    },
+                    {
+                        field: "Synchronize",
+                        title: "同步否",
+                        width: 80,
+                        template: '# if(Synchronize==0) {# <i class="fa fa-check"></i> #} else {# <i class="fa fa-close"></i> #} #'
+                    },
+                    {
+                        field: "RegionTypeName",
+                        title: "固定",
+                        width: 80
+                    },
+                    {
+                        field: "CardName",
+                        title: "钱包",
+                        width: 80
+                    },
+                    {
+                        field: "ZhuanTiName",
+                        title: "专题",
+                        width: 80
+                    },
+                    {
+                        field: "Remark",
+                        title: "备注",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <!--类别-->
+    <script>
+        $(document).ready(function() {
+            $("#categorytype-grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format("/api/v1/categoryapi?userId={0}&catRate={1}", @Model.UserID, @Model.CategoryRate),
+                            dataType: "json",
+                        }
+                    }
+                },
+                columns: [
+                    {
+                        field: "CategoryTypeID",
+                        title: "编号",
+                        width: 150
+                    },
+                    {
+                        field: "CategoryTypeName",
+                        title: "商品类别",
+                        width: 150
+                    },
+                    {
+                        field: "CategoryTypePrice",
+                        title: "类别预算",
+                        width: 150
+                    },
+                    {
+                        field: "CategoryTypeRate",
+                        title: "预算范围",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <!--钱包-->
+    <script>
+        $(document).ready(function() {
+            $("#card-grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format("/api/v1/cardapi?userId={0}", @Model.UserID),
+                            dataType: "json"
+                        }
+                    }
+                },
+                columns: [
+                    {
+                        field: "CDID",
+                        title: "编号",
+                        width: 150
+                    },
+                    {
+                        field: "CardName",
+                        title: "钱包名称",
+                        width: 150
+                    },
+                    {
+                        field: "CardBalance",
+                        title: "钱包余额",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <!--专题-->
+    <script>
+        $(document).ready(function() {
+            $("#zhuanti-grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format("/api/v1/zhuantiapi?userId={0}", @Model.UserID),
+                            dataType: "json"
+                        }
+                    }
+                },
+                columns: [
+                    {
+                        field: "ZTID",
+                        title: "编号",
+                        width: 150
+                    },
+                    {
+                        field: "ZhuanTiName",
+                        title: "专题名称",
+                        width: 150
+                    },
+                    {
+                        field: "ZhuanTiDate",
+                        title: "专题区间",
+                        width: 150
+                    },
+                    {
+                        field: "ZhuanTiJieCun",
+                        title: "结存金额",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+}

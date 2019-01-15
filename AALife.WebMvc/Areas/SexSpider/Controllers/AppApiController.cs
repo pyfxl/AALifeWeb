@@ -23,7 +23,7 @@ namespace AALife.WebMvc.Areas.SexSpider.Controllers
             model.stop_dic = service.GetStopDic();
             model.del_dic = service.GetDelDic();
 
-            return Ok(model);
+            return new JsonLowercase(model, Request);
         }
 
     }

@@ -140,18 +140,18 @@
     <Compile Include="Models\ZhuanZhangTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Model\Common\FilterModel.cs" />
-    <Compile Include="Model\Common\UserQueryModel.cs" />
-    <Compile Include="Model\Enum\LogicEnum.cs" />
-    <Compile Include="Model\Enum\SortEnum.cs" />
-    <Compile Include="Model\Common\ListModel.cs" />
-    <Compile Include="Model\Common\ResultModel.cs" />
-    <Compile Include="Model\Common\QueryModel.cs" />
-    <Compile Include="Model\Common\QueryPageModel.cs" />
-    <Compile Include="Model\Common\SortModel.cs" />
-    <Compile Include="Model\ViewModel\ItemTableViewModel.cs" />
-    <Compile Include="Model\ViewModel\UserTableViewModel.cs" />
-    <Compile Include="Model\ViewModel\ViewTableViewModel.cs" />
+    <Compile Include="Domain\Common\FilterModel.cs" />
+    <Compile Include="Domain\Common\UserQueryModel.cs" />
+    <Compile Include="Domain\Enum\LogicEnum.cs" />
+    <Compile Include="Domain\Enum\SortEnum.cs" />
+    <Compile Include="Domain\Common\ListModel.cs" />
+    <Compile Include="Domain\Common\ResultModel.cs" />
+    <Compile Include="Domain\Common\QueryModel.cs" />
+    <Compile Include="Domain\Common\QueryPageModel.cs" />
+    <Compile Include="Domain\Common\SortModel.cs" />
+    <Compile Include="Domain\ViewModel\ItemTableViewModel.cs" />
+    <Compile Include="Domain\ViewModel\UserTableViewModel.cs" />
+    <Compile Include="Domain\ViewModel\ViewTableViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

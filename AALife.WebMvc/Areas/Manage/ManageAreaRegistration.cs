@@ -12,7 +12,7 @@ namespace AALife.WebMvc.Areas.Manage
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Manage_default",

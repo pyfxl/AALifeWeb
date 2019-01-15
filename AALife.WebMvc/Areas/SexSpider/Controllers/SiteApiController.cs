@@ -16,7 +16,7 @@ namespace AALife.WebMvc.Areas.SexSpider.Controllers
         public async Task<IHttpActionResult> Get() 
         {
             var list = await service.Get();
-            return Ok(list);
+            return new JsonLowercase(list, Request);
         }
 
         [HttpPost]

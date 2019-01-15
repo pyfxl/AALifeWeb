@@ -1,5 +1,5 @@
-﻿using AALife.Service.Model.Common;
-using AALife.Service.Model.ViewModel;
+﻿using AALife.Service.Domain.Common;
+using AALife.Service.Domain.ViewModel;
 using AALife.Service.Models;
 using Mapster;
 using System;
@@ -8,6 +8,7 @@ using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Linq.Dynamic;
+using System.Data.Entity.Core.Objects;
 
 namespace AALife.Service.EF
 {
@@ -44,6 +45,8 @@ namespace AALife.Service.EF
                 .Map(dest => dest.Synchronize, src => src.Synchronize)
                 .Map(dest => dest.MoneyStart, src => src.MoneyStart)
                 .Map(dest => dest.IsUpdate, src => src.IsUpdate)
+                .Map(dest => dest.ItemCount, src => src.ItemTable.Count())
+                .Map(dest => dest.JoinDay, src => DbFunctions.DiffDays(src.CreateDate, DateTime.Now) + 1)
                 .Compile();
         }
 
@@ -120,6 +123,26 @@ namespace AALife.Service.EF
                     .ProjectToType<UserTableViewModel>();
 
                 return result.ToList();
+            }
+        }
+
+        /// <summary>
+        /// 取1个用户根据id
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns></returns>
+        public UserTableViewModel GetUser(int userId)
+        {
+            using (var db = new AALifeDbContext())
+            {
+                var item = db.Set<UserTable>().Where(a => a.UserID == userId);
+
+                var result = item
+                    .Include(a => a.UserFromTable)
+                    .Include(a => a.WorkDayTable)
+                    .ProjectToType<UserTableViewModel>();
+
+                return result.FirstOrDefault();
             }
         }
 

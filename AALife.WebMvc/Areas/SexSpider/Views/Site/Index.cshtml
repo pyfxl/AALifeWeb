@@ -57,6 +57,7 @@
                         }
                     },
                     parameterMap: function (options, operation) {
+                        debugger;
                         if (operation !== "read" && options.models) {
                             return kendo.stringify(options.models);
                         }
@@ -88,7 +89,8 @@
                             sitereplace: { type: "string" },
                             listfilter: { type: "string" },
                             imagefilter: { type: "string" },
-                            pagefilter: { type: "string" }
+                            pagefilter: { type: "string" },
+                            modifydate: { type: "date" }
                         }
                     }
                 },
@@ -261,6 +263,12 @@
                         field: "pagefilter",
                         title: "分页过滤",
                         width: 200
+                    },
+                    {
+                        field: "modifydate",
+                        title: "修改日期",
+                        width: 150,
+                        format: "{0:yyyy/MM/dd HH:mm:ss}"
                     }
                 ]
             });

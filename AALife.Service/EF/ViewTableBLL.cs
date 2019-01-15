@@ -1,5 +1,5 @@
-﻿using AALife.Service.Model.Common;
-using AALife.Service.Model.ViewModel;
+﻿using AALife.Service.Domain.Common;
+using AALife.Service.Domain.ViewModel;
 using AALife.Service.Models;
 using Mapster;
 using System;

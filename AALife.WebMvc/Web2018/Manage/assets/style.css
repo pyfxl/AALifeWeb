@@ -1,0 +1,179 @@
+﻿body {
+    font-family: "Microsoft YaHei", "黑体";
+}
+
+.page-content {
+    padding: 15px;
+}
+
+/*头像*/
+.k-grid .k-user {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+}
+
+.k-grid .k-user>img {
+    border-radius: 100%;
+    border: 2px solid #5293C4;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.k-dropzone {
+    padding: .45em;
+}
+
+/*buttondown控件*/
+.k-buttondown .k-button {
+    padding: 0 !important;
+}
+
+.k-buttondown .k-link {
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+    display: inline-block;
+}
+
+.k-buttondown .k-link[role=button] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+}
+
+.k-buttondown .f-link[role=button] {
+    padding-left: 8px !important;
+    padding-right: 3px !important;
+}
+
+.k-buttondown .dropdown-menu {
+    min-width: 100%;
+}
+
+.k-buttondown .dropdown-menu .btn-link {
+    width: 100%;
+    text-align: left;
+}
+
+.k-link .dropdown-toggle:hover {
+    background-color: #999;
+}
+
+.k-link .k-icon:hover {
+    color: #999;
+}
+
+/*grid命令按钮*/
+.k-grid tbody .k-command-cell .k-button {
+    min-width: 26px;
+}
+
+.k-command-cell .k-button {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.k-command-cell .k-button-icontext .k-icon {
+    margin: 0;
+}
+
+/*.k-dropzone {
+    padding: .45em .8em;
+}*/
+
+/*工具栏*/
+.form-group {
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+label {
+    font-weight: 700;
+}
+
+/*顶部标签*/
+.nav-tabs {
+    padding-top: 9px !important;
+    background: none !important;
+    border: none !important;
+}
+
+.nav-tabs .f-dropdown-link {
+    float: left;
+    margin-right: 0 !important;
+    border-right: none !important;
+    padding-right: 0;
+}
+.nav-tabs .f-dropdown-fa {
+    float: left;
+    padding-left: 7px;
+    padding-right: 7px;
+    border-left: none !important;
+}
+
+.nav>li.dropdown.open.active>a:focus, .nav>li.dropdown.open.active>a:hover {
+    background-color: #fff;
+    color: #4c718a;
+    border-color: #7DB4D8 #7DB4D8 transparent;
+}
+
+.nav>li.dropdown.open.active>a:focus>.ace-icon, .nav>li.dropdown.open.active>a:hover>.ace-icon,
+.nav-tabs>li.open .dropdown-toggle>.ace-icon {
+    color: #4c718a!important;
+}
+
+.nav-tabs>li.open .dropdown-toggle,
+.nav .open>a:hover {
+    background-color: #7DB4D8;
+    border-color: transparent;
+}
+
+.nav-tabs[class*=tab-color-]>li:not(.active)>a:hover {
+    opacity: 1;
+    border-color: transparent;
+    border-bottom-color: transparent;
+    color: rgba(0,0,0,.55);
+}
+
+.nav-tabs[class*=tab-color-]>li:not(.active)>a>.ace-icon:first-child:hover {
+    color: rgba(0,0,0,.55)!important;
+}
+
+/*列表process*/
+.dataTables_processing {
+    z-index: 999;
+}
+
+.dataTables_scrollHead {
+    color: #707070;
+    font-weight: 400;
+    background: repeat-x #F2F2F2;
+    background-image: -webkit-linear-gradient(top,#F8F8F8 0,#ECECEC 100%);
+    background-image: -o-linear-gradient(top,#F8F8F8 0,#ECECEC 100%);
+    background-image: linear-gradient(to bottom,#F8F8F8 0,#ECECEC 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff8f8f8', endColorstr='#ffececec', GradientType=0);
+}
+
+.f-show {
+    display: none !important;
+}
+
+@media (max-width: 767px) {
+    .f-hidden {
+        display: none !important;
+    }
+    .f-show {
+        display: block !important;
+    }
+    .page-content {
+        padding: 8px !important;
+    }
+    .navbar-fixed-top + .main-container {
+        padding-top: 45px;
+    }
+    .k-edge .k-pager-info, .k-ff .k-pager-info, .k-ie11 .k-pager-info, .k-safari .k-pager-info, .k-webkit .k-pager-info {
+        display: block;
+    }
+}

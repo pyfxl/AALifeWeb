@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - SexSpider</title>
 
-    <link rel="stylesheet" href="~/Scripts/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
     <link rel="stylesheet" href="~/Scripts/kendoui/styles/kendo.common.min.css" />
     <link rel="stylesheet" href="~/Scripts/kendoui/styles/kendo.default.min.css" />
     <link rel="stylesheet" href="~/Scripts/kendoui/styles/kendo.mobile.all.min.css" />
     <link rel="stylesheet" href="~/Content/font-awesome.css" />
-    <link rel="stylesheet" href="~/Content/sexspider.default.css" />
+    <link rel="stylesheet" href="~/Areas/SexSpider/Content/sexspider.default.css" />
 </head>
 <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -25,14 +25,15 @@
         @RenderBody()
     </div>
 
-    <script src="~/Scripts/jquery/dist/jquery.js"></script>
-    <script src="~/Scripts/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/kendoui/js/kendo.all.min.js"></script>
     <script src="~/Scripts/kendoui/js/cultures/kendo.culture.zh-CN.min.js"></script>
     <script src="~/Scripts/kendoui/js/messages/kendo.messages.zh-CN.min.js"></script>
-    <script src="~/Scripts/jqthumb.min.js"></script>
+    <script src="~/Scripts/moment.js"></script>
     <script src="~/Scripts/String.js"></script>
-    <script src="~/Scripts/sexspider.js" asp-append-version="true"></script>
+    <script src="~/Scripts/jqthumb.js"></script>
+    <script src="~/Areas/SexSpider/Scripts/sexspider.js" asp-append-version="true"></script>
 
     @RenderSection("Scripts", required: false)
 
@@ -57,7 +58,12 @@
         jQuery(function ($) {
             // kendo ui
             kendo.culture("zh-CN");
-        })
+        });
+
+        //解决kendo日期时区问题
+        Date.prototype.toISOString = function () {
+            return moment(this).format("YYYY-MM-DDTHH:mm:ss");
+        };
 
     </script>
 

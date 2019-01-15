@@ -28,7 +28,7 @@ namespace AALife.WebMvc.Areas.SexSpider.Controllers
                 list = SiteHelper.GetListImagePage(site, decUrl).ToList();
             }
 
-            return Ok(list);
+            return new JsonLowercase(list, Request);
         }
     }
 }

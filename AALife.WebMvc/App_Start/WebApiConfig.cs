@@ -17,7 +17,7 @@ namespace AALife.WebMvc
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/aalife/{controller}/{id}",
+                routeTemplate: "api/v1/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
 

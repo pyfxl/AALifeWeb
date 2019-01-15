@@ -79,5 +79,8 @@ namespace SexSpider.Core.Models
 
         [MaxLength(50)]
         public string LastStart { get; set; }
+
+        [Required]
+        public System.DateTime ModifyDate { get; set; }
     }
 }

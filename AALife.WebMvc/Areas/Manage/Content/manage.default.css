@@ -1,0 +1,181 @@
+﻿body {
+    font-size: 13px;
+    font-family: "Microsoft YaHei", "黑体";
+    padding: 7px; /*影响main高度*/
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.search-zone {
+    margin-bottom: 7px;
+}
+
+.body-zone {
+    overflow: hidden;
+    margin-top: 38px;
+}
+
+/*top菜单区*/
+.top-zone .nav > li > a {
+    padding-top: 9px;
+    padding-bottom: 9px;
+}
+
+.navbar-sm {
+    min-height: 39px;
+}
+
+.bg-brown .navbar-inverse {
+    color: #fff;
+    border-color: #896f66;
+    background-color: #997b71;
+}
+
+.bg-brown .navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+}
+
+.bg-brown .f-down:hover,
+.bg-brown .navbar-inverse .navbar-nav > .open > a,
+.bg-brown .navbar-inverse .navbar-nav > .open > a:hover,
+.bg-brown .navbar-inverse .navbar-nav > .open > a:focus,
+.bg-brown .navbar-inverse .navbar-nav > .active > a,
+.bg-brown .navbar-inverse .navbar-nav > .active > a:hover,
+.bg-brown .navbar-inverse .navbar-nav > .active > a:focus,
+.bg-brown .navbar-inverse .navbar-nav > li > a:hover,
+.bg-brown .navbar-inverse .navbar-nav > li > a:focus {
+    color: #fff;
+    background-color: #896f66;
+}
+
+/*top下拉菜单*/
+.f-down > a {
+    display: inline-block !important;
+    float: left;
+    padding-right: 0 !important;
+}
+
+.f-down > a[role=button] {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+}
+
+.f-down > a[role=button]:hover {
+    color: #999 !important;
+}
+
+/*search区*/
+.search-zone .s-input {
+    width: 126px;
+}
+
+.search-zone input.s-input {
+    border-color: #c5c5c5;
+    outline: 0;
+    border-radius: 4px;
+    border-width: 1px;
+    padding: .17857143em 0;
+    line-height: 1.65em;
+}
+
+.search-zone .form-group {
+    margin-right: 7px;
+}
+
+/*grid控件*/
+#grid {
+    height: 100%;
+}
+
+/*头像*/
+.k-grid .k-user {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+}
+
+.k-grid .k-user > img {
+    border-radius: 100%;
+    border: 2px solid #5293C4;
+    width: 40px;
+    height: 40px;
+    position: relative;
+}
+
+.body-zone .k-dropzone {
+    padding: 6px;
+}
+
+.form-body {
+    margin-top: 10px;
+}
+
+/*buttondown控件*/
+.k-buttondown .k-button {
+    padding: 0 !important;
+    overflow: visible;
+}
+
+.k-buttondown .k-link[role=button] {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    display: inline-block;
+}
+
+.k-buttondown .f-link[role=button] {
+    padding-left: 8px !important;
+    padding-right: 2px !important;
+}
+
+.k-buttondown .s-link {
+    padding-left: 0px !important;
+    padding-right: 1px !important;
+}
+
+.k-buttondown .dropdown-menu {
+    min-width: 100%;
+}
+
+.k-buttondown .dropdown-menu .btn-link {
+    width: 100%;
+    text-align: left;
+}
+
+.k-buttondown .s-link:hover {
+    color: #5293C4;
+}
+
+.btn.btn-link.active, 
+.btn.btn-link:active, 
+.btn.btn-link:focus, 
+.open > .btn.btn-link.active, 
+.open > .btn.btn-link:active, 
+.open > .btn.btn-link:focus {
+    text-decoration: underline;
+}
+
+/*grid命令按钮*/
+.k-grid tbody .k-command-cell .k-button {
+    min-width: 26px;
+}
+
+.k-command-cell .k-button {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.k-command-cell .k-button-icontext .k-icon {
+    margin: 0;
+}
+
+
+/*bootsrap extends*/
+.nav-sm > li > a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}

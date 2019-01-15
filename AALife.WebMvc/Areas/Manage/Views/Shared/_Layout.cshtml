@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Manage</title>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Scripts/kendoui/styles/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Scripts/kendoui/styles/kendo.default.min.css" rel="stylesheet" />
+    <link href="~/Scripts/kendoui/styles/kendo.default.mobile.min.css" rel="stylesheet" />
+    <link href="~/Areas/Manage/Content/manage.default.css" rel="stylesheet" />
+</head>
+<body class="bg-brown">
+    <div class="navbar navbar-sm navbar-inverse navbar-fixed-top top-zone">
+        <div class="container-fluid">
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("用户列表", "Index", "Users")</li>
+                    <li class="f-down">
+                        @Html.ActionLink("消费列表", "Index", "Lists")
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Lists", new RouteValueDictionary {{"dateType",1}})">按修改日期</a></li>
+                            <li><a href="@Url.Action("Index", "Lists", new RouteValueDictionary {{"dateType",0}})">按消费日期</a></li>
+                        </ul>
+                    </li>
+                    <li>@Html.ActionLink("访问列表", "Index", "Views")</li>
+                    <li>@Html.ActionLink("数据管理", "Index", "Backup")</li>
+                    <li>@Html.ActionLink("网站管理", "Create", "SiteConfig")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid body-zone">
+        @RenderBody()
+    </div>
+
+    <!--common-->
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/kendoui/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendoui/js/cultures/kendo.culture.zh-CN.min.js"></script>
+    <script src="~/Scripts/kendoui/js/messages/kendo.messages.zh-CN.min.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/String.js"></script>
+    <script src="~/Scripts/date-custom.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    <!--area-->
+    <script src="~/Areas/Manage/Scripts/kendo-custom-ui.js"></script>
+    <script src="~/Areas/Manage/Scripts/manage.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+
+        function resizeMain() {
+            var div = $("#main");
+            var windowHeight = $(window).innerHeight();
+            var offsetTop = div.offset().top;
+            var paddingBottom = 7;
+            var fixHeight = 2;
+
+            var calculatedHeight = windowHeight - offsetTop - paddingBottom - fixHeight;
+            div.height(calculatedHeight);
+        }
+
+        //设置头部选中
+        function navActive(i) {
+            var navbar = $(".top-zone .nav > li");
+            navbar.removeClass("active");
+            navbar.eq(i).addClass("active");
+        }
+
+        jQuery(function ($) {
+            // kendo ui
+            kendo.culture("zh-CN");
+        });
+
+        //解决kendo日期时区问题
+        Date.prototype.toISOString = function () {
+            return moment(this).format("YYYY-MM-DDTHH:mm:ss");
+        };
+
+    </script>
+
+</body>
+</html>

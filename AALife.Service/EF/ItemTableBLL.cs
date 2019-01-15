@@ -6,8 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Linq.Dynamic;
 using Mapster;
-using AALife.Service.Model.ViewModel;
-using AALife.Service.Model.Common;
+using AALife.Service.Domain.ViewModel;
+using AALife.Service.Domain.Common;
 using AALife.Service.Models;
 
 namespace AALife.Service.EF
@@ -138,7 +138,7 @@ namespace AALife.Service.EF
                 count = viewModel.Count();
 
                 //返回
-                return viewModel.Skip(pageModels.skip).Take(pageModels.take).ToList();
+                return viewModel.Skip(pageModels.page).Take(pageModels.rows).ToList();
             }
         }
                 

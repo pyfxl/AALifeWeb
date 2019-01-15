@@ -1,5 +1,5 @@
-﻿using AALife.Service.Model.Common;
-using AALife.Service.Model.ViewModel;
+﻿using AALife.Service.Domain.Common;
+using AALife.Service.Domain.ViewModel;
 using Dapper;
 using System;
 using System.Collections.Generic;
@@ -30,7 +30,7 @@ namespace AALife.Service.Dapper
                 param.Add("@Keywords", pageModels.keySearch);
                 param.Add("@Sorts", pageModels.sortString);
                 param.Add("@PageNumber", pageModels.page);
-                param.Add("@PagePerNumber", pageModels.pageSize);
+                param.Add("@PagePerNumber", pageModels.pageSize == 0 ? pageModels.rows : pageModels.pageSize);
                 param.Add("@HowManyItems", 0, DbType.Int32, ParameterDirection.Output);
 
                 var lists = conn.Query<ItemTableViewModel>("GetItemListWithPage_v7", param, null, true, null, CommandType.StoredProcedure);

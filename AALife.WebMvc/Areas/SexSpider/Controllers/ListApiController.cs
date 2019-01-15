@@ -25,7 +25,7 @@ namespace AALife.WebMvc.Areas.SexSpider.Controllers
             site.SiteLink = siteLink;
             await SaveLastStart(result, site);
 
-            return Ok(result);
+            return new JsonLowercase(result, Request);
         }
             
         /// <summary>

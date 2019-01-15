@@ -1,0 +1,413 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="body-content">
+    <div class="container-fluid">
+        <div class="row clearfix margin-bm">
+            <ol class="breadcrumb">
+                <li><i class="glyphicon glyphicon-home"></i> <a href="#">首页</a></li>
+                <li class="active">消费列表</li>
+            </ol>
+        </div>
+        <div class="row clearfix margin-bm">
+            <div class="col-sm-12">
+                <form class="form-inline" role="form">
+                    <div class="form-group">
+                        <select class="form-control">
+                            <option value="10">本日</option>
+                            <option value="20">本周</option>
+                            <option value="30">本月</option>
+                            <option value="40">本季</option>
+                            <option value="50">本年</option>
+                            <option value="50">全部</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-daterange input-group querydate">
+                            <input type="text" class="form-control startdate" placeholder="开始日期" />
+                            <span class="input-group-addon">-</span>
+                            <input type="text" class="form-control enddate" placeholder="结束日期" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control querykey" placeholder="搜索关键字" />
+                    </div>
+                    <div class="form-group">
+                        <button type="button" class="btn btn-query">搜索</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row clearfix margin-bm">
+            <div class="col-xs-12">
+                <table id="jqGrid"></table>
+                <div id="jqGridPager"></div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">收入12笔</div>
+                        <div class="h3 text-red">1231231.2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">支出12笔</div>
+                        <div class="h3 text-green">1231231.2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">收入12笔</div>
+                        <div class="h3 text-red">1231231.2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">支出12笔</div>
+                        <div class="h3 text-green">1231231.2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <div class="text-third">结存</div>
+                        <div class="h3 text-blue">1231231.2</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-2">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <button class="btn btn-large btn-danger btn-add">添加</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+            //Bootstrap datepicker plugin
+            $('.querydate').datepicker({
+                autoclose: true,
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd',
+                container: '.querydate'
+            });
+            //
+        });
+    </script>
+    <script type="text/javascript">
+
+        //查询对象
+        var query = { startDate: min_date(), endDate: max_date(), keyWords: "", userId: @Model.UserID };
+
+        var grid_selector = "#jqGrid";
+        var pager_selector = "#jqGridPager";
+
+        var parent_column = $(grid_selector).closest('[class*="col-"]');
+        //resize to fit page size
+        $(window).on('resize.jqGrid', function () {
+            $(grid_selector).jqGrid('setGridWidth', parent_column.width());
+        })
+
+        $(document).ready(function () {
+            $(grid_selector).jqGrid({
+                url: $.const.webapi.item,
+                mtype: "GET",
+                editurl: $.const.webapi.item,
+                datatype: "json",
+                postData: query,
+                styleUI: 'Bootstrap',
+                altRows: true,
+                colModel: [
+                    {
+                        label: "主键",
+                        name: 'ItemID',
+                        hidden: true,
+                        width: 70,
+                        editable: true,
+                        key: true
+                    },
+                    {
+                        label: "用户",
+                        name: 'UserID',
+                        hidden: true,
+                        width: 70,
+                        editable: true,
+                        editoptions: {
+                            defaultValue: '@Model.UserID'
+                        }
+                    },
+                    {
+                        label: "分类",
+                        name: 'ItemType',
+                        jsonmap: 'ItemTypeName',
+                        align: 'center',
+                        width: 70,
+                        editable: true, // must set editable to true if you want to make the field editable
+                        edittype: "select",
+                        editoptions: {
+                            value: $.const.data.itemtype
+                        }
+                    },
+                    {
+                        label: "固定",
+                        name: 'RegionType',
+                        jsonmap: 'RegionName',
+                        width: 70,
+                        editable: true,
+                        edittype: "select",
+                        editoptions: {
+                            value: $.const.data.regiontype,
+                            dataEvents: [
+                                {
+                                    type: 'change', data: {}, fn: function (e) {
+                                        //debugger;
+                                        var curr = $(e.currentTarget);
+                                        var id = curr[0].id.split('_')[0];
+                                        var element = String.format("#{0}_ItemBuyDate", id);
+                                        var sel = curr.val();
+                                        if (sel) {
+                                            $(element).datepicker("remove");
+                                            $(element).daterangepicker({
+                                                locale: $.daterangepicker.locale,
+                                                autoUpdateInput: false
+                                            }, function (start, end, label) {
+                                                $(element).focus();
+                                            });
+                                            $(element).on('apply.daterangepicker', function (ev, picker) {
+                                                $(this).val(picker.startDate.format('YYYY-MM-DD'));
+                                            });
+                                        } else {
+                                            $(element).data('daterangepicker').remove();
+                                            $(element).datepicker({
+                                                autoclose: true,
+                                                language: 'zh-CN',
+                                                format: 'yyyy-mm-dd'
+                                            });
+                                        }
+                                    }
+                                }
+                            ] 
+                        }
+                    },
+                    {
+                        label: "固定ID",
+                        name: 'RegionID',
+                        hidden: true,
+                        width: 70,
+                        editable: true
+                    },
+                    {
+                        label: "商品名称",
+                        name: 'ItemName',
+                        width: 120,
+                        editable: true,
+                        editrules: {
+                            required: true
+                        },
+                        editoptions: {
+                            size: 20, maxlength: 20
+                        }
+                    },
+                    {
+                        label: "商品类别",
+                        name: 'CategoryTypeID',
+                        jsonmap: 'CategoryTypeName',
+                        align: 'center',
+                        width: 120,
+                        editable: true,
+                        edittype: 'select',
+                        editoptions: {
+                            dataUrl: String.format($.const.webapi.categorytype, @Model.UserID),
+                            buildSelect: function (data) {
+                                var _data = JSON.parse(data);
+                                var result = $("<select id='category' name='category' />");
+                                $.each(_data, function (i, d) {
+                                    result.append(String.format("<option value='{0}'>{1}</option>", d.CategoryTypeID, d.CategoryTypeName));
+                                });
+                                return result[0].outerHTML;
+                            }
+                        }
+                    },
+                    {
+                        label: "价格",
+                        name: 'ItemPrice',
+                        align: 'right',
+                        width: 100,
+                        editable: true,
+                        editrules: {
+                            required: true,
+                            number: true
+                        }
+                    },
+                    {
+                        label: "日期",
+                        name: 'ItemBuyDate',
+                        align: 'center',
+                        width: 100,
+                        formatter: 'date',
+                        datefmt: 'yyyy-mm-dd',
+                        editable: true,
+                        editrules: {
+                            required: true,
+                            date: true
+                        },
+                        editoptions: {
+                            // dataInit is the client-side event that fires upon initializing the toolbar search field for a column
+                            // use it to place a third party control to customize the toolbar
+                            dataInit: function (element) {
+                                //console.log(element);
+                                $(element).datepicker({
+                                    autoclose: true,
+                                    language: 'zh-CN',
+                                    format: 'yyyy-mm-dd'
+                                });
+                            }
+                        }
+                    },
+                    {
+                        label: "专题",
+                        name: 'ZhuanTiID',
+                        jsonmap: 'ZhuanTiName',
+                        align: 'center',
+                        width: 100,
+                        editable: true,
+                        edittype: 'select',
+                        editoptions: {
+                            dataUrl: String.format($.const.webapi.zhuanti, @Model.UserID),
+                            buildSelect: function (data) {
+                                var _data = JSON.parse(data);
+                                var result = $("<select id='zhuanti' name='zhuanti' />");
+                                result.append("<option value=''>---</option>");
+                                $.each(_data, function (i, d) {
+                                    result.append(String.format("<option value='{0}'>{1}</option>", d.ZTID, d.ZhuanTiName));
+                                });
+                                return result[0].outerHTML;
+                            }
+                        }
+                    },
+                    {
+                        label: "钱包",
+                        name: 'CardID',
+                        jsonmap: 'CardName',
+                        align: 'center',
+                        width: 100,
+                        editable: true,
+                        edittype: 'select',
+                        editoptions: {
+                            dataUrl: String.format($.const.webapi.card, @Model.UserID),
+                            buildSelect: function (data) {
+                                var _data = JSON.parse(data);
+                                var result = $("<select id='card' name='card' />");
+                                $.each(_data, function (i, d) {
+                                    result.append(String.format("<option value='{0}'>{1}</option>", d.CDID, d.CardName));
+                                });
+                                return result[0].outerHTML;
+                            }
+                        }
+                    },
+                    {
+                        label: "推荐",
+                        name: 'Recommend',
+                        align: 'center',
+                        width: 70,
+                        editable: true,
+                        edittype: 'checkbox',
+                        editoptions: {
+                            value: "1:0"
+                        },
+                        formatter: "checkbox"
+                    },
+                    {
+                        label: "操作",
+                        name: "actions",
+                        align: 'center',
+                        width: 70,
+                        formatter: "actions",
+                        formatoptions: {
+                            keys: true,
+                            mtype: 'PUT', //更新用的,
+                            editOptions: {},
+                            addOptions: {},
+                            delOptions: {
+                                mtype: 'DELETE',
+                                onclickSubmit: function (options, rowid) {
+                                    options.url = String.format($.const.webapi.item_id, rowid);
+                                }
+                            }
+                        }
+                    }
+                ],
+                sortname: 'ItemBuyDate',
+                rownumbers: false,
+                scroll: 1,
+                width: 780,
+                height: 340,
+                rowNum: 50,
+                ajaxRowOptions: {
+                    contentType: "application/json"
+                },
+                serializeRowData: function (postdata) {
+                    return JSON.stringify(postdata);
+                }
+            });
+
+            var selfirst = true;
+            $.extend(true, $.jgrid.inlineEdit, {
+                afterValidedRow: function (options, rowid) {
+                    if (selfirst) {
+                        $.jgrid.info_dialog("查看",
+                            "这里是内容。",
+                            "关闭",
+                            {
+                                styleUI: "Bootstrap",
+                                buttonalign: "right",
+                                buttons: [
+                                    {
+                                        text: "确定",
+                                        id: "buttid",
+                                        onClick: function () {
+                                            selfirst = false;
+                                            $(grid_selector).jqGrid('saveRow', rowid, options);
+                                        }
+                                    }
+                                ]
+                            });
+                        return false;
+                    }
+                    selfirst = true;
+                    return true; // return false break submiting
+                }
+            });
+
+            $(window).triggerHandler('resize.jqGrid');//trigger window resize to make the grid get the correct size
+        });
+
+        $(".btn-add").on("click", function () {
+            jQuery("#jqGrid").jqGrid('addRow', { useDefValues: true, useFormatter: true });
+        });
+
+        $(".btn-query").on("click", function () {
+            query.startDate = moment($(".startdate").val()).format("YYYY-MM-DD 00:00:00");
+            query.endDate = moment($(".enddate").val()).format("YYYY-MM-DD 23:59:59");
+            query.keyWords = $(".querykey").val();
+            jQuery("#jqGrid").jqGrid('setGridParam', { postData: query }).trigger("reloadGrid");
+        });
+
+    </script>
+}
