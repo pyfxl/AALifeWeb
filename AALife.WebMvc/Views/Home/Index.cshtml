@@ -206,6 +206,13 @@
                         }
                     },
                     {
+                        label: "工作日",
+                        name: 'UserWorkDay',
+                        hidden: true,
+                        width: 70,
+                        editable: true
+                    },
+                    {
                         label: "分类",
                         name: 'ItemType',
                         jsonmap: 'ItemTypeName',
@@ -399,6 +406,7 @@
                     }
                 ],
                 sortname: 'ItemBuyDate',
+                sortorder: 'desc',
                 rownumbers: false,
                 scroll: 1,
                 width: 780,
@@ -435,7 +443,8 @@
                             ItemPrice: "ItemPrice".jtv(rowid),
                             ItemBuyDate: "ItemBuyDate".jtv(rowid),
                             ZhuanTiName: "ZhuanTiID".jsv(rowid),
-                            CardName: "CardID".jsv(rowid)
+                            CardName: "CardID".jsv(rowid),
+                            UserWorkDay: @Model.UserWorkDay
                         };
 
                         var date = "ItemBuyDate".jtv(rowid);

@@ -31,6 +31,8 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public byte IsUpdate { get; set; }
 
+        public int UserWorkDay { get; set; }
+
         public string UserLevelName { get; set; }
         public string UserFromName { get; set; }
 

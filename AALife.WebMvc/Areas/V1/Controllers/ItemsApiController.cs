@@ -31,7 +31,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // GET api/<controller>
         public IHttpActionResult Get([FromUri]DataSourceRequest common, [FromUri]ItemsQuery query)
         {
-            var result = _itemService.GetAllItem(common.Page - 1, common.PageSize, query.userId, query.startDate, query.endDate, query.keyWords);
+            var result = _itemService.GetAllItem(common.Page - 1, common.PageSize, "", "", query.userId, query.startDate, query.endDate, query.keyWords);
 
             var grid = new DataSourceResult
             {

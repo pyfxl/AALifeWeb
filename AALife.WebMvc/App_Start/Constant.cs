@@ -15,5 +15,7 @@ namespace AALife.WebMvc
 
         //cache
         public const string ITEM_ALL_USER = "aalife.item.user.{0}";
+
+        public const int USER_WORK_DAY = 5;
     }
 }

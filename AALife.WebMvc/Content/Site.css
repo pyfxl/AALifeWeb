@@ -70,6 +70,10 @@
     margin-top: 5px;
 }
 
+#btn-add {
+    margin: 8px 0;
+}
+
 .text-red {
     color: red !important;
 }

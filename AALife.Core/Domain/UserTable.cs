@@ -87,6 +87,12 @@ namespace AALife.Core.Domain
         public byte IsUpdate { get; set; }
 
         /// <summary>
+        /// 工作日
+        /// </summary>
+        [Display(Name = "工作日")]
+        public int UserWorkDay { get; set; }
+
+        /// <summary>
         /// 等级
         /// </summary>
         public virtual UserLevelTable UserLevelTable { get; set; }

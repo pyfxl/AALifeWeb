@@ -23,7 +23,9 @@ namespace AALife.WebMvc.Mapper
                 //item
                 cfg.CreateMap<ItemTable, ItemViewModel>()
                     .ForMember(dest => dest.UserName,
-                        mo => mo.MapFrom(src => src.User != null ? src.User.UserNickName != "" ? src.User.UserNickName : src.User.UserName : null));
+                        mo => mo.MapFrom(src => src.User != null ? src.User.UserNickName != "" ? src.User.UserNickName : src.User.UserName : null))
+                    .ForMember(dest => dest.UserWorkDay,
+                        mo => mo.MapFrom(src => src.User != null ? src.User.UserWorkDay : Constant.USER_WORK_DAY));
                 cfg.CreateMap<ItemViewModel, ItemTable>()
                     .ForMember(dest => dest.User, src => src.Ignore());
 

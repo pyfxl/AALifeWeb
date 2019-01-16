@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 
 namespace AALife.Core.Services
 {
@@ -17,7 +18,7 @@ namespace AALife.Core.Services
             this._dbContext = dbContext;
         }
 
-        public virtual IPagedList<ItemTable> GetAllItem(int pageIndex = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null)
+        public virtual IPagedList<ItemTable> GetAllItem(int pageIndex = 0, int pageSize = int.MaxValue, string sortName = null, string sort = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null)
         {
             var query = _itemRepository.Table;
 
@@ -46,8 +47,11 @@ namespace AALife.Core.Services
                 query = query.Where(c => c.ItemName.Contains(keyWords));
             }
 
-            query = query.OrderByDescending(c => c.ItemBuyDate);
-
+            if (sortName != null && sortName != "")
+            {
+                query = query.OrderBy(string.Format("{0} {1}", sortName, sort));
+            }
+            
             var items = new PagedList<ItemTable>(query, pageIndex, pageSize);
             return items;
         }

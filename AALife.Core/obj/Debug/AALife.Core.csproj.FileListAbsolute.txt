@@ -34,3 +34,7 @@ D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.CopyComplete
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.pdb
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csprojAssemblyReference.cache
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.AddUserWorkDay.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.GenerateResource.cache
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.AddUserWorkDay1.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Linq.Dynamic.dll

@@ -46,6 +46,9 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -95,6 +98,14 @@
     <Compile Include="IDbContext.cs" />
     <Compile Include="IPagedList.cs" />
     <Compile Include="IRepository.cs" />
+    <Compile Include="Migrations\201901151316303_AddUserWorkDay.cs" />
+    <Compile Include="Migrations\201901151316303_AddUserWorkDay.Designer.cs">
+      <DependentUpon>201901151316303_AddUserWorkDay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901151319418_AddUserWorkDay1.cs" />
+    <Compile Include="Migrations\201901151319418_AddUserWorkDay1.Designer.cs">
+      <DependentUpon>201901151319418_AddUserWorkDay1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -114,6 +125,13 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201901151316303_AddUserWorkDay.resx">
+      <DependentUpon>201901151316303_AddUserWorkDay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901151319418_AddUserWorkDay1.resx">
+      <DependentUpon>201901151319418_AddUserWorkDay1.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

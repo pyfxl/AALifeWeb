@@ -8,7 +8,7 @@ namespace AALife.Core.Services
 {
     public interface IItemService
     {
-        IPagedList<ItemTable> GetAllItem(int pageIndex = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null);
+        IPagedList<ItemTable> GetAllItem(int pageIndex = 0, int pageSize = int.MaxValue, string sortName = null, string sort = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null);
 
         IQueryable<ItemTable> GetAllItem(int userId);
 

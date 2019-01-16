@@ -42,6 +42,7 @@ namespace AALife.WebMvc.Models.ViewModel
         public DateTime? ItemBuyDateStart { get; set; }
         public DateTime? ItemBuyDateEnd { get; set; }
         public string UserName { get; set; }
+        public int UserWorkDay { get; set; }
         public string ItemTypeName { get; set; }
         public string CategoryTypeName { get; set; }
         public string ZhuanTiName { get; set; }

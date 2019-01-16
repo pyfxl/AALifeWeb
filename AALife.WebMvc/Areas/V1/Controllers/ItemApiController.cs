@@ -42,7 +42,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var all = _itemService.GetAllItem(query.userId.Value);
 
-            var result = _itemService.GetAllItem(common.page - 1, common.rows, query.userId, query.startDate, query.endDate, query.keyWords);
+            var result = _itemService.GetAllItem(common.page - 1, common.rows, common.sidx, common.sord, query.userId, query.startDate, query.endDate, query.keyWords);
             
             var grid = new DataSourceResult
             {
@@ -188,6 +188,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             for (int i = 0; i <= days; i++)
             {
                 DateTime date = GetItemBuyDate(i, model.RegionType, model.ItemBuyDateStart.Value);
+                if (!IsWorkDay(date, model.UserWorkDay)) continue;
                 var table = model.ToEntity();
                 table.ItemID = 0;
                 table.ItemBuyDate = date;
@@ -235,6 +236,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             switch (regionType)
             {
                 case "d":
+                case "b":
                     itemBuyDate = itemBuyDate1.AddDays(i);
                     break;
                 case "w":
@@ -252,6 +254,35 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             }
 
             return itemBuyDate;
+        }
+
+        //判断是否工作日
+        private bool IsWorkDay(DateTime date, int day)
+        {
+            int week = Convert.ToInt32(date.DayOfWeek);
+            switch (day)
+            {
+                case 1:
+                    if (week != 1) return false;
+                    break;
+                case 2:
+                    if (week > 2 || week == 0) return false;
+                    break;
+                case 3:
+                    if (week > 3 || week == 0) return false;
+                    break;
+                case 4:
+                    if (week > 4 || week == 0) return false;
+                    break;
+                case 5:
+                    if (week > 5 || week == 0) return false;
+                    break;
+                case 6:
+                    if (week == 0) return false;
+                    break;
+            }
+
+            return true;
         }
 
     }
