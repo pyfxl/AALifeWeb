@@ -92,23 +92,23 @@
                     data: "Data",
                     total: "Total",
                     model: {
-                        id: "ItemID",
+                        id: "Id",
                         fields: {
-                            ItemID: { type: "number" },
+                            Id: { type: "number" },
                             ItemName: { type: "string" },
-                            CategoryTypeID: { type: "number" },
+                            CategoryTypeId: { type: "number" },
                             ItemPrice: { type: "number" },
                             ItemBuyDate: { type: "date" },
-                            UserID: { type: "number" },
+                            UserId: { type: "number" },
                             Recommend: { type: "number" },
                             ModifyDate: { type: "date" },
                             Synchronize: { type: "number" },
-                            ItemAppID: { type: "number" },
-                            RegionID: { type: "number" },
+                            ItemAppId: { type: "number" },
+                            RegionId: { type: "number" },
                             RegionType: { type: "string" },
                             ItemType: { type: "string" },
-                            ZhuanTiID: { type: "number" },
-                            CardID: { type: "number" },
+                            ZhuanTiId: { type: "number" },
+                            CardId: { type: "number" },
                             Remark: { type: "string" }
                         }
                     },
@@ -157,12 +157,12 @@
                 },
                 columns: [                    
                     {
-                        field: "ItemID",
+                        field: "Id",
                         title: "编号",
                         width: 80
                     },
                     {
-                        field: "ItemType",
+                        field: "ItemTypeName",
                         title: "分类",
                         width: 80,
                         filterable: { multi: true }
@@ -173,7 +173,7 @@
                         width: 150
                     },
                     {
-                        field: "CategoryTypeID",
+                        field: "CategoryTypeName",
                         title: "商品类别",
                         width: 150
                     },
@@ -191,7 +191,7 @@
                         format: "{0:yyyy/MM/dd}"
                     },
                     {
-                        field: "UserID",
+                        field: "UserName",
                         title: "用户名",
                         width: 90
                     },
@@ -214,18 +214,18 @@
                         filterable: { multi: true }
                     },
                     {
-                        field: "RegionType",
+                        field: "RegionName",
                         title: "固定",
                         width: 80,
                         filterable: { multi: true }
                     },
                     {
-                        field: "CardID",
+                        field: "CardName",
                         title: "钱包",
                         width: 80
                     },
                     {
-                        field: "ZhuanTiID",
+                        field: "ZhuanTiName",
                         title: "专题",
                         width: 80
                     },
@@ -311,11 +311,11 @@
             //设置查询条件
             function setQuery() {
                 var _start = start.value();
-                if (_start == null) _start = min_date();
+                if (_start == null) _start = "";
                 query.startDate = kendo.toString(_start, "yyyy/MM/dd 00:00:00");
 
                 var _end = end.value();
-                if (_end == null) _end = max_date();
+                if (_end == null) _end = "";
                 query.endDate = kendo.toString(_end, "yyyy/MM/dd 23:59:59");
 
                 query.keyWords = keySearch.value();

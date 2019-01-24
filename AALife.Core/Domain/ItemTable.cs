@@ -1,15 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Core.Domain
 {
     [Table("tab_ItemTable")]
-    public partial class ItemTable : BaseEntity
+    public partial class ItemTable : UserEntity
     {
-        [Key]
-        public int ItemID { get; set; }
-
         /// <summary>
         /// 商品名称
         /// </summary>
@@ -18,9 +16,9 @@ namespace AALife.Core.Domain
         public string ItemName { get; set; }
 
         /// <summary>
-        /// 类别ID
+        /// 类别Id
         /// </summary>
-        public int CategoryTypeID { get; set; }
+        public int? CategoryTypeId { get; set; }
 
         /// <summary>
         /// 商品价格
@@ -38,24 +36,14 @@ namespace AALife.Core.Domain
         public byte? Recommend { get; set; }
 
         /// <summary>
-        /// 修改日期
+        /// 商品AppId
         /// </summary>
-        public DateTime ModifyDate { get; set; }
+        public int? ItemAppId { get; set; }
 
         /// <summary>
-        /// 同步
+        /// 区间Id
         /// </summary>
-        public byte Synchronize { get; set; }
-
-        /// <summary>
-        /// 商品AppID
-        /// </summary>
-        public int? ItemAppID { get; set; }
-
-        /// <summary>
-        /// 区间ID
-        /// </summary>
-        public int? RegionID { get; set; }
+        public int? RegionId { get; set; }
 
         /// <summary>
         /// 区间类型
@@ -71,35 +59,14 @@ namespace AALife.Core.Domain
         public string ItemType { get; set; }
 
         /// <summary>
-        /// 专题ID
+        /// 专题Id
         /// </summary>
-        public int? ZhuanTiID { get; set; }
+        public int? ZhuanTiId { get; set; }
 
         /// <summary>
-        /// 卡ID
+        /// 卡Id
         /// </summary>
-        public int CardID { get; set; }
-
-        /// <summary>
-        /// 商品备注
-        /// </summary>
-        [MaxLength(100)]
-        public string Remark { get; set; }
-        
-        /// <summary>
-        /// 可用否
-        /// </summary>
-        public byte ItemLive { get; set; }
-        
-        /// <summary>
-        /// 用户ID
-        /// </summary>
-        public int UserID { get; set; }
-
-        /// <summary>
-        /// 用户
-        /// </summary>
-        public virtual UserTable User { get; set; }
+        public int CardId { get; set; }
 
     }
 }

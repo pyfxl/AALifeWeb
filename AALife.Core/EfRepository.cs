@@ -166,6 +166,26 @@ namespace AALife.Core
         }
 
         /// <summary>
+        /// Delete entity
+        /// </summary>
+        /// <param name="id">Identifier</param>
+        public virtual void Delete(int id)
+        {
+            try
+            {
+                var entity = GetById(id);
+
+                this.Entities.Remove(entity);
+
+                this._context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                throw new Exception(GetFullErrorText(dbEx), dbEx);
+            }
+        }
+
+        /// <summary>
         /// Delete entities
         /// </summary>
         /// <param name="entities">Entities</param>

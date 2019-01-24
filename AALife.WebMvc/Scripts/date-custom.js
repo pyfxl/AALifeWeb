@@ -1,14 +1,18 @@
-﻿var fn_date = (function () {
+﻿var fn_date = (function (window) {
 
 	var self = this;
 
 	self.moment_format = "YYYY-MM-DD";
 
+	self.moment_format_min = "YYYY-MM-DD 00:00:00";
+
+	self.moment_format_max = "YYYY-MM-DD 23:59:59";
+
 	self.moment_format_full = "YYYY-MM-DD HH:mm:ss";
 
-	self.mind = "1900-01-01";
+	self.min_date = "1900-01-01";
 
-	self.maxd = "2099-12-31";
+	self.max_date = "2099-12-31";
 
 	//今天日期
 	self.today_date = function () {
@@ -16,8 +20,13 @@
 	}
 
 	//今天日期
-	self.today_date_full = function () {
-		return moment().format(self.moment_format_full);
+	self.today_date_min = function () {
+		return moment().format(self.moment_format_min);
+	}
+
+	//今天日期
+	self.today_date_max = function () {
+		return moment().format(self.moment_format_max);
 	}
 
 	//设置日期
@@ -26,21 +35,13 @@
 	}
 
 	//最小日期
-	self.min_date = function () {
-		return moment(self.mind).format(self.moment_format);
-	}
-
-	self.min_date_full = function () {
-		return moment(self.mind).format(self.moment_format_full);
+	self.get_min_date = function () {
+		return moment(self.min_date).format(self.moment_format);
 	}
 
 	//最大日期
-	self.max_date = function () {
-		return moment(self.maxd).format(self.moment_format);
-	}
-
-	self.max_date_full = function () {
-		return moment(self.maxd).format(self.moment_format_full);
+	self.get_max_date = function () {
+		return moment(self.max_date).format(self.moment_format);
 	}
 
 	//年的第一天
@@ -115,22 +116,17 @@
 
 	//取年份
 	self.getYear = function (d) {
-		d = d == "" ? moment() : d;
-		return moment(d).year();
+		return moment(d || moment()).year();
 	}
 
 	//取季度
 	self.getQuarter = function (d) {
-		d = d == "" ? moment() : d;
-		return moment(d).quarter();
+		return moment(d || moment()).quarter();
 	}
 
 	//取月份
 	self.getMonth = function (d) {
-		d = d == "" ? moment() : d;
-		return moment(d).month();
+		return moment(d || moment()).month();
 	}
-	
-	return self;
-	
-})();
+
+})(window);

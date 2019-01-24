@@ -5,42 +5,33 @@ using System.Linq;
 
 namespace AALife.Core.Services
 {
-    public partial class ZhuanTiService : IZhuanTiService
+    public partial class ZhuanTiService : BaseUserService<ZhuanTiTable>, IZhuanTiService
     {
-        private readonly ICacheManager _cacheManager;
-        private readonly IRepository<ZhuanTiTable> _zhuanTiRepository;
-        private readonly IDbContext _dbContext;
-
-        private const string ZHUANTI_BY_UID_KEY = "aalife.zhuanti.user.{0}";
-
-        public ZhuanTiService(ICacheManager cacheManager, 
-            IRepository<ZhuanTiTable> zhuanTiRepository, 
+        public ZhuanTiService(IRepository<ZhuanTiTable> repository,
+            ICacheManager cacheManager,
             IDbContext dbContext)
+            : base(repository, cacheManager, dbContext)
         {
-            this._cacheManager = cacheManager;
-            this._zhuanTiRepository = zhuanTiRepository;
-            this._dbContext = dbContext;
-        }
-
-        public virtual IList<ZhuanTiTable> GetAllZhuanTi(int userId)
-        {
-            string key = string.Format(ZHUANTI_BY_UID_KEY, userId);
-            return _cacheManager.Get(key, () =>
-            {
-                var query = _zhuanTiRepository.Table;
-                query = query.Where(c => c.UserID == userId && c.ZhuanTiLive == 1);
-                query = query.OrderBy(c => c.ZTID);
-
-                return query.ToList();
-            });
         }
 
         public ZhuanTiTable GetZhuanTi(int userId, int zhuanTiId)
         {
-            var query = _zhuanTiRepository.Table;
-            query = query.Where(c => c.UserID == userId && c.ZTID == zhuanTiId && c.ZhuanTiLive == 1);
+            var query = _repository.Table;
+            query = query.Where(c => c.UserId == userId && c.Live == 1 && c.ZhuanTiId == zhuanTiId);
 
             return query.FirstOrDefault();
+        }
+
+        //取最大id
+        public int GetMaxId(int userId)
+        {
+            var query = _repository.Table;
+            query = query.Where(c => c.UserId == userId && c.Live == 1);
+
+            var maxId = query.Max(a => a.ZhuanTiId).GetValueOrDefault();
+            maxId = maxId + 1;
+
+            return maxId % 2 == 0 ? maxId + 1 : maxId;
         }
     }
 }

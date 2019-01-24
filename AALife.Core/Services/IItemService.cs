@@ -6,22 +6,12 @@ using System.Linq;
 
 namespace AALife.Core.Services
 {
-    public interface IItemService
+    public interface IItemService : IBaseUserService<ItemTable>, IBaseService<ItemTable>
     {
-        IPagedList<ItemTable> GetAllItem(int pageIndex = 0, int pageSize = int.MaxValue, string sortName = null, string sort = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null);
+        IPagedList<ItemTable> GetAllItemByPage(int pageIndex = 0, int pageSize = int.MaxValue, string sortName = null, string sort = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null);
 
-        IQueryable<ItemTable> GetAllItem(int userId);
+        IQueryable<ItemTable> GetAllItem(int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null);
 
-        ItemTable GetItem(int itemId);
-
-        void AddItem(ItemTable model);
-
-        void AddItem(IEnumerable<ItemTable> models);
-
-        void UpdateItem(ItemTable model);
-
-        void UpdateItem(IEnumerable<ItemTable> models);
-
-        void DeleteItem(int id);
+        int GetMaxId(int userId);
     }
 }

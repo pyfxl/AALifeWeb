@@ -32,7 +32,7 @@ namespace AALife.WebMvc
 
             //webapi返回json
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
-
+            
             //register dependencies
             RegisterDependencies();
             

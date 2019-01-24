@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace AALife.Core.Services
 {
-    public interface ICategoryTypeService
+    public interface ICategoryTypeService : IBaseUserService<CategoryTypeTable>, IBaseService<CategoryTypeTable>
     {
-        IList<CategoryTypeTable> GetAllCategoryType(int userId);
-
         CategoryTypeTable GetCategoryType(int userId, int categoryTypeId);
+
+        int GetMaxId(int userId);
     }
 }

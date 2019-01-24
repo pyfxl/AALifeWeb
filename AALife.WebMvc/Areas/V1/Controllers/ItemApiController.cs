@@ -1,4 +1,5 @@
-﻿using AALife.Core.Caching;
+﻿using AALife.Core;
+using AALife.Core.Caching;
 using AALife.Core.Domain;
 using AALife.Core.Services;
 using AALife.WebMvc.jqGrid;
@@ -16,13 +17,14 @@ using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
-    public class ItemApiController : ApiController
+    public class ItemApiController : BaseApiController
     {
         private readonly ICacheManager _cacheManager;
         private readonly IItemService _itemService;
         private readonly ICategoryTypeService _categoryTypeService;
         private readonly ICardService _cardService;
         private readonly IZhuanTiService _zhuanTiService;
+        private const string ITEM_ALL_USER = "aalife.item.user.{0}";
 
         public ItemApiController(ICacheManager cacheManager, 
             IItemService itemService,
@@ -40,22 +42,26 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // GET api/<controller>
         public IHttpActionResult Get([FromUri]DataSourceRequest common, [FromUri]ItemsQuery query)
         {
-            var all = _itemService.GetAllItem(query.userId.Value);
-
-            var result = _itemService.GetAllItem(common.page - 1, common.rows, common.sidx, common.sord, query.userId, query.startDate, query.endDate, query.keyWords);
+            string key = string.Format(ITEM_ALL_USER, query.userId.Value);
+            var all = _cacheManager.Get(key, () =>
+            {
+                return _itemService.GetAllItem(userId: query.userId).ToList();
+            });
+            var totals = _itemService.GetAllItem(query.userId, query.startDate, query.endDate, query.keyWords);
+            var result = _itemService.GetAllItemByPage(common.page - 1, common.rows, common.sidx, common.sord, query.userId, query.startDate, query.endDate, query.keyWords);
             
             var grid = new DataSourceResult
             {
                 rows = result.Select(x => 
                 {
-                    var regions = all.Where(a => a.RegionID == x.RegionID.Value).ToList();
+                    var region = !x.RegionId.IsNullOrDefault() ? all.Where(a => a.RegionId == x.RegionId.Value).GroupBy(a => a.RegionId).Select(a => new { MinDate = a.Min(b => b.ItemBuyDate), MaxDate = a.Max(b => b.ItemBuyDate) }).FirstOrDefault() : null;
                     var m = x.ToModel();
-                    m.ItemBuyDateStart = regions.Any() ? regions.LastOrDefault().ItemBuyDate : x.ItemBuyDate;
-                    m.ItemBuyDateEnd = regions.Any() ? regions.FirstOrDefault().ItemBuyDate : x.ItemBuyDate;
+                    m.ItemBuyDateStart = region != null ? region.MinDate : x.ItemBuyDate;
+                    m.ItemBuyDateEnd = region != null ? region.MaxDate : x.ItemBuyDate;
                     m.ItemTypeName = Constant.ItemTypeDic[x.ItemType];
-                    m.CategoryTypeName = _categoryTypeService.GetCategoryType(x.UserID, x.CategoryTypeID).CategoryTypeName;
-                    m.CardName = _cardService.GetCard(x.UserID, x.CardID).CardName;
-                    m.ZhuanTiName = x.ZhuanTiID != null && x.ZhuanTiID.Value > 0 ? _zhuanTiService.GetZhuanTi(x.UserID, x.ZhuanTiID.Value).ZhuanTiName : "";
+                    m.CategoryTypeName = !x.CategoryTypeId.IsNullOrDefault() ? _categoryTypeService.GetCategoryType(x.UserId, x.CategoryTypeId.Value).CategoryTypeName : "";
+                    m.CardName = _cardService.GetCard(x.UserId, x.CardId).CardName;
+                    m.ZhuanTiName = !x.ZhuanTiId.IsNullOrDefault() ? _zhuanTiService.GetZhuanTi(x.UserId, x.ZhuanTiId.Value).ZhuanTiName : "";
                     m.RegionName = string.IsNullOrWhiteSpace(x.RegionType) ? "" : Constant.RegionTypeDic[x.RegionType];
                     return m;
                 }),
@@ -64,86 +70,126 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 page = common.page,
                 userdata = new ItemTotalModel()
                 {
-                    ShouRuCount = result.Count(a => a.ItemType == "sr"),
-                    ShouRuAmount = result.Where(a => a.ItemType == "sr").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
-                    ZhiChuCount = result.Count(a => a.ItemType == "zc"),
-                    ZhiChuAmount = result.Where(a => a.ItemType == "zc").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
-                    JieRuAmount = result.Where(a => a.ItemType == "jr").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
-                    JieChuAmount = result.Where(a => a.ItemType == "jc").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
-                    HuanRuAmount = result.Where(a => a.ItemType == "hr").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
-                    HuanChuAmount = result.Where(a => a.ItemType == "hc").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum()
+                    ShouRuCount = totals.Count(a => a.ItemType == "sr"),
+                    ShouRuAmount = totals.Where(a => a.ItemType == "sr").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
+                    ZhiChuCount = totals.Count(a => a.ItemType == "zc"),
+                    ZhiChuAmount = totals.Where(a => a.ItemType == "zc").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
+                    JieRuAmount = totals.Where(a => a.ItemType == "jr").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
+                    JieChuAmount = totals.Where(a => a.ItemType == "jc").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
+                    HuanRuAmount = totals.Where(a => a.ItemType == "hr").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum(),
+                    HuanChuAmount = totals.Where(a => a.ItemType == "hc").Select(a => a.ItemPrice).DefaultIfEmpty(0).Sum()
                 }
             };
 
             return Json(grid);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
+        // GET api/<controller>
+        [Route("api/v1/itemsapi")]
+        public IHttpActionResult GetItems([FromUri]Kendoui.DataSourceRequest common, [FromUri]ItemsQuery query)
         {
-            return "value";
+            var result = _itemService.GetAllItemByPage(common.Page - 1, common.PageSize, "Id", "desc", query.userId, query.startDate, query.endDate, query.keyWords);
+
+            var grid = new Kendoui.DataSourceResult
+            {
+                Data = result.Select(x =>
+                {
+                    var m = x.ToModel();
+                    m.ItemTypeName = Constant.ItemTypeDic[x.ItemType];
+                    m.CategoryTypeName = !x.CategoryTypeId.IsNullOrDefault() ? _categoryTypeService.GetCategoryType(x.UserId, x.CategoryTypeId.Value).CategoryTypeName : "";
+                    m.CardName = _cardService.GetCard(x.UserId, x.CardId).CardName;
+                    m.ZhuanTiName = !x.ZhuanTiId.IsNullOrDefault() ? _zhuanTiService.GetZhuanTi(x.UserId, x.ZhuanTiId.Value).ZhuanTiName : "";
+                    m.RegionName = string.IsNullOrWhiteSpace(x.RegionType) ? "" : Constant.RegionTypeDic[x.RegionType];
+                    return m;
+                }),
+                Total = result.TotalCount
+            };
+
+            return Json(grid);
+        }
+
+        // GET api/<controller>
+        [Route("api/v1/itemnamesapi")]
+        public IHttpActionResult GetItemNames(int id, string term)
+        {
+            var all = _itemService.GetAllItem(id);
+
+            all = all.Where(a => a.Live == 1);
+
+            if (term != null && term != "")
+            {
+                all = all.Where(a => a.ItemName.Contains(term));
+            }
+
+            var item = all.GroupBy(a => a.ItemName)
+                .Select(a => new { Count = a.Count(), ItemName = a.Key, Index = a.Key.IndexOf(term) })
+                .OrderBy(a => a.Index).ThenByDescending(a => a.Count)
+                .Select(a => a.ItemName)
+                .Skip(0).Take(10)
+                .ToArray();
+
+            return Json(item);
         }
 
         // POST api/<controller>
         public IHttpActionResult Post([FromBody]ItemViewModel model)
         {
-            if (string.IsNullOrWhiteSpace(model.RegionType))
+            if (!string.IsNullOrWhiteSpace(model.RegionType))
             {
-                var table = model.ToEntity();
-                table.ModifyDate = DateTime.Now;
-                table.Synchronize = 1;
-                table.ItemLive = 1;
-
-                _itemService.AddItem(table);
-            }
-            else
-            {
-                var regionId = _itemService.GetAllItem(userId: model.UserID).Max(a => a.RegionID.Value);
-                regionId = regionId + 1;
-                model.RegionID = regionId % 2 == 0 ? regionId + 1 : regionId;
+                model.RegionId = _itemService.GetMaxId(model.UserId);
 
                 var regions = GetRegionTables(model);
 
-                _itemService.AddItem(regions);
+                _itemService.Add(regions);
             }
+            else
+            {
+                var table = model.ToEntity();
+                table.UpdateField();
+
+                _itemService.Add(table);
+            }
+
+            string key = string.Format(ITEM_ALL_USER, model.UserId);
+            _cacheManager.Remove(key);
 
             return Ok();
         }
 
         // PUT api/<controller>/5
-        public IHttpActionResult Put(ItemViewModel model)
+        public IHttpActionResult Put([FromBody]ItemViewModel model)
         {
-            if (string.IsNullOrWhiteSpace(model.RegionType))
+            if (!string.IsNullOrWhiteSpace(model.RegionType))
             {
-                var item = _itemService.GetItem(model.ItemID);
+                var all = _itemService.GetAllItem(userId: model.UserId);
 
-                var table = model.MapTo(item);
-                table.ModifyDate = DateTime.Now;
-                table.Synchronize = 1;
-
-                _itemService.UpdateItem(table);
-            }
-            else
-            {
-                var all = _itemService.GetAllItem(userId: model.UserID);
-
-                var tables = all.Where(a => a.RegionID == model.RegionID.Value).ToList();
-                foreach(var table in tables)
+                var tables = all.Where(a => a.RegionId == model.RegionId.Value).ToList();
+                foreach (var table in tables)
                 {
-                    table.ModifyDate = DateTime.Now;
-                    table.Synchronize = 1;
-                    table.ItemLive = 0;
+                    table.UpdateField(0);
                 };
 
                 var regions = GetRegionTables(model);
 
                 using (var ts = new TransactionScope())
                 {
-                    _itemService.UpdateItem(tables);
-                    _itemService.AddItem(regions);
+                    _itemService.Update(tables);
+                    _itemService.Add(regions);
                     ts.Complete();
                 }
             }
+            else
+            {
+                var item = _itemService.Get(model.Id);
+
+                var table = model.MapTo(item);
+                table.UpdateField();
+
+                _itemService.Update(table);
+            }
+
+            string key = string.Format(ITEM_ALL_USER, model.UserId);
+            _cacheManager.Remove(key);
 
             return Ok();
         }
@@ -151,35 +197,32 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // DELETE api/<controller>/5
         public IHttpActionResult Delete(int id)
         {
-            //_itemService.DeleteItem(id);
-
-            var item = _itemService.GetItem(id);
-            if (string.IsNullOrWhiteSpace(item.RegionType))
+            var item = _itemService.Get(id);
+            if (!string.IsNullOrWhiteSpace(item.RegionType))
             {
-                item.ModifyDate = DateTime.Now;
-                item.Synchronize = 1;
-                item.ItemLive = 0;
+                var all = _itemService.GetAllItem(userId: item.UserId);
 
-                _itemService.UpdateItem(item);
+                var tables = all.Where(a => a.RegionId == item.RegionId.Value).ToList();
+                foreach (var table in tables)
+                {
+                    table.UpdateField(0);
+                };
+
+                _itemService.Update(tables);
             }
             else
             {
-                var all = _itemService.GetAllItem(userId: item.UserID);
+                item.UpdateField(0);
 
-                var tables = all.Where(a => a.RegionID == item.RegionID.Value).ToList();
-                foreach (var table in tables)
-                {
-                    table.ModifyDate = DateTime.Now;
-                    table.Synchronize = 1;
-                    table.ItemLive = 0;
-                };
-
-                _itemService.UpdateItem(tables);
+                _itemService.Update(item);
             }
 
             return Ok();
         }
 
+        #region 私有方法
+
+        //取固定消费日期区间
         private IEnumerable<ItemTable> GetRegionTables(ItemViewModel model)
         {
             var dates = new List<DateTime>();
@@ -188,13 +231,13 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             for (int i = 0; i <= days; i++)
             {
                 DateTime date = GetItemBuyDate(i, model.RegionType, model.ItemBuyDateStart.Value);
-                if (!IsWorkDay(date, model.UserWorkDay)) continue;
+                if (!IsWorkDay(date, 5)) continue;
                 var table = model.ToEntity();
-                table.ItemID = 0;
+                table.Id = 0;
                 table.ItemBuyDate = date;
                 table.ModifyDate = DateTime.Now;
                 table.Synchronize = 1;
-                table.ItemLive = 1;
+                table.Live = 1;
                 tables.Add(table);
             }
             return tables;
@@ -285,5 +328,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return true;
         }
 
+        #endregion
     }
 }

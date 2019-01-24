@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace AALife.Core.Services
 {
-    public interface ICardService
+    public interface ICardService : IBaseUserService<CardTable>, IBaseService<CardTable>
     {
-        IList<CardTable> GetAllCard(int userId);
-
         CardTable GetCard(int userId, int cardId);
+
+        int GetMaxId(int userId);
     }
 }

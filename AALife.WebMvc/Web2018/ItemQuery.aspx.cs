@@ -543,6 +543,8 @@ namespace AALife.WebMvc.Web2018
             cardDropDown.DataBind();
             if (cardIdHid.Value != "")
             {
+                log.Info(cardDropDown);
+                log.Info(cardIdHid);
                 cardDropDown.Items.FindByValue(cardIdHid.Value).Selected = true;
             }
             else

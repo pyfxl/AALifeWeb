@@ -1,104 +1,158 @@
-﻿body {
-    background: url("bg.jpg") center top repeat;
+﻿/*背景处理*/
+body {
+    font-family: 'Microsoft YaHei', SimHei;
+    background: url('bg.jpg') no-repeat center;
     background-color: #333;
-    font-family: 'Microsoft YaHei', SimHei, Arial, Tahoma, sans-serif;
 }
 
-.body-content {
-    padding-left: 0;
-    max-width: 1000px;
-    margin: 5% auto 0;
-    overflow-x: hidden;
-    background: #fff;
-    min-height: 540px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    position: relative;
-    -webkit-border-radius: 4px;
-    -moz-border-radius: 4px;
-    -ms-border-radius: 4px;
-    border-radius: 4px;
+.skin-red .wrapper,
+.content-wrapper {
+    background-color: transparent !important;
 }
 
-.breadcrumb {
-    background-color: #f2f2f2;
-    margin-bottom: 0px;
+.skin-red .main-header .navbar {
+    background-color: transparent !important;
+}
+
+
+/*form处理*/
+.form-control {
+    padding: 6px;
+}
+
+
+/*头部处理*/
+.main-header {
+    z-index: 0;
+    overflow: hidden;
+    padding-top: 15px;
+    position: fixed;
+    width: 100%;
+}
+
+.main-header h3 {
+    font-size: 22px;
+    font-family: FangSong, SimHei;
+    display: inline-block;
+}
+
+.main-header .navbar-brand {
+    padding: 0;
+    margin-left: 0 !important;
+}
+
+
+/*导航处理*/
+.box-header .breadcrumb {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+
+/*content内容处理*/
+.content {
+    padding: 65px 0 0;
+}
+
+.content .box {
+    margin-bottom: 0;
+}
+
+.content .box-body {
+    padding-bottom: 0;
+}
+
+.content .box-footer {
+    padding: 0 10px;
+}
+
+
+/*datepicker处理*/
+.input-group .form-control {
+    border-radius: 0 !important;
+    width: 110px !important;
+}
+
+.input-group .input-group-addon {
+    border-left: none;
+    border-right: none;
+}
+
+
+/*smallbox处理*/
+.small-box:hover {
+    color: #333;
+}
+
+.small-box {
+    box-shadow: none;
+    border-radius: 0;
+    margin-bottom: 0;
+}
+
+.small-box h3 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.small-box p {
+    font-family: FangSong;
+    color: #999;
+    margin: 0;
+}
+
+/*jqgrid处理*/
+.ui-jqgrid .ui-jqgrid-htable thead tr th {
+    text-align: center;
 }
 
 .ui-jqgrid {
     border: none;
 }
 
-.ui-jqgrid .table thead tr th {
-    text-align: center;
-    /*background: #efefef;*/
-}
-
-.ui-jqgrid .table tbody tr td {
-    padding: 0;
-    height: 44px;
-    line-height: 44px;
+.ui-jqgrid .ui-jqgrid-btable tbody tr.jqgrow td,
+.ui-jqgrid .ui-jqgrid-btable tbody tr.jqfoot td {
+    padding: 2px !important;
+    height: 33px !important;
+    line-height: 33px !important;
 }
 
 .ui-jqgrid .form-control {
-    height: 34px;
-    margin: 5px 0;
-    padding: 6px;
-}
-
-.ui-jqgrid-bdiv {
-    border-top: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
+    height: 32px;
 }
 
 .ui-jqdialog {
     top: 50% !important;
     left: 50% !important;
     margin-left: -120px;
-    margin-top: -70px;
-    position: fixed;
+    margin-top: -60px;
 }
 
-.margin-bm {
-    margin-bottom: 10px;
+.ui-jqdialog .ui-resizable-se {
+    display: none;
 }
 
-.line-ts {
-    border-top: 1px solid #999;
+
+/*tabs处理*/
+.nav-tabs-custom > .nav-tabs > li:first-of-type.active > a {
+    border-left-color: #ccc;
 }
 
-.card .h3 {
-    margin-top: 5px;
+.nav-tabs-custom > .nav-tabs > li.active > a {
+    border-left-color: #ccc;
+    border-right-color: #ccc;
 }
 
-#btn-add {
-    margin: 8px 0;
+.nav-tabs-custom > .nav-tabs {
+    border-bottom-color: #ccc;
 }
 
-.text-red {
-    color: red !important;
+.nav-tabs-custom {
+    box-shadow: none;
 }
 
-.text-green {
-    color: green !important;
-}
-
-.text-blue {
-    color: blue !important;
-}
-
-.text-third {
-    color: #999;
-}
-
-/*daterange*/
-.input-daterange .form-control,
-#query-key {
-    width: 110px !important;
-}
-.input-daterange .form-control:first-child {
-    border-right: none;
-}
-.input-daterange .form-control:last-child,
-.input-daterange .form-control:not(:first-child):not(:last-child) {
-    border-left: none;
+/*tab-content*/
+.tab-content {
+    padding: 0 !important;
 }

@@ -28,9 +28,6 @@ namespace AALife.Core
         public virtual IDbSet<CardTable> CardTables { get; set; }
         public virtual IDbSet<OAuthTable> OAuthTables { get; set; }
         public virtual IDbSet<ZhuanTiTable> ZhuanTiTables { get; set; }
-        public virtual IDbSet<ZhuanZhangTable> ZhuanZhangTables { get; set; }
-        public virtual IDbSet<UserFromTable> UserFromTables { get; set; }
-        public virtual IDbSet<UserLevelTable> UserLevelTables { get; set; }
 
         public EfContext(string nameOrConnectionString)
             : base(nameOrConnectionString)

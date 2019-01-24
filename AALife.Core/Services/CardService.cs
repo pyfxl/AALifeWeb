@@ -5,42 +5,33 @@ using System.Linq;
 
 namespace AALife.Core.Services
 {
-    public partial class CardService : ICardService
+    public partial class CardService : BaseUserService<CardTable>,  ICardService
     {
-        private readonly ICacheManager _cacheManager;
-        private readonly IRepository<CardTable> _cardRepository;
-        private readonly IDbContext _dbContext;
-
-        private const string CARD_BY_UID_KEY = "aalife.card.user.{0}";
-
-        public CardService(ICacheManager cacheManager, 
-            IRepository<CardTable> cardRepository, 
+        public CardService(IRepository<CardTable> repository,
+            ICacheManager cacheManager,
             IDbContext dbContext)
+            : base(repository, cacheManager, dbContext)
         {
-            this._cacheManager = cacheManager;
-            this._cardRepository = cardRepository;
-            this._dbContext = dbContext;
-        }
-
-        public virtual IList<CardTable> GetAllCard(int userId)
-        {
-            string key = string.Format(CARD_BY_UID_KEY, userId);
-            return _cacheManager.Get(key, () =>
-            {
-                var query = _cardRepository.Table;
-                query = query.Where(c => c.UserID == userId && c.CardLive == 1);
-                query = query.OrderBy(c => c.CDID);
-
-                return query.ToList();
-            });
         }
 
         public CardTable GetCard(int userId, int cardId)
         {
-            var query = _cardRepository.Table;
-            query = query.Where(c => c.UserID == userId && c.CDID == cardId && c.CardLive == 1);
-            
+            var query = _repository.Table;
+            query = query.Where(c => c.UserId == userId && c.Live == 1 && c.CardId == cardId);
+
             return query.FirstOrDefault();
+        }
+
+        //取最大id
+        public int GetMaxId(int userId)
+        {
+            var query = _repository.Table;
+            query = query.Where(c => c.UserId == userId && c.Live == 1);
+
+            var maxId = query.Max(a => a.CardId);
+            maxId = maxId + 1;
+
+            return maxId % 2 == 0 ? maxId + 1 : maxId;
         }
     }
 }

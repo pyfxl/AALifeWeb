@@ -17,13 +17,13 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("用户列表", "Index", "Users")</li>
                     <li class="f-down">
-                        @Html.ActionLink("消费列表", "Index", "Lists")
+                        @Html.ActionLink("消费列表", "Index", "Items")
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index", "Lists", new RouteValueDictionary {{"dateType",1}})">按修改日期</a></li>
-                            <li><a href="@Url.Action("Index", "Lists", new RouteValueDictionary {{"dateType",0}})">按消费日期</a></li>
+                            <li><a href="@Url.Action("Index", "Items", new RouteValueDictionary {{"dateType",1}})">按修改日期</a></li>
+                            <li><a href="@Url.Action("Index", "Items", new RouteValueDictionary {{"dateType",0}})">按消费日期</a></li>
                         </ul>
                     </li>
                     <li>@Html.ActionLink("访问列表", "Index", "Views")</li>

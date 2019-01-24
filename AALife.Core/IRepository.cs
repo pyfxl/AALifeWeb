@@ -46,6 +46,12 @@ namespace AALife.Core
         void Delete(T entity);
 
         /// <summary>
+        /// Delete entity
+        /// </summary>
+        /// <param name="id">Identifier</param>
+        void Delete(int id);
+
+        /// <summary>
         /// Delete entities
         /// </summary>
         /// <param name="entities">Entities</param>

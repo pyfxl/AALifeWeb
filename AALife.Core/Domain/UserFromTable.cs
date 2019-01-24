@@ -11,7 +11,6 @@ namespace AALife.Core.Domain
     [Table("tab_UserFromTable")]
     public partial class UserFromTable : BaseEntity
     {
-        [Key]
         [MaxLength(10)]
         [Display(Name = "来自")]
         public string UserFrom { get; set; }
@@ -20,9 +19,6 @@ namespace AALife.Core.Domain
         [MaxLength(10)]
         [Display(Name = "来自名称")]
         public string UserFromName { get; set; }
-
-        [Display(Name = "排序")]
-        public byte Rank { get; set; }
 
     }
 }

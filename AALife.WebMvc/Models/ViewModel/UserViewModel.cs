@@ -7,13 +7,15 @@ namespace AALife.WebMvc.Models.ViewModel
 {
     public class UserViewModel
     {
-        public int UserID { get; set; }
+        public int Id { get; set; }
 
         public string UserName { get; set; }
 
         public string UserPassword { get; set; }
 
         public string UserNickName { get; set; }
+
+        public string UserEmail { get; set; }
 
         public string UserImage { get; set; }
 
@@ -29,11 +31,8 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public byte Synchronize { get; set; }
 
-        public byte IsUpdate { get; set; }
-
-        public int UserWorkDay { get; set; }
-
         public string UserLevelName { get; set; }
+
         public string UserFromName { get; set; }
 
         public string UserThemeName
@@ -44,7 +43,7 @@ namespace AALife.WebMvc.Models.ViewModel
             }
         }
 
-        public string FullUserImage
+        public string UserImageFull
         {
             get
             {
@@ -52,5 +51,6 @@ namespace AALife.WebMvc.Models.ViewModel
                 return UserImage.StartsWith("http") ? UserImage : string.Format("http://www.fxlweb.com/Images/Users/{0}", UserImage);
             }
         }
+
     }
 }

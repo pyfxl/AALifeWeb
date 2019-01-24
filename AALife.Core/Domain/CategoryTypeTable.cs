@@ -6,11 +6,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AALife.Core.Domain
 {
     [Table("tab_CategoryTypeTable")]
-    public partial class CategoryTypeTable : BaseEntity
+    public partial class CategoryTypeTable : UserEntity
     {
-        [Key]
-        public int CategoryID { get; set; }
-
         /// <summary>
         /// 类别名称
         /// </summary>
@@ -19,39 +16,10 @@ namespace AALife.Core.Domain
         public string CategoryTypeName { get; set; }
 
         /// <summary>
-        /// 类别ID
+        /// 同步Id
         /// </summary>
-        public int CategoryTypeID { get; set; }
-
-        /// <summary>
-        /// 可用否
-        /// </summary>
-        public byte CategoryTypeLive { get; set; }
-
-        /// <summary>
-        /// 修改日期
-        /// </summary>
-        public DateTime ModifyDate { get; set; }
-
-        /// <summary>
-        /// 同步
-        /// </summary>
-        public byte Synchronize { get; set; }
-
-        /// <summary>
-        /// 预算金额
-        /// </summary>
-        public decimal CategoryTypePrice { get; set; }
-
-        /// <summary>
-        /// 用户ID
-        /// </summary>
-        public int UserID { get; set; }
-
-        /// <summary>
-        /// 用户
-        /// </summary>
-        [JsonIgnore]
-        public virtual UserTable User { get; set; }
+        [Required]
+        public int CategoryTypeId { get; set; }
+        
     }
 }

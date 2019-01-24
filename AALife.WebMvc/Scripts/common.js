@@ -2,22 +2,62 @@
 $.const = {
     webapi: {
         item: "/api/v1/itemapi",
-        item_id: "/api/v1/itemapi/{0}",
         items: "/api/v1/itemsapi",
+        item_id: "/api/v1/itemapi/{0}",
+        users: "/api/v1/usersapi",
         categorytype: "/api/v1/categorytypeapi/{0}",
         zhuanti: "/api/v1/zhuantiapi/{0}",
-        card: "/api/v1/cardapi/{0}"
+        card: "/api/v1/cardapi/{0}",
+        itemnames: "/api/v1/itemnamesapi/{0}"
+    },
+    pages: {
+        category: "/User/CategoryPage",
+        card: "/User/CardPage",
+        zhuanti: "/User/ZhuanTiPage"
     },
     data: {
         itemtype: { "zc": "支出", "sr": "收入", "jc": "借出", "hr": "还入", "jr": "借入", "hc": "还出" },
-        regiontype: { "": "", "d": "每日", "w": "每周", "m": "每月", "j": "每季", "y": "每年", "b": "工作日" }
+        regiontype: { "": "---", "d": "每日", "w": "每周", "m": "每月", "j": "每季", "y": "每年", "b": "工作日" }
+    },
+    date: {
+        format: "YYYY-MM-DD",
+        typestart: { "d": today_date(), "w": week_start(), "m": month_start(), "j": quarter_start(), "y": year_start(), "a": "" },
+        typeend: { "d": today_date(), "w": week_end(), "m": month_end(), "j": quarter_end(), "y": year_end(), "a": "" }
+    },
+    jgrid: {
+        url: '',
+        mtype: "GET",
+        editurl: '',
+        datatype: "json",
+        styleUI: 'Bootstrap',
+        responsive: true,
+        altRows: true,
+        rownumbers: true,
+        width: 780,
+        height: 340,
+        rowNum: -1,
+        loadonce: true,
+        ajaxRowOptions: {
+            contentType: "application/json"
+        },
+        serializeRowData: function (postdata) {
+            return JSON.stringify(postdata);
+        }
+    }
+};
+
+$.app = {
+    modal: function (element, url) {
+        let $ele = $(element);
+        $ele.find(".modal-body").load(url);
+        $ele.modal("show");
     }
 };
 
 //region插件
 (function ($) {
     //变量
-    var $startDate, $endDate, $type, $item;
+    var $type = null, $item = null;
 
     //常量
     var _d = 3,
@@ -102,20 +142,11 @@ $.const = {
 
     $.fn.region = {
         //初始化
-        init: function (startDate, endDate, type, date, startd, endd, item, callback) {
-            $startDate = $(startDate);
-            $endDate = $(endDate);
+        init: function (type, date, startd, endd, item, callback) {
             $type = type;
             $item = item;
             startd = startd || date;
             endd = endd || _enddate($type, startd);
-            let days = _days($type, startd, endd);
-            $startDate.datepicker("update", startd);
-            $endDate.datepicker("update", endd);
-            callback(_getdata($type, startd, days, $item));
-        },
-        //重新加载，通过开始日期和结束日期
-        reload: function (startd, endd, callback) {
             let days = _days($type, startd, endd);
             callback(_getdata($type, startd, days, $item));
         }

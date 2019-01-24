@@ -20,6 +20,12 @@ namespace AALife.Core.Domain
         hr = 4,
 
         //还出
-        hc = 5
+        hc = 5,
+
+        //转出
+        tc = 6,
+
+        //转入
+        tr = 7
     }
 }

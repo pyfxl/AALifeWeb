@@ -8,9 +8,6 @@ namespace AALife.Core.Domain
     [Table("tab_UserTable")]
     public partial class UserTable : BaseEntity
     {
-        [Key]
-        public int UserID { get; set; }
-
         /// <summary>
         /// 用户名
         /// </summary>
@@ -33,6 +30,13 @@ namespace AALife.Core.Domain
         [MaxLength(50)]
         [Display(Name = "昵称")]
         public string UserNickName { get; set; }
+
+        /// <summary>
+        /// 邮箱
+        /// </summary>
+        [MaxLength(200)]
+        [Display(Name = "邮箱")]
+        public string UserEmail { get; set; }
 
         /// <summary>
         /// 头像
@@ -63,44 +67,10 @@ namespace AALife.Core.Domain
         public string UserFrom { get; set; }
 
         /// <summary>
-        /// 修改日期
-        /// </summary>
-        [Display(Name = "修改日期")]
-        public DateTime ModifyDate { get; set; }
-
-        /// <summary>
         /// 创建日期
         /// </summary>
         [Display(Name = "创建日期")]
         public DateTime CreateDate { get; set; }
-
-        /// <summary>
-        /// 同步
-        /// </summary>
-        [Display(Name = "同步否")]
-        public byte Synchronize { get; set; }
-
-        /// <summary>
-        /// 是否升级
-        /// </summary>
-        [Display(Name = "升级否")]
-        public byte IsUpdate { get; set; }
-
-        /// <summary>
-        /// 工作日
-        /// </summary>
-        [Display(Name = "工作日")]
-        public int UserWorkDay { get; set; }
-
-        /// <summary>
-        /// 等级
-        /// </summary>
-        public virtual UserLevelTable UserLevelTable { get; set; }
-
-        /// <summary>
-        /// 来自
-        /// </summary>
-        public virtual UserFromTable UserFromTable { get; set; }
 
         /// <summary>
         /// 商品列表
@@ -121,11 +91,6 @@ namespace AALife.Core.Domain
         /// 专题列表
         /// </summary>
         public virtual ICollection<ZhuanTiTable> ZhuanTiTables { get; set; }
-
-        /// <summary>
-        /// 转账列表
-        /// </summary>
-        public virtual ICollection<ZhuanZhangTable> ZhuanZhangTables { get; set; }
 
         /// <summary>
         /// OAuth列表

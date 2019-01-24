@@ -5,7 +5,7 @@ namespace AALife.Core.Services
 {
     public static class UserExtensions
     {
-        public static string FullUserImage(this UserTable user)
+        public static string UserImageFull(this UserTable user)
         {
             if (user == null)
                 throw new ArgumentNullException("user");
@@ -15,7 +15,7 @@ namespace AALife.Core.Services
             return user.UserImage.StartsWith("http") ? user.UserImage : string.Format("http://www.fxlweb.com/Images/Users/{0}", user.UserImage);
         }
 
-        public static string FullUserName(this UserTable user)
+        public static string UserNameFull(this UserTable user)
         {
             if (user == null)
                 throw new ArgumentNullException("user");

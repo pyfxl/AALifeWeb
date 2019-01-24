@@ -1,4 +1,5 @@
-﻿using AALife.Core.Domain;
+﻿using AALife.Core.Caching;
+using AALife.Core.Domain;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,24 +8,22 @@ using System.Linq.Dynamic;
 
 namespace AALife.Core.Services
 {
-    public partial class ItemService : IItemService
+    public partial class ItemService : BaseUserService<ItemTable>, IItemService
     {
-        private readonly IRepository<ItemTable> _itemRepository;
-        private readonly IDbContext _dbContext;
-
-        public ItemService(IRepository<ItemTable> itemRepository, IDbContext dbContext)
+        public ItemService(IRepository<ItemTable> repository,
+            ICacheManager cacheManager,
+            IDbContext dbContext)
+            : base(repository, cacheManager, dbContext)
         {
-            this._itemRepository = itemRepository;
-            this._dbContext = dbContext;
         }
 
-        public virtual IPagedList<ItemTable> GetAllItem(int pageIndex = 0, int pageSize = int.MaxValue, string sortName = null, string sort = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null)
+        public virtual IPagedList<ItemTable> GetAllItemByPage(int pageIndex = 0, int pageSize = int.MaxValue, string sortName = null, string sort = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null)
         {
-            var query = _itemRepository.Table;
+            var query = _repository.Table;
 
             if (userId != null && userId > 0)
             {
-                query = query.Where(c => c.UserID == userId && c.ItemLive == 1);
+                query = query.Where(c => c.UserId == userId && c.Live == 1);
             }
 
             if (startDate != null)
@@ -37,14 +36,14 @@ namespace AALife.Core.Services
                 query = query.Where(c => DateTime.Compare(c.ItemBuyDate, endDate.Value) < 0);
             }
 
-            if (regionId != null && regionId > 0)
-            {
-                query = query.Where(c => c.RegionID == regionId);
-            }
-
             if (keyWords != null && keyWords != "")
             {
                 query = query.Where(c => c.ItemName.Contains(keyWords));
+            }
+
+            if (regionId != null && regionId > 0)
+            {
+                query = query.Where(c => c.RegionId == regionId);
             }
 
             if (sortName != null && sortName != "")
@@ -56,39 +55,43 @@ namespace AALife.Core.Services
             return items;
         }
 
-        public virtual IQueryable<ItemTable> GetAllItem(int userId)
+        public virtual IQueryable<ItemTable> GetAllItem(int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null)
         {
-            return _itemRepository.Table.Where(c => c.UserID == userId && c.ItemLive == 1).OrderByDescending(c => c.ItemBuyDate);
+            var query = _repository.Table;
+
+            if (userId != null && userId > 0)
+            {
+                query = query.Where(c => c.UserId == userId && c.Live == 1);
+            }
+
+            if (startDate != null)
+            {
+                query = query.Where(c => DateTime.Compare(c.ItemBuyDate, startDate.Value) >= 0);
+            }
+
+            if (endDate != null)
+            {
+                query = query.Where(c => DateTime.Compare(c.ItemBuyDate, endDate.Value) < 0);
+            }
+
+            if (keyWords != null && keyWords != "")
+            {
+                query = query.Where(c => c.ItemName.Contains(keyWords));
+            }
+
+            return query;
         }
 
-        public ItemTable GetItem(int itemId)
+        //取最大id
+        public int GetMaxId(int userId)
         {
-            return _itemRepository.GetById(itemId);
-        }
+            var query = _repository.Table;
+            query = query.Where(c => c.UserId == userId && c.Live == 1);
 
-        public void AddItem(ItemTable model)
-        {
-            _itemRepository.Insert(model);
-        }
+            var maxId = query.Max(a => a.RegionId).GetValueOrDefault();
+            maxId = maxId + 1;
 
-        public void AddItem(IEnumerable<ItemTable> models)
-        {
-            _itemRepository.Insert(models);
-        }
-
-        public void UpdateItem(ItemTable model)
-        {
-            _itemRepository.Update(model);
-        }
-
-        public void UpdateItem(IEnumerable<ItemTable> models)
-        {
-            _itemRepository.Update(models);
-        }
-
-        public void DeleteItem (int id)
-        {
-            _itemRepository.Delete(_itemRepository.GetById(id));
+            return maxId % 2 == 0 ? maxId + 1 : maxId;
         }
     }
 }

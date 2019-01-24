@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace AALife.Core.Services
 {
-    public interface IZhuanTiService
+    public interface IZhuanTiService : IBaseUserService<ZhuanTiTable>, IBaseService<ZhuanTiTable>
     {
-        IList<ZhuanTiTable> GetAllZhuanTi(int userId);
-
         ZhuanTiTable GetZhuanTi(int userId, int zhuanTiId);
+
+        int GetMaxId(int userId);
     }
 }

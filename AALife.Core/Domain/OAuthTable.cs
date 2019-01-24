@@ -1,21 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Core.Domain
 {
     [Table("tab_OAuthTable")]
-    public partial class OAuthTable : BaseEntity
+    public partial class OAuthTable : UserEntity
     {
-        [Key]
-        public int OAuthID { get; set; }
-
         /// <summary>
-        /// OpenID
+        /// OpenId
         /// </summary>
         [MaxLength(100)]
         [Required]
-        public string OpenID { get; set; }
+        public string OpenId { get; set; }
 
         /// <summary>
         /// AccessToken
@@ -25,9 +23,9 @@ namespace AALife.Core.Domain
         public string AccessToken { get; set; }
 
         /// <summary>
-        /// 旧用户ID
+        /// 旧用户Id
         /// </summary>
-        public int OldUserID { get; set; }
+        public int OldUserId { get; set; }
 
         /// <summary>
         /// 绑定否
@@ -39,21 +37,6 @@ namespace AALife.Core.Domain
         /// </summary>
         [MaxLength(10)]
         public string OAuthFrom { get; set; }
-
-        /// <summary>
-        /// 修改日期
-        /// </summary>
-        public DateTime ModifyDate { get; set; }
-
-        /// <summary>
-        /// 用户ID
-        /// </summary>
-        public int UserID { get; set; }
-
-        /// <summary>
-        /// 用户
-        /// </summary>
-        public virtual UserTable User { get; set; }
 
     }
 }

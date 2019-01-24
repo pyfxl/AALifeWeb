@@ -1,14 +1,14 @@
 ﻿using AALife.Core.Domain;
+using System;
 
 namespace AALife.Core.Services
 {
-    public interface IUserService
+    public interface IUserService : IBaseService<UserTable>
     {
-        IPagedList<UserTable> GetAllUser(string userName = "", int pageIndex = 0, int pageSize = int.MaxValue);
-
-        UserTable GetUser(int userId);
+        IPagedList<UserTable> GetAllUserByPage(int pageIndex = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null);
 
         UserTable GetUserByUserName(string userName);
 
+        UserTable Login(string userName, string userPassword);
     }
 }

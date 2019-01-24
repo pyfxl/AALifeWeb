@@ -11,7 +11,6 @@ namespace AALife.Core.Domain
     [Table("tab_UserLevelTable")]
     public partial class UserLevelTable : BaseEntity
     {
-        [Key]
         [Display(Name = "等级")]
         public byte UserLevel { get; set; }
 

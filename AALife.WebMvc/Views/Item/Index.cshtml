@@ -1,0 +1,273 @@
+﻿@{
+    ViewBag.Title = "消费列表";
+}
+
+<!--固定消费modal-->
+<div class="modal fade" id="region-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">查看</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>序号</th>
+                            <th>分类</th>
+                            <th>商品名称</th>
+                            <th>商品类别</th>
+                            <th>价格</th>
+                            <th>日期</th>
+                            <th>专题</th>
+                            <th>钱包</th>
+                        </tr>
+                    </thead>
+                    <tbody id="region-tbody"></tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" id="btn-region">确定</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!--管理modal-->
+<div class="modal fade" id="page-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">管理</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<!-- Main content -->
+<section class="content">
+    <div class="box box-default">
+        <div class="box-header with-border">
+            <ol class="breadcrumb">
+                <li><a href="~/"><i class="fa fa-home"></i> 首页</a></li>
+                <li class="active">@ViewBag.Title</li>
+            </ol>
+            <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" id="btn-category">
+                    <i class="fa fa-gear"></i> 类别
+                </button>
+                <button type="button" class="btn btn-box-tool" id="btn-card">
+                    <i class="fa fa-cny"></i> 钱包
+                </button>
+                <button type="button" class="btn btn-box-tool" id="btn-zhuanti">
+                    <i class="fa fa-asterisk"></i> 专题
+                </button>
+            </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <form class="form-inline" role="form">
+                        <div class="form-group">
+                            <select class="form-control" id="select-day">
+                                <option value="d">本日</option>
+                                <option value="w">本周</option>
+                                <option value="m">本月</option>
+                                <option value="j">本季</option>
+                                <option value="y">本年</option>
+                                <option value="a">全部</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-flat btn-default" id="btn-prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></button>
+                                <button type="button" class="btn btn-flat btn-default" id="btn-next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="input-daterange input-group" id="query-date">
+                                <input type="text" class="form-control" id="start-date" placeholder="开始日期" />
+                                <span class="input-group-addon">-</span>
+                                <input type="text" class="form-control" id="end-date" placeholder="结束日期" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="query-key" placeholder="搜索关键字" />
+                        </div>
+                        <div class="form-group">
+                            <button type="button" class="btn btn-flat btn-primary" id="btn-query">搜索</button>
+                        </div>
+                        <div class="form-group pull-right">
+                            <label>分组</label>
+                            <select class="form-control" id="select-group">
+                                <option value="">---</option>
+                                <option value="ItemType">分类</option>
+                                <option value="CategoryTypeID">商品类别</option>
+                                <option value="ItemBuyDate">日期</option>
+                                <option value="ZhuanTiID">专题</option>
+                                <option value="CardID">钱包</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <table id="jqGrid"></table>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer">
+            <div class="row">
+                <div class="col-xs-2">
+                    <div class="small-box">
+                        <div class="inner text-center">
+                            <p>收入<span id="shourucount"></span>笔</p>
+                            <h3 class="text-red" id="shouruamount">0.0</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="small-box">
+                        <div class="inner text-center">
+                            <p>支出<span id="zhichucount"></span>笔</p>
+                            <h3 class="text-green" id="zhichuamount">0.0</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="small-box">
+                        <div class="inner text-center">
+                            <p>结存</p>
+                            <h3 class="text-blue" id="jiecunamount">0.0</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="small-box">
+                        <div class="inner text-center">
+                            <p>借入欠还</p>
+                            <h3 class="text-red" id="qianhuanamount">0.0</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="small-box">
+                        <div class="inner text-center">
+                            <p>借出未还</p>
+                            <h3 class="text-green" id="weihuanamount">0.0</h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-2">
+                    <div class="small-box">
+                        <div class="inner text-center">
+                            <a class="btn btn-flat bg-maroon" id="btn-add"><i class="fa fa-plus"></i> 添加</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.box-footer -->
+    </div>
+    <!-- /.box -->
+</section>
+<!-- /.content -->
+
+@section scripts {
+    <!-- pagejs -->
+    <script type="text/javascript">
+        //用户
+        var userInfo = @Html.Raw(Json.Encode(@Model));
+
+        $(function () {
+            //Bootstrap datepicker plugin
+            $('#query-date').datepicker({
+                autoclose: true,
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd',
+                container: '#query-date'
+            });
+
+            $('#region-date').datepicker({
+                autoclose: true,
+                language: 'zh-CN',
+                format: 'yyyy-mm-dd',
+                container: '#region-date'
+            });
+
+            //添加按钮
+            $("#btn-add").on("click", function () {
+                jQuery("#jqGrid").jqGrid('addRow', { useDefValues: true, useFormatter: true });
+            });
+
+            //搜索按钮
+            $("#btn-query").on("click", function () {
+                query.startDate = $("#start-date").val() ? $("#start-date").val() + " 00:00:00" : "";
+                query.endDate = $("#end-date").val() ? $("#end-date").val() + " 23:59:59" : "";
+                query.keyWords = $("#query-key").val();
+                jQuery("#jqGrid").jqGrid('setGridParam', { postData: query }).trigger("reloadGrid");
+            });
+
+            //日期下拉
+            $("#select-day").on("change", function () {
+                let type = $(this).val();
+                let startd = $.const.date.typestart[type];
+                let endd = $.const.date.typeend[type];
+                $("#start-date").datepicker("update", startd);
+                $("#end-date").datepicker("update", endd);
+
+                $("#btn-query").trigger("click");
+            });
+
+            //类别按钮
+            $("#btn-category").on("click", function () {
+                $.app.modal("#page-modal", $.const.pages.category);
+            });
+
+            //钱包按钮
+            $("#btn-card").on("click", function () {
+                $.app.modal("#page-modal", $.const.pages.card);
+            });
+
+            //专题按钮
+            $("#btn-zhuanti").on("click", function () {
+                $.app.modal("#page-modal", $.const.pages.zhuanti);
+            });
+
+            // on chang select value change grouping
+            jQuery("#select-group").change(function () {
+                var vl = $(this).val();
+                if (vl == "") {
+                    jQuery("#jqGrid").jqGrid('groupingRemove', true);
+                } else {
+                    jQuery("#jqGrid").jqGrid('groupingGroupBy', vl);
+                }
+            });
+        });
+
+    </script>
+    <!-- tmpljs -->
+    <script id="region-tbody-tmpl" type="text/x-jquery-tmpl">
+        <tr>
+            <td>${ItemRow}</td>
+            <td>${ItemTypeName}</td>
+            <td>${ItemName}</td>
+            <td>${CategoryTypeName}</td>
+            <td>${ItemPrice}</td>
+            <td>${ItemBuyDate}</td>
+            <td>${ZhuanTiName}</td>
+            <td>${CardName}</td>
+        </tr>
+    </script>
+    <!-- index.js -->
+    <script src="~/Scripts/datas/item.js"></script>
+}
