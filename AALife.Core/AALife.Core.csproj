@@ -31,6 +31,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.4.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -45,14 +57,25 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -77,89 +100,55 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication\FormsAuthenticationService.cs" />
-    <Compile Include="Authentication\IAuthenticationService.cs" />
-    <Compile Include="Migrations\201901230906426_ReInit.cs" />
-    <Compile Include="Migrations\201901230906426_ReInit.Designer.cs">
-      <DependentUpon>201901230906426_ReInit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901230925148_AddRemark.cs" />
-    <Compile Include="Migrations\201901230925148_AddRemark.Designer.cs">
-      <DependentUpon>201901230925148_AddRemark.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901231246042_UpdateModifyDate.cs" />
-    <Compile Include="Migrations\201901231246042_UpdateModifyDate.Designer.cs">
-      <DependentUpon>201901231246042_UpdateModifyDate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901231513245_UpdateCategoryTypeId.cs" />
-    <Compile Include="Migrations\201901231513245_UpdateCategoryTypeId.Designer.cs">
-      <DependentUpon>201901231513245_UpdateCategoryTypeId.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201901231551105_Update1.cs" />
-    <Compile Include="Migrations\201901231551105_Update1.Designer.cs">
-      <DependentUpon>201901231551105_Update1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Services\BaseUserService.cs" />
-    <Compile Include="Services\IBaseUserService.cs" />
-    <Compile Include="UserEntity.cs" />
+    <Compile Include="CommonHelper.cs" />
+    <Compile Include="Configuration\ISettings.cs" />
+    <Compile Include="Domain\Logging\ActivityLogType.cs" />
+    <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\DependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\DependencyManagement\IDependencyRegistrar.cs" />
+    <Compile Include="Domain\Configuration\Setting.cs" />
+    <Compile Include="Domain\Logging\ActivityLog.cs" />
+    <Compile Include="Domain\Logging\Log.cs" />
+    <Compile Include="Domain\Logging\LogLevel.cs" />
+    <Compile Include="Infrastructure\Engine.cs" />
+    <Compile Include="Infrastructure\EngineContext.cs" />
+    <Compile Include="Infrastructure\IEngine.cs" />
+    <Compile Include="Infrastructure\ITypeFinder.cs" />
+    <Compile Include="Infrastructure\Singleton.cs" />
+    <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
+    <Compile Include="IWebHelper.cs" />
+    <Compile Include="Infrastructure\Mapper\AutoMapperConfiguration.cs" />
+    <Compile Include="Infrastructure\Mapper\IMapperConfiguration.cs" />
+    <Compile Include="Mapping\Configuration\SettingMap.cs" />
+    <Compile Include="Mapping\Logging\ActivityLogMap.cs" />
+    <Compile Include="Mapping\Logging\LogMap.cs" />
+    <Compile Include="Services\Configuration\ISettingService.cs" />
+    <Compile Include="Services\Configuration\SettingExtensions.cs" />
+    <Compile Include="Services\Configuration\SettingService.cs" />
+    <Compile Include="Services\Logging\CustomerActivityService.cs" />
+    <Compile Include="Services\Logging\DefaultLogger.cs" />
+    <Compile Include="Services\Logging\ICustomerActivityService.cs" />
+    <Compile Include="Services\Logging\ILogger.cs" />
+    <Compile Include="Services\Logging\LoggingExtensions.cs" />
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Caching\Extensions.cs" />
     <Compile Include="Caching\ICacheManager.cs" />
     <Compile Include="Caching\MemoryCacheManager.cs" />
-    <Compile Include="Domain\CardTable.cs" />
-    <Compile Include="Domain\CategoryTypeTable.cs" />
-    <Compile Include="Domain\ItemTable.cs" />
-    <Compile Include="Domain\ItemTypeEnum.cs" />
-    <Compile Include="Domain\OAuthTable.cs" />
-    <Compile Include="Domain\RegionTypeEnum.cs" />
-    <Compile Include="Domain\UserTable.cs" />
-    <Compile Include="Domain\UserThemeEnum.cs" />
-    <Compile Include="Domain\ZhuanTiTable.cs" />
-    <Compile Include="EfContext.cs" />
-    <Compile Include="EfRepository.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IDbContext.cs" />
     <Compile Include="IPagedList.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="IWorkContext.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="PagedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseService.cs" />
-    <Compile Include="Services\CardService.cs" />
-    <Compile Include="Services\CategoryTypeService.cs" />
     <Compile Include="Services\IBaseService.cs" />
-    <Compile Include="Services\ICardService.cs" />
-    <Compile Include="Services\ICategoryTypeService.cs" />
-    <Compile Include="Services\IItemService.cs" />
-    <Compile Include="Services\ItemService.cs" />
-    <Compile Include="Services\IUserService.cs" />
-    <Compile Include="Services\IZhuanTiService.cs" />
-    <Compile Include="Services\UserExtensions.cs" />
-    <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\ZhuanTiService.cs" />
-    <Compile Include="WebWorkContext.cs" />
+    <Compile Include="WebHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201901230906426_ReInit.resx">
-      <DependentUpon>201901230906426_ReInit.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901230925148_AddRemark.resx">
-      <DependentUpon>201901230925148_AddRemark.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901231246042_UpdateModifyDate.resx">
-      <DependentUpon>201901231246042_UpdateModifyDate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901231513245_UpdateCategoryTypeId.resx">
-      <DependentUpon>201901231513245_UpdateCategoryTypeId.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201901231551105_Update1.resx">
-      <DependentUpon>201901231551105_Update1.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

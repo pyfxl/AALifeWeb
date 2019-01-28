@@ -8,7 +8,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">查看</h4>
+                <h4 class="modal-title">确认区间</h4>
             </div>
             <div class="modal-body">
                 <table class="table table-striped">
@@ -28,8 +28,8 @@
                 </table>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary" id="btn-region">确定</button>
+                <button type="button" class="btn btn-flat btn-default" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-flat btn-primary" id="btn-region">确定</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
@@ -58,15 +58,10 @@
                 <li class="active">@ViewBag.Title</li>
             </ol>
             <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" id="btn-category">
-                    <i class="fa fa-gear"></i> 类别
-                </button>
-                <button type="button" class="btn btn-box-tool" id="btn-card">
-                    <i class="fa fa-cny"></i> 钱包
-                </button>
-                <button type="button" class="btn btn-box-tool" id="btn-zhuanti">
-                    <i class="fa fa-asterisk"></i> 专题
-                </button>
+                <button type="button" class="btn btn-box-tool" id="btn-category"><i class="fa fa-gear"></i> 类别</button>
+                <button type="button" class="btn btn-box-tool" id="btn-card"><i class="fa fa-cny"></i> 钱包</button>
+                <button type="button" class="btn btn-box-tool" id="btn-zhuanti"><i class="fa fa-asterisk"></i> 专题</button>
+                <button type="button" class="btn btn-box-tool" id="btn-zhuanzhang"><i class="fa fa-retweet"></i> 转账</button>
             </div>
         </div>
         <!-- /.box-header -->
@@ -108,10 +103,10 @@
                             <select class="form-control" id="select-group">
                                 <option value="">---</option>
                                 <option value="ItemType">分类</option>
-                                <option value="CategoryTypeID">商品类别</option>
+                                <option value="CategoryTypeId">商品类别</option>
                                 <option value="ItemBuyDate">日期</option>
-                                <option value="ZhuanTiID">专题</option>
-                                <option value="CardID">钱包</option>
+                                <option value="ZhuanTiId">专题</option>
+                                <option value="CardId">钱包</option>
                             </select>
                         </div>
                     </form>
@@ -190,19 +185,13 @@
 
         $(function () {
             //Bootstrap datepicker plugin
-            $('#query-date').datepicker({
-                autoclose: true,
-                language: 'zh-CN',
-                format: 'yyyy-mm-dd',
+            $('#query-date').datepicker($.extend(true, {}, $.const.datepicker, {
                 container: '#query-date'
-            });
+            }));
 
-            $('#region-date').datepicker({
-                autoclose: true,
-                language: 'zh-CN',
-                format: 'yyyy-mm-dd',
+            $('#region-date').datepicker($.extend(true, {}, $.const.datepicker, {
                 container: '#region-date'
-            });
+            }));
 
             //添加按钮
             $("#btn-add").on("click", function () {
@@ -241,6 +230,11 @@
             //专题按钮
             $("#btn-zhuanti").on("click", function () {
                 $.app.modal("#page-modal", $.const.pages.zhuanti);
+            });
+
+            //转账按钮
+            $("#btn-zhuanzhang").on("click", function () {
+                $.app.modal("#page-modal", $.const.pages.zhuanzhang);
             });
 
             // on chang select value change grouping

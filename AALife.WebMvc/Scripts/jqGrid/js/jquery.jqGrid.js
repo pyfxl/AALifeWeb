@@ -1060,7 +1060,7 @@ $.extend($.jgrid,{
 				overlay: "ui-overlay",
 				active : "active",
 				error : "bg-danger",
-				button : "btn btn-default",
+				button : "btn btn-flat btn-default",
 				content : ""
 			},
 			base : {
@@ -7175,7 +7175,7 @@ $.extend($.jgrid,{
 			}
 		}
 	},
-	info_dialog : function(caption, content,c_b, modalopt) {
+	info_dialog: function (caption, content, c_b, modalopt) {
 		var mopt = {
 			width:290,
 			height:'auto',
@@ -7184,7 +7184,7 @@ $.extend($.jgrid,{
 			resize: false,
 			left:250,
 			top:170,
-			zIndex : 1000,
+			zIndex : 2000,
 			jqModal : true,
 			modal : false,
 			closeOnEscape : true,
@@ -7513,7 +7513,7 @@ $.extend($.jgrid,{
 				elem.value = vl;
 				if(eltype !== "button"){
 					if(autowidth) {
-						if(!options.size) { $(elem).css({width:"96%"}); }
+						if(!options.size) { $(elem).css({width:"100%"}); }
 					} else if (!options.size) { options.size = 20; }
 				}
 				$(elem).attr("role",role);
@@ -16832,7 +16832,7 @@ hs=function(w,t,c){return w.each(function(){var s=this._jqm;$(t).each(function()
 		str += "<div title='"+nav.savetitle+"' style='float:left;display:none' class='ui-pg-div ui-inline-save' "+ocl+"><span class='" + common.icon_base +" "+classes.icon_save +"'></span></div>";
 		ocl = "id='jCancelButton_"+rowid+"' onclick=jQuery.fn.fmatter.rowactions.call(this,'cancel'); " + hover;
 		str += "<div title='"+nav.canceltitle+"' style='float:left;display:none;' class='ui-pg-div ui-inline-cancel' "+ocl+"><span class='" + common.icon_base +" "+classes.icon_cancel +"'></span></div>";
-		return "<div style='margin-left:8px;'>" + str + "</div>";
+		return "<div style='margin-left:8px;' class='actions_css'>" + str + "</div>";
 	};
 	$.unformat = function (cellval,options,pos,cnt) {
 		// specific for jqGrid only

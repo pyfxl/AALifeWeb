@@ -1,7 +1,7 @@
 ﻿using AALife.BLL;
-using AALife.Core;
-using AALife.Core.Domain;
-using AALife.Core.Services;
+using AALife.Data;
+using AALife.Data.Domain;
+using AALife.Data.Services;
 using AALife.WebMvc.jqGrid;
 using System;
 using System.Collections.Generic;
@@ -36,12 +36,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // POST api/<controller>
         public IHttpActionResult Post(int id, ZhuanTiTable model)
         {
-            model.UpdateField();
+            model.LiveOn();
             model.UserId = id;
-            model.ZhuanTiId = _zhuanTiService.GetMaxId(id);
 
             _zhuanTiService.Add(model);
-
             _zhuanTiService.ClearCache(id);
 
             return Ok();
@@ -51,12 +49,11 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Put(int id, ZhuanTiTable model)
         {
             var item = _zhuanTiService.Get(model.Id);
-            item.UpdateField();
+            item.LiveOn();
             item.ZhuanTiName = model.ZhuanTiName;
             item.Image = model.Image;
 
             _zhuanTiService.Update(item);
-
             _zhuanTiService.ClearCache(id);
 
             return Ok();
@@ -66,11 +63,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Delete(int id)
         {
             var item = _zhuanTiService.Get(id);
-            item.UpdateField(0);
+            item.LiveOff();
 
             _zhuanTiService.Update(item);
-
-            //要使用userid
             _zhuanTiService.ClearCache(item.UserId);
 
             return Ok();

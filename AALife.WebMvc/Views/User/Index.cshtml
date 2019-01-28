@@ -18,40 +18,45 @@
                     <!-- Custom Tabs -->
                     <div class="nav-tabs-custom">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab_1" data-toggle="tab">个人资料</a></li>
-                            <li><a href="#tab_2" data-toggle="tab">绑定管理</a></li>
-                            <li><a href="#tab_3" data-toggle="tab">类别管理</a></li>
-                            <li><a href="#tab_4" data-toggle="tab">钱包管理</a></li>
-                            <li><a href="#tab_5" data-toggle="tab">专题管理</a></li>
-                            <li><a href="#tab_6" data-toggle="tab">数据管理</a></li>
-                            <li><a href="#tab_7" data-toggle="tab">个人设置</a></li>
+                            <li class="active"><a href="#tab_pf" data-toggle="tab">个人资料</a></li>
+                            <li><a href="#tab_bd" data-toggle="tab">绑定管理</a></li>
+                            <li><a href="#tab_ct" data-toggle="tab">类别管理</a></li>
+                            <li><a href="#tab_cd" data-toggle="tab">钱包管理</a></li>
+                            <li><a href="#tab_zt" data-toggle="tab">专题管理</a></li>
+                            <li><a href="#tab_zz" data-toggle="tab">转账管理</a></li>
+                            <li><a href="#tab_da" data-toggle="tab">数据管理</a></li>
+                            <li><a href="#tab_st" data-toggle="tab">个人设置</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane active" id="tab_1">
+                            <div class="tab-pane active" id="tab_pf">
 
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_2">
+                            <div class="tab-pane" id="tab_bd">
 
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_3">
+                            <div class="tab-pane" id="tab_ct">
                                 @Html.Partial("_CategoryPage")
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_4">
+                            <div class="tab-pane" id="tab_cd">
                                 @Html.Partial("_CardPage")
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_5">
+                            <div class="tab-pane" id="tab_zt">
                                 @Html.Partial("_ZhuanTiPage")
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_6">
+                            <div class="tab-pane" id="tab_zz">
+                                @Html.Partial("_ZhuanZhangPage")
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_da">
 
                             </div>
                             <!-- /.tab-pane -->
-                            <div class="tab-pane" id="tab_7">
+                            <div class="tab-pane" id="tab_st">
 
                             </div>
                             <!-- /.tab-pane -->

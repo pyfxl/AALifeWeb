@@ -1,7 +1,7 @@
 ﻿/*背景处理*/
 body {
     font-family: 'Microsoft YaHei', SimHei;
-    background: url('bg.jpg') no-repeat center;
+    background: url('bg.jpg') no-repeat;
     background-color: #333;
 }
 
@@ -133,6 +133,34 @@ body {
     display: none;
 }
 
+.table > tbody > tr.success > td, .table > tbody > tr.success > th, .table > tbody > tr > td.success, .table > tbody > tr > th.success, .table > tfoot > tr.success > td, .table > tfoot > tr.success > th, .table > tfoot > tr > td.success, .table > tfoot > tr > th.success, .table > thead > tr.success > td, .table > thead > tr.success > th, .table > thead > tr > td.success, .table > thead > tr > th.success {
+    background-color: #e4e4e4;
+}
+
+.actions_css {
+    width: 50px;
+    height: 100%;
+    margin: 0 auto !important;
+}
+
+#jqgh_jqGrid_ItemName {
+    text-align: left !important;
+}
+
+#jqgh_jqGrid_ItemPrice,
+#jqgh_zzGrid_ZhuanZhangMoney,
+input[name='ItemPrice'],
+input[name='ZhuanZhangMoney'] {
+    text-align: right !important;
+}
+
+input[name='ItemBuyDate'],
+input[name='CategoryTypeName'],
+input[name='CardName'],
+input[name='ZhuanTiName'],
+input[name='ZhuanZhangDate'] {
+    text-align: center !important;
+}
 
 /*tabs处理*/
 .nav-tabs-custom > .nav-tabs > li:first-of-type.active > a {

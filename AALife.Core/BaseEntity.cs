@@ -1,6 +1,5 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Core
 {
@@ -15,38 +14,6 @@ namespace AALife.Core
         [Key]
         public int Id { get; set; }
         
-        /// <summary>
-        /// 可用
-        /// </summary>
-        public byte Live { get; set; }
-
-        /// <summary>
-        /// 排序
-        /// </summary>
-        public byte? Rank { get; set; }
-
-        /// <summary>
-        /// 同步
-        /// </summary>
-        public byte Synchronize { get; set; }
-
-        /// <summary>
-        /// 修改日期
-        /// </summary>
-        public DateTime? ModifyDate { get; set; }
-
-        /// <summary>
-        /// 图片
-        /// </summary>
-        [MaxLength(200)]
-        public string Image { get; set; }
-
-        /// <summary>
-        /// 备注
-        /// </summary>
-        [MaxLength(100)]
-        public string Remark { get; set; }
-
         #region method
 
         public override bool Equals(object obj)

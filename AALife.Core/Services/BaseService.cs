@@ -2,8 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace AALife.Core.Services
 {
@@ -61,6 +60,26 @@ namespace AALife.Core.Services
         public void Delete(IEnumerable<T> entities)
         {
             _repository.Delete(entities);
+        }
+
+        /// <summary>
+        /// 条件获取实体
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public T Find(Expression<Func<T, bool>> where)
+        {
+            return _repository.Table.Where(where).SingleOrDefault();
+        }
+
+        /// <summary>
+        /// 条件获取集合
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public IQueryable<T> FindAll(Expression<Func<T, bool>> where)
+        {
+            return _repository.Table.Where(where);
         }
 
         /// <summary>

@@ -1,6 +1,6 @@
 ﻿var fn_date = (function (window) {
 
-	var self = this;
+	let self = this;
 
 	self.moment_format = "YYYY-MM-DD";
 

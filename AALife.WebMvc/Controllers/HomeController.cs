@@ -14,5 +14,10 @@ namespace AALife.WebMvc.Controllers
         {
             return View();
         }
+
+        public ActionResult ThrowHttp500()
+        {
+            throw new HttpException(500, "服务器错误");
+        }
     }
 }

@@ -1,5 +1,5 @@
-﻿using AALife.Core.Authentication;
-using AALife.Core.Services;
+﻿using AALife.Data.Authentication;
+using AALife.Data.Services;
 using AALife.WebMvc.Models.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -42,7 +42,6 @@ namespace AALife.WebMvc.Controllers
         }
         
         [HttpPost]
-        //[ValidateAntiForgeryToken]
         public ActionResult Login([Bind(Include = "UserName,UserPassword")] UserLoginModel userModel, string returnUrl = "~/")
         {
             if (ModelState.IsValid)

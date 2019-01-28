@@ -1,7 +1,7 @@
 ﻿using AALife.BLL;
-using AALife.Core;
-using AALife.Core.Domain;
-using AALife.Core.Services;
+using AALife.Data;
+using AALife.Data.Domain;
+using AALife.Data.Services;
 using AALife.WebMvc.jqGrid;
 using System;
 using System.Collections.Generic;
@@ -36,12 +36,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // POST api/<controller>
         public IHttpActionResult Post(int id, CardTable model)
         {
-            model.UpdateField();
+            model.LiveOn();
             model.UserId = id;
-            model.CardId = _cardService.GetMaxId(id);
 
             _cardService.Add(model);
-
             _cardService.ClearCache(id);
 
             return Ok();
@@ -51,14 +49,13 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Put(int id, CardTable model)
         {
             var item = _cardService.Get(model.Id);
-            item.UpdateField();
+            item.LiveOn();
             item.CardName = model.CardName;
             item.Image = model.Image;
             item.CardNumber = model.CardNumber;
             item.MoneyStart = model.MoneyStart;
 
             _cardService.Update(item);
-
             _cardService.ClearCache(id);
 
             return Ok();
@@ -68,11 +65,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Delete(int id)
         {
             var item = _cardService.Get(id);
-            item.UpdateField(0);
+            item.LiveOff();
 
             _cardService.Update(item);
-
-            //要使用userid
             _cardService.ClearCache(item.UserId);
 
             return Ok();

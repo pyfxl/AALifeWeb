@@ -1,5 +1,7 @@
-﻿using AALife.Core;
-using AALife.Core.Services;
+﻿using AALife.Data;
+using AALife.Data.Services;
+using AALife.Data.Domain;
+using AALife.WebMvc.Infrastructure.Mapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +22,6 @@ namespace AALife.WebMvc.Controllers
             this._workContext = workContext;
         }
 
-        [Authorize]
         public ActionResult Index()
         {
             var user = _userService.Get(_workContext.CurrentUser.Id);
@@ -40,6 +41,11 @@ namespace AALife.WebMvc.Controllers
         public ActionResult ZhuanTiPage()
         {
             return PartialView("_ZhuanTiPage");
+        }
+
+        public ActionResult ZhuanZhangPage()
+        {
+            return PartialView("_ZhuanZhangPage");
         }
     }
 }

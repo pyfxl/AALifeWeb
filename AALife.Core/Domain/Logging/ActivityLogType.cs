@@ -1,29 +1,18 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace AALife.Core.Domain.Logging
+﻿namespace AALife.Core.Domain.Logging
 {
     /// <summary>
     /// Represents an activity log type record
     /// </summary>
-    [Table("ActivityLogType")]
-    public partial class ActivityLogType : BaseEntity
+    public enum ActivityLogType
     {
-        /// <summary>
-        /// Gets or sets the system keyword
-        /// </summary>
-        [MaxLength(100)]
-        public string SystemKeyword { get; set; }
+        Default = 0,
 
-        /// <summary>
-        /// Gets or sets the display name
-        /// </summary>
-        [MaxLength(200)]
-        public string Name { get; set; }
+        Query = 1,
 
-        /// <summary>
-        /// Gets or sets a value indicating whether the activity log type is enabled
-        /// </summary>
-        public bool Enabled { get; set; }
+        Insert = 2,
+
+        Update = 3,
+
+        Delete = 4
     }
 }

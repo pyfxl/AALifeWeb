@@ -1,7 +1,7 @@
 ﻿@using System.Configuration;
 
 @{
-    ViewBag.Title = "Users";
+    ViewBag.Title = "用户列表";
     var webSite = ConfigurationManager.AppSettings["webSite"].ToString();
     var pageNumber = WebConfiguration.PageNumber;
     var pagePerNumber = WebConfiguration.PagePerNumber;
@@ -154,13 +154,12 @@
                     }
                 },
                 schema: {
-                    data: "rows",
-                    total: "total",
+                    data: "Data",
+                    total: "Total",
                     model: {
                         fields: {
-                            UserFrom: { type: "string" },
-                            UserFromName: { type: "string" },
-                            Rank: { type: "number" }
+                            Key: { type: "string" },
+                            Value: { type: "string" }
                         }
                     }
                 }
@@ -329,8 +328,8 @@
                             input.attr("name", options.field);
                             input.appendTo(container);
                             input.kendoDropDownList({
-                                dataTextField: "UserFromName",
-                                dataValueField: "UserFrom",
+                                dataTextField: "Value",
+                                dataValueField: "Key",
                                 dataSource: dataUserFrom,
                                 animation: false
                             });
@@ -345,7 +344,7 @@
                                     return "<li class='k-item'><label class='k-label'><input type='checkbox' class='k-check-all'/>#=all#</label></li>";
                                 } else {
                                     //handle the other checkboxes
-                                    return "<li class='k-item'><label class='k-label'><input type='checkbox' value='#=UserFrom#'/>#=UserFromName#</label></li>"
+                                    return "<li class='k-item'><label class='k-label'><input type='checkbox' value='#=Key#'/>#=Value#</label></li>"
                                 }
                             }
                         }

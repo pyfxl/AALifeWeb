@@ -8,11 +8,12 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using AALife.WebMvc.Models.Query;
-using AALife.Core.Services;
+using AALife.Data.Services;
+using AALife.WebMvc.Infrastructure.Mapper;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
-    public class UserApiController : ApiController
+    public class UserApiController : BaseApiController
     {
         private readonly IUserService _userService;
 
@@ -32,11 +33,23 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = result.Select(x =>
                 {
                     var m = x.ToModel();
-                    m.UserFromName = Constant.UserFromDic[x.UserFrom];
-                    m.UserLevelName = Constant.UserLevelDic[x.UserLevel];
                     return m;
                 }),
                 Total = result.TotalCount
+            };
+
+            return Json(grid);
+        }
+
+        // GET api/<controller>
+        [Route("api/v1/userfromapi")]
+        public IHttpActionResult GetUserFrom()
+        {
+            var result = Constant.UserFromDic.ToList();
+            var grid = new Kendoui.DataSourceResult
+            {
+                Data = result,
+                Total = result.Count()
             };
 
             return Json(grid);

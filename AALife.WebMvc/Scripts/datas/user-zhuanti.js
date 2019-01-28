@@ -55,12 +55,18 @@ $(document).ready(function () {
                     delOptions: {
                         mtype: 'DELETE',
                         onclickSubmit: function (options, rowid) {
-                            options.url = String.format($.const.webapi.item_id, rowid);
+                            options.url = String.format($.const.webapi.zhuanti, rowid);
                         }
+                    },
+                    onSuccess: function (response) {
+                        jQuery(ztGrid).setGridParam({ datatype: 'json', page: 1 }).trigger("reloadGrid");
                     }
                 }
             }
-        ]
+        ],
+        onSelectRow: function (rowid, status) {
+            $(String.format("#{0}_ZhuanTiName", rowid)).attr("autocomplete", "off");
+        }
     }));
 
 });

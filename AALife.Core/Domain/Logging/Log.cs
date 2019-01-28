@@ -1,5 +1,4 @@
 using System;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Core.Domain.Logging
@@ -7,7 +6,6 @@ namespace AALife.Core.Domain.Logging
     /// <summary>
     /// Represents a log record
     /// </summary>
-    [Table("Log")]
     public partial class Log : BaseEntity
     {
         /// <summary>
@@ -18,7 +16,6 @@ namespace AALife.Core.Domain.Logging
         /// <summary>
         /// Gets or sets the short message
         /// </summary>
-        [Required]
         public string ShortMessage { get; set; }
 
         /// <summary>
@@ -29,13 +26,12 @@ namespace AALife.Core.Domain.Logging
         /// <summary>
         /// Gets or sets the IP address
         /// </summary>
-        [MaxLength(200)]
         public string IpAddress { get; set; }
 
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
-        public int? UserID { get; set; }
+        public int? UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the page URL
@@ -68,9 +64,5 @@ namespace AALife.Core.Domain.Logging
             }
         }
 
-        /// <summary>
-        /// Gets or sets the customer
-        /// </summary>
-        public virtual UserTable User { get; set; }
     }
 }

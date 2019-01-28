@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace AALife.Core
@@ -25,11 +21,5 @@ namespace AALife.Core
             return o == null ? failureValue : evaluator(o);
         }
 
-        public static void UpdateField(this BaseEntity entity, byte live = 1)
-        {
-            entity.ModifyDate = DateTime.Now;
-            entity.Synchronize = 1;
-            entity.Live = live;
-        }
     }
 }

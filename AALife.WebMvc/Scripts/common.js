@@ -2,18 +2,20 @@
 $.const = {
     webapi: {
         item: "/api/v1/itemapi",
-        items: "/api/v1/itemsapi",
         item_id: "/api/v1/itemapi/{0}",
+        items: "/api/v1/itemsapi",
         users: "/api/v1/usersapi",
         categorytype: "/api/v1/categorytypeapi/{0}",
         zhuanti: "/api/v1/zhuantiapi/{0}",
+        zhuanzhang: "/api/v1/zhuanzhangapi/{0}",
         card: "/api/v1/cardapi/{0}",
         itemnames: "/api/v1/itemnamesapi/{0}"
     },
     pages: {
         category: "/User/CategoryPage",
         card: "/User/CardPage",
-        zhuanti: "/User/ZhuanTiPage"
+        zhuanti: "/User/ZhuanTiPage",
+        zhuanzhang: "/User/ZhuanZhangPage"
     },
     data: {
         itemtype: { "zc": "支出", "sr": "收入", "jc": "借出", "hr": "还入", "jr": "借入", "hc": "还出" },
@@ -23,6 +25,14 @@ $.const = {
         format: "YYYY-MM-DD",
         typestart: { "d": today_date(), "w": week_start(), "m": month_start(), "j": quarter_start(), "y": year_start(), "a": "" },
         typeend: { "d": today_date(), "w": week_end(), "m": month_end(), "j": quarter_end(), "y": year_end(), "a": "" }
+    },
+    datepicker: {
+        autoclose: true,
+        todayHighlight: true,
+        language: 'zh-CN',
+        format: 'yyyy-mm-dd'
+    },
+    daterange: {
     },
     jgrid: {
         url: '',
@@ -74,7 +84,7 @@ $.app = {
 
     //根据类型取最后日期
     var _enddate = function (type, startd) {
-        var n = 0;
+        let n = 0;
         switch (type) {
             case "d":
             case "b":
@@ -114,6 +124,7 @@ $.app = {
         return arr;
     };
 
+    //是否工作日
     var _isworkday = function (date, day) {
         let week = moment(date).format('d');
         switch (day) {

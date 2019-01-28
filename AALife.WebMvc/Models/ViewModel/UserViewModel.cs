@@ -21,7 +21,7 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string UserTheme { get; set; }
 
-        public string UserLevel { get; set; }
+        public byte UserLevel { get; set; }
 
         public string UserFrom { get; set; }
 
@@ -31,9 +31,21 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public byte Synchronize { get; set; }
 
-        public string UserLevelName { get; set; }
+        public string UserLevelName
+        {
+            get
+            {
+                return Constant.UserLevelDic[UserLevel];
+            }
+        }
 
-        public string UserFromName { get; set; }
+        public string UserFromName
+        {
+            get
+            {
+                return Constant.UserFromDic[UserFrom];
+            }
+        }
 
         public string UserThemeName
         {

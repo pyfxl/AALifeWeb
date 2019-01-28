@@ -57,10 +57,22 @@ $(document).ready(function () {
                         onclickSubmit: function (options, rowid) {
                             options.url = String.format($.const.webapi.categorytype, rowid);
                         }
+                    },
+                    onSuccess: function (response) {
+                        jQuery(catGrid).setGridParam({ datatype: 'json', page: 1 }).trigger("reloadGrid");
                     }
                 }
             }
-        ]
+        ],
+        onSelectRow: function (rowid, status) {
+            $(String.format("#{0}_CategoryTypeName", rowid)).attr("autocomplete", "off");
+        }
     }));
+
+    $.extend(true, $.jgrid.inlineEdit, {
+        beforeSubmitRow: function (options, rowid) {
+            return true;
+        }
+    });
 
 });

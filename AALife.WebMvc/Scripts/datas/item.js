@@ -60,19 +60,15 @@ $(document).ready(function () {
                     dataEvents: [
                         {
                             type: 'change', data: {}, fn: function (e) {
-                                var curr = $(e.currentTarget);
-                                var rowid = curr[0].id.split('_')[0];
-                                var element = String.format("#{0}_ItemBuyDate", rowid);
-                                var sel = curr.val();
+                                let curr = $(e.currentTarget);
+                                let rowid = curr[0].id.split('_')[0];
+                                let element = String.format("#{0}_ItemBuyDate", rowid);
+                                let sel = curr.val();
                                 if (sel) {
                                     buildRangeDate(element, rowid);
                                 } else {
                                     $(element).data('daterangepicker').remove();
-                                    $(element).datepicker({
-                                        autoclose: true,
-                                        language: 'zh-CN',
-                                        format: 'yyyy-mm-dd'
-                                    });
+                                    $(element).datepicker($.extend(true, {}, $.const.datepicker));
                                 }
                             }
                         }
@@ -119,8 +115,8 @@ $(document).ready(function () {
                 editoptions: {
                     dataUrl: String.format($.const.webapi.categorytype, userInfo.Id),
                     buildSelect: function (data) {
-                        var _data = JSON.parse(data);
-                        var result = $("<select id='category' name='category' />");
+                        let _data = JSON.parse(data);
+                        let result = $("<select id='category' name='category' />");
                         $.each(_data.rows, function (i, d) {
                             result.append(String.format("<option value='{0}'>{1}</option>", d.CategoryTypeId, d.CategoryTypeName));
                         });
@@ -158,11 +154,8 @@ $(document).ready(function () {
                     // dataInit is the client-side event that fires upon initializing the toolbar search field for a column
                     // use it to place a third party control to customize the toolbar
                     dataInit: function (element) {
-                        $(element).datepicker({
-                            autoclose: true,
-                            language: 'zh-CN',
-                            format: 'yyyy-mm-dd'
-                        });
+                        $(element).datepicker($.extend(true, {}, $.const.datepicker));
+                        $(element).datepicker('setDate', moment().format($.const.date.format));
                     }
                 }
             },
@@ -197,8 +190,8 @@ $(document).ready(function () {
                 editoptions: {
                     dataUrl: String.format($.const.webapi.zhuanti, userInfo.Id),
                     buildSelect: function (data) {
-                        var _data = JSON.parse(data);
-                        var result = $("<select id='zhuanti' name='zhuanti' />");
+                        let _data = JSON.parse(data);
+                        let result = $("<select id='zhuanti' name='zhuanti' />");
                         result.append("<option value=''>---</option>");
                         $.each(_data.rows, function (i, d) {
                             result.append(String.format("<option value='{0}'>{1}</option>", d.ZhuanTiId, d.ZhuanTiName));
@@ -218,8 +211,8 @@ $(document).ready(function () {
                 editoptions: {
                     dataUrl: String.format($.const.webapi.card, userInfo.Id),
                     buildSelect: function (data) {
-                        var _data = JSON.parse(data);
-                        var result = $("<select id='card' name='card' />");
+                        let _data = JSON.parse(data);
+                        let result = $("<select id='card' name='card' />");
                         $.each(_data.rows, function (i, d) {
                             result.append(String.format("<option value='{0}'>{1}</option>", d.CardId, d.CardName));
                         });
@@ -256,6 +249,9 @@ $(document).ready(function () {
                         onclickSubmit: function (options, rowid) {
                             options.url = String.format($.const.webapi.item_id, rowid);
                         }
+                    },
+                    onSuccess: function (response) {
+                        jQuery(grid_selector).trigger("reloadGrid");
                     }
                 }
             }
@@ -280,30 +276,32 @@ $(document).ready(function () {
             $(String.format("#{0}_ItemPrice", rowid)).attr("autocomplete", "off");
             $(String.format("#{0}_ItemBuyDate", rowid)).attr("autocomplete", "off");
 
-            var region = "RegionType".jtv(rowid);
+            let region = "RegionType".jtv(rowid);
             if (!region) return true;
 
-            var element = String.format("#{0}_ItemBuyDate", rowid);
+            let element = String.format("#{0}_ItemBuyDate", rowid);
             buildRangeDate(element, rowid);
         },
         loadComplete: function (data) {
-            var item = $(grid_selector).jqGrid('getGridParam', 'userData');
+            let item = $(grid_selector).jqGrid('getGridParam', 'userData');
             setTotal(item);
         }
     }));
 
     var selfirst = true;
     $.extend(true, $.jgrid.inlineEdit, {
-        successfunc: function (response) {
-            jQuery(grid_selector).trigger("reloadGrid");
-        },
+        //successfunc: function (response) {
+        //    jQuery(grid_selector).trigger("reloadGrid");
+        //},
+        //beforeSaveRow: function (options, rowid) {            
+        //},
         beforeSubmitRow: function (options, rowid) {
             //if (options.extraparam.oper != 'add') return true;
-            var region = "RegionType".jtv(rowid);
-            if (!region) return true;
 
+            let region = "RegionType".jtv(rowid);
+            if (!region) return true;
             if (selfirst) {
-                var item = {
+                let item = {
                     ItemTypeName: "ItemType".jsv(rowid),
                     ItemName: "ItemName".jtv(rowid),
                     CategoryTypeName: "CategoryTypeId".jsv(rowid),
@@ -313,9 +311,19 @@ $(document).ready(function () {
                     CardName: "CardId".jsv(rowid)
                 };
 
-                var date = "ItemBuyDate".jtv(rowid);
-                var startd = "ItemBuyDateStart".jtv(rowid);
-                var endd = "ItemBuyDateEnd".jtv(rowid);
+                let date = "ItemBuyDate".jtv(rowid);
+                let startd = "ItemBuyDateStart".jtv(rowid);
+                let endd = "ItemBuyDateEnd".jtv(rowid);
+
+                //验证区间是否选择
+                if (!startd || !endd) {
+                    $.jgrid.info_dialog("错误", "日期区间：此字段必需", "关闭", {
+                        styleUI: $.const.jgrid.styleUI
+                    });
+                    return false;
+                }
+
+                //显示区间列表
                 $("#region-modal").modal("show");
 
                 $.fn.region.init(region, date, startd, endd, item, function (data) {
@@ -358,9 +366,9 @@ function setTotal(item) {
 //创建日期多选
 function buildRangeDate(element, rowid) {
     //var element = String.format("#{0}_ItemBuyDate", rowid);
-    var startele = $(String.format("#{0}_ItemBuyDateStart", rowid));
-    var endele = $(String.format("#{0}_ItemBuyDateEnd", rowid));
-    $(element).datepicker("remove");
+    let startele = $(String.format("#{0}_ItemBuyDateStart", rowid));
+    let endele = $(String.format("#{0}_ItemBuyDateEnd", rowid));
+    $(element).datepicker("destroy");
     $(element).daterangepicker({
         startDate: startele.val() || moment(),
         endDate: endele.val() || moment(),

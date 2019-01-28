@@ -1,8 +1,8 @@
 ﻿using AALife.BLL;
-using AALife.Core;
+using AALife.Data;
 using AALife.Core.Caching;
-using AALife.Core.Domain;
-using AALife.Core.Services;
+using AALife.Data.Domain;
+using AALife.Data.Services;
 using AALife.Model;
 using AALife.Service.Domain.ViewModel;
 using AALife.WebMvc.jqGrid;
@@ -40,12 +40,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // POST api/<controller>
         public IHttpActionResult Post(int id, CategoryTypeTable model)
         {
-            model.UpdateField();
+            model.LiveOn();
             model.UserId = id;
-            model.CategoryTypeId = _categoryTypeService.GetMaxId(id);
 
             _categoryTypeService.Add(model);
-
             _categoryTypeService.ClearCache(id);
 
             return Ok();
@@ -55,12 +53,11 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Put(int id, CategoryTypeTable model)
         {
             var item = _categoryTypeService.Get(model.Id);
-            item.UpdateField();
+            item.LiveOn();
             item.CategoryTypeName = model.CategoryTypeName;
             item.Image = model.Image;
 
             _categoryTypeService.Update(item);
-
             _categoryTypeService.ClearCache(id);
 
             return Ok();
@@ -70,11 +67,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Delete(int id)
         {
             var item = _categoryTypeService.Get(id);
-            item.UpdateField(0);
+            item.LiveOff();
 
             _categoryTypeService.Update(item);
-
-            //要使用userid
             _categoryTypeService.ClearCache(item.UserId);
 
             return Ok();

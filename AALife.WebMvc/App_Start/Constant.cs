@@ -65,5 +65,7 @@ namespace AALife.WebMvc
         };
 
         public const int USER_WORK_DAY = 5;
+
+        public const int ITEM_NAME_NUM = 10;
     }
 }

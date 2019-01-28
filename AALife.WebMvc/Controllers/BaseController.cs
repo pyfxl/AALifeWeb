@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace AALife.WebMvc.Controllers
 {
+    [Authorize]
     public abstract class BaseController : Controller
     {
     }

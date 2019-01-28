@@ -11,7 +11,7 @@ namespace AALife.WebMvc.Models.ViewModel
         
         public string ItemName { get; set; }
         
-        public int CategoryTypeId { get; set; }
+        public int? CategoryTypeId { get; set; }
         
         public decimal ItemPrice { get; set; }
         
@@ -23,7 +23,7 @@ namespace AALife.WebMvc.Models.ViewModel
         
         public byte Synchronize { get; set; }
         
-        public int? ItemAppId { get; set; }
+        public int? AppId { get; set; }
         
         public int? RegionId { get; set; }
         
@@ -33,7 +33,7 @@ namespace AALife.WebMvc.Models.ViewModel
         
         public int? ZhuanTiId { get; set; }
         
-        public int CardId { get; set; }
+        public int? CardId { get; set; }
         
         public string Remark { get; set; }
         
@@ -41,6 +41,7 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public DateTime? ItemBuyDateStart { get; set; }
         public DateTime? ItemBuyDateEnd { get; set; }
+
         public string UserName { get; set; }
         public string ItemTypeName { get; set; }
         public string CategoryTypeName { get; set; }
