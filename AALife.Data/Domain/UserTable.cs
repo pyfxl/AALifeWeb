@@ -19,9 +19,15 @@ namespace AALife.Data.Domain
         /// <summary>
         /// 密码
         /// </summary>
-        [MaxLength(20)]
+        [MaxLength(50)]
         [Required]
         public string UserPassword { get; set; }
+
+        /// <summary>
+        /// 密码盐
+        /// </summary>
+        [MaxLength(10)]
+        public string PasswordSalt { get; set; }
 
         /// <summary>
         /// 昵称

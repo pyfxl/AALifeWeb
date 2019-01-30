@@ -1,11 +1,18 @@
 using AALife.Core.Caching;
-using AALife.Core.Domain.Logging;
+using AALife.Core.Configuration;
+using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
+using AALife.Core.Services.Media;
+using AALife.Core.Services.Security;
 using Autofac;
+using Autofac.Builder;
 using Autofac.Core;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 
 namespace AALife.Core.Infrastructure.DependencyManagement
@@ -43,20 +50,26 @@ namespace AALife.Core.Infrastructure.DependencyManagement
             //web helper
             builder.RegisterType<WebHelper>().As<IWebHelper>().InstancePerLifetimeScope();
 
-            //db
-            //builder.RegisterType<BsContext>().As<IDbContext>().Named<IDbContext>("bs_context").InstancePerLifetimeScope();
-            //builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>))
-            //    .WithParameter(ResolvedParameter.ForNamed<IDbContext>("bs_context")).InstancePerLifetimeScope();
-
             //cache
             builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().Named<ICacheManager>("aalife_cache_static").SingleInstance();
 
-            //log
+            //logger
             builder.RegisterType<DefaultLogger>().As<ILogger>().InstancePerLifetimeScope();
 
-            //use static cache (between HTTP requests)
+            //encryption
+            builder.RegisterType<EncryptionService>().As<IEncryptionService>().InstancePerLifetimeScope();
+
+            //settings
+            builder.RegisterType<SettingService>().As<ISettingService>()
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
+                .InstancePerLifetimeScope();
+            builder.RegisterSource(new SettingsSource());
+
+            //standard file system
+            builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();
+
+            //activity log
             builder.RegisterType<CustomerActivityService>().As<ICustomerActivityService>()
-                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("bs_context"))
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
 
@@ -75,6 +88,45 @@ namespace AALife.Core.Infrastructure.DependencyManagement
         {
             get { return 0; }
         }
+    }
+
+    public class SettingsSource : IRegistrationSource
+    {
+        static readonly MethodInfo BuildMethod = typeof(SettingsSource).GetMethod(
+            "BuildRegistration",
+            BindingFlags.Static | BindingFlags.NonPublic);
+
+        public IEnumerable<IComponentRegistration> RegistrationsFor(
+                Service service,
+                Func<Service, IEnumerable<IComponentRegistration>> registrations)
+        {
+            var ts = service as TypedService;
+            if (ts != null && typeof(ISettings).IsAssignableFrom(ts.ServiceType))
+            {
+                var buildMethod = BuildMethod.MakeGenericMethod(ts.ServiceType);
+                yield return (IComponentRegistration)buildMethod.Invoke(null, null);
+            }
+        }
+
+        static IComponentRegistration BuildRegistration<TSettings>() where TSettings : ISettings, new()
+        {
+            return RegistrationBuilder
+                .ForDelegate((c, p) =>
+                {
+                    //var currentStoreId = c.Resolve<IStoreContext>().CurrentStore.Id;
+                    //uncomment the code below if you want load settings per store only when you have two stores installed.
+                    //var currentStoreId = c.Resolve<IStoreService>().GetAllStores().Count > 1
+                    //    c.Resolve<IStoreContext>().CurrentStore.Id : 0;
+
+                    //although it's better to connect to your database and execute the following SQL:
+                    //DELETE FROM [Setting] WHERE [StoreId] > 0
+                    return c.Resolve<ISettingService>().LoadSetting<TSettings>(0);
+                })
+                .InstancePerLifetimeScope()
+                .CreateRegistration();
+        }
+
+        public bool IsAdapterForIndividualComponents { get { return false; } }
     }
 
 }

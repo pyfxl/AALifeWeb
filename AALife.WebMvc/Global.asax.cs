@@ -121,9 +121,9 @@ namespace AALife.WebMvc
                 return;
 
             //ignore 404 HTTP errors
-            var httpException = exc as HttpException;
-            if (httpException != null && httpException.GetHttpCode() == 404)
-                return;
+            //var httpException = exc as HttpException;
+            //if (httpException != null && (httpException.GetHttpCode() == 400 || httpException.GetHttpCode() == 404))
+            //    return;
 
             try
             {

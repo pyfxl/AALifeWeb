@@ -51,3 +51,5 @@ D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\Autofac.Integration.WebApi.pdb
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\Autofac.Integration.WebApi.xml
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Net.Http.Formatting.xml
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Web.Http.xml
+D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\ImageResizer.dll
+D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\ImageResizer.xml

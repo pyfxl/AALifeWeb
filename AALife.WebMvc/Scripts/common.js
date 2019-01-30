@@ -1,5 +1,5 @@
 ﻿//常量
-$.const = {
+$.extend($.const, {
     webapi: {
         item: "/api/v1/itemapi",
         item_id: "/api/v1/itemapi/{0}",
@@ -17,10 +17,10 @@ $.const = {
         zhuanti: "/User/ZhuanTiPage",
         zhuanzhang: "/User/ZhuanZhangPage"
     },
-    data: {
-        itemtype: { "zc": "支出", "sr": "收入", "jc": "借出", "hr": "还入", "jr": "借入", "hc": "还出" },
-        regiontype: { "": "---", "d": "每日", "w": "每周", "m": "每月", "j": "每季", "y": "每年", "b": "工作日" }
-    },
+    //data: {
+    //    itemtype: { "zc": "支出", "sr": "收入", "jc": "借出", "hr": "还入", "jr": "借入", "hc": "还出" },
+    //    regiontype: { "": "---", "d": "每日", "w": "每周", "m": "每月", "j": "每季", "y": "每年", "b": "工作日" }
+    //},
     date: {
         format: "YYYY-MM-DD",
         typestart: { "d": today_date(), "w": week_start(), "m": month_start(), "j": quarter_start(), "y": year_start(), "a": "" },
@@ -54,7 +54,7 @@ $.const = {
             return JSON.stringify(postdata);
         }
     }
-};
+});
 
 $.app = {
     modal: function (element, url) {

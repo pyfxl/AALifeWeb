@@ -7,6 +7,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AALife.Core.Configuration;
+using AALife.Core.Services.Configuration;
 
 namespace AALife.WebMvc.Controllers
 {
@@ -14,18 +16,55 @@ namespace AALife.WebMvc.Controllers
     {
         private readonly IUserService _userService;
         private readonly IWorkContext _workContext;
+        private readonly ISettingService _settingService;
 
         public UserController(IUserService userService,
-            IWorkContext workContext)
+            IWorkContext workContext,
+            ISettingService settingService)
         {
             this._userService = userService;
             this._workContext = workContext;
+            this._settingService = settingService;
         }
 
         public ActionResult Index()
         {
             var user = _userService.Get(_workContext.CurrentUser.Id);
-            return View(user.ToModel());
+            var model = user.ToModel();
+            model.UserSettings = _settingService.LoadSetting<UserSettings>(user.Id);
+
+            return View(model);
+        }
+
+        /// <summary>
+        /// mvc form sample
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public virtual ActionResult SaveSettings(UserSettings settings)
+        {
+            int userId = _workContext.CurrentUser.Id;
+
+            if (ModelState.IsValid)
+            {
+                _settingService.SaveSetting(settings, userId);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public virtual ActionResult UserSettings(UserSettings settings)
+        {
+            int userId = _workContext.CurrentUser.Id;
+
+            if (ModelState.IsValid)
+            {
+                _settingService.SaveSetting(settings, userId);
+            }
+
+            return Content("");
         }
 
         public ActionResult CategoryPage()
@@ -47,5 +86,6 @@ namespace AALife.WebMvc.Controllers
         {
             return PartialView("_ZhuanZhangPage");
         }
+
     }
 }

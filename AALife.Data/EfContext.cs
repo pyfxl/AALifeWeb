@@ -1,8 +1,10 @@
 using AALife.Core;
 using AALife.Core.Domain.Configuration;
 using AALife.Core.Domain.Logging;
+using AALife.Core.Domain.Media;
 using AALife.Core.Mapping.Configuration;
 using AALife.Core.Mapping.Logging;
+using AALife.Core.Mapping.Media;
 using AALife.Data.Domain;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -25,6 +27,7 @@ namespace AALife.Data
         public virtual IDbSet<Setting> Settings { get; set; }
         public virtual IDbSet<Log> Logs { get; set; }
         public virtual IDbSet<ActivityLog> ActivityLogs { get; set; }
+        public virtual IDbSet<Picture> Pictures { get; set; }
 
         //业务部分
         public virtual IDbSet<ItemTable> ItemTables { get; set; }
@@ -47,6 +50,7 @@ namespace AALife.Data
             modelBuilder.Configurations.Add(new SettingMap());
             modelBuilder.Configurations.Add(new ActivityLogMap());
             modelBuilder.Configurations.Add(new LogMap());
+            modelBuilder.Configurations.Add(new PictureMap());
 
             //移除级联删除
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

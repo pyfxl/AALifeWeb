@@ -124,7 +124,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 .Select(a => new { Count = a.Count(), ItemName = a.Key, Index = a.Key.IndexOf(term) })
                 .OrderBy(a => a.Index).ThenByDescending(a => a.Count)
                 .Select(a => a.ItemName)
-                .Skip(0).Take(Constant.ITEM_NAME_NUM)
+                .Skip(0).Take(10)
                 .ToArray();
 
             return Json(item);
@@ -266,7 +266,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             for (int i = 0; i <= days; i++)
             {
                 DateTime date = GetItemBuyDate(i, model.RegionType, model.ItemBuyDateStart.Value);
-                if (!IsWorkDay(date, Constant.USER_WORK_DAY)) continue;
+                if (!IsWorkDay(date, 5)) continue;
                 var table = model.ToEntity();
                 table.LiveOn();
                 table.Id = 0;

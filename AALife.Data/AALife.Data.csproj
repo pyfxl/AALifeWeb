@@ -61,6 +61,7 @@
     <Compile Include="Domain\CategoryTypeTable.cs" />
     <Compile Include="Domain\ItemTable.cs" />
     <Compile Include="Domain\OAuthTable.cs" />
+    <Compile Include="Domain\UserSettings.cs" />
     <Compile Include="Domain\UserTable.cs" />
     <Compile Include="Domain\ZhuanTiTable.cs" />
     <Compile Include="Domain\ZhuanZhangTable.cs" />
@@ -71,6 +72,26 @@
     <Compile Include="Migrations\201901280616246_Init.cs" />
     <Compile Include="Migrations\201901280616246_Init.Designer.cs">
       <DependentUpon>201901280616246_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901290814545_AddPictureField.cs" />
+    <Compile Include="Migrations\201901290814545_AddPictureField.Designer.cs">
+      <DependentUpon>201901290814545_AddPictureField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901290849302_RemovePicture.cs" />
+    <Compile Include="Migrations\201901290849302_RemovePicture.Designer.cs">
+      <DependentUpon>201901290849302_RemovePicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901290851099_NewPicture.cs" />
+    <Compile Include="Migrations\201901290851099_NewPicture.Designer.cs">
+      <DependentUpon>201901290851099_NewPicture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901300310559_UpdatePasswordLength.cs" />
+    <Compile Include="Migrations\201901300310559_UpdatePasswordLength.Designer.cs">
+      <DependentUpon>201901300310559_UpdatePasswordLength.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201901300339247_AddPasswordSalt.cs" />
+    <Compile Include="Migrations\201901300339247_AddPasswordSalt.Designer.cs">
+      <DependentUpon>201901300339247_AddPasswordSalt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -105,6 +126,21 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201901280616246_Init.resx">
       <DependentUpon>201901280616246_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901290814545_AddPictureField.resx">
+      <DependentUpon>201901290814545_AddPictureField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901290849302_RemovePicture.resx">
+      <DependentUpon>201901290849302_RemovePicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901290851099_NewPicture.resx">
+      <DependentUpon>201901290851099_NewPicture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901300310559_UpdatePasswordLength.resx">
+      <DependentUpon>201901300310559_UpdatePasswordLength.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201901300339247_AddPasswordSalt.resx">
+      <DependentUpon>201901300339247_AddPasswordSalt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

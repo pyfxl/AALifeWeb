@@ -1,9 +1,17 @@
-﻿<!DOCTYPE html>
+﻿@using AALife.Core.Infrastructure;
+@using AALife.Data;
+@{
+    var UserSettings = EngineContext.Current.Resolve<IWorkContext>().UserSettings;
+    var SiteSettings = EngineContext.Current.Resolve<IWorkContext>().SiteSettings;
+    var pictureService = EngineContext.Current.Resolve<AALife.Core.Services.Media.IPictureService>();
+    var backgroundImage = pictureService.GetPictureUrl(UserSettings.BackgroundImageId, 0, false);
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title | AA生活记账</title>
+    <title>@ViewBag.Title | @SiteSettings.SiteName</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -37,6 +45,29 @@
     <![endif]-->
     <!-- jQuery 3 -->
     <script src="~/Scripts/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- knockoutjs -->
+    <script src="~/Scripts/knockout-3.4.2.debug.js"></script>
+    <script>
+        var userSettings = @Html.Raw(Json.Encode(UserSettings)), siteSettings = @Html.Raw(Json.Encode(SiteSettings));
+        var themeData = @Html.Raw(Json.Encode(Constant.ThemeDic)), itemTypeData = @Html.Raw(Json.Encode(Constant.ItemTypeDic)), regionTypeData = @Html.Raw(Json.Encode(Constant.RegionTypeDic)),
+            userFromData = @Html.Raw(Json.Encode(Constant.UserFromDic)), userWorkDayData = @Html.Raw(Json.Encode(Constant.UserWorkDayDic.ToArray()));
+        $.const = {
+            UserSettings: userSettings,
+            SiteSetings: siteSettings,
+            data: {
+                theme: themeData,
+                itemtype: itemTypeData,
+                regiontype: regionTypeData,
+                userfrom: userFromData,
+                userworkday: userWorkDayData
+            }
+        };
+    </script>
+    <style type="text/css">
+        body {
+            background-image: url(@backgroundImage);
+        }
+    </style>
 </head>
 <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
 <body class="hold-transition skin-red layout-top-nav">
@@ -88,6 +119,9 @@
     <script src="~/Scripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jQuery UI -->
     <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
+    <!-- jQuery validate -->
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
     <!-- SlimScroll -->
     <script src="~/Scripts/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
@@ -122,6 +156,7 @@
                 increaseArea: '20%' /* optional */
             });
         });
+        //$("body").css("background-image", "url(@@backgroundImage)");
     </script>
     @RenderSection("scripts", required: false)
 </body>

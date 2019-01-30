@@ -1,15 +1,10 @@
-﻿using AALife.BLL;
-using AALife.Data;
+﻿using AALife.Data;
 using AALife.Data.Domain;
 using AALife.Data.Services;
-using AALife.WebMvc.jqGrid;
 using AALife.WebMvc.Infrastructure.Mapper;
+using AALife.WebMvc.jqGrid;
 using AALife.WebMvc.Models.ViewModel;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers

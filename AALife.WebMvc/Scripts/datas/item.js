@@ -261,7 +261,7 @@ $(document).ready(function () {
         rownumbers: false,
         loadonce: false,
         scroll: 1,
-        rowNum: 50,
+        rowNum: $.const.UserSettings.PageNumber || $.const.SiteSettings.PageNumber,
         grouping: false,
         groupingView: {
             groupField: ["ItemBuyDate"],

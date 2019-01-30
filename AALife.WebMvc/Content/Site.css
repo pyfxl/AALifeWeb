@@ -1,7 +1,7 @@
 ﻿/*背景处理*/
 body {
     font-family: 'Microsoft YaHei', SimHei;
-    background: url('bg.jpg') no-repeat;
+    background: url('bg.jpg') repeat;
     background-color: #333;
 }
 
@@ -20,11 +20,16 @@ body {
     padding: 6px;
 }
 
+legend {
+    font-size: 14px;
+    color: #999;
+}
+
 
 /*头部处理*/
 .main-header {
     z-index: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding-top: 15px;
     position: fixed;
     width: 100%;
@@ -60,12 +65,10 @@ body {
 }
 
 .content .box-body {
-    padding-bottom: 0;
+    /*padding-bottom: 0;*/
+    min-height: 500px;
 }
 
-.content .box-footer {
-    padding: 0 10px;
-}
 
 
 /*datepicker处理*/
@@ -182,5 +185,51 @@ input[name='ZhuanZhangDate'] {
 
 /*tab-content*/
 .tab-content {
+    /*padding: 0 !important;*/
+}
+
+/*fine uploader*/
+.qq-upload-button {
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin-top: 3px !important;
+    margin-bottom: 0 !important;
+    padding: 6px 10px !important;
+}
+
+.qq-upload-list {
+    overflow: hidden !important;
+}
+
+.qq-uploader {
+    padding: 0 3px 0 0 !important;
+    min-height: inherit !important;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+.qq-progress-bar {
+    height: 2px !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+}
+
+.qq-upload-list {
+    box-shadow: none !important;
+}
+
+.qq-upload-list li {
     padding: 0 !important;
+}
+
+.qq-upload-list li.qq-upload-success {
+    border: none !important;
+}
+
+.uploaded-image {
+    border: 1px solid #ccc;
+    padding: 4px;
+    display: inline-block;
+    min-width: 50px;
+    min-height: 50px;
 }

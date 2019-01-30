@@ -1,15 +1,12 @@
-﻿using AALife.Service.EF;
+﻿using AALife.Data.Services;
 using AALife.Service.Domain.Common;
 using AALife.Service.Domain.ViewModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
-using AALife.WebMvc.Models.Query;
-using AALife.Data.Services;
+using AALife.Service.EF;
 using AALife.WebMvc.Infrastructure.Mapper;
+using AALife.WebMvc.Models.Query;
+using System;
+using System.Linq;
+using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {

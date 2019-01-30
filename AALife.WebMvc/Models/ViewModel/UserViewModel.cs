@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AALife.Data.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -63,6 +64,8 @@ namespace AALife.WebMvc.Models.ViewModel
                 return UserImage.StartsWith("http") ? UserImage : string.Format("http://www.fxlweb.com/Images/Users/{0}", UserImage);
             }
         }
+
+        public virtual UserSettings UserSettings { get; set; }
 
     }
 }

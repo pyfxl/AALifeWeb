@@ -1,12 +1,5 @@
 ﻿using AALife.Service.EF;
-using AALife.Service.Domain.Common;
-using AALife.Service.Models;
 using Kendo.DynamicLinq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers

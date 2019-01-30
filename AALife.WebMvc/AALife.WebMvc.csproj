@@ -394,8 +394,10 @@
     <Compile Include="AALifeWeb\SyncZhuanZhangWebBack.aspx.designer.cs">
       <DependentUpon>SyncZhuanZhangWebBack.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Areas\Manage\Controllers\SiteSettingsController.cs" />
     <Compile Include="Areas\V1\Controllers\BaseApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ZhuanZhangApiController.cs" />
+    <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
@@ -475,7 +477,6 @@
     <Compile Include="Areas\V1\Controllers\CategoryTypeApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ItemApiController.cs" />
     <Compile Include="Areas\Manage\Controllers\ItemsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\SiteConfigController.cs" />
     <Compile Include="Areas\Manage\Controllers\UserController.cs" />
     <Compile Include="Areas\V1\Controllers\UserImageApiController.cs" />
     <Compile Include="Areas\V1\Controllers\UserApiController.cs" />
@@ -1324,6 +1325,8 @@
     <Content Include="Scripts\jquery-tmpl\jquery.tmpl.min.js" />
     <Content Include="Scripts\datas\user.js" />
     <Content Include="Scripts\datas\item.js" />
+    <Content Include="Scripts\knockout-3.4.2.debug.js" />
+    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="Web2018\api\ItemTable.asmx" />
     <Content Include="Web2018\api\UserFrom.asmx" />
     <Content Include="Web2018\api\UserTable.asmx" />
@@ -1717,7 +1720,6 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Manage\Views\Views\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\SiteConfig\Create.cshtml" />
     <Content Include="Areas\Manage\Views\Backup\Index.cshtml" />
     <Content Include="Areas\Manage\Views\User\Index.cshtml" />
     <Content Include="Scripts\jqGrid\data\data.json" />
@@ -1727,6 +1729,7 @@
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Areas\V1\Views\web.config" />
     <Content Include="Web2018\api\ImageUpload.ashx" />
+    <Content Include="Areas\Manage\Views\SiteSettings\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\chplayer\hls\LICENSE" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -1913,6 +1916,8 @@
     <Content Include="Views\User\_CardPage.cshtml" />
     <Content Include="Views\User\_ZhuanTiPage.cshtml" />
     <Content Include="Views\User\_ZhuanZhangPage.cshtml" />
+    <Content Include="Views\User\_SettingPage.cshtml" />
+    <Content Include="Views\Home\UpdateUserPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1924,6 +1929,7 @@
     <Folder Include="Backup\Export\" />
     <Folder Include="Backup\Import\" />
     <Folder Include="Backup\Template\" />
+    <Folder Include="Views\Picture\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

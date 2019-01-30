@@ -1,4 +1,6 @@
-﻿using AALife.Data.Authentication;
+﻿using AALife.Core.Domain.Common;
+using AALife.Core.Services.Configuration;
+using AALife.Data.Authentication;
 using AALife.Data.Domain;
 using AALife.Data.Services;
 
@@ -13,18 +15,23 @@ namespace AALife.Data
 
         private readonly IUserService _userService;
         private readonly IAuthenticationService _authenticationService;
+        private readonly ISettingService _settingService;
 
         private UserTable _cachedUser;
+        private UserSettings _cachedUserSettings;
+        private SiteSettings _cachedSiteSettings;
 
         #endregion
 
         #region Ctor
 
         public WebWorkContext(IUserService userService,
-            IAuthenticationService authenticationService)
+            IAuthenticationService authenticationService,
+            ISettingService settingService)
         {
             this._userService = userService;
             this._authenticationService = authenticationService;
+            this._settingService = settingService;
         }
 
         #endregion
@@ -41,13 +48,7 @@ namespace AALife.Data
                 if (_cachedUser != null)
                     return _cachedUser;
 
-                UserTable user = null;
-
-                //registered user
-                if (user == null)
-                {
-                    user = _authenticationService.GetAuthenticatedUser();
-                }
+                UserTable user = _authenticationService.GetAuthenticatedUser();
 
                 //validation
                 if (user != null)
@@ -67,6 +68,58 @@ namespace AALife.Data
         /// Get or set value indicating whether we're in admin area
         /// </summary>
         public virtual bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// user settings
+        /// </summary>
+        public virtual UserSettings UserSettings
+        {
+            get
+            {
+                if (_cachedUserSettings != null)
+                    return _cachedUserSettings;
+
+                UserSettings settings = _settingService.LoadSetting<UserSettings>(CurrentUser.Id);
+
+                //validation
+                if (settings != null)
+                {
+                    _cachedUserSettings = settings;
+                }
+
+                return _cachedUserSettings;
+            }
+            set
+            {
+                _cachedUserSettings = value;
+            }
+        }
+
+        /// <summary>
+        /// site settings
+        /// </summary>
+        public virtual SiteSettings SiteSettings
+        {
+            get
+            {
+                if (_cachedSiteSettings != null)
+                    return _cachedSiteSettings;
+
+                SiteSettings settings = _settingService.LoadSetting<SiteSettings>(0);
+
+                //validation
+                if (settings != null)
+                {
+                    _cachedSiteSettings = settings;
+                }
+
+                return _cachedSiteSettings;
+            }
+            set
+            {
+                _cachedSiteSettings = value;
+            }
+        }
 
         #endregion
     }

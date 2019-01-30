@@ -1,4 +1,5 @@
-﻿using AALife.Data.Domain;
+﻿using AALife.Core.Domain.Common;
+using AALife.Data.Domain;
 
 namespace AALife.Data
 {
@@ -16,5 +17,16 @@ namespace AALife.Data
         /// Get or set value indicating whether we're in admin area
         /// </summary>
         bool IsAdmin { get; set; }
+
+        /// <summary>
+        /// user settings
+        /// </summary>
+        UserSettings UserSettings { get; set; }
+
+        /// <summary>
+        /// site settings
+        /// </summary>
+        SiteSettings SiteSettings { get; set; }
+
     }
 }

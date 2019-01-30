@@ -19,6 +19,7 @@ namespace AALife.WebMvc
 
         public static readonly Dictionary<string, string> RegionTypeDic = new Dictionary<string, string>()
         {
+            { "", "---" },
             { "d", "每日" },
             { "w", "每周" },
             { "m", "每月" },
@@ -64,8 +65,16 @@ namespace AALife.WebMvc
             { "upd", "APP升级" }
         };
 
-        public const int USER_WORK_DAY = 5;
+        public static readonly Dictionary<string, string> UserWorkDayDic = new Dictionary<string, string>()
+        {
+            { "1", "只周一上班" },
+            { "2", "一到二上班" },
+            { "3", "一到三上班" },
+            { "4", "一到四上班" },
+            { "5", "周末双休" },
+            { "6", "周末单休" },
+            { "7", "全周无休" }
+        };
 
-        public const int ITEM_NAME_NUM = 10;
     }
 }
