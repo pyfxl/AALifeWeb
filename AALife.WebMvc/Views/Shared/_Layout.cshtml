@@ -1,10 +1,12 @@
 ﻿@using AALife.Core.Infrastructure;
 @using AALife.Data;
+@using AALife.Core.Domain.Media;
+@using AALife.Core.Services.Media;
 @{
     var UserSettings = EngineContext.Current.Resolve<IWorkContext>().UserSettings;
+    var pictureService = EngineContext.Current.Resolve<IPictureService>();
+    var backgroundImage = UserSettings != null && UserSettings.BackgroundImageId > 0 ? pictureService.GetPictureUrl(UserSettings.BackgroundImageId, null, PictureType.bg) : "/images/bg/bg.jpg";
     var SiteSettings = EngineContext.Current.Resolve<IWorkContext>().SiteSettings;
-    var pictureService = EngineContext.Current.Resolve<AALife.Core.Services.Media.IPictureService>();
-    var backgroundImage = pictureService.GetPictureUrl(UserSettings.BackgroundImageId, 0, false);
 }
 <!DOCTYPE html>
 <html>
@@ -22,6 +24,8 @@
     <link rel="stylesheet" href="~/Scripts/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="~/Scripts/bower_components/Ionicons/css/ionicons.min.css">
+    <!-- animate -->
+    <link href="~/Content/animate.min.css" rel="stylesheet" />
     <!-- daterangepicker -->
     <link href="~/Scripts/daterangepicker/daterangepicker.css" rel="stylesheet" />
     <!-- bootstrap datepicker -->
@@ -45,6 +49,12 @@
     <![endif]-->
     <!-- jQuery 3 -->
     <script src="~/Scripts/bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/Scripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
+    <!-- bootstrap nofity -->
+    <script src="~/Scripts/bootstrap-notify.min.js"></script>
     <!-- knockoutjs -->
     <script src="~/Scripts/knockout-3.4.2.debug.js"></script>
     <script>
@@ -62,6 +72,14 @@
                 userworkday: userWorkDayData
             }
         };
+        $.notifyDefaults({
+            type: 'info',
+            delay: 1000,
+            placement: {
+                from: "top",
+                align: "center"
+            }
+        });
     </script>
     <style type="text/css">
         body {
@@ -115,10 +133,6 @@
         <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
-    <!-- Bootstrap 3.3.7 -->
-    <script src="~/Scripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- jQuery UI -->
-    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
     <!-- jQuery validate -->
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
@@ -156,7 +170,6 @@
                 increaseArea: '20%' /* optional */
             });
         });
-        //$("body").css("background-image", "url(@@backgroundImage)");
     </script>
     @RenderSection("scripts", required: false)
 </body>

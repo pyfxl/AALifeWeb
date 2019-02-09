@@ -1,5 +1,8 @@
 ﻿//常量
 $.extend($.const, {
+    default: {
+        bg: "/images/bg/bg.jpg"
+    },
     webapi: {
         item: "/api/v1/itemapi",
         item_id: "/api/v1/itemapi/{0}",

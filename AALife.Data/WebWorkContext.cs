@@ -79,6 +79,9 @@ namespace AALife.Data
                 if (_cachedUserSettings != null)
                     return _cachedUserSettings;
 
+                if (CurrentUser == null)
+                    return null;
+
                 UserSettings settings = _settingService.LoadSetting<UserSettings>(CurrentUser.Id);
 
                 //validation

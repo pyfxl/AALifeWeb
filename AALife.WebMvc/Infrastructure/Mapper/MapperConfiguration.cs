@@ -35,7 +35,7 @@ namespace AALife.WebMvc.Infrastructure.Mapper
                     .ForMember(dest => dest.ZhuanZhangToName, src => src.Ignore());
 
                 //user
-                cfg.CreateMap<UserTable, UserViewModel > ()
+                cfg.CreateMap<UserTable, UserViewModel>()
                     .ForMember(dest => dest.UserSettings, src => src.Ignore());
 
             };

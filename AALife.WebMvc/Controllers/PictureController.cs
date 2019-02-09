@@ -1,5 +1,7 @@
 ﻿using AALife.Core;
+using AALife.Core.Domain.Media;
 using AALife.Core.Services.Media;
+using AALife.Data;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -12,10 +14,13 @@ namespace AALife.WebMvc.Controllers
     public class PictureController : BaseController
     {
         private readonly IPictureService _pictureService;
+        private readonly IWorkContext _workContext;
 
-        public PictureController(IPictureService pictureService)
+        public PictureController(IPictureService pictureService,
+            IWorkContext workContext)
         {
             this._pictureService = pictureService;
+            this._workContext = workContext;
         }
 
         // GET: Picture
@@ -91,14 +96,15 @@ namespace AALife.WebMvc.Controllers
                 }
             }
 
-            var picture = _pictureService.InsertPicture(fileBinary, contentType, fileName, fileExtension, fileBinary.Length);
+            var picture = _pictureService.InsertPicture(fileBinary, contentType, fileName, fileExtension, fileBinary.Length, PictureType.bg, true, _workContext.CurrentUser.Id);
             //when returning JSON the mime-type must be set to text/plain
             //otherwise some browsers will pop-up a "Save As" dialog.
             return Json(new
             {
                 success = true,
                 pictureId = picture.Id,
-                imageUrl = _pictureService.GetPictureUrl(picture, 100)
+                thumbUrl = _pictureService.GetPictureUrl(picture, 100, true, null, PictureType.bg),
+                imageUrl = _pictureService.GetPictureUrl(picture.Id, null, PictureType.bg)
             },
                 MimeTypes.TextPlain);
         }

@@ -1,8 +1,9 @@
 ﻿@model AALife.Data.Domain.UserSettings
 @using AALife.Core.Infrastructure;
+@using AALife.Core.Domain.Media;
+@using AALife.Core.Services.Media;
 @{
-    var pictureService = EngineContext.Current.Resolve<AALife.Core.Services.Media.IPictureService>();
-    const int pictureSize = 100;
+    var pictureService = EngineContext.Current.Resolve<IPictureService>();
 }
 <form action="@Url.Action("UserSettings", "User")" method="post" class="form-horizontal" id="user-settings">
     <fieldset>
@@ -25,10 +26,18 @@
                 <input type="hidden" id="BackgroundImageId" name="BackgroundImageId" value="@Model.BackgroundImageId" />
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="javascript:;" class="fileinput-button">
-                            <img class="uploaded-image" src="@(pictureService.GetPictureUrl(Model.BackgroundImageId, pictureSize, false))" />
-                            <input id="fileupload" type="file" name="files[]" title="请选择文件" />
-                        </a>
+                        <div class="fileinput-button">
+                            <img class="uploaded-image" src="@(pictureService.GetPictureUrl(Model.BackgroundImageId, 100, true, null, PictureType.bg))" />
+                            <input id="fileupload" type="file" name="files[]" title="点击选择文件" />
+                        </div>
+                        @if (Model.BackgroundImageId > 0)
+                        {
+                        <button type="button" class="close fileupload-close">×</button>
+                        }
+                        else
+                        {
+                        <button type="button" class="close fileupload-close" style="display: none;">×</button>
+                        }
                     </div>
                 </div>
             </div>
@@ -49,7 +58,10 @@
                     type: this.method,
                     data: $(this).serialize(),
                     success: function (result) {
-                        alert("ok");
+                        $.notify({
+                            icon: 'fa fa-info-circle',
+                            message: "保存成功。"
+                        });
                     }
                 });
             }
@@ -62,11 +74,18 @@
             done: function (e, data) {
                 let picture = data.result;
                 if (picture.success) {
-                    $(".uploaded-image").attr("src", picture.imageUrl);
+                    $(".uploaded-image").attr("src", picture.thumbUrl);
                     $("#BackgroundImageId").val(picture.pictureId);
-                    $("body").css("background-image", String.format("url({0})", picture.imageUrl.replace('/thumbs', '').replace('_100', '_0')));
+                    $(".fileupload-close").show();
+                    $("body").css("background-image", String.format("url({0})", picture.imageUrl));
                 }
             }
+        });
+
+        $(".fileupload-close").click(function () {
+            $(".uploaded-image").attr("src", '@pictureService.GetDefaultPictureUrl(100, PictureType.bg)');
+            $("#BackgroundImageId").val(0);
+            $(this).hide();
         });
     });
 

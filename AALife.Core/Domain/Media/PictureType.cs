@@ -13,5 +13,11 @@ namespace AALife.Core.Domain.Media
         /// Avatar
         /// </summary>
         Avatar = 10,
+
+        Users = 2,
+
+        bg = 3,
+
+        Items = 4
     }
 }

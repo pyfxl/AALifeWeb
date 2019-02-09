@@ -226,7 +226,13 @@ input[name='ZhuanZhangDate'] {
     border: none !important;
 }
 
+
+/*jquery fileupload*/
 .uploaded-image {
+    
+}
+
+.fileinput-button {
     border: 1px solid #ccc;
     padding: 4px;
     display: inline-block;
