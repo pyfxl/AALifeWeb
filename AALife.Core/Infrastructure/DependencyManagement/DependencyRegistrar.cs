@@ -1,5 +1,11 @@
+using AALife.Core.Authentication;
 using AALife.Core.Caching;
 using AALife.Core.Configuration;
+using AALife.Core.Repositorys;
+using AALife.Core.Repositorys.Configuration;
+using AALife.Core.Repositorys.Customers;
+using AALife.Core.Repositorys.Security;
+using AALife.Core.Services;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
 using AALife.Core.Services.Media;
@@ -47,6 +53,12 @@ namespace AALife.Core.Infrastructure.DependencyManagement
                 .As<HttpSessionStateBase>()
                 .InstancePerLifetimeScope();
 
+            //db
+            builder.RegisterType<EfContext>().As<IDbContext>().Named<IDbContext>("ef_context").InstancePerLifetimeScope();
+
+            //work context
+            builder.RegisterType<WebWorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
+
             //web helper
             builder.RegisterType<WebHelper>().As<IWebHelper>().InstancePerLifetimeScope();
 
@@ -56,22 +68,87 @@ namespace AALife.Core.Infrastructure.DependencyManagement
             //logger
             builder.RegisterType<DefaultLogger>().As<ILogger>().InstancePerLifetimeScope();
 
+            #region services
+
             //encryption
             builder.RegisterType<EncryptionService>().As<IEncryptionService>().InstancePerLifetimeScope();
 
+            //authentication
+            builder.RegisterType<FormsAuthenticationService>().As<IAuthenticationService>().InstancePerLifetimeScope();
+
             //settings
             builder.RegisterType<SettingService>().As<ISettingService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
             builder.RegisterSource(new SettingsSource());
 
             //standard file system
-            builder.RegisterType<PictureService>().As<IPictureService>().InstancePerLifetimeScope();
+            builder.RegisterType<PictureService>().As<IPictureService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
 
             //activity log
             builder.RegisterType<CustomerActivityService>().As<ICustomerActivityService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
+
+            //customer
+            builder.RegisterType<CustomerService>().As<ICustomerService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //customer role
+            builder.RegisterType<CustomerRoleService>().As<ICustomerRoleService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //permission record
+            builder.RegisterType<PermissionService>().As<IPermissionService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            #endregion
+
+            #region repositorys
+
+            //picture
+            builder.RegisterType<PictureRepository>().As<IPictureRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //setting
+            builder.RegisterType<SettingRepository>().As<ISettingRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //log
+            builder.RegisterType<LogRepository>().As<ILogRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //activity log
+            builder.RegisterType<ActivityLogRepository>().As<IActivityLogRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //customer
+            builder.RegisterType<CustomerRepository>().As<ICustomerRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //customer role
+            builder.RegisterType<CustomerRoleRepository>().As<ICustomerRoleRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //permission record
+            builder.RegisterType<PermissionRepository>().As<IPermissionRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            #endregion
 
             //controllers
             builder.RegisterControllers(typeFinder.GetAssemblies().ToArray());

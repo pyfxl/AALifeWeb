@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using Nop.Core.Domain.Security;
+using AALife.Core.Domain.Security;
 
-namespace Nop.Core.Domain.Customers
+namespace AALife.Core.Domain.Customers
 {
     /// <summary>
     /// Represents a customer role
@@ -14,16 +14,6 @@ namespace Nop.Core.Domain.Customers
         /// Gets or sets the customer role name
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the customer role is marked as free shiping
-        /// </summary>
-        public bool FreeShipping { get; set; }
-
-        /// <summary>
-        /// Gets or sets a value indicating whether the customer role is marked as tax exempt
-        /// </summary>
-        public bool TaxExempt { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the customer role is active
@@ -40,17 +30,6 @@ namespace Nop.Core.Domain.Customers
         /// </summary>
         public string SystemName { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether the customers must change passwords after a specified time
-        /// </summary>
-        public bool EnablePasswordLifetime { get; set; }
-
-        /// <summary>
-        /// Gets or sets a product identifier that is required by this customer role. 
-        /// A customer is added to this customer role once a specified product is purchased.
-        /// </summary>
-        public int PurchasedWithProductId { get; set; }
-        
         /// <summary>
         /// Gets or sets the permission records
         /// </summary>

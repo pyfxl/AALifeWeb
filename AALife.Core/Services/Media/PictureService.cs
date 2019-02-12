@@ -1,12 +1,12 @@
+using AALife.Core.Domain.Media;
+using AALife.Core.Repositorys.Configuration;
+using AALife.Core.Services.Logging;
+using ImageResizer;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using AALife.Core.Domain.Media;
-using AALife.Core.Services.Logging;
-using ImageResizer;
 
 namespace AALife.Core.Services.Media
 {
@@ -23,7 +23,7 @@ namespace AALife.Core.Services.Media
 
         #region Fields
 
-        private readonly IRepository<Picture> _pictureRepository;
+        private readonly IPictureRepository _pictureRepository;
         private readonly IWebHelper _webHelper;
         private readonly ILogger _logger;
         private readonly IDbContext _dbContext;
@@ -44,7 +44,7 @@ namespace AALife.Core.Services.Media
         /// <param name="eventPublisher">Event publisher</param>
         /// <param name="mediaSettings">Media settings</param>
         /// <param name="dataProvider">Data provider</param>
-        public PictureService(IRepository<Picture> pictureRepository,
+        public PictureService(IPictureRepository pictureRepository,
             IWebHelper webHelper,
             ILogger logger,
             IDbContext dbContext)
@@ -632,7 +632,7 @@ namespace AALife.Core.Services.Media
         /// <returns>Picture</returns>
         public virtual Picture InsertPicture(byte[] pictureBinary, string mimeType, 
             string seoFilename, string fileExtName, int fileBytes, PictureType pictureType,
-            bool isNew = true, int userId = 0)
+            bool isNew = true, int customer = 0)
         {
             mimeType = CommonHelper.EnsureNotNull(mimeType);
             mimeType = CommonHelper.EnsureMaximumLength(mimeType, 20);
@@ -644,7 +644,7 @@ namespace AALife.Core.Services.Media
                 MimeType = mimeType,
                 FileName = seoFilename,
                 IsNew = isNew,
-                UserId = userId,
+                CustomerId = customer,
                 FileExtName = fileExtName,
                 FileBytes = fileBytes,
                 UploadDate = DateTime.Now

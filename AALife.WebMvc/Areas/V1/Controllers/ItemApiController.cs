@@ -252,7 +252,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var region = all.Where(a => a.RegionId == model.RegionId.Value).GroupBy(a => a.RegionId).Select(a => new { MinDate = a.Min(b => b.ItemBuyDate), MaxDate = a.Max(b => b.ItemBuyDate) }).FirstOrDefault();
             if (region == null) return null;
 
-            var regionName = Constant.RegionTypeDic[model.RegionType];
+            var regionName = AALife.Data.Constant.RegionTypeDic[model.RegionType];
 
             return new Tuple<string, DateTime, DateTime>(regionName, region.MinDate, region.MaxDate);
         }

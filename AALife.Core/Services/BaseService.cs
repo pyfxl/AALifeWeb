@@ -15,6 +15,7 @@ namespace AALife.Core.Services
         /// <summary>
         /// 构造
         /// </summary>
+        /// <param name="repository"></param>
         /// <param name="cacheManager"></param>
         /// <param name="dbContext"></param>
         public BaseService(IRepository<T> repository,
@@ -27,39 +28,13 @@ namespace AALife.Core.Services
         }
 
         /// <summary>
-        /// 添加
-        /// </summary>
-        /// <param name="entity"></param>
-        public void Add(T entity)
-        {
-            _repository.Insert(entity);
-        }
-
-        /// <summary>
-        /// 批量添加
-        /// </summary>
-        /// <param name="entities"></param>
-        public void Add(IEnumerable<T> entities)
-        {
-            _repository.Insert(entities);
-        }
-
-        /// <summary>
-        /// 删除
+        /// 获取
         /// </summary>
         /// <param name="id"></param>
-        public void Delete(int id)
+        /// <returns></returns>
+        public T Get(int id)
         {
-            _repository.Delete(id);
-        }
-
-        /// <summary>
-        /// 批量删除
-        /// </summary>
-        /// <param name="entities"></param>
-        public void Delete(IEnumerable<T> entities)
-        {
-            _repository.Delete(entities);
+            return _repository.GetById(id);
         }
 
         /// <summary>
@@ -83,13 +58,21 @@ namespace AALife.Core.Services
         }
 
         /// <summary>
-        /// 获取
+        /// 添加
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public T Get(int id)
+        /// <param name="entity"></param>
+        public void Add(T entity)
         {
-            return _repository.GetById(id);
+            _repository.Insert(entity);
+        }
+
+        /// <summary>
+        /// 批量添加
+        /// </summary>
+        /// <param name="entities"></param>
+        public void Add(IEnumerable<T> entities)
+        {
+            _repository.Insert(entities);
         }
 
         /// <summary>
@@ -109,5 +92,24 @@ namespace AALife.Core.Services
         {
             _repository.Update(entities);
         }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        public void Delete(int id)
+        {
+            _repository.Delete(id);
+        }
+
+        /// <summary>
+        /// 批量删除
+        /// </summary>
+        /// <param name="entities"></param>
+        public void Delete(IEnumerable<T> entities)
+        {
+            _repository.Delete(entities);
+        }
+
     }
 }

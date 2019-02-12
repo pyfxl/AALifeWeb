@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using AALife.Core.Domain.Customers;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -29,5 +30,6 @@ namespace AALife.Data.Domain
         /// 同步Id
         /// </summary>
         public int? CardId { get; set; }
+
     }
 }

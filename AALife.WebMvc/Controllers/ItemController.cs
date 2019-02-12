@@ -1,4 +1,5 @@
-﻿using AALife.Data;
+﻿using AALife.Core;
+using AALife.Data;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using System;
@@ -23,7 +24,7 @@ namespace AALife.WebMvc.Controllers
 
         public ActionResult Index()
         {
-            var user = _userService.Get(_workContext.CurrentUser.Id);
+            var user = _userService.Get(1);
             return View(user.ToModel());
         }
     }

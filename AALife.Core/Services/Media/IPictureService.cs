@@ -112,7 +112,7 @@ namespace AALife.Core.Services.Media
         /// <returns>Picture</returns>
         Picture InsertPicture(byte[] pictureBinary, string mimeType, 
             string seoFilename, string fileExtName, int fileBytes, PictureType pictureType,
-            bool isNew = true, int userId = 0);
+            bool isNew = true, int customerId = 0);
 
         /// <summary>
         /// Updates the picture

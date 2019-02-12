@@ -1,4 +1,4 @@
-﻿using AALife.Core.Domain.Common;
+﻿using AALife.Core.Domain.Configuration;
 using System;
 using System.IO;
 using System.Security.Cryptography;
@@ -8,8 +8,8 @@ namespace AALife.Core.Services.Security
 {
     public class EncryptionService : IEncryptionService
     {
-        private readonly SiteSettings _siteSettings;
-        public EncryptionService(SiteSettings siteSettings)
+        private readonly CommonSettings _siteSettings;
+        public EncryptionService(CommonSettings siteSettings)
         {
             this._siteSettings = siteSettings;
         }
@@ -35,7 +35,7 @@ namespace AALife.Core.Services.Security
         /// <summary>
         /// Create a password hash
         /// </summary>
-        /// <param name="password">{assword</param>
+        /// <param name="password">password</param>
         /// <param name="saltkey">Salk key</param>
         /// <param name="passwordFormat">Password format (hash algorithm)</param>
         /// <returns>Password hash</returns>

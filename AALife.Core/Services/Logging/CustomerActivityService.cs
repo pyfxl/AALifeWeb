@@ -1,5 +1,7 @@
 ﻿using AALife.Core.Caching;
+using AALife.Core.Domain.Customers;
 using AALife.Core.Domain.Logging;
+using AALife.Core.Repositorys.Configuration;
 using System;
 using System.Linq;
 
@@ -29,7 +31,8 @@ namespace AALife.Core.Services.Logging
         /// Cache manager
         /// </summary>
         private readonly ICacheManager _cacheManager;
-        private readonly IRepository<ActivityLog> _activityLogRepository;
+        private readonly IActivityLogRepository _activityLogRepository;
+        private readonly IWorkContext _workContext;
         private readonly IDbContext _dbContext;
         private readonly IWebHelper _webHelper;
         #endregion
@@ -48,12 +51,14 @@ namespace AALife.Core.Services.Logging
         /// <param name="commonSettings">Common settings</param>
         /// <param name="webHelper">Web helper</param>
         public CustomerActivityService(ICacheManager cacheManager,
-            IRepository<ActivityLog> activityLogRepository,
+            IActivityLogRepository activityLogRepository,
+            IWorkContext workContext,
             IDbContext dbContext,
             IWebHelper webHelper)
         {
             this._cacheManager = cacheManager;
             this._activityLogRepository = activityLogRepository;
+            this._workContext = workContext;
             this._dbContext = dbContext;
             this._webHelper = webHelper;
         }
@@ -78,12 +83,24 @@ namespace AALife.Core.Services.Logging
         /// <summary>
         /// Inserts an activity log item
         /// </summary>
-        /// <param name="user">The user</param>
         /// <param name="systemKeyword">The system keyword</param>
         /// <param name="comment">The activity comment</param>
         /// <param name="commentParams">The activity comment parameters for string.Format() function.</param>
         /// <returns>Activity log item</returns>
         public virtual ActivityLog InsertActivity(ActivityLogType systemKeyword, string comment, params object[] commentParams)
+        {
+            return InsertActivity(_workContext.CurrentCustomer, systemKeyword, comment, commentParams);
+        }
+
+        /// <summary>
+        /// Inserts an activity log item
+        /// </summary>
+        /// <param name="user">The user</param>
+        /// <param name="systemKeyword">The system keyword</param>
+        /// <param name="comment">The activity comment</param>
+        /// <param name="commentParams">The activity comment parameters for string.Format() function.</param>
+        /// <returns>Activity log item</returns>
+        public virtual ActivityLog InsertActivity(Customer customer, ActivityLogType systemKeyword, string comment, params object[] commentParams)
         {
             comment = CommonHelper.EnsureNotNull(comment);
             comment = string.Format(comment, commentParams);
@@ -91,8 +108,9 @@ namespace AALife.Core.Services.Logging
             
             var activity = new ActivityLog();
             activity.ActivityLogType = systemKeyword;
+            activity.Customer = customer;
             activity.Comment = comment;
-            activity.CreatedOnUtc = DateTime.UtcNow;
+            activity.CreatedDate = DateTime.Now;
             activity.IpAddress = _webHelper.GetCurrentIpAddress();
 
             _activityLogRepository.Insert(activity);
@@ -117,29 +135,29 @@ namespace AALife.Core.Services.Logging
         /// </summary>
         /// <param name="createdOnFrom">Log item creation from; null to load all activities</param>
         /// <param name="createdOnTo">Log item creation to; null to load all activities</param>
-        /// <param name="userId">Customer identifier; null to load all activities</param>
+        /// <param name="customerId">Customer identifier; null to load all activities</param>
         /// <param name="activityLogTypeId">Activity log type identifier</param>
         /// <param name="pageIndex">Page index</param>
         /// <param name="pageSize">Page size</param>
         /// <param name="ipAddress">IP address; null or empty to load all activities</param>
         /// <returns>Activity log items</returns>
         public virtual IPagedList<ActivityLog> GetAllActivities(DateTime? createdOnFrom = null,
-            DateTime? createdOnTo = null, int? userId = null, int activityLogTypeId = 0,
+            DateTime? createdOnTo = null, int? customerId = null, int activityLogTypeId = 0,
             int pageIndex = 0, int pageSize = int.MaxValue, string ipAddress = null)
         {
             var query = _activityLogRepository.Table;
             if(!String.IsNullOrEmpty(ipAddress))
                 query = query.Where(al => al.IpAddress.Contains(ipAddress));
             if (createdOnFrom.HasValue)
-                query = query.Where(al => createdOnFrom.Value <= al.CreatedOnUtc);
+                query = query.Where(al => createdOnFrom.Value <= al.CreatedDate);
             if (createdOnTo.HasValue)
-                query = query.Where(al => createdOnTo.Value >= al.CreatedOnUtc);
+                query = query.Where(al => createdOnTo.Value >= al.CreatedDate);
             if (activityLogTypeId > 0)
                 query = query.Where(al => activityLogTypeId == al.ActivityLogTypeId);
-            if (userId.HasValue)
-                query = query.Where(al => userId.Value == al.UserId);
+            if (customerId.HasValue)
+                query = query.Where(al => customerId.Value == al.CustomerId);
 
-            query = query.OrderByDescending(al => al.CreatedOnUtc);
+            query = query.OrderByDescending(al => al.CreatedDate);
 
             var activityLog = new PagedList<ActivityLog>(query, pageIndex, pageSize);
             return activityLog;

@@ -1,4 +1,6 @@
+using AALife.Core.Domain.Customers;
 using AALife.Core.Domain.Logging;
+using AALife.Core.Repositorys.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +14,7 @@ namespace AALife.Core.Services.Logging
     {
         #region Fields
 
-        private readonly IRepository<Log> _logRepository;
+        private readonly ILogRepository _logRepository;
         private readonly IWebHelper _webHelper;
         
         #endregion
@@ -27,7 +29,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="dbContext">DB context</param>
         /// <param name="dataProvider">WeData provider</param>
         /// <param name="commonSettings">Common settings</param>
-        public DefaultLogger(IRepository<Log> logRepository, 
+        public DefaultLogger(ILogRepository logRepository, 
             IWebHelper webHelper)
         {
             this._logRepository = logRepository;
@@ -111,15 +113,15 @@ namespace AALife.Core.Services.Logging
         /// <param name="pageIndex">Page index</param>
         /// <param name="pageSize">Page size</param>
         /// <returns>Log item items</returns>
-        public virtual IPagedList<Log> GetAllLogs(DateTime? fromUtc = null, DateTime? toUtc = null,
+        public virtual IPagedList<Log> GetAllLogs(DateTime? fromDate = null, DateTime? toDate = null,
             string message = "", LogLevel? logLevel = null, 
             int pageIndex = 0, int pageSize = int.MaxValue)
         {
             var query = _logRepository.Table;
-            if (fromUtc.HasValue)
-                query = query.Where(l => fromUtc.Value <= l.CreatedOnUtc);
-            if (toUtc.HasValue)
-                query = query.Where(l => toUtc.Value >= l.CreatedOnUtc);
+            if (fromDate.HasValue)
+                query = query.Where(l => fromDate.Value <= l.CreatedDate);
+            if (toDate.HasValue)
+                query = query.Where(l => toDate.Value >= l.CreatedDate);
             if (logLevel.HasValue)
             {
                 var logLevelId = (int)logLevel.Value;
@@ -127,7 +129,7 @@ namespace AALife.Core.Services.Logging
             }
              if (!String.IsNullOrEmpty(message))
                 query = query.Where(l => l.ShortMessage.Contains(message) || l.FullMessage.Contains(message));
-            query = query.OrderByDescending(l => l.CreatedOnUtc);
+            query = query.OrderByDescending(l => l.CreatedDate);
 
             var log = new PagedList<Log>(query, pageIndex, pageSize);
             return log;
@@ -179,7 +181,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="fullMessage">The full message</param>
         /// <param name="customer">The customer to associate log record with</param>
         /// <returns>A log item</returns>
-        public virtual Log InsertLog(LogLevel logLevel, string shortMessage, string fullMessage = "")
+        public virtual Log InsertLog(LogLevel logLevel, string shortMessage, string fullMessage = "", Customer customer = null)
         {
             //check ignore word/phrase list?
             //if (IgnoreLog(shortMessage) || IgnoreLog(fullMessage))
@@ -191,9 +193,10 @@ namespace AALife.Core.Services.Logging
                 ShortMessage = shortMessage,
                 FullMessage = fullMessage,
                 IpAddress = _webHelper.GetCurrentIpAddress(),
+                Customer = customer,
                 PageUrl = _webHelper.GetThisPageUrl(true),
                 ReferrerUrl = _webHelper.GetUrlReferrer(),
-                CreatedOnUtc = DateTime.Now
+                CreatedDate = DateTime.Now
             };
 
             _logRepository.Insert(log);

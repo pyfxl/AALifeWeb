@@ -23,8 +23,8 @@ namespace AALife.WebMvc.Infrastructure.Mapper
             {
                 //item
                 cfg.CreateMap<ItemTable, ItemViewModel>()
-                    .ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.User != null ? src.User.UserNickName != "" ? src.User.UserNickName : src.User.UserName : null))
-                    .ForMember(dest => dest.ItemTypeName, mo => mo.MapFrom(src => Constant.ItemTypeDic[src.ItemType]));
+                    .ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.User != null ? src.User.Username : null))
+                    .ForMember(dest => dest.ItemTypeName, mo => mo.MapFrom(src => AALife.Data.Constant.ItemTypeDic[src.ItemType]));
 
                 cfg.CreateMap<ItemViewModel, ItemTable>()
                     .ForMember(dest => dest.User, src => src.Ignore());

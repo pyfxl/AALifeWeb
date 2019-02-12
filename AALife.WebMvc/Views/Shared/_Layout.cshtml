@@ -1,37 +1,40 @@
 ﻿@using AALife.Core.Infrastructure;
-@using AALife.Data;
+@using AALife.Core;
 @using AALife.Core.Domain.Media;
 @using AALife.Core.Services.Media;
+@using AALife.Core.Services.Configuration;
+@using AALife.Core.Domain.Configuration;
+@using AALife.Data.Domain;
 @{
-    var UserSettings = EngineContext.Current.Resolve<IWorkContext>().UserSettings;
+    var commonSettings = EngineContext.Current.Resolve<IWorkContext>().CommonSettings;
+    var userSettings = EngineContext.Current.Resolve<ISettingService>().LoadSetting<UserSettings>(1);
     var pictureService = EngineContext.Current.Resolve<IPictureService>();
-    var backgroundImage = UserSettings != null && UserSettings.BackgroundImageId > 0 ? pictureService.GetPictureUrl(UserSettings.BackgroundImageId, null, PictureType.bg) : "/images/bg/bg.jpg";
-    var SiteSettings = EngineContext.Current.Resolve<IWorkContext>().SiteSettings;
+    var backgroundImage = userSettings != null && userSettings.BackgroundImageId > 0 ? pictureService.GetPictureUrl(userSettings.BackgroundImageId, null, PictureType.bg) : "/images/bg/bg.jpg";
 }
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title | @SiteSettings.SiteName</title>
+    <title>@ViewBag.Title | @commonSettings.SiteName</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="~/Scripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!-- jQuery UI -->
-    <link href="~/Scripts/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Scripts/jquery-ui/jquery-ui.min.css" />
     <!-- Font Awesome -->
     <link rel="stylesheet" href="~/Scripts/bower_components/font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="~/Scripts/bower_components/Ionicons/css/ionicons.min.css">
     <!-- animate -->
-    <link href="~/Content/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/animate.min.css" />
     <!-- daterangepicker -->
-    <link href="~/Scripts/daterangepicker/daterangepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Scripts/daterangepicker/daterangepicker.css" />
     <!-- bootstrap datepicker -->
     <link rel="stylesheet" href="~/Scripts/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
     <!-- jqGrid -->
-    <link href="~/Scripts/jqGrid/css/ui.jqgrid-bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Scripts/jqGrid/css/ui.jqgrid-bootstrap.css" />
     <!-- Theme style -->
     <link rel="stylesheet" href="~/Scripts/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -55,15 +58,17 @@
     <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
     <!-- bootstrap nofity -->
     <script src="~/Scripts/bootstrap-notify.min.js"></script>
-    <!-- knockoutjs -->
+    <!-- knockout js -->
     <script src="~/Scripts/knockout-3.4.2.debug.js"></script>
     <script>
-        var userSettings = @Html.Raw(Json.Encode(UserSettings)), siteSettings = @Html.Raw(Json.Encode(SiteSettings));
-        var themeData = @Html.Raw(Json.Encode(Constant.ThemeDic)), itemTypeData = @Html.Raw(Json.Encode(Constant.ItemTypeDic)), regionTypeData = @Html.Raw(Json.Encode(Constant.RegionTypeDic)),
-            userFromData = @Html.Raw(Json.Encode(Constant.UserFromDic)), userWorkDayData = @Html.Raw(Json.Encode(Constant.UserWorkDayDic.ToArray()));
+        var userSettings = @Html.Raw(Json.Encode(userSettings));
+        var themeData = @Html.Raw(Json.Encode(AALife.Data.Constant.ThemeDic)),
+            itemTypeData = @Html.Raw(Json.Encode(AALife.Data.Constant.ItemTypeDic)),
+            regionTypeData = @Html.Raw(Json.Encode(AALife.Data.Constant.RegionTypeDic)),
+            userFromData = @Html.Raw(Json.Encode(AALife.Data.Constant.UserFromDic)),
+            userWorkDayData = @Html.Raw(Json.Encode(AALife.Data.Constant.UserWorkDayDic.ToArray()));
         $.const = {
-            UserSettings: userSettings,
-            SiteSetings: siteSettings,
+            settings: userSettings,
             data: {
                 theme: themeData,
                 itemtype: itemTypeData,

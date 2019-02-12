@@ -86,8 +86,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Linq.Dynamic, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Linq.Dynamic.1.0.0\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
     </Reference>
     <Reference Include="System.Messaging" />
     <Reference Include="System.Net" />
@@ -394,14 +394,13 @@
     <Compile Include="AALifeWeb\SyncZhuanZhangWebBack.aspx.designer.cs">
       <DependentUpon>SyncZhuanZhangWebBack.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Manage\Controllers\SiteSettingsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\CommonSettingsController.cs" />
     <Compile Include="Areas\V1\Controllers\BaseApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ZhuanZhangApiController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="App_Start\Constant.cs" />
     <Compile Include="Infrastructure\JsonExtensions.cs" />
     <Compile Include="Infrastructure\DependencyManagement\DependencyRegistrar.cs" />
     <Compile Include="Infrastructure\jqGrid\DataSourceRequest.cs" />
@@ -1729,7 +1728,7 @@
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Areas\V1\Views\web.config" />
     <Content Include="Web2018\api\ImageUpload.ashx" />
-    <Content Include="Areas\Manage\Views\SiteSettings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\CommonSettings\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\chplayer\hls\LICENSE" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -1918,6 +1917,8 @@
     <Content Include="Views\User\_ZhuanZhangPage.cshtml" />
     <Content Include="Views\User\_SettingPage.cshtml" />
     <Content Include="Views\Home\UpdateUserPassword.cshtml" />
+    <Content Include="Views\Account\ResetPassword.cshtml" />
+    <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

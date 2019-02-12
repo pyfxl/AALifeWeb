@@ -1,3 +1,4 @@
+using AALife.Core.Domain.Customers;
 using System;
 
 namespace AALife.Core.Domain.Media
@@ -18,28 +19,33 @@ namespace AALife.Core.Domain.Media
         public bool IsNew { get; set; }
 
         /// <summary>
-        /// 文件名
+        /// file name
         /// </summary>
         public string FileName { get; set; }
 
         /// <summary>
-        /// 文件扩展名
+        /// file ext name
         /// </summary>
         public string FileExtName { get; set; }
 
         /// <summary>
-        /// 文件大小
+        /// file size
         /// </summary>
         public int FileBytes { get; set; }
 
         /// <summary>
-        /// 上传日期
+        /// update date
         /// </summary>
         public DateTime UploadDate { get; set; }
 
         /// <summary>
-        /// 用户Id
+        /// Gets or sets the customer identifier
         /// </summary>
-        public int UserId { get; set; }
+        public int CustomerId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the customer
+        /// </summary>
+        public virtual Customer Customer { get; set; }
     }
 }

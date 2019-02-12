@@ -33,7 +33,6 @@ D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\zh-Hans\System.Web.WebPages.Razor.
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.CopyComplete
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.pdb
-D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csprojAssemblyReference.cache
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Linq.Dynamic.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\Autofac.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\AutoMapper.dll
@@ -53,3 +52,9 @@ D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Net.Http.Formatting.xml
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Web.Http.xml
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\ImageResizer.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\ImageResizer.xml
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csprojAssemblyReference.cache
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Inita.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.GenerateResource.cache
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Initb.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\zh-Hans\System.Net.Http.Formatting.resources.dll
+D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\zh-Hans\System.Web.Http.resources.dll

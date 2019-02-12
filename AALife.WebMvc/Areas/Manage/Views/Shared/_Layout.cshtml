@@ -9,6 +9,10 @@
     <link href="~/Scripts/kendoui/styles/kendo.default.min.css" rel="stylesheet" />
     <link href="~/Scripts/kendoui/styles/kendo.default.mobile.min.css" rel="stylesheet" />
     <link href="~/Areas/Manage/Content/manage.default.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script>
+        $.const = { };
+    </script>
 </head>
 <body class="bg-brown">
     <div class="navbar navbar-sm navbar-inverse navbar-fixed-top top-zone">
@@ -39,7 +43,6 @@
     </div>
 
     <!--common-->
-    <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
     <script src="~/Scripts/kendoui/js/kendo.all.min.js"></script>
     <script src="~/Scripts/kendoui/js/cultures/kendo.culture.zh-CN.min.js"></script>
@@ -54,7 +57,6 @@
     @RenderSection("scripts", required: false)
 
     <script type="text/javascript">
-
         function resizeMain() {
             var div = $("#main");
             var windowHeight = $(window).innerHeight();

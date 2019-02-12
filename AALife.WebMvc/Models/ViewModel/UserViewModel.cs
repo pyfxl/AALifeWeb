@@ -37,7 +37,7 @@ namespace AALife.WebMvc.Models.ViewModel
         {
             get
             {
-                return Constant.UserLevelDic[UserLevel];
+                return AALife.Data.Constant.UserLevelDic[UserLevel];
             }
         }
 
@@ -45,7 +45,7 @@ namespace AALife.WebMvc.Models.ViewModel
         {
             get
             {
-                return Constant.UserFromDic[UserFrom];
+                return AALife.Data.Constant.UserFromDic[UserFrom];
             }
         }
 
@@ -53,7 +53,7 @@ namespace AALife.WebMvc.Models.ViewModel
         {
             get
             {
-                return Constant.ThemeDic[UserTheme];
+                return AALife.Data.Constant.ThemeDic[UserTheme];
             }
         }
 

@@ -1,17 +1,12 @@
 using System;
 
-namespace Nop.Core.Domain.Customers
+namespace AALife.Core.Domain.Customers
 {
     /// <summary>
     /// Represents a customer password
     /// </summary>
     public partial class CustomerPassword : BaseEntity
     {
-        public CustomerPassword()
-        {
-            this.PasswordFormat = PasswordFormat.Clear;
-        }
-
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
@@ -23,11 +18,6 @@ namespace Nop.Core.Domain.Customers
         public string Password { get; set; }
 
         /// <summary>
-        /// Gets or sets the password format identifier
-        /// </summary>
-        public int PasswordFormatId { get; set; }
-
-        /// <summary>
         /// Gets or sets the password salt
         /// </summary>
         public string PasswordSalt { get; set; }
@@ -36,15 +26,6 @@ namespace Nop.Core.Domain.Customers
         /// Gets or sets the date and time of entity creation
         /// </summary>
         public DateTime CreatedOnUtc { get; set; }
-
-        /// <summary>
-        /// Gets or sets the password format
-        /// </summary>
-        public PasswordFormat PasswordFormat
-        {
-            get { return (PasswordFormat)PasswordFormatId; }
-            set { this.PasswordFormatId = (int)value; }
-        }
 
         /// <summary>
         /// Gets or sets the customer

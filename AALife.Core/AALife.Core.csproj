@@ -66,8 +66,8 @@
     <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
     </Reference>
-    <Reference Include="System.Net.Http.Formatting, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.0\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
@@ -78,8 +78,8 @@
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Http, Version=5.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.0\lib\net45\System.Web.Http.dll</HintPath>
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
@@ -104,12 +104,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Authentication\FormsAuthenticationService.cs" />
+    <Compile Include="Authentication\IAuthenticationService.cs" />
     <Compile Include="CommonHelper.cs" />
     <Compile Include="Configuration\ISettings.cs" />
-    <Compile Include="Domain\Common\SiteSettings.cs" />
+    <Compile Include="Constant.cs" />
+    <Compile Include="Domain\Configuration\CommonSettings.cs" />
+    <Compile Include="Domain\Customers\Customer.cs" />
+    <Compile Include="Domain\Customers\CustomerRole.cs" />
+    <Compile Include="Domain\Customers\CustomerRoleNames.cs" />
     <Compile Include="Domain\Logging\ActivityLogType.cs" />
     <Compile Include="Domain\Media\Picture.cs" />
     <Compile Include="Domain\Media\PictureType.cs" />
+    <Compile Include="EfContext.cs" />
+    <Compile Include="Domain\Security\PermissionRecord.cs" />
+    <Compile Include="EfRepository.cs" />
     <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
     <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
     <Compile Include="Infrastructure\DependencyManagement\DependencyRegistrar.cs" />
@@ -127,14 +136,44 @@
     <Compile Include="IWebHelper.cs" />
     <Compile Include="Infrastructure\Mapper\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mapper\IMapperConfiguration.cs" />
+    <Compile Include="IWorkContext.cs" />
     <Compile Include="Mapping\Configuration\SettingMap.cs" />
+    <Compile Include="Mapping\Customers\CustomerMap.cs" />
+    <Compile Include="Mapping\Customers\CustomerRoleMap.cs" />
     <Compile Include="Mapping\Logging\ActivityLogMap.cs" />
     <Compile Include="Mapping\Logging\LogMap.cs" />
     <Compile Include="Mapping\Media\PictureMap.cs" />
+    <Compile Include="Mapping\Security\PermissionRecordMap.cs" />
+    <Compile Include="Migrations\201902111459273_Init-a.cs" />
+    <Compile Include="Migrations\201902111459273_Init-a.Designer.cs">
+      <DependentUpon>201902111459273_Init-a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902111510261_Init-b.cs" />
+    <Compile Include="Migrations\201902111510261_Init-b.Designer.cs">
+      <DependentUpon>201902111510261_Init-b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MimeTypes.cs" />
+    <Compile Include="Repositorys\Customers\CustomerRoleRepository.cs" />
+    <Compile Include="Repositorys\Customers\CustomerRepository.cs" />
+    <Compile Include="Repositorys\Customers\ICustomerRoleRepository.cs" />
+    <Compile Include="Repositorys\Customers\ICustomerRepository.cs" />
+    <Compile Include="Repositorys\Logging\IActivityLogRepository.cs" />
+    <Compile Include="Repositorys\Configuration\ISettingRepository.cs" />
+    <Compile Include="Repositorys\Logging\ILogRepository.cs" />
+    <Compile Include="Repositorys\Media\IPictureRepository.cs" />
+    <Compile Include="Repositorys\Logging\ActivityLogRepository.cs" />
+    <Compile Include="Repositorys\Configuration\SettingRepository.cs" />
+    <Compile Include="Repositorys\Logging\LogRepository.cs" />
+    <Compile Include="Repositorys\Media\PictureRepository.cs" />
+    <Compile Include="Repositorys\Security\IPermissionRepository.cs" />
+    <Compile Include="Repositorys\Security\PermissionRepository.cs" />
     <Compile Include="Services\Configuration\ISettingService.cs" />
     <Compile Include="Services\Configuration\SettingExtensions.cs" />
     <Compile Include="Services\Configuration\SettingService.cs" />
+    <Compile Include="Services\Customers\CustomerRoleService.cs" />
+    <Compile Include="Services\Customers\ICustomerRoleService.cs" />
+    <Compile Include="Services\Customers\ICustomerService.cs" />
     <Compile Include="Services\Logging\CustomerActivityService.cs" />
     <Compile Include="Services\Logging\DefaultLogger.cs" />
     <Compile Include="Services\Logging\ICustomerActivityService.cs" />
@@ -158,12 +197,26 @@
     <Compile Include="Services\Media\ResizeType.cs" />
     <Compile Include="Services\Security\EncryptionService.cs" />
     <Compile Include="Services\Security\IEncryptionService.cs" />
+    <Compile Include="Services\Customers\CustomerService.cs" />
+    <Compile Include="Services\Security\IPermissionService.cs" />
+    <Compile Include="Services\Security\PermissionService.cs" />
     <Compile Include="WebHelper.cs" />
+    <Compile Include="WebWorkContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Domain\Common\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902111459273_Init-a.resx">
+      <DependentUpon>201902111459273_Init-a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902111510261_Init-b.resx">
+      <DependentUpon>201902111510261_Init-b.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

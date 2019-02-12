@@ -1,10 +1,17 @@
-﻿using AALife.Core.Configuration;
+﻿using AALife.Data;
+using AALife.Core.Configuration;
 using System.ComponentModel.DataAnnotations;
 
 namespace AALife.Data.Domain
 {
     public class UserSettings : ISettings
     {
+        public UserSettings()
+        {
+            PageNumber = Constant.PageNumber;
+            UserWorkDay = Constant.UserWorkDay;
+        }
+
         /// <summary>
         /// 每页记录数
         /// </summary>

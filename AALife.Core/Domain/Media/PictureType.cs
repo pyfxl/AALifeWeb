@@ -9,15 +9,25 @@ namespace AALife.Core.Domain.Media
         /// Entities (products, categories, manufacturers)
         /// </summary>
         Entity = 1,
+
         /// <summary>
         /// Avatar
         /// </summary>
         Avatar = 10,
 
+        /// <summary>
+        /// user picture
+        /// </summary>
         Users = 2,
 
+        /// <summary>
+        /// user bg
+        /// </summary>
         bg = 3,
 
+        /// <summary>
+        /// item picture
+        /// </summary>
         Items = 4
     }
 }

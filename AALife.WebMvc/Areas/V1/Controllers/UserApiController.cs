@@ -42,7 +42,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         [Route("api/v1/userfromapi")]
         public IHttpActionResult GetUserFrom()
         {
-            var result = Constant.UserFromDic.ToList();
+            var result = AALife.Data.Constant.UserFromDic.ToList();
             var grid = new Kendoui.DataSourceResult
             {
                 Data = result,
