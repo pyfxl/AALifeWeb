@@ -1,15 +1,9 @@
-﻿using AALife.Data;
-using AALife.Data.Services;
+﻿using AALife.Core.Services.Configuration;
+using AALife.Data;
 using AALife.Data.Domain;
+using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using AALife.Core.Configuration;
-using AALife.Core.Services.Configuration;
-using AALife.Core;
 
 namespace AALife.WebMvc.Controllers
 {
@@ -30,7 +24,7 @@ namespace AALife.WebMvc.Controllers
 
         public ActionResult Index()
         {
-            var user = _userService.Get(1);
+            var user = _userService.Get(_workContext.CurrentUser.Id);
             var model = user.ToModel();
             model.UserSettings = _settingService.LoadSetting<UserSettings>(user.Id);
 
@@ -45,7 +39,7 @@ namespace AALife.WebMvc.Controllers
         [HttpPost]
         public virtual ActionResult SaveSettings(UserSettings settings)
         {
-            int userId = 1;
+            int userId = _workContext.CurrentUser.Id;
 
             if (ModelState.IsValid)
             {
@@ -58,7 +52,7 @@ namespace AALife.WebMvc.Controllers
         [HttpPost]
         public virtual ActionResult UserSettings(UserSettings settings)
         {
-            int userId = 1;
+            int userId = _workContext.CurrentUser.Id;
 
             if (ModelState.IsValid)
             {

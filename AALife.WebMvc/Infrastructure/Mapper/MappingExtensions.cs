@@ -1,7 +1,6 @@
-﻿using AALife.Data.Domain;
+﻿using AALife.Core.Infrastructure.Mapper;
+using AALife.Data.Domain;
 using AALife.WebMvc.Models.ViewModel;
-using AALife.WebMvc.Infrastructure.Mapper;
-using AALife.Core.Infrastructure.Mapper;
 
 namespace AALife.WebMvc.Infrastructure.Mapper
 {

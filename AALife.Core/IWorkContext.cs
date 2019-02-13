@@ -1,5 +1,5 @@
 ﻿using AALife.Core.Domain.Configuration;
-using AALife.Core.Domain.Customers;
+using AALife.Core.Domain.Users;
 
 namespace AALife.Core
 {
@@ -11,7 +11,7 @@ namespace AALife.Core
         /// <summary>
         /// Gets or sets the current customer
         /// </summary>
-        Customer CurrentCustomer { get; set; }
+        UserTable CurrentUser { get; set; }
 
         /// <summary>
         /// Get or set value indicating whether we're in admin area

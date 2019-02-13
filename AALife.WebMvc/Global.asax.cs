@@ -1,6 +1,7 @@
 ﻿using AALife.Core.Infrastructure;
 using AALife.Core.Infrastructure.Mapper;
 using AALife.Core.Services.Logging;
+using AALife.Data;
 using Autofac.Integration.WebApi;
 using AutoMapper;
 using System;
@@ -119,7 +120,8 @@ namespace AALife.WebMvc
             {
                 //log
                 var logger = EngineContext.Current.Resolve<ILogger>();
-                logger.Error(exc.Message, exc);
+                var user = EngineContext.Current.Resolve<IWorkContext>().CurrentUser;
+                logger.Error(exc.Message, exc, user.Id);
             }
             catch (Exception)
             {

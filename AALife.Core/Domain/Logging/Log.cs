@@ -1,4 +1,3 @@
-using AALife.Core.Domain.Customers;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -32,7 +31,7 @@ namespace AALife.Core.Domain.Logging
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
-        public int? CustomerId { get; set; }
+        public int? UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the page URL
@@ -65,9 +64,5 @@ namespace AALife.Core.Domain.Logging
             }
         }
 
-        /// <summary>
-        /// Gets or sets the customer
-        /// </summary>
-        public virtual Customer Customer { get; set; }
     }
 }

@@ -1,10 +1,8 @@
 using AALife.Core;
-using AALife.Core.Domain.Customers;
 using AALife.Data.Domain;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Data
 {
@@ -53,7 +51,8 @@ namespace AALife.Data
         /// <summary>
         /// Gets or sets the customer
         /// </summary>
-        public virtual Customer User { get; set; }
+        [JsonIgnore]
+        public virtual UserTable User { get; set; }
 
     }
 

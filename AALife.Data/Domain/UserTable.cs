@@ -1,5 +1,4 @@
 ﻿using AALife.Core;
-using AALife.Core.Domain.Customers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AALife.Data.Domain
 {
     [Table("tab_UserTable")]
-    public partial class UserTable : UserEntity
+    public partial class UserTable : BaseEntity
     {
         /// <summary>
         /// 用户名
@@ -72,6 +71,27 @@ namespace AALife.Data.Domain
         public DateTime CreateDate { get; set; }
 
         /// <summary>
+        /// 可用否
+        /// </summary>
+        public byte Live { get; set; }
+
+        /// <summary>
+        /// 同步
+        /// </summary>
+        public byte Synchronize { get; set; }
+
+        /// <summary>
+        /// 修改日期
+        /// </summary>
+        public DateTime? ModifyDate { get; set; }
+
+        /// <summary>
+        /// 备注
+        /// </summary>
+        [MaxLength(100)]
+        public string Remark { get; set; }
+
+        /// <summary>
         /// 商品列表
         /// </summary>
         public virtual ICollection<ItemTable> ItemTables { get; set; }
@@ -100,6 +120,11 @@ namespace AALife.Data.Domain
         /// 转账列表
         /// </summary>
         public virtual ICollection<ZhuanZhangTable> ZhuanZhangTables { get; set; }
+
+        /// <summary>
+        /// 角色列表
+        /// </summary>
+        public virtual ICollection<UserRole> UserRoles { get; set; }
 
     }
 

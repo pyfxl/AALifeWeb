@@ -1,4 +1,3 @@
-using AALife.Core.Domain.Customers;
 using System;
 
 namespace AALife.Core.Domain.Media
@@ -41,11 +40,7 @@ namespace AALife.Core.Domain.Media
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
 
-        /// <summary>
-        /// Gets or sets the customer
-        /// </summary>
-        public virtual Customer Customer { get; set; }
     }
 }

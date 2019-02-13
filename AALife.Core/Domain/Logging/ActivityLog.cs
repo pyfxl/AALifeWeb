@@ -1,5 +1,4 @@
-﻿using AALife.Core.Domain.Customers;
-using System;
+﻿using System;
 
 namespace AALife.Core.Domain.Logging
 {
@@ -16,7 +15,7 @@ namespace AALife.Core.Domain.Logging
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
-        public int CustomerId { get; set; }
+        public int? UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the activity comment
@@ -32,11 +31,6 @@ namespace AALife.Core.Domain.Logging
         /// Gets the activity log type
         /// </summary>
         public virtual ActivityLogType ActivityLogType { get; set; }
-
-        /// <summary>
-        /// Gets or sets the customer
-        /// </summary>
-        public virtual Customer Customer { get; set; }
 
         /// <summary>
         /// Gets or sets the ip address

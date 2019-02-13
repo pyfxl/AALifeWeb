@@ -1,5 +1,4 @@
 ﻿using AALife.Core.Caching;
-using AALife.Core.Domain.Customers;
 using AALife.Core.Domain.Logging;
 using AALife.Core.Repositorys.Configuration;
 using System;
@@ -32,7 +31,6 @@ namespace AALife.Core.Services.Logging
         /// </summary>
         private readonly ICacheManager _cacheManager;
         private readonly IActivityLogRepository _activityLogRepository;
-        private readonly IWorkContext _workContext;
         private readonly IDbContext _dbContext;
         private readonly IWebHelper _webHelper;
         #endregion
@@ -52,13 +50,11 @@ namespace AALife.Core.Services.Logging
         /// <param name="webHelper">Web helper</param>
         public CustomerActivityService(ICacheManager cacheManager,
             IActivityLogRepository activityLogRepository,
-            IWorkContext workContext,
             IDbContext dbContext,
             IWebHelper webHelper)
         {
             this._cacheManager = cacheManager;
             this._activityLogRepository = activityLogRepository;
-            this._workContext = workContext;
             this._dbContext = dbContext;
             this._webHelper = webHelper;
         }
@@ -89,7 +85,7 @@ namespace AALife.Core.Services.Logging
         /// <returns>Activity log item</returns>
         public virtual ActivityLog InsertActivity(ActivityLogType systemKeyword, string comment, params object[] commentParams)
         {
-            return InsertActivity(_workContext.CurrentCustomer, systemKeyword, comment, commentParams);
+            return InsertActivity(null, systemKeyword, comment, commentParams);
         }
 
         /// <summary>
@@ -100,7 +96,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="comment">The activity comment</param>
         /// <param name="commentParams">The activity comment parameters for string.Format() function.</param>
         /// <returns>Activity log item</returns>
-        public virtual ActivityLog InsertActivity(Customer customer, ActivityLogType systemKeyword, string comment, params object[] commentParams)
+        public virtual ActivityLog InsertActivity(int? userId, ActivityLogType systemKeyword, string comment, params object[] commentParams)
         {
             comment = CommonHelper.EnsureNotNull(comment);
             comment = string.Format(comment, commentParams);
@@ -108,8 +104,8 @@ namespace AALife.Core.Services.Logging
             
             var activity = new ActivityLog();
             activity.ActivityLogType = systemKeyword;
-            activity.Customer = customer;
             activity.Comment = comment;
+            activity.UserId = userId;
             activity.CreatedDate = DateTime.Now;
             activity.IpAddress = _webHelper.GetCurrentIpAddress();
 
@@ -142,7 +138,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="ipAddress">IP address; null or empty to load all activities</param>
         /// <returns>Activity log items</returns>
         public virtual IPagedList<ActivityLog> GetAllActivities(DateTime? createdOnFrom = null,
-            DateTime? createdOnTo = null, int? customerId = null, int activityLogTypeId = 0,
+            DateTime? createdOnTo = null, int? userId = null, int activityLogTypeId = 0,
             int pageIndex = 0, int pageSize = int.MaxValue, string ipAddress = null)
         {
             var query = _activityLogRepository.Table;
@@ -154,8 +150,8 @@ namespace AALife.Core.Services.Logging
                 query = query.Where(al => createdOnTo.Value >= al.CreatedDate);
             if (activityLogTypeId > 0)
                 query = query.Where(al => activityLogTypeId == al.ActivityLogTypeId);
-            if (customerId.HasValue)
-                query = query.Where(al => customerId.Value == al.CustomerId);
+            if (userId.HasValue)
+                query = query.Where(al => userId.Value == al.UserId);
 
             query = query.OrderByDescending(al => al.CreatedDate);
 

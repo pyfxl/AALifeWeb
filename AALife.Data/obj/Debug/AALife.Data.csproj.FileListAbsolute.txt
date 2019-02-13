@@ -49,3 +49,10 @@ D:\fxlweb\AALifeWeb2018\AALife.Data\bin\Debug\Autofac.Integration.WebApi.pdb
 D:\fxlweb\AALifeWeb2018\AALife.Data\bin\Debug\Autofac.Integration.WebApi.xml
 D:\fxlweb\AALifeWeb2018\AALife.Data\bin\Debug\ImageResizer.dll
 D:\fxlweb\AALifeWeb2018\AALife.Data\bin\Debug\ImageResizer.xml
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Data1.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.GenerateResource.cache
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Data2.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Data3.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Data4.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Data5.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Data6.resources

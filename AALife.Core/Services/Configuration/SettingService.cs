@@ -61,7 +61,7 @@ namespace AALife.Core.Services.Configuration
             public int Id { get; set; }
             public string Name { get; set; }
             public string Value { get; set; }
-            public int CustomerId { get; set; }
+            public int UserId { get; set; }
         }
 
         #endregion
@@ -81,7 +81,7 @@ namespace AALife.Core.Services.Configuration
                 //we use no tracking here for performance optimization
                 //anyway records are loaded only for read-only operations
                 var query = from s in _settingRepository.TableNoTracking
-                            orderby s.Name, s.CustomerId
+                            orderby s.Name, s.UserId
                             select s;
                 var settings = query.ToList();
                 var dictionary = new Dictionary<string, IList<SettingForCaching>>();
@@ -93,7 +93,7 @@ namespace AALife.Core.Services.Configuration
                                 Id = s.Id,
                                 Name = s.Name,
                                 Value = s.Value,
-                                CustomerId = s.CustomerId
+                                UserId = s.UserId
                     };
                     if (!dictionary.ContainsKey(resourceName))
                     {
@@ -106,7 +106,7 @@ namespace AALife.Core.Services.Configuration
                     else
                     {
                         //already added
-                        //most probably it's the setting with the same name but for some certain store (customerId > 0)
+                        //most probably it's the setting with the same name but for some certain store (userId > 0)
                         dictionary[resourceName].Add(settingForCaching);
                     }
                 }
@@ -203,10 +203,10 @@ namespace AALife.Core.Services.Configuration
         /// Get setting by key
         /// </summary>
         /// <param name="key">Key</param>
-        /// <param name="customerId">Store identifier</param>
+        /// <param name="userId">Store identifier</param>
         /// <param name="loadSharedValueIfNotFound">A value indicating whether a shared (for all stores) value should be loaded if a value specific for a certain is not found</param>
         /// <returns>Setting</returns>
-        public virtual Setting GetSetting(string key, int customerId = 0, bool loadSharedValueIfNotFound = false)
+        public virtual Setting GetSetting(string key, int userId = 0, bool loadSharedValueIfNotFound = false)
         {
             if (String.IsNullOrEmpty(key))
                 return null;
@@ -216,11 +216,11 @@ namespace AALife.Core.Services.Configuration
             if (settings.ContainsKey(key))
             {
                 var settingsByKey = settings[key];
-                var setting = settingsByKey.FirstOrDefault(x => x.CustomerId == customerId);
+                var setting = settingsByKey.FirstOrDefault(x => x.UserId == userId);
 
                 //load shared value?
-                if (setting == null && customerId > 0 && loadSharedValueIfNotFound)
-                    setting = settingsByKey.FirstOrDefault(x => x.CustomerId == 0);
+                if (setting == null && userId > 0 && loadSharedValueIfNotFound)
+                    setting = settingsByKey.FirstOrDefault(x => x.UserId == 0);
 
                 if (setting != null)
                     return GetSettingById(setting.Id);
@@ -235,11 +235,11 @@ namespace AALife.Core.Services.Configuration
         /// <typeparam name="T">Type</typeparam>
         /// <param name="key">Key</param>
         /// <param name="defaultValue">Default value</param>
-        /// <param name="customerId">Store identifier</param>
+        /// <param name="userId">Store identifier</param>
         /// <param name="loadSharedValueIfNotFound">A value indicating whether a shared (for all stores) value should be loaded if a value specific for a certain is not found</param>
         /// <returns>Setting value</returns>
         public virtual T GetSettingByKey<T>(string key, T defaultValue = default(T), 
-            int customerId = 0, bool loadSharedValueIfNotFound = false)
+            int userId = 0, bool loadSharedValueIfNotFound = false)
         {
             if (String.IsNullOrEmpty(key))
                 return defaultValue;
@@ -249,11 +249,11 @@ namespace AALife.Core.Services.Configuration
             if (settings.ContainsKey(key))
             {
                 var settingsByKey = settings[key];
-                var setting = settingsByKey.FirstOrDefault(x => x.CustomerId == customerId);
+                var setting = settingsByKey.FirstOrDefault(x => x.UserId == userId);
 
                 //load shared value?
-                if (setting == null && customerId > 0 && loadSharedValueIfNotFound)
-                    setting = settingsByKey.FirstOrDefault(x => x.CustomerId == 0);
+                if (setting == null && userId > 0 && loadSharedValueIfNotFound)
+                    setting = settingsByKey.FirstOrDefault(x => x.UserId == 0);
 
                 if (setting != null)
                     return CommonHelper.To<T>(setting.Value);
@@ -268,9 +268,9 @@ namespace AALife.Core.Services.Configuration
         /// <typeparam name="T">Type</typeparam>
         /// <param name="key">Key</param>
         /// <param name="value">Value</param>
-        /// <param name="customerId">Store identifier</param>
+        /// <param name="userId">Store identifier</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
-        public virtual void SetSetting<T>(string key, T value, int customerId = 0, bool clearCache = true)
+        public virtual void SetSetting<T>(string key, T value, int userId = 0, bool clearCache = true)
         {
             if (key == null)
                 throw new ArgumentNullException("key");
@@ -279,7 +279,7 @@ namespace AALife.Core.Services.Configuration
 
             var allSettings = GetAllSettingsCached();
             var settingForCaching = allSettings.ContainsKey(key) ? 
-                allSettings[key].FirstOrDefault(x => x.CustomerId == customerId) : null;
+                allSettings[key].FirstOrDefault(x => x.UserId == userId) : null;
             if (settingForCaching != null)
             {
                 //update
@@ -294,7 +294,7 @@ namespace AALife.Core.Services.Configuration
                 {
                     Name = key,
                     Value = valueStr,
-                    CustomerId = customerId
+                    UserId = userId
                 };
                 InsertSetting(setting, clearCache);
             }
@@ -307,7 +307,7 @@ namespace AALife.Core.Services.Configuration
         public virtual IList<Setting> GetAllSettings()
         {
             var query = from s in _settingRepository.Table
-                        orderby s.Name, s.CustomerId
+                        orderby s.Name, s.UserId
                         select s;
             var settings = query.ToList();
             return settings;
@@ -320,15 +320,15 @@ namespace AALife.Core.Services.Configuration
         /// <typeparam name="TPropType">Property type</typeparam>
         /// <param name="settings">Entity</param>
         /// <param name="keySelector">Key selector</param>
-        /// <param name="customerId">Store identifier</param>
+        /// <param name="userId">Store identifier</param>
         /// <returns>true -setting exists; false - does not exist</returns>
         public virtual bool SettingExists<T, TPropType>(T settings, 
-            Expression<Func<T, TPropType>> keySelector, int customerId = 0) 
+            Expression<Func<T, TPropType>> keySelector, int userId = 0) 
             where T : ISettings, new()
         {
             string key = settings.GetSettingKey(keySelector);
 
-            var setting = GetSettingByKey<string>(key, customerId: customerId);
+            var setting = GetSettingByKey<string>(key, userId: userId);
             return setting != null;
         }
 
@@ -336,8 +336,8 @@ namespace AALife.Core.Services.Configuration
         /// Load settings
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
-        /// <param name="customerId">Store identifier for which settigns should be loaded</param>
-        public virtual T LoadSetting<T>(int customerId = 0) where T : ISettings, new()
+        /// <param name="userId">Store identifier for which settigns should be loaded</param>
+        public virtual T LoadSetting<T>(int userId = 0) where T : ISettings, new()
         {
             var settings = Activator.CreateInstance<T>();
 
@@ -349,7 +349,7 @@ namespace AALife.Core.Services.Configuration
 
                 var key = typeof(T).Name + "." + prop.Name;
                 //load by store
-                var setting = GetSettingByKey<string>(key, customerId: customerId, loadSharedValueIfNotFound: true);
+                var setting = GetSettingByKey<string>(key, userId: userId, loadSharedValueIfNotFound: true);
                 if (setting == null)
                     continue;
 
@@ -372,9 +372,9 @@ namespace AALife.Core.Services.Configuration
         /// Save settings object
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
-        /// <param name="customerId">Store identifier</param>
+        /// <param name="userId">Store identifier</param>
         /// <param name="settings">Setting instance</param>
-        public virtual void SaveSetting<T>(T settings, int customerId = 0) where T : ISettings, new()
+        public virtual void SaveSetting<T>(T settings, int userId = 0) where T : ISettings, new()
         {
             /* We do not clear cache after each setting update.
              * This behavior can increase performance because cached settings will not be cleared 
@@ -392,9 +392,9 @@ namespace AALife.Core.Services.Configuration
                 //Duck typing is not supported in C#. That's why we're using dynamic type
                 dynamic value = prop.GetValue(settings, null);
                 if (value != null)
-                    SetSetting(key, value, customerId, false);
+                    SetSetting(key, value, userId, false);
                 else
-                    SetSetting(key, "", customerId, false);
+                    SetSetting(key, "", userId, false);
             }
 
             //and now clear cache
@@ -408,11 +408,11 @@ namespace AALife.Core.Services.Configuration
         /// <typeparam name="TPropType">Property type</typeparam>
         /// <param name="settings">Settings</param>
         /// <param name="keySelector">Key selector</param>
-        /// <param name="customerId">Store ID</param>
+        /// <param name="userId">Store ID</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
         public virtual void SaveSetting<T, TPropType>(T settings,
             Expression<Func<T, TPropType>> keySelector,
-            int customerId = 0, bool clearCache = true) where T : ISettings, new()
+            int userId = 0, bool clearCache = true) where T : ISettings, new()
         {
             var member = keySelector.Body as MemberExpression;
             if (member == null)
@@ -434,9 +434,9 @@ namespace AALife.Core.Services.Configuration
             //Duck typing is not supported in C#. That's why we're using dynamic type
             dynamic value = propInfo.GetValue(settings, null);
             if (value != null)
-                SetSetting(key, value, customerId, clearCache);
+                SetSetting(key, value, userId, clearCache);
             else
-                SetSetting(key, "", customerId, clearCache);
+                SetSetting(key, "", userId, clearCache);
         }
 
         /// <summary>
@@ -447,16 +447,16 @@ namespace AALife.Core.Services.Configuration
         /// <param name="settings">Settings</param>
         /// <param name="keySelector">Key selector</param>
         /// <param name="overrideForStore">A value indicating whether to setting is overridden in some store</param>
-        /// <param name="customerId">Store ID</param>
+        /// <param name="userId">Store ID</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
         public virtual void SaveSettingOverridablePerStore<T, TPropType>(T settings,
             Expression<Func<T, TPropType>> keySelector,
-            bool overrideForStore, int customerId = 0, bool clearCache = true) where T : ISettings, new()
+            bool overrideForStore, int userId = 0, bool clearCache = true) where T : ISettings, new()
         {
-            if (overrideForStore || customerId == 0)
-                SaveSetting(settings, keySelector, customerId, clearCache);
-            else if (customerId > 0)
-                DeleteSetting(settings, keySelector, customerId);
+            if (overrideForStore || userId == 0)
+                SaveSetting(settings, keySelector, userId, clearCache);
+            else if (userId > 0)
+                DeleteSetting(settings, keySelector, userId);
         }
 
         /// <summary>
@@ -483,16 +483,16 @@ namespace AALife.Core.Services.Configuration
         /// <typeparam name="TPropType">Property type</typeparam>
         /// <param name="settings">Settings</param>
         /// <param name="keySelector">Key selector</param>
-        /// <param name="customerId">Store ID</param>
+        /// <param name="userId">Store ID</param>
         public virtual void DeleteSetting<T, TPropType>(T settings,
-            Expression<Func<T, TPropType>> keySelector, int customerId = 0) where T : ISettings, new()
+            Expression<Func<T, TPropType>> keySelector, int userId = 0) where T : ISettings, new()
         {
             string key = settings.GetSettingKey(keySelector);
             key = key.Trim().ToLowerInvariant();
 
             var allSettings = GetAllSettingsCached();
             var settingForCaching = allSettings.ContainsKey(key) ?
-                allSettings[key].FirstOrDefault(x => x.CustomerId == customerId) : null;
+                allSettings[key].FirstOrDefault(x => x.UserId == userId) : null;
             if (settingForCaching != null)
             {
                 //update

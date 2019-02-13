@@ -8,10 +8,10 @@ namespace AALife.Core.Domain.Configuration
     {
         public Setting() { }
         
-        public Setting(string name, string value, int customerId = 0) {
+        public Setting(string name, string value, int userId = 0) {
             this.Name = name;
             this.Value = value;
-            this.CustomerId = customerId;
+            this.UserId = userId;
         }
         
         /// <summary>
@@ -27,7 +27,7 @@ namespace AALife.Core.Domain.Configuration
         /// <summary>
         /// Gets or sets the store for which this setting is valid. 0 is set when the setting is for all stores
         /// </summary>
-        public int CustomerId { get; set; }
+        public int UserId { get; set; }
 
         public override string ToString()
         {

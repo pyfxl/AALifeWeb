@@ -1,4 +1,3 @@
-using AALife.Core.Domain.Customers;
 using AALife.Core.Domain.Logging;
 using AALife.Core.Repositorys.Configuration;
 using System;
@@ -181,7 +180,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="fullMessage">The full message</param>
         /// <param name="customer">The customer to associate log record with</param>
         /// <returns>A log item</returns>
-        public virtual Log InsertLog(LogLevel logLevel, string shortMessage, string fullMessage = "", Customer customer = null)
+        public virtual Log InsertLog(LogLevel logLevel, string shortMessage, string fullMessage = "", int? userId = null)
         {
             //check ignore word/phrase list?
             //if (IgnoreLog(shortMessage) || IgnoreLog(fullMessage))
@@ -193,7 +192,7 @@ namespace AALife.Core.Services.Logging
                 ShortMessage = shortMessage,
                 FullMessage = fullMessage,
                 IpAddress = _webHelper.GetCurrentIpAddress(),
-                Customer = customer,
+                UserId = userId,
                 PageUrl = _webHelper.GetThisPageUrl(true),
                 ReferrerUrl = _webHelper.GetUrlReferrer(),
                 CreatedDate = DateTime.Now

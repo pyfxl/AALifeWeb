@@ -1,5 +1,4 @@
-﻿using AALife.Core.Domain.Customers;
-using AALife.Core.Domain.Logging;
+﻿using AALife.Core.Domain.Logging;
 using System;
 
 namespace AALife.Core.Services.Logging
@@ -16,7 +15,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="comment">The activity comment</param>
         /// <param name="commentParams">The activity comment parameters for string.Format() function.</param>
         /// <returns>Activity log item</returns>
-        ActivityLog InsertActivity(Customer customer, ActivityLogType systemKeyword, string comment, params object[] commentParams);
+        ActivityLog InsertActivity(int? userId, ActivityLogType systemKeyword, string comment, params object[] commentParams);
 
         /// <summary>
         /// Inserts an activity log item

@@ -52,9 +52,9 @@ D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Net.Http.Formatting.xml
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\System.Web.Http.xml
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\ImageResizer.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\ImageResizer.xml
-D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csprojAssemblyReference.cache
-D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Inita.resources
-D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.GenerateResource.cache
-D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Initb.resources
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\zh-Hans\System.Net.Http.Formatting.resources.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\bin\Debug\zh-Hans\System.Web.Http.resources.dll
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csprojAssemblyReference.cache
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Core1.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.GenerateResource.cache
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Core2.resources

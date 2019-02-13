@@ -96,7 +96,7 @@ namespace AALife.WebMvc.Controllers
                 }
             }
 
-            var picture = _pictureService.InsertPicture(fileBinary, contentType, fileName, fileExtension, fileBinary.Length, PictureType.bg, true, _workContext.CurrentCustomer.Id);
+            var picture = _pictureService.InsertPicture(fileBinary, contentType, fileName, fileExtension, fileBinary.Length, PictureType.bg, true, _workContext.CurrentUser.Id);
             //when returning JSON the mime-type must be set to text/plain
             //otherwise some browsers will pop-up a "Save As" dialog.
             return Json(new

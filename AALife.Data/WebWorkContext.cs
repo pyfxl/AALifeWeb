@@ -1,4 +1,4 @@
-﻿using AALife.Core.Domain.Common;
+﻿using AALife.Core.Domain.Configuration;
 using AALife.Core.Services.Configuration;
 using AALife.Data.Authentication;
 using AALife.Data.Domain;
@@ -19,7 +19,7 @@ namespace AALife.Data
 
         private UserTable _cachedUser;
         private UserSettings _cachedUserSettings;
-        private SiteSettings _cachedSiteSettings;
+        private CommonSettings _cachedCommonSettings;
 
         #endregion
 
@@ -101,26 +101,26 @@ namespace AALife.Data
         /// <summary>
         /// site settings
         /// </summary>
-        public virtual SiteSettings SiteSettings
+        public virtual CommonSettings CommonSettings
         {
             get
             {
-                if (_cachedSiteSettings != null)
-                    return _cachedSiteSettings;
+                if (_cachedCommonSettings != null)
+                    return _cachedCommonSettings;
 
-                SiteSettings settings = _settingService.LoadSetting<SiteSettings>(0);
+                CommonSettings settings = _settingService.LoadSetting<CommonSettings>(0);
 
                 //validation
                 if (settings != null)
                 {
-                    _cachedSiteSettings = settings;
+                    _cachedCommonSettings = settings;
                 }
 
-                return _cachedSiteSettings;
+                return _cachedCommonSettings;
             }
             set
             {
-                _cachedSiteSettings = value;
+                _cachedCommonSettings = value;
             }
         }
 

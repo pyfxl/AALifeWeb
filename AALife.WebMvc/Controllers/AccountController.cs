@@ -1,6 +1,5 @@
-﻿using AALife.Core.Authentication;
-using AALife.Core.Domain.Customers;
-using AALife.Core.Services;
+﻿using AALife.Data.Authentication;
+using AALife.Data.Services;
 using AALife.WebMvc.Models.ViewModel;
 using System;
 using System.Web.Mvc;
@@ -9,12 +8,12 @@ namespace AALife.WebMvc.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ICustomerService _customerService;
+        private readonly IUserService _userService;
         private readonly IAuthenticationService _authenticationService;
 
-        public AccountController(ICustomerService customerService, IAuthenticationService authenticationService)
+        public AccountController(IUserService userService, IAuthenticationService authenticationService)
         {
-            this._customerService = customerService;
+            this._userService = userService;
             this._authenticationService = authenticationService;
         }
 
@@ -39,11 +38,11 @@ namespace AALife.WebMvc.Controllers
             return View();
         }
 
-        public ActionResult ResetPassword(string userName)
-        {
-            ViewBag.Username = userName;
-            return View();
-        }
+        //public ActionResult ResetPassword(string userName)
+        //{
+        //    ViewBag.Username = userName;
+        //    return View();
+        //}
 
         [HttpPost]
         public ActionResult Login([Bind(Include = "UserName,UserPassword")] UserLoginModel userModel, string returnUrl = "~/")
@@ -52,14 +51,9 @@ namespace AALife.WebMvc.Controllers
             {
                 try
                 {
-                    var user = _customerService.Login(userModel.UserName, userModel.UserPassword);
+                    var user = _userService.Login(userModel.UserName, userModel.UserPassword);
 
-                    if (user.ResetPassword)
-                    {
-                        return RedirectToAction("ResetPassword", new { userName = user.Username });
-                    }
-
-                    //sign in new customer
+                    //sign in new user
                     _authenticationService.SignIn(user, false);
 
                     return Redirect(returnUrl);
@@ -74,30 +68,30 @@ namespace AALife.WebMvc.Controllers
         }
 
         [HttpPost]
-        public ActionResult ResetPassword(string username, string password, string rePassword)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    if (!password.Equals(rePassword))
-                    {
-                        throw new Exception("重复密码不正确。");
-                    }
+        //public ActionResult ResetPassword(string username, string password, string rePassword)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        try
+        //        {
+        //            if (!password.Equals(rePassword))
+        //            {
+        //                throw new Exception("重复密码不正确。");
+        //            }
 
-                    _customerService.ResetPassword(username, password);
+        //            _userService.ResetPassword(username, password);
 
-                    return RedirectToAction("Login");
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", ex.Message);
-                }
-            }
+        //            return RedirectToAction("Login");
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            ModelState.AddModelError("", ex.Message);
+        //        }
+        //    }
 
-            ViewBag.Username = username;
-            return View();
-        }
+        //    ViewBag.Username = username;
+        //    return View();
+        //}
 
         // GET: Logout
         public ActionResult Logout()

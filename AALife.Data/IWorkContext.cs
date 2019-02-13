@@ -1,4 +1,4 @@
-﻿using AALife.Core.Domain.Common;
+﻿using AALife.Core.Domain.Configuration;
 using AALife.Data.Domain;
 
 namespace AALife.Data
@@ -26,7 +26,7 @@ namespace AALife.Data
         /// <summary>
         /// site settings
         /// </summary>
-        SiteSettings SiteSettings { get; set; }
+        CommonSettings CommonSettings { get; set; }
 
     }
 }

@@ -79,7 +79,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             };
 
             //activity log
-            _customerActivityService.InsertActivity(ActivityLogType.Query, "浏览消费列表记录。{0} {1}", common.ToJson(), query.ToJson());
+            _customerActivityService.InsertActivity(query.userId, ActivityLogType.Query, "浏览消费列表记录。{0} {1}", common.ToJson(), query.ToJson());
 
             return Json(grid);
         }

@@ -3,6 +3,7 @@ using AALife.Core.Caching;
 using AALife.Core.Infrastructure;
 using AALife.Core.Infrastructure.DependencyManagement;
 using AALife.Data;
+using AALife.Data.Authentication;
 using AALife.Data.Services;
 using Autofac;
 using Autofac.Core;
@@ -22,8 +23,17 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
         {
 
             //db
-            builder.RegisterType<AALifeContext>().As<IDbContext>().Named<IDbContext>("aa_context").InstancePerLifetimeScope();
+            builder.RegisterType<AALifeContext>().As<IDbContext>().Named<IDbContext>("aalife_context").InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
+
+            //work context
+            builder.RegisterType<WebWorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
+
+            //authentication
+            builder.RegisterType<FormsAuthenticationService>().As<IAuthenticationService>().InstancePerLifetimeScope();
+
+            //user
+            builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
 
             //service
             builder.RegisterType<ItemService>().As<IItemService>()

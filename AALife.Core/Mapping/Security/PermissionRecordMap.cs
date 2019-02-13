@@ -13,7 +13,7 @@ namespace AALife.Core.Mapping.Security
             this.Property(pr => pr.SystemName).IsRequired().HasMaxLength(20);
             this.Property(pr => pr.Category).IsRequired().HasMaxLength(10);
 
-            this.HasMany(pr => pr.CustomerRoles)
+            this.HasMany(pr => pr.UserRoles)
                 .WithMany(cr => cr.PermissionRecords)
                 .Map(m => m.ToTable("bse_PermissionRecord_Role_Mapping"));
         }

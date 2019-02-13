@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using AALife.Core.Domain.Customers;
+﻿using AALife.Core.Domain.Users;
+using System.Collections.Generic;
 
 namespace AALife.Core.Domain.Security
 {
@@ -8,7 +8,7 @@ namespace AALife.Core.Domain.Security
     /// </summary>
     public partial class PermissionRecord : BaseEntity
     {
-        private ICollection<CustomerRole> _customerRoles;
+        private ICollection<UserRole> _userRoles;
 
         /// <summary>
         /// Gets or sets the permission name
@@ -28,10 +28,10 @@ namespace AALife.Core.Domain.Security
         /// <summary>
         /// Gets or sets discount usage history
         /// </summary>
-        public virtual ICollection<CustomerRole> CustomerRoles
+        public virtual ICollection<UserRole> UserRoles
         {
-            get { return _customerRoles ?? (_customerRoles = new List<CustomerRole>()); }
-            protected set { _customerRoles = value; }
+            get { return _userRoles ?? (_userRoles = new List<UserRole>()); }
+            protected set { _userRoles = value; }
         }   
     }
 }

@@ -1,4 +1,3 @@
-using AALife.Core.Domain.Customers;
 using AALife.Core.Domain.Logging;
 using System;
 using System.Collections.Generic;
@@ -70,6 +69,6 @@ namespace AALife.Core.Services.Logging
         /// <param name="fullMessage">The full message</param>
         /// <param name="customer">The customer to associate log record with</param>
         /// <returns>A log item</returns>
-        Log InsertLog(LogLevel logLevel, string shortMessage, string fullMessage = "", Customer customer = null);
+        Log InsertLog(LogLevel logLevel, string shortMessage, string fullMessage = "", int? userId = null);
     }
 }

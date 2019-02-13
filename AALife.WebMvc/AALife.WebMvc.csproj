@@ -1916,7 +1916,7 @@
     <Content Include="Views\User\_ZhuanTiPage.cshtml" />
     <Content Include="Views\User\_ZhuanZhangPage.cshtml" />
     <Content Include="Views\User\_SettingPage.cshtml" />
-    <Content Include="Views\Home\UpdateUserPassword.cshtml" />
+    <Content Include="Views\Home\UpdatePassword.cshtml" />
     <Content Include="Views\Account\ResetPassword.cshtml" />
     <Content Include="Views\Shared\_LoginLayout.cshtml" />
   </ItemGroup>

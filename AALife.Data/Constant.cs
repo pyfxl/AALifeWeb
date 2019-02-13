@@ -11,6 +11,8 @@ namespace AALife.Data
 
         public static int UserWorkDay = 5;
 
+        public static int PasswordSaltSize = 5;
+
         public static readonly Dictionary<string, string> ItemTypeDic = new Dictionary<string, string>()
         {
             { "sr", "收入" },

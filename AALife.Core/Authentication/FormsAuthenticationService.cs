@@ -1,6 +1,7 @@
 using AALife.Core.Domain;
-using AALife.Core.Domain.Customers;
+using AALife.Core.Domain.Users;
 using AALife.Core.Services;
+using AALife.Core.Services.Users;
 using System;
 using System.Web;
 using System.Web.Security;
@@ -15,10 +16,10 @@ namespace AALife.Core.Authentication
         #region Fields
 
         private readonly HttpContextBase _httpContext;
-        private readonly ICustomerService _customerService;
+        private readonly IUserService _userService;
         private readonly TimeSpan _expirationTimeSpan;
 
-        private Customer _cachedCustomer;
+        private UserTable _cachedUser;
         private string _ticket { get; set; }
 
         #endregion
@@ -28,9 +29,9 @@ namespace AALife.Core.Authentication
         /// <summary>
         /// Ctor
         /// </summary>
-        public FormsAuthenticationService(ICustomerService customerService)
+        public FormsAuthenticationService(IUserService userService)
         {
-            this._customerService = customerService;
+            this._userService = userService;
             this._expirationTimeSpan = FormsAuthentication.Timeout;
         }
 
@@ -38,13 +39,13 @@ namespace AALife.Core.Authentication
         /// Ctor
         /// </summary>
         /// <param name="httpContext">HTTP context</param>
-        /// <param name="customerService">Customer service</param>
-        /// <param name="customerSettings">Customer settings</param>
+        /// <param name="userService">User service</param>
+        /// <param name="userSettings">User settings</param>
         public FormsAuthenticationService(HttpContextBase httpContext,
-            ICustomerService customerService)
+            IUserService userService)
         {
             this._httpContext = httpContext;
-            this._customerService = customerService;
+            this._userService = userService;
             this._expirationTimeSpan = FormsAuthentication.Timeout;
         }
 
@@ -53,11 +54,11 @@ namespace AALife.Core.Authentication
         #region Utilities
 
         /// <summary>
-        /// Get authenticated customer
+        /// Get authenticated user
         /// </summary>
         /// <param name="ticket">Ticket</param>
-        /// <returns>Customer</returns>
-        protected virtual Customer GetAuthenticatedCustomerFromTicket(FormsAuthenticationTicket ticket)
+        /// <returns>User</returns>
+        protected virtual UserTable GetAuthenticatedUserFromTicket(FormsAuthenticationTicket ticket)
         {
             if (ticket == null)
                 throw new ArgumentNullException("ticket");
@@ -66,8 +67,8 @@ namespace AALife.Core.Authentication
 
             if (String.IsNullOrWhiteSpace(userName))
                 return null;
-            var customer = _customerService.GetCustomerByUsername(userName);
-            return customer;
+            var user = _userService.GetUserByUserName(userName);
+            return user;
         }
 
         #endregion
@@ -77,19 +78,19 @@ namespace AALife.Core.Authentication
         /// <summary>
         /// Sign in
         /// </summary>
-        /// <param name="customer">Customer</param>
+        /// <param name="user">User</param>
         /// <param name="createPersistentCookie">A value indicating whether to create a persistent cookie</param>
-        public virtual void SignIn(Customer customer, bool createPersistentCookie, bool isApi = false)
+        public virtual void SignIn(UserTable user, bool createPersistentCookie, bool isApi = false)
         {
             var now = DateTime.Now;
 
             var ticket = new FormsAuthenticationTicket(
                 1 /*version*/,
-                customer.Username,
+                user.UserName,
                 now,
                 now.Add(_expirationTimeSpan),
                 createPersistentCookie,
-                customer.Username,
+                user.UserName,
                 FormsAuthentication.FormsCookiePath);
 
             var encryptedTicket = FormsAuthentication.Encrypt(ticket);
@@ -112,7 +113,7 @@ namespace AALife.Core.Authentication
             }
 
             _httpContext.Response.Cookies.Add(cookie);
-            _cachedCustomer = customer;
+            _cachedUser = user;
         }
 
         /// <summary>
@@ -120,18 +121,18 @@ namespace AALife.Core.Authentication
         /// </summary>
         public virtual void SignOut()
         {
-            _cachedCustomer = null;
+            _cachedUser = null;
             FormsAuthentication.SignOut();
         }
 
         /// <summary>
-        /// Get authenticated customer
+        /// Get authenticated user
         /// </summary>
-        /// <returns>Customer</returns>
-        public virtual Customer GetAuthenticatedCustomer()
+        /// <returns>User</returns>
+        public virtual UserTable GetAuthenticatedUser()
         {
-            if (_cachedCustomer != null)
-                return _cachedCustomer;
+            if (_cachedUser != null)
+                return _cachedUser;
 
             if (_httpContext == null ||
                 _httpContext.Request == null ||
@@ -142,18 +143,18 @@ namespace AALife.Core.Authentication
             }
 
             var formsIdentity = (FormsIdentity)_httpContext.User.Identity;
-            var customer = GetAuthenticatedCustomerFromTicket(formsIdentity.Ticket);
-            if (customer != null)
-                _cachedCustomer = customer;
-            return _cachedCustomer;
+            var user = GetAuthenticatedUserFromTicket(formsIdentity.Ticket);
+            if (user != null)
+                _cachedUser = user;
+            return _cachedUser;
         }
 
         /// <summary>
-        /// Get authenticated customer by ticket
+        /// Get authenticated user by ticket
         /// </summary>
         /// <param name="ticket"></param>
         /// <returns></returns>
-        public virtual Customer GetAuthenticatedCustomerByTicket(string ticket)
+        public virtual UserTable GetAuthenticatedUserByTicket(string ticket)
         {
             if (string.IsNullOrWhiteSpace(ticket))
                 throw new ArgumentNullException("ticket");
@@ -169,8 +170,8 @@ namespace AALife.Core.Authentication
 
             if (String.IsNullOrWhiteSpace(userName))
                 return null;
-            var customer = _customerService.GetCustomerByUsername(userName);
-            return customer;
+            var user = _userService.GetUserByUserName(userName);
+            return user;
         }
 
         /// <summary>

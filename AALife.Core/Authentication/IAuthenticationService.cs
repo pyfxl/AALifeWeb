@@ -1,5 +1,5 @@
 using AALife.Core.Domain;
-using AALife.Core.Domain.Customers;
+using AALife.Core.Domain.Users;
 
 namespace AALife.Core.Authentication
 {
@@ -11,9 +11,9 @@ namespace AALife.Core.Authentication
         /// <summary>
         /// Sign in
         /// </summary>
-        /// <param name="customer">Customer</param>
+        /// <param name="user">User</param>
         /// <param name="createPersistentCookie">A value indicating whether to create a persistent cookie</param>
-        void SignIn(Customer customer, bool createPersistentCookie, bool isApi = false);
+        void SignIn(UserTable user, bool createPersistentCookie, bool isApi = false);
 
         /// <summary>
         /// Sign out
@@ -21,17 +21,17 @@ namespace AALife.Core.Authentication
         void SignOut();
 
         /// <summary>
-        /// Get authenticated customer
+        /// Get authenticated user
         /// </summary>
-        /// <returns>Customer</returns>
-        Customer GetAuthenticatedCustomer();
+        /// <returns>User</returns>
+        UserTable GetAuthenticatedUser();
 
         /// <summary>
-        /// Get authenticated customer by ticket
+        /// Get authenticated user by ticket
         /// </summary>
         /// <param name="ticket"></param>
         /// <returns></returns>
-        Customer GetAuthenticatedCustomerByTicket(string ticket);
+        UserTable GetAuthenticatedUserByTicket(string ticket);
 
         string GetTicket();
     }

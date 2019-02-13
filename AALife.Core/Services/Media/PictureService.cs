@@ -632,7 +632,7 @@ namespace AALife.Core.Services.Media
         /// <returns>Picture</returns>
         public virtual Picture InsertPicture(byte[] pictureBinary, string mimeType, 
             string seoFilename, string fileExtName, int fileBytes, PictureType pictureType,
-            bool isNew = true, int customer = 0)
+            bool isNew = true, int userId = 0)
         {
             mimeType = CommonHelper.EnsureNotNull(mimeType);
             mimeType = CommonHelper.EnsureMaximumLength(mimeType, 20);
@@ -644,7 +644,7 @@ namespace AALife.Core.Services.Media
                 MimeType = mimeType,
                 FileName = seoFilename,
                 IsNew = isNew,
-                CustomerId = customer,
+                UserId = userId,
                 FileExtName = fileExtName,
                 FileBytes = fileBytes,
                 UploadDate = DateTime.Now

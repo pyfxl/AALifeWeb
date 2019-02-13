@@ -1,8 +1,9 @@
 ﻿using AALife.Core.Authentication;
 using AALife.Core.Domain.Configuration;
-using AALife.Core.Domain.Customers;
+using AALife.Core.Domain.Users;
 using AALife.Core.Services;
 using AALife.Core.Services.Configuration;
+using AALife.Core.Services.Users;
 
 namespace AALife.Core
 {
@@ -13,22 +14,22 @@ namespace AALife.Core
     {
         #region Fields
 
-        private readonly ICustomerService _customerService;
+        private readonly IUserService _userService;
         private readonly IAuthenticationService _authenticationService;
         private readonly ISettingService _settingService;
 
-        private Customer _cachedCustomer;
+        private UserTable _cachedUser;
         private CommonSettings _cachedSettings;
 
         #endregion
 
         #region Ctor
 
-        public WebWorkContext(ICustomerService customerService,
+        public WebWorkContext(IUserService userService,
             IAuthenticationService authenticationService,
             ISettingService settingService)
         {
-            this._customerService = customerService;
+            this._userService = userService;
             this._authenticationService = authenticationService;
             this._settingService = settingService;
         }
@@ -40,26 +41,26 @@ namespace AALife.Core
         /// <summary>
         /// Gets or sets the current user
         /// </summary>
-        public virtual Customer CurrentCustomer
+        public virtual UserTable CurrentUser
         {
             get
             {
-                if (_cachedCustomer != null)
-                    return _cachedCustomer;
+                if (_cachedUser != null)
+                    return _cachedUser;
 
-                Customer customer = _authenticationService.GetAuthenticatedCustomer();
+                UserTable user = _authenticationService.GetAuthenticatedUser();
 
                 //validation
-                if (customer != null)
+                if (user != null)
                 {
-                    _cachedCustomer = customer;
+                    _cachedUser = user;
                 }
 
-                return _cachedCustomer;
+                return _cachedUser;
             }
             set
             {
-                _cachedCustomer = value;
+                _cachedUser = value;
             }
         }
 

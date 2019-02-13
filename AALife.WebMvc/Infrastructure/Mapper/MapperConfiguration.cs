@@ -1,5 +1,5 @@
-﻿using AALife.Data.Domain;
-using AALife.Core.Infrastructure.Mapper;
+﻿using AALife.Core.Infrastructure.Mapper;
+using AALife.Data.Domain;
 using AALife.WebMvc.Models.ViewModel;
 using AutoMapper;
 using System;
@@ -23,11 +23,11 @@ namespace AALife.WebMvc.Infrastructure.Mapper
             {
                 //item
                 cfg.CreateMap<ItemTable, ItemViewModel>()
-                    .ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.User != null ? src.User.Username : null))
+                    //.ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.User != null ? src.User.UserName : null))
                     .ForMember(dest => dest.ItemTypeName, mo => mo.MapFrom(src => AALife.Data.Constant.ItemTypeDic[src.ItemType]));
 
-                cfg.CreateMap<ItemViewModel, ItemTable>()
-                    .ForMember(dest => dest.User, src => src.Ignore());
+                //cfg.CreateMap<ItemViewModel, ItemTable>()
+                //    .ForMember(dest => dest.User, src => src.Ignore());
 
                 //zhuanzhang
                 cfg.CreateMap<ZhuanZhangTable, ZhuanZhangViewModel>()

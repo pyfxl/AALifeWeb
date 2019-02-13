@@ -1,10 +1,7 @@
-﻿using AALife.Core;
-using AALife.Core.Services;
-using AALife.Core.Services.Configuration;
+﻿using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Security;
+using AALife.Data;
 using AALife.Data.Services;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -36,18 +33,18 @@ namespace AALife.WebMvc.Controllers
             throw new HttpException(500, "服务器错误");
         }
 
-        public ActionResult UpdateUserPassword()
+        public ActionResult UpdatePassword()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult UpdateUserPassword(string returnUrl = "")
+        public ActionResult UpdatePassword(string returnUrl = "")
         {
             var users = _userService.FindAll(a => a.Id > 0);
             users.ToList().ForEach(a =>
             {
-                var saltKey = _encryptionService.CreateSaltKey(5);
+                var saltKey = _encryptionService.CreateSaltKey(Constant.PasswordSaltSize);
                 a.PasswordSalt = saltKey;
                 a.UserPassword = _encryptionService.CreatePasswordHash(a.UserPassword, saltKey);
             });

@@ -18,8 +18,8 @@ namespace AALife.Data
         }
 
         //业务部分
-        public virtual IDbSet<ItemTable> ItemTables { get; set; }
         public virtual IDbSet<UserTable> UserTables { get; set; }
+        public virtual IDbSet<ItemTable> ItemTables { get; set; }
         public virtual IDbSet<CategoryTypeTable> CategoryTypeTables { get; set; }
         public virtual IDbSet<CardTable> CardTables { get; set; }
         public virtual IDbSet<OAuthTable> OAuthTables { get; set; }

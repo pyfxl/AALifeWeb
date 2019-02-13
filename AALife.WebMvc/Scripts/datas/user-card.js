@@ -60,6 +60,10 @@ $(document).ready(function () {
                     },
                     onSuccess: function (response) {
                         jQuery(cardGrid).setGridParam({ datatype: 'json', page: 1 }).trigger("reloadGrid");
+                        $.notify({
+                            icon: 'fa fa-info-circle',
+                            message: "保存成功。"
+                        });
                     }
                 }
             }

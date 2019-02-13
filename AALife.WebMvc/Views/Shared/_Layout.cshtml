@@ -1,13 +1,12 @@
 ﻿@using AALife.Core.Infrastructure;
-@using AALife.Core;
 @using AALife.Core.Domain.Media;
 @using AALife.Core.Services.Media;
-@using AALife.Core.Services.Configuration;
-@using AALife.Core.Domain.Configuration;
-@using AALife.Data.Domain;
+@using AALife.Data.Services;
+@using AALife.Data;
 @{
-    var commonSettings = EngineContext.Current.Resolve<IWorkContext>().CommonSettings;
-    var userSettings = EngineContext.Current.Resolve<ISettingService>().LoadSetting<UserSettings>(1);
+    //var commonSettings = EngineContext.Current.Resolve<IWorkContext>().CommonSettings;
+    var user = EngineContext.Current.Resolve<IWorkContext>().CurrentUser;
+    var userSettings = EngineContext.Current.Resolve<IWorkContext>().UserSettings;
     var pictureService = EngineContext.Current.Resolve<IPictureService>();
     var backgroundImage = userSettings != null && userSettings.BackgroundImageId > 0 ? pictureService.GetPictureUrl(userSettings.BackgroundImageId, null, PictureType.bg) : "/images/bg/bg.jpg";
 }
@@ -16,7 +15,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>@ViewBag.Title | @commonSettings.SiteName</title>
+    <title>@ViewBag.Title | AA生活记账</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
@@ -60,6 +59,7 @@
     <script src="~/Scripts/bootstrap-notify.min.js"></script>
     <!-- knockout js -->
     <script src="~/Scripts/knockout-3.4.2.debug.js"></script>
+    <!-- setting js -->
     <script>
         var userSettings = @Html.Raw(Json.Encode(userSettings));
         var themeData = @Html.Raw(Json.Encode(AALife.Data.Constant.ThemeDic)),
@@ -80,12 +80,14 @@
         $.notifyDefaults({
             type: 'info',
             delay: 1000,
+            z_index: 1080,
             placement: {
                 from: "top",
                 align: "center"
             }
         });
     </script>
+    <!-- setting bg -->
     <style type="text/css">
         body {
             background-image: url(@backgroundImage);
@@ -115,9 +117,9 @@
                                     <!-- Menu Toggle Button -->
                                     <a href="~/User/Index">
                                         <!-- The user image in the navbar-->
-                                        <img src="~/Images/Users/tu_1.png" class="user-image" alt="">
+                                        <img src="@user.UserImageFull()" class="user-image" title="" />
                                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                        <span class="hidden-xs">欢迎您，我才天生</span>
+                                        <span class="hidden-xs">欢迎您，@user.UserNameFull()。</span>
                                     </a>
                                 </li>
                             </ul>
@@ -162,11 +164,11 @@
     <script src="~/Scripts/dist/js/adminlte.min.js"></script>
     <!-- iCheck -->
     <script src="~/Scripts/plugins/iCheck/icheck.min.js"></script>
-    <!-- 用户js -->
+    <!-- 用户 js -->
     <script src="~/Scripts/String.js"></script>
     <script src="~/Scripts/date-custom.js"></script>
     <script src="~/Scripts/common.js"></script>
-    <!-- layoutjs -->
+    <!-- layout js -->
     <script>
         $(function () {
             $('input').iCheck({
