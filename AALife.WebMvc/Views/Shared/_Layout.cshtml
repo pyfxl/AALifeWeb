@@ -3,8 +3,8 @@
 @using AALife.Core.Services.Media;
 @using AALife.Data.Services;
 @using AALife.Data;
+@using AALife.WebMvc.Infrastructure.Mapper;
 @{
-    //var commonSettings = EngineContext.Current.Resolve<IWorkContext>().CommonSettings;
     var user = EngineContext.Current.Resolve<IWorkContext>().CurrentUser;
     var userSettings = EngineContext.Current.Resolve<IWorkContext>().UserSettings;
     var pictureService = EngineContext.Current.Resolve<IPictureService>();
@@ -61,20 +61,13 @@
     <script src="~/Scripts/knockout-3.4.2.debug.js"></script>
     <!-- setting js -->
     <script>
-        var userSettings = @Html.Raw(Json.Encode(userSettings));
-        var themeData = @Html.Raw(Json.Encode(AALife.Data.Constant.ThemeDic)),
-            itemTypeData = @Html.Raw(Json.Encode(AALife.Data.Constant.ItemTypeDic)),
-            regionTypeData = @Html.Raw(Json.Encode(AALife.Data.Constant.RegionTypeDic)),
-            userFromData = @Html.Raw(Json.Encode(AALife.Data.Constant.UserFromDic)),
-            userWorkDayData = @Html.Raw(Json.Encode(AALife.Data.Constant.UserWorkDayDic.ToArray()));
         $.const = {
-            settings: userSettings,
+            userInfo: @Html.Raw(Json.Encode(user.ToModel())),
+            userSettings: @Html.Raw(Json.Encode(userSettings)),
             data: {
-                theme: themeData,
-                itemtype: itemTypeData,
-                regiontype: regionTypeData,
-                userfrom: userFromData,
-                userworkday: userWorkDayData
+                itemtype: @Html.Raw(Json.Encode(AALife.Data.Constant.ItemTypeDic)),
+                regiontype: @Html.Raw(Json.Encode(AALife.Data.Constant.RegionTypeDic)),
+                userworkday: @Html.Raw(Json.Encode(AALife.Data.Constant.UserWorkDayDic.ToArray()))
             }
         };
         $.notifyDefaults({
@@ -119,7 +112,7 @@
                                         <!-- The user image in the navbar-->
                                         <img src="@user.UserImageFull()" class="user-image" title="" />
                                         <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                                        <span class="hidden-xs">欢迎您，@user.UserNameFull()。</span>
+                                        <span class="hidden-xs">欢迎您，@user.UserNameFull()</span>
                                     </a>
                                 </li>
                             </ul>

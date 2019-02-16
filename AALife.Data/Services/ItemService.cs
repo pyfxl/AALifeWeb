@@ -1,7 +1,9 @@
 ﻿using AALife.Core;
 using AALife.Core.Caching;
 using AALife.Data.Domain;
+using AALife.Data.Infrastructure.Kendoui;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Dynamic;
 
@@ -16,9 +18,14 @@ namespace AALife.Data.Services
         {
         }
 
-        public virtual IPagedList<ItemTable> GetAllItemByPage(int pageIndex = 0, int pageSize = int.MaxValue, string sortName = null, string sort = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null)
+        public virtual IPagedList<ItemTable> GetAllItemByPage(int page = 0, int pageSize = int.MaxValue, string sidx = null, string sord = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null, IEnumerable<Sort> sort = null, Filter filter = null)
         {
             var query = _repository.Table;
+
+            if (filter != null)
+            {
+                query = query.Filter(filter);
+            }
 
             if (userId != null && userId > 0)
             {
@@ -45,12 +52,64 @@ namespace AALife.Data.Services
                 query = query.Where(c => c.RegionId == regionId);
             }
 
-            if (sortName != null && sortName != "")
+            if (sidx != null && sidx != "")
             {
-                query = query.OrderBy(string.Format("{0} {1}", sortName, sort));
+                query = query.OrderBy(string.Format("{0} {1}", sidx, sord));
             }
-            
-            var items = new PagedList<ItemTable>(query, pageIndex, pageSize);
+
+            if (sort != null)
+            {
+                query = query.Sort(sort);
+            }
+
+            var items = new PagedList<ItemTable>(query, page, pageSize);
+            return items;
+        }
+
+        public virtual IPagedList<ItemTable> GetAllItemByPage(int page = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, int? regionId = null, IEnumerable<Sort> sort = null, Filter filter = null)
+        {
+            var query = _repository.Table;
+
+            if (filter != null)
+            {
+                query = query.Filter(filter);
+            }
+
+            if (userId != null && userId > 0)
+            {
+                query = query.Where(c => c.UserId == userId && c.Live == 1);
+            }
+
+            if (startDate != null)
+            {
+                query = query.Where(c => DateTime.Compare(c.ItemBuyDate, startDate.Value) >= 0);
+            }
+
+            if (endDate != null)
+            {
+                query = query.Where(c => DateTime.Compare(c.ItemBuyDate, endDate.Value) < 0);
+            }
+
+            if (keyWords != null && keyWords != "")
+            {
+                query = query.Where(c => c.ItemName.Contains(keyWords));
+            }
+
+            if (regionId != null && regionId > 0)
+            {
+                query = query.Where(c => c.RegionId == regionId);
+            }
+
+            if (sort != null)
+            {
+                query = query.Sort(sort);
+            }
+            else
+            {
+                query = query.OrderByDescending(c => c.Id);
+            }
+
+            var items = new PagedList<ItemTable>(query, page, pageSize);
             return items;
         }
 

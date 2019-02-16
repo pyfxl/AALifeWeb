@@ -6,6 +6,7 @@ using Autofac.Integration.WebApi;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Web;
 using System.Web.Http;
@@ -33,9 +34,12 @@ namespace AALife.WebMvc
             
             //register dependencies
             RegisterDependencies();
-            
+
             //register mapper configurations
             //RegisterMapperConfiguration();
+
+            //ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
+            //ValueProviderFactories.Factories.Add(new JsonNetValueProviderFactory());
 
             //log application start
             try
@@ -56,17 +60,10 @@ namespace AALife.WebMvc
         /// <param name="config">Config</param>
         protected virtual void RegisterDependencies()
         {
-            //var builder = new ContainerBuilder();
-
-            //var dependencyRegistrar = new DependencyRegistrar();
-            //dependencyRegistrar.Register(builder, null);
-
+            //container
             var container = EngineContext.Current.ContainerManager.Container;
 
-            //set dependency resolver
-            //DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
-            //注入webapi
+            //webapi
             GlobalConfiguration.Configuration.DependencyResolver = (new AutofacWebApiDependencyResolver(container));
         }
 
@@ -75,10 +72,10 @@ namespace AALife.WebMvc
         /// </summary>
         protected virtual void RegisterMapperConfiguration()
         {
-            //mapper配置
+            //mapper
             var mapper = new AALife.WebMvc.Infrastructure.Mapper.MapperConfiguration();
 
-            //get configurations
+            //configurations
             var configurationActions = new List<Action<IMapperConfigurationExpression>>();
             configurationActions.Add(mapper.GetConfiguration());
 

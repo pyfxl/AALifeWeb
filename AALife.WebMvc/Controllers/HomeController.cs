@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace AALife.WebMvc.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : BaseMvcController
     {
         private readonly IUserService _userService;
         private readonly IEncryptionService _encryptionService;

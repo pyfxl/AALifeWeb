@@ -7,7 +7,7 @@ using System.Web.Mvc;
 
 namespace AALife.WebMvc.Controllers
 {
-    public class UserController : BaseController
+    public class UserController : BaseMvcController
     {
         private readonly IUserService _userService;
         private readonly IWorkContext _workContext;

@@ -394,14 +394,20 @@
     <Compile Include="AALifeWeb\SyncZhuanZhangWebBack.aspx.designer.cs">
       <DependentUpon>SyncZhuanZhangWebBack.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Manage\Controllers\CommonSettingsController.cs" />
-    <Compile Include="Areas\V1\Controllers\BaseApiController.cs" />
+    <Compile Include="Areas\Manage\Controllers\BaseAdminController.cs" />
+    <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SiteSettingsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\RolesController.cs" />
+    <Compile Include="Areas\V1\Controllers\UserRoleApiController.cs" />
+    <Compile Include="Areas\V1\Controllers\RoleApiController.cs" />
+    <Compile Include="Infrastructure\Controllers\BaseApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ZhuanZhangApiController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Controllers\BaseController.cs" />
-    <Compile Include="Infrastructure\JsonExtensions.cs" />
+    <Compile Include="Controllers\BaseMvcController.cs" />
+    <Compile Include="Infrastructure\Controllers\BaseController.cs" />
+    <Compile Include="Infrastructure\Extensions\DateTimeExtensions.cs" />
     <Compile Include="Infrastructure\DependencyManagement\DependencyRegistrar.cs" />
     <Compile Include="Infrastructure\jqGrid\DataSourceRequest.cs" />
     <Compile Include="Infrastructure\jqGrid\DataSourceResult.cs" />
@@ -409,16 +415,13 @@
     <Compile Include="Infrastructure\jqGrid\ModelStateExtensions.cs" />
     <Compile Include="Infrastructure\jqGrid\QueryableExtensions.cs" />
     <Compile Include="Infrastructure\jqGrid\Sort.cs" />
-    <Compile Include="Infrastructure\Kendoui\DataSourceRequest.cs" />
-    <Compile Include="Infrastructure\Kendoui\DataSourceResult.cs" />
-    <Compile Include="Infrastructure\Kendoui\Filter.cs" />
-    <Compile Include="Infrastructure\Kendoui\ModelStateExtensions.cs" />
-    <Compile Include="Infrastructure\Kendoui\QueryableExtensions.cs" />
-    <Compile Include="Infrastructure\Kendoui\Sort.cs" />
+    <Compile Include="Infrastructure\Extensions\JsonExtensions.cs" />
+    <Compile Include="Infrastructure\ActionResult\JsonLowercase.cs" />
+    <Compile Include="Infrastructure\JsonNetValueProviderFactory.cs" />
     <Compile Include="Infrastructure\Mapper\MapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mapper\MappingExtensions.cs" />
-    <Compile Include="Infrastructure\DateTimeExtensions.cs" />
     <Compile Include="Models\Query\UsersQuery.cs" />
+    <Compile Include="Models\ViewModel\BaseViewModel.cs" />
     <Compile Include="Models\ViewModel\ItemTotalModel.cs" />
     <Compile Include="Models\ViewModel\UserLoginModel.cs" />
     <Compile Include="Models\ViewModel\ZhuanZhangViewModel.cs" />
@@ -476,7 +479,6 @@
     <Compile Include="Areas\V1\Controllers\CategoryTypeApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ItemApiController.cs" />
     <Compile Include="Areas\Manage\Controllers\ItemsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\UserController.cs" />
     <Compile Include="Areas\V1\Controllers\UserImageApiController.cs" />
     <Compile Include="Areas\V1\Controllers\UserApiController.cs" />
     <Compile Include="Areas\Manage\Controllers\UsersController.cs" />
@@ -485,7 +487,6 @@
     <Compile Include="Areas\Manage\Controllers\ViewsController.cs" />
     <Compile Include="Areas\V1\Controllers\ZhuanTiApiController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
-    <Compile Include="Areas\Manage\Models\SiteConfigModel.cs" />
     <Compile Include="Areas\SexSpider\Controllers\ImageApiController.cs" />
     <Compile Include="Areas\SexSpider\Controllers\ListApiController.cs" />
     <Compile Include="Areas\SexSpider\Controllers\AppApiController.cs" />
@@ -537,7 +538,6 @@
     <Compile Include="Web2018\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Infrastructure\JsonLowercase.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1565,7 +1565,6 @@
     <Content Include="Scripts\chplayer\chplayer.swf" />
     <Content Include="Scripts\chplayer\hls\hls.js" />
     <Content Include="Scripts\chplayer\hls\hls.min.js" />
-    <Content Include="Areas\Manage\Scripts\manage.js" />
     <Content Include="Scripts\date-custom.js" />
     <Content Include="Scripts\jqthumb.js" />
     <Content Include="Scripts\jqthumb.min.js" />
@@ -1720,7 +1719,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Areas\Manage\Views\Views\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Backup\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\User\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Users\Details.cshtml" />
     <Content Include="Scripts\jqGrid\data\data.json" />
     <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker3.css.map" />
@@ -1728,7 +1727,11 @@
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Areas\V1\Views\web.config" />
     <Content Include="Web2018\api\ImageUpload.ashx" />
-    <Content Include="Areas\Manage\Views\CommonSettings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\SiteSettings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\Notifications.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\UserSelect.cshtml" />
+    <Content Include="Areas\Manage\Views\Home\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Roles\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\chplayer\hls\LICENSE" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -1922,6 +1925,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Manage\Models\" />
     <Folder Include="Areas\SexSpider\Models\" />
     <Folder Include="Areas\V1\Models\" />
     <Folder Include="Areas\V1\Views\Shared\" />

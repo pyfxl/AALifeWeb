@@ -21,7 +21,6 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
         /// <param name="builder">Container builder</param>
         public virtual void Register(ContainerBuilder builder, ITypeFinder typeFinder)
         {
-
             //db
             builder.RegisterType<AALifeContext>().As<IDbContext>().Named<IDbContext>("aalife_context").InstancePerLifetimeScope();
             builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
@@ -34,13 +33,11 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
 
             //user
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            builder.RegisterType<UserRoleService>().As<IUserRoleService>().InstancePerLifetimeScope();
 
             //service
             builder.RegisterType<ItemService>().As<IItemService>()
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<UserService>().As<IUserService>()
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<CategoryTypeService>().As<ICategoryTypeService>()

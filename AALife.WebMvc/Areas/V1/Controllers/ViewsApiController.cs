@@ -4,7 +4,7 @@ using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
-    public class ViewsApiController : ApiController
+    public class ViewsApiController : BaseApiController
     {
         // GET api/<controller>
         public DataSourceResult Get(string query)

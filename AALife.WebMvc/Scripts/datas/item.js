@@ -1,6 +1,6 @@
 ﻿
 //查询对象
-var query = { startDate: today_date_min(), endDate: today_date_max(), keyWords: "", userId: userInfo.Id };
+var query = { startDate: today_date_min(), endDate: today_date_max(), keyWords: "", userId: $.const.userInfo.Id };
 
 var grid_selector = "#jqGrid";
 var pager_selector = "#jqGridPager";
@@ -32,7 +32,7 @@ $(document).ready(function () {
                 width: 70,
                 editable: true,
                 editoptions: {
-                    defaultValue: userInfo.Id
+                    defaultValue: $.const.userInfo.Id
                 }
             },
             {
@@ -96,7 +96,7 @@ $(document).ready(function () {
                     dataInit: function (element) {
                         $(element).autocomplete({
                             minLength: 0,
-                            source: String.format($.const.webapi.itemnames, userInfo.Id)
+                            source: String.format($.const.webapi.itemnames, $.const.userInfo.Id)
                         });
                         $(element).on("click", function () {
                             $(this).autocomplete('search', $(this).val());
@@ -113,7 +113,7 @@ $(document).ready(function () {
                 editable: true,
                 edittype: 'select',
                 editoptions: {
-                    dataUrl: String.format($.const.webapi.categorytype, userInfo.Id),
+                    dataUrl: String.format($.const.webapi.categorytype, $.const.userInfo.Id),
                     buildSelect: function (data) {
                         let _data = JSON.parse(data);
                         let result = $("<select id='category' name='category' />");
@@ -188,7 +188,7 @@ $(document).ready(function () {
                 editable: true,
                 edittype: 'select',
                 editoptions: {
-                    dataUrl: String.format($.const.webapi.zhuanti, userInfo.Id),
+                    dataUrl: String.format($.const.webapi.zhuanti, $.const.userInfo.Id),
                     buildSelect: function (data) {
                         let _data = JSON.parse(data);
                         let result = $("<select id='zhuanti' name='zhuanti' />");
@@ -209,7 +209,7 @@ $(document).ready(function () {
                 editable: true,
                 edittype: 'select',
                 editoptions: {
-                    dataUrl: String.format($.const.webapi.card, userInfo.Id),
+                    dataUrl: String.format($.const.webapi.card, $.const.userInfo.Id),
                     buildSelect: function (data) {
                         let _data = JSON.parse(data);
                         let result = $("<select id='card' name='card' />");
@@ -261,7 +261,7 @@ $(document).ready(function () {
         rownumbers: false,
         loadonce: false,
         scroll: 1,
-        rowNum: $.const.settings.PageNumber,
+        rowNum: $.const.userSettings.PageNumber,
         grouping: false,
         groupingView: {
             groupField: ["ItemBuyDate"],

@@ -1,8 +1,10 @@
 ﻿using AALife.Core.Infrastructure.Mapper;
 using AALife.Data.Domain;
+using AALife.Data.Services;
 using AALife.WebMvc.Models.ViewModel;
 using AutoMapper;
 using System;
+using System.Data.Entity;
 
 namespace AALife.WebMvc.Infrastructure.Mapper
 {
@@ -23,7 +25,7 @@ namespace AALife.WebMvc.Infrastructure.Mapper
             {
                 //item
                 cfg.CreateMap<ItemTable, ItemViewModel>()
-                    //.ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.User != null ? src.User.UserName : null))
+                    .ForMember(dest => dest.UserName, mo => mo.MapFrom(src => src.User.UserNameFull()))
                     .ForMember(dest => dest.ItemTypeName, mo => mo.MapFrom(src => AALife.Data.Constant.ItemTypeDic[src.ItemType]));
 
                 //cfg.CreateMap<ItemViewModel, ItemTable>()
@@ -36,6 +38,10 @@ namespace AALife.WebMvc.Infrastructure.Mapper
 
                 //user
                 cfg.CreateMap<UserTable, UserViewModel>()
+                    .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
+                    .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()))
+                    .ForMember(dest => dest.JoinDay, mo => mo.MapFrom(src => DateTime.Now.Subtract(src.CreateDate).Days + 1))
+                    .ForMember(dest => dest.ItemCount, mo => mo.MapFrom(src => src.ItemTables.Count))
                     .ForMember(dest => dest.UserSettings, src => src.Ignore());
 
             };
@@ -47,7 +53,7 @@ namespace AALife.WebMvc.Infrastructure.Mapper
         /// </summary>
         public int Order
         {
-            get { return 0; }
+            get { return 2; }
         }
     }
 }

@@ -51,9 +51,6 @@ namespace AALife.Core.Infrastructure.DependencyManagement
             //db
             builder.RegisterType<EfContext>().As<IDbContext>().Named<IDbContext>("ef_context").InstancePerLifetimeScope();
 
-            //work context
-            //builder.RegisterType<WebWorkContext>().As<IWorkContext>().InstancePerLifetimeScope();
-
             //web helper
             builder.RegisterType<WebHelper>().As<IWebHelper>().InstancePerLifetimeScope();
 
@@ -67,9 +64,6 @@ namespace AALife.Core.Infrastructure.DependencyManagement
 
             //encryption
             builder.RegisterType<EncryptionService>().As<IEncryptionService>().InstancePerLifetimeScope();
-
-            //authentication
-            //builder.RegisterType<FormsAuthenticationService>().As<IAuthenticationService>().InstancePerLifetimeScope();
 
             //settings
             builder.RegisterType<SettingService>().As<ISettingService>()
@@ -88,21 +82,6 @@ namespace AALife.Core.Infrastructure.DependencyManagement
                 .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
-
-            ////customer
-            //builder.RegisterType<UserService>().As<IUserService>()
-            //    .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
-            //    .InstancePerLifetimeScope();
-
-            ////customer role
-            //builder.RegisterType<UserRoleService>().As<IUserRoleService>()
-            //    .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
-            //    .InstancePerLifetimeScope();
-
-            ////permission record
-            //builder.RegisterType<PermissionService>().As<IPermissionService>()
-            //    .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
-            //    .InstancePerLifetimeScope();
 
             #endregion
 
@@ -127,21 +106,6 @@ namespace AALife.Core.Infrastructure.DependencyManagement
             builder.RegisterType<ActivityLogRepository>().As<IActivityLogRepository>()
                 .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .InstancePerLifetimeScope();
-
-            ////customer
-            //builder.RegisterType<UserRepository>().As<IUserRepository>()
-            //    .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
-            //    .InstancePerLifetimeScope();
-
-            ////customer role
-            //builder.RegisterType<UserRoleRepository>().As<IUserRoleRepository>()
-            //    .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
-            //    .InstancePerLifetimeScope();
-
-            ////permission record
-            //builder.RegisterType<PermissionRepository>().As<IPermissionRepository>()
-            //    .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
-            //    .InstancePerLifetimeScope();
 
             #endregion
 

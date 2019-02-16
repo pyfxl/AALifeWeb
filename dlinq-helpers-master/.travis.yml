@@ -1,0 +1,11 @@
+language: c
+
+cache: apt
+
+install:
+  - sudo apt-get install mono-devel mono-gmcs nunit-console
+
+script:
+  - xbuild travis.proj
+  - nunit-console ./Kendo.DynamicLinq.Tests/bin/Debug/Kendo.DynamicLinq.Tests.dll
+

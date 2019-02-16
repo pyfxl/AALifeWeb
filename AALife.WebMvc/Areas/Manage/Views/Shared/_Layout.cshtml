@@ -1,25 +1,62 @@
-﻿<!DOCTYPE html>
+﻿@using System.Configuration;
+@using AALife.Core.Infrastructure;
+@using AALife.Data;
+
+@{
+    var siteSettings = EngineContext.Current.Resolve<IWorkContext>().SiteSettings;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Manage</title>
+    <title>@ViewBag.Title - 后台管理</title>
     <link href="~/Content/bootstrap.css" rel="stylesheet" />
     <link href="~/Scripts/kendoui/styles/kendo.common.min.css" rel="stylesheet" />
     <link href="~/Scripts/kendoui/styles/kendo.default.min.css" rel="stylesheet" />
     <link href="~/Scripts/kendoui/styles/kendo.default.mobile.min.css" rel="stylesheet" />
     <link href="~/Areas/Manage/Content/manage.default.css" rel="stylesheet" />
+    <!--common js-->
     <script src="~/Scripts/jquery-3.3.1.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/kendoui/js/kendo.all.min.js"></script>
+    <script src="~/Scripts/kendoui/js/cultures/kendo.culture.zh-CN.min.js"></script>
+    <script src="~/Scripts/kendoui/js/messages/kendo.messages.zh-CN.min.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+    <script src="~/Scripts/String.js"></script>
     <script>
-        $.const = { };
+        $.const = {
+            siteSettings: @Html.Raw(Json.Encode(siteSettings)),
+            kendodata: {
+                itemtype: @Html.Raw(Json.Encode(AALife.Data.Constant.ItemTypeDic.ToArray())),
+                regiontype: @Html.Raw(Json.Encode(AALife.Data.Constant.RegionTypeDic.ToArray())),
+                userlevel: @Html.Raw(Json.Encode(AALife.Data.Constant.UserLevelDic.ToArray())),
+                userfrom: @Html.Raw(Json.Encode(AALife.Data.Constant.UserFromDic.ToArray())),
+                usertheme: @Html.Raw(Json.Encode(AALife.Data.Constant.UserThemeDic.ToArray()))
+            }
+        };
     </script>
+    <script src="~/Scripts/date-custom.js"></script>
+    <script src="~/Scripts/common.js"></script>
+    <!--area-->
+    <script src="~/Areas/Manage/Scripts/kendo-custom-ui.js"></script>
 </head>
 <body class="bg-brown">
+
     <div class="navbar navbar-sm navbar-inverse navbar-fixed-top top-zone">
         <div class="container-fluid">
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("用户列表", "Index", "Users")</li>
+                    <li class="f-down">
+                        @Html.ActionLink("用户列表", "Index", "Users")
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="@Url.Action("Index", "Roles")">角色列表</a></li>
+                        </ul>
+                    </li>
                     <li class="f-down">
                         @Html.ActionLink("消费列表", "Index", "Items")
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -39,21 +76,10 @@
     </div>
 
     <div class="container-fluid body-zone">
+        @Html.Partial("Notifications")
         @RenderBody()
     </div>
 
-    <!--common-->
-    <script src="~/Scripts/bootstrap.js"></script>
-    <script src="~/Scripts/kendoui/js/kendo.all.min.js"></script>
-    <script src="~/Scripts/kendoui/js/cultures/kendo.culture.zh-CN.min.js"></script>
-    <script src="~/Scripts/kendoui/js/messages/kendo.messages.zh-CN.min.js"></script>
-    <script src="~/Scripts/moment.js"></script>
-    <script src="~/Scripts/String.js"></script>
-    <script src="~/Scripts/date-custom.js"></script>
-    <script src="~/Scripts/common.js"></script>
-    <!--area-->
-    <script src="~/Areas/Manage/Scripts/kendo-custom-ui.js"></script>
-    <script src="~/Areas/Manage/Scripts/manage.js"></script>
     @RenderSection("scripts", required: false)
 
     <script type="text/javascript">
@@ -84,7 +110,7 @@
         Date.prototype.toISOString = function () {
             return moment(this).format("YYYY-MM-DDTHH:mm:ss");
         };
-
+        
     </script>
 
 </body>

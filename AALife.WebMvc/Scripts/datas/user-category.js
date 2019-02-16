@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     //类别
     $(catGrid).jqGrid($.extend(true, {}, $.const.jgrid, {
-        url: String.format($.const.webapi.categorytype, userInfo.Id),
-        editurl: String.format($.const.webapi.categorytype, userInfo.Id),
+        url: String.format($.const.webapi.categorytype, $.const.userInfo.Id),
+        editurl: String.format($.const.webapi.categorytype, $.const.userInfo.Id),
         colModel: [
             {
                 label: "主键",

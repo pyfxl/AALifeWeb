@@ -34,7 +34,7 @@ namespace AALife.Data
             { "b", "工作日" }
         };
 
-        public static readonly Dictionary<string, string> ThemeDic = new Dictionary<string, string>()
+        public static readonly Dictionary<string, string> UserThemeDic = new Dictionary<string, string>()
         {
             { "main", "低调红" },
             { "gold", "土豪金" },

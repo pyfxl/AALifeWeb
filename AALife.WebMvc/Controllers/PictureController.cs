@@ -11,7 +11,7 @@ using System.Web.Mvc;
 
 namespace AALife.WebMvc.Controllers
 {
-    public class PictureController : BaseController
+    public class PictureController : BaseMvcController
     {
         private readonly IPictureService _pictureService;
         private readonly IWorkContext _workContext;

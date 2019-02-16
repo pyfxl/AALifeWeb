@@ -5,10 +5,11 @@ using AALife.Core.Services.Logging;
 using AALife.Data;
 using AALife.Data.Domain;
 using AALife.Data.Services;
+using AALife.Data.Infrastructure;
 using AALife.WebMvc.Infrastructure.Mapper;
-using AALife.WebMvc.jqGrid;
 using AALife.WebMvc.Models.Query;
 using AALife.WebMvc.Models.ViewModel;
+using Kendo.DynamicLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,12 +43,12 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get([FromUri]DataSourceRequest common, [FromUri]ItemsQuery query)
+        public IHttpActionResult Get([FromUri]jqGrid.DataSourceRequest common, [FromUri]ItemsQuery query)
         {
             var totals = _itemService.GetAllItem(query.userId, query.startDate, query.endDate, query.keyWords);
             var result = _itemService.GetAllItemByPage(common.page - 1, common.rows, common.sidx, common.sord, query.userId, query.startDate, query.endDate, query.keyWords);
             
-            var grid = new DataSourceResult
+            var grid = new jqGrid.DataSourceResult
             {
                 rows = result.Select(x => 
                 {
@@ -85,12 +86,12 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        [Route("api/v1/itemsapi")]
-        public IHttpActionResult GetItems([FromUri]Kendoui.DataSourceRequest common, [FromUri]ItemsQuery query)
+        [Route("api/kendo/itemsapi")]
+        public IHttpActionResult GetItems([FromUri]Data.Infrastructure.Kendoui.DataSourceRequest common, [FromUri]ItemsQuery query)
         {
-            var result = _itemService.GetAllItemByPage(common.Page - 1, common.PageSize, "Id", "desc", query.userId, query.startDate, query.endDate, query.keyWords);
+            var result = _itemService.GetAllItemByPage(common.Page - 1, common.PageSize, "Id", "asc", query.userId, query.startDate, query.endDate, query.keyWords, null, common.Sort, common.Filter);
 
-            var grid = new Kendoui.DataSourceResult
+            var grid = new Data.Infrastructure.Kendoui.DataSourceResult
             {
                 Data = result.Select(x =>
                 {
@@ -100,11 +101,16 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                     if (region != null)
                     {
                         m.RegionName = region.Item1;
+                        m.ItemBuyDateStart = region.Item2;
+                        m.ItemBuyDateEnd = region.Item3;
                     }
                     return m;
                 }),
                 Total = result.TotalCount
             };
+
+            //activity log
+            _customerActivityService.InsertActivity(query.userId, ActivityLogType.Query, "管理后台浏览消费列表记录。{0} {1}", common.ToJson(), query.ToJson());
 
             return Json(grid);
         }

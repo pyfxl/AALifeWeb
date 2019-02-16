@@ -1,6 +1,6 @@
 ﻿namespace AALife.WebMvc.Kendoui
 {
-    public class DataSourceRequest
+    public class DataSourceRequest : Kendo.DynamicLinq.DataSourceRequest
     {
         public int Page { get; set; }
 

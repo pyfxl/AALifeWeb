@@ -1,0 +1,287 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "角色列表";
+}
+
+<span id="notification"></span>
+<div id="dialog"></div>
+
+<div class="row">
+    <div class="col-xs-12">
+        @*<div id="details"></div>*@
+        <div id="main">
+            <div id="grid"></div>
+            @*<script type="text/x-kendo-template" id="template">
+                <div class="detailgrid"></div>
+            </script>*@
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section scripts {
+    <script>
+
+        $(document).ready(function () {
+
+            var dialog = null, userGrid = null, detailGrid = null, _Id = 0;
+
+            //刷新高度
+            resizeMain();
+
+            //列表数据源
+            var dataSource = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: $.const.webapi.roles,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false
+                    },
+                    create: {
+                        url: $.const.webapi.roles,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "POST",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, grid, notification);
+                        }
+                    },
+                    update: {
+                        url: $.const.webapi.roles,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "PUT",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, grid, notification);
+                        }
+                    },
+                    destroy: {
+                        url: $.const.webapi.roles,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "DELETE",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, grid, notification);
+                        }
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return kendo.stringify(options.models[0]);
+                        }
+                        return options;
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors",
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
+                            Name: { type: "text" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e, notification);
+                    grid.one("dataBinding", function (e) {
+                        e.preventDefault();
+                    });
+                }
+            });
+
+            //角色列表
+            var grid = $("#grid").kendoGrid({
+                dataSource: dataSource,
+                detailTemplate: '<div class="detailgrid"></div>',
+                detailInit: detailInit,
+                editable: "inline",
+                toolbar: ["create"],
+                columns: [
+                    {
+                        command: [
+                            { name: "edit", text: { edit: " ", cancel: " ", update: " " } },
+                            { name: "destroy", text: " " }
+                        ],
+                        title: "&nbsp;",
+                        locked: false,
+                        width: 80
+                    },
+                    {
+                        field: "Id",
+                        title: "编号",
+                        width: 80,
+                        editable: false
+                    },
+                    {
+                        field: "Name",
+                        title: "角色名称",
+                        width: 80
+                    }
+                ]
+            }).data("kendoGrid");
+
+            //加载子列表
+            function detailInit(event) {
+                var detailRow = event.detailRow;
+                _Id = event.data.Id;
+
+                //角色子列表
+                detailGrid = detailRow.find(".detailgrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: String.format($.const.webapi.userrole, event.data.Id),
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                cache: false
+                            },
+                            parameterMap: function (options, type) {
+                                return options;
+                            }
+                        }
+                    },
+                    toolbar: [{ name: "userselect", text: "选择", iconClass: "k-icon k-i-search" }],
+                    columns: [
+                        {
+                            field: "Id",
+                            title: "编号",
+                            width: 80
+                        },
+                        {
+                            field: "UserName",
+                            title: "用户名",
+                            width: 100
+                        },
+                        {
+                            field: "UserPassword",
+                            title: "密码",
+                            width: 100
+                        },
+                        {
+                            field: "UserNickName",
+                            title: "昵称",
+                            width: 100
+                        }
+                    ]
+                })).data("kendoGrid");
+
+                @*//选择窗口
+                var wnd = $("#details")
+                    .kendoWindow({
+                        title: "Customer Details",
+                        content: "@Url.Action("UserSelect", "Home")",
+                        modal: true,
+                        visible: false,
+                        resizable: false,
+                        width: 800
+                    }).data("kendoWindow");*@
+
+                //选择对话框
+                dialog = $("#dialog").kendoDialog({
+                    width: "800px",
+                    visible: false,
+                    title: "选择用户",
+                    closable: true,
+                    modal: false,
+                    content: '<div id="usergrid"></div>',
+                    actions: [
+                        { text: '取消' },
+                        { text: '确认', primary: true, action: actionOK }
+                    ],
+                    close: initOpen
+                }).data("kendoDialog");
+
+                //选择用户列表
+                userGrid = $("#usergrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: $.const.kendoapi.users,
+                                cache: true,
+                                dataType: "json"
+                            }
+                        }
+                    },
+                    columns: [
+                        {
+                            selectable: true,
+                            width: 100
+                        },
+                        {
+                            field: "Id",
+                            title: "编号",
+                            width: 100
+                        },
+                        {
+                            field: "UserName",
+                            title: "用户名",
+                            width: 100
+                        },
+                        {
+                            field: "UserPassword",
+                            title: "密码",
+                            width: 100
+                        },
+                        {
+                            field: "UserNickName",
+                            title: "昵称",
+                            width: 100
+                        }
+                    ]
+                })).data("kendoGrid");
+
+                //选择按钮事件
+                detailRow.find(".detailgrid .k-grid-toolbar").on("click", ".k-grid-userselect", function (e) {
+                    e.preventDefault();
+                    //wnd.center().open();
+                    dialog.open();
+                });
+
+            }
+
+            //打开对话框
+            function initOpen(e) {
+                userGrid.dataSource.page(1);
+                userGrid.dataSource.skip(0);
+            }
+
+            //对话框确定事件
+            function actionOK(e) {
+                var items = userGrid.element.find("table tbody .k-state-selected");
+                if (items.length > 0) {
+                    var result = [];
+                    for (var i = 0; i < items.length; i++) {
+                        var dataItem = userGrid.dataItem(items[i]);
+                        result.push(dataItem);
+                    }
+                    $.ajax({
+                        url: String.format("/api/v1/userroleapi/{0}", _Id),
+                        dataType: "json",
+                        type: "PUT",
+                        contentType: "application/json",
+                        data: JSON.stringify(result),
+                        success: function (d) {
+                            detailGrid.dataSource.read();
+                        }
+                    });
+                }
+            }
+
+            //提示
+            var notification = $("#notification").kendoNotification({
+                position: {
+                    top: Math.floor($(window).height() / 2.5),
+                    left: Math.floor($(window).width() / 2.2),
+                    pinning: false
+                }
+            }).data("kendoNotification");
+
+            //初始化
+            navActive(0);
+
+        });
+    </script>
+}

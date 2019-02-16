@@ -1,15 +1,15 @@
 ﻿using AALife.Data.Domain;
 using System;
+using System.Web.Script.Serialization;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public class UserViewModel
+    public class UserViewModel : BaseViewModel
     {
-        public int Id { get; set; }
-
         public string UserName { get; set; }
 
-        //public string UserPassword { get; set; }
+        [ScriptIgnore]
+        public string UserPassword { get; set; }
 
         public string UserNickName { get; set; }
 
@@ -19,16 +19,28 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string UserTheme { get; set; }
 
+        [ScriptIgnore]
         public byte UserLevel { get; set; }
 
+        [ScriptIgnore]
         public string UserFrom { get; set; }
 
+        [ScriptIgnore]
         public DateTime ModifyDate { get; set; }
 
+        [ScriptIgnore]
         public DateTime CreateDate { get; set; }
 
+        [ScriptIgnore]
         public byte Synchronize { get; set; }
 
+        [ScriptIgnore]
+        public byte Live { get; set; }
+
+        [ScriptIgnore]
+        public string Remark { get; set; }
+
+        [ScriptIgnore]
         public string UserLevelName
         {
             get
@@ -37,6 +49,7 @@ namespace AALife.WebMvc.Models.ViewModel
             }
         }
 
+        [ScriptIgnore]
         public string UserFromName
         {
             get
@@ -49,20 +62,20 @@ namespace AALife.WebMvc.Models.ViewModel
         {
             get
             {
-                return AALife.Data.Constant.ThemeDic[UserTheme];
+                return AALife.Data.Constant.UserThemeDic[UserTheme];
             }
         }
 
-        public string UserImageFull
-        {
-            get
-            {
-                if (string.IsNullOrWhiteSpace(UserImage)) UserImage = "none.gif";
-                return UserImage.StartsWith("http") ? UserImage : string.Format("http://www.fxlweb.com/Images/Users/{0}", UserImage);
-            }
-        }
+        public string UserNameFull { get; set; }
 
+        public string UserImageFull { get; set; }
+
+        [ScriptIgnore]
         public virtual UserSettings UserSettings { get; set; }
+        
+        public int JoinDay { get; set; }
+
+        public int ItemCount { get; set; }
 
     }
 }

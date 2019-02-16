@@ -13,7 +13,7 @@
         b_day_sub = ["前天", "后天"],
 
         ACTIVE = 'k-state-active',
-        CHANGE = "change",
+        CHANGE = 'change',
         CLICK = 'click';
 
     var ButtomDown = Widget.extend({
@@ -31,12 +31,16 @@
 
             //按钮事件
             that.element.on(CLICK, ".k-link[role='button']", proxy(that._click, that));
-            that.element.on(CLICK, ".btn-link", proxy(that._subclick, that));            
+            that.element.on(CLICK, ".btn-link", proxy(that._subclick, that));
+
+            //触发
+            $('#' + that.options.defaultCode).trigger(CLICK);
         },
         options: {
             name: "ButtomDown",
             autoBind: true,
             template: "",
+            defaultCode: "b_day",
             callback: null
         },
         refresh: function () {
@@ -48,6 +52,10 @@
         },
         current: function () {
             return this.element.find('.k-state-active');
+        },
+        value: function () {
+            var that = this;
+            return that.options.defaultCode;
         },
         selected: function (code) {
             this.current().removeClass(ACTIVE);
@@ -67,7 +75,7 @@
             //子类状态
             var idx = 0;
 
-            var code = e.currentTarget.id;
+            var code = that.options.defaultCode = e.currentTarget.id;
             switch (code) {
                 case "b_all":
                     that.startDate = "";
@@ -116,7 +124,7 @@
             currTarget.addClass("active");
 
             var num = currTarget.parent().index() + 1;
-            var code = currTarget.attr("ref");
+            var code = that.options.defaultCode = currTarget.attr("ref");
             switch (code) {
                 case "b_year":
                     var year = b_year_sub[num - 1].replace(/[^\d]/g, "");

@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AALife.WebMvc.Areas.Manage.Controllers
 {
-    public class ItemsController : Controller
+    public class ItemsController : BaseAdminController
     {
         // GET: Manage/Lists
         public ActionResult Index(int userId = 0, int dateType = 0)

@@ -5,10 +5,8 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public class ItemViewModel
+    public class ItemViewModel : BaseViewModel
     {
-        public int Id { get; set; }
-        
         public string ItemName { get; set; }
         
         public int? CategoryTypeId { get; set; }

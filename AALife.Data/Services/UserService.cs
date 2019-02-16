@@ -3,7 +3,9 @@ using AALife.Core.Caching;
 using AALife.Core.Services;
 using AALife.Core.Services.Security;
 using AALife.Data.Domain;
+using AALife.Data.Infrastructure.Kendoui;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AALife.Data.Services
@@ -21,9 +23,14 @@ namespace AALife.Data.Services
             this._encryptionService = encryptionService;
         }
 
-        public virtual IPagedList<UserTable> GetAllUserByPage(int pageIndex = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null)
+        public virtual IPagedList<UserTable> GetAllUserByPage(int page = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, IEnumerable<Sort> sort = null, Filter filter = null)
         {
             var query = _repository.Table;
+
+            if (filter != null)
+            {
+                query = query.Filter(filter);
+            }
 
             if (userId != null && userId > 0)
             {
@@ -45,9 +52,16 @@ namespace AALife.Data.Services
                 query = query.Where(c => c.UserName.Contains(keyWords) || c.UserNickName.Contains(keyWords) || c.UserEmail.Contains(keyWords));
             }
 
-            query = query.OrderByDescending(c => c.Id);
+            if (sort != null)
+            {
+                query = query.Sort(sort);
+            }
+            else
+            {
+                query = query.OrderByDescending(c => c.Id);
+            }
 
-            var users = new PagedList<UserTable>(query, pageIndex, pageSize);
+            var users = new PagedList<UserTable>(query, page, pageSize);
             return users;
         }
 

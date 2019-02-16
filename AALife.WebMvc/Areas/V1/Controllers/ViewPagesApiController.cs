@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
-    public class ViewPagesApiController : ApiController
+    public class ViewPagesApiController : BaseApiController
     {
         // GET api/<controller>
         public IHttpActionResult Get()

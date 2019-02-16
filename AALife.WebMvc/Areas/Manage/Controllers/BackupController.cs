@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AALife.WebMvc.Areas.Manage.Controllers
 {
-    public class BackupController : Controller
+    public class BackupController : BaseAdminController
     {
         // GET: Manage/Backup
         public ActionResult Index()

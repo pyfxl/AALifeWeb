@@ -1,10 +1,9 @@
 ﻿@using System.Configuration;
+@using AALife.Core.Infrastructure;
+@using AALife.Data;
 
 @{
     ViewBag.Title = "用户列表";
-    var webSite = ConfigurationManager.AppSettings["webSite"].ToString();
-    var pageNumber = WebConfiguration.PageNumber;
-    var pagePerNumber = WebConfiguration.PagePerNumber;
 }
 
 <span id="notification"></span>
@@ -46,52 +45,54 @@
             //刷新高度
             resizeMain();
 
-            //查询对象
-            var query = { startDate: "", endDate: "", keySearch: "" };
-
             //开始日期
             var start = $("#start").kendoDatePicker({
                 change: changeDate,
-                value: month_start(),
                 format: "yyyy/MM/dd"
             }).data("kendoDatePicker");
 
             //结束日期
             var end = $("#end").kendoDatePicker({
                 change: changeDate,
-                value: month_end(),
                 format: "yyyy/MM/dd"
             }).data("kendoDatePicker");
 
             //列表数据源
-            var dataSource = new kendo.data.DataSource({
+            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendogrid.dataSource, {
                 transport: {
                     read: {
-                        url: $.const.webapi.users,
+                        url: $.const.kendoapi.users,
                         dataType: "json",
-                        cache: false,
-                        data: function (d) { return query },
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('Content-Encoding', "gzip");
-                        }
+                        contentType: "application/json; charset=utf-8",
+                        data: function (d) { return getQuery() },
+                        cache: false
                     },
                     create: {
-                        url: $.const.webapi.users,
+                        url: $.const.webapi.user,
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        type: "POST"
+                        type: "POST",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, grid, notification);
+                        }
                     },
                     update: {
-                        url: $.const.webapi.users,
+                        url: $.const.webapi.user,
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        type: "PUT"
+                        type: "PUT",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, grid, notification);
+                        }
                     },
                     destroy: {
-                        url: $.const.webapi.users,
+                        url: $.const.webapi.user,
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        type: "DELETE"
+                        type: "DELETE",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, grid, notification);
+                        }
                     },
                     parameterMap: function (options, operation) {
                         if (operation !== "read" && options.models) {
@@ -100,18 +101,12 @@
                         return options;
                     }
                 },
-                pageSize: @pagePerNumber,
-                serverPaging: true,
-                serverSorting: true,
-                serverFiltering: true,
-                batch: true,
+                pageSize: $.const.siteSettings.PageNumber,
                 schema: {
-                    data: "Data",
-                    total: "Total",
                     model: {
                         id: "Id",
                         fields: {
-                            Id: { type: "number", editable: false, nullable: false, defaultValue: 0 },
+                            Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
                             UserName: {
                                 type: "string",
                                 validation: {
@@ -128,247 +123,226 @@
                             },
                             UserPassword: { type: "string", validation: { required: true, validationMessage: "密码为必填项" } },
                             UserNickName: { type: "string" },
-                            UserImageFull: { type: "string", defaultValue: "user.gif" },
+                            UserImage: { type: "string" },
+                            UserImageFull: { type: "string" },
                             UserEmail: { type: "string", validation: { email: true, validationMessage: "不是合法的邮件地址" } },
-                            UserTheme: { type: "string", defaultValue: "main" },
+                            UserTheme: { type: "string", defaultValue: $.const.siteSettings.DefaultTheme },
                             UserThemeName: { type: "string" },
-                            UserLevel: { type: "number", defaultValue: 9 },
+                            UserLevel: { type: "number", defaultValue: $.const.siteSettings.DefaultLevel },
                             UserLevelName: { type: "string" },
-                            UserFrom: { type: "string", defaultValue: "web" },
+                            UserFrom: { type: "string", defaultValue: $.const.siteSettings.DefaultFrom },
                             UserFromName: { type: "string" },
                             ModifyDate: { type: "date", editable: false },
                             CreateDate: { type: "date", editable: false },
-                            Synchronize: { type: "number", validation: { min: 0, max: 1 } }
+                            Synchronize: { type: "number", defaultValue: 1, validation: { min: 0, max: 1 } },
+                            Live: { type: "number", defaultValue: 1, validation: { min: 0, max: 1 } },
+                            Remark: { type: "string" }
                         }
-                    }
-                }
-            });
-
-            //用户来自数据源
-            var dataUserFrom = new kendo.data.DataSource({
-                transport: {
-                    read: {
-                        url: "/api/v1/userfromapi",
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8"
                     }
                 },
-                schema: {
-                    data: "Data",
-                    total: "Total",
-                    model: {
-                        fields: {
-                            Key: { type: "string" },
-                            Value: { type: "string" }
-                        }
-                    }
+                error: function (e) {
+                    display_kendoui_grid_error(e, notification);
+                    grid.one("dataBinding", function (e) {
+                        e.preventDefault();
+                    });
                 }
-            });
+            }));
 
             //列表
-            var grid = $("#grid").kendoGrid({
+            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
                 dataSource: dataSource,
                 autoBind: false,
-                navigatable: true,
-                editable: "inline",
-                resizable: true,
-                filterable: false,
-                sortable: {
-                    mode: "multiple",
-                    allowUnsort: true,
-                    showIndexes: true
-                },
-                groupable: false,
-                //selectable: "multiple",
-                pageable: {
-                    pageSizes: @pageNumber,
-                    buttonCount: 10,
-                    messages: {
-                        display: "共 {2} 条"
-                    }
-                },
-                columnMenu: {
-                    columns: false
-                },
                 toolbar: ["create"],
+                pageable: {
+                    pageSizes: JSON.parse($.const.siteSettings.PageNumberArrays),
+                },
                 columns: [
-                    {
-                        command: [
-                            { name: "edit", text: { edit: " ", cancel: " ", update: " " } },
-                            { name: "destroy", text: " " }
-                        ],
-                        title: "&nbsp;",
-                        locked: false,
-                        width: 80
-                    },
-                    {
-                        template: "<a href='@Url.Action("Index", "User")?id=#:Id#'>#:Id#</a>",
-                        field: "Id",
-                        title: "编号",
-                        width: 80
-                    },
-                    {
-                        field: "UserName",
-                        title: "用户名",
-                        width: 100
-                    },
-                    {
-                        field: "UserPassword",
-                        title: "密码",
-                        width: 100
-                    },
-                    {
-                        field: "UserNickName",
-                        title: "昵称",
-                        width: 100
-                    },
-                    {
-                        template: "<div class='k-user'><img src='#if(UserImageFull.indexOf('http')){#@webSite/Images/Users/#:UserImageFull##}else{##:UserImageFull##}#'></div>",
-                        field: "UserImageFull",
-                        title: "头像",
-                        width: 100,
-                        attributes: { style: "text-align: center" },
-                        editor: function (container, options) {
-                            if (options.model.Id == 0) {
-                                $("<div class='k-user'><img src='@webSite/Images/Users/user.gif'></div>").appendTo(container);
-                                return;
+                {
+                    command: [
+                        { name: "edit", text: { edit: " ", cancel: " ", update: " " } },
+                        { name: "destroy", text: " " }
+                    ],
+                    title: "&nbsp;",
+                    locked: false,
+                    width: 80
+                },
+                {
+                    template: "<a href='@Url.Action("Details", "Users")?id=#:Id#'>#:Id#</a>",
+                    field: "Id",
+                    title: "编号",
+                    width: 80
+                },
+                {
+                    field: "UserName",
+                    title: "用户名",
+                    width: 100
+                },
+                {
+                    field: "UserPassword",
+                    title: "密码",
+                    width: 100
+                },
+                {
+                    field: "UserNickName",
+                    title: "昵称",
+                    width: 100
+                },
+                {
+                    template: "<div class='k-user'><img src='#=UserImageFull#'></div>",
+                    field: "UserImageFull",
+                    title: "头像",
+                    width: 100,
+                    attributes: { style: "text-align: center" },
+                    editor: function (container, options) {
+                        if (options.model.Id == 0) {
+                            $("<div class='k-user'><img src='/Images/Users/user.gif'></div>").appendTo(container);
+                            return;
+                        }
+                        var input = $("<input type='file' />");
+                        input.attr("name", options.field);
+                        input.appendTo(container);
+                        input.kendoUpload({
+                            multiple: false,
+                            showFileList: false,
+                            async: {
+                                saveUrl: '/api/v1/userimageapi?userId=' + options.model.Id,
+                                autoUpload: true
+                            },
+                            localization: {
+                                select: "选择"
+                            },
+                            validation: {
+                                allowedExtensions: [".jpg", ".png", ".gif", ".bmp"]
+                            },
+                            success: function (e) {
+                                notification.show("头像更新成功。", "success");
+                                $("#grid").data("kendoGrid").dataSource.read();
+                            },
+                            error: function (e) {
+                                notification.show("头像更新失败！", "error");
                             }
-                            var input = $("<input type='file' />");
-                            input.attr("name", options.field);
-                            input.appendTo(container);
-                            input.kendoUpload({
-                                multiple: false,
-                                showFileList: false,
-                                async: {
-                                    saveUrl: '/api/v1/userimageapi?userId=' + options.model.Id,
-                                    autoUpload: true
-                                },
-                                localization: {
-                                    select: "选择"
-                                },
-                                validation: {
-                                    allowedExtensions: [".jpg", ".png", ".gif", ".bmp"]
-                                },
-                                success: function (e) {
-                                    notification.show("头像更新成功。", "success");
-                                    $("#grid").data("kendoGrid").dataSource.read();
-                                },
-                                error: function (e) {
-                                    notification.show("头像更新失败！", "error");
-                                }
-                            });
-                        }
-                    },
-                    {
-                        field: "UserEmail",
-                        title: "邮箱",
-                        width: 150
-                    },
-                    {
-                        template: "#= UserThemeName #",
-                        field: "UserTheme",
-                        title: "样式",
-                        width: 90,
-                        editor: function (container, options) {
-                            var input = $("<input required validationmessage='样式为必选项' />");
-                            input.attr("name", options.field);
-                            input.appendTo(container);
-                            input.kendoDropDownList({
-                                dataTextField: "name",
-                                dataValueField: "theme",
-                                dataSource: dataTheme,
-                                animation: false
-                            });
-                            $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
-                        },
-                        filterable: {
-                            multi: true,
-                            dataSource: [{
-                                UserTheme: "main",
-                            }, {
-                                UserTheme: "blue",
-                            }, {
-                                UserTheme: "gold",
-                            }]
-                        }
-                    },
-                    {
-                        template: "#= UserLevelName #",
-                        field: "UserLevel",
-                        title: "等级",
-                        width: 90,
-                        editor: function (container, options) {
-                            var input = $("<input required validationmessage='等级为必选项' />");
-                            input.attr("name", options.field);
-                            input.appendTo(container);
-                            input.kendoDropDownList({
-                                dataTextField: "name",
-                                dataValueField: "level",
-                                dataSource: dataLevel,
-                                animation: false
-                            });
-                            $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
-                        },
-                        filterable: {
-                            multi: true,
-                            dataSource: [{
-                                UserLevel: "1",
-                            }, {
-                                UserLevel: "9",
-                            }]
-                        }
-                    },
-                    {
-                        template: "#= UserFromName #",
-                        field: "UserFrom",
-                        title: "来自",
-                        width: 120,
-                        editor: function (container, options) {
-                            var input = $("<input required validationmessage='来自为必选项' />");
-                            input.attr("name", options.field);
-                            input.appendTo(container);
-                            input.kendoDropDownList({
-                                dataTextField: "Value",
-                                dataValueField: "Key",
-                                dataSource: dataUserFrom,
-                                animation: false
-                            });
-                            $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
-                        },
-                        filterable: {
-                            multi: true,
-                            dataSource: dataUserFrom,
-                            itemTemplate: function (e) {
-                                if (e.field == "all") {
-                                    //handle the check-all checkbox template
-                                    return "<li class='k-item'><label class='k-label'><input type='checkbox' class='k-check-all'/>#=all#</label></li>";
-                                } else {
-                                    //handle the other checkboxes
-                                    return "<li class='k-item'><label class='k-label'><input type='checkbox' value='#=Key#'/>#=Value#</label></li>"
-                                }
-                            }
-                        }
-                    },
-                    {
-                        field: "CreateDate",
-                        title: "注册日期",
-                        width: 150,
-                        format: "{0:yyyy/MM/dd HH:mm:ss}"
-                    },
-                    {
-                        field: "ModifyDate",
-                        title: "修改日期",
-                        width: 150,
-                        format: "{0:yyyy/MM/dd HH:mm:ss}"
-                    },
-                    {
-                        field: "Synchronize",
-                        title: "同步否",
-                        width: 80,
-                        filterable: { multi: true }
+                        });
                     }
-                ]
-            }).data("kendoGrid");
+                },
+                {
+                    field: "UserEmail",
+                    title: "邮箱",
+                    width: 150
+                },
+                {
+                    template: "#= UserThemeName #",
+                    field: "UserTheme",
+                    title: "样式",
+                    width: 90,
+                    editor: function (container, options) {
+                        var input = $("<input required validationmessage='样式为必选项' />");
+                        input.attr("name", options.field);
+                        input.appendTo(container);
+                        input.kendoDropDownList({
+                            dataTextField: "Value",
+                            dataValueField: "Key",
+                            dataSource: $.const.kendodata.usertheme,
+                            animation: false
+                        });
+                        $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
+                    },
+                    filterable: {
+                        multi: true,
+                        dataSource: $.const.kendodata.usertheme,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Key#'/> #= data.Value|| data.all #</label></li>"
+                        }
+                    }
+                },
+                {
+                    template: "#= UserLevelName #",
+                    field: "UserLevel",
+                    title: "等级",
+                    width: 90,
+                    editor: function (container, options) {
+                        var input = $("<input required validationmessage='等级为必选项' />");
+                        input.attr("name", options.field);
+                        input.appendTo(container);
+                        input.kendoDropDownList({
+                            dataTextField: "Value",
+                            dataValueField: "Key",
+                            dataSource: $.const.kendodata.userlevel,
+                            animation: false
+                        });
+                        $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
+                    },
+                    filterable: {
+                        multi: true,
+                        dataSource: $.const.kendodata.userlevel,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Key#'/> #= data.Value|| data.all #</label></li>"
+                        }
+                    }
+                },
+                {
+                    template: "#= UserFromName #",
+                    field: "UserFrom",
+                    title: "来自",
+                    width: 120,
+                    editor: function (container, options) {
+                        var input = $("<input required validationmessage='来自为必选项' />");
+                        input.attr("name", options.field);
+                        input.appendTo(container);
+                        input.kendoDropDownList({
+                            dataTextField: "Value",
+                            dataValueField: "Key",
+                            dataSource: $.const.kendodata.userfrom,
+                            animation: false
+                        });
+                        $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
+                    },
+                    filterable: {
+                        multi: true,
+                        dataSource: $.const.kendodata.userfrom,
+                        itemTemplate: function (e) {
+                            if (e.field == "all") {
+                                //handle the check-all checkbox template
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' class='k-check-all'/> #=all#</label></li>";
+                            } else {
+                                //handle the other checkboxes
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' value='#=Key#'/> #=Value#</label></li>"
+                            }
+                        }
+                    }
+                },
+                {
+                    field: "CreateDate",
+                    title: "注册日期",
+                    width: 150,
+                    format: "{0:yyyy/MM/dd HH:mm:ss}"
+                },
+                {
+                    field: "ModifyDate",
+                    title: "修改日期",
+                    width: 150,
+                    format: "{0:yyyy/MM/dd HH:mm:ss}"
+                },
+                {
+                    field: "Synchronize",
+                    title: "同步否",
+                    width: 80,
+                    format: "{0:0}",
+                    filterable: { multi: false }
+                },
+                {
+                    field: "Live",
+                    title: "可用否",
+                    width: 80,
+                    format: "{0:0}",
+                    filterable: { multi: false }
+                },
+                {
+                    field: "Remark",
+                    title: "备注",
+                    width: 150
+                }
+            ]
+            })).data("kendoGrid");
 
             //自定义按钮组
             var buttonDown = $("#buttondown").kendoButtomDown({
@@ -382,8 +356,7 @@
                 ],
                 callback: function (data) {
                     setDate(data.startDate, data.endDate);
-                    query.buttonDown = data.buttonDown;
-                    queryList(true);
+                    queryList();
                 }
             }).data("kendoButtomDown");
 
@@ -391,19 +364,18 @@
             var keySearch = $("#keysearch").kendoKeySearch({
                 minLength: 1,
                 done: function (key) {
-                    setButtonDown("");
                     setDate("", "");
+                    buttonDown.selected("");
                     queryList();
                 },
                 focus: function (e) {
                     if (!e.key) {
-                        setQuery();
-                        e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": query.buttonDown };
+                        e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": buttonDown.value() };
                     }
                 },
                 empty: function (data) {
                     setDate(data.startDate, data.endDate);
-                    setButtonDown(data.buttonDown);
+                    buttonDown.selected(data.buttonDown);
                     queryList();
                 }
             }).data("kendoKeySearch");
@@ -419,8 +391,8 @@
 
             //更改日期事件
             function changeDate() {
-                setButtonDown("");
-                queryList(true);
+                buttonDown.selected("");
+                queryList();
             }
 
             //设置日期值
@@ -429,50 +401,22 @@
                 end.value(endDate);
             }
 
-            //关键字清除
-            function clearKey() {
-                query.keySearch = "";
-                keySearch.clear();
-            }
-
-            //设置按钮下拉
-            function setButtonDown(code) {
-                query.buttonDown = code;
-                buttonDown.selected(code);
-            }
-
-            //设置查询条件
-            function setQuery() {
-                var _start = start.value();
-                if (_start == null) _start = "";
-                query.startDate = kendo.toString(_start, "yyyy/MM/dd 00:00:00");
-
-                var _end = end.value();
-                if (_end == null) _end = "";
-                query.endDate = kendo.toString(_end, "yyyy/MM/dd 23:59:59");
-
-                query.keySearch = keySearch.value();
-            }
-
             //列表查询
-            function queryList(flag) {
-                if (flag) {
-                    clearKey();
-                }
-                setQuery();
+            function queryList() {
                 dataSource.page(1);
                 dataSource.skip(0);
             }
 
-            //初始化
-            function init() {
-                setButtonDown("b_day");
-                setDate(today_date(), today_date());
+            //取查询条件
+            function getQuery() {
+                return {
+                    startDate: kendo.toString(start.value(), "yyyy/MM/dd 00:00:00"),
+                    endDate: kendo.toString(end.value(), "yyyy/MM/dd 23:59:59"),
+                    keyWords: keySearch ? keySearch.value() : ""
+                }
             }
 
-            //resizeGrid();
-            init();
-            queryList();
+            //初始化
             navActive(0);
 
         });

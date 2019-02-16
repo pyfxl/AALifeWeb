@@ -32,7 +32,6 @@ namespace AALife.Core.Infrastructure
 
             //dependencies
             var typeFinder = new WebAppTypeFinder();
-            //builder.RegisterInstance(config).As<NopConfig>().SingleInstance();
             builder.RegisterInstance(this).As<IEngine>().SingleInstance();
             builder.RegisterInstance(typeFinder).As<ITypeFinder>().SingleInstance();
 
@@ -51,13 +50,11 @@ namespace AALife.Core.Infrastructure
 
             //set dependency resolver
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
-
         }
 
         /// <summary>
         /// Register mapping
         /// </summary>
-        /// <param name="config">Config</param>
         protected virtual void RegisterMapperConfiguration()
         {
             //dependencies

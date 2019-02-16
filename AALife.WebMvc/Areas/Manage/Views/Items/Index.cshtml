@@ -2,9 +2,6 @@
 
 @{
     ViewBag.Title = "消费列表";
-    var webSite = ConfigurationManager.AppSettings["webSite"].ToString();
-    var pageNumber = WebConfiguration.PageNumber;
-    var pagePerNumber = WebConfiguration.PagePerNumber;
 }
 
 <span id="notification"></span>
@@ -48,34 +45,28 @@
 
             //查询对象
             var query = { startDate: "", endDate: "", keyWords: "", userId: @ViewBag.UserId };
-            var btnDownFlag = "";
 
             //开始日期
             var start = $("#start").kendoDatePicker({
                 change: changeDate,
-                value: month_start(),
                 format: "yyyy/MM/dd"
             }).data("kendoDatePicker");
 
             //结束日期
             var end = $("#end").kendoDatePicker({
                 change: changeDate,
-                value: month_end(),
                 format: "yyyy/MM/dd"
             }).data("kendoDatePicker");
 
             //列表数据源
-            var dataSource = new kendo.data.DataSource({
+            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendogrid.dataSource, {
                 transport: {
                     read: {
-                        url: $.const.webapi.items,
+                        url: $.const.kendoapi.items,
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        cache: false,
-                        data: function () { return query },
-                        beforeSend: function (xhr) {
-                            xhr.setRequestHeader('Content-Encoding', "gzip");
-                        }
+                        data: function (d) { return getQuery() },
+                        cache: false
                     },
                     parameterMap: function (options, operation) {
                         if (operation !== "read" && options.models) {
@@ -84,13 +75,8 @@
                         return options;
                     }
                 },
-                pageSize: @pagePerNumber,
-                serverPaging: true,
-                serverSorting: true,
-                serverFiltering: false,
+                pageSize: $.const.siteSettings.PageNumber,
                 schema: {
-                    data: "Data",
-                    total: "Total",
                     model: {
                         id: "Id",
                         fields: {
@@ -111,49 +97,22 @@
                             CardId: { type: "number" },
                             Remark: { type: "string" }
                         }
-                    },
-                    errors: "error"
-                },
-                requestEnd: function (e) {                    
-                    if (e.type !== "read") {
-                        if (e.response.d.error) {
-                            return;
-                        } else {
-                            e.sender.read(query);
-                        }
                     }
                 },
                 error: function (e) {
-                    notification.show(e.errors, "error");
-                    grid.one("dataBinding", function (x) {
-                        x.preventDefault();
+                    display_kendoui_grid_error(e, notification);
+                    grid.one("dataBinding", function (e) {
+                        e.preventDefault();
                     });
                 }
-            });
+            }));
             
             //列表
-            var grid = $("#grid").kendoGrid({
+            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
                 dataSource: dataSource,
                 autoBind: false,
-                navigatable: true,
-                resizable: true,
-                filterable: false,
-                sortable: {
-                    mode: "multiple",
-                    allowUnsort: true,
-                    showIndexes: true
-                },
-                groupable: false,
-                //selectable: "multiple",
                 pageable: {
-                    pageSizes: @pageNumber,
-                    buttonCount: 10,
-                    messages: {
-                        display: "共 {2} 条"
-                    }
-                },
-                columnMenu: {
-                    columns: false
+                    pageSizes: JSON.parse($.const.siteSettings.PageNumberArrays),
                 },
                 columns: [                    
                     {
@@ -162,10 +121,17 @@
                         width: 80
                     },
                     {
-                        field: "ItemTypeName",
+                        template: "#= ItemTypeName #",
+                        field: "ItemType",
                         title: "分类",
                         width: 80,
-                        filterable: { multi: true }
+                        filterable: { //TODO:ItemTypeName不能查询，应该要ItemType
+                            multi: true,
+                            dataSource: $.const.kendodata.itemtype,
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Key#'/> #= data.Value|| data.all #</label></li>"
+                            }
+                        }
                     },
                     {
                         field: "ItemName",
@@ -235,7 +201,7 @@
                         width: 150
                     }
                 ]
-            }).data("kendoGrid");
+            })).data("kendoGrid");
 
             //自定义按钮组
             var buttonDown = $("#buttondown").kendoButtomDown({
@@ -249,8 +215,7 @@
                 ],
                 callback: function (data) {
                     setDate(data.startDate, data.endDate);
-                    btnDownFlag = data.buttonDown;
-                    queryList(true);
+                    queryList();
                 }
             }).data("kendoButtomDown");
             
@@ -258,19 +223,19 @@
             var keySearch = $("#keysearch").kendoKeySearch({
                 minLength: 1,
                 done: function (key) {
-                    setButtonDown("");
                     setDate("", "");
+                    buttonDown.selected("");
                     queryList();
                 },
                 focus: function (e) {
                     if (!e.key) {
                         setQuery();
-                        e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": btnDownFlag };
+                        e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": buttonDown.value() };
                     }
                 },
                 empty: function (data) {
                     setDate(data.startDate, data.endDate);
-                    setButtonDown(data.buttonDown);
+                    buttonDown.selected(data.buttonDown);
                     queryList();
                 }
             }).data("kendoKeySearch");
@@ -286,8 +251,8 @@
             
             //更改日期事件
             function changeDate() {
-                setButtonDown("");
-                queryList(true);
+                buttonDown.selected("");
+                queryList();
             }
 
             //设置日期值
@@ -296,56 +261,22 @@
                 end.value(endDate);
             }
 
-            //关键字清除
-            function clearKey() {
-                query.keyWords = "";
-                keySearch.clear();
-            }
-
-            //设置按钮下拉
-            function setButtonDown(code) {
-                btnDownFlag = code;
-                buttonDown.selected(code);
-            }
-
-            //设置查询条件
-            function setQuery() {
-                var _start = start.value();
-                if (_start == null) _start = "";
-                query.startDate = kendo.toString(_start, "yyyy/MM/dd 00:00:00");
-
-                var _end = end.value();
-                if (_end == null) _end = "";
-                query.endDate = kendo.toString(_end, "yyyy/MM/dd 23:59:59");
-
-                query.keyWords = keySearch.value();
-                query.userId = @ViewBag.UserId;
-            }
-
             //列表查询
-            function queryList(flag) {
-                if (flag) clearKey();
-                setQuery();
+            function queryList() {
                 dataSource.page(1);
                 dataSource.skip(0);
             }
 
-            //初始化
-            function init() {
-                var userId = @ViewBag.UserId;
-                if (!$.isEmptyObject(userId)) {
-                    setButtonDown("");
-                    setDate("", "");
-                    return;
+            //取查询条件
+            function getQuery() {
+                return {
+                    startDate: kendo.toString(start.value(), "yyyy/MM/dd 00:00:00"),
+                    endDate: kendo.toString(end.value(), "yyyy/MM/dd 23:59:59"),
+                    keyWords: keySearch ? keySearch.value() : ""
                 }
-
-                setButtonDown("b_day");
-                setDate(today_date(), today_date());
             }
 
-            //resizeGrid();
-            init();
-            queryList();
+            //初始化
             navActive(1);
 
         });

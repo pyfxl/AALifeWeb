@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     //专题
     $(ztGrid).jqGrid($.extend(true, {}, $.const.jgrid, {
-        url: String.format($.const.webapi.zhuanti, userInfo.Id),
-        editurl: String.format($.const.webapi.zhuanti, userInfo.Id),
+        url: String.format($.const.webapi.zhuanti, $.const.userInfo.Id),
+        editurl: String.format($.const.webapi.zhuanti, $.const.userInfo.Id),
         colModel: [
             {
                 label: "主键",

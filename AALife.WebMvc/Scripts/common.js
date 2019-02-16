@@ -3,11 +3,19 @@ $.extend($.const, {
     default: {
         bg: "/images/bg/bg.jpg"
     },
+    kendoapi: {
+        items: "/api/kendo/itemsapi",
+        users: "/api/kendo/usersapi"
+    },
     webapi: {
         item: "/api/v1/itemapi",
         item_id: "/api/v1/itemapi/{0}",
         items: "/api/v1/itemsapi",
+        user: "/api/v1/userapi",
+        usernames: "/api/v1/usernamesapi",
         users: "/api/v1/usersapi",
+        roles: "/api/v1/rolesapi",
+        userrole: "/api/v1/userroleapi/{0}",
         categorytype: "/api/v1/categorytypeapi/{0}",
         zhuanti: "/api/v1/zhuantiapi/{0}",
         zhuanzhang: "/api/v1/zhuanzhangapi/{0}",
@@ -20,10 +28,6 @@ $.extend($.const, {
         zhuanti: "/User/ZhuanTiPage",
         zhuanzhang: "/User/ZhuanZhangPage"
     },
-    //data: {
-    //    itemtype: { "zc": "支出", "sr": "收入", "jc": "借出", "hr": "还入", "jr": "借入", "hc": "还出" },
-    //    regiontype: { "": "---", "d": "每日", "w": "每周", "m": "每月", "j": "每季", "y": "每年", "b": "工作日" }
-    //},
     date: {
         format: "YYYY-MM-DD",
         typestart: { "d": today_date(), "w": week_start(), "m": month_start(), "j": quarter_start(), "y": year_start(), "a": "" },
@@ -34,8 +38,6 @@ $.extend($.const, {
         todayHighlight: true,
         language: 'zh-CN',
         format: 'yyyy-mm-dd'
-    },
-    daterange: {
     },
     jgrid: {
         url: '',
@@ -56,6 +58,58 @@ $.extend($.const, {
         serializeRowData: function (postdata) {
             return JSON.stringify(postdata);
         }
+    },
+    kendogrid: {
+        dataSource: {
+            transport: {
+                read: {
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Content-Encoding', "gzip");
+                    }
+                }
+            },
+            schema: {
+                data: "Data",
+                total: "Total",
+                errors: "Errors"
+            },
+            batch: false,
+            serverPaging: true,
+            serverSorting: true,
+            serverFiltering: true,
+            pageSize: 10
+        },
+        navigatable: true, //列头是否可用键盘
+        editable: "inline", //行内编辑
+        resizable: true, //列拖拉宽度
+        filterable: true, //列下拉菜单搜索
+        //filterable: {
+        //    extra: false,
+        //    operators: {
+        //        string: {
+        //            startswith: "Starts with",
+        //            eq: "Is equal to",
+        //            neq: "Is not equal to"
+        //        }
+        //    }
+        //},
+        sortable: { //排序，为flase时，列下拉菜单不显示
+            mode: "multiple", 
+            allowUnsort: true,
+            showIndexes: true
+        },
+        groupable: false, //分组
+        pageable: { //分页
+            buttonCount: 10,
+            messages: {
+                display: "共 {2} 条数据"
+            }
+        },
+        columnMenu: false //设成false直接操作
+        //columnMenu: { //列下拉菜单
+        //    columns: false,
+        //    sortable: false
+        //}
     }
 });
 
@@ -180,4 +234,40 @@ String.prototype.jtv = function (id) {
 //返回jqgrid行下拉字段值
 String.prototype.jsv = function (id) {
     return $.jqo(this, id).find("option:selected").text();
+}
+
+//kendo grid error, dataSource transport use
+function display_kendoui_grid_error_transport(xhr, grid, notification) {
+    let json = xhr.responseJSON;
+    if (json) {
+        let errors = json.Errors || json.Message;
+        if (errors != null) {
+            notification.show(errors, "error");
+            grid.one("dataBinding", function (e) {
+                e.preventDefault();
+            });
+        }
+    } else {
+        grid.dataSource.read();
+    }
+}
+
+//kendo grid error
+function display_kendoui_grid_error(e, notification) {
+    let text = e.xhr.responseText;
+    if (text) {
+        let json = JSON.parse(text);
+        let errors = json.Errors || json.Message;
+        notification.show(errors, "error");
+    } else {
+        notification.show(e.errorThrown, "error");
+    }
+}
+
+//kendo grid complete
+function display_kendoui_grid_complete(textStatus, grid, notification) {
+    if (textStatus == "success") {
+        notification.show("成功。", "success");
+        grid.dataSource.read();
+    }
 }

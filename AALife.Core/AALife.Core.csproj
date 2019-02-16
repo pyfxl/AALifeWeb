@@ -183,12 +183,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Common\" />
-    <Folder Include="Domain\Security\" />
-    <Folder Include="Mapping\Security\" />
-    <Folder Include="Repositorys\Security\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201902121158077_Core-1.resx">
       <DependentUpon>201902121158077_Core-1.cs</DependentUpon>

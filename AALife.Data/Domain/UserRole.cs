@@ -1,4 +1,5 @@
 ﻿using AALife.Core;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -47,6 +48,7 @@ namespace AALife.Data.Domain
         /// <summary>
         /// 用户列表
         /// </summary>
+        [JsonIgnore]
         public virtual ICollection<UserTable> UserTables { get; set; }
 
     }

@@ -1,0 +1,60 @@
+﻿
+<div id="usergrid"></div>
+
+<script>
+    $(document).ready(function () {
+
+        //用户列表
+        $("#usergrid").kendoGrid({
+            dataSource: {
+                transport: {
+                    read: {
+                        url: $.const.webapi.users,
+                        dataType: "json",
+                        cache: false,
+                        beforeSend: function (xhr) {
+                            xhr.setRequestHeader('Content-Encoding', "gzip");
+                        }
+                    }
+                },
+                schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors"
+                },
+                serverPaging: true,
+                serverSorting: true,
+                serverFiltering: true,
+                pageSize: 10
+            },
+            autoBind: false,
+            scrollable: false,
+            sortable: false,
+            pageable: true,
+            columns: [
+                { selectable: true, width: 100 },
+                {
+                    field: "Id",
+                    title: "编号",
+                    width: 100
+                },
+                {
+                    field: "UserName",
+                    title: "用户名",
+                    width: 100
+                },
+                {
+                    field: "UserPassword",
+                    title: "密码",
+                    width: 100
+                },
+                {
+                    field: "UserNickName",
+                    title: "昵称",
+                    width: 100
+                }
+            ]
+        }).data("kendoGrid");
+
+    });
+</script>

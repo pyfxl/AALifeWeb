@@ -1,11 +1,18 @@
-﻿using AALife.Data.Services;
-using AALife.Service.Domain.Common;
-using AALife.Service.Domain.ViewModel;
-using AALife.Service.EF;
+﻿using AALife.Core.Domain.Logging;
+using AALife.Core.Services.Logging;
+using AALife.Core.Services.Security;
+using AALife.Data;
+using AALife.Data.Domain;
+using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.Query;
+using AALife.WebMvc.Models.ViewModel;
+using AutoMapper.QueryableExtensions;
+using Kendo.DynamicLinq;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
@@ -13,19 +20,28 @@ namespace AALife.WebMvc.Areas.V1.Controllers
     public class UserApiController : BaseApiController
     {
         private readonly IUserService _userService;
+        private readonly IUserRoleService _userRoleService;
+        private readonly IEncryptionService _encryptionService;
+        private readonly ICustomerActivityService _customerActivityService;
 
-        public UserApiController(IUserService userService)
+        public UserApiController(IUserService userService,
+            IUserRoleService userRoleService,
+            IEncryptionService encryptionService,
+            ICustomerActivityService customerActivityService)
         {
             this._userService = userService;
+            this._userRoleService = userRoleService;
+            this._encryptionService = encryptionService;
+            this._customerActivityService = customerActivityService;
         }
 
         // GET api/<controller>
-        [Route("api/v1/usersapi")]
-        public IHttpActionResult GetUsers([FromUri]Kendoui.DataSourceRequest common, [FromUri]UsersQuery query)
+        [Route("api/kendo/usersapi")]
+        public IHttpActionResult GetUsers([FromUri]Data.Infrastructure.Kendoui.DataSourceRequest common, [FromUri]UsersQuery query)
         {
-            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, query.userId, query.startDate, query.endDate, query.keyWords);
+            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, query.userId, query.startDate, query.endDate, query.keyWords, common.Sort, common.Filter);
 
-            var grid = new Kendoui.DataSourceResult
+            var grid = new Data.Infrastructure.Kendoui.DataSourceResult
             {
                 Data = result.Select(x =>
                 {
@@ -39,17 +55,12 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        [Route("api/v1/userfromapi")]
-        public IHttpActionResult GetUserFrom()
+        [Route("api/v1/usernamesapi")]
+        public IHttpActionResult GetUserNames()
         {
-            var result = AALife.Data.Constant.UserFromDic.ToList();
-            var grid = new Kendoui.DataSourceResult
-            {
-                Data = result,
-                Total = result.Count()
-            };
-
-            return Json(grid);
+            var result = _userService.FindAll(a => a.Live == 1).Select(a => a.UserName).ToArray();
+            
+            return Json(result);
         }
 
         // GET api/<controller>/5
@@ -59,64 +70,65 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST api/<controller>
-        public IHttpActionResult Post(UserTableViewModel models)
+        public IHttpActionResult Post(UserTable model)
         {
-            string error = "";
-            try
-            {
-                UserTableBLL bll = new UserTableBLL();
-                bool exists = bll.CheckUserExists(models, "UserName");
-                if (exists)
-                {
-                    error = "用户名重复！";
-                }
-                else
-                {
-                    bll.AddUserTable(models);
-                }
-            }
-            catch
-            {
-                error = "添加错误！";
-            }
+            var user = _userService.GetUserByUserName(model.UserName);
+            if (user != null)
+                return ErrorForKendoGridJson("用户名重复！");
 
-            return Json(new ResultModel { error = error });
+            var passwordSalt = _encryptionService.CreateSaltKey(Constant.PasswordSaltSize);
+            model.PasswordSalt = passwordSalt;
+            model.UserPassword = _encryptionService.CreatePasswordHash(model.UserPassword, passwordSalt);
+
+            //user role
+            var registerRole = _userRoleService.Find(a => a.SystemName == UserRoleNames.Registered.ToString());
+            var userRoles = new List<UserRole>();
+            userRoles.Add(registerRole);
+
+            //add role
+            model.UserRoles = userRoles;
+
+            //insert
+            _userService.Add(model);
+
+            //activity log
+            _customerActivityService.InsertActivity(1, ActivityLogType.Insert, "插入用户记录。{0}", model.ToJson());
+
+            return Json(HttpStatusCode.OK);
         }
 
         // PUT api/<controller>/5
-        public IHttpActionResult Put(UserTableViewModel models)
+        public IHttpActionResult Put(UserTable model)
         {
-            string error = "";
-            try
-            {
-                models.ModifyDate = DateTime.Now;
+            var user = _userService.Get(model.Id);
+            user.UserEmail = model.UserEmail;
+            user.UserTheme = model.UserTheme;
+            user.UserLevel = model.UserLevel;
+            user.UserFrom = model.UserFrom;
+            user.ModifyDate = DateTime.Now;
+            user.Synchronize = 1;
+            user.Live = 1;
+            user.Remark = model.Remark;
 
-                UserTableBLL bll = new UserTableBLL();
-                bll.UpdateUserTable(models);
-            }
-            catch
-            {
-                error = "更新出错！";
-            }
+            //update
+            _userService.Update(user);
 
-            return Json(new ResultModel { error = error });
+            //activity log
+            _customerActivityService.InsertActivity(1, ActivityLogType.Update, "更新用户记录。{0}", user.ToJson());
+
+            return Json(HttpStatusCode.OK);
         }
 
         // DELETE api/<controller>/5
-        public IHttpActionResult Delete(UserTableViewModel models)
+        public IHttpActionResult Delete(UserTable model)
         {
-            string error = "";
-            try
-            {
-                UserTableBLL bll = new UserTableBLL();
-                bll.RemoveUserTable(models);
-            }
-            catch
-            {
-                error = "删除错误！";
-            }
+            //delete
+            _userService.Delete(model.Id);
 
-            return Json(new ResultModel { error = error });
+            //activity log
+            _customerActivityService.InsertActivity(1, ActivityLogType.Delete, "删除用户记录。{0}", model.ToJson());
+
+            return Json(HttpStatusCode.OK);
         }
     }
 }

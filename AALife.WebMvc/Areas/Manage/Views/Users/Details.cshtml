@@ -1,0 +1,254 @@
+﻿@model AALife.WebMvc.Models.ViewModel.UserViewModel
+
+@{
+    ViewBag.Title = "用户信息";
+}
+
+<!-- Nav tabs -->
+<ul class="nav nav-sm nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">用户设置</a></li>
+    <li role="presentation"><a href="#items" aria-controls="items" role="tab" data-toggle="tab">消费列表</a></li>
+    <li role="presentation"><a href="#categorytype" aria-controls="categorytype" role="tab" data-toggle="tab">商品类别</a></li>
+    <li role="presentation"><a href="#card" aria-controls="card" role="tab" data-toggle="tab">我的钱包</a></li>
+    <li role="presentation"><a href="#zhuanti" aria-controls="zhuanti" role="tab" data-toggle="tab">我的专题</a></li>
+</ul>
+
+<!-- Tab panes -->
+<div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="settings">
+        <div id="userdetail">
+            <div class="panel panel-default">
+                <div class="panel-heading">荣耀</div>
+                <div class="panel-body">
+                    您已记账 @Model.JoinDay 天，共添加消费 @Model.ItemCount 笔。
+                </div>
+            </div>
+        </div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="items">
+        <div id="items-grid"></div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="categorytype">
+        <div id="categorytype-grid"></div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="card">
+        <div id="card-grid"></div>
+    </div>
+    <div role="tabpanel" class="tab-pane" id="zhuanti">
+        <div id="zhuanti-grid"></div>
+    </div>
+</div>
+
+@section scripts {
+    <!--消费-->
+    <script>
+        $(document).ready(function () {
+
+            navActive(0);
+
+            //查询对象
+            var query = { startDate: min_date, endDate: max_date, keyWords: "", dateType: 0, userId: @Model.Id };
+
+            $(".nav .Users").addClass("active");
+
+            $("#items-grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: $.const.webapi.items,
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8",
+                            cache: false,
+                            data: function () { return query }
+                        }
+                    },
+                    schema: {
+                        data: "Data",
+                        total: "Total"
+                    },
+                    pageSize: $.const.siteSettings.PageNumber,
+                    serverPaging: true,
+                    serverFiltering: true,
+                    serverSorting: true
+                },
+                pageable: {
+                    refresh: true,
+                    pageSizes: JSON.parse($.const.siteSettings.PageNumberArrays),
+                },
+                columns: [
+                    {
+                        field: "Id",
+                        title: "编号",
+                        width: 80
+                    },
+                    {
+                        field: "ItemTypeName",
+                        title: "分类",
+                        width: 80
+                    },
+                    {
+                        field: "ItemName",
+                        title: "商品名称",
+                        width: 150
+                    },
+                    {
+                        field: "CategoryTypeName",
+                        title: "商品类别",
+                        width: 150
+                    },
+                    {
+                        field: "ItemPrice",
+                        title: "价格",
+                        format: "{0:#,0.###}",
+                        headerAttributes: { style: "text-align:right" },
+                        attributes: { style: "text-align: right" },
+                        width: 90
+                    },
+                    {
+                        field: "ItemBuyDate",
+                        title: "日期",
+                        width: 100,
+                        type: "date",
+                        format: "{0:yyyy/MM/dd}"
+                    },
+                    {
+                        field: "Recommend",
+                        title: "推荐否",
+                        width: 80,
+                        template: '# if(Recommend==1) {# <i class="fa fa-star"></i> #} else {# <i class="fa fa-star-o"></i> #} #'
+                    },
+                    {
+                        field: "ModifyDate",
+                        title: "修改日期",
+                        width: 150,
+                        type: "date",
+                        format: "{0:yyyy/MM/dd HH:mm:ss}"
+                    },
+                    {
+                        field: "Synchronize",
+                        title: "同步否",
+                        width: 80,
+                        template: '# if(Synchronize==0) {# <i class="fa fa-check"></i> #} else {# <i class="fa fa-close"></i> #} #'
+                    },
+                    {
+                        field: "RegionTypeName",
+                        title: "固定",
+                        width: 80
+                    },
+                    {
+                        field: "CardName",
+                        title: "钱包",
+                        width: 80
+                    },
+                    {
+                        field: "ZhuanTiName",
+                        title: "专题",
+                        width: 80
+                    },
+                    {
+                        field: "Remark",
+                        title: "备注",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <!--类别-->
+    <script>
+        $(document).ready(function() {
+            $("#categorytype-grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format($.const.webapi.categorytype, @Model.Id),
+                            dataType: "json",
+                        }
+                    },
+                    schema: {
+                        data: "rows",
+                        total: "records"
+                    }
+                },
+                columns: [
+                    {
+                        field: "CategoryTypeId",
+                        title: "编号",
+                        width: 150
+                    },
+                    {
+                        field: "CategoryTypeName",
+                        title: "商品类别",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <!--钱包-->
+    <script>
+        $(document).ready(function() {
+            $("#card-grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format($.const.webapi.card, @Model.Id),
+                            dataType: "json"
+                        }
+                    },
+                    schema: {
+                        data: "rows",
+                        total: "records"
+                    }
+                },
+                columns: [
+                    {
+                        field: "CardId",
+                        title: "编号",
+                        width: 150
+                    },
+                    {
+                        field: "CardName",
+                        title: "钱包名称",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+    <!--专题-->
+    <script>
+        $(document).ready(function() {
+            $("#zhuanti-grid").kendoGrid({
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format($.const.webapi.zhuanti, @Model.Id),
+                            dataType: "json"
+                        }
+                    },
+                    schema: {
+                        data: "rows",
+                        total: "records"
+                    }
+                },
+                columns: [
+                    {
+                        field: "ZhuanTiId",
+                        title: "编号",
+                        width: 150
+                    },
+                    {
+                        field: "ZhuanTiName",
+                        title: "专题名称",
+                        width: 150
+                    }
+                ]
+            });
+        });
+    </script>
+
+}

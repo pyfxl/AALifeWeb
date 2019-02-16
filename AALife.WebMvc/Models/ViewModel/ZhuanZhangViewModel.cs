@@ -5,10 +5,8 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public class ZhuanZhangViewModel
+    public class ZhuanZhangViewModel : BaseViewModel
     {
-        public int Id { get; set; }
-
         /// <summary>
         /// 转账来自
         /// </summary>

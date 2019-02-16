@@ -23,9 +23,19 @@ namespace AALife.WebMvc.Controllers
             return View();
         }
 
-        public ActionResult Login()
+        public ActionResult Login(string returnUrl = "~/")
         {
+            ViewBag.ReturnUrl = returnUrl;
             return View();
+        }
+
+        // GET: Logout
+        public ActionResult Logout()
+        {
+            //standard logout 
+            _authenticationService.SignOut();
+
+            return Redirect("~/");
         }
 
         public ActionResult Register()
@@ -45,7 +55,7 @@ namespace AALife.WebMvc.Controllers
         //}
 
         [HttpPost]
-        public ActionResult Login([Bind(Include = "UserName,UserPassword")] UserLoginModel userModel, string returnUrl = "~/")
+        public ActionResult Login(UserLoginModel userModel, string returnUrl = "~/")
         {
             if (ModelState.IsValid)
             {
@@ -67,7 +77,7 @@ namespace AALife.WebMvc.Controllers
             return View(userModel);
         }
 
-        [HttpPost]
+        //[HttpPost]
         //public ActionResult ResetPassword(string username, string password, string rePassword)
         //{
         //    if (ModelState.IsValid)
@@ -92,15 +102,6 @@ namespace AALife.WebMvc.Controllers
         //    ViewBag.Username = username;
         //    return View();
         //}
-
-        // GET: Logout
-        public ActionResult Logout()
-        {
-            //standard logout 
-            _authenticationService.SignOut();
-
-            return Redirect("~/");
-        }
 
     }
 }

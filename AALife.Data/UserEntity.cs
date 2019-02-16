@@ -3,6 +3,7 @@ using AALife.Data.Domain;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;
+using System.Web.Script.Serialization;
 
 namespace AALife.Data
 {

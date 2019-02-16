@@ -7,7 +7,7 @@ using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
-    public class CardApiController : ApiController
+    public class CardApiController : BaseApiController
     {
         private readonly ICardService _cardService;
 

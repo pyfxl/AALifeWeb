@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     //专题
     $(zzGrid).jqGrid($.extend(true, {}, $.const.jgrid, {
-        url: String.format($.const.webapi.zhuanzhang, userInfo.Id),
-        editurl: String.format($.const.webapi.zhuanzhang, userInfo.Id),
+        url: String.format($.const.webapi.zhuanzhang, $.const.userInfo.Id),
+        editurl: String.format($.const.webapi.zhuanzhang, $.const.userInfo.Id),
         colModel: [
             {
                 label: "主键",
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 editable: true,
                 edittype: 'select',
                 editoptions: {
-                    dataUrl: String.format($.const.webapi.card, userInfo.Id),
+                    dataUrl: String.format($.const.webapi.card, $.const.userInfo.Id),
                     buildSelect: function (data) {
                         let _data = JSON.parse(data);
                         let result = $("<select id='card' name='card' />");
@@ -59,7 +59,7 @@ $(document).ready(function () {
                 editable: true,
                 edittype: 'select',
                 editoptions: {
-                    dataUrl: String.format($.const.webapi.card, userInfo.Id),
+                    dataUrl: String.format($.const.webapi.card, $.const.userInfo.Id),
                     buildSelect: function (data) {
                         let _data = JSON.parse(data);
                         let result = $("<select id='card' name='card' />");

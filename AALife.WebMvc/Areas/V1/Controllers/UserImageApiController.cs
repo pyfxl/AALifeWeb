@@ -8,7 +8,7 @@ using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
-    public class UserImageApiController : ApiController
+    public class UserImageApiController : BaseApiController
     {
         // GET api/<controller>
         public IEnumerable<string> Get()

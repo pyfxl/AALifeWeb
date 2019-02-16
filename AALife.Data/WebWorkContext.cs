@@ -19,7 +19,7 @@ namespace AALife.Data
 
         private UserTable _cachedUser;
         private UserSettings _cachedUserSettings;
-        private CommonSettings _cachedCommonSettings;
+        private SiteSettings _cachedSiteSettings;
 
         #endregion
 
@@ -101,26 +101,26 @@ namespace AALife.Data
         /// <summary>
         /// site settings
         /// </summary>
-        public virtual CommonSettings CommonSettings
+        public virtual SiteSettings SiteSettings
         {
             get
             {
-                if (_cachedCommonSettings != null)
-                    return _cachedCommonSettings;
+                if (_cachedSiteSettings != null)
+                    return _cachedSiteSettings;
 
-                CommonSettings settings = _settingService.LoadSetting<CommonSettings>(0);
+                SiteSettings settings = _settingService.LoadSetting<SiteSettings>(0);
 
                 //validation
                 if (settings != null)
                 {
-                    _cachedCommonSettings = settings;
+                    _cachedSiteSettings = settings;
                 }
 
-                return _cachedCommonSettings;
+                return _cachedSiteSettings;
             }
             set
             {
-                _cachedCommonSettings = value;
+                _cachedSiteSettings = value;
             }
         }
 

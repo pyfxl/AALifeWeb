@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace AALife.WebMvc.Areas.Manage.Controllers
 {
-    public class ViewsController : Controller
+    public class ViewsController : BaseAdminController
     {
         // GET: Manage/Views
         public ActionResult Index()

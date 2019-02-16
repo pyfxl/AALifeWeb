@@ -6,7 +6,7 @@
 <div class="login-box">
     <div class="login-box-body">
         <p class="login-box-msg">@ViewBag.Title</p>
-        <form action="~/Account/Login" method="post">
+        <form action="~/Account/Login?returnUrl=@ViewBag.ReturnUrl" method="post">
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
             <div class="form-group has-feedback">
                 <input type="text" class="form-control" name="UserName" data-val="true" data-val-required="用户名不能为空。" placeholder="用户名" />

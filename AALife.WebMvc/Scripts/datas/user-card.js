@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     //钱包
     $(cardGrid).jqGrid($.extend(true, {}, $.const.jgrid, {
-        url: String.format($.const.webapi.card, userInfo.Id),
-        editurl: String.format($.const.webapi.card, userInfo.Id),
+        url: String.format($.const.webapi.card, $.const.userInfo.Id),
+        editurl: String.format($.const.webapi.card, $.const.userInfo.Id),
         colModel: [
             {
                 label: "主键",
