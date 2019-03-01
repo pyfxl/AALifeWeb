@@ -1,33 +1,5 @@
 ﻿//常量
-$.extend($.const, {
-    default: {
-        bg: "/images/bg/bg.jpg"
-    },
-    kendoapi: {
-        items: "/api/kendo/itemsapi",
-        users: "/api/kendo/usersapi"
-    },
-    webapi: {
-        item: "/api/v1/itemapi",
-        item_id: "/api/v1/itemapi/{0}",
-        items: "/api/v1/itemsapi",
-        user: "/api/v1/userapi",
-        usernames: "/api/v1/usernamesapi",
-        users: "/api/v1/usersapi",
-        roles: "/api/v1/rolesapi",
-        userrole: "/api/v1/userroleapi/{0}",
-        categorytype: "/api/v1/categorytypeapi/{0}",
-        zhuanti: "/api/v1/zhuantiapi/{0}",
-        zhuanzhang: "/api/v1/zhuanzhangapi/{0}",
-        card: "/api/v1/cardapi/{0}",
-        itemnames: "/api/v1/itemnamesapi/{0}"
-    },
-    pages: {
-        category: "/User/CategoryPage",
-        card: "/User/CardPage",
-        zhuanti: "/User/ZhuanTiPage",
-        zhuanzhang: "/User/ZhuanZhangPage"
-    },
+$.extend($.const, {    
     date: {
         format: "YYYY-MM-DD",
         typestart: { "d": today_date(), "w": week_start(), "m": month_start(), "j": quarter_start(), "y": year_start(), "a": "" },
@@ -59,12 +31,93 @@ $.extend($.const, {
             return JSON.stringify(postdata);
         }
     },
-    kendogrid: {
+    kendotree: {
         dataSource: {
             transport: {
                 read: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "GET",
+                    cache: false,
                     beforeSend: function (xhr) {
                         xhr.setRequestHeader('Content-Encoding', "gzip");
+                    }
+                },
+                update: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "PUT",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                },
+                destroy: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "DELETE",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                },
+                create: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                }
+            },
+            batch: false
+        },
+        reorderable: true,
+        navigatable: false,
+        resizable: true,
+        filterable: true,
+        sortable: {
+            mode: "multiple",
+            allowUnsort: true,
+            showIndexes: true
+        },
+        editable: true,
+        scrollable: false,
+        groupable: false,
+        columnMenu: false
+    },
+    kendolite: {
+        dataSource: {
+            transport: {
+                read: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "GET",
+                    cache: false,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Content-Encoding', "gzip");
+                    }
+                },
+                update: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "PUT",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                },
+                destroy: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "DELETE",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                },
+                create: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
                     }
                 }
             },
@@ -72,44 +125,92 @@ $.extend($.const, {
                 data: "Data",
                 total: "Total",
                 errors: "Errors"
-            },
-            batch: false,
-            serverPaging: true,
-            serverSorting: true,
-            serverFiltering: true,
-            pageSize: 10
+            }
         },
-        navigatable: true, //列头是否可用键盘
-        editable: "inline", //行内编辑
-        resizable: true, //列拖拉宽度
-        filterable: true, //列下拉菜单搜索
-        //filterable: {
-        //    extra: false,
-        //    operators: {
-        //        string: {
-        //            startswith: "Starts with",
-        //            eq: "Is equal to",
-        //            neq: "Is not equal to"
-        //        }
-        //    }
-        //},
-        sortable: { //排序，为flase时，列下拉菜单不显示
-            mode: "multiple", 
+        reorderable: true,
+        navigatable: false,
+        resizable: true,
+        filterable: true,
+        sortable: {
+            mode: "multiple",
             allowUnsort: true,
             showIndexes: true
         },
-        groupable: false, //分组
-        pageable: { //分页
-            buttonCount: 10,
+        scrollable: false,
+        groupable: false,
+        columnMenu: false
+    },
+    kendogrid: {
+        dataSource: {
+            transport: {
+                read: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "GET",
+                    cache: false,
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader('Content-Encoding', "gzip");
+                    }
+                },
+                update: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "PUT",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                },
+                destroy: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "DELETE",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                },
+                create: {
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    complete: function (xhr, textStatus) {
+                        display_kendoui_grid_complete(textStatus);
+                    }
+                }
+            },
+            schema: {
+                data: "Data",
+                total: "Total",
+                errors: "Errors",
+                groups: "Groups",
+                aggregates: "Aggregates"
+            },
+            batch: true,
+            serverPaging: true,
+            serverSorting: true,
+            serverFiltering: true,
+            serverGrouping: true,
+            serverAggregates: false,
+            pageSize: $.const.default.pagenumber
+        },
+        reorderable: true,
+        navigatable: false,
+        resizable: true,
+        filterable: true,
+        sortable: {
+            mode: "multiple",
+            allowUnsort: true,
+            showIndexes: true
+        },
+        editable: "inline",
+        pageable: { 
+            buttonCount: $.const.default.pagebutton,
+            pageSizes: $.const.default.pagenumbers,
             messages: {
                 display: "共 {2} 条数据"
             }
         },
-        columnMenu: false //设成false直接操作
-        //columnMenu: { //列下拉菜单
-        //    columns: false,
-        //    sortable: false
-        //}
+        groupable: true,
+        columnMenu: false
     }
 });
 
@@ -236,38 +337,74 @@ String.prototype.jsv = function (id) {
     return $.jqo(this, id).find("option:selected").text();
 }
 
-//kendo grid error, dataSource transport use
-function display_kendoui_grid_error_transport(xhr, grid, notification) {
-    let json = xhr.responseJSON;
-    if (json) {
-        let errors = json.Errors || json.Message;
-        if (errors != null) {
-            notification.show(errors, "error");
-            grid.one("dataBinding", function (e) {
-                e.preventDefault();
-            });
-        }
-    } else {
-        grid.dataSource.read();
-    }
-}
-
 //kendo grid error
-function display_kendoui_grid_error(e, notification) {
-    let text = e.xhr.responseText;
+function display_kendoui_grid_error(e) {
+    let errors,
+        text = e.xhr.responseText;
     if (text) {
         let json = JSON.parse(text);
-        let errors = json.Errors || json.Message;
-        notification.show(errors, "error");
+        errors = json.Errors || json.Message;        
     } else {
-        notification.show(e.errorThrown, "error");
+        errors = e.errorThrown;
+    }
+    kendoui_notification(errors, "error");
+}
+
+//kendo grid complete
+function display_kendoui_grid_complete(textStatus, grid) {
+    if (textStatus == "success") {
+        kendoui_notification("成功。", "success");
+        //grid.dataSource.read();
     }
 }
 
 //kendo grid complete
-function display_kendoui_grid_complete(textStatus, grid, notification) {
-    if (textStatus == "success") {
-        notification.show("成功。", "success");
-        grid.dataSource.read();
+function kendoui_notification(message, type) {    
+    if (notification.show) {
+        notification.show(message, type);
+    } else {
+        alert(errors);
     }
 }
+
+//kendo datetime format
+function parameter_format(options) {
+    if (options && options.filter && options.filter.filters && options.filter.filters.count != 0) {
+        options.filter.filters.forEach(function (f) {
+            if (f.operator && f.value && typeof f.value.getMonth == 'function' && typeof f.value.getMonth() == 'number') {
+                f.value = moment(f.value).format("YYYY/MM/DD");
+            }
+        });
+    }
+    return options;
+}
+
+//调整grid高度
+function resizeMain() {
+    var div = $("#main");
+    var windowHeight = $(window).innerHeight();
+    var offsetTop = div.offset().top;
+    var paddingBottom = 7;
+    var fixHeight = 2;
+
+    var calculatedHeight = windowHeight - offsetTop - paddingBottom - fixHeight;
+    div.height(calculatedHeight);
+}
+
+//设置头部选中
+function navActive(i) {
+    var navbar = $(".top-zone .nav > li");
+    navbar.removeClass("active");
+    navbar.eq(i).addClass("active");
+}
+
+jQuery(function ($) {
+    // kendo ui
+    kendo.culture("zh-CN");
+});
+
+//解决kendo日期时区问题
+Date.prototype.toISOString = function () {
+    return moment(this).format("YYYY-MM-DDTHH:mm:ss");
+};
+

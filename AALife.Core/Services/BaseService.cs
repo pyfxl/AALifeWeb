@@ -38,6 +38,16 @@ namespace AALife.Core.Services
         }
 
         /// <summary>
+        /// 获取集合
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public IQueryable<T> Get()
+        {
+            return _repository.Table;
+        }
+
+        /// <summary>
         /// 条件获取实体
         /// </summary>
         /// <param name="where"></param>
@@ -97,6 +107,15 @@ namespace AALife.Core.Services
         /// 删除
         /// </summary>
         /// <param name="id"></param>
+        public void Delete(T entity)
+        {
+            _repository.Delete(entity);
+        }
+
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
         public void Delete(int id)
         {
             _repository.Delete(id);
@@ -111,5 +130,14 @@ namespace AALife.Core.Services
             _repository.Delete(entities);
         }
 
+        /// <summary>
+        /// 根据条件判断是否存在
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public bool IsExists(Expression<Func<T, bool>> where)
+        {
+            return _repository.Table.Any(where);
+        }
     }
 }

@@ -41,8 +41,7 @@ namespace AALife.Data
         /// <summary>
         /// ͼƬ
         /// </summary>
-        [MaxLength(200)]
-        public string Image { get; set; }
+        public int? PictureId { get; set; }
 
         /// <summary>
         /// Gets or sets the customer identifier

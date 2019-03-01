@@ -83,6 +83,12 @@ namespace AALife.Core.Infrastructure.DependencyManagement
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
 
+            //paremeter
+            builder.RegisterType<ParameterService>().As<IParameterService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
+                .InstancePerLifetimeScope();
+
             #endregion
 
             #region repositorys
@@ -104,6 +110,11 @@ namespace AALife.Core.Infrastructure.DependencyManagement
 
             //activity log
             builder.RegisterType<ActivityLogRepository>().As<IActivityLogRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //paremeter
+            builder.RegisterType<ParameterRepository>().As<IParameterRepository>()
                 .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .InstancePerLifetimeScope();
 

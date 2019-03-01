@@ -13,14 +13,9 @@ namespace AALife.Data.Domain
         /// <summary>
         /// 角色名称
         /// </summary>
-        [MaxLength(10)]
+        [MaxLength(20)]
         [Required]
         public string Name { get; set; }
-
-        /// <summary>
-        /// 系统角色
-        /// </summary>
-        public bool IsSystemRole { get; set; }
 
         /// <summary>
         /// 系统名称
@@ -30,26 +25,16 @@ namespace AALife.Data.Domain
         public string SystemName { get; set; }
 
         /// <summary>
-        /// 可用否
-        /// </summary>
-        public byte Live { get; set; }
-
-        /// <summary>
-        /// 修改日期
-        /// </summary>
-        public DateTime? ModifyDate { get; set; }
-
-        /// <summary>
-        /// 备注
-        /// </summary>
-        [MaxLength(100)]
-        public string Remark { get; set; }
-
-        /// <summary>
         /// 用户列表
         /// </summary>
         [JsonIgnore]
         public virtual ICollection<UserTable> UserTables { get; set; }
+
+        /// <summary>
+        /// 用户权限
+        /// </summary>
+        [JsonIgnore]
+        public virtual ICollection<PermissionRecord> PermissionRecords { get; set; }
 
     }
 }

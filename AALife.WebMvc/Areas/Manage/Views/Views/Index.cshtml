@@ -4,7 +4,6 @@
     var pagePerNumber = WebConfiguration.PagePerNumber;
 }
 
-<span id="notification"></span>
 <div class="row">
     <div class="col-xs-12">
         <div id="main">
@@ -215,15 +214,6 @@
                 ]
             }).data("kendoGrid");
 
-            //提示
-            var notification = $("#notification").kendoNotification({
-                position: {
-                    top: Math.floor($(window).height() / 2.5),
-                    left: Math.floor($(window).width() / 2.2),
-                    pinning: false
-                }
-            }).data("kendoNotification");
-
             //列表查询
             function queryList(flag) {
                 dataSource.page(1);
@@ -238,7 +228,6 @@
             //resizeGrid();
             init();
             queryList();
-            navActive(2);
 
         });
     </script>

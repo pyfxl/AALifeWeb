@@ -15,12 +15,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return bll.GetViewTable(model.Take, model.Skip, model.Sort, model.Filter, null);
         }
 
-        // GET api/<controller>/5
-        public string Get(int id)
-        {
-            return "value";
-        }
-
         // POST api/<controller>
         public void Post([FromBody]string value)
         {

@@ -54,5 +54,24 @@ namespace AALife.WebMvc.Infrastructure.Mapper
 
         #endregion
 
+        #region Permission
+
+        public static PermissionViewModel ToModel(this PermissionRecord entity)
+        {
+            return entity.MapTo<PermissionRecord, PermissionViewModel>();
+        }
+
+        public static PermissionRecord ToEntity(this PermissionViewModel model)
+        {
+            return model.MapTo<PermissionViewModel, PermissionRecord>();
+        }
+
+        public static PermissionRecord ToEntity(this PermissionViewModel model, PermissionRecord destination)
+        {
+            return model.MapTo(destination);
+        }
+
+        #endregion
+
     }
 }

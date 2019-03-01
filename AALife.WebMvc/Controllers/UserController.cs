@@ -26,7 +26,7 @@ namespace AALife.WebMvc.Controllers
         {
             var user = _userService.Get(_workContext.CurrentUser.Id);
             var model = user.ToModel();
-            model.UserSettings = _settingService.LoadSetting<UserSettings>(user.Id);
+            //model.UserSettings = _settingService.LoadSetting<UserSettings>(user.Id);
 
             return View(model);
         }

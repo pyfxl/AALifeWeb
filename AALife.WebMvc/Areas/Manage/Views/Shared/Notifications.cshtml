@@ -60,3 +60,16 @@
         @message
     </div>
 }
+@*kendo提示*@
+<span id="notification"></span>
+<script>
+    //提示
+    var notification = $("#notification").kendoNotification({
+        autoHideAfter: 2000,
+        position: {
+            top: Math.floor($(window).height() / 2.5),
+            left: Math.floor($(window).width() / 2.2),
+            pinning: false
+        }
+    }).data("kendoNotification");
+</script>

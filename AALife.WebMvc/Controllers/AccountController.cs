@@ -2,6 +2,7 @@
 using AALife.Data.Services;
 using AALife.WebMvc.Models.ViewModel;
 using System;
+using System.Web;
 using System.Web.Mvc;
 
 namespace AALife.WebMvc.Controllers
@@ -25,7 +26,7 @@ namespace AALife.WebMvc.Controllers
 
         public ActionResult Login(string returnUrl = "~/")
         {
-            ViewBag.ReturnUrl = returnUrl;
+            ViewBag.ReturnUrl = HttpUtility.UrlEncode(returnUrl);
             return View();
         }
 
@@ -57,6 +58,8 @@ namespace AALife.WebMvc.Controllers
         [HttpPost]
         public ActionResult Login(UserLoginModel userModel, string returnUrl = "~/")
         {
+            ViewBag.ReturnUrl = HttpUtility.UrlEncode(returnUrl);
+
             if (ModelState.IsValid)
             {
                 try

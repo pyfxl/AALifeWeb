@@ -1,0 +1,130 @@
+﻿@{
+    ViewBag.Title = "权限列表";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="main">
+            <div id="treelist"></div>
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+
+            var dataSource = new kendo.data.TreeListDataSource({
+                transport: {
+                    read: {
+                        url: $.const.webapi.permissions,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false
+                    },
+                    update: {
+                        url: $.const.webapi.permissions,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "PUT",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, treelist, notification);
+                        }
+                    },
+                    destroy: {
+                        url: $.const.webapi.permissions,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "DELETE",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, treelist, notification);
+                        }
+                    },
+                    create: {
+                        url: $.const.webapi.permissions,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "POST",
+                        complete: function (xhr, textStatus) {
+                            display_kendoui_grid_complete(textStatus, treelist, notification);
+                        }
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options) {
+                            return kendo.stringify(options);
+                        }
+                    }
+                },
+                batch: false,
+                schema: {
+                    model: {
+                        id: "Id",
+                        parentId: "ParentId",
+                        fields: {
+                            Id: { type: "number", editable: false, nullable: false },
+                            ParentId: { type: "number" },
+                            Name: { type: "text", validation: { required: true, validationMessage: "角色名称为必填项" } },
+                            AreaName: { type: "text" },
+                            ControllerName: { type: "text" },
+                            ActionName: { type: "text" },
+                            Rank: { type: "number" }
+                        },
+                        expanded: false
+                    }
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                    grid.one("dataBinding", function (e) {
+                        e.preventDefault();
+                    });
+                }
+            });
+
+            var treelist = $("#treelist").kendoTreeList($.extend(true, {}, $.const.kendotree, {
+                dataSource: dataSource,
+                toolbar: ["create"],
+                columns: [
+                    {
+                        expandable: true,
+                        field: "Name",
+                        title: "角色名称",
+                        width: 150
+                    },
+                    {
+                        field: "AreaName",
+                        title: "区域",
+                        width: 100
+                    },
+                    {
+                        field: "ControllerName",
+                        title: "控制器",
+                        width: 100
+                    },
+                    {
+                        field: "ActionName",
+                        title: "动作",
+                        width: 100
+                    },
+                    {
+                        field: "Rank",
+                        title: "排序",
+                        width: 100,
+                        format: "{0:0}"
+                    },
+                    {
+                        command: [
+                            {
+                                name: "createchild",
+                                text: "添加子项"
+                            },
+                            "edit",
+                            "destroy"
+                        ],
+                        width: 200
+                    }
+                ]
+            }));
+
+        });
+    </script>
+}

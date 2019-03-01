@@ -1,0 +1,72 @@
+﻿@using AALife.WebMvc.Models.ViewModel;
+@model PermissionMappingModel
+
+@{
+    ViewBag.Title = "权限设置";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="main">
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    @foreach (var cr in Model.AvailableUserRoles)
+                    {
+                        <text>
+                        //全选
+                        $('#selectall-@(cr.Id)').click(function () {
+                            $('.allow_@(cr.Id)').attr('checked', $(this).is(':checked')).change();
+                        });
+                        //单选
+                        $('.allow_@(cr.Id)').click(function () {
+                            var rid = $(this).data("role");
+                            var pid = $(this).val();
+                            update_permission(pid, rid);
+                        });
+                        </text>
+                    }
+
+                });
+            </script>
+            <table class="table table-hover table-bordered">
+                <tbody>
+                    <tr>
+                        <th scope="col">
+                            <strong>权限名称</strong>
+                        </th>
+                        @foreach (var cr in Model.AvailableUserRoles)
+                        {
+                            <th scope="col">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" id="selectall-@(cr.Id)" />
+                                        <strong>@cr.Name</strong>
+                                    </label>
+                                </div>
+                            </th>
+                        }
+                    </tr>
+                    @foreach (var pr in Model.AvailablePermissions)
+                    {
+                        <tr>
+                            <td>
+                                <span>@pr.Name</span>
+                            </td>
+                            @foreach (var cr in Model.AvailableUserRoles)
+                            {
+                                var allowed = Model.Allowed.ContainsKey(pr.Id) && Model.Allowed[pr.Id][cr.Id];
+                                <td>
+                                    <input class="allow_@(cr.Id)" type="checkbox" data-role="@(cr.Id)" value="@(pr.Id)" name="allow_@(cr.Id)" @(allowed ? " checked=checked" : null) />
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section scripts {
+    <script src="~/Areas/Manage/Scripts/roles.js"></script>
+}

@@ -51,24 +51,11 @@
     <![endif]-->
     <!-- jQuery 3 -->
     <script src="~/Scripts/bower_components/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap 3.3.7 -->
-    <script src="~/Scripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- jQuery UI -->
-    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
-    <!-- bootstrap nofity -->
-    <script src="~/Scripts/bootstrap-notify.min.js"></script>
-    <!-- knockout js -->
-    <script src="~/Scripts/knockout-3.4.2.debug.js"></script>
     <!-- setting js -->
     <script>
         $.const = {
             userInfo: @Html.Raw(Json.Encode(user.ToModel())),
-            userSettings: @Html.Raw(Json.Encode(userSettings)),
-            data: {
-                itemtype: @Html.Raw(Json.Encode(AALife.Data.Constant.ItemTypeDic)),
-                regiontype: @Html.Raw(Json.Encode(AALife.Data.Constant.RegionTypeDic)),
-                userworkday: @Html.Raw(Json.Encode(AALife.Data.Constant.UserWorkDayDic.ToArray()))
-            }
+            userSettings: @Html.Raw(Json.Encode(userSettings))
         };
         $.notifyDefaults({
             type: 'info',
@@ -80,6 +67,7 @@
             }
         });
     </script>
+    <script src="~/Scripts/const.js"></script>
     <!-- setting bg -->
     <style type="text/css">
         body {
@@ -133,6 +121,14 @@
         <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/Scripts/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- jQuery UI -->
+    <script src="~/Scripts/jquery-ui/jquery-ui.min.js"></script>
+    <!-- bootstrap nofity -->
+    <script src="~/Scripts/bootstrap-notify.min.js"></script>
+    <!-- knockout js -->
+    <script src="~/Scripts/knockout-3.4.2.debug.js"></script>
     <!-- jQuery validate -->
     <script src="~/Scripts/jquery.validate.min.js"></script>
     <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

@@ -4,8 +4,6 @@
     ViewBag.Title = "消费列表";
 }
 
-<span id="notification"></span>
-
 <div class="row">
     <div class="col-xs-12">
         <form class="form-inline search-zone">
@@ -62,7 +60,7 @@
             var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendogrid.dataSource, {
                 transport: {
                     read: {
-                        url: $.const.kendoapi.items,
+                        url: $.const.webapi.items,
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         data: function (d) { return getQuery() },
@@ -100,19 +98,41 @@
                     }
                 },
                 error: function (e) {
-                    display_kendoui_grid_error(e, notification);
+                    display_kendoui_grid_error(e);
                     grid.one("dataBinding", function (e) {
                         e.preventDefault();
                     });
                 }
             }));
-            
+
+            //分类数据源
+            var dataItemType = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: String.format($.const.webapi.paramsbyname, "itemtype"),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8"
+                    }
+                }
+            });
+
+            //区间数据源
+            var dataRegionType = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: String.format($.const.webapi.paramsbyname, "regiontype"),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8"
+                    }
+                }
+            });
+
             //列表
             var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
                 dataSource: dataSource,
                 autoBind: false,
                 pageable: {
-                    pageSizes: JSON.parse($.const.siteSettings.PageNumberArrays),
+                    pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
                 },
                 columns: [                    
                     {
@@ -127,9 +147,9 @@
                         width: 80,
                         filterable: { //TODO:ItemTypeName不能查询，应该要ItemType
                             multi: true,
-                            dataSource: $.const.kendodata.itemtype,
+                            dataSource: dataItemType,
                             itemTemplate: function (e) {
-                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Key#'/> #= data.Value|| data.all #</label></li>"
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
                             }
                         }
                     },
@@ -139,16 +159,18 @@
                         width: 150
                     },
                     {
-                        field: "CategoryTypeName",
+                        template: "#= CategoryTypeName ? CategoryTypeName : '' #",
+                        field: "CategoryTypeId",
                         title: "商品类别",
-                        width: 150
+                        width: 150,
+                        filterable: false
                     },
                     {
                         field: "ItemPrice",
                         title: "价格",
                         format: "{0:#,0.###}",
                         attributes: { style: "text-align: right" },
-                        width: 90
+                        width: 100
                     },
                     {
                         field: "ItemBuyDate",
@@ -157,15 +179,23 @@
                         format: "{0:yyyy/MM/dd}"
                     },
                     {
-                        field: "UserName",
+                        template: "#= UserName #",
+                        field: "UserId",
                         title: "用户名",
-                        width: 90
+                        width: 100,
+                        filterable: false
                     },
                     {
                         field: "Recommend",
                         title: "推荐否",
                         width: 80,
-                        filterable: { multi: true }
+                        filterable: {
+                            multi: true,
+                            dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                            }
+                        }
                     },
                     {
                         field: "ModifyDate",
@@ -177,23 +207,40 @@
                         field: "Synchronize",
                         title: "同步否",
                         width: 80,
-                        filterable: { multi: true }
+                        filterable: {
+                            multi: true,
+                            dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                            }
+                        }
                     },
                     {
-                        field: "RegionName",
+                        template: "#= RegionName ? RegionName : '' #",
+                        field: "RegionType",
                         title: "固定",
                         width: 80,
-                        filterable: { multi: true }
+                        filterable: {
+                            multi: true,
+                            dataSource: dataRegionType,
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                            }
+                        }
                     },
                     {
-                        field: "CardName",
+                        template: "#= CardName #",
+                        field: "CardId",
                         title: "钱包",
-                        width: 80
+                        width: 100,
+                        filterable: false
                     },
                     {
-                        field: "ZhuanTiName",
+                        template: "#= ZhuanTiName ? ZhuanTiName : '' #",
+                        field: "ZhuanTiId",
                         title: "专题",
-                        width: 80
+                        width: 100,
+                        filterable: false
                     },
                     {
                         field: "Remark",
@@ -240,15 +287,6 @@
                 }
             }).data("kendoKeySearch");
 
-            //提示
-            var notification = $("#notification").kendoNotification({
-                position: {
-                    top: Math.floor($(window).height() / 2.5),
-                    left: Math.floor($(window).width() / 2.2),
-                    pinning: false
-                }
-            }).data("kendoNotification");
-            
             //更改日期事件
             function changeDate() {
                 buttonDown.selected("");
@@ -275,9 +313,6 @@
                     keyWords: keySearch ? keySearch.value() : ""
                 }
             }
-
-            //初始化
-            navActive(1);
 
         });
     </script>

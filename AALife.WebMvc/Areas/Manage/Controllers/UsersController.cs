@@ -18,6 +18,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Users
+        [AdminAuthorize]
         public ActionResult Index()
         {
             return View();

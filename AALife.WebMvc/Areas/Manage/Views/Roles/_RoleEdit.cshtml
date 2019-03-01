@@ -1,0 +1,113 @@
+﻿<div class="tabstrip">
+    <ul>
+        <li class="k-state-active">
+            角色
+        </li>
+        <li>
+            用户角色
+        </li>
+    </ul>
+    <div>
+        <div class="orders"></div>
+    </div>
+    <div>
+        <div id="usergrid"></div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        //多标签
+        $(".tabstrip").kendoTabStrip({
+            animation: {
+                open: { effects: "fadeIn" }
+            }
+        });
+        
+        //选择用户列表
+        var userGrid = $("#usergrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: $.const.kendoapi.userlites,
+                        cache: false,
+                        dataType: "json"
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number" },
+                            UserName: { type: "string" },
+                            UserNickName: { type: "string" },
+                            UserImage: { type: "string" },
+                            UserImageFull: { type: "string" },
+                            UserFrom: { type: "string" },
+                            UserFromName: { type: "string" },
+                            CreateDate: { type: "date" },
+                            Remark: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    display_kendoui_grid_error(e);
+                },
+                pageSize: 10
+            },
+            columns: [
+                {
+                    selectable: true,
+                    width: 100
+                },
+                {
+                    field: "Id",
+                    title: "编号",
+                    width: 100
+                },
+                {
+                    field: "UserName",
+                    title: "用户名",
+                    width: 100
+                },
+                {
+                    field: "UserNickName",
+                    title: "昵称",
+                    width: 100
+                },
+                {
+                    template: "<div class='k-user'><img src='#=UserImageFull#'></div>",
+                    field: "UserImage",
+                    title: "头像",
+                    width: 100,
+                    attributes: { style: "text-align: center" }
+                },
+                {
+                    template: "#=UserFromName#",
+                    field: "UserFrom",
+                    title: "来自",
+                    width: 100,
+                    filterable: {
+                        multi: true,
+                        dataSource: $.const.kendodata.userfrom,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Key #'/> #= data.Value || data.all #</label></li>"
+                        }
+                    }
+                },
+                {
+                    field: "CreateDate",
+                    title: "注册日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd}"
+                },
+                {
+                    field: "Remark",
+                    title: "备注",
+                    width: 100
+                }
+            ]
+        })).data("kendoGrid");
+
+    });
+</script>

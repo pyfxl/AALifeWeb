@@ -44,8 +44,6 @@
     <script>
         $(document).ready(function () {
 
-            navActive(0);
-
             //查询对象
             var query = { startDate: min_date, endDate: max_date, keyWords: "", dateType: 0, userId: @Model.Id };
 
@@ -73,7 +71,7 @@
                 },
                 pageable: {
                     refresh: true,
-                    pageSizes: JSON.parse($.const.siteSettings.PageNumberArrays),
+                    pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
                 },
                 columns: [
                     {

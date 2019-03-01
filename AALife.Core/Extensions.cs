@@ -21,5 +21,30 @@ namespace AALife.Core
             return o == null ? failureValue : evaluator(o);
         }
 
+        public static bool IsNumber(this object o)
+        {
+            try
+            {
+                Convert.ToDecimal(o);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public static bool IsDateTime(this object o)
+        {
+            try
+            {
+                Convert.ToDateTime(o);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 }

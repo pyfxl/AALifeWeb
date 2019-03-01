@@ -1,0 +1,42 @@
+﻿@using AALife.WebMvc.Areas.Manage.Models;
+@model IEnumerable<MenuViewModel>
+
+<div class="navbar navbar-sm navbar-inverse navbar-fixed-top top-zone">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse menu-zone">
+            <ul class="nav navbar-nav">
+                @foreach (var menu in Model)
+                {
+                    @RenderMenu(menu, 1);
+                }
+                @helper RenderMenu(MenuViewModel menu, int level)
+                {
+                    if (menu.ChildMenus.Count > 0)
+                    {
+                        <li class="f-down">
+                            @Html.ActionLink(menu.Name, menu.ActionName, menu.ControllerName)
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach (var cm in menu.ChildMenus)
+                                {
+                                    @RenderMenu(cm, level + 1);
+                                }
+                            </ul>
+                        </li>
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="@Url.Action(menu.ActionName, menu.ControllerName)" title="@menu.Name" key="@(menu.ControllerName.ToLower())">
+                                @menu.Name
+                            </a>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+

@@ -16,7 +16,7 @@ namespace AALife.Data.Domain
             DefaultLevel = 1;
             DefaultFrom = "web";
             PageNumber = 50;
-            PageNumberArrays = "[10, 30, 50, 100]";
+            PageNumbers = "[10, 30, 50, 100]";
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace AALife.Data.Domain
         /// 记录数组[10,30,50]
         /// </summary>
         [Display(Name = "记录数组")]
-        public string PageNumberArrays { get; set; }
+        public string PageNumbers { get; set; }
 
     }
 }

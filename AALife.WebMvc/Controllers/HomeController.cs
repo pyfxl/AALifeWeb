@@ -41,7 +41,7 @@ namespace AALife.WebMvc.Controllers
         [HttpPost]
         public ActionResult UpdatePassword(string returnUrl = "")
         {
-            var users = _userService.FindAll(a => a.Id > 0);
+            var users = _userService.Get();
             users.ToList().ForEach(a =>
             {
                 var saltKey = _encryptionService.CreateSaltKey(Constant.PasswordSaltSize);

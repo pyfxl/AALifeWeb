@@ -18,6 +18,16 @@ namespace AALife.Data.Services
         }
 
         /// <summary>
+        /// 获取集合
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public new IQueryable<T> Get()
+        {
+            return _repository.Table.Where(a => a.Live == 1);
+        }
+
+        /// <summary>
         /// 取用户所有记录，有缓存
         /// </summary>
         /// <param name="userId"></param>

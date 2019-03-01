@@ -27,90 +27,50 @@
     <script src="~/Scripts/String.js"></script>
     <script>
         $.const = {
-            siteSettings: @Html.Raw(Json.Encode(siteSettings)),
-            kendodata: {
-                itemtype: @Html.Raw(Json.Encode(AALife.Data.Constant.ItemTypeDic.ToArray())),
-                regiontype: @Html.Raw(Json.Encode(AALife.Data.Constant.RegionTypeDic.ToArray())),
-                userlevel: @Html.Raw(Json.Encode(AALife.Data.Constant.UserLevelDic.ToArray())),
-                userfrom: @Html.Raw(Json.Encode(AALife.Data.Constant.UserFromDic.ToArray())),
-                usertheme: @Html.Raw(Json.Encode(AALife.Data.Constant.UserThemeDic.ToArray()))
-            }
+            siteSettings: @Html.Raw(Json.Encode(siteSettings))
         };
     </script>
-    <script src="~/Scripts/date-custom.js"></script>
-    <script src="~/Scripts/common.js"></script>
-    <!--area-->
-    <script src="~/Areas/Manage/Scripts/kendo-custom-ui.js"></script>
+    <script src="~/Scripts/const.js"></script>
 </head>
 <body class="bg-brown">
 
-    <div class="navbar navbar-sm navbar-inverse navbar-fixed-top top-zone">
-        <div class="container-fluid">
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="f-down">
-                        @Html.ActionLink("用户列表", "Index", "Users")
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index", "Roles")">角色列表</a></li>
-                        </ul>
-                    </li>
-                    <li class="f-down">
-                        @Html.ActionLink("消费列表", "Index", "Items")
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a href="@Url.Action("Index", "Items", new RouteValueDictionary {{"dateType",1}})">按修改日期</a></li>
-                            <li><a href="@Url.Action("Index", "Items", new RouteValueDictionary {{"dateType",0}})">按消费日期</a></li>
-                        </ul>
-                    </li>
-                    <li>@Html.ActionLink("访问列表", "Index", "Views")</li>
-                    <li>@Html.ActionLink("数据管理", "Index", "Backup")</li>
-                    <li>@Html.ActionLink("网站管理", "Index", "SiteSettings")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    @Html.Action("SidebarMenu", "Home")
 
     <div class="container-fluid body-zone">
         @Html.Partial("Notifications")
         @RenderBody()
     </div>
 
+    <!--custome js-->
+    <script src="~/Scripts/date-custom.js"></script>
+    <script src="~/Areas/Manage/Scripts/kendo-custom-ui.js"></script>
+    <script src="~/Scripts/common.js"></script>
+
     @RenderSection("scripts", required: false)
 
-    <script type="text/javascript">
-        function resizeMain() {
-            var div = $("#main");
-            var windowHeight = $(window).innerHeight();
-            var offsetTop = div.offset().top;
-            var paddingBottom = 7;
-            var fixHeight = 2;
+    <script>
 
-            var calculatedHeight = windowHeight - offsetTop - paddingBottom - fixHeight;
-            div.height(calculatedHeight);
-        }
+        //TODO:新菜单根据Url决定逻辑, 目前适配二级菜单
+        (function () {
+            var locationHref = window.location.href.toLocaleLowerCase();
+            $(".menu-zone > ul > li > a").each(function () {
+                //debugger;
+                if (locationHref.indexOf($(this).attr("key")) > 0) {
+                    $(this).parent().addClass("active");
+                }
+                var parent = $(this);                
+                $(this).next("ul").each(function () {
+                    $("a", $(this)).each(function () {
+                        if (locationHref.indexOf($(this).attr("key")) > 0) {
+                            //$(this).parent().addClass("active");
+                            parent.parent().addClass("active");
+                            return false;
+                        }
+                    });
+                });
+            });
+        })();
 
-        //设置头部选中
-        function navActive(i) {
-            var navbar = $(".top-zone .nav > li");
-            navbar.removeClass("active");
-            navbar.eq(i).addClass("active");
-        }
-
-        jQuery(function ($) {
-            // kendo ui
-            kendo.culture("zh-CN");
-        });
-
-        //解决kendo日期时区问题
-        Date.prototype.toISOString = function () {
-            return moment(this).format("YYYY-MM-DDTHH:mm:ss");
-        };
-        
     </script>
 
 </body>

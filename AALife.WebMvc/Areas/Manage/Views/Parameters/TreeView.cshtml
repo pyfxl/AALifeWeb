@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "树编辑";
+}
+
+<div id="treeview"></div>
+
+<script id="editTemplate" type="text/x-kendo-template">
+    <label>Text: <input class="k-textbox" value="#= node.text #" /></label>
+    <button class="k-button k-primary">Save</button>
+</script>
+
+<script>
+      var editTemplate = kendo.template($("#editTemplate").html());
+
+      // initialize treeview
+      $("#treeview")
+        .kendoTreeView({
+          dataSource: [
+            { text: "foo", items: [
+              { text: "bar" },
+              { text: "baz" }
+            ] }
+          ],
+          // add template with edit button
+          template: "#: item.text # <button><span class='k-icon k-i-edit' /></button>"
+        })
+      	// bind buttons
+        .on("click", "button", function(e) {
+          e.preventDefault();
+          var node = $("#treeview").getKendoTreeView().dataItem(e.currentTarget);
+
+          // create & open window
+          $("<div />")
+          	.html(editTemplate({ node: node }))
+          	.appendTo("body")
+            .kendoWindow({
+              modal: true,
+              visible: false,
+              deactivate: function() {
+                this.destroy();
+              }
+            })
+          	// bind window button
+            .on("click", ".k-primary", function(e) {
+              e.preventDefault();
+
+              var dialog = $(e.currentTarget).closest("[data-role=window]").getKendoWindow();
+              var textbox = dialog.element.find(".k-textbox");
+
+              node.set("text", textbox.val());
+
+              dialog.close();
+            })
+          	.getKendoWindow().center().open();
+        });
+</script>

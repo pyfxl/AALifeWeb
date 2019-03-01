@@ -7,6 +7,7 @@ using AALife.Data.Infrastructure.Kendoui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic;
 
 namespace AALife.Data.Services
 {
@@ -23,9 +24,12 @@ namespace AALife.Data.Services
             this._encryptionService = encryptionService;
         }
 
-        public virtual IPagedList<UserTable> GetAllUserByPage(int page = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, IEnumerable<Sort> sort = null, Filter filter = null)
+        public virtual IPagedList<UserTable> GetAllUserByPage(int page = 0, int pageSize = int.MaxValue, IEnumerable<Sort> sort = null, Filter filter = null, IEnumerable<Group> group = null, IEnumerable<Aggregator> aggregates = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null)
         {
             var query = _repository.Table;
+
+            //sort
+            var newSort = new List<Sort>();
 
             if (filter != null)
             {
@@ -52,15 +56,32 @@ namespace AALife.Data.Services
                 query = query.Where(c => c.UserName.Contains(keyWords) || c.UserNickName.Contains(keyWords) || c.UserEmail.Contains(keyWords));
             }
 
-            if (sort != null)
+            if (group != null)
             {
-                query = query.Sort(sort);
-            }
-            else
-            {
-                query = query.OrderByDescending(c => c.Id);
+                foreach (var source in group)
+                {
+                    newSort.Add(new Sort()
+                    {
+                        Field = source.Field,
+                        Dir = source.Dir
+                    });
+                }
             }
 
+            if (sort != null)
+            {
+                newSort.AddRange(sort);
+            }
+
+            if (newSort.Any())
+            {
+                query = query.Sort(newSort);
+            }
+            else
+            { 
+                query = query.OrderByDescending(c => c.Id);
+            }
+            
             var users = new PagedList<UserTable>(query, page, pageSize);
             return users;
         }

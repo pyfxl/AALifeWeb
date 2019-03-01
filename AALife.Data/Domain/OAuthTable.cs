@@ -1,11 +1,12 @@
-﻿using Newtonsoft.Json;
+﻿using AALife.Core;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Data.Domain
 {
     [Table("tab_OAuthTable")]
-    public partial class OAuthTable : UserEntity
+    public partial class OAuthTable : BaseEntity
     {
         /// <summary>
         /// OpenId
@@ -20,6 +21,11 @@ namespace AALife.Data.Domain
         [MaxLength(100)]
         [Required]
         public string AccessToken { get; set; }
+
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public int UserId { get; set; }
 
         /// <summary>
         /// 旧用户Id

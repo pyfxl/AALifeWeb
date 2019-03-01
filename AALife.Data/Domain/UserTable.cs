@@ -69,12 +69,13 @@ namespace AALife.Data.Domain
         /// 创建日期
         /// </summary>
         public DateTime CreateDate { get; set; }
-
+        
         /// <summary>
-        /// 可用否
+        /// 备注
         /// </summary>
-        public byte Live { get; set; }
-
+        [MaxLength(100)]
+        public string Remark { get; set; }
+        
         /// <summary>
         /// 同步
         /// </summary>
@@ -84,12 +85,6 @@ namespace AALife.Data.Domain
         /// 修改日期
         /// </summary>
         public DateTime? ModifyDate { get; set; }
-
-        /// <summary>
-        /// 备注
-        /// </summary>
-        [MaxLength(100)]
-        public string Remark { get; set; }
 
         /// <summary>
         /// 商品列表

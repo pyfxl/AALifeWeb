@@ -107,6 +107,7 @@
     <Compile Include="CommonHelper.cs" />
     <Compile Include="Configuration\ISettings.cs" />
     <Compile Include="Domain\Configuration\CommonSettings.cs" />
+    <Compile Include="Domain\Configuration\Parameter.cs" />
     <Compile Include="Domain\Logging\ActivityLogType.cs" />
     <Compile Include="Domain\Media\Picture.cs" />
     <Compile Include="Domain\Media\PictureType.cs" />
@@ -129,6 +130,7 @@
     <Compile Include="IWebHelper.cs" />
     <Compile Include="Infrastructure\Mapper\AutoMapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mapper\IMapperConfiguration.cs" />
+    <Compile Include="Mapping\Configuration\ParameterMap.cs" />
     <Compile Include="Mapping\Configuration\SettingMap.cs" />
     <Compile Include="Mapping\Logging\ActivityLogMap.cs" />
     <Compile Include="Mapping\Logging\LogMap.cs" />
@@ -141,8 +143,31 @@
     <Compile Include="Migrations\201902121248358_Core-2.Designer.cs">
       <DependentUpon>201902121248358_Core-2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201902211445044_AddParameter.cs" />
+    <Compile Include="Migrations\201902211445044_AddParameter.Designer.cs">
+      <DependentUpon>201902211445044_AddParameter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902211520519_AddParameter-1.cs" />
+    <Compile Include="Migrations\201902211520519_AddParameter-1.Designer.cs">
+      <DependentUpon>201902211520519_AddParameter-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902220057405_AddParameter-2.cs" />
+    <Compile Include="Migrations\201902220057405_AddParameter-2.Designer.cs">
+      <DependentUpon>201902220057405_AddParameter-2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902241345375_UpdateParameter-1.cs" />
+    <Compile Include="Migrations\201902241345375_UpdateParameter-1.Designer.cs">
+      <DependentUpon>201902241345375_UpdateParameter-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902260918120_AddXXX.cs" />
+    <Compile Include="Migrations\201902260918120_AddXXX.Designer.cs">
+      <DependentUpon>201902260918120_AddXXX.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MimeTypes.cs" />
+    <Compile Include="OrderEntity.cs" />
+    <Compile Include="Repositorys\Configuration\IParameterRepository.cs" />
+    <Compile Include="Repositorys\Configuration\ParameterRepository.cs" />
     <Compile Include="Repositorys\Logging\IActivityLogRepository.cs" />
     <Compile Include="Repositorys\Configuration\ISettingRepository.cs" />
     <Compile Include="Repositorys\Logging\ILogRepository.cs" />
@@ -151,8 +176,10 @@
     <Compile Include="Repositorys\Configuration\SettingRepository.cs" />
     <Compile Include="Repositorys\Logging\LogRepository.cs" />
     <Compile Include="Repositorys\Media\PictureRepository.cs" />
+    <Compile Include="Services\Configuration\IParameterService.cs" />
     <Compile Include="Services\Configuration\ISettingService.cs" />
     <Compile Include="Services\Configuration\SettingExtensions.cs" />
+    <Compile Include="Services\Configuration\ParameterService.cs" />
     <Compile Include="Services\Configuration\SettingService.cs" />
     <Compile Include="Services\Logging\CustomerActivityService.cs" />
     <Compile Include="Services\Logging\DefaultLogger.cs" />
@@ -190,6 +217,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201902121248358_Core-2.resx">
       <DependentUpon>201902121248358_Core-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211445044_AddParameter.resx">
+      <DependentUpon>201902211445044_AddParameter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902211520519_AddParameter-1.resx">
+      <DependentUpon>201902211520519_AddParameter-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902220057405_AddParameter-2.resx">
+      <DependentUpon>201902220057405_AddParameter-2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902241345375_UpdateParameter-1.resx">
+      <DependentUpon>201902241345375_UpdateParameter-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902260918120_AddXXX.resx">
+      <DependentUpon>201902260918120_AddXXX.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

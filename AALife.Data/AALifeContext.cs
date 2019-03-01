@@ -19,12 +19,15 @@ namespace AALife.Data
 
         //业务部分
         public virtual IDbSet<UserTable> UserTables { get; set; }
+        public virtual IDbSet<UserRole> UserRoles { get; set; }
+        public virtual IDbSet<PermissionRecord> PermissionRecords { get; set; }
         public virtual IDbSet<ItemTable> ItemTables { get; set; }
         public virtual IDbSet<CategoryTypeTable> CategoryTypeTables { get; set; }
         public virtual IDbSet<CardTable> CardTables { get; set; }
         public virtual IDbSet<OAuthTable> OAuthTables { get; set; }
         public virtual IDbSet<ZhuanTiTable> ZhuanTiTables { get; set; }
         public virtual IDbSet<ZhuanZhangTable> ZhuanZhangTables { get; set; }
+        public virtual IDbSet<Employee> Employees { get; set; }
 
         public AALifeContext(string nameOrConnectionString)
             : base(nameOrConnectionString)

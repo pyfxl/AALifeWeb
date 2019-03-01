@@ -1,0 +1,312 @@
+﻿@{
+    ViewBag.Title = "详细信息";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="main">
+            <a class="k-button" href="@Url.Action("Index3")"><span class="k-icon k-i-undo"></span>返回</a>
+            <div class="tabstrip">
+                <ul>
+                    <li class="k-state-active">
+                        角色信息
+                    </li>
+                    <li>
+                        角色设置
+                    </li>
+                    <li>
+                        权限设置
+                    </li>
+                </ul>
+                <div>
+                    <div id="userrole">
+                        <ul>
+                            <li>@Model.Name</li>
+                            <li>@Model.SystemName</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div id="usergrid"></div>
+                </div>
+                <div>
+                    <div id="permission"></div>
+                </div>
+            </div>
+            <script>
+                var tab = $(".tabstrip").kendoTabStrip({});
+            </script>
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section scripts {
+    <script src="~/Areas/Manage/Scripts/roles.js"></script>
+    <script>
+
+        $(document).ready(function () {
+
+            var keyId = @ViewBag.Id;
+
+            //用户来自数据源
+            var dataUserFrom = new kendo.data.DataSource({
+                transport: {
+                    read: {
+                        url: String.format($.const.webapi.paramsbyname, "userfrom"),
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8"
+                    }
+                }
+            });
+
+            //选择用户列表
+            var userGrid = $("#usergrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+                dataSource: {
+                    transport: {
+                        read: {
+                            url: String.format($.const.webapi.userroleselects, keyId),
+                            cache: false,
+                            dataType: "json"
+                        },
+                        parameterMap: function (options, type) {
+                            return options;
+                        }
+                    },
+                    schema: {
+                        model: {
+                            id: "Id",
+                            fields: {
+                                Id: { type: "number" },
+                                UserName: { type: "string" },
+                                UserNickName: { type: "string" },
+                                UserImage: { type: "string" },
+                                UserImageFull: { type: "string" },
+                                UserFrom: { type: "string" },
+                                UserFromName: { type: "string" },
+                                CreateDate: { type: "date" },
+                                Remark: { type: "string" },
+                                IsCurrentRole: { type: "boolean" }
+                            }
+                        }
+                    },
+                    error: function (e) {
+                        display_kendoui_grid_error(e);
+                    },
+                    pageSize: 10
+                },
+                columns: [
+                    {
+                        selectable: true,
+                        width: 100
+                    },
+                    {
+                        field: "Id",
+                        title: "编号",
+                        width: 100
+                    },
+                    {
+                        field: "UserName",
+                        title: "用户名",
+                        width: 100
+                    },
+                    {
+                        field: "UserNickName",
+                        title: "昵称",
+                        width: 100
+                    },
+                    {
+                        template: "<div class='k-user'><img src='#=UserImageFull#'></div>",
+                        field: "UserImage",
+                        title: "头像",
+                        width: 100,
+                        attributes: { style: "text-align: center" }
+                    },
+                    {
+                        template: "#=UserFromName#",
+                        field: "UserFrom",
+                        title: "来自",
+                        width: 100,
+                        filterable: {
+                            multi: true,
+                            dataSource: dataUserFrom,
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>"
+                            }
+                        }
+                    },
+                    {
+                        field: "CreateDate",
+                        title: "注册日期",
+                        width: 100,
+                        format: "{0:yyyy/MM/dd}"
+                    },
+                    {
+                        field: "Remark",
+                        title: "备注",
+                        width: 100
+                    }
+                ],
+                dataBound: function (e) {
+                    var grid = this;
+                    var rows = grid.items(), n = 0;
+                    $.each(rows, function (i) {
+                        var row = this;
+                        var dataItem = grid.dataItem(row);
+                        if (dataItem.IsCurrentRole) {
+                            n++;
+                            //grid.select(row);
+                            $(row).addClass("k-state-selected");
+                            $(row).find(".k-checkbox").prop("checked", true);
+                        }
+                        if (n == rows.length) {
+                            var header = $(row).parents(".detailgrid").find(".k-grid-header .k-header").eq(0);
+                            header.find(".k-checkbox").prop("checked", true);
+                        }
+                    });
+                },
+                change: function (e) {
+                    var current = e.sender.current();
+                    if (current) {
+                        if (current[0].className == "k-header") {
+                            var selectedRows = this.select();
+                            var selectedDataItems = [];
+                            for (var i = 0; i < selectedRows.length; i++) {
+                                var dataItem = this.dataItem(selectedRows[i]);
+                                selectedDataItems.push(dataItem);
+                            }
+                            // selectedDataItems contains all selected data items
+                            insert_userrole(keyId, selectedDataItems);
+                        } else {
+                            var selectedRow = current.parent();
+                            var dataItem = this.dataItem(selectedRow);
+                            if (dataItem)
+                                insert_update_userrole(keyId, dataItem);
+                        }
+                    }
+                }
+            })).data("kendoGrid");
+
+            //权限数据源
+            var dataSource = new kendo.data.TreeListDataSource({
+                transport: {
+                    read: {
+                        url: $.const.webapi.permissions,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        parentId: "ParentId",
+                        fields: {
+                            Id: { type: "number", editable: false, nullable: false },
+                            ParentId: { type: "number" },
+                            Name: { type: "text", validation: { required: true, validationMessage: "角色名称为必填项" } },
+                            AreaName: { type: "text" },
+                            ControllerName: { type: "text" },
+                            ActionName: { type: "text" }
+                        },
+                        expanded: true
+                    }
+                },
+                change: function propagate(e) {
+                    var node = e.items && e.items[0];
+                    var propagatedField = "checked";
+
+                    // only propagate changes to the desired field
+                    if (!node || e.field != propagatedField) {
+                        return;
+                    }
+
+                    this.unbind("change", propagate);
+
+                    function update(dataSource, nodes, field, state) {
+                        for (var i = 0; i < nodes.length; i++) {
+                            nodes[i].set(field, state);
+
+                            update(dataSource, dataSource.childNodes(nodes[i]), field, state);
+                        }
+                    }
+
+                    update(this, this.childNodes(node), propagatedField, node[propagatedField]);
+
+                    this.bind("change", propagate);
+                }
+            });
+
+            //权限列表
+            var treelist = $("#permission").kendoTreeList($.extend(true, {}, $.const.kendotree, {
+                dataSource: dataSource,
+                columns: [
+                    {
+                        template: "<input type='checkbox' name='IsCurrentPermission' data-bind='checked: checked' />",
+                        width: 100
+                    },
+                    {
+                        expandable: true,
+                        field: "Name",
+                        title: "角色名称",
+                        width: 150
+                    },
+                    {
+                        field: "AreaName",
+                        title: "区域",
+                        width: 100
+                    },
+                    {
+                        field: "ControllerName",
+                        title: "控制器",
+                        width: 100
+                    },
+                    {
+                        field: "ActionName",
+                        title: "动作",
+                        width: 100
+                    }
+                ],
+                dataBound: function () {
+                    var view = this.dataSource.view();
+                    this.items().each(function (index, row) {
+                        kendo.bind(row, view[index]);
+                    });
+                },
+                change: function (e) {
+                    //console.log(e);
+                }
+            }));
+
+            //初始化
+            navActive(0);
+
+        });
+
+    </script>
+
+    <script type="text/x-kendo-template" id="template">
+        <div class="tabstrip">
+            <ul>
+                <li class="k-state-active">
+                    详细信息
+                </li>
+                <li>
+                    角色设置
+                </li>
+            </ul>
+            <div>
+                <div id="details-container">
+                    <input type="hidden" id="HideId" value="#= Id #" />
+                    <h2>#= Name #</h2>
+                    <dl>
+                        <dt>系统名称: #= SystemName #</dt>
+                        <dt>修改日期: #= kendo.toString(ModifyDate, "yyyy/MM/dd") #</dt>
+                    </dl>
+                </div>
+            </div>
+            <div>
+                <div class="detailgrid"></div>
+            </div>
+        </div>
+    </script>
+}

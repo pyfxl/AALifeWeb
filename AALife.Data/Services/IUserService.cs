@@ -9,7 +9,7 @@ namespace AALife.Data.Services
 {
     public interface IUserService : IBaseService<UserTable>
     {
-        IPagedList<UserTable> GetAllUserByPage(int page = 0, int pageSize = int.MaxValue, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null, IEnumerable<Sort> sort = null, Filter filter = null);
+        IPagedList<UserTable> GetAllUserByPage(int page = 0, int pageSize = int.MaxValue, IEnumerable<Sort> sort = null, Filter filter = null, IEnumerable<Group> group = null, IEnumerable<Aggregator> aggregates = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null);
 
         UserTable GetUserByUserName(string userName);
 

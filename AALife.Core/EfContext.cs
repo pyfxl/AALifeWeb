@@ -32,6 +32,7 @@ namespace AALife.Core
         public virtual IDbSet<Log> Logs { get; set; }
         public virtual IDbSet<ActivityLog> ActivityLogs { get; set; }
         public virtual IDbSet<Picture> Pictures { get; set; }
+        public virtual IDbSet<Parameter> Parameters { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -39,6 +40,7 @@ namespace AALife.Core
             modelBuilder.Configurations.Add(new ActivityLogMap());
             modelBuilder.Configurations.Add(new LogMap());
             modelBuilder.Configurations.Add(new PictureMap());
+            modelBuilder.Configurations.Add(new ParameterMap());
 
             base.OnModelCreating(modelBuilder);
         }

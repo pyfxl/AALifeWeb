@@ -9,6 +9,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
     public class ItemsController : BaseAdminController
     {
         // GET: Manage/Lists
+        [AdminAuthorize]
         public ActionResult Index(int userId = 0, int dateType = 0)
         {
             ViewBag.UserId = userId;

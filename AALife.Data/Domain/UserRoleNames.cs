@@ -1,11 +1,11 @@
 ﻿namespace AALife.Data.Domain
 {
-    public enum UserRoleNames
+    public static partial class UserRoleNames
     {
-        Administrators = 0,
+        public static string Administrators { get { return "Administrators"; } }
 
-        Registered = 1,
+        public static string Registered { get { return "Registered"; } }
 
-        Guests = 2
+        public static string Guests { get { return "Guests"; } }
     }
 }

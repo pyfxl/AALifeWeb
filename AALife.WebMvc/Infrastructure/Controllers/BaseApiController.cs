@@ -1,10 +1,13 @@
 ﻿using AALife.Core.Infrastructure;
 using AALife.Core.Services.Logging;
 using AALife.Data;
-using Kendo.DynamicLinq;
+using AALife.Data.Infrastructure.Kendoui;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Web.Http;
+using System.Web.Http.ModelBinding;
 
 namespace AALife.WebMvc
 {
@@ -44,10 +47,24 @@ namespace AALife.WebMvc
 
             var gridModel = new DataSourceResult
             {
-                //Errors = errorMessage
+                Errors = errorMessage
             };
 
             return Content(HttpStatusCode.BadRequest, gridModel);
+        }
+
+        /// <summary>
+        /// Error's json data for kendo grid
+        /// </summary>
+        /// <param name="errorMessage">Error message</param>
+        /// <returns>Error's json data</returns>
+        protected IHttpActionResult ErrorForKendoGridJson(ModelStateDictionary ModelState)
+        {
+            var errorMessage = ModelState.Values
+                .SelectMany(v => v.Errors)
+                .Select(e => e.ErrorMessage).FirstOrDefault();
+
+            return ErrorForKendoGridJson(errorMessage);
         }
 
     }

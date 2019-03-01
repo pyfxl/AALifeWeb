@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AALife.Core;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -9,6 +10,8 @@ namespace AALife.Data.Infrastructure.Kendoui
     /// </summary>
     public class Filter
     {
+        private object _tempValue;
+
         /// <summary>
         /// Gets or sets the name of the sorted field (property). Set to <c>null</c> if the <c>Filters</c> property is set.
         /// </summary>
@@ -22,7 +25,25 @@ namespace AALife.Data.Infrastructure.Kendoui
         /// <summary>
         /// Gets or sets the filtering value. Set to <c>null</c> if the <c>Filters</c> property is set.
         /// </summary>
-        public object Value { get; set; }
+        public object Value
+        {
+            get
+            {
+                if (_tempValue.IsNumber())
+                {
+                    return Convert.ToDecimal(_tempValue);
+                }
+                if (_tempValue.IsDateTime())
+                {
+                    return Convert.ToDateTime(_tempValue);
+                }
+                return _tempValue;
+            }
+            set
+            {
+                _tempValue = value;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the filtering logic. Can be set to "or" or "and". Set to <c>null</c> unless <c>Filters</c> is set.
@@ -54,7 +75,7 @@ namespace AALife.Data.Infrastructure.Kendoui
             {"isempty", ""},
             {"isnotempty", "!"},
             {"isnullorempty", ""},
-            {"isnotnullorempty", ""}
+            {"isnotnullorempty", "!"}
         };
 
         /// <summary>
@@ -111,8 +132,7 @@ namespace AALife.Data.Infrastructure.Kendoui
             {
                 return String.Format("{0} {1} null", Field, comparison);
             }
-
-            if (Operator == "isempty" || Operator == "isnotempty")
+            if (Operator == "isempty" || Operator == "isnotempty" || Operator == "isnullorempty" || Operator == "isnotnullorempty")
             {
                 return String.Format("{1}string.IsNullOrEmpty({0})", Field, comparison);
             }
@@ -139,5 +159,6 @@ namespace AALife.Data.Infrastructure.Kendoui
 
             return String.Format("{0} {1} @{2}", Field, comparison, index);
         }
+
     }
 }
