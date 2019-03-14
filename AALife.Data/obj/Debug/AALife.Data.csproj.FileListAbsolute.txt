@@ -49,12 +49,6 @@ D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.CoreCompileInpu
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.CopyComplete
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.dll
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.pdb
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermision5.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.InitDatabase.resources
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.GenerateResource.cache
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermision6.resources
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermision7.resources
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermision8.resources
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermision9.resources
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermision10.resources
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermision11.resources
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.AddXXX.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.InitDatabase1.resources

@@ -7,7 +7,7 @@
     var _detailRow, _Id;
 
     function dialog_close(e) {
-        kendoui_notification("成功。", "success");
+        kendoui_ajax_complete();
         _detailRow.find(".detailgrid").data("kendoGrid").dataSource.read();
     }
 </script>
@@ -56,7 +56,7 @@
                     }
                 },
                 error: function (e) {
-                    display_kendoui_grid_error(e);
+                    kendoui_grid_error(e);
                 }
             }));
 
@@ -132,7 +132,7 @@
                             }
                         },
                         error: function (e) {
-                            display_kendoui_grid_error(e);
+                            kendoui_grid_error(e);
                         },
                         pageSize: 10
                     },
@@ -219,7 +219,7 @@
                             result.push(dataItem);
                         }
                         delete_userrole(keyId, result, function (d) {
-                            kendoui_notification("成功。", "success");
+                            kendoui_ajax_complete();
                             detailGrid.dataSource.read();
                         });
                     }

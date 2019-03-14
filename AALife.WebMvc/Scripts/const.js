@@ -24,7 +24,8 @@ $.extend($.const, {
         categorytypes: "/api/v1/categorytypesapi/{0}",
         zhuantis: "/api/v1/zhuantisapi/{0}",
         zhuanzhangs: "/api/v1/zhuanzhangsapi/{0}",
-        cards: "/api/v1/cardsapi/{0}"
+        cards: "/api/v1/cardsapi/{0}",
+        messagetemplates: "/api/v1/messagetemplatesapi"
     },
     pages: {
         category: "/User/CategoryPage",

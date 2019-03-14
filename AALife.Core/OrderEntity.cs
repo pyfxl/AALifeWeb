@@ -11,15 +11,16 @@ namespace AALife.Core
     {
         public byte? Rank { get; set; }
 
-        [MaxLength(10)]
+        [MaxLength(20)]
         public string OrderNo { get; set; }
 
         public string GetOrderNo(OrderEntity parent)
         {
             if (parent == null)
-                return this.Rank.ToString();
+                return this.Rank.Value.ToString("00");
 
-            return string.Format("{0}.{1}", parent.OrderNo, this.Rank);
+            return string.Format("{0}.{1}", parent.OrderNo, this.Rank.Value.ToString("00"));
         }
+
     }
 }

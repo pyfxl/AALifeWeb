@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AALife.Core.Infrastructure.Kendoui;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -19,6 +20,12 @@ namespace AALife.Core.Services
         /// </summary>
         /// <returns></returns>
         IQueryable<T> Get();
+
+        /// <summary>
+        /// 获取全部，返回分页
+        /// </summary>
+        /// <returns></returns>
+        IPagedList<T> GetByPage(DataSourceRequest request, Expression <Func<T, bool>> where = null);
 
         /// <summary>
         /// 根据条件获取单个

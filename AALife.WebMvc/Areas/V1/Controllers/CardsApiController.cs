@@ -67,6 +67,30 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             return Ok();
         }
-        
+
+        #region 其他方法 
+
+        // GET api/<controller>
+        [Route("api/v1/cardnamesapi")]
+        public IHttpActionResult GetCardNames(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term)) return Json("");
+
+            var all = _cardService.FindAll(a => a.CardName.Contains(term))
+                .GroupBy(a => new { a.Id, a.CardName })
+                .Select(a => new { a.Key.Id, a.Key.CardName, Index = a.Key.CardName.IndexOf(term) })
+                .OrderBy(a => a.Index)
+                //.Skip(0).Take(50)
+                .ToList();
+
+            var result = all.GroupBy(a => a.CardName)
+                .Select(a => new { value = string.Join(", ", all.Where(b => b.CardName == a.Key).Select(b => b.Id).ToArray()), text = a.Key })
+                .ToList();
+
+            return Json(result);
+        }
+
+        #endregion
+
     }
 }

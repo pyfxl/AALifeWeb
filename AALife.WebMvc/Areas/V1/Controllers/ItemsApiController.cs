@@ -5,16 +5,16 @@ using AALife.Core.Services.Logging;
 using AALife.Data;
 using AALife.Data.Domain;
 using AALife.Data.Services;
-using AALife.Data.Infrastructure;
+using AALife.Core.Infrastructure;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.Query;
 using AALife.WebMvc.Models.ViewModel;
-using Kendo.DynamicLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Transactions;
 using System.Web.Http;
+using AALife.Core.Infrastructure.Kendoui;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
@@ -43,11 +43,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get([FromUri]Data.Infrastructure.Kendoui.DataSourceRequest common, [FromUri]ItemsQuery query)
+        public IHttpActionResult Get([FromUri]DataSourceRequest common, [FromUri]ItemsQuery query)
         {
+            //商品类别过滤
+            //
+
             var result = _itemService.GetAllItemByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, "Id", "asc", query.userId, query.startDate, query.endDate, query.keyWords);
 
-            var grid = new Data.Infrastructure.Kendoui.DataSourceResult
+            var grid = new DataSourceResult
             {
                 Data = result.Select(x =>
                 {
@@ -219,22 +222,20 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        [Route("api/v1/itemnamesapi/{id}")]
-        public IHttpActionResult GetItemNames(int id, string term)
+        [Route("api/v1/itemnamesapi")]
+        public IHttpActionResult GetItemNames(int? id, string term)
         {
             var all = _itemService.GetAllItem(id);
 
             if (term != null && term != "")
-            {
                 all = all.Where(a => a.ItemName.Contains(term));
-            }
 
             var item = all.GroupBy(a => a.ItemName)
                 .Select(a => new { Count = a.Count(), ItemName = a.Key, Index = a.Key.IndexOf(term) })
                 .OrderBy(a => a.Index).ThenByDescending(a => a.Count)
-                .Select(a => a.ItemName)
+                .Select(a => new { text = a.ItemName })
                 .Skip(0).Take(10)
-                .ToArray();
+                .ToList();
 
             return Json(item);
         }
@@ -246,9 +247,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         //更新字段值
         private void UpdateNameValue(ItemViewModel m)
         {
-            m.CategoryTypeName = _categoryTypeService.Find(a => a.UserId == m.UserId && a.Live == 1 && a.CategoryTypeId == m.CategoryTypeId)?.CategoryTypeName;
-            m.CardName = _cardService.Find(a => a.UserId == m.UserId && a.Live == 1 && a.CardId == m.CardId)?.CardName;
-            m.ZhuanTiName = _zhuanTiService.Find(a => a.UserId == m.UserId && a.Live == 1 && a.ZhuanTiId == m.ZhuanTiId)?.ZhuanTiName;
+            m.CategoryTypeName = _categoryTypeService.Get(m.CategoryTypeId.GetValueOrDefault())?.CategoryTypeName;
+            m.CardName = _cardService.Get(m.CardId.GetValueOrDefault())?.CardName;
+            m.ZhuanTiName = _zhuanTiService.Get(m.ZhuanTiId.GetValueOrDefault())?.ZhuanTiName;
         }
 
         //取区间的最大最小日期

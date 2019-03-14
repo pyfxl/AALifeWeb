@@ -4,6 +4,7 @@ using AALife.Core.Repositorys.Configuration;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
 using AALife.Core.Services.Media;
+using AALife.Core.Services.Messages;
 using AALife.Core.Services.Security;
 using Autofac;
 using Autofac.Builder;
@@ -71,6 +72,10 @@ namespace AALife.Core.Infrastructure.DependencyManagement
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
             builder.RegisterSource(new SettingsSource());
+
+            builder.RegisterType<DownloadService>().As<IDownloadService>().InstancePerLifetimeScope();
+
+            builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerLifetimeScope();
 
             //standard file system
             builder.RegisterType<PictureService>().As<IPictureService>()

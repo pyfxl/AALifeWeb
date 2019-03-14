@@ -1,7 +1,7 @@
 ﻿using AALife.Core.Infrastructure;
+using AALife.Core.Infrastructure.Kendoui;
 using AALife.Core.Services.Logging;
 using AALife.Data;
-using Kendo.DynamicLinq;
 using System;
 using System.Collections.Generic;
 using System.Web.Mvc;

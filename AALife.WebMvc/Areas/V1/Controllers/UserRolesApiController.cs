@@ -1,11 +1,11 @@
 ﻿using AALife.Core.Domain.Logging;
+using AALife.Core.Infrastructure.Kendoui;
 using AALife.Core.Services.Logging;
 using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
 using AutoMapper.QueryableExtensions;
-using Kendo.DynamicLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,19 +34,22 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // GET api/<controller>/5
         public IHttpActionResult Get(int id, [FromUri]DataSourceRequest request)
         {
-            var result = _userRoleService.Get(id).UserTables
-                .OrderByDescending(a => a.Id)
-                .Select(x => 
+            var users = _userService.GetByPage(request, x => x.UserRoles.Any(a => a.Id == id));
+
+            var grid = new DataSourceResult
+            {
+                Data = users.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
                     return m;
-                })
-                .AsQueryable();
+                }),
+                Total = users.TotalCount
+            };
 
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Query, "浏览用户角色记录。{0}", request.ToJson());
 
-            return Json(result.ToDataSourceResult(request));
+            return Json(grid);
         }
 
         // POST api/<controller>/5
@@ -108,11 +111,11 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         // 获取用户角色列表，默认选中当前已有的角色
         [Route("api/v1/userroleselectsapi/{id}")]
-        public IHttpActionResult GetUserRoles(int id, [FromUri]Data.Infrastructure.Kendoui.DataSourceRequest common)
+        public IHttpActionResult GetUserRoles(int id, [FromUri]DataSourceRequest common)
         {
             var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter);
 
-            var grid = new Data.Infrastructure.Kendoui.DataSourceResult
+            var grid = new DataSourceResult
             {
                 Data = result.Select(x =>
                 {

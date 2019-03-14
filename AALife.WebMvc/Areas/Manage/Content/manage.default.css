@@ -251,3 +251,29 @@ table td .form-group {
 .table-bordered tr:hover td {
     background-color: #e3e3e3;
 }
+
+
+/*搜索栏*/
+.searchbar {
+    /*height: 34px;
+    margin-bottom: 5px;*/
+}
+
+.searchbar .form-group,
+.searchbar button {
+    margin-bottom: 3px;
+}
+
+.searchbar .form-group .input-group .k-datepicker {
+    width: 110px !important;
+}
+
+.searchbar .form-group .input-group .k-textbox {
+    width: 80px !important;
+}
+
+.searchbar label,
+.searchbar button {
+    margin-left: 5px;
+    margin-right: 5px;
+}

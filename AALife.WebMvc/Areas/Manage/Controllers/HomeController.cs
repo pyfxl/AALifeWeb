@@ -49,7 +49,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                 permissions = permissions.Union(rp).ToList();
             }
 
-            var model = SortMenuForTree(0, permissions);
+            var model = SortMenuForTree(null, permissions);
             return PartialView(model);
         }
 
@@ -58,7 +58,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         /// </summary>
         /// <param name="parentId">父节点</param>
         /// <returns></returns>
-        public List<MenuViewModel> SortMenuForTree(int parentId, IEnumerable<PermissionRecord> rolePermissions)
+        public List<MenuViewModel> SortMenuForTree(int? parentId, IEnumerable<PermissionRecord> rolePermissions)
         {
             var model = new List<MenuViewModel>();
             foreach (var p in rolePermissions.Where(t => t.ParentId == parentId))

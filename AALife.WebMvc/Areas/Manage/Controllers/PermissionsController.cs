@@ -39,8 +39,12 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             var model = new PermissionMappingModel();
 
             var permissionRecords = _permissionService.Get();
+
+            permissionRecords = permissionRecords.OrderBy(a => a.OrderNo);
+
             var userRoles = _userRoleService.Get();
-            foreach (var pr in permissionRecords.OrderBy(a => a.OrderNo))
+
+            foreach (var pr in permissionRecords)
             {
                 model.AvailablePermissions.Add(new PermissionRecordModel
                 {
@@ -49,6 +53,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                     Name = _permissionService.GetFormattedBreadCrumb(pr)
                 });
             }
+
             foreach (var cr in userRoles)
             {
                 model.AvailableUserRoles.Add(new UserRoleModel
@@ -57,6 +62,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                     Name = cr.Name
                 });
             }
+
             foreach (var pr in permissionRecords)
                 foreach (var cr in userRoles)
                 {

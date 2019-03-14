@@ -1,7 +1,7 @@
-﻿using AALife.Data;
+﻿using AALife.Core.Infrastructure.Kendoui;
+using AALife.Data;
 using AALife.Data.Domain;
 using AALife.Data.Services;
-using AALife.WebMvc.jqGrid;
 using System.Linq;
 using System.Web.Http;
 
@@ -20,7 +20,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Get(int id)
         {
             var result = _categoryTypeService.GetAll(id);
-            var grid = new DataSourceResult
+            var grid = new jqGrid.DataSourceResult
             {
                 rows = result,
                 records = result.Count()
@@ -64,6 +64,30 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             return Ok();
         }
+
+        #region 其他方法 
+
+        // GET api/<controller>
+        [Route("api/v1/categorytypenamesapi")]
+        public IHttpActionResult GetCategoryTypeNames(string term)
+        {
+            if (string.IsNullOrWhiteSpace(term)) return Json("");
+
+            var all = _categoryTypeService.FindAll(a => a.CategoryTypeName.Contains(term))
+                .GroupBy(a => new { a.Id, a.CategoryTypeName })
+                .Select(a => new { a.Key.Id, a.Key.CategoryTypeName, Index = a.Key.CategoryTypeName.IndexOf(term) })
+                .OrderBy(a => a.Index)
+                //.Skip(0).Take(50)
+                .ToList();
+
+            var result = all.GroupBy(a => a.CategoryTypeName)
+                .Select(a => new { value = string.Join(", ", all.Where(b => b.CategoryTypeName == a.Key).Select(b => b.Id).ToArray()), text = a.Key })
+                .ToList();
+
+            return Json(result);
+        }
+        
+        #endregion
 
     }
 }

@@ -1,8 +1,10 @@
 ﻿using AALife.Core.Caching;
+using AALife.Core.Infrastructure.Kendoui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Linq.Dynamic;
 
 namespace AALife.Core.Services
 {
@@ -45,6 +47,39 @@ namespace AALife.Core.Services
         public IQueryable<T> Get()
         {
             return _repository.Table;
+        }
+
+        /// <summary>
+        /// 获取分页集合
+        /// </summary>
+        /// <param name="page"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
+        public virtual IPagedList<T> GetByPage(DataSourceRequest request, Expression<Func<T, bool>> where = null)
+        {
+            var query = _repository.Table;
+
+            if (where != null)
+            {
+                query = query.Where(where);
+            }
+
+            if (request.Filter != null)
+            {
+                query = query.Filter(request.Filter);
+            }
+
+            if (request.Sort != null)
+            {
+                query = query.Sort(request.Sort);
+            }
+            else
+            {
+                query = query.OrderBy("Id desc");
+            }
+
+            var results = new PagedList<T>(query, request.Page - 1, request.PageSize);
+            return results;
         }
 
         /// <summary>

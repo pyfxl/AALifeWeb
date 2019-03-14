@@ -71,7 +71,7 @@
                         contentType: "application/json; charset=utf-8",
                         type: "POST",
                         complete: function (xhr, textStatus) {
-                            display_kendoui_grid_complete(textStatus, grid, notification);
+                            kendoui_grid_complete(textStatus);
                         }
                     },
                     update: {
@@ -80,7 +80,7 @@
                         contentType: "application/json; charset=utf-8",
                         type: "PUT",
                         complete: function (xhr, textStatus) {
-                            display_kendoui_grid_complete(textStatus, grid, notification);
+                            kendoui_grid_complete(textStatus);
                         }
                     },
                     destroy: {
@@ -89,18 +89,17 @@
                         contentType: "application/json; charset=utf-8",
                         type: "DELETE",
                         complete: function (xhr, textStatus) {
-                            display_kendoui_grid_complete(textStatus, grid, notification);
+                            kendoui_grid_complete(textStatus);
                         }
                     },
                     parameterMap: function (options, operation) {
-                        parameter_format(options);
+                        kendoui_parameter_format(options);
                         if (operation !== "read" && options.models) {
                             return kendo.stringify(options.models[0]);
                         }
                         return options;
                     }
                 },
-                pageSize: $.const.siteSettings.PageNumber,
                 schema: {
                     model: {
                         id: "Id",
@@ -138,11 +137,12 @@
                     }
                 },
                 error: function (e) {
-                    display_kendoui_grid_error(e);
-                    grid.one("dataBinding", function (e) {
-                        e.preventDefault();
-                    });
-                }
+                    kendoui_grid_error(e); //TODO: 出错后，取消不起作用，注释下面的就正常了
+                    //grid.one("dataBinding", function (e) {
+                    //    e.preventDefault();
+                    //});
+                },
+                pageSize: $.const.siteSettings.PageNumber
             }));
 
             //用户来自数据源
@@ -182,7 +182,7 @@
             var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
                 dataSource: dataSource,
                 autoBind: false,
-                toolbar: ["create"],
+                toolbar: ["create", "excel"],
                 pageable: {
                     pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
                 },
@@ -254,77 +254,80 @@
                     }
                 },
                 {
-                    template: "#= UserThemeName #",
+                    //template: "#= UserThemeName #",
                     field: "UserTheme",
+                    values: @Html.Raw(Json.Encode(ViewBag.DataTheme)),
                     title: "样式",
                     width: 80,
-                    editor: function (container, options) {
-                        var input = $("<input required validationmessage='样式为必选项' />");
-                        input.attr("name", options.field);
-                        input.appendTo(container);
-                        input.kendoDropDownList({
-                            dataTextField: "Name",
-                            dataValueField: "Value",
-                            dataSource: dataTheme,
-                            animation: false
-                        });
-                        $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
-                    },
+                    //editor: function (container, options) {
+                    //    var input = $("<input required validationmessage='样式为必选项' />");
+                    //    input.attr("name", options.field);
+                    //    input.appendTo(container);
+                    //    input.kendoDropDownList({
+                    //        dataTextField: "Name",
+                    //        dataValueField: "Value",
+                    //        dataSource: dataTheme,
+                    //        animation: false
+                    //    });
+                    //    $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
+                    //},
                     filterable: {
                         multi: true,
-                        dataSource: dataTheme,
+                        dataSource: @Html.Raw(Json.Encode(ViewBag.DataTheme)),
                         itemTemplate: function (e) {
-                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
                         }
                     }
                 },
                 {
-                    template: "#= UserLevelName #",
+                    //template: "#= UserLevelName #",
                     field: "UserLevel",
+                    values: @Html.Raw(Json.Encode(ViewBag.DataUserLevel)),
                     title: "等级",
                     width: 80,
-                    editor: function (container, options) {
-                        var input = $("<input required validationmessage='等级为必选项' />");
-                        input.attr("name", options.field);
-                        input.appendTo(container);
-                        input.kendoDropDownList({
-                            dataTextField: "Name",
-                            dataValueField: "Value",
-                            dataSource: dataUserLevel,
-                            animation: false
-                        });
-                        $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
-                    },
+                    //editor: function (container, options) {
+                    //    var input = $("<input required validationmessage='等级为必选项' />");
+                    //    input.attr("name", options.field);
+                    //    input.appendTo(container);
+                    //    input.kendoDropDownList({
+                    //        dataTextField: "Name",
+                    //        dataValueField: "Value",
+                    //        dataSource: dataUserLevel,
+                    //        animation: false
+                    //    });
+                    //    $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
+                    //},
                     filterable: {
                         multi: true,
-                        dataSource: dataUserLevel,
+                        dataSource: @Html.Raw(Json.Encode(ViewBag.DataUserLevel)),
                         itemTemplate: function (e) {
-                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
                         }
                     }
                 },
                 {
-                    template: "#= UserFromName #",
+                    //template: "#= UserFromName #",
                     field: "UserFrom",
+                    values: @Html.Raw(Json.Encode(ViewBag.DataUserFrom)),
                     title: "来自",
                     width: 120,
-                    editor: function (container, options) {
-                        var input = $("<input required validationmessage='来自为必选项' />");
-                        input.attr("name", options.field);
-                        input.appendTo(container);
-                        input.kendoDropDownList({
-                            dataTextField: "Name",
-                            dataValueField: "Value",
-                            dataSource: dataUserFrom,
-                            animation: false
-                        });
-                        $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
-                    },
+                    //editor: function (container, options) {
+                    //    var input = $("<input required validationmessage='来自为必选项' />");
+                    //    input.attr("name", options.field);
+                    //    input.appendTo(container);
+                    //    input.kendoDropDownList({
+                    //        dataTextField: "Name",
+                    //        dataValueField: "Value",
+                    //        dataSource: dataUserFrom,
+                    //        animation: false
+                    //    });
+                    //    $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
+                    //},
                     filterable: {
                         multi: true,
-                        dataSource: dataUserFrom,
+                        dataSource: @Html.Raw(Json.Encode(ViewBag.DataUserFrom)),
                         itemTemplate: function (e) {
-                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
                         }
                     }
                 },

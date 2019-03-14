@@ -1,5 +1,6 @@
 using AALife.Core;
 using AALife.Data.Domain;
+using AALife.Data.Domain.Messages;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 
@@ -28,6 +29,8 @@ namespace AALife.Data
         public virtual IDbSet<ZhuanTiTable> ZhuanTiTables { get; set; }
         public virtual IDbSet<ZhuanZhangTable> ZhuanZhangTables { get; set; }
         public virtual IDbSet<Employee> Employees { get; set; }
+        public virtual IDbSet<MessageTemplate> MessageTemplates { get; set; }
+        public virtual IDbSet<QueuedEmail> QueuedEmails { get; set; }
 
         public AALifeContext(string nameOrConnectionString)
             : base(nameOrConnectionString)

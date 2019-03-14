@@ -1,7 +1,7 @@
 ﻿using AALife.Core.Infrastructure;
 using AALife.Core.Services.Logging;
 using AALife.Data;
-using AALife.Data.Infrastructure.Kendoui;
+using AALife.Core.Infrastructure.Kendoui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -62,7 +62,7 @@ namespace AALife.WebMvc
         {
             var errorMessage = ModelState.Values
                 .SelectMany(v => v.Errors)
-                .Select(e => e.ErrorMessage).FirstOrDefault();
+                .Select(e => string.IsNullOrWhiteSpace(e.ErrorMessage) ? e.Exception.Message : e.ErrorMessage).FirstOrDefault();
 
             return ErrorForKendoGridJson(errorMessage);
         }

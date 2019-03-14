@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,7 +31,7 @@ namespace AALife.Core.Domain.Configuration
         /// <summary>
         /// 父Id
         /// </summary>
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
 
         /// <summary>
         /// 叶子节点
@@ -40,6 +42,19 @@ namespace AALife.Core.Domain.Configuration
         /// 默认
         /// </summary>
         public bool? IsDefault { get; set; }
+
+        /// <summary>
+        /// 父亲
+        /// </summary>
+        [ForeignKey("ParentId")]
+        [JsonIgnore]
+        public virtual Parameter Parent { get; set; }
+
+        /// <summary>
+        /// 儿子
+        /// </summary>
+        [JsonIgnore]
+        public virtual ICollection<Parameter> Childs { get; set; }
 
     }
 }

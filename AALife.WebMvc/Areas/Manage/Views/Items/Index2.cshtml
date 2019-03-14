@@ -1,0 +1,233 @@
+﻿@using System.Configuration;
+
+@{
+    ViewBag.Title = "消费列表";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="searchbar" class="form-inline"></div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="main">
+            <div id="grid"></div>
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section scripts {
+    <script>        
+        $(document).ready(function () {
+
+            //列表数据源
+            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendogrid.dataSource, {
+                transport: {
+                    read: {
+                        url: $.const.webapi.items,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false
+                    },
+                    parameterMap: function (options, operation) {
+                        kendoui_parameter_format(options);
+                        if (operation !== "read" && options.models) {
+                            return kendo.stringify({ models: options.models[0] });
+                        }
+                        return options;
+                    }
+                },
+                pageSize: $.const.siteSettings.PageNumber,
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number" },
+                            ItemName: { type: "string" },
+                            CategoryTypeId: { type: "string" },
+                            ItemPrice: { type: "number" },
+                            ItemBuyDate: { type: "date" },
+                            UserId: { type: "string" },
+                            Recommend: { type: "number" },
+                            ModifyDate: { type: "date" },
+                            Synchronize: { type: "number" },
+                            ItemAppId: { type: "number" },
+                            RegionId: { type: "number" },
+                            RegionType: { type: "string" },
+                            ItemType: { type: "string" },
+                            ZhuanTiId: { type: "string" },
+                            CardId: { type: "string" },
+                            Remark: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            }));
+
+            //列表
+            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+                dataSource: dataSource,
+                autoBind: false,
+                pageable: {
+                    pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
+                },
+                columns: [                    
+                    {
+                        field: "Id",
+                        title: "编号",
+                        width: 80
+                    },
+                    {
+                        //template: "#= ItemTypeName #",
+                        field: "ItemType",
+                        values: @Html.Raw(Json.Encode(ViewBag.DataItemType)),
+                        title: "分类",
+                        width: 80,
+                        searchbar: "multeselect",
+                        filterable: { //TODO:ItemTypeName不能查询，应该要ItemType
+                            multi: true,
+                            dataSource: @Html.Raw(Json.Encode(ViewBag.DataItemType)),
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        field: "ItemName",
+                        title: "商品名称",
+                        width: 150,
+                        searchbar: {
+                            type: "autocomplete",
+                            url: "/api/v1/itemnamesapi?id="
+                        }
+                    },
+                    {
+                        template: "#= CategoryTypeName ? CategoryTypeName : '' #",
+                        field: "CategoryTypeId",
+                        title: "商品类别",
+                        width: 150,
+                        filterable: kendoui_comboboxin_filter("/api/v1/categorytypenamesapi"),
+                        searchbar: {
+                            type: "comboboxin",
+                            url: "/api/v1/categorytypenamesapi"
+                        }
+                    },
+                    {
+                        field: "ItemPrice",
+                        title: "价格",
+                        format: "{0:#,0.###}",
+                        attributes: { style: "text-align: right" },
+                        width: 100,
+                        searchbar: "numberrange"
+                    },
+                    {
+                        field: "ItemBuyDate",
+                        title: "日期",
+                        width: 100,
+                        format: "{0:yyyy/MM/dd}",
+                        searchbar: {
+                            type: "daterange",
+                            default: today_date()
+                        }
+                    },
+                    {
+                        template: "#= UserName #",
+                        field: "UserId",
+                        title: "用户名",
+                        width: 100,
+                        filterable: kendoui_comboboxin_filter("/api/v1/usernamesapi"),
+                        searchbar: {
+                            type: "combobox",
+                            url: "/api/v1/usernamesapi"
+                        }
+                    },
+                    {
+                        field: "Recommend",
+                        title: "推荐否",
+                        width: 80,
+                        filterable: {
+                            multi: true,
+                            dataSource: [{ text: "0", value: "0" }, { text: "1", value: "1" }],
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        field: "ModifyDate",
+                        title: "修改日期",
+                        width: 150,
+                        format: "{0:yyyy/MM/dd HH:mm:ss}",
+                        searchbar: "date"
+                    },
+                    {
+                        field: "Synchronize",
+                        title: "同步否",
+                        width: 80,
+                        filterable: {
+                            multi: true,
+                            dataSource: [{ text: "0", value: "0" }, { text: "1", value: "1" }],
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        //template: "#= RegionName ? RegionName : '' #",
+                        field: "RegionType",
+                        values: @Html.Raw(Json.Encode(ViewBag.DataRegionType)),
+                        title: "固定",
+                        width: 80,
+                        searchbar: "dropdown",
+                        filterable: {
+                            multi: true,
+                            dataSource: @Html.Raw(Json.Encode(ViewBag.DataRegionType)),
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        template: "#= CardName #",
+                        field: "CardId",
+                        title: "钱包",
+                        width: 100,
+                        filterable: kendoui_comboboxin_filter("/api/v1/cardnamesapi"),
+                        searchbar: {
+                            type: "comboboxin",
+                            url: "/api/v1/cardnamesapi"
+                        }
+                    },
+                    {
+                        template: "#= ZhuanTiName ? ZhuanTiName : '' #",
+                        field: "ZhuanTiId",
+                        title: "专题",
+                        width: 100,
+                        filterable: kendoui_comboboxin_filter("/api/v1/zhuantinamesapi"),
+                        searchbar: {
+                            type: "comboboxin",
+                            url: "/api/v1/zhuantinamesapi"
+                        }
+                    },
+                    {
+                        field: "Remark",
+                        title: "备注",
+                        width: 150,
+                        searchbar: "text"
+                    }
+                ]
+            })).data("kendoGrid");
+
+            //搜索栏
+            $("#searchbar").kendoSearchBar({ grid: "#grid" });
+
+            //刷新高度
+            resizeMain();
+
+        });
+    </script>
+}

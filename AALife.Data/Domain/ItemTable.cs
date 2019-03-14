@@ -54,19 +54,46 @@ namespace AALife.Data.Domain
         public string ItemType { get; set; }
 
         /// <summary>
-        /// 类别Id
+        /// 类别同步Id
+        /// </summary>
+        public int? CategoryTypeSyncId { get; set; }
+
+        /// <summary>
+        /// 专题同步Id
+        /// </summary>
+        public int? ZhuanTiSyncId { get; set; }
+
+        /// <summary>
+        /// 钱包同步Id
+        /// </summary>
+        public int? CardSyncId { get; set; }
+
+        /// <summary>
+        /// 类别
         /// </summary>
         public int? CategoryTypeId { get; set; }
-        
+
+        [JsonIgnore]
+        [ForeignKey("CategoryTypeId")]
+        public virtual CategoryTypeTable CategoryTypeTable { get; set; }
+
         /// <summary>
-        /// 专题Id
+        /// 专题
         /// </summary>
         public int? ZhuanTiId { get; set; }
 
+        [JsonIgnore]
+        [ForeignKey("ZhuanTiId")]
+        public virtual ZhuanTiTable ZhuanTiTable { get; set; }
+
         /// <summary>
-        /// 钱包Id
+        /// 钱包
         /// </summary>
         public int? CardId { get; set; }
+
+        [JsonIgnore]
+        [ForeignKey("CardId")]
+        public virtual CardTable CardTable { get; set; }
 
     }
 }

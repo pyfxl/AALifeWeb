@@ -276,3 +276,298 @@
     ui.plugin(KeySearch);
 
 })(jQuery);
+
+/*搜索栏插件*/
+; (function ($) {
+    // shorten references to variables. this is better for uglification
+    var kendo = window.kendo,
+        ui = kendo.ui,
+        Widget = ui.Widget,
+        proxy = $.proxy,
+        grid = null
+
+    var SearchBar = Widget.extend({
+        // initialization code goes here
+        init: function (element, options) {
+            var that = this;
+
+            // base call to initialize widget
+            Widget.fn.init.call(that, element, options);
+
+            // set class name
+            that.element.addClass(that.options.name.toLowerCase());
+
+            // 加载模板
+            that._create();
+            
+            // 按钮事件
+            that.element.on("click", "button", proxy(that._click, that));
+
+            // 触发
+            that.element.find("button").trigger("click");
+        },
+        options: {
+            // the name is what it will appear as off the kendo namespace(i.e. kendo.ui.MyWidget).
+            // The jQuery plugin would be jQuery.fn.kendoMyWidget.
+            name: "SearchBar",
+            // other options go here
+            grid: null
+        },
+        _create: function () {
+            var that = this;
+            var hasSearchBar = false;
+
+            // 指定grid
+            that.grid = $(that.options.grid).data("kendoGrid");
+
+            // 输出组件
+            $.each(that.grid.columns, function (i, d) {
+                if (d.searchbar) {
+                    var searchType = $.isPlainObject(d.searchbar) ? d.searchbar.type : d.searchbar;
+                    hasSearchBar = true;
+                    switch (searchType) {
+                        case "date":
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><input name="' + d.field + '"/></div>');
+                            $("input[name=" + d.field + "]").kendoDatePicker();
+                            break;
+                        case "daterange":
+                            var def = d.searchbar.default ? d.searchbar.default : "";
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><div class="input-group"><input name="' + d.field + '" value="' + def + '"/> - <input name="' + d.field + '" value="' + def + '"/></div></div>');
+                            $("input[name=" + d.field + "]").kendoDatePicker();
+                            break;
+                        case "number":
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><input class="k-textbox" name="' + d.field + '"/></div>');
+                            break;
+                        case "numberrange":
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><div class="input-group"><input class="k-textbox" name="' + d.field + '"/> - <input class="k-textbox" name="' + d.field + '"/></div></div>');
+                            break;
+                        case "dropdown":
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><input name="' + d.field + '"/></div>');
+                            $("input[name=" + d.field + "]").kendoDropDownList({
+                                optionLabel: "请选择",
+                                dataTextField: "text",
+                                dataValueField: "value",
+                                dataSource: d.values
+                            });
+                            break;
+                        case "multeselect":
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><div class="input-group"><select name="' + d.field + '"></select></div></div>');
+                            $("select[name=" + d.field + "]").kendoMultiSelect({
+                                optionLabel: "请选择",
+                                dataTextField: "text",
+                                dataValueField: "value",
+                                dataSource: d.values
+                            });
+                            break;
+                        case "autocomplete":
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><input name="' + d.field + '"/></div>');
+                            $("input[name=" + d.field + "]").kendoAutoComplete({
+                                dataSource: {
+                                    serverFiltering: true,
+                                    transport: {
+                                        read: {
+                                            url: d.searchbar.url,
+                                            dataType: "json"
+                                        },
+                                        parameterMap: function (options, operation) {
+                                            return { term: options.filter.filters[0].value };
+                                        },
+                                        //parameterMap: function (options, operation) {
+                                        //    return { term: options.filter.filters.length > 0 ? options.filter.filters[0].value : "" };
+                                        //}
+                                    },
+                                    requestStart: function (e) {
+                                        if (e.sender.filter() == undefined || e.sender.filter().filters.length == 0) {
+                                            e.preventDefault();
+                                        }
+                                    }
+                                },
+                                dataTextField: "text",
+                                filter: "startswith",
+                                minLength: 2,
+                                placeholder: "请输入"
+                            });
+                            break;
+                        case "comboboxin":
+                        case "combobox":
+                            var filter0;
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><input name="' + d.field + '"/></div>');
+                            $("input[name=" + d.field + "]").kendoComboBox({
+                                dataSource: {
+                                    serverFiltering: true,
+                                    transport: {
+                                        read: {
+                                            url: d.searchbar.url,
+                                            dataType: "json"
+                                        },
+                                        parameterMap: function (options, operation) {
+                                            return { term: options.filter.filters[0].value };
+                                        }
+                                    },
+                                    //requestStart: function (e) {
+                                    //    if (!e.sender.filter() || !e.sender.filter().filters.length > 0)
+                                    //        e.preventDefault();
+                                    //}
+                                },
+                                filtering: function (e) {
+                                    if (e.filter == undefined) {
+                                        e.filter = filter0;
+                                        e.sender.dataSource.filter(filter0);
+                                        e.preventDefault();
+                                    } else {
+                                        filter0 = e.filter;
+                                    }
+                                    if ($.trim(e.filter.value) == "") {
+                                        e.preventDefault();
+                                    }
+                                },
+                                valuePrimitive: true,
+                                autoBind: false,
+                                minLength: 2,
+                                filter: "contains",
+                                placeholder: "请输入",
+                                dataTextField: "text",
+                                dataValueField: "value"
+                            });
+                            break;
+                        default:
+                            that.element.append('<div class="form-group"><label for="' + d.field + '">' + d.title + '</label><input class="k-textbox" name="' + d.field + '"/></div>');
+                            break;
+                    }
+                }
+            });
+
+            // 输出搜索按钮
+            if (hasSearchBar) {
+                that.element.append('<button class="k-button k-primary">搜索</button>');
+            }
+        },
+        _click: function (e) {
+            var that = this;
+
+            // 保存过滤配置
+            var filters = [];
+
+            // 按类型组装
+            //that.element.find("input").each(function (i, d) {
+            //    var element = $(d);
+            //    var type = element.data("type");
+            //    var value = element.val();
+            //    var name = d.name;
+            //    var operate = element.data("operate");
+            //    switch (type) {
+            //        case "date":
+            //            if (value) {
+            //                filters.push({ field: name, operator: "lte", value: value + " 23:59:59" });
+            //                filters.push({ field: name, operator: "gte", value: value + " 00:00:00" });
+            //            }
+            //            break;
+            //        case "daterange":
+            //            if (value) {
+            //                if (operate == "gte")
+            //                    filters.push({ field: name, operator: operate, value: value + " 00:00:00" });
+            //                else
+            //                    filters.push({ field: name, operator: operate, value: value + " 23:59:59" });
+            //            }
+            //            break;
+            //        case "number":
+            //            if (value)
+            //                filters.push({ field: name, operator: "eq", value: value });
+            //            break;
+            //        case "numberrange":
+            //            if (value)
+            //                filters.push({ field: name, operator: operate, value: value });
+            //            break;
+            //        case "dropdown":
+            //            if (value)
+            //                filters.push({ field: name, operator: "eq", value: value });
+            //            break;
+            //        case "multeselect":
+            //            if (value)
+            //                filters.push({ field: name, operator: "eq", value: value });
+            //            break;
+            //        default:
+            //            if (value)
+            //                filters.push({ field: name, operator: "startswith", value: value });
+            //            break;
+            //    }
+            //});
+
+            // 输出组件
+            $.each(that.grid.columns, function (i, d) {
+                if (d.searchbar) {
+                    var searchType = $.isPlainObject(d.searchbar) ? d.searchbar.type : d.searchbar;
+                    switch (searchType) {
+                        case "date":
+                            var field = $(that.element.find("input[name=" + d.field + "]"));
+                            var v0 = $(field).val();
+                            if (v0) {
+                                filters.push({ field: d.field, operator: "gte", value: v0 + " 00:00:00" });
+                                filters.push({ field: d.field, operator: "lte", value: v0 + " 23:59:59" });
+                            }
+                            break;
+                        case "daterange":
+                            var field = $(that.element.find("input[name=" + d.field + "]"));
+                            var v0 = $(field[0]).val();
+                            var v1 = $(field[1]).val();
+                            if (v0)
+                                filters.push({ field: d.field, operator: "gte", value: v0 + " 00:00:00" });
+                            if (v1)
+                                filters.push({ field: d.field, operator: "lte", value: v1 + " 23:59:59" });
+                            break;
+                        case "number":
+                        case "dropdown":
+                            var field = $(that.element.find("input[name=" + d.field + "]"));
+                            var v0 = $(field).val();
+                            if (v0)
+                                filters.push({ field: d.field, operator: "eq", value: v0 });
+                            break;
+                        case "numberrange":
+                            var field = $(that.element.find("input[name=" + d.field + "]"));
+                            var v0 = $(field[0]).val();
+                            var v1 = $(field[1]).val();
+                            if (v0)
+                                filters.push({ field: d.field, operator: "gte", value: v0 });
+                            if (v1)
+                                filters.push({ field: d.field, operator: "lte", value: v1 });
+                            break;
+                        case "multeselect":
+                            var field = $(that.element.find("select[name=" + d.field + "]"));
+                            var v0 = $(field).val();
+                            if (v0.length > 0) {
+                                var fit = [];
+                                $.each(v0, function (i0, d0) {
+                                    fit.push({ field: d.field, operator: "eq", value: d0 });
+                                });
+                                filters.push({ logic: "or", filters: fit });
+                            }
+                            break;
+                        case "comboboxin":
+                            var field = $(that.element.find("input[name=" + d.field + "]"));
+                            var v0 = $(field).val();
+                            if (v0)
+                                filters.push({ field: d.field, operator: "in", value: v0 });
+                            break;
+                        case "combobox":
+                            var field = $(that.element.find("input[name=" + d.field + "]"));
+                            var v0 = $(field).val();
+                            if (v0)
+                                filters.push({ field: d.field, operator: "eq", value: v0 });
+                            break;
+                        default:
+                            var field = $(that.element.find("input[name=" + d.field + "]"));
+                            var v0 = $(field).val();
+                            if (v0)
+                                filters.push({ field: d.field, operator: "startswith", value: v0 });
+                            break;
+                    }
+                }
+            });
+
+            // 触发
+            that.grid.dataSource.filter(filters);
+        }
+    });
+
+    ui.plugin(SearchBar);
+})(jQuery);

@@ -1,5 +1,5 @@
-﻿using AALife.Service.EF;
-using Kendo.DynamicLinq;
+﻿using AALife.Core.Infrastructure.Kendoui;
+using AALife.Service.EF;
 using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
@@ -12,7 +12,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             ViewTableBLL bll = new ViewTableBLL();
             DataSourceRequest model = Newtonsoft.Json.JsonConvert.DeserializeObject<DataSourceRequest>(query);
 
-            return bll.GetViewTable(model.Take, model.Skip, model.Sort, model.Filter, null);
+            return null;// bll.GetViewTable(model.Take, model.Skip, model.Sort, model.Filter, null);
         }
 
         // POST api/<controller>

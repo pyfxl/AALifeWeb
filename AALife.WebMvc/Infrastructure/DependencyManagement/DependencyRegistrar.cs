@@ -5,6 +5,7 @@ using AALife.Core.Infrastructure.DependencyManagement;
 using AALife.Data;
 using AALife.Data.Authentication;
 using AALife.Data.Services;
+using AALife.Data.Services.Messages;
 using Autofac;
 using Autofac.Core;
 
@@ -54,6 +55,14 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
                 .InstancePerLifetimeScope();
 
             builder.RegisterType<ZhuanZhangService>().As<IZhuanZhangService>()
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<MessageTemplateService>().As<IMessageTemplateService>()
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<QueuedEmailService>().As<IQueuedEmailService>()
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
         }

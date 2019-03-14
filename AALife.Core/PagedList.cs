@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AALife.Core.Infrastructure.Kendoui;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -83,5 +85,8 @@ namespace AALife.Core
         {
             get { return (PageIndex + 1 < TotalPages); }
         }
+
+        public IEnumerable Groups { get; set; }
+        public object Aggregates { get; set; }
     }
 }

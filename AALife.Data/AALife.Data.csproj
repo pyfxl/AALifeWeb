@@ -62,7 +62,11 @@
     <Compile Include="Domain\CardTable.cs" />
     <Compile Include="Domain\CategoryTypeTable.cs" />
     <Compile Include="Domain\Employee.cs" />
-    <Compile Include="Domain\PermissionRecord.cs" />
+    <Compile Include="Domain\Messages\MessageDelayPeriod.cs" />
+    <Compile Include="Domain\Messages\MessageTemplate.cs" />
+    <Compile Include="Domain\Messages\QueuedEmail.cs" />
+    <Compile Include="Domain\Messages\QueuedEmailPriority.cs" />
+    <Compile Include="Domain\Security\PermissionRecord.cs" />
     <Compile Include="Domain\SiteSettings.cs" />
     <Compile Include="Domain\ItemTable.cs" />
     <Compile Include="Domain\OAuthTable.cs" />
@@ -74,47 +78,14 @@
     <Compile Include="Domain\ZhuanZhangTable.cs" />
     <Compile Include="AALifeContext.cs" />
     <Compile Include="Extensions.cs" />
-    <Compile Include="Infrastructure\Kendoui\Aggregator.cs" />
-    <Compile Include="Infrastructure\Kendoui\DataSourceRequest.cs" />
-    <Compile Include="Infrastructure\Kendoui\DataSourceResult.cs" />
-    <Compile Include="Infrastructure\Kendoui\Filter.cs" />
-    <Compile Include="Infrastructure\Kendoui\Group.cs" />
-    <Compile Include="Infrastructure\Kendoui\GroupResult.cs" />
-    <Compile Include="Infrastructure\Kendoui\GroupSelector.cs" />
-    <Compile Include="Infrastructure\Kendoui\QueryableExtensions.cs" />
-    <Compile Include="Infrastructure\Kendoui\Sort.cs" />
     <Compile Include="IWorkContext.cs" />
-    <Compile Include="Migrations\201902200957415_UpdatePermision-5.cs" />
-    <Compile Include="Migrations\201902200957415_UpdatePermision-5.Designer.cs">
-      <DependentUpon>201902200957415_UpdatePermision-5.cs</DependentUpon>
+    <Compile Include="Migrations\201903120325487_InitDatabase.cs" />
+    <Compile Include="Migrations\201903120325487_InitDatabase.Designer.cs">
+      <DependentUpon>201903120325487_InitDatabase.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201902201256533_UpdatePermision-6.cs" />
-    <Compile Include="Migrations\201902201256533_UpdatePermision-6.Designer.cs">
-      <DependentUpon>201902201256533_UpdatePermision-6.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902201302227_UpdatePermision-7.cs" />
-    <Compile Include="Migrations\201902201302227_UpdatePermision-7.Designer.cs">
-      <DependentUpon>201902201302227_UpdatePermision-7.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902201304533_UpdatePermision-8.cs" />
-    <Compile Include="Migrations\201902201304533_UpdatePermision-8.Designer.cs">
-      <DependentUpon>201902201304533_UpdatePermision-8.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902201324518_UpdatePermision-9.cs" />
-    <Compile Include="Migrations\201902201324518_UpdatePermision-9.Designer.cs">
-      <DependentUpon>201902201324518_UpdatePermision-9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902201350209_UpdatePermision-10.cs" />
-    <Compile Include="Migrations\201902201350209_UpdatePermision-10.Designer.cs">
-      <DependentUpon>201902201350209_UpdatePermision-10.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902201545413_UpdatePermision-11.cs" />
-    <Compile Include="Migrations\201902201545413_UpdatePermision-11.Designer.cs">
-      <DependentUpon>201902201545413_UpdatePermision-11.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902260918237_AddXXX.cs" />
-    <Compile Include="Migrations\201902260918237_AddXXX.Designer.cs">
-      <DependentUpon>201902260918237_AddXXX.cs</DependentUpon>
+    <Compile Include="Migrations\201903120336112_InitDatabase-1.cs" />
+    <Compile Include="Migrations\201903120336112_InitDatabase-1.Designer.cs">
+      <DependentUpon>201903120336112_InitDatabase-1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyType.cs" />
@@ -126,13 +97,17 @@
     <Compile Include="Services\ICardService.cs" />
     <Compile Include="Services\ICategoryTypeService.cs" />
     <Compile Include="Services\IItemService.cs" />
-    <Compile Include="Services\IPermissionService.cs" />
+    <Compile Include="Services\Security\IPermissionService.cs" />
     <Compile Include="Services\ItemService.cs" />
     <Compile Include="Services\IUserRoleService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\IZhuanTiService.cs" />
     <Compile Include="Services\IZhuanZhangService.cs" />
-    <Compile Include="Services\PermissionService.cs" />
+    <Compile Include="Services\Messages\IMessageTemplateService.cs" />
+    <Compile Include="Services\Messages\IQueuedEmailService.cs" />
+    <Compile Include="Services\Messages\MessageTemplateService.cs" />
+    <Compile Include="Services\Messages\QueuedEmailService.cs" />
+    <Compile Include="Services\Security\PermissionService.cs" />
     <Compile Include="Services\UserExtensions.cs" />
     <Compile Include="Services\UserRoleService.cs" />
     <Compile Include="Services\UserService.cs" />
@@ -152,29 +127,14 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902200957415_UpdatePermision-5.resx">
-      <DependentUpon>201902200957415_UpdatePermision-5.cs</DependentUpon>
+    <Folder Include="Infrastructure\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201903120325487_InitDatabase.resx">
+      <DependentUpon>201903120325487_InitDatabase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201256533_UpdatePermision-6.resx">
-      <DependentUpon>201902201256533_UpdatePermision-6.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201302227_UpdatePermision-7.resx">
-      <DependentUpon>201902201302227_UpdatePermision-7.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201304533_UpdatePermision-8.resx">
-      <DependentUpon>201902201304533_UpdatePermision-8.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201324518_UpdatePermision-9.resx">
-      <DependentUpon>201902201324518_UpdatePermision-9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201350209_UpdatePermision-10.resx">
-      <DependentUpon>201902201350209_UpdatePermision-10.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902201545413_UpdatePermision-11.resx">
-      <DependentUpon>201902201545413_UpdatePermision-11.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902260918237_AddXXX.resx">
-      <DependentUpon>201902260918237_AddXXX.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903120336112_InitDatabase-1.resx">
+      <DependentUpon>201903120336112_InitDatabase-1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

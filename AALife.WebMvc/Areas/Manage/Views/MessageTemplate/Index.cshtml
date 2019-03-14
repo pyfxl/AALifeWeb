@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewBag.Title = "消息模板";
+}
+
+<style type="text/css">
+    .k-edit-form-container {
+        width: 500px;
+    }
+    .k-popup-edit-form .k-edit-label {
+        width: 20%;
+    }
+    .k-popup-edit-form .k-edit-field {
+        width: 70%;
+    }
+    .k-popup-edit-form .k-edit-field > .k-textbox,
+    .k-popup-edit-form .k-edit-field > .k-widget:not(.k-tooltip) {
+        width: 21.5em;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="main">
+            <div id="grid"></div>
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section scripts {
+    <script>
+
+        $(document).ready(function () {
+
+            //列表数据源
+            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
+                transport: {
+                    read: {
+                        url: $.const.webapi.messagetemplates,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false
+                    },
+                    create: {
+                        url: $.const.webapi.messagetemplates,
+                    },
+                    update: {
+                        url: $.const.webapi.messagetemplates,
+                    },
+                    destroy: {
+                        url: $.const.webapi.messagetemplates,
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options) {
+                            return kendo.stringify(options);
+                        }
+                        return options;
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number", editable: false, nullable: false },
+                            IsActive: { type: "boolean", defaultValue: true },
+                            Name: { type: "text", validation: { required: true, validationMessage: "模板名称为必填！" } },
+                            SystemName: { type: "text", validation: { required: true, validationMessage: "系统名称为必填！" } },
+                            Subject: { type: "text", validation: { required: true, validationMessage: "主题为必填！" } },
+                            Body: { type: "text", validation: { required: true, validationMessage: "内容为必填！" } }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            }));
+
+            //角色列表
+            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+                dataSource: dataSource,
+                toolbar: ["create"],
+                editable: "popup",
+                edit: function (e) {
+                    
+                },
+                columns: [
+                    {
+                        field: "Name",
+                        title: "模板名称",
+                        width: 100
+                    },
+                    {
+                        field: "SystemName",
+                        title: "系统名称",
+                        width: 100
+                    },
+                    {
+                        field: "Subject",
+                        title: "主题",
+                        width: 100
+                    },
+                    {
+                        field: "Body",
+                        title: "内容",
+                        editor: textareaEditor,
+                        width: 100
+                    },
+                    {
+                        field: "IsActive",
+                        title: "启用否",
+                        width: 100
+                    },
+                    {
+                        command: ["edit", "destroy", { text: "测试", click: sendTest, iconClass: "k-icon k-i-hyperlink-email" }],
+                        title: "&nbsp;",
+                        width: 100
+                    }
+                ]
+            })).data("kendoGrid");
+
+        });
+
+        function sendTest(e) {
+            e.preventDefault();
+
+            var dataItem = this.dataItem($(e.currentTarget).closest("tr"));
+
+            $.ajax({
+                url: String.format("/api/v1/messagetemplatesapi/{0}", dataItem.Id),
+                dataType: "json",
+                type: "POST",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+
+                }
+            });
+        }
+
+        function textareaEditor(container, options) {
+            $('<textarea class="k-textbox" name="' + options.field + '" data-bind="value: ' + options.field + '" rows="4"></textarea>')
+                .appendTo(container);
+        }
+
+        function fnMultipleLayoutForm() {
+
+            $(".k-edit-form-container").prepend('<div class="column1" style="display: inline-block; float: left;padding-right:30px"></div><div class="column2" style="display: inline-block;float: left;padding-right:30px;"></div>');
+            
+            $(".k-edit-form-container").children(".k-edit-label, .k-edit-field").slice(0, parseInt($(".k-edit-form-container").children(".k-edit-label, .k-edit-field").length / 2)).appendTo(".column1");
+            
+            $(".k-edit-form-container").children(".k-edit-label, .k-edit-field").appendTo(".column2");
+
+            $(".k-edit-form-container").css("width", "auto");
+
+            $('.k-window').css({ top: '50%', left: '50%', margin: '-' + ($('.k-window').height() / 2) + 'px 0 0 -' + ($('.k-window').width() / 2) + 'px' });
+
+        };
+    </script>
+}

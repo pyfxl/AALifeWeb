@@ -2,6 +2,8 @@
 $.extend($.const, {    
     date: {
         format: "YYYY-MM-DD",
+        kendoformat: "{yyyy/MM/dd HH:mm:ss}",
+        kendodate: "yyyy/MM/dd HH:mm:ss",
         typestart: { "d": today_date(), "w": week_start(), "m": month_start(), "j": quarter_start(), "y": year_start(), "a": "" },
         typeend: { "d": today_date(), "w": week_end(), "m": month_end(), "j": quarter_end(), "y": year_end(), "a": "" }
     },
@@ -48,7 +50,7 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "PUT",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 },
                 destroy: {
@@ -56,7 +58,7 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "DELETE",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 },
                 create: {
@@ -64,9 +66,12 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "POST",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 }
+            },
+            error: function (e) {
+                kendoui_grid_error(e);
             },
             batch: false
         },
@@ -101,7 +106,7 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "PUT",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 },
                 destroy: {
@@ -109,7 +114,7 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "DELETE",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 },
                 create: {
@@ -117,7 +122,7 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "POST",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 }
             },
@@ -125,6 +130,9 @@ $.extend($.const, {
                 data: "Data",
                 total: "Total",
                 errors: "Errors"
+            },
+            error: function (e) {
+                kendoui_grid_error(e);
             }
         },
         reorderable: true,
@@ -157,7 +165,7 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "PUT",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 },
                 destroy: {
@@ -165,7 +173,7 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "DELETE",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 },
                 create: {
@@ -173,23 +181,22 @@ $.extend($.const, {
                     contentType: "application/json; charset=utf-8",
                     type: "POST",
                     complete: function (xhr, textStatus) {
-                        display_kendoui_grid_complete(textStatus);
+                        kendoui_grid_complete(textStatus);
                     }
                 }
             },
             schema: {
                 data: "Data",
                 total: "Total",
-                errors: "Errors",
-                groups: "Groups",
-                aggregates: "Aggregates"
+                errors: "Errors"
+            },
+            error: function (e) {
+                kendoui_grid_error(e);
             },
             batch: true,
             serverPaging: true,
             serverSorting: true,
             serverFiltering: true,
-            serverGrouping: true,
-            serverAggregates: false,
             pageSize: $.const.default.pagenumber
         },
         reorderable: true,
@@ -209,7 +216,7 @@ $.extend($.const, {
                 display: "共 {2} 条数据"
             }
         },
-        groupable: true,
+        groupable: false,
         columnMenu: false
     }
 });
@@ -337,8 +344,12 @@ String.prototype.jsv = function (id) {
     return $.jqo(this, id).find("option:selected").text();
 }
 
+/*!
+ * kendo function
+ */
+
 //kendo grid error
-function display_kendoui_grid_error(e) {
+function kendoui_grid_error(e) {
     let errors,
         text = e.xhr.responseText;
     if (text) {
@@ -350,12 +361,30 @@ function display_kendoui_grid_error(e) {
     kendoui_notification(errors, "error");
 }
 
+//kendo ajax error
+function kendoui_ajax_error(e) {
+    let errors,
+        text = e.responseText;
+    if (text) {
+        let json = JSON.parse(text);
+        errors = json.Message;
+    } else {
+        errors = "出错了！";
+    }
+    kendoui_notification(errors, "error");
+}
+
 //kendo grid complete
-function display_kendoui_grid_complete(textStatus, grid) {
+function kendoui_grid_complete(textStatus) {
     if (textStatus == "success") {
         kendoui_notification("成功。", "success");
         //grid.dataSource.read();
     }
+}
+
+//kendo grid complete
+function kendoui_ajax_complete() {
+    kendoui_grid_complete("success");
 }
 
 //kendo grid complete
@@ -368,16 +397,85 @@ function kendoui_notification(message, type) {
 }
 
 //kendo datetime format
-function parameter_format(options) {
+function kendoui_parameter_format(options) {
     if (options && options.filter && options.filter.filters && options.filter.filters.count != 0) {
         options.filter.filters.forEach(function (f) {
             if (f.operator && f.value && typeof f.value.getMonth == 'function' && typeof f.value.getMonth() == 'number') {
-                f.value = moment(f.value).format("YYYY/MM/DD");
+                //f.value = moment(f.value).format("YYYY/MM/DD");
+                f.value = kendo.toString(f.value, $.const.date.kendodate)
+            }
+            if (f.operator && f.value && f.operator == 'in') {
+                //debugger;
+                var fits = [];
+                f.value.split(", ").forEach(function (m) {
+                    var fit = {
+                        field: f.field,
+                        operator: "eq",
+                        value: m
+                    }
+                    fits.push(fit);
+                });
+                options.filter.filters.push({ filters: fits, logic: "or" });
             }
         });
     }
     return options;
 }
+
+//kendo combobox filter
+function kendoui_comboboxin_filter(url) {
+    return {
+        //extra: false,
+        operators: {
+            string: {
+                in: "等于"
+            }
+        },
+        ui: function (element) {
+            element.kendoComboBox({
+                dataSource: {
+                    serverFiltering: true,
+                    transport: {
+                        read: {
+                            url: url,
+                            dataType: "json"
+                        },
+                        parameterMap: function (options, operation) {
+                            return { term: options.filter.filters[0].value };
+                        }
+                    },
+                    requestStart: function (e) {
+                        if (e.sender.filter() == undefined || e.sender.filter().filters.length == 0) {
+                            e.preventDefault();
+                        }
+                    }
+                },
+                //filtering: function (e) {
+                //    if (e.filter == undefined || $.trim(e.filter.value) == "") {
+                //        e.preventDefault();
+                //    }
+                //},
+                valuePrimitive: true,
+                autoBind: false,
+                minLength: 2,
+                filter: "contains",
+                placeholder: "请输入",
+                dataTextField: "text",
+                dataValueField: "value"
+            });
+        }
+    }
+}
+
+jQuery(function ($) {
+    // kendo ui
+    kendo.culture("zh-CN");
+});
+
+//解决kendo日期时区问题
+Date.prototype.toISOString = function () {
+    return moment(this).format("YYYY-MM-DDTHH:mm:ss");
+};
 
 //调整grid高度
 function resizeMain() {
@@ -398,13 +496,15 @@ function navActive(i) {
     navbar.eq(i).addClass("active");
 }
 
-jQuery(function ($) {
-    // kendo ui
-    kendo.culture("zh-CN");
-});
-
-//解决kendo日期时区问题
-Date.prototype.toISOString = function () {
-    return moment(this).format("YYYY-MM-DDTHH:mm:ss");
-};
-
+//获取kendo列的值
+function getKendoValue(name, callback) {
+    return $.ajax({
+        url: String.format($.const.webapi.paramsbyname, name),
+        dataType: "json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: function (data) {
+            callback(data);
+        }
+    });
+}

@@ -1,7 +1,7 @@
 ﻿using AALife.Core.Domain.Configuration;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
-using AALife.Data.Infrastructure.Kendoui;
+using AALife.Core.Infrastructure.Kendoui;
 using AALife.WebMvc.Models.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -9,6 +9,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AALife.WebMvc.Infrastructure.Mapper;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
@@ -37,13 +38,17 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // GET: api/Parameters/5
         public IHttpActionResult Get(int id)
         {
-            var result = _parameterService.FindAll(a => a.ParentId == id && a.IsLeaf.Value);
+            var result = _parameterService.FindAll(a => a.ParentId == id);
 
             result = result.OrderBy(a => a.OrderNo);
 
             var grid = new DataSourceResult
             {
-                Data = result,
+                Data = result.AsEnumerable().Select(x =>
+                {
+                    var m = x.MapTo<Parameter, ParameterViewModel>();
+                    return m;
+                }),
                 Total = result.Count()
             };
 
@@ -55,7 +60,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var parent = _parameterService.Get(model.ParentId);
+                var parent = _parameterService.Get(model.ParentId.Value);
 
                 model.OrderNo = model.GetOrderNo(parent);
 
@@ -70,7 +75,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var parent = _parameterService.Get(model.ParentId);
+                var parent = _parameterService.Get(model.ParentId.Value);
                 var parameter = _parameterService.Get(model.Id);
 
                 parameter.Name = model.Name;
@@ -102,7 +107,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return Json(tree);
         }
 
-        private List<TreeViewModel> SortForTree(int? parentId = 0)
+        private List<TreeViewModel> SortForTree(int? parentId = null)
         {
             var model = new List<TreeViewModel>();
             foreach (var p in _parameterService.FindAll(a => a.ParentId == parentId && a.IsLeaf == null).OrderBy(a => a.OrderNo))
@@ -111,7 +116,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     id = p.Id,
                     text = p.Name,
-                    parentId = p.ParentId,
+                    parentId = p.ParentId.GetValueOrDefault(),
                     value = p.Value,
                     systemName = p.SystemName,
                     rank = p.Rank
@@ -127,9 +132,15 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         [Route("api/v1/paramsbynameapi/{name}")]
         public IHttpActionResult GetParamsByName(string name)
         {
-            var results = _parameterService.GetParamsByName(name);
+            var result = _parameterService.GetParamsByName(name);
 
-            return Json(results);
+            var data = result.Select(x =>
+            {
+                var m = x.MapTo<Parameter, ParameterViewModel>();
+                return m;
+            });
+
+            return Json(data);
         }
 
         #endregion

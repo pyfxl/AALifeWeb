@@ -63,3 +63,8 @@ D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.AddParamete
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.AddParameter2.resources
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.UpdateParameter1.resources
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.AddXXX.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.XXX.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.XXX1.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.XXX2.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Childa.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.AddDownload.resources

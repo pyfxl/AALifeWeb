@@ -61,4 +61,16 @@ namespace AALife.Core.Services.Configuration
         #endregion
 
     }
+
+    public static class ParameterExtensions
+    {
+        public static dynamic ToValue(this IEnumerable<Parameter> parameter)
+        {
+            return parameter.Select(x =>
+            new {
+                text = x.Name,
+                value = x.Value
+            });
+        }
+    }
 }

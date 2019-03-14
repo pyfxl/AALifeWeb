@@ -1,11 +1,9 @@
 ﻿using AALife.Core.Domain.Logging;
-using AALife.Core.Infrastructure.Mapper;
 using AALife.Core.Services.Logging;
 using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
-using Kendo.DynamicLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,7 +51,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             //admin role
             var adminRole = _userRoleService.GetUserRoleBySystemName(UserRoleNames.Administrators);
-            var parent = _permissionService.Get(model.ParentId);
+            var parent = _permissionService.Get(model.ParentId.GetValueOrDefault());
 
             //add role
             model.UserRoles.Add(adminRole);
@@ -74,7 +72,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             if (!ModelState.IsValid)
                 return ErrorForKendoGridJson(ModelState);
 
-            var parent = _permissionService.Get(model.ParentId);
+            //var parent = _permissionService.Get(model.ParentId.GetValueOrDefault());
             var permission = _permissionService.Get(model.Id);
 
             permission.Name = model.Name;
@@ -82,7 +80,26 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             permission.ControllerName = model.ControllerName;
             permission.ActionName = model.ActionName;
             permission.Rank = model.Rank;
-            permission.OrderNo = model.GetOrderNo(parent);
+            //permission.OrderNo = model.GetOrderNo(permission.ParentRecord);
+
+            //更新子列表排序
+            //permission.ChildRecords.ToList().ForEach(x =>
+            //{
+            //    x.OrderNo = x.GetOrderNo(permission);
+            //});
+
+            //更新子列表排序
+            Action<PermissionRecord> action = null;
+            action = (item) =>
+            {
+                item.OrderNo = item.GetOrderNo(item.ParentRecord);
+                foreach (var it in item.ChildRecords)
+                {
+                    action(it);
+                }
+            };
+
+            action(permission);
 
             //update
             _permissionService.Update(permission);
@@ -94,12 +111,17 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // DELETE api/<controller>/5
-        public IHttpActionResult Delete([FromBody]PermissionRecord model)
+        public IHttpActionResult Delete([FromBody]IEnumerable<PermissionRecord> models)
         {
-            var permissions = _permissionService.Get(model.Id);
+            var permissions = new List<PermissionRecord>();
 
-            //删除role关联
-            permissions.UserRoles.Clear();
+            models.OrderByDescending(a => a.ParentId).ToList().ForEach(x =>
+            {
+                var m = _permissionService.Get(x.Id);
+                m.UserRoles.Clear();
+
+                permissions.Add(m);
+            });
 
             //delete
             _permissionService.Delete(permissions);

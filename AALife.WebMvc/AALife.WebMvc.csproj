@@ -69,9 +69,6 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Kendo.DynamicLinq, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Kendo.DynamicLinq.1.1.2.0\lib\net40\Kendo.DynamicLinq.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -396,13 +393,16 @@
     </Compile>
     <Compile Include="Areas\Manage\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Manage\Controllers\MessageTemplateController.cs" />
     <Compile Include="Areas\Manage\Controllers\ParametersController.cs" />
     <Compile Include="Areas\Manage\Controllers\PermissionsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\CommonSettingsController.cs" />
     <Compile Include="Areas\Manage\Controllers\SiteSettingsController.cs" />
     <Compile Include="Areas\Manage\Controllers\RolesController.cs" />
     <Compile Include="Areas\Manage\Models\BaseModel.cs" />
     <Compile Include="Areas\Manage\Models\MenuViewModel.cs" />
     <Compile Include="Areas\V1\Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\V1\Controllers\MessageTemplatesApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ParametersApiController.cs" />
     <Compile Include="Areas\V1\Controllers\PermissionsApiController.cs" />
     <Compile Include="Areas\V1\Controllers\UserRolesApiController.cs" />
@@ -417,6 +417,7 @@
     <Compile Include="Infrastructure\Controllers\BaseController.cs" />
     <Compile Include="Infrastructure\Extensions\DateTimeExtensions.cs" />
     <Compile Include="Infrastructure\DependencyManagement\DependencyRegistrar.cs" />
+    <Compile Include="Infrastructure\FormValueRequiredAttribute.cs" />
     <Compile Include="Infrastructure\jqGrid\DataSourceRequest.cs" />
     <Compile Include="Infrastructure\jqGrid\DataSourceResult.cs" />
     <Compile Include="Infrastructure\jqGrid\Filter.cs" />
@@ -429,6 +430,7 @@
     <Compile Include="Infrastructure\Mapper\MapperConfiguration.cs" />
     <Compile Include="Infrastructure\Mapper\MappingExtensions.cs" />
     <Compile Include="Models\Query\UsersQuery.cs" />
+    <Compile Include="Models\ViewModel\MessageTemplateModel.cs" />
     <Compile Include="Models\ViewModel\PermissionInputModel.cs" />
     <Compile Include="Models\ViewModel\PermissionRecordModel.cs" />
     <Compile Include="Models\ViewModel\BaseViewModel.cs" />
@@ -1764,6 +1766,13 @@
     <Content Include="Areas\Manage\Views\Permissions\SettingTree.cshtml" />
     <Content Include="Areas\Manage\Views\Parameters\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Parameters\TreeView.cshtml" />
+    <Content Include="Areas\Manage\Views\Roles\Index4.cshtml" />
+    <Content Include="Areas\Manage\Views\Parameters\Index2.cshtml" />
+    <Content Include="Areas\Manage\Views\CommonSettings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\MessageTemplate\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Users\Index2.cshtml" />
+    <Content Include="Areas\Manage\Views\Items\Index2.cshtml" />
+    <Content Include="Areas\Manage\Views\Items\Index3.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\chplayer\hls\LICENSE" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

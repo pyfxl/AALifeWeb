@@ -3,7 +3,7 @@ using AALife.Core.Caching;
 using AALife.Core.Services;
 using AALife.Core.Services.Security;
 using AALife.Data.Domain;
-using AALife.Data.Infrastructure.Kendoui;
+using AALife.Core.Infrastructure.Kendoui;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +24,9 @@ namespace AALife.Data.Services
             this._encryptionService = encryptionService;
         }
 
-        public virtual IPagedList<UserTable> GetAllUserByPage(int page = 0, int pageSize = int.MaxValue, IEnumerable<Sort> sort = null, Filter filter = null, IEnumerable<Group> group = null, IEnumerable<Aggregator> aggregates = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null)
+        public virtual IPagedList<UserTable> GetAllUserByPage(int page = 0, int pageSize = int.MaxValue, IEnumerable<Sort> sort = null, Filter filter = null, int? userId = null, DateTime? startDate = null, DateTime? endDate = null, string keyWords = null)
         {
             var query = _repository.Table;
-
-            //sort
-            var newSort = new List<Sort>();
 
             if (filter != null)
             {
@@ -56,26 +53,9 @@ namespace AALife.Data.Services
                 query = query.Where(c => c.UserName.Contains(keyWords) || c.UserNickName.Contains(keyWords) || c.UserEmail.Contains(keyWords));
             }
 
-            if (group != null)
-            {
-                foreach (var source in group)
-                {
-                    newSort.Add(new Sort()
-                    {
-                        Field = source.Field,
-                        Dir = source.Dir
-                    });
-                }
-            }
-
             if (sort != null)
             {
-                newSort.AddRange(sort);
-            }
-
-            if (newSort.Any())
-            {
-                query = query.Sort(newSort);
+                query = query.Sort(sort);
             }
             else
             { 

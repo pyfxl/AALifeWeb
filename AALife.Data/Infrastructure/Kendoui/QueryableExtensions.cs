@@ -11,26 +11,30 @@ namespace AALife.Data.Infrastructure.Kendoui
         public static dynamic GroupByMany<TElement>(this IEnumerable<TElement> elements,
             IEnumerable<Group> groupSelectors)
         {
-            //empty
-            if (groupSelectors == null) return null;
-
-            //create a new list of Kendo Group Selectors 
-            var selectors = new List<GroupSelector<TElement>>(groupSelectors.Count());
-            foreach (var selector in groupSelectors)
+            if (groupSelectors != null && groupSelectors.Any())
             {
-                //compile the Dynamic Expression Lambda for each one
-                var expression =
-                    System.Linq.Dynamic.DynamicExpression.ParseLambda(typeof(TElement), typeof(object), selector.Field);
-                //add it to the list
-                selectors.Add(new GroupSelector<TElement>
+                //create a new list of Kendo Group Selectors 
+                var selectors = new List<GroupSelector<TElement>>(groupSelectors.Count());
+                foreach (var selector in groupSelectors)
                 {
-                    Selector = (Func<TElement, object>)expression.Compile(),
-                    Field = selector.Field,
-                    Aggregates = selector.Aggregates
-                });
+                    //compile the Dynamic Expression Lambda for each one
+                    var expression =
+                        System.Linq.Dynamic.DynamicExpression.ParseLambda(typeof(TElement), typeof(object), selector.Field);
+                    //add it to the list
+                    selectors.Add(new GroupSelector<TElement>
+                    {
+                        Selector = (Func<TElement, object>)expression.Compile(),
+                        Field = selector.Field,
+                        Aggregates = selector.Aggregates
+                    });
+                }
+                //call the actual group by method
+                return elements.GroupByMany(selectors.ToArray());
             }
-            //call the actual group by method
-            return elements.GroupByMany(selectors.ToArray());
+            else
+            {
+                return null;
+            }
         }
 
         public static dynamic GroupByMany<TElement>(this IEnumerable<TElement> elements,

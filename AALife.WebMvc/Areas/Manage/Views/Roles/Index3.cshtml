@@ -52,7 +52,7 @@
                     }
                 },
                 error: function (e) {
-                    display_kendoui_grid_error(e);
+                    kendoui_grid_error(e);
                 }
             }));
 
@@ -60,15 +60,6 @@
             var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
                 dataSource: dataSource,
                 columns: [
-                    {
-                        command: [
-                            { name: "edit" },
-                            { name: "destroy" },
-                            { text: "详情", iconClass: "k-icon k-i-copy", click: showDetails }
-                        ],
-                        title: "&nbsp;",
-                        width: 100
-                    },
                     {
                         field: "Id",
                         title: "编号",
@@ -82,6 +73,15 @@
                     {
                         field: "SystemName",
                         title: "系统名称",
+                        width: 100
+                    },
+                    {
+                        command: [
+                            { name: "edit" },
+                            { name: "destroy" },
+                            { text: "详情", iconClass: "k-icon k-i-copy", click: showDetails }
+                        ],
+                        title: "&nbsp;",
                         width: 100
                     }
                 ],
@@ -268,7 +268,6 @@
                     <h2>#= Name #</h2>
                     <dl>
                         <dt>系统名称: #= SystemName #</dt>
-                        <dt>修改日期: #= kendo.toString(ModifyDate, "yyyy/MM/dd") #</dt>
                     </dl>
                 </div>
             </div>

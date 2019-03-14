@@ -38,5 +38,15 @@ namespace AALife.WebMvc.Models.ViewModel
         /// </summary>
         public bool? IsDefault { get; set; }
 
+        /// <summary>
+        /// 排序
+        /// </summary>
+        public byte? Rank { get; set; }
+
+        /// <summary>
+        /// 排序字符
+        /// </summary>
+        public string OrderNo { get; set; }
+
     }
 }

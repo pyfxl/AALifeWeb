@@ -4,13 +4,12 @@ using AALife.Core.Services.Logging;
 using AALife.Core.Services.Security;
 using AALife.Data;
 using AALife.Data.Domain;
-using AALife.Data.Infrastructure.Kendoui;
+using AALife.Core.Infrastructure.Kendoui;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.Query;
 using AALife.WebMvc.Models.ViewModel;
 using AutoMapper.QueryableExtensions;
-using Kendo.DynamicLinq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,9 +37,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get([FromUri]Data.Infrastructure.Kendoui.DataSourceRequest common, [FromUri]UsersQuery query)
+        public IHttpActionResult Get([FromUri]DataSourceRequest common, [FromUri]UsersQuery query)
         {
-            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, common.Group, common.Aggregate, query.userId, query.startDate, query.endDate, query.keyWords);
+            //不使用Linq插件，因为速度慢
+            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, query.userId, query.startDate, query.endDate, query.keyWords);
 
             var viewModel = result.Select(x =>
             {
@@ -48,12 +48,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 return m;
             });
 
-            var grid = new Data.Infrastructure.Kendoui.DataSourceResult
-            {                
+            var grid = new DataSourceResult
+            {
                 Data = viewModel,
-                Total = result.TotalCount,
-                Groups = viewModel.GroupByMany(common.Group),
-                Aggregates = viewModel.AsQueryable().Aggregate(common.Aggregate)
+                Total = result.TotalCount
             };
 
             return Json(grid);
@@ -121,11 +119,11 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         // 获取用户列表，用于弹出窗口选择
         [Route("api/v1/userselectsapi")]
-        public IHttpActionResult GetUserRoles([FromUri]Data.Infrastructure.Kendoui.DataSourceRequest common, [FromUri]UsersQuery query)
+        public IHttpActionResult GetUserRoles([FromUri]DataSourceRequest common, [FromUri]UsersQuery query)
         {
-            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, common.Group, common.Aggregate, query.userId, query.startDate, query.endDate, query.keyWords);
+            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, query.userId, query.startDate, query.endDate, query.keyWords);
 
-            var grid = new Data.Infrastructure.Kendoui.DataSourceResult
+            var grid = new DataSourceResult
             {
                 Data = result.Select(x =>
                 {
@@ -140,9 +138,15 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         // GET api/<controller>
         [Route("api/v1/usernamesapi")]
-        public IHttpActionResult GetUserNames()
+        public IHttpActionResult GetUserNames(string term)
         {
-            var result = _userService.Get().Select(a => a.UserName).ToArray();
+            if (string.IsNullOrWhiteSpace(term)) return Json("");
+
+            var result = _userService.FindAll(a => a.UserName.Contains(term))
+                .Select(a => new { value = a.Id, text = a.UserName, Index = a.UserName.IndexOf(term) })
+                .OrderBy(a => a.Index)
+                .Skip(0).Take(10)
+                .ToList();
 
             return Json(result);
         }

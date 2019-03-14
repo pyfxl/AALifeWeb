@@ -1,6 +1,9 @@
-﻿using AALife.Core.Services.Logging;
+﻿using AALife.Core.Infrastructure.Kendoui;
+using AALife.Core.Services.Logging;
+using AALife.Data.Domain;
 using AALife.Data.Services;
-using Kendo.DynamicLinq;
+using AALife.WebMvc.Infrastructure.Mapper;
+using AALife.WebMvc.Models.ViewModel;
 using System.Linq;
 using System.Web.Http;
 

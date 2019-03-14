@@ -22,7 +22,7 @@ namespace AALife.WebMvc.Models.ViewModel
         
         public string spriteCssClass { get; set; }
 
-        public int parentId { get; set; }
+        public int? parentId { get; set; }
 
         public string value { get; set; }
 

@@ -1,0 +1,280 @@
+﻿@using System.Configuration;
+@using AALife.Core.Infrastructure;
+@using AALife.Data;
+
+@{
+    ViewBag.Title = "用户列表 2";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="searchbar" class="form-inline"></div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+<div class="row">
+    <div class="col-xs-12">
+        <div id="main">
+            <div id="grid"></div>
+        </div>
+    </div><!-- /.col -->
+</div><!-- /.row -->
+
+@section scripts {
+    <script>
+
+        $(document).ready(function () {
+
+            //列表数据源
+            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendogrid.dataSource, {
+                transport: {
+                    read: {
+                        url: $.const.webapi.users,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        //data: function (d) { return getQuery() },
+                        cache: false
+                    },
+                    create: {
+                        url: $.const.webapi.users,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "POST",
+                        complete: function (xhr, textStatus) {
+                            kendoui_grid_complete(textStatus);
+                        }
+                    },
+                    update: {
+                        url: $.const.webapi.users,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "PUT",
+                        complete: function (xhr, textStatus) {
+                            kendoui_grid_complete(textStatus);
+                        }
+                    },
+                    destroy: {
+                        url: $.const.webapi.users,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "DELETE",
+                        complete: function (xhr, textStatus) {
+                            kendoui_grid_complete(textStatus);
+                        }
+                    },
+                    parameterMap: function (options, operation) {
+                        kendoui_parameter_format(options);
+                        if (operation !== "read" && options.models) {
+                            return kendo.stringify(options.models[0]);
+                        }
+                        return options;
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
+                            UserName: {
+                                type: "string",
+                                validation: {
+                                    required: true,
+                                    validationMessage: "用户名为必填项",
+                                    usernamevalidation: function (input) {
+                                        if (input.is("[name='UserName']") && input.val() != "") {
+                                            input.attr("data-usernamevalidation-msg", "用户名必须3-20位");
+                                            return input.val().length >= 3 && input.val().length <= 20;
+                                        }
+                                        return true;
+                                    }
+                                }
+                            },
+                            UserPassword: { type: "string", validation: { required: true, validationMessage: "密码为必填项" } },
+                            UserNickName: { type: "string" },
+                            UserImage: { type: "string" },
+                            UserImageFull: { type: "string" },
+                            UserTheme: { type: "string", defaultValue: $.const.siteSettings.DefaultTheme },
+                            UserThemeName: { type: "string" },
+                            UserLevel: { type: "number", defaultValue: $.const.siteSettings.DefaultLevel },
+                            UserLevelName: { type: "string" },
+                            UserFrom: { type: "string", defaultValue: $.const.siteSettings.DefaultFrom },
+                            UserFromName: { type: "string" },
+                            ModifyDate: { type: "date", editable: false },
+                            CreateDate: { type: "date", editable: false },
+                            Synchronize: { type: "number", defaultValue: 1, validation: { min: 0, max: 1 } },
+                            Remark: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e); //TODO: 出错后，取消不起作用，注释下面的就正常了
+                    //grid.one("dataBinding", function (e) {
+                    //    e.preventDefault();
+                    //});
+                },
+                pageSize: $.const.siteSettings.PageNumber
+            }));
+
+            //列表
+            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+                dataSource: dataSource,
+                autoBind: false,
+                toolbar: ["create"],
+                pageable: {
+                    pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
+                },
+                columns: [
+                    {
+                        command: [
+                            { name: "edit", text: { edit: " ", cancel: " ", update: " " } },
+                            { name: "destroy", text: " " }
+                        ],
+                        title: "&nbsp;",
+                        width: 80
+                    },
+                    {
+                        template: "<a href='@Url.Action("Details", "Users")?id=#:Id#'>#:Id#</a>",
+                        field: "Id",
+                        title: "编号",
+                        width: 80
+                    },
+                    {
+                        field: "UserName",
+                        title: "用户名",
+                        width: 100,
+                        searchbar: {
+                            type: "autocomplete",
+                            url: "/api/v1/usernamesapi"
+                        }
+                    },
+                    {
+                        field: "UserPassword",
+                        title: "密码",
+                        width: 100
+                    },
+                    {
+                        field: "UserNickName",
+                        title: "昵称",
+                        width: 100
+                    },
+                    {
+                        template: "<div class='k-user'><img src='#=UserImageFull#'></div>",
+                        field: "UserImage",
+                        title: "头像",
+                        width: 100,
+                        attributes: { style: "text-align: center" },
+                        editor: function (container, options) {
+                            if (options.model.Id == 0) {
+                                $("<div class='k-user'><img src='/Images/Users/user.gif'></div>").appendTo(container);
+                                return;
+                            }
+                            var input = $("<input type='file' />");
+                            input.attr("name", options.field);
+                            input.appendTo(container);
+                            input.kendoUpload({
+                                multiple: false,
+                                showFileList: false,
+                                async: {
+                                    saveUrl: '/api/v1/userimageapi?userId=' + options.model.Id,
+                                    autoUpload: true
+                                },
+                                localization: {
+                                    select: "选择"
+                                },
+                                validation: {
+                                    allowedExtensions: [".jpg", ".png", ".gif", ".bmp"]
+                                },
+                                success: function (e) {
+                                    notification.show("头像更新成功。", "success");
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                },
+                                error: function (e) {
+                                    notification.show("头像更新失败！", "error");
+                                }
+                            });
+                        }
+                    },
+                    {
+                        field: "UserTheme",
+                        values: @Html.Raw(Json.Encode(ViewBag.DataTheme)),
+                        title: "样式",
+                        width: 80,
+                        filterable: {
+                            multi: true,
+                            dataSource: @Html.Raw(Json.Encode(ViewBag.DataTheme)),
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        field: "UserLevel",
+                        values: @Html.Raw(Json.Encode(ViewBag.DataUserLevel)),
+                        title: "等级",
+                        width: 80,
+                        filterable: {
+                            multi: true,
+                            dataSource: @Html.Raw(Json.Encode(ViewBag.DataUserLevel)),
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        field: "UserFrom",
+                        values: @Html.Raw(Json.Encode(ViewBag.DataUserFrom)),
+                        title: "来自",
+                        width: 120,
+                        searchbar: "dropdown",
+                        filterable: {
+                            multi: true,
+                            dataSource: @Html.Raw(Json.Encode(ViewBag.DataUserFrom)),
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        field: "CreateDate",
+                        title: "注册日期",
+                        width: 150,
+                        format: "{0:yyyy/MM/dd HH:mm:ss}",
+                        searchbar: "daterange"
+                    },
+                    {
+                        field: "ModifyDate",
+                        title: "修改日期",
+                        width: 150,
+                        format: "{0:yyyy/MM/dd HH:mm:ss}",
+                        searchbar: "date"
+                    },
+                    {
+                        field: "Synchronize",
+                        title: "同步否",
+                        width: 80,
+                        format: "{0:0}",
+                        filterable: {
+                            multi: true,
+                            dataSource: [{ text: "0", value: "0" }, { text: "1", value: "1" }],
+                            itemTemplate: function (e) {
+                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
+                            }
+                        }
+                    },
+                    {
+                        field: "Remark",
+                        title: "备注",
+                        width: 150
+                    }
+                ]
+            })).data("kendoGrid");
+
+            //搜索栏
+            $("#searchbar").kendoSearchBar({ grid: "#grid" });
+
+            //刷新高度
+            resizeMain();
+
+        });
+    </script>
+}

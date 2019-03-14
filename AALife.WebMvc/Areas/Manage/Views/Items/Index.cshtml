@@ -35,7 +35,7 @@
 
 @section scripts {
     <script>
-        
+
         $(document).ready(function () {
 
             //刷新高度
@@ -67,6 +67,7 @@
                         cache: false
                     },
                     parameterMap: function (options, operation) {
+                        kendoui_parameter_format(options);
                         if (operation !== "read" && options.models) {
                             return kendo.stringify({ models: options.models[0] });
                         }
@@ -80,7 +81,7 @@
                         fields: {
                             Id: { type: "number" },
                             ItemName: { type: "string" },
-                            CategoryTypeId: { type: "number" },
+                            CategoryTypeId: { type: "string" },
                             ItemPrice: { type: "number" },
                             ItemBuyDate: { type: "date" },
                             UserId: { type: "number" },
@@ -98,10 +99,7 @@
                     }
                 },
                 error: function (e) {
-                    display_kendoui_grid_error(e);
-                    grid.one("dataBinding", function (e) {
-                        e.preventDefault();
-                    });
+                    kendoui_grid_error(e);
                 }
             }));
 
@@ -134,7 +132,7 @@
                 pageable: {
                     pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
                 },
-                columns: [                    
+                columns: [
                     {
                         field: "Id",
                         title: "编号",
@@ -162,8 +160,7 @@
                         template: "#= CategoryTypeName ? CategoryTypeName : '' #",
                         field: "CategoryTypeId",
                         title: "商品类别",
-                        width: 150,
-                        filterable: false
+                        width: 150
                     },
                     {
                         field: "ItemPrice",
@@ -182,8 +179,7 @@
                         template: "#= UserName #",
                         field: "UserId",
                         title: "用户名",
-                        width: 100,
-                        filterable: false
+                        width: 100
                     },
                     {
                         field: "Recommend",
@@ -232,15 +228,13 @@
                         template: "#= CardName #",
                         field: "CardId",
                         title: "钱包",
-                        width: 100,
-                        filterable: false
+                        width: 100
                     },
                     {
                         template: "#= ZhuanTiName ? ZhuanTiName : '' #",
                         field: "ZhuanTiId",
                         title: "专题",
-                        width: 100,
-                        filterable: false
+                        width: 100
                     },
                     {
                         field: "Remark",
@@ -265,7 +259,7 @@
                     queryList();
                 }
             }).data("kendoButtomDown");
-            
+
             //关键字组件
             var keySearch = $("#keysearch").kendoKeySearch({
                 minLength: 1,
@@ -313,7 +307,7 @@
                     keyWords: keySearch ? keySearch.value() : ""
                 }
             }
-
+            
         });
     </script>
 }
