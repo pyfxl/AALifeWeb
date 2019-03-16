@@ -6,34 +6,38 @@
     ViewBag.Title = "用户列表";
 }
 
-<div class="row">
-    <div class="col-xs-12">
-        <form class="form-inline search-zone">
-            <div class="form-group">
-                <div class="k-widget k-button-group k-buttondown" id="buttondown">
+<section class="content-header">
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="k-widget k-button-group" id="buttondown">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label>日期</label>
-                <input id="start" value="" class="s-input" />
-                &minus;
-                <input id="end" value="" class="s-input" />
-            </div>
-            <div class="form-group">
-                <label>关键字</label>
-                <input class="k-textbox" id="keysearch" value="" placeholder="用户名/昵称/邮箱" />
-            </div>
-        </form>
-    </div><!-- /.col -->
-</div><!-- /.row -->
+                <div class="form-group">
+                    <label>日期</label>
+                    <input id="start" value="" class="s-input" />
+                    &minus;
+                    <input id="end" value="" class="s-input" />
+                </div>
+                <div class="form-group">
+                    <label>关键字</label>
+                    <input class="k-textbox" id="keysearch" value="" placeholder="用户名/昵称/邮箱" />
+                </div>
+            </form>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
-<div class="row">
-    <div class="col-xs-12">
-        <div id="main">
-            <div id="grid"></div>
-        </div>
-    </div><!-- /.col -->
-</div><!-- /.row -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
 @section scripts {
     <script>
@@ -193,7 +197,7 @@
                         { name: "destroy", text: " " }
                     ],
                     title: "&nbsp;",
-                    width: 80
+                    width: 100
                 },
                 {
                     template: "<a href='@Url.Action("Details", "Users")?id=#:Id#'>#:Id#</a>",
@@ -217,14 +221,14 @@
                     width: 100
                 },
                 {
-                    template: "<div class='k-user'><img src='#=UserImageFull#'></div>",
+                    template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
                     field: "UserImage",
                     title: "头像",
                     width: 100,
                     attributes: { style: "text-align: center" },
                     editor: function (container, options) {
                         if (options.model.Id == 0) {
-                            $("<div class='k-user'><img src='/Images/Users/user.gif'></div>").appendTo(container);
+                            $("<div class='user-block'><img src='/Images/Users/user.gif' class='img-circle'/></div>").appendTo(container);
                             return;
                         }
                         var input = $("<input type='file' />");
@@ -334,13 +338,13 @@
                 {
                     field: "CreateDate",
                     title: "注册日期",
-                    width: 150,
+                    width: 160,
                     format: "{0:yyyy/MM/dd HH:mm:ss}"
                 },
                 {
                     field: "ModifyDate",
                     title: "修改日期",
-                    width: 150,
+                    width: 160,
                     format: "{0:yyyy/MM/dd HH:mm:ss}"
                 },
                 {
@@ -365,7 +369,7 @@
             })).data("kendoGrid");
 
             //自定义按钮组
-            var buttonDown = $("#buttondown").kendoButtomDown({
+            var buttonDown = $("#buttondown").kendoButtonDown({
                 dataSource: [
                     { title: "全部", code: "b_all" },
                     { title: "本年", code: "b_year", sub: true },
@@ -378,7 +382,7 @@
                     setDate(data.startDate, data.endDate);
                     queryList();
                 }
-            }).data("kendoButtomDown");
+            }).data("kendoButtonDown");
 
             //关键字组件
             var keySearch = $("#keysearch").kendoKeySearch({

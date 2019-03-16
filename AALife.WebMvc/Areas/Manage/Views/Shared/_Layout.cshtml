@@ -12,11 +12,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 后台管理</title>
-    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/Scripts/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- kendo ui -->
     <link href="~/Scripts/kendoui/styles/kendo.common.min.css" rel="stylesheet" />
-    <link href="~/Scripts/kendoui/styles/kendo.default.min.css" rel="stylesheet" />
-    <link href="~/Scripts/kendoui/styles/kendo.default.mobile.min.css" rel="stylesheet" />
-    <link href="~/Areas/Manage/Content/manage.default.css" rel="stylesheet" />
+    <link href="~/Scripts/kendoui/styles/kendo.metro.min.css" rel="stylesheet" />
+    <link href="~/Scripts/kendoui/styles/kendo.metro.mobile.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Scripts/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/Scripts/dist/css/skins/skin-blue-light.css">
+    <!--custom css-->
+    <link href="~/Areas/Manage/Content/Style.css" rel="stylesheet" />
     <!--common js-->
     <script src="~/Scripts/jquery-3.3.1.js"></script>
     <script src="~/Scripts/bootstrap.js"></script>
@@ -33,46 +41,52 @@
     </script>
     <script src="~/Scripts/const.js"></script>
 </head>
-<body class="bg-brown">
-
+<body class="hold-transition skin-blue-light layout-top-nav">
+<div class="wrapper">
     @Html.Action("SidebarMenu", "Home")
 
-    <div class="container-fluid body-zone">
-        @Html.Partial("Notifications")
-        @RenderBody()
+    <div class="content-wrapper">
+        <div class="container-fluid">
+            @Html.Partial("Notifications")
+            @RenderBody()
+        </div>
+        <!-- /.container -->
     </div>
+    <!-- /.content-wrapper -->
+</div>
+<!-- ./wrapper -->
 
-    <!--custome js-->
-    <script src="~/Scripts/date-custom.js"></script>
-    <script src="~/Areas/Manage/Scripts/kendo-custom-ui.js"></script>
-    <script src="~/Scripts/common.js"></script>
+<!--custome js-->
+<script src="~/Scripts/date-custom.js"></script>
+<script src="~/Areas/Manage/Scripts/kendo-custom-ui.js"></script>
+<script src="~/Scripts/common.js"></script>
 
-    @RenderSection("scripts", required: false)
+@RenderSection("scripts", required: false)
 
-    <script>
+<script>
 
-        //TODO:新菜单根据Url决定逻辑, 目前适配二级菜单
-        (function () {
-            var locationHref = window.location.href.toLocaleLowerCase();
-            $(".menu-zone > ul > li > a").each(function () {
-                //debugger;
-                if (locationHref.indexOf($(this).attr("key")) > 0) {
-                    $(this).parent().addClass("active");
-                }
-                var parent = $(this);                
-                $(this).next("ul").each(function () {
-                    $("a", $(this)).each(function () {
-                        if (locationHref.indexOf($(this).attr("key")) > 0) {
-                            //$(this).parent().addClass("active");
-                            parent.parent().addClass("active");
-                            return false;
-                        }
-                    });
+    //TODO:新菜单根据Url决定逻辑, 目前适配二级菜单
+    (function () {
+        var locationHref = window.location.href.toLocaleLowerCase();
+        $("#navbar-collapse > ul > li > a").each(function () {
+            //debugger;
+            if (locationHref.indexOf($(this).attr("key")) > 0) {
+                $(this).parent().addClass("active");
+            }
+            var parent = $(this);
+            $(this).next("ul").each(function () {
+                $("a", $(this)).each(function () {
+                    if (locationHref.indexOf($(this).attr("key")) > 0) {
+                        //$(this).parent().addClass("active");
+                        parent.parent().addClass("active");
+                        return false;
+                    }
                 });
             });
-        })();
+        });
+    })();
 
-    </script>
+</script>
 
 </body>
 </html>

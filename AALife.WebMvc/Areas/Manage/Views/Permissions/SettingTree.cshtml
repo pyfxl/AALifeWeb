@@ -2,73 +2,75 @@
     ViewBag.Title = "权限设置 2";
 }
 
-<div class="row">
-    <div class="col-xs-12">
-        <div id="main" class="k-block col-xs-2">
-            <div id="result"></div>
-            <div id="treeview"></div>
-        </div>
-    </div><!-- /.col -->
-</div><!-- /.row -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main" class="k-block col-xs-2">
+                <div id="result"></div>
+                <div id="treeview"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
 @section scripts {
-    <script>
-        $(document).ready(function () {
+<script>
+    $(document).ready(function () {
 
-            var dataSource = new kendo.data.HierarchicalDataSource({
-                transport: {
-                    read: {
-                        url: "/api/v1/permissiontreesapi",
-                        dataType: "json"
-                    }
+        var dataSource = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: "/api/v1/permissiontreesapi",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    hasChildren: "hasChildren",
+                    children: "items",
+                    expanded: true
                 },
-                schema: {
-                    model: {
-                        id: "id",
-                        hasChildren: "hasChildren",
-                        children: "items",
-                        expanded: true
-                    },
-                }
-            });
-
-            var treeview = $("#treeview").kendoTreeView({
-                checkboxes: {
-                    checkChildren: true
-                },
-                check: onCheck,
-                dataSource: dataSource
-            });
-
-            // function that gathers IDs of checked nodes
-            function checkedNodeIds(nodes, checkedNodes) {
-                for (var i = 0; i < nodes.length; i++) {
-                    if (nodes[i].checked) {
-                        checkedNodes.push(nodes[i].id);
-                    }
-
-                    if (nodes[i].hasChildren) {
-                        checkedNodeIds(nodes[i].children.view(), checkedNodes);
-                    }
-                }
-            }
-
-            // show checked node IDs on datasource change
-            function onCheck() {
-                var checkedNodes = [],
-                    treeView = $("#treeview").data("kendoTreeView"),
-                    message;
-
-                checkedNodeIds(treeView.dataSource.view(), checkedNodes);
-
-                if (checkedNodes.length > 0) {
-                    message = "IDs of checked nodes: " + checkedNodes.join(",");
-                } else {
-                    message = "No nodes checked.";
-                }
-
-                $("#result").html(message);
             }
         });
-    </script>
+
+        var treeview = $("#treeview").kendoTreeView({
+            checkboxes: {
+                checkChildren: true
+            },
+            check: onCheck,
+            dataSource: dataSource
+        });
+
+        // function that gathers IDs of checked nodes
+        function checkedNodeIds(nodes, checkedNodes) {
+            for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].checked) {
+                    checkedNodes.push(nodes[i].id);
+                }
+
+                if (nodes[i].hasChildren) {
+                    checkedNodeIds(nodes[i].children.view(), checkedNodes);
+                }
+            }
+        }
+
+        // show checked node IDs on datasource change
+        function onCheck() {
+            var checkedNodes = [],
+                treeView = $("#treeview").data("kendoTreeView"),
+                message;
+
+            checkedNodeIds(treeView.dataSource.view(), checkedNodes);
+
+            if (checkedNodes.length > 0) {
+                message = "IDs of checked nodes: " + checkedNodes.join(",");
+            } else {
+                message = "No nodes checked.";
+            }
+
+            $("#result").html(message);
+        }
+    });
+</script>
 }

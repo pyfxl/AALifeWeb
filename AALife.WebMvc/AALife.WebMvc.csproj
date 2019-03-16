@@ -1334,6 +1334,7 @@
     <Content Include="AALifeWeb\SyncZhuanZhang.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.html" />
+    <Content Include="Areas\Manage\Content\Style.css" />
     <Content Include="Areas\Manage\Scripts\roles.js" />
     <Content Include="Images\Users\user.gif" />
     <Content Include="Scripts\const.js" />

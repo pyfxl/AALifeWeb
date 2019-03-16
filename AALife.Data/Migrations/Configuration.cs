@@ -69,16 +69,16 @@ namespace AALife.Data.Migrations
                 new PermissionRecord()
                 {
                     Id = 2,
-                    Name = "角色管理",
+                    Name = "消费管理",
                     AreaName = "Manage",
-                    ControllerName = "Roles",
+                    ControllerName = "Items",
                     ActionName = "Index",
-                    Rank = 4,
-                    OrderNo = "04"
+                    Rank = 2,
+                    OrderNo = "02"
                 },
                 new PermissionRecord()
                 {
-                    Id = 4,
+                    Id = 3,
                     Name = "权限管理",
                     AreaName = "Manage",
                     ControllerName = "Permissions",
@@ -88,13 +88,33 @@ namespace AALife.Data.Migrations
                 },
                 new PermissionRecord()
                 {
-                    Id = 3,
-                    Name = "消费管理",
+                    Id = 4,
+                    Name = "角色管理",
                     AreaName = "Manage",
-                    ControllerName = "Items",
+                    ControllerName = "Roles",
                     ActionName = "Index",
-                    Rank = 2,
-                    OrderNo = "02"
+                    Rank = 4,
+                    OrderNo = "04"
+                },
+                new PermissionRecord()
+                {
+                    Id = 5,
+                    Name = "参数管理",
+                    AreaName = "Manage",
+                    ControllerName = "Parameters",
+                    ActionName = "Index",
+                    Rank = 5,
+                    OrderNo = "05"
+                },
+                new PermissionRecord()
+                {
+                    Id = 6,
+                    Name = "邮件模板",
+                    AreaName = "Manage",
+                    ControllerName = "MessageTemplate",
+                    ActionName = "Index",
+                    Rank = 6,
+                    OrderNo = "06"
                 }
             };
 

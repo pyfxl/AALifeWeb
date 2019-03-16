@@ -1,0 +1,87 @@
+﻿body {
+    font-family: 'Microsoft YaHei', SimHei, Arial;
+    background-color: #ecf0f5;
+}
+.container-fluid {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/*adminlte*/
+.content-wrapper {
+     min-height: unset; 
+}
+.content-header {
+    padding: 10px 5px 0 5px;
+}
+.content {
+    padding: 5px;
+}
+.skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
+    background-color: #ecf0f5;
+}
+.user-block img {
+    width: 32px;
+    height: 32px;
+    float: unset;
+}
+.dropdown-menu {
+    border-radius: 0;
+    border-color: #dbdbdb;
+}
+
+/*kendo*/
+.k-grid {
+    height: 100%;
+}
+.k-grid tbody .k-button {
+    min-width: unset;
+}
+.k-i-filter:before {
+    content: "\e015";
+}
+
+
+/*buttondown控件*/
+.buttondown .k-button {
+    /*padding: 0 !important;*/
+    overflow: unset;
+}
+.buttondown .dropdown-menu {
+    min-width: 100%;
+    border-radius: 0;
+    border-color: #dbdbdb;
+    margin: 2px 0 0 -1px;
+}
+.buttondown .dropdown-menu li {
+    text-align: center;
+}
+.buttondown .k-state-active .k-link,
+.buttondown .k-button:hover .k-link {
+    color: #fff;
+}
+.buttondown .k-button:hover .s-link:hover,
+.buttondown .k-state-active .s-link:hover {
+    color: #666 !important;
+}
+.buttondown .k-state-active .active {
+    text-decoration: underline;
+}
+
+
+/*searchbar控件*/
+.searchbar .form-group,
+.searchbar button {
+    margin-bottom: 3px;
+}
+.searchbar .form-group .input-group .k-datepicker {
+    width: 110px !important;
+}
+.searchbar .form-group .input-group .k-textbox {
+    width: 80px !important;
+}
+.searchbar label,
+.searchbar button {
+    margin-left: 5px;
+    margin-right: 5px;
+}

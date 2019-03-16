@@ -478,11 +478,11 @@ Date.prototype.toISOString = function () {
 };
 
 //调整grid高度
-function resizeMain() {
+function resizeMain(element) {
     var div = $("#main");
     var windowHeight = $(window).innerHeight();
     var offsetTop = div.offset().top;
-    var paddingBottom = 7;
+    var paddingBottom = 10;
     var fixHeight = 2;
 
     var calculatedHeight = windowHeight - offsetTop - paddingBottom - fixHeight;

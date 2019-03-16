@@ -12,13 +12,15 @@
     }
 </script>
 
-<div class="row">
-    <div class="col-xs-12">
-        <div id="main">
-            <div id="grid"></div>
-        </div>
-    </div><!-- /.col -->
-</div><!-- /.row -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
 @section scripts {
     <script src="~/Areas/Manage/Scripts/roles.js"></script>
@@ -50,8 +52,8 @@
                         id: "Id",
                         fields: {
                             Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
-                            Name: { type: "text" },
-                            SystemName: { type: "text" }
+                            Name: { type: "string" },
+                            SystemName: { type: "string" }
                         }
                     }
                 },
@@ -158,7 +160,7 @@
                             width: 100
                         },
                         {
-                            template: "<div class='k-user'><img src='#=UserImageFull#'></div>",
+                            template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
                             field: "UserImage",
                             title: "头像",
                             width: 100,

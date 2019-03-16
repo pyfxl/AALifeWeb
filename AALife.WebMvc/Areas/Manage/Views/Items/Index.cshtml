@@ -4,310 +4,315 @@
     ViewBag.Title = "消费列表";
 }
 
-<div class="row">
-    <div class="col-xs-12">
-        <form class="form-inline search-zone">
-            <div class="form-group">
-                <div class="k-widget k-button-group k-buttondown" id="buttondown">
+<section class="content-header">
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <div class="k-widget k-button-group k-buttondown" id="buttondown">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group">
-                <label>日期</label>
-                <input id="start" value="" class="s-input" />
-                &minus;
-                <input id="end" value="" class="s-input" />
-            </div>
-            <div class="form-group">
-                <label>关键字</label>
-                <input class="k-textbox" id="keysearch" value="" placeholder="商品名称" />
-            </div>
-        </form>
-    </div><!-- /.col -->
-</div><!-- /.row -->
+                <div class="form-group">
+                    <label>日期</label>
+                    <input id="start" value="" class="s-input" />
+                    &minus;
+                    <input id="end" value="" class="s-input" />
+                </div>
+                <div class="form-group">
+                    <label>关键字</label>
+                    <input class="k-textbox" id="keysearch" value="" placeholder="商品名称" />
+                </div>
+            </form>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
-<div class="row">
-    <div class="col-xs-12">
-        <div id="main">
-            <div id="grid"></div>
-        </div>
-    </div><!-- /.col -->
-</div><!-- /.row -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
 @section scripts {
-    <script>
+<script>
 
-        $(document).ready(function () {
+    $(document).ready(function () {
 
-            //刷新高度
-            resizeMain();
+        //刷新高度
+        resizeMain();
 
-            //查询对象
-            var query = { startDate: "", endDate: "", keyWords: "", userId: @ViewBag.UserId };
+        //查询对象
+        var query = { startDate: "", endDate: "", keyWords: "", userId: @ViewBag.UserId };
 
-            //开始日期
-            var start = $("#start").kendoDatePicker({
-                change: changeDate,
-                format: "yyyy/MM/dd"
-            }).data("kendoDatePicker");
+        //开始日期
+        var start = $("#start").kendoDatePicker({
+            change: changeDate,
+            format: "yyyy/MM/dd"
+        }).data("kendoDatePicker");
 
-            //结束日期
-            var end = $("#end").kendoDatePicker({
-                change: changeDate,
-                format: "yyyy/MM/dd"
-            }).data("kendoDatePicker");
+        //结束日期
+        var end = $("#end").kendoDatePicker({
+            change: changeDate,
+            format: "yyyy/MM/dd"
+        }).data("kendoDatePicker");
 
-            //列表数据源
-            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendogrid.dataSource, {
-                transport: {
-                    read: {
-                        url: $.const.webapi.items,
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        data: function (d) { return getQuery() },
-                        cache: false
-                    },
-                    parameterMap: function (options, operation) {
-                        kendoui_parameter_format(options);
-                        if (operation !== "read" && options.models) {
-                            return kendo.stringify({ models: options.models[0] });
-                        }
-                        return options;
-                    }
+        //列表数据源
+        var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendogrid.dataSource, {
+            transport: {
+                read: {
+                    url: $.const.webapi.items,
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8",
+                    data: function (d) { return getQuery() },
+                    cache: false
                 },
-                pageSize: $.const.siteSettings.PageNumber,
-                schema: {
-                    model: {
-                        id: "Id",
-                        fields: {
-                            Id: { type: "number" },
-                            ItemName: { type: "string" },
-                            CategoryTypeId: { type: "string" },
-                            ItemPrice: { type: "number" },
-                            ItemBuyDate: { type: "date" },
-                            UserId: { type: "number" },
-                            Recommend: { type: "number" },
-                            ModifyDate: { type: "date" },
-                            Synchronize: { type: "number" },
-                            ItemAppId: { type: "number" },
-                            RegionId: { type: "number" },
-                            RegionType: { type: "string" },
-                            ItemType: { type: "string" },
-                            ZhuanTiId: { type: "number" },
-                            CardId: { type: "number" },
-                            Remark: { type: "string" }
-                        }
+                parameterMap: function (options, operation) {
+                    kendoui_parameter_format(options);
+                    if (operation !== "read" && options.models) {
+                        return kendo.stringify({ models: options.models[0] });
                     }
-                },
-                error: function (e) {
-                    kendoui_grid_error(e);
+                    return options;
                 }
-            }));
-
-            //分类数据源
-            var dataItemType = new kendo.data.DataSource({
-                transport: {
-                    read: {
-                        url: String.format($.const.webapi.paramsbyname, "itemtype"),
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8"
+            },
+            pageSize: $.const.siteSettings.PageNumber,
+            schema: {
+                model: {
+                    id: "Id",
+                    fields: {
+                        Id: { type: "number" },
+                        ItemName: { type: "string" },
+                        CategoryTypeId: { type: "string" },
+                        ItemPrice: { type: "number" },
+                        ItemBuyDate: { type: "date" },
+                        UserId: { type: "number" },
+                        Recommend: { type: "number" },
+                        ModifyDate: { type: "date" },
+                        Synchronize: { type: "number" },
+                        ItemAppId: { type: "number" },
+                        RegionId: { type: "number" },
+                        RegionType: { type: "string" },
+                        ItemType: { type: "string" },
+                        ZhuanTiId: { type: "number" },
+                        CardId: { type: "number" },
+                        Remark: { type: "string" }
                     }
                 }
-            });
+            },
+            error: function (e) {
+                kendoui_grid_error(e);
+            }
+        }));
 
-            //区间数据源
-            var dataRegionType = new kendo.data.DataSource({
-                transport: {
-                    read: {
-                        url: String.format($.const.webapi.paramsbyname, "regiontype"),
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8"
-                    }
+        //分类数据源
+        var dataItemType = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: String.format($.const.webapi.paramsbyname, "itemtype"),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8"
                 }
-            });
+            }
+        });
 
-            //列表
-            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
-                dataSource: dataSource,
-                autoBind: false,
-                pageable: {
-                    pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
-                },
-                columns: [
-                    {
-                        field: "Id",
-                        title: "编号",
-                        width: 80
-                    },
-                    {
-                        template: "#= ItemTypeName #",
-                        field: "ItemType",
-                        title: "分类",
-                        width: 80,
-                        filterable: { //TODO:ItemTypeName不能查询，应该要ItemType
-                            multi: true,
-                            dataSource: dataItemType,
-                            itemTemplate: function (e) {
-                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
-                            }
-                        }
-                    },
-                    {
-                        field: "ItemName",
-                        title: "商品名称",
-                        width: 150
-                    },
-                    {
-                        template: "#= CategoryTypeName ? CategoryTypeName : '' #",
-                        field: "CategoryTypeId",
-                        title: "商品类别",
-                        width: 150
-                    },
-                    {
-                        field: "ItemPrice",
-                        title: "价格",
-                        format: "{0:#,0.###}",
-                        attributes: { style: "text-align: right" },
-                        width: 100
-                    },
-                    {
-                        field: "ItemBuyDate",
-                        title: "日期",
-                        width: 100,
-                        format: "{0:yyyy/MM/dd}"
-                    },
-                    {
-                        template: "#= UserName #",
-                        field: "UserId",
-                        title: "用户名",
-                        width: 100
-                    },
-                    {
-                        field: "Recommend",
-                        title: "推荐否",
-                        width: 80,
-                        filterable: {
-                            multi: true,
-                            dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
-                            itemTemplate: function (e) {
-                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
-                            }
-                        }
-                    },
-                    {
-                        field: "ModifyDate",
-                        title: "修改日期",
-                        width: 150,
-                        format: "{0:yyyy/MM/dd HH:mm:ss}"
-                    },
-                    {
-                        field: "Synchronize",
-                        title: "同步否",
-                        width: 80,
-                        filterable: {
-                            multi: true,
-                            dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
-                            itemTemplate: function (e) {
-                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
-                            }
-                        }
-                    },
-                    {
-                        template: "#= RegionName ? RegionName : '' #",
-                        field: "RegionType",
-                        title: "固定",
-                        width: 80,
-                        filterable: {
-                            multi: true,
-                            dataSource: dataRegionType,
-                            itemTemplate: function (e) {
-                                return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
-                            }
-                        }
-                    },
-                    {
-                        template: "#= CardName #",
-                        field: "CardId",
-                        title: "钱包",
-                        width: 100
-                    },
-                    {
-                        template: "#= ZhuanTiName ? ZhuanTiName : '' #",
-                        field: "ZhuanTiId",
-                        title: "专题",
-                        width: 100
-                    },
-                    {
-                        field: "Remark",
-                        title: "备注",
-                        width: 150
-                    }
-                ]
-            })).data("kendoGrid");
-
-            //自定义按钮组
-            var buttonDown = $("#buttondown").kendoButtomDown({
-                dataSource: [
-                    { title: "全部", code: "b_all" },
-                    { title: "本年", code: "b_year", sub: true },
-                    { title: "本季", code: "b_quarter", sub: true },
-                    { title: "本月", code: "b_month", sub: true },
-                    { title: "本周", code: "b_week", sub: true },
-                    { title: "本日", code: "b_day", sub: true }
-                ],
-                callback: function (data) {
-                    setDate(data.startDate, data.endDate);
-                    queryList();
+        //区间数据源
+        var dataRegionType = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: String.format($.const.webapi.paramsbyname, "regiontype"),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8"
                 }
-            }).data("kendoButtomDown");
+            }
+        });
 
-            //关键字组件
-            var keySearch = $("#keysearch").kendoKeySearch({
-                minLength: 1,
-                done: function (key) {
-                    setDate("", "");
-                    buttonDown.selected("");
-                    queryList();
+        //列表
+        var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+            dataSource: dataSource,
+            autoBind: false,
+            pageable: {
+                pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
+            },
+            columns: [
+                {
+                    field: "Id",
+                    title: "编号",
+                    width: 80
                 },
-                focus: function (e) {
-                    if (!e.key) {
-                        setQuery();
-                        e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": buttonDown.value() };
+                {
+                    template: "#= ItemTypeName #",
+                    field: "ItemType",
+                    title: "分类",
+                    width: 80,
+                    filterable: { //TODO:ItemTypeName不能查询，应该要ItemType
+                        multi: true,
+                        dataSource: dataItemType,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                        }
                     }
                 },
-                empty: function (data) {
-                    setDate(data.startDate, data.endDate);
-                    buttonDown.selected(data.buttonDown);
-                    queryList();
+                {
+                    field: "ItemName",
+                    title: "商品名称",
+                    width: 150
+                },
+                {
+                    template: "#= CategoryTypeName ? CategoryTypeName : '' #",
+                    field: "CategoryTypeId",
+                    title: "商品类别",
+                    width: 150
+                },
+                {
+                    field: "ItemPrice",
+                    title: "价格",
+                    format: "{0:#,0.###}",
+                    attributes: { style: "text-align: right" },
+                    width: 100
+                },
+                {
+                    field: "ItemBuyDate",
+                    title: "日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd}"
+                },
+                {
+                    template: "#= UserName #",
+                    field: "UserId",
+                    title: "用户名",
+                    width: 100
+                },
+                {
+                    field: "Recommend",
+                    title: "推荐否",
+                    width: 80,
+                    filterable: {
+                        multi: true,
+                        dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                        }
+                    }
+                },
+                {
+                    field: "ModifyDate",
+                    title: "修改日期",
+                    width: 160,
+                    format: "{0:yyyy/MM/dd HH:mm:ss}"
+                },
+                {
+                    field: "Synchronize",
+                    title: "同步否",
+                    width: 80,
+                    filterable: {
+                        multi: true,
+                        dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                        }
+                    }
+                },
+                {
+                    template: "#= RegionName ? RegionName : '' #",
+                    field: "RegionType",
+                    title: "固定",
+                    width: 80,
+                    filterable: {
+                        multi: true,
+                        dataSource: dataRegionType,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
+                        }
+                    }
+                },
+                {
+                    template: "#= CardName #",
+                    field: "CardId",
+                    title: "钱包",
+                    width: 100
+                },
+                {
+                    template: "#= ZhuanTiName ? ZhuanTiName : '' #",
+                    field: "ZhuanTiId",
+                    title: "专题",
+                    width: 100
+                },
+                {
+                    field: "Remark",
+                    title: "备注",
+                    width: 150
                 }
-            }).data("kendoKeySearch");
+            ]
+        })).data("kendoGrid");
 
-            //更改日期事件
-            function changeDate() {
-                buttonDown.selected("");
+        //自定义按钮组
+        var buttonDown = $("#buttondown").kendoButtonDown({
+            dataSource: [
+                { title: "全部", code: "b_all" },
+                { title: "本年", code: "b_year", sub: true },
+                { title: "本季", code: "b_quarter", sub: true },
+                { title: "本月", code: "b_month", sub: true },
+                { title: "本周", code: "b_week", sub: true },
+                { title: "本日", code: "b_day", sub: true }
+            ],
+            callback: function (data) {
+                setDate(data.startDate, data.endDate);
                 queryList();
             }
+        }).data("kendoButtonDown");
 
-            //设置日期值
-            function setDate(startDate, endDate) {
-                start.value(startDate);
-                end.value(endDate);
-            }
-
-            //列表查询
-            function queryList() {
-                dataSource.page(1);
-                dataSource.skip(0);
-            }
-
-            //取查询条件
-            function getQuery() {
-                return {
-                    startDate: kendo.toString(start.value(), "yyyy/MM/dd 00:00:00"),
-                    endDate: kendo.toString(end.value(), "yyyy/MM/dd 23:59:59"),
-                    keyWords: keySearch ? keySearch.value() : ""
+        //关键字组件
+        var keySearch = $("#keysearch").kendoKeySearch({
+            minLength: 1,
+            done: function (key) {
+                setDate("", "");
+                buttonDown.selected("");
+                queryList();
+            },
+            focus: function (e) {
+                if (!e.key) {
+                    //setQuery();
+                    e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": buttonDown.value() };
                 }
+            },
+            empty: function (data) {
+                setDate(data.startDate, data.endDate);
+                buttonDown.selected(data.buttonDown);
+                queryList();
             }
-            
-        });
-    </script>
+        }).data("kendoKeySearch");
+
+        //更改日期事件
+        function changeDate() {
+            buttonDown.selected("");
+            queryList();
+        }
+
+        //设置日期值
+        function setDate(startDate, endDate) {
+            start.value(startDate);
+            end.value(endDate);
+        }
+
+        //列表查询
+        function queryList() {
+            dataSource.page(1);
+            dataSource.skip(0);
+        }
+
+        //取查询条件
+        function getQuery() {
+            return {
+                startDate: kendo.toString(start.value(), "yyyy/MM/dd 00:00:00"),
+                endDate: kendo.toString(end.value(), "yyyy/MM/dd 23:59:59"),
+                keyWords: keySearch ? keySearch.value() : ""
+            }
+        }
+
+        grid.resize();
+    });
+</script>
 }

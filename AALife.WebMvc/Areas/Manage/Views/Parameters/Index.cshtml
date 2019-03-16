@@ -42,269 +42,271 @@
     </div>
 </script>
 
-<div class="row">
-    <div class="col-xs-12">
-        <div id="left" class="col-xs-2 k-block">
-            <div class="k-header">系统参数</div>
-            <div id="treeview"></div>
-            <ul id="menu">
-                <li data-type="add">添加</li>
-                <li data-type="edit">修改</li>
-                <li data-type="delete">删除</li>
-            </ul>
-        </div>
-        <div id="main" class="col-xs-10">
-            <div id="grid"></div>
-        </div>
-    </div><!-- /.col -->
-</div><!-- /.row -->
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="left" class="col-xs-2 k-block">
+                <div class="k-header">系统参数</div>
+                <div id="treeview"></div>
+                <ul id="menu">
+                    <li data-type="add">添加</li>
+                    <li data-type="edit">修改</li>
+                    <li data-type="delete">删除</li>
+                </ul>
+            </div>
+            <div id="main" class="col-xs-10">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
 @section scripts {
-    <script>
+<script>
 
-        $(document).ready(function () {
+    $(document).ready(function () {
             
-            //参数树数据源
-            var hiDataSource = new kendo.data.HierarchicalDataSource({
-                transport: {
-                    read: {
-                        url: "/api/v1/parametertreesapi",
-                        dataType: "json"
-                    }
-                },
-                schema: {
-                    model: {
-                        id: "id",
-                        hasChildren: "hasChildren",
-                        children: "items",
-                        expanded: true,
-                        value: "value"
-                    },
+        //参数树数据源
+        var hiDataSource = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: "/api/v1/parametertreesapi",
+                    dataType: "json"
                 }
-            });
-
-            //主参数树
-            var treeview = $("#treeview").kendoTreeView({
-                dataSource: hiDataSource,
-                //template: "#: item.text # <a class='myedit'><span class='k-icon k-i-edit' /></a>",
-                dataBound: function (e) {
-                    treeview.select(".k-first");
-                    treeview.trigger("select", {
-                        node: $("#treeview .k-first")[0]
-                    });
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    hasChildren: "hasChildren",
+                    children: "items",
+                    expanded: true,
+                    value: "value"
                 },
-                select: function (e) {
-                    var dataItem = treeview.dataItem(e.node);
-                    //var id = $(e.node).find(".key").data("id");
-                    dataSource.read({ id: dataItem.id });
-                }
-            }).data("kendoTreeView");
-
-            //子数据源
-            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
-                transport: {
-                    read: {
-                        url: $.const.webapi.parameters,
-                    },
-                    create: {
-                        url: $.const.webapi.parameters,
-                    },
-                    update: {
-                        url: $.const.webapi.parameters,
-                    },
-                    destroy: {
-                        url: $.const.webapi.parameters,
-                    }
-                },
-                schema: {
-                    model: {
-                        id: "Id",
-                        fields: {
-                            Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
-                            Name: { type: "text", validation: { required: true, validationMessage: "必填项！" } },
-                            SystemName: { type: "text", validation: { required: true, validationMessage: "必填项！" } },
-                            Value: { type: "text", validation: { required: true, validationMessage: "必填项！" } },
-                            IsDefault: { type: "boolean" },
-                            IsLeaf: { type: "boolean" },
-                            Rank: { type: "number" }
-                        }
-                    }
-                },
-                batch: true
-            }));
-
-            //子参数列表
-            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
-                dataSource: dataSource,
-                autoBind: false,
-                toolbar: ["create", "save", "cancel"],
-                editable: true,
-                columns: [
-                    {
-                        field: "Name",
-                        title: "参数名称",
-                        width: 100
-                    },
-                    {
-                        field: "SystemName",
-                        title: "系统键",
-                        width: 100
-                    },
-                    {
-                        field: "Value",
-                        title: "系统值",
-                        width: 100
-                    },
-                    {
-                        template: '<input type="checkbox" #= IsDefault ? "checked=\'checked\'" : "" # />',
-                        field: "IsDefault",
-                        title: "默认否",
-                        width: 100
-                    },
-                    {
-                        template: '<input type="checkbox" #= IsLeaf ? "checked=\'checked\'" : "" # />',
-                        field: "IsLeaf",
-                        title: "叶子否",
-                        width: 100
-                    },
-                    {
-                        field: "Rank",
-                        title: "排序",
-                        format: "{0:0}",
-                        width: 100
-                    }
-                ]
-            })).data("kendoGrid");
-
-            //右键菜单
-            $("#menu").kendoContextMenu({
-                // listen to right-clicks on treeview container
-                target: "#treeview",
-
-                // show when node text is clicked
-                filter: ".k-in",
-
-                // handle item clicks
-                select: function (e) {
-                    var button = $(e.item);
-                    var type = button.data("type");
-
-                    var node = $(e.target);
-
-                    // you can get the node data (e.g. id) via the TreeView dataItem method:
-                    var dataItem = $("#treeview").data("kendoTreeView").dataItem(node);
-
-                    if (type == "delete") {
-                        kendo.confirm("你确定要删除这条数据吗？").then(function () {
-                            //ajax delete
-                            $.ajax({
-                                url: String.format($.const.webapi.parameters_id, dataItem.id),
-                                dataType: "json",
-                                type: "DELETE",
-                                contentType: "application/json; charset=utf-8",
-                                success: function (d) {
-                                    kendoui_ajax_complete();
-                                    hiDataSource.read();
-                                },
-                                error: function (e) {
-                                    kendoui_ajax_error(e);
-                                }
-                            });
-                        });
-                        return;
-                    }
-
-                    if (type == "add") {
-                        dataItem.text = "";
-                        dataItem.systemName = "";
-                        dataItem.value = "";
-                        dataItem.rank = 0;
-                        dataItem.parentId = dataItem.id;
-                        dataItem.id = 0;
-                        treeview_context_menu(dataItem, "POST");
-                        return;
-                    }
-
-                    if (type == "edit") {
-                        treeview_context_menu(dataItem, "PUT");
-                        return;
-                    }
-
-                }
-            });
-
-            //右键菜单函数
-            function treeview_context_menu(dataItem, method) {
-                var editTemplate = kendo.template($("#editTemplate").html());
-                var validator;
-
-                // create & open window
-                $("<div class='k-popup-edit-form' />")
-                    .html(editTemplate({ node: dataItem }))
-                    .appendTo("body")
-                    .kendoWindow({
-                        title: "编辑",
-                        width: 400,
-                        height: 231,
-                        modal: true,
-                        visible: false,
-                        resizable: false,
-                        deactivate: function () {
-                            this.destroy();
-                        },
-                        open: function () {
-                            this.element.find("input[name=Rank]").kendoNumericTextBox({ format: "{0:0}" });
-                            //验证表单
-                            validator = $(".k-edit-form-container").kendoValidator({
-                                errorTemplate: '<div class="k-widget k-tooltip k-tooltip-validation" style="margin: 0.5em;"><span class="k-icon k-i-warning"></span>#=message#<div class="k-callout k-callout-n"></div></div>'
-                            }).data("kendoValidator");
-                        }
-                    })
-                    // bind window button
-                    .on("click", ".k-grid-update", function (e) {
-                        e.preventDefault();
-                        if (validator.validate()) {
-                            var dialog = $(e.currentTarget).closest("[data-role=window]").getKendoWindow();
-                            var name = dialog.element.find("input[name=Name]").val();
-                            var systemName = dialog.element.find("input[name=SystemName]").val();
-                            var value = dialog.element.find("input[name=Value]").val();
-                            var rank = dialog.element.find("input[name=Rank]").val();
-                            var parentId = dialog.element.find("input[name=ParentId]").val();
-                            var id = dialog.element.find("input[name=Id]").val();
-                            //ajax update
-                            $.ajax({
-                                url: $.const.webapi.parameters,
-                                dataType: "json",
-                                type: method,
-                                contentType: "application/json; charset=utf-8",
-                                data: JSON.stringify({
-                                    Name: name,
-                                    SystemName: systemName,
-                                    Value: value,
-                                    Rank: rank,
-                                    ParentId: parentId,
-                                    Id: id
-                                }),
-                                success: function (d) {
-                                    kendoui_ajax_complete();
-                                    hiDataSource.read();
-                                    dialog.close();
-                                },
-                                error: function (e) {
-                                    kendoui_ajax_error(e);
-                                }
-                            });
-                        }
-                    })
-                    // bind window button
-                    .on("click", ".k-grid-cancel", function (e) {
-                        e.preventDefault();
-                        var dialog = $(e.currentTarget).closest("[data-role=window]").getKendoWindow();
-                        dialog.close();
-                    })
-                    .getKendoWindow().center().open();
             }
         });
 
-    </script>
+        //主参数树
+        var treeview = $("#treeview").kendoTreeView({
+            dataSource: hiDataSource,
+            //template: "#: item.text # <a class='myedit'><span class='k-icon k-i-edit' /></a>",
+            dataBound: function (e) {
+                treeview.select(".k-first");
+                treeview.trigger("select", {
+                    node: $("#treeview .k-first")[0]
+                });
+            },
+            select: function (e) {
+                var dataItem = treeview.dataItem(e.node);
+                //var id = $(e.node).find(".key").data("id");
+                dataSource.read({ id: dataItem.id });
+            }
+        }).data("kendoTreeView");
+
+        //子数据源
+        var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
+            transport: {
+                read: {
+                    url: $.const.webapi.parameters,
+                },
+                create: {
+                    url: $.const.webapi.parameters,
+                },
+                update: {
+                    url: $.const.webapi.parameters,
+                },
+                destroy: {
+                    url: $.const.webapi.parameters,
+                }
+            },
+            schema: {
+                model: {
+                    id: "Id",
+                    fields: {
+                        Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
+                        Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                        SystemName: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                        Value: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                        IsDefault: { type: "boolean" },
+                        IsLeaf: { type: "boolean" },
+                        Rank: { type: "number" }
+                    }
+                }
+            },
+            batch: true
+        }));
+
+        //子参数列表
+        var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+            dataSource: dataSource,
+            autoBind: false,
+            toolbar: ["create", "save", "cancel"],
+            editable: true,
+            columns: [
+                {
+                    field: "Name",
+                    title: "参数名称",
+                    width: 100
+                },
+                {
+                    field: "SystemName",
+                    title: "系统键",
+                    width: 100
+                },
+                {
+                    field: "Value",
+                    title: "系统值",
+                    width: 100
+                },
+                {
+                    template: '<input type="checkbox" #= IsDefault ? "checked=\'checked\'" : "" # />',
+                    field: "IsDefault",
+                    title: "默认否",
+                    width: 100
+                },
+                {
+                    template: '<input type="checkbox" #= IsLeaf ? "checked=\'checked\'" : "" # />',
+                    field: "IsLeaf",
+                    title: "叶子否",
+                    width: 100
+                },
+                {
+                    field: "Rank",
+                    title: "排序",
+                    format: "{0:0}",
+                    width: 100
+                }
+            ]
+        })).data("kendoGrid");
+
+        //右键菜单
+        $("#menu").kendoContextMenu({
+            // listen to right-clicks on treeview container
+            target: "#treeview",
+
+            // show when node text is clicked
+            filter: ".k-in",
+
+            // handle item clicks
+            select: function (e) {
+                var button = $(e.item);
+                var type = button.data("type");
+
+                var node = $(e.target);
+
+                // you can get the node data (e.g. id) via the TreeView dataItem method:
+                var dataItem = $("#treeview").data("kendoTreeView").dataItem(node);
+
+                if (type == "delete") {
+                    kendo.confirm("你确定要删除这条数据吗？").then(function () {
+                        //ajax delete
+                        $.ajax({
+                            url: String.format($.const.webapi.parameters_id, dataItem.id),
+                            dataType: "json",
+                            type: "DELETE",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (d) {
+                                kendoui_ajax_complete();
+                                hiDataSource.read();
+                            },
+                            error: function (e) {
+                                kendoui_ajax_error(e);
+                            }
+                        });
+                    });
+                    return;
+                }
+
+                if (type == "add") {
+                    dataItem.text = "";
+                    dataItem.systemName = "";
+                    dataItem.value = "";
+                    dataItem.rank = 0;
+                    dataItem.parentId = dataItem.id;
+                    dataItem.id = 0;
+                    treeview_context_menu(dataItem, "POST");
+                    return;
+                }
+
+                if (type == "edit") {
+                    treeview_context_menu(dataItem, "PUT");
+                    return;
+                }
+
+            }
+        });
+
+        //右键菜单函数
+        function treeview_context_menu(dataItem, method) {
+            var editTemplate = kendo.template($("#editTemplate").html());
+            var validator;
+
+            // create & open window
+            $("<div class='k-popup-edit-form' />")
+                .html(editTemplate({ node: dataItem }))
+                .appendTo("body")
+                .kendoWindow({
+                    title: "编辑",
+                    width: 400,
+                    height: 250,
+                    modal: true,
+                    visible: false,
+                    resizable: false,
+                    deactivate: function () {
+                        this.destroy();
+                    },
+                    open: function () {
+                        this.element.find("input[name=Rank]").kendoNumericTextBox({ format: "{0:0}" });
+                        //验证表单
+                        validator = $(".k-edit-form-container").kendoValidator({
+                            errorTemplate: '<div class="k-widget k-tooltip k-tooltip-validation" style="margin: 0.5em;"><span class="k-icon k-i-warning"></span>#=message#<div class="k-callout k-callout-n"></div></div>'
+                        }).data("kendoValidator");
+                    }
+                })
+                // bind window button
+                .on("click", ".k-grid-update", function (e) {
+                    e.preventDefault();
+                    if (validator.validate()) {
+                        var dialog = $(e.currentTarget).closest("[data-role=window]").getKendoWindow();
+                        var name = dialog.element.find("input[name=Name]").val();
+                        var systemName = dialog.element.find("input[name=SystemName]").val();
+                        var value = dialog.element.find("input[name=Value]").val();
+                        var rank = dialog.element.find("input[name=Rank]").val();
+                        var parentId = dialog.element.find("input[name=ParentId]").val();
+                        var id = dialog.element.find("input[name=Id]").val();
+                        //ajax update
+                        $.ajax({
+                            url: $.const.webapi.parameters,
+                            dataType: "json",
+                            type: method,
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify({
+                                Name: name,
+                                SystemName: systemName,
+                                Value: value,
+                                Rank: rank,
+                                ParentId: parentId,
+                                Id: id
+                            }),
+                            success: function (d) {
+                                kendoui_ajax_complete();
+                                hiDataSource.read();
+                                dialog.close();
+                            },
+                            error: function (e) {
+                                kendoui_ajax_error(e);
+                            }
+                        });
+                    }
+                })
+                // bind window button
+                .on("click", ".k-grid-cancel", function (e) {
+                    e.preventDefault();
+                    var dialog = $(e.currentTarget).closest("[data-role=window]").getKendoWindow();
+                    dialog.close();
+                })
+                .getKendoWindow().center().open();
+        }
+    });
+
+</script>
 }

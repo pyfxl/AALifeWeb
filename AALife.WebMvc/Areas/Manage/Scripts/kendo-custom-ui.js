@@ -6,22 +6,24 @@
         proxy = $.proxy,
 
         startDate = endDate = today_date(),
-        b_year_sub = ["2012年", "2013年", "2014年", "2015年", "2016年", "2017年", "2018年", "2019年", "2020年", "2021年", "2022年"],
+        b_year_sub = ["2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022"],
         b_quarter_sub = ["第1季", "第2季", "第3季", "第4季"],
         b_month_sub = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"],
         b_week_sub = ["上周", "下周"],
         b_day_sub = ["前天", "后天"],
 
-        ACTIVE = 'k-state-active',
-        CHANGE = 'change',
-        CLICK = 'click';
+        ACTIVE = 'k-state-active'
 
-    var ButtomDown = Widget.extend({
+    var ButtonDown = Widget.extend({
         init: function (element, options) {
             var that = this;
 
             //初始化
             kendo.ui.Widget.fn.init.call(that, element, options);
+            
+            //添加名字
+            that.element.addClass("k-widget k-button-group");
+            that.element.addClass(that.options.name.toLowerCase());
 
             //加载模板
             that.template = kendo.template(that._templates.content);
@@ -30,14 +32,14 @@
             that._dataSource();
 
             //按钮事件
-            that.element.on(CLICK, ".k-link[role='button']", proxy(that._click, that));
-            that.element.on(CLICK, ".btn-link", proxy(that._subclick, that));
+            that.element.on("click", ".k-link[role='button']", proxy(that._click, that));
+            that.element.on("click", ".btn-link", proxy(that._subclick, that));
 
             //触发
-            $('#' + that.options.defaultCode).trigger(CLICK);
+            $("#" + that.options.defaultCode).trigger("click");
         },
         options: {
-            name: "ButtomDown",
+            name: "ButtonDown",
             autoBind: true,
             template: "",
             defaultCode: "b_day",
@@ -51,7 +53,7 @@
             that.element.html(html);
         },
         current: function () {
-            return this.element.find('.k-state-active');
+            return this.element.find('.' + ACTIVE);
         },
         value: function () {
             var that = this;
@@ -75,7 +77,7 @@
             //子类状态
             var idx = 0;
 
-            var code = that.options.defaultCode = e.currentTarget.id;
+            var code = that.options.defaultCode = currTarget[0].id;
             switch (code) {
                 case "b_all":
                     that.startDate = "";
@@ -106,8 +108,8 @@
                     break;
             }
 
-            that.current().find("li>span").removeClass("active");
-            that.current().find("li>span").eq(idx).addClass("active");
+            that.current().find("ul>li>span").removeClass("active");
+            that.current().find("ul>li>span").eq(idx).addClass("active");
 
             //回调
             that.options.callback({ "startDate": that.startDate, "endDate": that.endDate, "buttonDown": code });
@@ -124,7 +126,7 @@
             currTarget.addClass("active");
 
             var num = currTarget.parent().index() + 1;
-            var code = that.options.defaultCode = currTarget.attr("ref");
+            var code = that.options.defaultCode = currTarget.data("code");
             switch (code) {
                 case "b_year":
                     var year = b_year_sub[num - 1].replace(/[^\d]/g, "");
@@ -190,7 +192,7 @@
             });
             
             //修改事件
-            that.dataSource.bind(CHANGE, function () {
+            that.dataSource.bind("change", function () {
                 that.refresh();
             });
 
@@ -201,23 +203,23 @@
         },
         _templates: {
             //模板
-            content: '<li class="k-button">' +
+            content: '<div class="k-button">' +
                         '<span class="k-link #if(data.sub){#f-link#}#" role="button" id="#= data.code #">#= data.title #</span>' +
                         '# if (data.sub) {#' +
                         '<span class="k-link s-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">' +
                             '<span class="k-icon k-i-arrow-60-down"></span>' +
                         '</span>' +
-                        '<ul class="dropdown-menu">' +
+                        '<ul class="dropdown-menu" role="menu">' +
                             '# for (var i=0,len=data.subdata.length; i<len; i++) {#' +
-                            '<li><span class="btn btn-link" role="button" ref="#= data.code #">#= data.subdata[i] #</span></li>' +
+                            '<li><span class="btn btn-link" role="button" data-code="#= data.code #">#= data.subdata[i] #</span></li>' +
                             '# } #' +
                         '</ul>' +
                         '# } #' +
-                    '</li>'
+                    '</div>'
         }
     });
 
-    ui.plugin(ButtomDown);
+    ui.plugin(ButtonDown);
 
 })(jQuery);
 

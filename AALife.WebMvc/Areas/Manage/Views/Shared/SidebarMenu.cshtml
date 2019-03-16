@@ -1,42 +1,55 @@
 ﻿@using AALife.WebMvc.Areas.Manage.Models;
 @model IEnumerable<MenuViewModel>
 
-<div class="navbar navbar-sm navbar-inverse navbar-fixed-top top-zone">
-    <div class="container-fluid">
-        <div class="navbar-collapse collapse menu-zone">
-            <ul class="nav navbar-nav">
-                @foreach (var menu in Model)
-                {
-                    @RenderMenu(menu, 1);
-                }
-                @helper RenderMenu(MenuViewModel menu, int level)
-                {
-                    if (menu.ChildMenus.Count > 0)
+<header class="main-header">
+    <nav class="navbar navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand">Admin</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    @foreach (var menu in Model)
                     {
-                        <li class="f-down">
-                            @Html.ActionLink(menu.Name, menu.ActionName, menu.ControllerName)
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                                <span class="caret"></span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                @foreach (var cm in menu.ChildMenus)
-                                {
-                                    @RenderMenu(cm, level + 1);
-                                }
-                            </ul>
-                        </li>
+                        @RenderMenu(menu, 1);
                     }
-                    else
+                    @helper RenderMenu(MenuViewModel menu, int level)
                     {
-                        <li>
-                            <a href="@Url.Action(menu.ActionName, menu.ControllerName)" title="@menu.Name" key="@(menu.ControllerName.ToLower())">
-                                @menu.Name
-                            </a>
-                        </li>
+                        if (menu.ChildMenus.Count > 0)
+                        {
+                            <li class="dropdown">
+                                @*@Html.ActionLink(menu.Name, menu.ActionName, menu.ControllerName)*@
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    @menu.Name
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    @foreach (var cm in menu.ChildMenus)
+                                    {
+                                        @RenderMenu(cm, level + 1);
+                                    }
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li>
+                                <a href="@Url.Action(menu.ActionName, menu.ControllerName)" title="@menu.Name" key="@(menu.ControllerName.ToLower())">
+                                    @menu.Name
+                                </a>
+                            </li>
+                        }
                     }
-                }
-            </ul>
+                </ul>
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="navbar-search-input" placeholder="搜索">
+                    </div>
+                </form>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-    </div>
-</div>
-
+        <!-- /.container-fluid -->
+    </nav>
+</header>
