@@ -34,7 +34,7 @@ namespace AALife.Data.Domain
         /// 用户权限
         /// </summary>
         [JsonIgnore]
-        public virtual ICollection<PermissionRecord> PermissionRecords { get; set; }
+        public virtual ICollection<UserPermission> UserPermissions { get; set; }
 
     }
 }

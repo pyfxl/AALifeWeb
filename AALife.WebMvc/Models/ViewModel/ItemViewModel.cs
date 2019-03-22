@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public class ItemViewModel : BaseViewModel
+    public partial class ItemViewModel : BaseViewModel
     {
         public string ItemName { get; set; }
         

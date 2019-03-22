@@ -46,12 +46,19 @@ namespace AALife.WebMvc.Infrastructure.Mapper
                     .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
                     .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()));
 
+                //user manage
+                cfg.CreateMap<UserTable, UserDetailViewModel>()
+                    .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
+                    .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()))
+                    .ForMember(dest => dest.JoinDay, mo => mo.MapFrom(src => DateTime.Now.Subtract(src.CreateDate).Days + 1))
+                    .ForMember(dest => dest.ItemCount, mo => mo.MapFrom(src => src.ItemTables.Count));
+
                 //user role
                 cfg.CreateMap<UserTable, UserRoleViewModel>()
                     .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()));
 
                 //permission
-                cfg.CreateMap<PermissionViewModel, PermissionRecord>()
+                cfg.CreateMap<PermissionViewModel, UserPermission>()
                     .ForMember(dest => dest.UserRoles, src => src.Ignore());
 
             };

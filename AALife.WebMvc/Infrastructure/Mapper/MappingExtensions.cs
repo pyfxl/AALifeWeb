@@ -56,17 +56,17 @@ namespace AALife.WebMvc.Infrastructure.Mapper
 
         #region Permission
 
-        public static PermissionViewModel ToModel(this PermissionRecord entity)
+        public static PermissionViewModel ToModel(this UserPermission entity)
         {
-            return entity.MapTo<PermissionRecord, PermissionViewModel>();
+            return entity.MapTo<UserPermission, PermissionViewModel>();
         }
 
-        public static PermissionRecord ToEntity(this PermissionViewModel model)
+        public static UserPermission ToEntity(this PermissionViewModel model)
         {
-            return model.MapTo<PermissionViewModel, PermissionRecord>();
+            return model.MapTo<PermissionViewModel, UserPermission>();
         }
 
-        public static PermissionRecord ToEntity(this PermissionViewModel model, PermissionRecord destination)
+        public static UserPermission ToEntity(this PermissionViewModel model, UserPermission destination)
         {
             return model.MapTo(destination);
         }

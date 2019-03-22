@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
+using AALife.Core.Services.Configuration;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
@@ -24,16 +25,19 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         private readonly IUserRoleService _userRoleService;
         private readonly IEncryptionService _encryptionService;
         private readonly ICustomerActivityService _customerActivityService;
+        private readonly IParameterService _parameterService;
 
         public UsersApiController(IUserService userService,
             IUserRoleService userRoleService,
             IEncryptionService encryptionService,
-            ICustomerActivityService customerActivityService)
+            ICustomerActivityService customerActivityService,
+            IParameterService parameterService)
         {
             this._userService = userService;
             this._userRoleService = userRoleService;
             this._encryptionService = encryptionService;
             this._customerActivityService = customerActivityService;
+            this._parameterService = parameterService;
         }
 
         // GET api/<controller>
@@ -106,8 +110,13 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // DELETE api/<controller>/5
         public IHttpActionResult Delete(UserTable model)
         {
+            var user = _userService.Get(model.Id);
+
+            user.UserRoles.Clear();
+            user.UserDeptments.Clear();
+
             //delete
-            _userService.Delete(model.Id);
+            _userService.Delete(user);
 
             //activity log
             _customerActivityService.InsertActivity(1, ActivityLogType.Delete, "删除用户记录。{0}", model.ToJson());
@@ -119,7 +128,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         // 获取用户列表，用于弹出窗口选择
         [Route("api/v1/userselectsapi")]
-        public IHttpActionResult GetUserRoles([FromUri]DataSourceRequest common, [FromUri]UsersQuery query)
+        public IHttpActionResult GetUserSelects([FromUri]DataSourceRequest common, [FromUri]UsersQuery query)
         {
             var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, query.userId, query.startDate, query.endDate, query.keyWords);
 
@@ -128,6 +137,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = result.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
+                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
                     return m;
                 }),
                 Total = result.TotalCount

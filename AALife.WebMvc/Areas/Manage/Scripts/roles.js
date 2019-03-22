@@ -39,3 +39,13 @@ function update_permission(pid, rid) {
         data: JSON.stringify({ "pid": pid, "rid": rid })
     });
 }
+
+function update_permission_deptment(pid, rid) {
+    $.ajax({
+        url: $.const.webapi.permissionsdeptmentupdate,
+        dataType: "json",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify({ "pid": pid, "rid": rid })
+    });
+}

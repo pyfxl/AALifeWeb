@@ -43,7 +43,7 @@
                     return options;
                 }
             },
-            pageSize: $.const.siteSettings.PageNumber,
+            pageSize: $.const.default.PageNumber,
             schema: {
                 model: {
                     id: "Id",
@@ -77,7 +77,7 @@
             dataSource: dataSource,
             autoBind: false,
             pageable: {
-                pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
+                pageSizes: $.const.default.PageNumbers,
             },
             columns: [                    
                 {
@@ -150,12 +150,14 @@
                     }
                 },
                 {
+                    template: "#= Recommend == 1 ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     field: "Recommend",
                     title: "推荐否",
-                    width: 80,
+                    width: 90,
                     filterable: {
                         multi: true,
-                        dataSource: [{ text: "0", value: "0" }, { text: "1", value: "1" }],
+                        dataSource: $.const.default.TrueFalse,
                         itemTemplate: function (e) {
                             return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
                         }
@@ -169,19 +171,20 @@
                     searchbar: "date"
                 },
                 {
+                    template: "#= Synchronize == 1 ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     field: "Synchronize",
                     title: "同步否",
-                    width: 80,
+                    width: 90,
                     filterable: {
                         multi: true,
-                        dataSource: [{ text: "0", value: "0" }, { text: "1", value: "1" }],
+                        dataSource: $.const.default.TrueFalse,
                         itemTemplate: function (e) {
                             return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
                         }
                     }
                 },
                 {
-                    //template: "#= RegionName ? RegionName : '' #",
                     field: "RegionType",
                     values: @Html.Raw(Json.Encode(ViewBag.DataRegionType)),
                     title: "固定",
@@ -230,7 +233,7 @@
         $("#searchbar").kendoSearchBar({ grid: "#grid" });
 
         //刷新高度
-        //resizeMain();
+        resizeMain();
 
     });
 </script>

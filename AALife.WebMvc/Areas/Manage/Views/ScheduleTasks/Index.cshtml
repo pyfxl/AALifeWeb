@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "定时任务";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+@section scripts {
+<script>
+
+    $(document).ready(function () {
+
+        //数据源
+        var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
+            transport: {
+                read: {
+                    url: $.const.webapi.scheduletasks,
+                },
+                create: {
+                    url: $.const.webapi.scheduletasks,
+                },
+                update: {
+                    url: $.const.webapi.scheduletasks,
+                },
+                destroy: {
+                    url: $.const.webapi.scheduletasks,
+                },
+                parameterMap: function (options, operation) {
+                    kendoui_parameter_format(options);
+                    if (operation !== "read" && options.models) {
+                        return kendo.stringify(options.models[0]);
+                    }
+                    return options;
+                }
+            },
+            schema: {
+                model: {
+                    id: "Id",
+                    fields: {
+                        Id: { type: "number", editable: false, nullable: false, defaultValue: 0 },
+                        Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                        SystemName: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                        Type: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                        Seconds: { type: "number", validation: { required: true, validationMessage: "必填项！" } },
+                        Enabled: { type: "boolean" },
+                        StopOnError: { type: "boolean" },
+                        LastStartDate: { type: "date", editable: false },
+                        LastEndDate: { type: "date", editable: false }
+                    }
+                }
+            },
+            batch: true
+        }));
+
+        //列表
+        var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+            dataSource: dataSource,
+            toolbar: ["create", "save", "cancel"],
+            editable: true,
+            columns: [
+                {
+                    field: "Name",
+                    title: "任务名称",
+                    width: 100
+                },
+                {
+                    field: "SystemName",
+                    title: "系统名称",
+                    width: 100
+                },
+                {
+                    field: "Type",
+                    title: "类路径",
+                    width: 300,
+                    editor: function (container, options) {
+                        var input = $("<textarea class='k-textbox' required row='2' style='width: 100%;' validationmessage='必填项' />");
+                        input.attr("name", options.field);
+                        input.appendTo(container);
+                        $('<span class="k-invalid-msg" data-for="' + options.field + '"></span>').appendTo(container);
+                    }
+                },
+                {
+                    field: "Seconds",
+                    title: "间隔时间(秒)",
+                    width: 100,
+                    format: "{0:0}"
+                },
+                {
+                    template: "#= Enabled ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
+                    field: "Enabled",
+                    title: "启用否",
+                    width: 100
+                },
+                {
+                    template: "#= StopOnError ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
+                    field: "StopOnError",
+                    title: "发生错误时停止",
+                    width: 100
+                },
+                {
+                    field: "LastStartDate",
+                    title: "最后开始日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd HH:mm:ss}"
+                },
+                {
+                    field: "LastEndDate",
+                    title: "最后结束日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd HH:mm:ss}"
+                },
+                {
+                    field: "Id",
+                    title: "立即运行",
+                    width: 100,
+                    template: '<a href="@Url.Content("~/Manage/ScheduleTasks/RunNow/")#=Id#" class="btn btn-flat bg-green">执行</a>'
+                }
+            ]
+        })).data("kendoGrid");
+
+    });
+
+</script>
+}

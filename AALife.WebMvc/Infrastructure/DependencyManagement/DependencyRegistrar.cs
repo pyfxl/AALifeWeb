@@ -5,7 +5,6 @@ using AALife.Core.Infrastructure.DependencyManagement;
 using AALife.Data;
 using AALife.Data.Authentication;
 using AALife.Data.Services;
-using AALife.Data.Services.Messages;
 using Autofac;
 using Autofac.Core;
 
@@ -35,7 +34,8 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
             //user
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<UserRoleService>().As<IUserRoleService>().InstancePerLifetimeScope();
-            builder.RegisterType<PermissionService>().As<IPermissionService>().InstancePerLifetimeScope();
+            builder.RegisterType<UserDeptmentService>().As<IUserDeptmentService>().InstancePerLifetimeScope();
+            builder.RegisterType<UserPermissionService>().As<IUserPermissionService>().InstancePerLifetimeScope();
 
             //service
             builder.RegisterType<ItemService>().As<IItemService>()
@@ -58,13 +58,6 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
                 .InstancePerLifetimeScope();
 
-            builder.RegisterType<MessageTemplateService>().As<IMessageTemplateService>()
-                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
-                .InstancePerLifetimeScope();
-
-            builder.RegisterType<QueuedEmailService>().As<IQueuedEmailService>()
-                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
-                .InstancePerLifetimeScope();
         }
 
         /// <summary>

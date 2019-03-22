@@ -87,6 +87,11 @@ namespace AALife.Data.Domain
         public DateTime? ModifyDate { get; set; }
 
         /// <summary>
+        /// 是否管理员
+        /// </summary>
+        public bool IsAdmin { get; set; }
+
+        /// <summary>
         /// 商品列表
         /// </summary>
         public virtual ICollection<ItemTable> ItemTables { get; set; }
@@ -120,6 +125,11 @@ namespace AALife.Data.Domain
         /// 角色列表
         /// </summary>
         public virtual ICollection<UserRole> UserRoles { get; set; }
+
+        /// <summary>
+        /// 部门列表
+        /// </summary>
+        public virtual ICollection<UserDeptment> UserDeptments { get; set; }
 
     }
 

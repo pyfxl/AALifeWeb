@@ -59,7 +59,7 @@ namespace AALife.Core
             {
                 // In medium trust, "UnloadAppDomain" is not supported. Touch web.config
                 // to force an AppDomain restart.
-                File.SetLastWriteTimeUtc(CommonHelper.MapPath("~/web.config"), DateTime.UtcNow);
+                File.SetLastWriteTime(CommonHelper.MapPath("~/web.config"), DateTime.Now);
                 return true;
             }
             catch
@@ -80,7 +80,7 @@ namespace AALife.Core
                 //i.e "Controller does not implement IController".
                 //The issue is described here: http://www.nopcommerce.com/boards/t/10969/nop-20-plugin.aspx?p=4#51318
                 //The solution is to touch global.asax file
-                File.SetLastWriteTimeUtc(CommonHelper.MapPath("~/global.asax"), DateTime.UtcNow);
+                File.SetLastWriteTime(CommonHelper.MapPath("~/global.asax"), DateTime.Now);
                 return true;
             }
             catch

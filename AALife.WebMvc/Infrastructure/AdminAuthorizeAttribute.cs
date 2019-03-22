@@ -71,7 +71,7 @@ namespace AALife.WebMvc
             //filterContext.Controller.TempData["CurrentController"] = controllerName;
             //filterContext.Controller.TempData["CurrentAction"] = actionName;
 
-            var permissionService = EngineContext.Current.Resolve<IPermissionService>();
+            var permissionService = EngineContext.Current.Resolve<IUserPermissionService>();
             bool result = permissionService.Authorize(actionName, controllerName, areaName.ToString());
             return result;
         }

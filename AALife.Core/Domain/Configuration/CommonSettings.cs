@@ -41,5 +41,6 @@ namespace AALife.Core.Domain.Configuration
         /// EncryptionKey
         /// </summary>
         public string EncryptionKey { get; set; }
+
     }
 }

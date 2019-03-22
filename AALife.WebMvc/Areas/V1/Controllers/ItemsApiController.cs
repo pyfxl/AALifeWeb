@@ -45,9 +45,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // GET api/<controller>
         public IHttpActionResult Get([FromUri]DataSourceRequest common, [FromUri]ItemsQuery query)
         {
-            //商品类别过滤
-            //
-
             var result = _itemService.GetAllItemByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, "Id", "asc", query.userId, query.startDate, query.endDate, query.keyWords);
 
             var grid = new DataSourceResult

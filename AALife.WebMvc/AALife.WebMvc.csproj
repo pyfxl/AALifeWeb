@@ -393,20 +393,24 @@
     </Compile>
     <Compile Include="Areas\Manage\Controllers\BaseAdminController.cs" />
     <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Manage\Controllers\MessageTemplateController.cs" />
+    <Compile Include="Areas\Manage\Controllers\MessageTemplatesController.cs" />
+    <Compile Include="Areas\Manage\Controllers\DeptmentsController.cs" />
     <Compile Include="Areas\Manage\Controllers\ParametersController.cs" />
     <Compile Include="Areas\Manage\Controllers\PermissionsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\CommonSettingsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\SiteSettingsController.cs" />
+    <Compile Include="Areas\Manage\Controllers\ScheduleTasksController.cs" />
+    <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
     <Compile Include="Areas\Manage\Controllers\RolesController.cs" />
     <Compile Include="Areas\Manage\Models\BaseModel.cs" />
     <Compile Include="Areas\Manage\Models\MenuViewModel.cs" />
-    <Compile Include="Areas\V1\Controllers\EmployeesController.cs" />
     <Compile Include="Areas\V1\Controllers\MessageTemplatesApiController.cs" />
+    <Compile Include="Areas\V1\Controllers\DeptmentsApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ParametersApiController.cs" />
     <Compile Include="Areas\V1\Controllers\PermissionsApiController.cs" />
+    <Compile Include="Areas\V1\Controllers\ScheduleTasksApiController.cs" />
+    <Compile Include="Areas\V1\Controllers\UserDeptmentsApiController.cs" />
     <Compile Include="Areas\V1\Controllers\UserRolesApiController.cs" />
     <Compile Include="Areas\V1\Controllers\RolesApiController.cs" />
+    <Compile Include="Controllers\KeepAliveController.cs" />
     <Compile Include="Infrastructure\AdminAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\Controllers\BaseApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ZhuanZhangsApiController.cs" />
@@ -432,6 +436,8 @@
     <Compile Include="Models\Query\UsersQuery.cs" />
     <Compile Include="Models\ViewModel\MessageTemplateModel.cs" />
     <Compile Include="Models\ViewModel\PermissionInputModel.cs" />
+    <Compile Include="Models\ViewModel\UserRoleListModel.cs" />
+    <Compile Include="Models\ViewModel\PermissionListModel.cs" />
     <Compile Include="Models\ViewModel\PermissionRecordModel.cs" />
     <Compile Include="Models\ViewModel\BaseViewModel.cs" />
     <Compile Include="Models\ViewModel\ItemTotalModel.cs" />
@@ -442,6 +448,7 @@
     <Compile Include="Models\ViewModel\PermissionViewModel.cs" />
     <Compile Include="Models\ViewModel\UserLoginModel.cs" />
     <Compile Include="Models\ViewModel\UserDetailViewModel.cs" />
+    <Compile Include="Models\ViewModel\UserDeptmentModel.cs" />
     <Compile Include="Models\ViewModel\UserRoleModel.cs" />
     <Compile Include="Models\ViewModel\UserRoleViewModel.cs" />
     <Compile Include="Models\ViewModel\UserManageViewModel.cs" />
@@ -1335,6 +1342,7 @@
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.html" />
     <Content Include="Areas\Manage\Content\Style.css" />
+    <Content Include="Areas\Manage\Scripts\deptments.js" />
     <Content Include="Areas\Manage\Scripts\roles.js" />
     <Content Include="Images\Users\user.gif" />
     <Content Include="Scripts\const.js" />
@@ -1751,7 +1759,7 @@
     <Content Include="Content\bootstrap-datepicker.css.map" />
     <Content Include="Areas\V1\Views\web.config" />
     <Content Include="Web2018\api\ImageUpload.ashx" />
-    <Content Include="Areas\Manage\Views\SiteSettings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Sites.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\Notifications.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\UserSelect.cshtml" />
     <Content Include="Areas\Manage\Views\Home\Index.cshtml" />
@@ -1762,18 +1770,26 @@
     <Content Include="Areas\Manage\Views\Roles\Detail.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\SidebarMenu.cshtml" />
     <Content Include="Areas\Manage\Views\Permissions\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Employees.cshtml" />
     <Content Include="Areas\Manage\Views\Permissions\Setting.cshtml" />
     <Content Include="Areas\Manage\Views\Permissions\SettingTree.cshtml" />
     <Content Include="Areas\Manage\Views\Parameters\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Parameters\TreeView.cshtml" />
     <Content Include="Areas\Manage\Views\Roles\Index4.cshtml" />
     <Content Include="Areas\Manage\Views\Parameters\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\CommonSettings\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\MessageTemplate\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\MessageTemplates\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Users\Index2.cshtml" />
     <Content Include="Areas\Manage\Views\Items\Index2.cshtml" />
     <Content Include="Areas\Manage\Views\Items\Index3.cshtml" />
+    <Content Include="Areas\Manage\Views\ScheduleTasks\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Commons.cshtml" />
+    <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Permissions\Setting2.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\_Permission.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\_UserRole.cshtml" />
+    <Content Include="Areas\Manage\Views\Deptments\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Deptments\Index2.cshtml" />
+    <Content Include="Areas\Manage\Views\Deptments\TreeView.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\_UserDeptment.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\chplayer\hls\LICENSE" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
@@ -1975,6 +1991,7 @@
     <Folder Include="Backup\Export\" />
     <Folder Include="Backup\Import\" />
     <Folder Include="Backup\Template\" />
+    <Folder Include="Views\KeepAlive\" />
     <Folder Include="Views\Picture\" />
   </ItemGroup>
   <ItemGroup>

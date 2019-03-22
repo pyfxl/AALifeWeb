@@ -31,12 +31,39 @@
             //数据源
             that._dataSource();
 
+            //创建日期
+            that._createdate();
+
+            //that.element.find("input[name=start]").kendoDatePicker();
+
             //按钮事件
             that.element.on("click", ".k-link[role='button']", proxy(that._click, that));
             that.element.on("click", ".btn-link", proxy(that._subclick, that));
 
             //触发
             $("#" + that.options.defaultCode).trigger("click");
+        },
+        _createdate: function () {
+            var that = this;
+
+            var html = '<div class="form-group">' +
+                    '<div class="buttondowndate">' +
+                    '<label>日期</label>' +
+                    '<input name="start" style="width: 120px;" />' +
+                    ' - ' +
+                    '<input name="end" style="width: 120px;" />' +
+                    '</div>' +
+                    '</div>'
+
+            //添加html
+            that.element.parent().after(html);
+
+            //初始化日期
+            $(".buttondowndate input").kendoDatePicker({
+                change: function () {
+                    that.options.callback();
+                }
+            });
         },
         options: {
             name: "ButtonDown",
@@ -111,8 +138,12 @@
             that.current().find("ul>li>span").removeClass("active");
             that.current().find("ul>li>span").eq(idx).addClass("active");
 
+            //设置日期
+            $(".buttondowndate input[name=start]").data("kendoDatePicker").value(that.startDate);
+            $(".buttondowndate input[name=end]").data("kendoDatePicker").value(that.endDate);
+
             //回调
-            that.options.callback({ "startDate": that.startDate, "endDate": that.endDate, "buttonDown": code });
+            that.options.callback();
         },
         _subclick: function (e) {
             var that = this;
@@ -161,8 +192,12 @@
                     break;
             }
 
+            //设置日期
+            $(".buttondowndate input[name=start]").data("kendoDatePicker").value(that.startDate);
+            $(".buttondowndate input[name=end]").data("kendoDatePicker").value(that.endDate);
+
             //回调
-            that.options.callback({ "startDate": that.startDate, "endDate": that.endDate, "buttonDown": code });
+            that.options.callback();
         },
         _dataSource: function () {
             var that = this;

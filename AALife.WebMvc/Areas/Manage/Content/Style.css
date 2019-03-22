@@ -6,13 +6,17 @@
     padding-left: 5px;
     padding-right: 5px;
 }
+#main table {
+    background-color: #fff;
+}
 
 /*adminlte*/
 .content-wrapper {
-     min-height: unset; 
+    /*min-height: unset;*/ 
+    background-color: #ecf0f5;
 }
 .content-header {
-    padding: 10px 5px 0 5px;
+    padding: 5px 5px 0 5px;
 }
 .content {
     padding: 5px;
@@ -21,13 +25,25 @@
     background-color: #ecf0f5;
 }
 .user-block img {
-    width: 32px;
-    height: 32px;
-    float: unset;
+    width: 30px;
+    height: 30px;
+    float: none;
+    border: 2px solid #ccc;
+}
+.user-img-td {
+    text-align: center;
+    padding: 2px !important;
 }
 .dropdown-menu {
     border-radius: 0;
     border-color: #dbdbdb;
+}
+.table-bordered > thead > tr > th, .table-bordered > tbody > tr > th, .table-bordered > tfoot > tr > th, .table-bordered > thead > tr > td, .table-bordered > tbody > tr > td, .table-bordered > tfoot > tr > td {
+    border: 1px solid #e4e4e4;
+}
+.checkbox {
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 /*kendo*/
@@ -35,7 +51,7 @@
     height: 100%;
 }
 .k-grid tbody .k-button {
-    min-width: unset;
+    min-width: 24px;
 }
 .k-i-filter:before {
     content: "\e015";
@@ -45,7 +61,7 @@
 /*buttondown控件*/
 .buttondown .k-button {
     /*padding: 0 !important;*/
-    overflow: unset;
+    overflow: visible;
 }
 .buttondown .dropdown-menu {
     min-width: 100%;
@@ -75,7 +91,7 @@
     margin-bottom: 3px;
 }
 .searchbar .form-group .input-group .k-datepicker {
-    width: 110px !important;
+    width: 120px !important;
 }
 .searchbar .form-group .input-group .k-textbox {
     width: 80px !important;

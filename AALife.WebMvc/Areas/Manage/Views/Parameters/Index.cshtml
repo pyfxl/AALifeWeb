@@ -97,7 +97,6 @@
             },
             select: function (e) {
                 var dataItem = treeview.dataItem(e.node);
-                //var id = $(e.node).find(".key").data("id");
                 dataSource.read({ id: dataItem.id });
             }
         }).data("kendoTreeView");
@@ -122,13 +121,13 @@
                 model: {
                     id: "Id",
                     fields: {
-                        Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
+                        Id: { type: "number", editable: false, nullable: false, defaultValue: 0 },
                         Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                         SystemName: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                         Value: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                         IsDefault: { type: "boolean" },
                         IsLeaf: { type: "boolean" },
-                        Rank: { type: "number" }
+                        Rank: { type: "number", defaultValue: 1 }
                     }
                 }
             },
@@ -158,13 +157,15 @@
                     width: 100
                 },
                 {
-                    template: '<input type="checkbox" #= IsDefault ? "checked=\'checked\'" : "" # />',
+                    template: "#= IsDefault ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     field: "IsDefault",
                     title: "默认否",
                     width: 100
                 },
                 {
-                    template: '<input type="checkbox" #= IsLeaf ? "checked=\'checked\'" : "" # />',
+                    template: "#= IsLeaf ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     field: "IsLeaf",
                     title: "叶子否",
                     width: 100

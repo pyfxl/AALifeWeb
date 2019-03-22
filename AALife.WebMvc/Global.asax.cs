@@ -1,6 +1,7 @@
 ﻿using AALife.Core.Infrastructure;
 using AALife.Core.Infrastructure.Mapper;
 using AALife.Core.Services.Logging;
+using AALife.Core.Services.Tasks;
 using AALife.Data;
 using Autofac.Integration.WebApi;
 using AutoMapper;
@@ -40,6 +41,10 @@ namespace AALife.WebMvc
 
             //ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
             //ValueProviderFactories.Factories.Add(new JsonNetValueProviderFactory());
+            
+            //start scheduled tasks
+            TaskManager.Instance.Initialize();
+            TaskManager.Instance.Start();
 
             //log application start
             try

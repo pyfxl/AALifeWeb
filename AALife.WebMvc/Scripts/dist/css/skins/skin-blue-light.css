@@ -162,7 +162,17 @@
   background-color: #3b8ab8;
 }
 
-/*kendo style*/
+/* kendo style 使用 metro 主题修改
+    #357ca5 深
+    #3c8dbc 浅
+*/
+.text-light-blue a {
+    text-decoration: underline;
+}
+.k-grid td.k-state-selected:hover .text-light-blue a,
+.k-grid tr:hover .text-light-blue a {
+    color: #fff;
+}
 .k-grid td.k-state-selected:hover, .k-grid tr:hover {
     color: #fff;
     background-color: #3c8dbc; /*#8ebc00;*/
@@ -238,7 +248,7 @@
     box-shadow: inset 0 0 0 1px #3c8dbc;
 }
 .k-list > .k-state-focused.k-state-selected, .k-listview > .k-state-focused.k-state-selected, .k-state-focused.k-state-selected, td.k-state-focused.k-state-selected {
-    box-shadow: inset 0 0 3px 1px #4c7ea9; /*#445b00;*/
+    box-shadow: inset 0 0 3px 1px #357ca5; /*#445b00;*/
 }
 .k-button.k-state-hover, .k-button:hover {
     color: #fff;
@@ -262,8 +272,8 @@
 }
 .k-dropdown .k-state-focused, .k-filebrowser-dropzone, .k-list > .k-state-hover, .k-mobile-list .k-edit-label.k-check:active, .k-mobile-list .k-item > .k-label:active, .k-mobile-list .k-item > .k-link:active, .k-mobile-list .k-recur-view .k-check:active, .k-pager-wrap .k-link:hover, .k-scheduler .k-scheduler-toolbar ul li.k-state-hover, .k-splitbar-horizontal-hover, .k-splitbar-vertical-hover, .k-state-hover {
     color: #fff !important;
-    background-color: #3c8dbc;
-    border-color: #3c8dbc;
+    background-color: #357ca5;
+    /*border-color: #357ca5;*/
 }
 .k-checkbox:checked + .k-checkbox-label:before {
     background-color: #fff;
@@ -283,9 +293,9 @@
     box-shadow: none;
 }
 .k-active-filter, .k-state-active, .k-state-active:hover {
-    background-color: #fff;
-    border-color: #357ca5;
-    color: #fff;
+    /*background-color: #fff;*/
+    /*border-color: #357ca5;*/
+    /*color: #fff;*/
 }
 .k-panelbar .k-tabstrip-items .k-state-active, .k-tabstrip-items .k-state-active {
     background-color: #fff;
@@ -311,5 +321,9 @@
 .k-button.k-state-active:hover {
     color: #fff;
     border-color: #3c8dbc;
+    background-color: #3c8dbc;
+}
+.table-hover > tbody > tr:not(:first-child):hover {
+    color: #fff;
     background-color: #3c8dbc;
 }

@@ -1,0 +1,92 @@
+﻿<div id="dept-dialog"></div>
+<script>
+    $(document).ready(function () {
+        var tempSelectList = [];
+        var dialog = $("#dept-dialog").kendoDialog({
+            width: "400px",
+            visible: false,
+            title: "部门",
+            closable: true,
+            modal: false,
+            content: "<div id='dept-treeview'></div>",
+            actions: [
+                { text: '取消'},
+                { text: '确定', primary: true, action: actionOK }
+            ],
+            open: dialogOpen
+        });
+
+        //树数据源
+        var hiDataSource = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: String.format("/api/v1/deptmenttreesapi/{0}", @Model.Id),
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    hasChildren: "hasChildren",
+                    children: "items",
+                    expanded: true,
+                    value: "value"
+                },
+            }
+        });
+
+        $("#dept-treeview").kendoTreeView({
+            dataSource: hiDataSource,
+            checkboxes: true,
+            loadOnDemand: false,
+            expandAll: true,
+            dataBound: treeViewDataBound
+        });
+    });
+
+    function treeViewDataBound(e) {
+        e.sender.expand(e.node);
+    }
+
+    function dialogOpen(e) {
+        var treeView = $("#dept-treeview").data("kendoTreeView");
+        init_treeview_callback(treeView);
+    }
+
+    function openDialog(e) {
+        $("#dept-dialog").data("kendoDialog").open();
+    }
+
+    function actionOK(e) {
+        var treeView = $("#dept-treeview").data("kendoTreeView");
+        var checkedNodes = getCheckedItems(treeView);
+        pick_deptment_callback(checkedNodes);
+    }
+
+    function getCheckedItems(treeview) {
+        var nodes = treeview.dataSource.view();
+        return getCheckedNodes(nodes);
+    }
+
+    function getCheckedNodes(nodes) {
+        var node, childCheckedNodes;
+        var checkedNodes = [];
+
+        for (var i = 0; i < nodes.length; i++) {
+            node = nodes[i];
+            if (node.checked) {
+                checkedNodes.push(node);
+            }
+
+            if (node.hasChildren) {
+                childCheckedNodes = getCheckedNodes(node.children.view());
+                if (childCheckedNodes.length > 0) {
+                    checkedNodes = checkedNodes.concat(childCheckedNodes);
+                }
+            }
+
+        }
+
+        return checkedNodes;
+    }
+</script>

@@ -29,11 +29,13 @@
 
                 });
                 </script>
-                <table class="table table-hover table-bordered">
+                <table class="table table-hover table-bordered table-striped" id="maintable">
                     <tbody>
                         <tr>
                             <th scope="col">
-                                <strong>权限名称</strong>
+                                <div class="checkbox">
+                                    <strong>权限名称</strong>
+                                </div>
                             </th>
                             @foreach (var cr in Model.AvailableUserRoles)
                             {

@@ -1,0 +1,383 @@
+﻿
+@{
+    ViewBag.Title = "部门管理";
+}
+
+<script id="editTemplate" type="text/x-kendo-template">
+    <div class="k-edit-form-container">
+        <div class="k-edit-label">
+            <label for="Name">参数名称</label>
+        </div>
+        <div data-container-for="Name" class="k-edit-field">
+            <input type="text" class="k-input k-textbox" name="Name" required="required" validationmessage="必填项！" value="#= node.text #">
+            <input type="hidden" name="Id" value="#= node.id #">
+            <input type="hidden" name="ParentId" value="#= node.parentId #">
+        </div>
+        <div class="k-edit-label">
+            <label for="SystemName">系统键</label>
+        </div>
+        <div data-container-for="SystemName" class="k-edit-field">
+            <input type="text" class="k-input k-textbox" name="SystemName" required="required" validationmessage="必填项！" value="#= node.systemName #">
+        </div>
+        <div class="k-edit-label">
+            <label for="Value">系统值</label>
+        </div>
+        <div data-container-for="Value" class="k-edit-field">
+            <input type="text" class="k-input k-textbox" name="Value" required="required" validationmessage="必填项！" value="#= node.value #">
+        </div>
+        <div class="k-edit-label">
+            <label for="Rank">排序</label>
+        </div>
+        <div data-container-for="Rank" class="k-edit-field">
+            <input type="text" name="Rank" required="required" validationmessage="必填项！" value="#= node.rank #">
+        </div>
+        <div class="k-edit-buttons k-state-default">
+            <a role="button" class="k-button k-button-icontext k-primary k-grid-update" href="\\#">
+                <span class="k-icon k-i-check"></span>更新
+            </a>
+            <a role="button" class="k-button k-button-icontext k-grid-cancel" href="\\#">
+                <span class="k-icon k-i-cancel"></span>取消
+            </a>
+        </div>
+    </div>
+</script>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="left" class="col-xs-2 k-block">
+                <div class="k-header">部门管理</div>
+                <div id="treeview"></div>
+                <ul id="menu">
+                    <li data-type="add">添加</li>
+                    <li data-type="edit">修改</li>
+                    <li data-type="delete">删除</li>
+                </ul>
+            </div>
+            <div id="main" class="col-xs-10">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+<script src="~/Areas/Manage/Scripts/deptments.js"></script>
+<script>
+
+    var _selectedId = 0;
+
+    $(document).ready(function () {
+
+        //树数据源
+        var hiDataSource = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: "/api/v1/deptmenttreesapi",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    hasChildren: "hasChildren",
+                    children: "items",
+                    expanded: true,
+                    value: "value"
+                },
+            }
+        });
+
+        //主数据源
+        var treeview = $("#treeview").kendoTreeView({
+            dataSource: hiDataSource,
+            //template: "#: item.text # <a class='myedit'><span class='k-icon k-i-edit' /></a>",
+            dataBound: function (e) {
+                treeview.select(".k-first");
+                treeview.trigger("select", {
+                    node: $("#treeview .k-first")[0]
+                });
+            },
+            select: function (e) {
+                var dataItem = treeview.dataItem(e.node);
+                _selectedId = dataItem.id;
+                //刷新主列表
+                grid.dataSource.read();
+            }
+        }).data("kendoTreeView");
+
+        //用户来自数据源
+        var dataUserFrom = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: String.format($.const.webapi.paramsbyname, "userfrom"),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8"
+                }
+            }
+        });
+
+        //主列表
+        var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: $.const.webapi.userdeptments,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        data: function (d) {
+                            d.id = _selectedId;
+                            return d;
+                        },
+                        cache: false
+                    }
+                },
+                pageSize: 10,
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number" },
+                            UserName: { type: "string" },
+                            UserNickName: { type: "string" },
+                            UserImage: { type: "string" },
+                            UserImageFull: { type: "string" },
+                            UserFrom: { type: "string" },
+                            UserFromName: { type: "string" },
+                            CreateDate: { type: "date" },
+                            ModifyDate: { type: "date" },
+                            Remark: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            },
+            autoBind: false,
+            toolbar: [{ name: "userselect", text: "选择", iconClass: "k-icon k-i-search" }, { name: "userdelete", text: "删除", iconClass: "k-icon k-i-delete" }],
+            columns: [
+                {
+                    selectable: true,
+                    width: 100
+                },
+                {
+                    field: "Id",
+                    title: "编号",
+                    width: 100
+                },
+                {
+                    field: "UserName",
+                    title: "用户名",
+                    width: 100
+                },
+                {
+                    field: "UserNickName",
+                    title: "昵称",
+                    width: 100
+                },
+                {
+                    template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
+                    field: "UserImage",
+                    title: "头像",
+                    width: 100,
+                    attributes: { class: "user-img-td" }
+                },
+                {
+                    template: "#=UserFromName#",
+                    field: "UserFrom",
+                    title: "来自",
+                    width: 100,
+                    filterable: {
+                        multi: true,
+                        dataSource: dataUserFrom,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>"
+                        }
+                    }
+                },
+                {
+                    field: "CreateDate",
+                    title: "注册日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd}"
+                },
+                {
+                    field: "ModifyDate",
+                    title: "修改日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd}"
+                },
+                {
+                    field: "Remark",
+                    title: "备注",
+                    width: 100
+                }
+            ]
+        })).data("kendoGrid");
+
+        //选择按钮事件
+        $("#grid .k-grid-toolbar").on("click", ".k-grid-userselect", function (e) {
+            e.preventDefault();
+            $("#dialog").data("kendoDialog").open();
+        });
+
+        //删除按钮事件
+        $("#grid .k-grid-toolbar").on("click", ".k-grid-userdelete", function (e) {
+            e.preventDefault();
+            var items = $("#grid .k-grid-content .k-state-selected");
+            if (items.length > 0) {
+                var result = [];
+                for (var i = 0; i < items.length; i++) {
+                    var dataItem = grid.dataItem(items[i]);
+                    result.push(dataItem);
+                }
+                delete_userdeptment(_selectedId, result, function (d) {
+                    kendoui_ajax_complete();
+                    var grid = $("#grid").data("kendoGrid");
+                    grid.dataSource.read();
+                });
+            }
+        });
+
+        //右键菜单
+        $("#menu").kendoContextMenu({
+            // listen to right-clicks on treeview container
+            target: "#treeview",
+
+            // show when node text is clicked
+            filter: ".k-in",
+
+            // handle item clicks
+            select: function (e) {
+                var button = $(e.item);
+                var type = button.data("type");
+
+                var node = $(e.target);
+
+                // you can get the node data (e.g. id) via the TreeView dataItem method:
+                var dataItem = $("#treeview").data("kendoTreeView").dataItem(node);
+
+                if (type == "delete") {
+                    kendo.confirm("你确定要删除这条数据吗？").then(function () {
+                        //ajax delete
+                        $.ajax({
+                            url: String.format($.const.webapi.parameters_id, dataItem.id),
+                            dataType: "json",
+                            type: "DELETE",
+                            contentType: "application/json; charset=utf-8",
+                            success: function (d) {
+                                kendoui_ajax_complete();
+                                hiDataSource.read();
+                            },
+                            error: function (e) {
+                                kendoui_ajax_error(e);
+                            }
+                        });
+                    });
+                    return;
+                }
+
+                if (type == "add") {
+                    dataItem.text = "";
+                    dataItem.systemName = "";
+                    dataItem.value = "";
+                    dataItem.rank = 0;
+                    dataItem.parentId = dataItem.id;
+                    dataItem.id = 0;
+                    treeview_context_menu(dataItem, "POST");
+                    return;
+                }
+
+                if (type == "edit") {
+                    treeview_context_menu(dataItem, "PUT");
+                    return;
+                }
+
+            }
+        });
+
+        //右键菜单函数
+        function treeview_context_menu(dataItem, method) {
+            var editTemplate = kendo.template($("#editTemplate").html());
+            var validator;
+
+            // create & open window
+            $("<div class='k-popup-edit-form' />")
+                .html(editTemplate({ node: dataItem }))
+                .appendTo("body")
+                .kendoWindow({
+                    title: "编辑",
+                    width: 400,
+                    height: 250,
+                    modal: true,
+                    visible: false,
+                    resizable: false,
+                    deactivate: function () {
+                        this.destroy();
+                    },
+                    open: function () {
+                        this.element.find("input[name=Rank]").kendoNumericTextBox({ format: "{0:0}" });
+                        //验证表单
+                        validator = $(".k-edit-form-container").kendoValidator({
+                            errorTemplate: '<div class="k-widget k-tooltip k-tooltip-validation" style="margin: 0.5em;"><span class="k-icon k-i-warning"></span>#=message#<div class="k-callout k-callout-n"></div></div>'
+                        }).data("kendoValidator");
+                    }
+                })
+                // bind window button
+                .on("click", ".k-grid-update", function (e) {
+                    e.preventDefault();
+                    if (validator.validate()) {
+                        var dialog = $(e.currentTarget).closest("[data-role=window]").getKendoWindow();
+                        var name = dialog.element.find("input[name=Name]").val();
+                        var systemName = dialog.element.find("input[name=SystemName]").val();
+                        var value = dialog.element.find("input[name=Value]").val();
+                        var rank = dialog.element.find("input[name=Rank]").val();
+                        var parentId = dialog.element.find("input[name=ParentId]").val();
+                        var id = dialog.element.find("input[name=Id]").val();
+                        //ajax update
+                        $.ajax({
+                            url: $.const.webapi.parameters,
+                            dataType: "json",
+                            type: method,
+                            contentType: "application/json; charset=utf-8",
+                            data: JSON.stringify({
+                                Name: name,
+                                SystemName: systemName,
+                                Value: value,
+                                Rank: rank,
+                                ParentId: parentId,
+                                Id: id
+                            }),
+                            success: function (d) {
+                                kendoui_ajax_complete();
+                                hiDataSource.read();
+                                dialog.close();
+                            },
+                            error: function (e) {
+                                kendoui_ajax_error(e);
+                            }
+                        });
+                    }
+                })
+                // bind window button
+                .on("click", ".k-grid-cancel", function (e) {
+                    e.preventDefault();
+                    var dialog = $(e.currentTarget).closest("[data-role=window]").getKendoWindow();
+                    dialog.close();
+                })
+                .getKendoWindow().center().open();
+        }
+
+    });
+
+    //用户选择回调
+    function userselect_callback(dataItem) {
+        insert_userdeptment(_selectedId, dataItem, function () {
+            //dialog_close(e);
+            var grid = $("#grid").data("kendoGrid");
+            grid.dataSource.read();
+        });
+    }
+</script>
+
+@Html.Partial("UserSelect")

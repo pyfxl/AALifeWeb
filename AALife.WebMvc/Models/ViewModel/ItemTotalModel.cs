@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public class ItemTotalModel
+    public partial class ItemTotalModel
     {
         /// <summary>
         /// 收入数量

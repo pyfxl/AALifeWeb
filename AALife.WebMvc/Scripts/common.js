@@ -1,5 +1,5 @@
 ﻿//常量
-$.extend($.const, {    
+$.extend($.const, {
     date: {
         format: "YYYY-MM-DD",
         kendoformat: "{yyyy/MM/dd HH:mm:ss}",
@@ -197,7 +197,7 @@ $.extend($.const, {
             serverPaging: true,
             serverSorting: true,
             serverFiltering: true,
-            pageSize: $.const.default.pagenumber
+            pageSize: $.const.default.PageNumber
         },
         reorderable: true,
         navigatable: false,
@@ -210,8 +210,8 @@ $.extend($.const, {
         },
         editable: "inline",
         pageable: { 
-            buttonCount: $.const.default.pagebutton,
-            pageSizes: $.const.default.pagenumbers,
+            buttonCount: $.const.default.PageButton,
+            pageSizes: $.const.default.PageNumbers,
             messages: {
                 display: "共 {2} 条数据"
             }
@@ -479,7 +479,7 @@ Date.prototype.toISOString = function () {
 
 //调整grid高度
 function resizeMain(element) {
-    var div = $("#main");
+    var div = element ? $(element) : $("#main");
     var windowHeight = $(window).innerHeight();
     var offsetTop = div.offset().top;
     var paddingBottom = 10;

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public class PermissionInputModel
+    public partial class PermissionInputModel
     {
         public int pid { get; set; }
 

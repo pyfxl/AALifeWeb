@@ -1,19 +1,13 @@
 ﻿using AALife.Core.Domain.Configuration;
 using AALife.Core.Domain.Logging;
+using AALife.Core.Domain.Messages;
 using AALife.Core.Infrastructure.Kendoui;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
-using AALife.Data.Domain;
-using AALife.Data.Domain.Messages;
-using AALife.Data.Services;
-using AALife.Data.Services.Messages;
-using AALife.WebMvc.Infrastructure.Mapper;
-using AALife.WebMvc.Models.ViewModel;
+using AALife.Core.Services.Messages;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
@@ -39,7 +33,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // GET api/<controller>
         public IHttpActionResult Get()
         {
-            var result = _messageTemplateService.Get();
+            var result = _messageTemplateService.GetAllMessageTemplates();
 
             var grid = new DataSourceResult
             {
@@ -63,7 +57,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 return ErrorForKendoGridJson(ModelState);
 
             //插入
-            _messageTemplateService.Add(model);
+            _messageTemplateService.InsertMessageTemplate(model);
 
             //activity log
             _customerActivityService.InsertActivity(1, ActivityLogType.Insert, "插入消息记录。{0}", model.ToJson());
@@ -77,7 +71,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             if (!ModelState.IsValid)
                 return ErrorForKendoGridJson(ModelState);
 
-            var template = _messageTemplateService.Get(model.Id);
+            var template = _messageTemplateService.GetMessageTemplateById(model.Id);
             template.Name = model.Name;
             template.SystemName = model.SystemName;
             template.Subject = model.Subject;
@@ -85,7 +79,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             template.IsActive = model.IsActive;
 
             //更新
-            _messageTemplateService.Update(template);
+            _messageTemplateService.UpdateMessageTemplate(template);
 
             //activity log
             _customerActivityService.InsertActivity(1, ActivityLogType.Update, "更新消息记录。{0}", model.ToJson());
@@ -96,10 +90,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // DELETE api/<controller>/5
         public IHttpActionResult Delete([FromBody]MessageTemplate model)
         {
-            var template = _messageTemplateService.Get(model.Id);
+            var template = _messageTemplateService.GetMessageTemplateById(model.Id);
 
             //删除
-            _messageTemplateService.Delete(template);
+            _messageTemplateService.DeleteMessageTemplate(template);
 
             return Json(HttpStatusCode.OK);
         }
@@ -110,7 +104,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         [Route("api/v1/messagetemplatesapi/{id}")]
         public IHttpActionResult SendTest(int id)
         {
-            var template = _messageTemplateService.Get(id);
+            var template = _messageTemplateService.GetMessageTemplateById(id);
 
             var emailAccount = _settingService.LoadSetting<CommonSettings>(0);
 
@@ -122,7 +116,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 ToName = "",
                 Subject = template.Subject,
                 Body = template.Body,
-                CreatedDate = DateTime.UtcNow
+                CreatedDate = DateTime.Now
             };
 
             _queuedEmailService.InsertQueuedEmail(email);

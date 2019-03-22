@@ -26,7 +26,7 @@ namespace AALife.Data
         /// <summary>
         /// site settings
         /// </summary>
-        SiteSettings SiteSettings { get; set; }
+        DefaultSettings DefaultSettings { get; set; }
 
     }
 }

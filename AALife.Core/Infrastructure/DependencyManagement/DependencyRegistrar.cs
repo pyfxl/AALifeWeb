@@ -1,11 +1,14 @@
 using AALife.Core.Caching;
 using AALife.Core.Configuration;
+using AALife.Core.Fakes;
 using AALife.Core.Repositorys.Configuration;
+using AALife.Core.Repositorys.Messages;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
 using AALife.Core.Services.Media;
 using AALife.Core.Services.Messages;
 using AALife.Core.Services.Security;
+using AALife.Core.Services.Tasks;
 using Autofac;
 using Autofac.Builder;
 using Autofac.Core;
@@ -33,7 +36,9 @@ namespace AALife.Core.Infrastructure.DependencyManagement
             //HTTP context and other related stuff
             builder.Register(c =>
                 //register FakeHttpContext when HttpContext is not available
-                new HttpContextWrapper(HttpContext.Current) as HttpContextBase)
+                HttpContext.Current != null ?
+                (new HttpContextWrapper(HttpContext.Current) as HttpContextBase) :
+                (new FakeHttpContext("~/") as HttpContextBase))
                 .As<HttpContextBase>()
                 .InstancePerLifetimeScope();
             builder.Register(c => c.Resolve<HttpContextBase>().Request)
@@ -58,9 +63,6 @@ namespace AALife.Core.Infrastructure.DependencyManagement
             //cache
             builder.RegisterType<MemoryCacheManager>().As<ICacheManager>().Named<ICacheManager>("aalife_cache_static").SingleInstance();
 
-            //logger
-            builder.RegisterType<DefaultLogger>().As<ILogger>().InstancePerLifetimeScope();
-
             #region services
 
             //encryption
@@ -73,9 +75,24 @@ namespace AALife.Core.Infrastructure.DependencyManagement
                 .InstancePerLifetimeScope();
             builder.RegisterSource(new SettingsSource());
 
+            //logger
+            builder.RegisterType<DefaultLogger>().As<ILogger>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
             builder.RegisterType<DownloadService>().As<IDownloadService>().InstancePerLifetimeScope();
 
             builder.RegisterType<EmailSender>().As<IEmailSender>().InstancePerLifetimeScope();
+
+            builder.RegisterType<MessageTemplateService>().As<IMessageTemplateService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
+                .InstancePerLifetimeScope();
+
+            builder.RegisterType<QueuedEmailService>().As<IQueuedEmailService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
+                .InstancePerLifetimeScope();
 
             //standard file system
             builder.RegisterType<PictureService>().As<IPictureService>()
@@ -92,6 +109,11 @@ namespace AALife.Core.Infrastructure.DependencyManagement
             builder.RegisterType<ParameterService>().As<IParameterService>()
                 .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .WithParameter(ResolvedParameter.ForNamed<ICacheManager>("aalife_cache_static"))
+                .InstancePerLifetimeScope();
+
+            //task
+            builder.RegisterType<ScheduleTaskService>().As<IScheduleTaskService>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .InstancePerLifetimeScope();
 
             #endregion
@@ -120,6 +142,21 @@ namespace AALife.Core.Infrastructure.DependencyManagement
 
             //paremeter
             builder.RegisterType<ParameterRepository>().As<IParameterRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //template
+            builder.RegisterType<MessageTemplateRepository>().As<IMessageTemplateRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //queued
+            builder.RegisterType<QueuedEmailRepository>().As<IQueuedEmailRepository>()
+                .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
+                .InstancePerLifetimeScope();
+
+            //task
+            builder.RegisterType<ScheduleTaskRepository>().As<IScheduleTaskRepository>()
                 .WithParameter(ResolvedParameter.ForNamed<IDbContext>("ef_context"))
                 .InstancePerLifetimeScope();
 

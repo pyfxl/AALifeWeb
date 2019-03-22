@@ -108,12 +108,22 @@
     <Compile Include="Configuration\ISettings.cs" />
     <Compile Include="Domain\Configuration\CommonSettings.cs" />
     <Compile Include="Domain\Configuration\Parameter.cs" />
+    <Compile Include="Domain\Configuration\SiteSettings.cs" />
     <Compile Include="Domain\Logging\ActivityLogType.cs" />
     <Compile Include="Domain\Media\Download.cs" />
     <Compile Include="Domain\Media\Picture.cs" />
     <Compile Include="Domain\Media\PictureType.cs" />
+    <Compile Include="Domain\Messages\MessageTemplate.cs" />
+    <Compile Include="Domain\Messages\QueuedEmail.cs" />
+    <Compile Include="Domain\Tasks\ScheduleTask.cs" />
     <Compile Include="EfContext.cs" />
     <Compile Include="EfRepository.cs" />
+    <Compile Include="Fakes\FakeHttpContext.cs" />
+    <Compile Include="Fakes\FakeHttpRequest.cs" />
+    <Compile Include="Fakes\FakeHttpResponse.cs" />
+    <Compile Include="Fakes\FakeHttpSessionState.cs" />
+    <Compile Include="Fakes\FakeIdentity.cs" />
+    <Compile Include="Fakes\FakePrincipal.cs" />
     <Compile Include="Infrastructure\AppDomainTypeFinder.cs" />
     <Compile Include="Infrastructure\DependencyManagement\ContainerManager.cs" />
     <Compile Include="Infrastructure\DependencyManagement\DependencyRegistrar.cs" />
@@ -125,6 +135,7 @@
     <Compile Include="Infrastructure\Engine.cs" />
     <Compile Include="Infrastructure\EngineContext.cs" />
     <Compile Include="Infrastructure\IEngine.cs" />
+    <Compile Include="Infrastructure\IStartupTask.cs" />
     <Compile Include="Infrastructure\ITypeFinder.cs" />
     <Compile Include="Infrastructure\Kendoui\DataSourceRequest.cs" />
     <Compile Include="Infrastructure\Kendoui\DataSourceResult.cs" />
@@ -141,53 +152,12 @@
     <Compile Include="Mapping\Logging\ActivityLogMap.cs" />
     <Compile Include="Mapping\Logging\LogMap.cs" />
     <Compile Include="Mapping\Media\PictureMap.cs" />
-    <Compile Include="Migrations\201902121158077_Core-1.cs" />
-    <Compile Include="Migrations\201902121158077_Core-1.Designer.cs">
-      <DependentUpon>201902121158077_Core-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902121248358_Core-2.cs" />
-    <Compile Include="Migrations\201902121248358_Core-2.Designer.cs">
-      <DependentUpon>201902121248358_Core-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211445044_AddParameter.cs" />
-    <Compile Include="Migrations\201902211445044_AddParameter.Designer.cs">
-      <DependentUpon>201902211445044_AddParameter.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902211520519_AddParameter-1.cs" />
-    <Compile Include="Migrations\201902211520519_AddParameter-1.Designer.cs">
-      <DependentUpon>201902211520519_AddParameter-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902220057405_AddParameter-2.cs" />
-    <Compile Include="Migrations\201902220057405_AddParameter-2.Designer.cs">
-      <DependentUpon>201902220057405_AddParameter-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902241345375_UpdateParameter-1.cs" />
-    <Compile Include="Migrations\201902241345375_UpdateParameter-1.Designer.cs">
-      <DependentUpon>201902241345375_UpdateParameter-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201902260918120_AddXXX.cs" />
-    <Compile Include="Migrations\201902260918120_AddXXX.Designer.cs">
-      <DependentUpon>201902260918120_AddXXX.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903021550362_XXX.cs" />
-    <Compile Include="Migrations\201903021550362_XXX.Designer.cs">
-      <DependentUpon>201903021550362_XXX.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903021555468_XXX1.cs" />
-    <Compile Include="Migrations\201903021555468_XXX1.Designer.cs">
-      <DependentUpon>201903021555468_XXX1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903021557225_XXX2.cs" />
-    <Compile Include="Migrations\201903021557225_XXX2.Designer.cs">
-      <DependentUpon>201903021557225_XXX2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903041504467_Child-a.cs" />
-    <Compile Include="Migrations\201903041504467_Child-a.Designer.cs">
-      <DependentUpon>201903041504467_Child-a.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903061454599_AddDownload.cs" />
-    <Compile Include="Migrations\201903061454599_AddDownload.Designer.cs">
-      <DependentUpon>201903061454599_AddDownload.cs</DependentUpon>
+    <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
+    <Compile Include="Mapping\Messages\QueuedEmailMap.cs" />
+    <Compile Include="Mapping\Tasks\ScheduleTaskMap.cs" />
+    <Compile Include="Migrations\201903180701253_UpdateTasks.cs" />
+    <Compile Include="Migrations\201903180701253_UpdateTasks.Designer.cs">
+      <DependentUpon>201903180701253_UpdateTasks.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MimeTypes.cs" />
@@ -202,6 +172,13 @@
     <Compile Include="Repositorys\Configuration\SettingRepository.cs" />
     <Compile Include="Repositorys\Logging\LogRepository.cs" />
     <Compile Include="Repositorys\Media\PictureRepository.cs" />
+    <Compile Include="Repositorys\Messages\IQueuedEmailRepository.cs" />
+    <Compile Include="Repositorys\Messages\IMessageTemplateRepository.cs" />
+    <Compile Include="Repositorys\Messages\QueuedEmailRepository.cs" />
+    <Compile Include="Repositorys\Messages\MessageTemplateRepository.cs" />
+    <Compile Include="Repositorys\Tasks\IScheduleTaskRepository.cs" />
+    <Compile Include="Repositorys\Tasks\ScheduleTaskRepository.cs" />
+    <Compile Include="Services\Common\KeepAliveTask.cs" />
     <Compile Include="Services\Configuration\IParameterService.cs" />
     <Compile Include="Services\Configuration\ISettingService.cs" />
     <Compile Include="Services\Configuration\SettingExtensions.cs" />
@@ -232,51 +209,28 @@
     <Compile Include="Services\Media\ResizeType.cs" />
     <Compile Include="Services\Messages\EmailSender.cs" />
     <Compile Include="Services\Messages\IEmailSender.cs" />
+    <Compile Include="Services\Messages\IMessageTemplateService.cs" />
+    <Compile Include="Services\Messages\IQueuedEmailService.cs" />
+    <Compile Include="Services\Messages\MessageTemplateService.cs" />
+    <Compile Include="Services\Messages\QueuedEmailService.cs" />
+    <Compile Include="Services\Messages\QueuedMessagesSendTask.cs" />
     <Compile Include="Services\Security\EncryptionService.cs" />
     <Compile Include="Services\Security\IEncryptionService.cs" />
+    <Compile Include="Services\Tasks\IScheduleTaskService.cs" />
+    <Compile Include="Services\Tasks\ITask.cs" />
+    <Compile Include="Services\Tasks\ScheduleTaskService.cs" />
+    <Compile Include="Services\Tasks\Task.cs" />
+    <Compile Include="Services\Tasks\TaskManager.cs" />
+    <Compile Include="Services\Tasks\TaskThread.cs" />
     <Compile Include="WebHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201902121158077_Core-1.resx">
-      <DependentUpon>201902121158077_Core-1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902121248358_Core-2.resx">
-      <DependentUpon>201902121248358_Core-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211445044_AddParameter.resx">
-      <DependentUpon>201902211445044_AddParameter.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902211520519_AddParameter-1.resx">
-      <DependentUpon>201902211520519_AddParameter-1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902220057405_AddParameter-2.resx">
-      <DependentUpon>201902220057405_AddParameter-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902241345375_UpdateParameter-1.resx">
-      <DependentUpon>201902241345375_UpdateParameter-1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201902260918120_AddXXX.resx">
-      <DependentUpon>201902260918120_AddXXX.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903021550362_XXX.resx">
-      <DependentUpon>201903021550362_XXX.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903021555468_XXX1.resx">
-      <DependentUpon>201903021555468_XXX1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903021557225_XXX2.resx">
-      <DependentUpon>201903021557225_XXX2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903041504467_Child-a.resx">
-      <DependentUpon>201903041504467_Child-a.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903061454599_AddDownload.resx">
-      <DependentUpon>201903061454599_AddDownload.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903180701253_UpdateTasks.resx">
+      <DependentUpon>201903180701253_UpdateTasks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -31,10 +31,13 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         {
             ViewBag.UserId = userId;
             ViewBag.DateType = dateType;
+
             var dataItemType = _parameterService.GetParamsByName("ItemType");
             var dataRegionType = _parameterService.GetParamsByName("RegionType");
+
             ViewBag.DataItemType = dataItemType.ToValue();
             ViewBag.DataRegionType = dataRegionType.ToValue();
+
             return View();
         }
 

@@ -4,7 +4,7 @@ using System.Web.Script.Serialization;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public class UserViewModel : BaseViewModel
+    public partial class UserViewModel : BaseViewModel
     {
         public string UserName { get; set; }
 
@@ -18,13 +18,7 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string UserFrom { get; set; }
 
-        public string UserFromName
-        {
-            get
-            {
-                return AALife.Data.Constant.UserFromDic[UserFrom];
-            }
-        }
+        public string UserFromName { get; set; }
 
         public DateTime CreateDate { get; set; }
 

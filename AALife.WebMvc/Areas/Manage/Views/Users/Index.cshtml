@@ -11,8 +11,7 @@
         <div class="col-xs-12">
             <form class="form-inline">
                 <div class="form-group">
-                    <div class="k-widget k-button-group" id="buttondown">
-                    </div>
+                    <div id="buttondown"></div>
                 </div>
                 <div class="form-group">
                     <label>日期</label>
@@ -108,30 +107,30 @@
                     model: {
                         id: "Id",
                         fields: {
-                            Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
+                            Id: { type: "number", editable: false, nullable: false },
                             UserName: {
                                 type: "string",
                                 validation: {
                                     required: true,
-                                    validationMessage: "用户名为必填项",
+                                    validationMessage: "必填项！",
                                     usernamevalidation: function (input) {
                                         if (input.is("[name='UserName']") && input.val() != "") {
-                                            input.attr("data-usernamevalidation-msg", "用户名必须3-20位");
+                                            input.attr("data-usernamevalidation-msg", "长度3-20位");
                                             return input.val().length >= 3 && input.val().length <= 20;
                                         }
                                         return true;
                                     }
                                 }
                             },
-                            UserPassword: { type: "string", validation: { required: true, validationMessage: "密码为必填项" } },
+                            UserPassword: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                             UserNickName: { type: "string" },
                             UserImage: { type: "string" },
                             UserImageFull: { type: "string" },
-                            UserTheme: { type: "string", defaultValue: $.const.siteSettings.DefaultTheme },
+                            UserTheme: { type: "string" },
                             UserThemeName: { type: "string" },
-                            UserLevel: { type: "number", defaultValue: $.const.siteSettings.DefaultLevel },
+                            UserLevel: { type: "number" },
                             UserLevelName: { type: "string" },
-                            UserFrom: { type: "string", defaultValue: $.const.siteSettings.DefaultFrom },
+                            UserFrom: { type: "string" },
                             UserFromName: { type: "string" },
                             ModifyDate: { type: "date", editable: false },
                             CreateDate: { type: "date", editable: false },
@@ -142,11 +141,12 @@
                 },
                 error: function (e) {
                     kendoui_grid_error(e); //TODO: 出错后，取消不起作用，注释下面的就正常了
+                    grid.cancelChanges();
                     //grid.one("dataBinding", function (e) {
                     //    e.preventDefault();
                     //});
                 },
-                pageSize: $.const.siteSettings.PageNumber
+                pageSize: $.const.default.PageNumber
             }));
 
             //用户来自数据源
@@ -188,7 +188,7 @@
                 autoBind: false,
                 toolbar: ["create", "excel"],
                 pageable: {
-                    pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
+                    pageSizes: $.const.default.PageNumbers,
                 },
                 columns: [
                 {
@@ -200,10 +200,11 @@
                     width: 100
                 },
                 {
-                    template: "<a href='@Url.Action("Details", "Users")?id=#:Id#'>#:Id#</a>",
+                    template: "<a href='@Url.Action("Details", "Users")/#:Id#'>#:Id#</a>",
                     field: "Id",
                     title: "编号",
-                    width: 80
+                    width: 80,
+                    attributes: { class: "text-light-blue" }
                 },
                 {
                     field: "UserName",
@@ -221,11 +222,11 @@
                     width: 100
                 },
                 {
-                    template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
+                    template: "<div class='user-block'><img src='#= UserImageFull ? UserImageFull : \"/images/users/user.gif\" #' class='img-circle'/></div>",
                     field: "UserImage",
                     title: "头像",
                     width: 100,
-                    attributes: { style: "text-align: center" },
+                    attributes: { class: "user-img-td" },
                     editor: function (container, options) {
                         if (options.model.Id == 0) {
                             $("<div class='user-block'><img src='/Images/Users/user.gif' class='img-circle'/></div>").appendTo(container);
@@ -262,7 +263,7 @@
                     field: "UserTheme",
                     values: @Html.Raw(Json.Encode(ViewBag.DataTheme)),
                     title: "样式",
-                    width: 80,
+                    width: 100,
                     //editor: function (container, options) {
                     //    var input = $("<input required validationmessage='样式为必选项' />");
                     //    input.attr("name", options.field);
@@ -288,7 +289,7 @@
                     field: "UserLevel",
                     values: @Html.Raw(Json.Encode(ViewBag.DataUserLevel)),
                     title: "等级",
-                    width: 80,
+                    width: 100,
                     //editor: function (container, options) {
                     //    var input = $("<input required validationmessage='等级为必选项' />");
                     //    input.attr("name", options.field);
@@ -348,13 +349,15 @@
                     format: "{0:yyyy/MM/dd HH:mm:ss}"
                 },
                 {
+                    template: "#= Synchronize == 1 ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     field: "Synchronize",
                     title: "同步否",
-                    width: 80,
+                    width: 90,
                     format: "{0:0}",
                     filterable: {
                         multi: true,
-                        dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
+                        dataSource: $.const.default.TrueFalse,
                         itemTemplate: function (e) {
                             return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
                         }
@@ -379,7 +382,7 @@
                     { title: "本日", code: "b_day", sub: true }
                 ],
                 callback: function (data) {
-                    setDate(data.startDate, data.endDate);
+                    //setDate(data.startDate, data.endDate);
                     queryList();
                 }
             }).data("kendoButtonDown");
@@ -424,6 +427,8 @@
 
             //取查询条件
             function getQuery() {
+                var start = $(".buttondowndate input[name=start]").data("kendoDatePicker");
+                var end = $(".buttondowndate input[name=end]").data("kendoDatePicker");
                 return {
                     startDate: kendo.toString(start.value(), "yyyy/MM/dd 00:00:00"),
                     endDate: kendo.toString(end.value(), "yyyy/MM/dd 23:59:59"),

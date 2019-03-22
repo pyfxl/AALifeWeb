@@ -80,7 +80,7 @@ namespace AALife.Data.Authentication
         /// <param name="createPersistentCookie">A value indicating whether to create a persistent cookie</param>
         public virtual void SignIn(UserTable user, bool createPersistentCookie, bool isApi = false)
         {
-            var now = DateTime.UtcNow.ToLocalTime();
+            var now = DateTime.Now.ToLocalTime();
 
             var ticket = new FormsAuthenticationTicket(
                 1 /*version*/,

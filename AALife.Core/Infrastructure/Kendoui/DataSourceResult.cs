@@ -10,6 +10,11 @@ namespace AALife.Core.Infrastructure.Kendoui
     public class DataSourceResult
     {
         /// <summary>
+        /// aggregates
+        /// </summary>
+        public object ExtraData { get; set; }
+
+        /// <summary>
         /// Represents a single page of processed data.
         /// </summary>
         public IEnumerable Data { get; set; }

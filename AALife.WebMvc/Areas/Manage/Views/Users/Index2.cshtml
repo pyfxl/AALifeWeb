@@ -97,11 +97,11 @@
                         UserNickName: { type: "string" },
                         UserImage: { type: "string" },
                         UserImageFull: { type: "string" },
-                        UserTheme: { type: "string", defaultValue: $.const.siteSettings.DefaultTheme },
+                        UserTheme: { type: "string" },
                         UserThemeName: { type: "string" },
-                        UserLevel: { type: "number", defaultValue: $.const.siteSettings.DefaultLevel },
+                        UserLevel: { type: "number" },
                         UserLevelName: { type: "string" },
-                        UserFrom: { type: "string", defaultValue: $.const.siteSettings.DefaultFrom },
+                        UserFrom: { type: "string" },
                         UserFromName: { type: "string" },
                         ModifyDate: { type: "date", editable: false },
                         CreateDate: { type: "date", editable: false },
@@ -116,7 +116,7 @@
                 //    e.preventDefault();
                 //});
             },
-            pageSize: $.const.siteSettings.PageNumber
+            pageSize: $.const.default.PageNumber
         }));
 
         //列表
@@ -125,7 +125,7 @@
             autoBind: false,
             toolbar: ["create"],
             pageable: {
-                pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
+                pageSizes: $.const.default.PageNumbers,
             },
             columns: [
                 {
@@ -140,7 +140,8 @@
                     template: "<a href='@Url.Action("Details", "Users")?id=#:Id#'>#:Id#</a>",
                     field: "Id",
                     title: "编号",
-                    width: 80
+                    width: 80,
+                    attributes: { class: "text-light-blue" }
                 },
                 {
                     field: "UserName",
@@ -162,11 +163,11 @@
                     width: 100
                 },
                 {
-                    template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
+                    template: "<div class='user-block'><img src='#= UserImageFull ? UserImageFull : \"/images/users/user.gif\" #' class='img-circle'/></div>",
                     field: "UserImage",
                     title: "头像",
                     width: 100,
-                    attributes: { style: "text-align: center" },
+                    attributes: { class: "user-img-td" },
                     editor: function (container, options) {
                         if (options.model.Id == 0) {
                             $("<div class='user-block'><img src='/Images/Users/user.gif' class='img-circle'/></div>").appendTo(container);
@@ -202,7 +203,7 @@
                     field: "UserTheme",
                     values: @Html.Raw(Json.Encode(ViewBag.DataTheme)),
                     title: "样式",
-                    width: 80,
+                    width: 100,
                     filterable: {
                         multi: true,
                         dataSource: @Html.Raw(Json.Encode(ViewBag.DataTheme)),
@@ -215,7 +216,7 @@
                     field: "UserLevel",
                     values: @Html.Raw(Json.Encode(ViewBag.DataUserLevel)),
                     title: "等级",
-                    width: 80,
+                    width: 100,
                     filterable: {
                         multi: true,
                         dataSource: @Html.Raw(Json.Encode(ViewBag.DataUserLevel)),
@@ -253,13 +254,14 @@
                     searchbar: "date"
                 },
                 {
-                    field: "Synchronize",
+                    template: "#= Synchronize == 1 ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     title: "同步否",
-                    width: 80,
+                    width: 90,
                     format: "{0:0}",
                     filterable: {
                         multi: true,
-                        dataSource: [{ text: "0", value: "0" }, { text: "1", value: "1" }],
+                        dataSource: $.const.default.TrueFalse,
                         itemTemplate: function (e) {
                             return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.value #'/> #= data.text || data.all #</label></li>";
                         }
@@ -277,7 +279,7 @@
         $("#searchbar").kendoSearchBar({ grid: "#grid" });
 
         //刷新高度
-        //resizeMain();
+        resizeMain();
 
     });
 </script>

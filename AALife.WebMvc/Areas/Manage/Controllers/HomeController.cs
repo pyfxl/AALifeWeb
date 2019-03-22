@@ -13,11 +13,11 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
     public class HomeController : BaseAdminController
     {
         private readonly IUserService _userService;
-        private readonly IPermissionService _permissionService;
+        private readonly IUserPermissionService _permissionService;
         private readonly IWorkContext _workContextService;
 
-        public HomeController(IUserService userService, 
-            IPermissionService permissionService,
+        public HomeController(IUserService userService,
+            IUserPermissionService permissionService,
             IWorkContext workContextService)
         {
             this._userService = userService;
@@ -40,13 +40,20 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         [ChildActionOnly]
         public ActionResult SidebarMenu()
         {
-            var permissions = new List<PermissionRecord> { };
+            var permissions = new List<UserPermission> { };
 
-            var rolePermissions = _workContextService.CurrentUser.UserRoles.Select(t => t.PermissionRecords.OrderBy(a => a.OrderNo)).ToList();
-
+            //roles
+            var rolePermissions = _workContextService.CurrentUser.UserRoles.Select(t => t.UserPermissions.OrderBy(a => a.OrderNo)).ToList();
             foreach (var rp in rolePermissions)
             {
                 permissions = permissions.Union(rp).ToList();
+            }
+
+            //depts
+            var deptPermissions = _workContextService.CurrentUser.UserDeptments.Select(t => t.UserPermissions.OrderBy(a => a.OrderNo)).ToList();
+            foreach (var dp in deptPermissions)
+            {
+                permissions = permissions.Union(dp).ToList();
             }
 
             var model = SortMenuForTree(null, permissions);
@@ -58,10 +65,10 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         /// </summary>
         /// <param name="parentId">父节点</param>
         /// <returns></returns>
-        public List<MenuViewModel> SortMenuForTree(int? parentId, IEnumerable<PermissionRecord> rolePermissions)
+        public List<MenuViewModel> SortMenuForTree(int? parentId, IEnumerable<UserPermission> permissions)
         {
             var model = new List<MenuViewModel>();
-            foreach (var p in rolePermissions.Where(t => t.ParentId == parentId))
+            foreach (var p in permissions.Where(t => t.ParentId == parentId))
             {
                 var menu = new MenuViewModel
                 {
@@ -69,7 +76,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                     ControllerName = p.ControllerName,
                     ActionName = p.ActionName
                 };
-                menu.ChildMenus.AddRange(SortMenuForTree(p.Id, rolePermissions));
+                menu.ChildMenus.AddRange(SortMenuForTree(p.Id, permissions));
                 model.Add(menu);
             }
             return model;

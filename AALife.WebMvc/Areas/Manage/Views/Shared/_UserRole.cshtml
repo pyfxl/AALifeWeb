@@ -1,0 +1,32 @@
+﻿@model AALife.WebMvc.Models.ViewModel.UserRoleListModel
+@helper CreateItems()
+{
+    var userRoles = Model.UserRoles.ToList();
+    if (!userRoles.Any())
+    {
+        return;
+    }
+
+    <ul class="list-unstyled">
+        @foreach (var userRole in userRoles)
+        {
+            var selected = Model.SelectedNames.Contains(userRole.Name);
+            <li class="checkbox">
+                <label>
+                    @if (selected)
+                    {
+                        <input type="checkbox" checked="checked" />
+                    }
+                    else
+                    {
+                        <input type="checkbox" />
+                    }
+                    @userRole.Name
+                </label>
+            </li>
+        }
+    </ul>
+}
+<div>
+    @CreateItems()
+</div>

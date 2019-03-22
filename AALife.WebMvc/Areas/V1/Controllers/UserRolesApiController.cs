@@ -1,5 +1,6 @@
 ﻿using AALife.Core.Domain.Logging;
 using AALife.Core.Infrastructure.Kendoui;
+using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
 using AALife.Data.Domain;
 using AALife.Data.Services;
@@ -21,14 +22,17 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         private readonly IUserService _userService;
         private readonly IUserRoleService _userRoleService;
         private readonly ICustomerActivityService _customerActivityService;
+        private readonly IParameterService _parameterService;
 
         public UserRolesApiController(IUserService userService,
             IUserRoleService userRoleService,
-            ICustomerActivityService customerActivityService)
+            ICustomerActivityService customerActivityService,
+            IParameterService parameterService)
         {
             this._userService = userService;
             this._userRoleService = userRoleService;
             this._customerActivityService = customerActivityService;
+            this._parameterService = parameterService;
         }
 
         // GET api/<controller>/5
@@ -41,6 +45,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = users.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
+                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
                     return m;
                 }),
                 Total = users.TotalCount
@@ -121,6 +126,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
                     m.IsCurrentRole = x.UserRoles.Any(w => w.Id == id);
+                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
                     return m;
                 }),
                 Total = result.TotalCount

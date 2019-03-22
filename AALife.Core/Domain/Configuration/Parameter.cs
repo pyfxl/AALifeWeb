@@ -54,7 +54,7 @@ namespace AALife.Core.Domain.Configuration
         /// 儿子
         /// </summary>
         [JsonIgnore]
-        public virtual ICollection<Parameter> Childs { get; set; }
+        public virtual ICollection<Parameter> Children { get; set; }
 
     }
 }

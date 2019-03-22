@@ -1,0 +1,22 @@
+﻿@model AALife.WebMvc.Models.ViewModel.PermissionListModel
+@helper CreatePermissionTreeItems()
+{
+    var permissions = Model.UserPermissions.ToList();
+    if (!permissions.Any())
+    {
+        return;
+    }
+
+    <ul>
+        @foreach (var permission in permissions)
+        {
+            var selected = Model.GrantedPermissionNames.Contains(permission.Name);
+            <li>
+                <input type="checkbox" />@permission.Name
+            </li>
+        }
+    </ul>
+}
+<div class="permission-tree">
+    @CreatePermissionTreeItems()
+</div>

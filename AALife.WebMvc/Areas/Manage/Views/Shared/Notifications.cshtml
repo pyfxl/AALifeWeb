@@ -36,40 +36,44 @@
         warningMessages.AddRange(ViewData[string.Format("notifications.{0}", NotifyType.Warning)] as IList<string>);
     }
 }
-
-@foreach (var message in successMessages)
-{
+<section class="content-header">
+    @foreach (var message in successMessages)
+    {
     <div class="alert alert-success alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="icon fa fa-check"></i>
         @message
     </div>
-}
+    }
 
-@foreach (var message in errorMessages)
-{
+    @foreach (var message in errorMessages)
+    {
     <div class="alert alert-danger alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="icon fa fa-ban"></i>
         @message
     </div>
-}
+    }
 
-@foreach (var message in warningMessages)
-{
+    @foreach (var message in warningMessages)
+    {
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <i class="icon fa fa-warning"></i>
         @message
     </div>
-}
-@*kendo提示*@
-<span id="notification"></span>
-<script>
-    //提示
-    var notification = $("#notification").kendoNotification({
-        autoHideAfter: 2000,
-        position: {
-            top: Math.floor($(window).height() / 2.5),
-            left: Math.floor($(window).width() / 2.2),
-            pinning: false
-        }
-    }).data("kendoNotification");
-</script>
+    }
+    @*kendo提示*@
+    <span id="notification"></span>
+    <script>
+        //提示
+        var notification = $("#notification").kendoNotification({
+            autoHideAfter: 2000,
+            position: {
+                top: Math.floor($(window).height() / 2.5),
+                left: Math.floor($(window).width() / 2.2),
+                pinning: false
+            }
+        }).data("kendoNotification");
+    </script>
+</section>

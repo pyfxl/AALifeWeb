@@ -71,11 +71,11 @@
                     parentId: "ParentId",
                     fields: {
                         Id: { type: "number", editable: false, nullable: false },
-                        ParentId: { type: "text", defaultValue: null },
-                        Name: { type: "text", validation: { required: true, validationMessage: "角色名称为必填项" } },
-                        AreaName: { type: "text" },
-                        ControllerName: { type: "text" },
-                        ActionName: { type: "text" },
+                        ParentId: { type: "string", defaultValue: null },
+                        Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                        AreaName: { type: "string" },
+                        ControllerName: { type: "string" },
+                        ActionName: { type: "string" },
                         Rank: { type: "number", defaultValue: 1 }
                     },
                     expanded: false
@@ -94,8 +94,8 @@
                 {
                     expandable: true,
                     field: "Name",
-                    title: "角色名称",
-                    width: 150
+                    title: "菜单名称",
+                    width: 100
                 },
                 {
                     field: "AreaName",

@@ -87,7 +87,7 @@
                     field: "UserImage",
                     title: "头像",
                     width: 100,
-                    attributes: { style: "text-align: center" }
+                    attributes: { class: "user-img-td" }
                 },
                 {
                     template: "#=UserFromName#",
@@ -125,16 +125,17 @@
 
         //对话框确定事件
         function actionOK(e) {
-            var items = userGrid.element.find("tbody .k-state-selected");
+            var items = userGrid.element.find("table tbody .k-state-selected");
             if (items.length > 0) {
                 var result = [];
                 for (var i = 0; i < items.length; i++) {
                     var dataItem = userGrid.dataItem(items[i]);
                     result.push(dataItem);
                 }
-                insert_userrole(_Id, result, function () {
-                    dialog_close(e);
-                });
+                //insert_userrole(_Id, result, function () {
+                //    dialog_close(e);
+                //});
+                userselect_callback(result);
             }
         }
 

@@ -78,7 +78,7 @@
                     return options;
                 }
             },
-            pageSize: $.const.siteSettings.PageNumber,
+            pageSize: $.const.default.PageNumber,
             schema: {
                 model: {
                     id: "Id",
@@ -134,7 +134,7 @@
             dataSource: dataSource,
             autoBind: false,
             pageable: {
-                pageSizes: JSON.parse($.const.siteSettings.PageNumbers),
+                pageSizes: $.const.default.PageNumbers,
             },
             columns: [
                 {
@@ -186,12 +186,14 @@
                     width: 100
                 },
                 {
+                    template: "#= Recommend == 1 ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     field: "Recommend",
                     title: "推荐否",
-                    width: 80,
+                    width: 90,
                     filterable: {
                         multi: true,
-                        dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
+                        dataSource: $.const.default.TrueFalse,
                         itemTemplate: function (e) {
                             return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
                         }
@@ -204,12 +206,14 @@
                     format: "{0:yyyy/MM/dd HH:mm:ss}"
                 },
                 {
+                    template: "#= Synchronize == 1 ? '<i class=\"fa fa-check\"></i>' : '<i class=\"fa fa-close\"></i>' #",
+                    attributes: { class: "text-center" },
                     field: "Synchronize",
                     title: "同步否",
-                    width: 80,
+                    width: 90,
                     filterable: {
                         multi: true,
-                        dataSource: [{ Name: "0", Value: "0" }, { Name: "1", Value: "1" }],
+                        dataSource: $.const.default.TrueFalse,
                         itemTemplate: function (e) {
                             return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>";
                         }
@@ -259,7 +263,7 @@
                 { title: "本日", code: "b_day", sub: true }
             ],
             callback: function (data) {
-                setDate(data.startDate, data.endDate);
+                //setDate(data.startDate, data.endDate);
                 queryList();
             }
         }).data("kendoButtonDown");

@@ -24,6 +24,22 @@ namespace AALife.Core.Infrastructure
         #region Utilities
 
         /// <summary>
+        /// Run startup tasks
+        /// </summary>
+        protected virtual void RunStartupTasks()
+        {
+            var typeFinder = _containerManager.Resolve<ITypeFinder>();
+            var startUpTaskTypes = typeFinder.FindClassesOfType<IStartupTask>();
+            var startUpTasks = new List<IStartupTask>();
+            foreach (var startUpTaskType in startUpTaskTypes)
+                startUpTasks.Add((IStartupTask)Activator.CreateInstance(startUpTaskType));
+            //sort
+            startUpTasks = startUpTasks.AsQueryable().OrderBy(st => st.Order).ToList();
+            foreach (var startUpTask in startUpTasks)
+                startUpTask.Execute();
+        }
+
+        /// <summary>
         /// Register dependencies
         /// </summary>
         protected virtual void RegisterDependencies()
@@ -90,6 +106,8 @@ namespace AALife.Core.Infrastructure
             //register mapper configurations
             RegisterMapperConfiguration();
 
+            //startup tasks
+            RunStartupTasks();
         }
 
         /// <summary>

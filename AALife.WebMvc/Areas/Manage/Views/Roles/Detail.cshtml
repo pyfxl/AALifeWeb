@@ -205,10 +205,10 @@
                     fields: {
                         Id: { type: "number", editable: false, nullable: false },
                         ParentId: { type: "number" },
-                        Name: { type: "text", validation: { required: true, validationMessage: "角色名称为必填项" } },
-                        AreaName: { type: "text" },
-                        ControllerName: { type: "text" },
-                        ActionName: { type: "text" }
+                        Name: { type: "string", validation: { required: true, validationMessage: "角色名称为必填项" } },
+                        AreaName: { type: "string" },
+                        ControllerName: { type: "string" },
+                        ActionName: { type: "string" }
                     },
                     expanded: true
                 }

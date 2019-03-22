@@ -47,18 +47,17 @@ namespace AALife.Data.Migrations
                 crGuests
             };
             var userRoleSet = context.Set<UserRole>();
-            userRoleSet.AddOrUpdate(m => new { m.Name }, userRoles.ToArray());
+            userRoleSet.AddOrUpdate(m => new { m.SystemName }, userRoles.ToArray());
             context.SaveChanges();
 
             #endregion
 
             #region 权限
 
-            var permissions = new List<PermissionRecord>()
+            var permissions = new List<UserPermission>()
             {
-                new PermissionRecord()
+                new UserPermission()
                 {
-                    Id = 1,
                     Name = "用户管理",
                     AreaName = "Manage",
                     ControllerName = "Users",
@@ -66,9 +65,8 @@ namespace AALife.Data.Migrations
                     Rank = 1,
                     OrderNo = "01"
                 },
-                new PermissionRecord()
+                new UserPermission()
                 {
-                    Id = 2,
                     Name = "消费管理",
                     AreaName = "Manage",
                     ControllerName = "Items",
@@ -76,9 +74,8 @@ namespace AALife.Data.Migrations
                     Rank = 2,
                     OrderNo = "02"
                 },
-                new PermissionRecord()
+                new UserPermission()
                 {
-                    Id = 3,
                     Name = "权限管理",
                     AreaName = "Manage",
                     ControllerName = "Permissions",
@@ -86,9 +83,8 @@ namespace AALife.Data.Migrations
                     Rank = 3,
                     OrderNo = "03"
                 },
-                new PermissionRecord()
+                new UserPermission()
                 {
-                    Id = 4,
                     Name = "角色管理",
                     AreaName = "Manage",
                     ControllerName = "Roles",
@@ -96,9 +92,8 @@ namespace AALife.Data.Migrations
                     Rank = 4,
                     OrderNo = "04"
                 },
-                new PermissionRecord()
+                new UserPermission()
                 {
-                    Id = 5,
                     Name = "参数管理",
                     AreaName = "Manage",
                     ControllerName = "Parameters",
@@ -106,42 +101,93 @@ namespace AALife.Data.Migrations
                     Rank = 5,
                     OrderNo = "05"
                 },
-                new PermissionRecord()
+                new UserPermission()
                 {
-                    Id = 6,
                     Name = "邮件模板",
                     AreaName = "Manage",
-                    ControllerName = "MessageTemplate",
+                    ControllerName = "MessageTemplates",
                     ActionName = "Index",
                     Rank = 6,
                     OrderNo = "06"
+                },
+                new UserPermission()
+                {
+                    Name = "定时任务",
+                    AreaName = "Manage",
+                    ControllerName = "ScheduleTasks",
+                    ActionName = "Index",
+                    Rank = 7,
+                    OrderNo = "07"
+                },
+                new UserPermission()
+                {
+                    Name = "网站管理",
+                    AreaName = "Manage",
+                    ControllerName = "Settings",
+                    ActionName = "Index",
+                    Rank = 8,
+                    OrderNo = "08"
                 }
             };
-
-            var permissionSet = context.Set<PermissionRecord>();
-            permissionSet.AddOrUpdate(m => new { m.Id }, permissions.ToArray());
+            var permissionSet = context.Set<UserPermission>();
+            permissionSet.AddOrUpdate(m => new { m.Name }, permissions.ToArray());
             context.SaveChanges();
+
+            #endregion
+
+            #region 部门
+
+            var userDepts = new List<UserDeptment>
+            {
+                new UserDeptment { Name = "公司名称" },
+                new UserDeptment { Name = "领导层" },
+                new UserDeptment { Name = "行政部" },
+                new UserDeptment { Name = "开发部" },
+                new UserDeptment { Name = "销售部" },
+                new UserDeptment { Name = "财务部" }
+            };
+            var userDeptSet = context.Set<UserDeptment>();
+            userDeptSet.AddOrUpdate(m => new { m.Name }, userDepts.ToArray());
+            context.SaveChanges();
+
+            var rootDept = context.UserDeptments.First(a => a.Name == "公司名称");
+            var otherDept = context.UserDeptments.Where(a => a.Name != "公司名称").ToList();
+            if (otherDept != null)
+            {
+                otherDept.ForEach(a =>
+                {
+                    a.Parent = rootDept;
+                });
+                context.SaveChanges();
+            }
 
             #endregion
 
             #region 管理员
 
-            var admin = new UserTable()
+            var adminUser = new UserTable()
             {
-                Id = 2,
                 UserName = "admin",
-                UserPassword = "admin",
+                UserPassword = "password",
                 UserNickName = "管理员",
                 UserTheme = "main",
                 UserLevel = 9,
                 UserFrom = "web",
                 CreateDate = DateTime.Now,
+                ModifyDate = DateTime.Now,
                 Synchronize = 1,
-                UserRoles = userRoles
+                IsAdmin = true
             };
-
             var userSet = context.Set<UserTable>();
-            userSet.AddOrUpdate(m => m.Id, admin);
+            userSet.AddOrUpdate(m => new { m.UserName }, adminUser);
+            context.SaveChanges();
+
+            //设置角色和部门
+            var admin = context.UserTables.First(a => a.UserName == "admin");
+            var role = context.UserRoles.Where(a => a.SystemName == UserRoleNames.Administrators).ToList();
+            var dept = context.UserDeptments.Where(a => a.Name == "开发部").ToList();
+            admin.UserRoles = role;
+            admin.UserDeptments = dept;
             context.SaveChanges();
 
             #endregion
@@ -149,12 +195,12 @@ namespace AALife.Data.Migrations
             #region 默认权限
 
             var adminRole = context.UserRoles.First(a => a.SystemName == UserRoleNames.Administrators);
-            var menus = context.PermissionRecords.ToList();
+            var menus = context.UserPermissions.ToList();
             if (menus != null)
             {
                 menus.ForEach(a =>
                 {
-                    adminRole.PermissionRecords.Add(a);
+                    adminRole.UserPermissions.Add(a);
                 });
                 context.SaveChanges();
             }

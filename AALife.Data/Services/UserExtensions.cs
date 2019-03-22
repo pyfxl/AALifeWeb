@@ -10,7 +10,7 @@ namespace AALife.Data.Services
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            if (string.IsNullOrWhiteSpace(user.UserImage)) user.UserImage = "none.gif";
+            if (string.IsNullOrWhiteSpace(user.UserImage)) user.UserImage = "user.gif";
 
             return user.UserImage.StartsWith("http") ? user.UserImage : string.Format("http://www.fxlweb.com/Images/Users/{0}", user.UserImage);
         }

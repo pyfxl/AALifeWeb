@@ -49,6 +49,12 @@ D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.CoreCompileInpu
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.CopyComplete
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.dll
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.pdb
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.InitDatabase.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.AddDept.resources
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.GenerateResource.cache
-D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.InitDatabase1.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateDept.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin1.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin2.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin3.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin4.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin5.resources
