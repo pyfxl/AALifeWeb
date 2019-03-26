@@ -44,6 +44,17 @@ namespace AALife.Data.Domain
         public string Name { get; set; }
 
         /// <summary>
+        /// 图标
+        /// </summary>
+        [MaxLength(20)]
+        public string IconName { get; set; }
+
+        /// <summary>
+        /// 是否按钮
+        /// </summary>
+        public bool IsButton { get; set; }
+
+        /// <summary>
         /// 角色列表
         /// </summary>
         private ICollection<UserRole> _userRoles;

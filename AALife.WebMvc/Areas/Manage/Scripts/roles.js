@@ -8,9 +8,10 @@
     });
 }
 
-function delete_userrole(id, dataItems, callback) {
+//选择角色删除用户
+function delete_rolesuser(id, dataItems, callback) {
     $.ajax({
-        url: String.format($.const.webapi.userroles, id),
+        url: String.format($.const.webapi.rolesuser_id, id),
         dataType: "json",
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
@@ -19,9 +20,10 @@ function delete_userrole(id, dataItems, callback) {
     });
 }
 
-function insert_userrole(id, dataItems, callback) {
+//选择角色插入用户
+function insert_rolesuser(id, dataItems, callback) {
     $.ajax({
-        url: String.format($.const.webapi.userroles, id),
+        url: String.format($.const.webapi.rolesuser_id, id),
         dataType: "json",
         type: "POST",
         contentType: "application/json; charset=utf-8",

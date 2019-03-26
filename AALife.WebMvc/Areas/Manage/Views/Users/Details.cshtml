@@ -81,17 +81,7 @@
 
     function pick_deptment_callback(checkedNodes) {
         if (checkedNodes.length > 0) {
-            userdeptments_update(@Model.Id, checkedNodes);
-        }
-    }
-
-    function init_treeview_callback(treeView) {
-        if (treeView != null) {
-            var deptments = @Html.Raw(Json.Encode(Model.UserDeptments));
-            $.each(deptments, function (i, d) {
-                var item = treeView.findByText(d.Name);
-                //item.find(".k-checkbox").click();
-            });
+            update_userdeptments(@Model.Id, checkedNodes);
         }
     }
 

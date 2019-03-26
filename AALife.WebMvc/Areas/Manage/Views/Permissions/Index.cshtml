@@ -76,6 +76,8 @@
                         AreaName: { type: "string" },
                         ControllerName: { type: "string" },
                         ActionName: { type: "string" },
+                        IconName: { type: "string" },
+                        IsButton: { type: "boolean" },
                         Rank: { type: "number", defaultValue: 1 }
                     },
                     expanded: false
@@ -113,9 +115,19 @@
                     width: 100
                 },
                 {
+                    field: "IconName",
+                    title: "图标",
+                    width: 50
+                },
+                {
+                    field: "IsButton",
+                    title: "按钮否",
+                    width: 50
+                },
+                {
                     field: "Rank",
                     title: "排序",
-                    width: 100,
+                    width: 50,
                     format: "{0:0}"
                 },
                 {

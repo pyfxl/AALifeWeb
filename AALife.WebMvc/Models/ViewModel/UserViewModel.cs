@@ -26,5 +26,7 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string Remark { get; set; }
 
+        public bool IsAdmin { get; set; }
+
     }
 }

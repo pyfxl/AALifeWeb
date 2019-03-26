@@ -72,7 +72,7 @@
         var hiDataSource = new kendo.data.HierarchicalDataSource({
             transport: {
                 read: {
-                    url: "/api/v1/deptmenttreesapi",
+                    url: $.const.webapi.deptmentstree,
                     dataType: "json"
                 }
             },
@@ -121,7 +121,7 @@
             dataSource: {
                 transport: {
                     read: {
-                        url: $.const.webapi.userdeptments,
+                        url: $.const.webapi.deptmentsuser,
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         data: function (d) {
@@ -231,7 +231,7 @@
                     var dataItem = grid.dataItem(items[i]);
                     result.push(dataItem);
                 }
-                delete_userdeptment(_selectedId, result, function (d) {
+                delete_deptmentsuser(_selectedId, result, function (d) {
                     kendoui_ajax_complete();
                     var grid = $("#grid").data("kendoGrid");
                     grid.dataSource.read();
@@ -372,7 +372,7 @@
 
     //用户选择回调
     function userselect_callback(dataItem) {
-        insert_userdeptment(_selectedId, dataItem, function () {
+        insert_deptmentsuser(_selectedId, dataItem, function () {
             //dialog_close(e);
             var grid = $("#grid").data("kendoGrid");
             grid.dataSource.read();

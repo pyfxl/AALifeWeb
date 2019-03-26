@@ -107,6 +107,22 @@
     <Compile Include="Migrations\201903190337123_UpdateIsAdmin-5.Designer.cs">
       <DependentUpon>201903190337123_UpdateIsAdmin-5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201903220629160_UpdatePermissionDataType.cs" />
+    <Compile Include="Migrations\201903220629160_UpdatePermissionDataType.Designer.cs">
+      <DependentUpon>201903220629160_UpdatePermissionDataType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903220723436_UpdatePermissionDataType1.cs" />
+    <Compile Include="Migrations\201903220723436_UpdatePermissionDataType1.Designer.cs">
+      <DependentUpon>201903220723436_UpdatePermissionDataType1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903230258185_UpdatePermissionDataType2.cs" />
+    <Compile Include="Migrations\201903230258185_UpdatePermissionDataType2.Designer.cs">
+      <DependentUpon>201903230258185_UpdatePermissionDataType2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201903231159502_AddIconName.cs" />
+    <Compile Include="Migrations\201903231159502_AddIconName.Designer.cs">
+      <DependentUpon>201903231159502_AddIconName.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -168,6 +184,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903190337123_UpdateIsAdmin-5.resx">
       <DependentUpon>201903190337123_UpdateIsAdmin-5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903220629160_UpdatePermissionDataType.resx">
+      <DependentUpon>201903220629160_UpdatePermissionDataType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903220723436_UpdatePermissionDataType1.resx">
+      <DependentUpon>201903220723436_UpdatePermissionDataType1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903230258185_UpdatePermissionDataType2.resx">
+      <DependentUpon>201903230258185_UpdatePermissionDataType2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903231159502_AddIconName.resx">
+      <DependentUpon>201903231159502_AddIconName.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

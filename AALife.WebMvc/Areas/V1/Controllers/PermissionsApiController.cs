@@ -82,7 +82,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             permission.AreaName = model.AreaName;
             permission.ControllerName = model.ControllerName;
             permission.ActionName = model.ActionName;
+            permission.IconName = model.IconName;
             permission.Rank = model.Rank;
+            permission.IsButton = model.IsButton;
             //permission.OrderNo = model.GetOrderNo(permission.ParentRecord);
 
             //更新子列表排序

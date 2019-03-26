@@ -124,12 +124,30 @@ namespace AALife.Data.Domain
         /// <summary>
         /// 角色列表
         /// </summary>
-        public virtual ICollection<UserRole> UserRoles { get; set; }
+        private ICollection<UserRole> _userRoles;
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        public virtual ICollection<UserRole> UserRoles
+        {
+            get { return _userRoles ?? (_userRoles = new List<UserRole>()); }
+            protected set { _userRoles = value; }
+        }
 
         /// <summary>
         /// 部门列表
         /// </summary>
-        public virtual ICollection<UserDeptment> UserDeptments { get; set; }
+        private ICollection<UserDeptment> _userDeptments;
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        public virtual ICollection<UserDeptment> UserDeptments
+        {
+            get { return _userDeptments ?? (_userDeptments = new List<UserDeptment>()); }
+            protected set { _userDeptments = value; }
+        }
 
     }
 

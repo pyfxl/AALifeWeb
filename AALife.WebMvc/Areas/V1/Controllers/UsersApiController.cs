@@ -74,11 +74,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             //user role
             var registerRole = _userRoleService.GetUserRoleBySystemName(UserRoleNames.Registered.ToString());
-            var userRoles = new List<UserRole>();
-            userRoles.Add(registerRole);
 
             //add role
-            model.UserRoles = userRoles;
+            model.UserRoles.Add(registerRole);
 
             //insert
             _userService.Add(model);
@@ -94,9 +92,21 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var user = _userService.Get(model.Id);
 
-            AutoMapperConfiguration.Mapper.Map(model, user);
+            //AutoMapperConfiguration.Mapper.Map(model, user);
 
+            user.UserName = model.UserName;
+            user.UserNickName = model.UserNickName;
+            user.UserImage = model.UserImage;
+            user.UserPassword = model.UserPassword;
+            user.PasswordSalt = model.PasswordSalt;
+            user.UserTheme = model.UserTheme;
+            user.UserLevel = model.UserLevel;
+            user.UserFrom = model.UserFrom;
+            user.CreateDate = model.CreateDate;
+            user.Synchronize = model.Synchronize;
+            user.Remark = model.Remark;
             user.ModifyDate = DateTime.Now;
+            user.IsAdmin = model.IsAdmin;
 
             //update
             _userService.Update(user);

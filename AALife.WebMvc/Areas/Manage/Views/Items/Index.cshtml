@@ -12,12 +12,12 @@
                     <div class="k-widget k-button-group k-buttondown" id="buttondown">
                     </div>
                 </div>
-                <div class="form-group">
+                @*<div class="form-group">
                     <label>日期</label>
                     <input id="start" value="" class="s-input" />
                     &minus;
                     <input id="end" value="" class="s-input" />
-                </div>
+                </div>*@
                 <div class="form-group">
                     <label>关键字</label>
                     <input class="k-textbox" id="keysearch" value="" placeholder="商品名称" />
@@ -272,19 +272,21 @@
         var keySearch = $("#keysearch").kendoKeySearch({
             minLength: 1,
             done: function (key) {
-                setDate("", "");
-                buttonDown.selected("");
+                //setDate("", "");
+                //buttonDown.selected("");
                 queryList();
             },
             focus: function (e) {
                 if (!e.key) {
                     //setQuery();
+                    var start = $(".buttondowndate input[name=start]").data("kendoDatePicker");
+                    var end = $(".buttondowndate input[name=end]").data("kendoDatePicker");
                     e.data = { "startDate": start.value(), "endDate": end.value(), "buttonDown": buttonDown.value() };
                 }
             },
             empty: function (data) {
-                setDate(data.startDate, data.endDate);
-                buttonDown.selected(data.buttonDown);
+                //setDate(data.startDate, data.endDate);
+                //buttonDown.selected(data.buttonDown);
                 queryList();
             }
         }).data("kendoKeySearch");
@@ -309,6 +311,8 @@
 
         //取查询条件
         function getQuery() {
+            var start = $(".buttondowndate input[name=start]").data("kendoDatePicker");
+            var end = $(".buttondowndate input[name=end]").data("kendoDatePicker");
             return {
                 startDate: kendo.toString(start.value(), "yyyy/MM/dd 00:00:00"),
                 endDate: kendo.toString(end.value(), "yyyy/MM/dd 23:59:59"),

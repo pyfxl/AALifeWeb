@@ -1,133 +1,156 @@
-﻿
-@{
-    ViewBag.Title = "系统参数 2";
+﻿@{
+    ViewBag.Title = "部门列表";
 }
 
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-            <div id="left" class="col-xs-2 k-block">
-                <div class="k-header">系统参数</div>
-                <div id="treeview"></div>
-            </div>
-            <div id="main" class="col-xs-10">
-                <div id="grid"></div>
+            <div id="main">
+                <div id="treelist"></div>
             </div>
         </div><!-- /.col -->
     </div><!-- /.row -->
 </section>
 
 @section scripts {
-<script>
+    <script>
+        $(document).ready(function () {
 
-    $(document).ready(function () {
-            
-        //参数树数据源
-        var hiDataSource = new kendo.data.HierarchicalDataSource({
-            transport: {
-                read: {
-                    url: "/api/v1/parametertreesapi",
-                    dataType: "json"
-                }
-            },
-            schema: {
-                model: {
-                    id: "id",
-                    hasChildren: "hasChildren",
-                    children: "items",
-                    expanded: true,
-                    value: "value"
-                },
-            }
-        });
-
-        //主参数树
-        var treeview = $("#treeview").kendoTreeView({
-            dataSource: hiDataSource,
-            //template: "#: item.text # <a class='myedit'><span class='k-icon k-i-edit' /></a>",
-            dataBound: function (e) {
-                treeview.select(".k-first");
-                treeview.trigger("select", {
-                    node: $("#treeview .k-first")[0]
-                });
-            },
-            select: function (e) {
-                var dataItem = treeview.dataItem(e.node);
-                //var id = $(e.node).find(".key").data("id");
-                dataSource.read({ id: dataItem.id });
-            }
-        }).data("kendoTreeView");
-
-        //子数据源
-        var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
-            transport: {
-                read: {
-                    url: $.const.webapi.parameters,
-                },
-                create: {
-                    url: $.const.webapi.parameters,
-                },
-                update: {
-                    url: $.const.webapi.parameters,
-                },
-                destroy: {
-                    url: $.const.webapi.parameters,
-                }
-            },
-            schema: {
-                model: {
-                    id: "Id",
-                    fields: {
-                        Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
-                        Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
-                        SystemName: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
-                        Value: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
-                        IsDefault: { type: "boolean" },
-                        Rank: { type: "number" }
+            //树数据源
+            var treeDataSource = new kendo.data.HierarchicalDataSource({
+                transport: {
+                    read: {
+                        url: $.const.webapi.deptmentstree,
+                        dataType: "json"
                     }
+                },
+                schema: {
+                    model: {
+                        id: "id",
+                        hasChildren: "hasChildren",
+                        children: "items",
+                        expanded: true,
+                        value: "value"
+                    },
                 }
-            },
-            batch: true
-        }));
+            });
 
-        //子参数列表
-        var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
-            dataSource: dataSource,
-            autoBind: false,
-            toolbar: ["create", "save", "cancel"],
-            editable: true,
-            columns: [
-                {
-                    field: "Name",
-                    title: "参数名称",
-                    width: 100
+            //数据源
+            var dataSource = new kendo.data.TreeListDataSource($.extend(true, {}, $.const.kendotree.dataSource, {
+                transport: {
+                    read: {
+                        url: $.const.webapi.deptments
+                    },
+                    update: {
+                        url: $.const.webapi.deptments
+                    },
+                    destroy: {
+                        url: $.const.webapi.deptments
+                    },
+                    create: {
+                        url: $.const.webapi.deptments
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return kendo.stringify(options.models);
+                        }
+                    }
                 },
-                {
-                    field: "SystemName",
-                    title: "系统键",
-                    width: 100
+                batch: true,
+                schema: {
+                    model: {
+                        id: "Id",
+                        parentId: "ParentId",
+                        fields: {
+                            Id: { type: "number", editable: false, nullable: false },
+                            ParentId: { type: "string", defaultValue: null },
+                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } }
+                        },
+                        expanded: true
+                    }
                 },
-                {
-                    field: "Value",
-                    title: "系统值",
-                    width: 100
-                },
-                {
-                    template: '<input type="checkbox" #= IsDefault ? "checked=\'checked\'" : "" # />',
-                    field: "IsDefault",
-                    title: "默认否",
-                    width: 100
-                },
-                {
-                    field: "Rank",
-                    title: "排序",
-                    format: "{0:0}",
-                    width: 100
+                error: function (e) {
+                    kendoui_grid_error(e);
                 }
-            ]
-        })).data("kendoGrid");
+            }));
 
-    });
+            //列表
+            var treelist = $("#treelist").kendoTreeList($.extend(true, {}, $.const.kendotree, {
+                dataSource: dataSource,
+                toolbar: ["create"],
+                editable: true,
+                edit: function(e) {
+                    //checking if a cell from the Test column is opened for editing
+                    var dummyInput = e.container.find("input[name='ParentId']");
+                    if (dummyInput.length > 0) {
+                        var treeView = $(e.container).find(".treeViewEditor").data("kendoTreeView");
+                        var originalItem = treeView.findByText(dummyInput.val());
+                        if (originalItem != null) {
+                            // Select the item based on the field value
+                            treeView.select(originalItem);
+                        }
+                    }
+                },
+                columns: [
+                    {
+                        expandable: true,
+                        field: "Name",
+                        title: "部门名称",
+                        width: 100
+                    },
+                    {
+                        //template: "#= ParentName #",
+                        field: "ParentId",
+                        values: [{ "text": "公司名称", "value": "24" }, { "text": "领导层", "value": "25" }, { "text": "行政部", "value": "26" }, { "text": "开发部", "value": "27" }, { "text": "销售部", "value": "28" }, { "text": "客服部", "value": "29" }, { "text": "财务部", "value": "30" }, { "text": "后勤部", "value": "31" }],
+                        title: "上级部门",
+                        width: 100,
+                        editor: function (container, options) {
+                            var input = $("<input class='tveInput' style='display: none;'/>");
+                            input.attr("name", options.field);
+                            var tvDiv = $("<div class='treeViewEditor'></div>");
+                            $(tvDiv).kendoTreeView({
+                                animation: false,
+                                dataSource: treeDataSource,
+                                //select: function (e) {
+                                //    var clickedNode = $(e.node);
+                                //    var dataItem = this.dataItem(clickedNode);
+                                //    var dummyInput = clickedNode.closest("[role=row]").find("input[name='ParentName']");
+                                //    dummyInput.val(dataItem.text);
+                                //    dummyInput.trigger("change");
+                                //    var hidInput = clickedNode.closest("[role=row]").find("input[name='ParentId']");
+                                //    hidInput.val(dataItem.id);
+                                //    hidInput.trigger("change");
+                                //}
+                            });
+                            var treeView = $(tvDiv).data("kendoTreeView");
+                            $(tvDiv).on("mousedown", ".k-in", function (e) {
+                                var clickedNode = $(e.toElement).closest("[role=treeitem]");
+                                var dataItem = treeView.dataItem(clickedNode);
+                                var dummyInput = clickedNode.closest("[role=gridcell]").find("input[name='ParentId']");
+                                dummyInput.val(dataItem.id);
+                                dummyInput.trigger("change");
+                                //var hidInput = clickedNode.closest("[role=row]").find("input[name='ParentId']");
+                                //hidInput.val(dataItem.id);
+                                //hidInput.trigger("change");
+                            });
+                            tvDiv.appendTo(container);
+                            input.appendTo(container);
+                        }
+                    },
+                    {
+                        command: [
+                            {
+                                name: "createchild",
+                                text: "添加子项"
+                            },
+                            "edit",
+                            "destroy"
+                        ],
+                        width: 100
+                    }
+                ]
+            })).data("kendoTreeList");
 
-</script>
+        });
+    </script>
 }

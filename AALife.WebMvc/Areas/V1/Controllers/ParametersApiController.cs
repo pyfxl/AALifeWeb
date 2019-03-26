@@ -1,15 +1,12 @@
 ﻿using AALife.Core.Domain.Configuration;
+using AALife.Core.Infrastructure.Kendoui;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
-using AALife.Core.Infrastructure.Kendoui;
+using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using AALife.WebMvc.Infrastructure.Mapper;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
@@ -60,7 +57,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var parent = _parameterService.Get(model.ParentId.Value);
+                var parent = _parameterService.Get(model.ParentId.GetValueOrDefault());
 
                 model.OrderNo = model.GetOrderNo(parent);
 
@@ -75,11 +72,13 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             if (ModelState.IsValid)
             {
-                var parent = _parameterService.Get(model.ParentId.Value);
+                var parent = _parameterService.Get(model.ParentId.GetValueOrDefault());
                 var parameter = _parameterService.Get(model.Id);
 
                 parameter.Name = model.Name;
                 parameter.Rank = model.Rank;
+                parameter.IsDefault = model.IsDefault;
+                parameter.IsLeaf = model.IsLeaf;
                 parameter.OrderNo = model.GetOrderNo(parent);
 
                 _parameterService.Update(parameter);
@@ -97,36 +96,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         #region 其它方法 
-
-        // 获取列表树
-        [Route("api/v1/parametertreesapi")]
-        public IHttpActionResult GetParameterTrees()
-        {
-            var tree = SortForTree();
-
-            return Json(tree);
-        }
-
-        private List<TreeViewModel> SortForTree(int? parentId = null)
-        {
-            var model = new List<TreeViewModel>();
-            foreach (var p in _parameterService.FindAll(a => a.ParentId == parentId && a.IsLeaf == null).OrderBy(a => a.OrderNo))
-            {
-                var pm = new TreeViewModel
-                {
-                    id = p.Id,
-                    text = p.Name,
-                    parentId = p.ParentId.GetValueOrDefault(),
-                    value = p.Value,
-                    systemName = p.SystemName,
-                    rank = p.Rank
-                };
-                pm.items.AddRange(SortForTree(p.Id));
-                pm.hasChildren = pm.items.Count > 0;
-                model.Add(pm);
-            }
-            return model;
-        }
 
         // 根据Key获取参数
         [Route("api/v1/paramsbynameapi/{name}")]

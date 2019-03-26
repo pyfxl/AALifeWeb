@@ -58,3 +58,7 @@ D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdm
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin3.resources
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin4.resources
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdateIsAdmin5.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermissionDataType.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermissionDataType1.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.UpdatePermissionDataType2.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.AddIconName.resources

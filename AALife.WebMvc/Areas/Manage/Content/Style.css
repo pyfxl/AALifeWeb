@@ -10,9 +10,15 @@
     background-color: #fff;
 }
 
+.k-edit-form-container .col-xs-6,
+.k-edit-form-container .col-xs-4 {
+    padding: 0;
+}
+
+
 /*adminlte*/
 .content-wrapper {
-    /*min-height: unset;*/ 
+    min-height: inherit;
     background-color: #ecf0f5;
 }
 .content-header {
@@ -20,6 +26,7 @@
 }
 .content {
     padding: 5px;
+    min-height: inherit;
 }
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
     background-color: #ecf0f5;
@@ -51,10 +58,16 @@
     height: 100%;
 }
 .k-grid tbody .k-button {
-    min-width: 24px;
+    min-width: auto;
 }
 .k-i-filter:before {
     content: "\e015";
+}
+html .k-upload {
+    width: 12.4em;
+}
+.k-dropzone {
+    padding: 0;
 }
 
 
@@ -78,10 +91,14 @@
 }
 .buttondown .k-button:hover .s-link:hover,
 .buttondown .k-state-active .s-link:hover {
-    color: #666 !important;
+    color: #00c0ef !important;
 }
 .buttondown .k-state-active .active {
     text-decoration: underline;
+}
+.buttondowndate label {
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 

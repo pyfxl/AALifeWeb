@@ -20,7 +20,7 @@
         var hiDataSource = new kendo.data.HierarchicalDataSource({
             transport: {
                 read: {
-                    url: String.format("/api/v1/deptmenttreesapi/{0}", @Model.Id),
+                    url: String.format($.const.webapi.deptmentstree_id, @Model.Id),
                     dataType: "json"
                 }
             },
@@ -50,7 +50,6 @@
 
     function dialogOpen(e) {
         var treeView = $("#dept-treeview").data("kendoTreeView");
-        init_treeview_callback(treeView);
     }
 
     function openDialog(e) {

@@ -123,6 +123,7 @@
         var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
             dataSource: dataSource,
             autoBind: false,
+            //editable: "popup",
             toolbar: ["create"],
             pageable: {
                 pageSizes: $.const.default.PageNumbers,

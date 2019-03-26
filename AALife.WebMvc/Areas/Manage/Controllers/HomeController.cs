@@ -68,7 +68,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         public List<MenuViewModel> SortMenuForTree(int? parentId, IEnumerable<UserPermission> permissions)
         {
             var model = new List<MenuViewModel>();
-            foreach (var p in permissions.Where(t => t.ParentId == parentId))
+            foreach (var p in permissions.Where(t => !t.IsButton && t.ParentId == parentId))
             {
                 var menu = new MenuViewModel
                 {

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "系统参数";
+    ViewBag.Title = "管理参数 1";
 }
 
 <script id="editTemplate" type="text/x-kendo-template">
@@ -46,7 +46,7 @@
     <div class="row">
         <div class="col-xs-12">
             <div id="left" class="col-xs-2 k-block">
-                <div class="k-header">系统参数</div>
+                <div class="k-header">参数管理</div>
                 <div id="treeview"></div>
                 <ul id="menu">
                     <li data-type="add">添加</li>
@@ -70,7 +70,7 @@
         var hiDataSource = new kendo.data.HierarchicalDataSource({
             transport: {
                 read: {
-                    url: "/api/v1/parametertreesapi",
+                    url: $.const.webapi.parameterstree,
                     dataType: "json"
                 }
             },

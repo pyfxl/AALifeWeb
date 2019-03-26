@@ -4,19 +4,12 @@
 
 <section class="content">
     <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-3">
             <div id="main">
                 <div id="grid"></div>
             </div>
         </div><!-- /.col -->
-    </div><!-- /.row -->
-</section>
-
-<div style="height: 10px;"></div>
-
-<section class="content">
-    <div class="row">
-        <div class="col-xs-12">
+        <div class="col-xs-9">
             <div id="main">
                 <div id="usergrid"></div>
             </div>
@@ -65,11 +58,6 @@
         var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
             dataSource: dataSource,
             columns: [
-                {
-                    field: "Id",
-                    title: "编号",
-                    width: 100
-                },
                 {
                     field: "Name",
                     title: "角色名称",

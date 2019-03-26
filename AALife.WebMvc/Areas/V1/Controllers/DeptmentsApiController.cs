@@ -1,18 +1,14 @@
-﻿using AALife.Core.Domain.Configuration;
+﻿using AALife.Core.Infrastructure.Kendoui;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
-using AALife.Core.Infrastructure.Kendoui;
+using AALife.Data.Domain;
+using AALife.Data.Services;
+using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Net.Http;
 using System.Web.Http;
-using AALife.WebMvc.Infrastructure.Mapper;
-using AALife.Data.Services;
-using AALife.Data.Domain;
-using AALife.Core.Domain.Logging;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
@@ -39,7 +35,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var result = _userDeptmentService.Get();
 
-            return Json(result);
+            var grid = result.AsEnumerable().Select(x =>
+            {
+                var m = x.MapTo<UserDeptment, UserDeptmentModel>();
+                m.ParentName = x.Parent != null ? x.Parent.Name : "";
+                return m;
+            });
+
+            return Json(grid);
         }
 
         // GET: api/Deptments/5
@@ -52,6 +55,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = result.AsEnumerable().Select(x =>
                 {
                     var m = x.MapTo<UserDeptment, UserDeptmentModel>();
+                    m.ParentName = x.Parent.Name;
                     return m;
                 }),
                 Total = result.Count()
@@ -60,29 +64,60 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return Json(grid);
         }
 
+        //// POST: api/Deptments
+        //public IHttpActionResult Post([FromBody]UserDeptment model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var parent = _userDeptmentService.Get(model.ParentId.Value);
+
+        //        _userDeptmentService.Add(model);
+        //    }
+
+        //    return Json(HttpStatusCode.OK);
+        //}
+
         // POST: api/Deptments
-        public IHttpActionResult Post([FromBody]UserDeptment model)
+        public IHttpActionResult Post(IEnumerable<UserDeptment> models)
         {
             if (ModelState.IsValid)
             {
-                var parent = _userDeptmentService.Get(model.ParentId.Value);
-
-                _userDeptmentService.Add(model);
+                _userDeptmentService.Add(models);
             }
 
             return Json(HttpStatusCode.OK);
         }
 
+        //// PUT: api/Deptments/5
+        //public IHttpActionResult Put([FromBody]UserDeptment model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var parameter = _userDeptmentService.Get(model.Id);
+
+        //        parameter.Name = model.Name;
+
+        //        _userDeptmentService.Update(parameter);
+        //    }
+
+        //    return Json(HttpStatusCode.OK);
+        //}
+
         // PUT: api/Deptments/5
-        public IHttpActionResult Put([FromBody]UserDeptment model)
+        public IHttpActionResult Put(IEnumerable<UserDeptment> models)
         {
             if (ModelState.IsValid)
             {
-                var parameter = _userDeptmentService.Get(model.Id);
+                var items = new List<UserDeptment>();
+                models.ToList().ForEach(a =>
+                {
+                    var item = _userDeptmentService.Get(a.Id);
+                    item.Name = a.Name;
+                    item.ParentId = a.ParentId;
+                    items.Add(item);
+                });
 
-                parameter.Name = model.Name;
-
-                _userDeptmentService.Update(parameter);
+                _userDeptmentService.Update(items);
             }
 
             return Json(HttpStatusCode.OK);
@@ -139,29 +174,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 model.Add(pm);
             }
             return model;
-        }
-
-        // 根据Id获取部门用户
-        [Route("api/v1/deptmentusersapi")]
-        public IHttpActionResult Get(int id, [FromUri]DataSourceRequest request)
-        {
-            var users = _userService.GetByPage(request, x => x.UserDeptments.Any(a => a.Id == id));
-
-            var grid = new DataSourceResult
-            {
-                Data = users.Select(x =>
-                {
-                    var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
-                    return m;
-                }),
-                Total = users.TotalCount
-            };
-
-            //activity log
-            _customerActivityService.InsertActivity(id, ActivityLogType.Query, "浏览用户部门记录。{0}", request.ToJson());
-
-            return Json(grid);
         }
 
         #endregion

@@ -22,5 +22,7 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string Name { get; set; }
 
+        public bool IsButton { get; set; }
+
     }
 }

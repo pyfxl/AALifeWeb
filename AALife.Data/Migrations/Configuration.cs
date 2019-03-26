@@ -184,10 +184,10 @@ namespace AALife.Data.Migrations
 
             //设置角色和部门
             var admin = context.UserTables.First(a => a.UserName == "admin");
-            var role = context.UserRoles.Where(a => a.SystemName == UserRoleNames.Administrators).ToList();
-            var dept = context.UserDeptments.Where(a => a.Name == "开发部").ToList();
-            admin.UserRoles = role;
-            admin.UserDeptments = dept;
+            var role = context.UserRoles.First(a => a.SystemName == UserRoleNames.Administrators);
+            var dept = context.UserDeptments.First(a => a.Name == "开发部");
+            admin.UserRoles.Add(role);
+            admin.UserDeptments.Add(dept);
             context.SaveChanges();
 
             #endregion
