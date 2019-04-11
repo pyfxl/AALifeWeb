@@ -34,6 +34,7 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
             //user
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<UserRoleService>().As<IUserRoleService>().InstancePerLifetimeScope();
+            builder.RegisterType<UserPositionService>().As<IUserPositionService>().InstancePerLifetimeScope();
             builder.RegisterType<UserDeptmentService>().As<IUserDeptmentService>().InstancePerLifetimeScope();
             builder.RegisterType<UserPermissionService>().As<IUserPermissionService>().InstancePerLifetimeScope();
 

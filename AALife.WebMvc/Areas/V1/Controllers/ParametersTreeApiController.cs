@@ -32,7 +32,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         private List<TreeViewModel> SortForTree(int? parentId = null)
         {
             var model = new List<TreeViewModel>();
-            foreach (var p in _parameterService.FindAll(a => a.ParentId == parentId && a.IsLeaf == null).OrderBy(a => a.OrderNo))
+            foreach (var p in _parameterService.FindAll(a => a.ParentId == parentId && (a.IsLeaf == null || !a.IsLeaf.Value)).OrderBy(a => a.OrderNo))
             {
                 var pm = new TreeViewModel
                 {
@@ -40,11 +40,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                     text = p.Name,
                     parentId = p.ParentId.GetValueOrDefault(),
                     value = p.Value,
-                    systemName = p.SystemName,
                     rank = p.Rank
                 };
                 pm.items.AddRange(SortForTree(p.Id));
-                pm.hasChildren = pm.items.Count > 0;
+                pm.hasChildren = pm.expanded = pm.items.Count > 0;
                 model.Add(pm);
             }
             return model;

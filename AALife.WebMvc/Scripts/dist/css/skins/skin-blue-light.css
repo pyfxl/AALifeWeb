@@ -168,9 +168,9 @@
     #00a7d0
     #00c0ef
 */
-.k-grid tr:hover td .k-widget {
+/*.k-grid tr:hover > td > .k-widget {
     color: #fff !important;
-}
+}*/
 .k-grid td.k-state-selected .text-light-blue a,
 .k-grid td.k-state-selected:hover .text-light-blue a,
 .k-grid tr:hover .text-light-blue a {
@@ -328,4 +328,20 @@
 .table-hover > tbody > tr:not(:first-child):hover {
     color: #fff;
     background-color: #3c8dbc;
+}
+.k-header > .k-grid-filter:hover {
+    background-color: #f0f0f0;
+}
+.k-numeric-wrap > .k-link:hover {
+    color: #fff;
+    background-color: #367fa9;
+}
+.k-numeric-wrap > .k-link {
+    color: #787878;
+}
+.k-upload .k-upload-button {
+    margin: 0;
+}
+.k-window-titlebar .k-window-action {
+    color: #787878 !important;
 }

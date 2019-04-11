@@ -1,0 +1,90 @@
+﻿@*选择岗位窗口*@
+
+<div id="positiondialog"></div>
+
+<script>
+    $(document).ready(function () {
+
+        //选择对话框
+        $("#positiondialog").kendoDialog({
+            width: "800px",
+            visible: false,
+            title: "选择岗位",
+            closable: true,
+            modal: false,
+            content: '<div id="positiongrid"></div>',
+            actions: [
+                { text: '取消' },
+                { text: '确认', primary: true, action: actionOK }
+            ],
+            close: initOpen
+        }).data("kendoDialog");
+
+        //选择列表
+        var positionGrid = $("#positiongrid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: $.const.webapi.positions,
+                        cache: false,
+                        dataType: "json"
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Name: { type: "string" },
+                            Notes: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                },
+                pageSize: 10
+            },
+            columns: [
+                {
+                    selectable: true,
+                    width: 100
+                },
+                {
+                    field: "Name",
+                    title: "岗位名称",
+                    width: 100
+                },
+                {
+                    field: "Notes",
+                    title: "描述",
+                    width: 100
+                }
+            ]
+        })).data("kendoGrid");
+
+        //打开对话框
+        function initOpen(e) {
+            //debugger;//TODO:关闭时会重复提示错误
+            positionGrid.dataSource.page(1);
+            positionGrid.dataSource.skip(0);
+        }
+
+        //对话框确定事件
+        function actionOK(e) {
+            var items = positionGrid.element.find("table tbody .k-state-selected");
+            if (items.length > 0) {
+                var result = [];
+                for (var i = 0; i < items.length; i++) {
+                    var dataItem = positionGrid.dataItem(items[i]);
+                    result.push(dataItem);
+                }
+                positionselect_callback(result);
+            }
+        }
+
+    });
+
+    function positionselect_open () {
+        $("#positiondialog").data("kendoDialog").open();
+    }
+</script>

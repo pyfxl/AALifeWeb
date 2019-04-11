@@ -155,9 +155,9 @@
     <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
     <Compile Include="Mapping\Messages\QueuedEmailMap.cs" />
     <Compile Include="Mapping\Tasks\ScheduleTaskMap.cs" />
-    <Compile Include="Migrations\201903180701253_UpdateTasks.cs" />
-    <Compile Include="Migrations\201903180701253_UpdateTasks.Designer.cs">
-      <DependentUpon>201903180701253_UpdateTasks.cs</DependentUpon>
+    <Compile Include="Migrations\201903300457308_AddIsSystem.cs" />
+    <Compile Include="Migrations\201903300457308_AddIsSystem.Designer.cs">
+      <DependentUpon>201903300457308_AddIsSystem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MimeTypes.cs" />
@@ -222,6 +222,7 @@
     <Compile Include="Services\Tasks\Task.cs" />
     <Compile Include="Services\Tasks\TaskManager.cs" />
     <Compile Include="Services\Tasks\TaskThread.cs" />
+    <Compile Include="Services\BaseExtensions.cs" />
     <Compile Include="WebHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -229,8 +230,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903180701253_UpdateTasks.resx">
-      <DependentUpon>201903180701253_UpdateTasks.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903300457308_AddIsSystem.resx">
+      <DependentUpon>201903300457308_AddIsSystem.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -111,34 +111,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Delete, "删除用户角色。{0}", models.ToJson());
         }
-
-        #region 其它方法
-
-        // 获取用户角色列表，默认选中当前已有的角色
-        [Route("api/v1/userroleselectsapi/{id}")]
-        public IHttpActionResult GetUserRoles(int id, [FromUri]DataSourceRequest common)
-        {
-            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter);
-
-            var grid = new DataSourceResult
-            {
-                Data = result.Select(x =>
-                {
-                    var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.IsCurrentRole = x.UserRoles.Any(w => w.Id == id);
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
-                    return m;
-                }),
-                Total = result.TotalCount
-            };
-
-            //activity log
-            _customerActivityService.InsertActivity(id, ActivityLogType.Query, "根据角色主键浏览用户角色记录。{0}", common.ToJson());
-
-            return Json(grid);
-        }
-
-        #endregion
-
+        
     }
 }

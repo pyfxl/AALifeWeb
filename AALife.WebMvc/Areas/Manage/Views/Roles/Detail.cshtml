@@ -204,7 +204,7 @@
                     parentId: "ParentId",
                     fields: {
                         Id: { type: "number", editable: false, nullable: false },
-                        ParentId: { type: "number" },
+                        ParentId: { type: "string", defaultValue: null },
                         Name: { type: "string", validation: { required: true, validationMessage: "角色名称为必填项" } },
                         AreaName: { type: "string" },
                         ControllerName: { type: "string" },
@@ -278,9 +278,6 @@
                 //console.log(e);
             }
         }));
-
-        //初始化
-        navActive(0);
 
     });
 

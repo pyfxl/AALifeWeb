@@ -2,7 +2,7 @@
 @model PermissionMappingModel
 
 @{
-    ViewBag.Title = "权限设置";
+    ViewBag.Title = "角色权限";
 }
 
 <section class="content">
@@ -20,9 +20,9 @@
                         });
                         //单选
                         $('.allow_@(cr.Id)').click(function () {
-                            var rid = $(this).data("role");
+                            var id = $(this).data("role");
                             var pid = $(this).val();
-                            update_permission(pid, rid);
+                            update_permission_role(pid, id);
                         });
                         </text>
                     }
@@ -39,7 +39,7 @@
                             </th>
                             @foreach (var cr in Model.AvailableUserRoles)
                             {
-                                <th scope="col">
+                                <th scope="col" class="text-center">
                                     <div class="checkbox">
                                         <label>
                                             <input type="checkbox" id="selectall-@(cr.Id)" />
@@ -58,7 +58,7 @@
                                 @foreach (var cr in Model.AvailableUserRoles)
                                 {
                                     var allowed = Model.Allowed.ContainsKey(pr.Id) && Model.Allowed[pr.Id][cr.Id];
-                                    <td>
+                                    <td class="text-center">
                                         <input class="allow_@(cr.Id)" type="checkbox" data-role="@(cr.Id)" value="@(pr.Id)" name="allow_@(cr.Id)" @(allowed ? " checked=checked" : null) />
                                     </td>
                                 }
@@ -72,5 +72,5 @@
 </section>
 
 @section scripts {
-<script src="~/Areas/Manage/Scripts/roles.js"></script>
+<script src="~/Areas/Manage/Scripts/permissions.js"></script>
 }

@@ -64,10 +64,20 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                     isChecked = userDeptment.Any() ? userDeptment.Any(a => a.Id == p.Id) : false
                 };
                 pm.items.AddRange(SortForTree(id, p.Id));
-                pm.hasChildren = pm.items.Count > 0;
+                pm.hasChildren = pm.expanded = pm.items.Count > 0;
                 model.Add(pm);
             }
             return model;
+        }
+
+        private string GetTreeNameChild(UserDeptment dept)
+        {
+            if (dept.Positions.Count() > 0)
+            {
+                return string.Format("{0} ({1})", dept.Name, dept.Positions.Count());
+            }
+
+            return dept.Name;
         }
 
         #endregion

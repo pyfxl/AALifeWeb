@@ -16,7 +16,7 @@ namespace AALife.Core.Mapping.Configuration
             this.HasKey(p => p.Id);
             this.Property(p => p.Name).IsRequired().HasMaxLength(20);
             this.Property(p => p.Value).IsRequired().HasMaxLength(20);
-            this.Property(p => p.SystemName).IsRequired().HasMaxLength(20);
+            this.Property(p => p.Notes).HasMaxLength(200);
         }
     }
 }

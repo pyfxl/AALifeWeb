@@ -39,9 +39,10 @@ namespace AALife.WebMvc
             //register mapper configurations
             //RegisterMapperConfiguration();
 
+            //解决ModelState提示字段必需问题 TODO
             //ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
-            //ValueProviderFactories.Factories.Add(new JsonNetValueProviderFactory());
-            
+            //ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
+
             //start scheduled tasks
             TaskManager.Instance.Initialize();
             TaskManager.Instance.Start();

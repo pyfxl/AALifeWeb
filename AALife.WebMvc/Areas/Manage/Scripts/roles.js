@@ -32,7 +32,7 @@ function insert_rolesuser(id, dataItems, callback) {
     });
 }
 
-function update_permission(pid, rid) {
+function update_permission_roles(pid, rid) {
     $.ajax({
         url: $.const.webapi.permissionsupdate,
         dataType: "json",
@@ -42,7 +42,7 @@ function update_permission(pid, rid) {
     });
 }
 
-function update_permission_deptment(pid, rid) {
+function update_permission_deptments(pid, rid) {
     $.ajax({
         url: $.const.webapi.permissionsdeptmentupdate,
         dataType: "json",

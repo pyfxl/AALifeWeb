@@ -65,6 +65,7 @@
             dataSource: dataSource,
             toolbar: ["create", "save", "cancel"],
             editable: true,
+            scrollable: true,
             columns: [
                 {
                     field: "Name",
@@ -79,7 +80,8 @@
                 {
                     field: "Type",
                     title: "类路径",
-                    width: 300,
+                    width: 200,
+                    attributes: { title: "#= Type #" },
                     editor: function (container, options) {
                         var input = $("<textarea class='k-textbox' required row='2' style='width: 100%;' validationmessage='必填项' />");
                         input.attr("name", options.field);

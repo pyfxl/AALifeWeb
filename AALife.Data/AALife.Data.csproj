@@ -62,6 +62,7 @@
     <Compile Include="DefaultSettings.cs" />
     <Compile Include="Domain\CardTable.cs" />
     <Compile Include="Domain\CategoryTypeTable.cs" />
+    <Compile Include="Domain\UserPosition.cs" />
     <Compile Include="Domain\UserDeptment.cs" />
     <Compile Include="Domain\UserPermission.cs" />
     <Compile Include="Domain\ItemTable.cs" />
@@ -75,53 +76,9 @@
     <Compile Include="AALifeContext.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IWorkContext.cs" />
-    <Compile Include="Migrations\201903190040112_AddDept.cs" />
-    <Compile Include="Migrations\201903190040112_AddDept.Designer.cs">
-      <DependentUpon>201903190040112_AddDept.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903190208158_UpdateDept.cs" />
-    <Compile Include="Migrations\201903190208158_UpdateDept.Designer.cs">
-      <DependentUpon>201903190208158_UpdateDept.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903190304261_UpdateIsAdmin.cs" />
-    <Compile Include="Migrations\201903190304261_UpdateIsAdmin.Designer.cs">
-      <DependentUpon>201903190304261_UpdateIsAdmin.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903190308003_UpdateIsAdmin-1.cs" />
-    <Compile Include="Migrations\201903190308003_UpdateIsAdmin-1.Designer.cs">
-      <DependentUpon>201903190308003_UpdateIsAdmin-1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903190312092_UpdateIsAdmin-2.cs" />
-    <Compile Include="Migrations\201903190312092_UpdateIsAdmin-2.Designer.cs">
-      <DependentUpon>201903190312092_UpdateIsAdmin-2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903190316089_UpdateIsAdmin-3.cs" />
-    <Compile Include="Migrations\201903190316089_UpdateIsAdmin-3.Designer.cs">
-      <DependentUpon>201903190316089_UpdateIsAdmin-3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903190326304_UpdateIsAdmin-4.cs" />
-    <Compile Include="Migrations\201903190326304_UpdateIsAdmin-4.Designer.cs">
-      <DependentUpon>201903190326304_UpdateIsAdmin-4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903190337123_UpdateIsAdmin-5.cs" />
-    <Compile Include="Migrations\201903190337123_UpdateIsAdmin-5.Designer.cs">
-      <DependentUpon>201903190337123_UpdateIsAdmin-5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903220629160_UpdatePermissionDataType.cs" />
-    <Compile Include="Migrations\201903220629160_UpdatePermissionDataType.Designer.cs">
-      <DependentUpon>201903220629160_UpdatePermissionDataType.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903220723436_UpdatePermissionDataType1.cs" />
-    <Compile Include="Migrations\201903220723436_UpdatePermissionDataType1.Designer.cs">
-      <DependentUpon>201903220723436_UpdatePermissionDataType1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903230258185_UpdatePermissionDataType2.cs" />
-    <Compile Include="Migrations\201903230258185_UpdatePermissionDataType2.Designer.cs">
-      <DependentUpon>201903230258185_UpdatePermissionDataType2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201903231159502_AddIconName.cs" />
-    <Compile Include="Migrations\201903231159502_AddIconName.Designer.cs">
-      <DependentUpon>201903231159502_AddIconName.cs</DependentUpon>
+    <Compile Include="Migrations\201903300925443_XXX.cs" />
+    <Compile Include="Migrations\201903300925443_XXX.Designer.cs">
+      <DependentUpon>201903300925443_XXX.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyType.cs" />
@@ -136,6 +93,7 @@
     <Compile Include="Services\IUserPermissionService.cs" />
     <Compile Include="Services\ItemService.cs" />
     <Compile Include="Services\IUserDeptmentService.cs" />
+    <Compile Include="Services\IUserPositionService.cs" />
     <Compile Include="Services\IUserRoleService.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\IZhuanTiService.cs" />
@@ -143,6 +101,7 @@
     <Compile Include="Services\UserPermissionService.cs" />
     <Compile Include="Services\UserExtensions.cs" />
     <Compile Include="Services\UserDeptmentService.cs" />
+    <Compile Include="Services\UserPositionService.cs" />
     <Compile Include="Services\UserRoleService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Services\ZhuanTiService.cs" />
@@ -161,41 +120,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903190040112_AddDept.resx">
-      <DependentUpon>201903190040112_AddDept.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903190208158_UpdateDept.resx">
-      <DependentUpon>201903190208158_UpdateDept.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903190304261_UpdateIsAdmin.resx">
-      <DependentUpon>201903190304261_UpdateIsAdmin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903190308003_UpdateIsAdmin-1.resx">
-      <DependentUpon>201903190308003_UpdateIsAdmin-1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903190312092_UpdateIsAdmin-2.resx">
-      <DependentUpon>201903190312092_UpdateIsAdmin-2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903190316089_UpdateIsAdmin-3.resx">
-      <DependentUpon>201903190316089_UpdateIsAdmin-3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903190326304_UpdateIsAdmin-4.resx">
-      <DependentUpon>201903190326304_UpdateIsAdmin-4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903190337123_UpdateIsAdmin-5.resx">
-      <DependentUpon>201903190337123_UpdateIsAdmin-5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903220629160_UpdatePermissionDataType.resx">
-      <DependentUpon>201903220629160_UpdatePermissionDataType.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903220723436_UpdatePermissionDataType1.resx">
-      <DependentUpon>201903220723436_UpdatePermissionDataType1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903230258185_UpdatePermissionDataType2.resx">
-      <DependentUpon>201903230258185_UpdatePermissionDataType2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201903231159502_AddIconName.resx">
-      <DependentUpon>201903231159502_AddIconName.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201903300925443_XXX.resx">
+      <DependentUpon>201903300925443_XXX.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -37,7 +37,9 @@
 
         $("#dept-treeview").kendoTreeView({
             dataSource: hiDataSource,
-            checkboxes: true,
+            checkboxes: {
+                checkChildren: true
+            },
             loadOnDemand: false,
             expandAll: true,
             dataBound: treeViewDataBound

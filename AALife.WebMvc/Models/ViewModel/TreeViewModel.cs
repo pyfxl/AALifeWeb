@@ -21,6 +21,8 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public bool hasChildren { get; set; }
 
+        public bool expanded { get; set; }
+
         public string spriteCssClass { get; set; }
 
         public int? parentId { get; set; }

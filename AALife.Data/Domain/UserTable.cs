@@ -121,6 +121,8 @@ namespace AALife.Data.Domain
         /// </summary>
         public virtual ICollection<ZhuanZhangTable> ZhuanZhangTables { get; set; }
 
+        #region 角色
+
         /// <summary>
         /// 角色列表
         /// </summary>
@@ -134,6 +136,10 @@ namespace AALife.Data.Domain
             get { return _userRoles ?? (_userRoles = new List<UserRole>()); }
             protected set { _userRoles = value; }
         }
+
+        #endregion
+
+        #region 部门
 
         /// <summary>
         /// 部门列表
@@ -149,6 +155,25 @@ namespace AALife.Data.Domain
             protected set { _userDeptments = value; }
         }
 
+        #endregion
+
+        #region 岗位
+
+        /// <summary>
+        /// 岗位列表
+        /// </summary>
+        private ICollection<UserPosition> _userPositions;
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        public virtual ICollection<UserPosition> UserPositions
+        {
+            get { return _userPositions ?? (_userPositions = new List<UserPosition>()); }
+            protected set { _userPositions = value; }
+        }
+
+        #endregion
     }
 
 }

@@ -51,7 +51,7 @@ namespace AALife.Core.Services.Configuration
             {
                 var param = from s in _repository.TableNoTracking
                             join c in _repository.TableNoTracking on s.ParentId equals c.Id
-                            where c.SystemName == name
+                            where c.Value == name
                             select s;
 
                 return param.ToList();

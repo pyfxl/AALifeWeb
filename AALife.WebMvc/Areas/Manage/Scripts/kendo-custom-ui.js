@@ -608,3 +608,139 @@
 
     ui.plugin(SearchBar);
 })(jQuery);
+
+/*自定义插件*/
+;(function ($) {
+    // shorten references to variables. this is better for uglification
+    var kendo = window.kendo,
+        ui = kendo.ui,
+        Widget = ui.Widget,
+        CHANGE = "change",
+        BUTTONCLICK = "buttonclick",
+        BUTTONHOVER = "buttonhover",
+        HOVER = "k-state-hover",
+        FOCUSED = "k-state-focused"
+
+    var MyWidget = Widget.extend({
+        // initialization code goes here
+        init: function (element, options) {
+            var that = this;
+
+            // base call to initialize widget
+            Widget.fn.init.call(this, element, options);
+
+            that._attachFocusEvents(element);
+
+            //Create the DOM elements to build the widget
+            that._create();
+        },
+        // List of all options supported and default values
+        options: {
+            // the name is what it will appear as off the kendo namespace(i.e. kendo.ui.MyWidget).
+            // The jQuery plugin would be jQuery.fn.kendoMyWidget.
+            name: "MyWidget",
+            // other options go here
+            iconclass: "k-i-search",
+            placeholder: "请选择",
+            dialog: {
+                width: "300px",
+                height: "100px",
+                content: "",
+                title: "Dialog",
+                close: {}
+            }
+        },
+        // Export the events the control can fire
+        events: [CHANGE, BUTTONCLICK, BUTTONHOVER],
+        // this function creates each of the UI elements and appends them to the element
+        // that was selected out of the DOM for this widget
+        _attachFocusEvents: function (e) {
+            var that = this;
+            $(e).on("focus", $.proxy(that._inputFocus, that))
+                .on("focusout", $.proxy(that._inputFocusout, that));
+        },
+        _inputFocus: function (e) {
+            this._toggleCloseVisibility();
+            $(e.currentTarget.parentNode).addClass(FOCUSED);
+        },
+        _inputFocusout: function (e) {
+            $(e.currentTarget.parentNode).removeClass(FOCUSED);
+        },
+        _toggleCloseVisibility: function () {
+            if (this.element.val()) {
+                this.clearable.removeClass("k-hidden");
+                this.element.after(this.clearable);
+                this.clearable.on("click touchend", $.proxy(this._clearclick, this))
+                    .on("mousedown", function (e) { e.preventDefault(); });
+            } else {
+                this.clearable.addClass("k-hidden");
+            }
+        },
+        _create: function () {
+            // cache a reference to this
+            var that = this;
+
+            // setup the icon
+            var template = kendo.template(that._templates.icon);
+            that.icon = $(template(that.options));
+
+            // setup the textbox
+            template = kendo.template(that._templates.textbox);
+            that.textbox = $(template(that.options));
+
+            // setup the clearable
+            template = kendo.template(that._templates.clearable);
+            that.clearable = $(template(that.options));
+
+            that.icon.on("click", $.proxy(that._buttonclick, that));
+            that.icon.on("mouseenter mouseleave", $.proxy(that._buttonhover, that));
+            
+            // append all elements to the DOM
+            that.element.attr("name", that.options.name);
+            that.element.attr("placeholder", that.options.placeholder);
+            that.element.attr("autocomplete", "off");
+            that.element.addClass("k-input");
+            that.element.wrap(that.textbox);
+
+            that.element.after(that.icon);
+        },
+        // Fire the external event: buttonhover
+        _buttonhover: function (e) {
+            $(e.currentTarget.parentNode).toggleClass(HOVER, e.type === "mouseenter");
+        },
+        // Fire the external event: buttonclick
+        _buttonclick: function (e) {
+            // cache a reference to this
+            var that = this,
+                dialog = that.options.dialog;
+
+            // ext dialog
+            $.when(kendo.ui.ExtUserDialog.show({
+                width: dialog.width,
+                height: dialog.height,
+                content: dialog.content,
+                title: dialog.title
+            })).done(function (response) {
+                if (response.selected) {
+                    dialog.close(response.selected);
+                    that.element.focus();
+                }
+            });
+        },
+        // Fire the external event: clearclick
+        _clearclick: function (e) {
+            this.element.val("");
+            this.clearable.addClass("k-hidden");
+        },
+        // HTML for the templates that comprise the widget
+        _templates: {
+            textbox: '<span class="k-widget k-combobox k-selectdialog"><span unselectable="on" class="k-dropdown-wrap k-state-default" tabindex="-1"></span></span>',
+            icon: '<span unselectable="on" class="k-select" role="button" tabindex="-1"><span class="k-icon #: iconclass #"></span></span>',
+            clearable: '<span unselectable="on" class="k-icon k-clear-value k-i-close" role="button" tabindex="-1"></span>'
+        }
+    });
+
+    ui.plugin(MyWidget);
+
+})(jQuery);
+

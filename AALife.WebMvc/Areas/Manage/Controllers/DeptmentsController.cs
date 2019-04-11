@@ -23,12 +23,8 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Deptments
+        [AdminAuthorize]
         public ActionResult Index3()
-        {
-            return View();
-        }
-
-        public ActionResult TreeView()
         {
             return View();
         }

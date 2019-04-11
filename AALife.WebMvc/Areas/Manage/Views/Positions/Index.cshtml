@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "岗位列表";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+@section scripts {
+    <script src="~/Areas/Manage/Scripts/positions.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //数据源
+            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
+                transport: {
+                    read: {
+                        url: $.const.webapi.positions
+                    },
+                    update: {
+                        url: $.const.webapi.positions
+                    },
+                    destroy: {
+                        url: $.const.webapi.positions
+                    },
+                    create: {
+                        url: $.const.webapi.positions
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation === "destroy" && options.models) {
+                            return kendo.stringify(options.models[0]);
+                        }
+                        if (operation !== "read" && options.models) {
+                            return kendo.stringify(options.models);
+                        }
+                    }
+                },
+                batch: true,
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number", editable: false },
+                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Notes: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            }));
+
+            //列表
+            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+                dataSource: dataSource,
+                toolbar: ["create", "save", "cancel", "destroy"],
+                editable: true,
+                columns: [
+                    {
+                        selectable: true,
+                        width: 100
+                    },
+                    {
+                        field: "Name",
+                        title: "岗位名称",
+                        width: 100
+                    },
+                    {
+                        field: "Notes",
+                        title: "描述",
+                        width: 100
+                    }
+                ]
+            }));
+
+            //删除按钮
+            $("#grid .k-grid-toolbar .k-grid-delete").on("click", function (e) {
+                e.preventDefault();
+                if (window.confirm("你确定要删除这条数据吗？")) {
+                    var selection = [];
+                    var grid = $("#grid").data("kendoGrid");
+                    grid.select().each(function () {
+                        var dataItem = grid.dataItem($(this));
+                        selection.push(dataItem);
+                    });
+                    if (selection.length > 0) {
+                        delete_positions(selection, function (d) {
+                            kendoui_ajax_complete();
+                            grid.dataSource.read();
+                        }, function (e) {
+                            kendoui_ajax_error(e);
+                        });
+                    }
+                }
+            });
+
+        });
+    </script>
+}

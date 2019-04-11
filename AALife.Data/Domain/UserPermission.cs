@@ -83,6 +83,20 @@ namespace AALife.Data.Domain
         }
 
         /// <summary>
+        /// 岗位列表
+        /// </summary>
+        private ICollection<UserPosition> _userPositions;
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        public virtual ICollection<UserPosition> UserPositions
+        {
+            get { return _userPositions ?? (_userPositions = new List<UserPosition>()); }
+            protected set { _userPositions = value; }
+        }
+
+        /// <summary>
         /// 父角色
         /// </summary>
         [ForeignKey("ParentId")]

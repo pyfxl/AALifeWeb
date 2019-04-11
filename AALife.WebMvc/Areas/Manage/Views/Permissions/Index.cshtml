@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "权限列表";
+    ViewBag.Title = "权限菜单";
 }
 
 <section class="content">
@@ -115,16 +115,23 @@
                     width: 100
                 },
                 {
+                    template: function (dataItem) {
+                        return dataItem.IconName ? "<span class=\"k-icon " + dataItem.IconName + "\"></span>" : "";
+                    },
+                    attributes: { class: "text-center" },
                     field: "IconName",
                     title: "图标",
                     width: 50
                 },
                 {
+                    template: "#= IsButton ? '<i class=\"fa fa-check\"></i>' : '' #",
+                    attributes: { class: "text-center" },
                     field: "IsButton",
                     title: "按钮否",
                     width: 50
                 },
                 {
+                    attributes: { class: "text-center" },
                     field: "Rank",
                     title: "排序",
                     width: 50,

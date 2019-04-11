@@ -138,7 +138,7 @@
             var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
                 dataSource: dataSource,
                 autoBind: false,
-                selectable: true,
+                selectable: false,
                 editable: "popup",
                 edit: function() {
                     var items = $(".k-edit-form-container").children(".k-edit-label, .k-edit-field");

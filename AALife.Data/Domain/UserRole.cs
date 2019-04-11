@@ -25,6 +25,12 @@ namespace AALife.Data.Domain
         public string SystemName { get; set; }
 
         /// <summary>
+        /// 描述
+        /// </summary>
+        [MaxLength(200)]
+        public string Notes { get; set; }
+
+        /// <summary>
         /// 用户列表
         /// </summary>
         [JsonIgnore]

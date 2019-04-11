@@ -1,0 +1,165 @@
+﻿<!--选择用户grid-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-2" style="overflow: auto;">
+                <div id="deptmenttree"></div>
+            </div>
+            <div class="col-xs-10">
+                <div id="usergrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //变量
+    var _deptmenttreeId = 0;
+
+    $(document).ready(function () {
+
+        //数据源
+        var treeDataSource = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: $.const.webapi.deptmentstree,
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    hasChildren: "hasChildren",
+                    children: "items",
+                    value: "value"
+                },
+            }
+        });
+
+        //树列表
+        var deptmenttree = $("#deptmenttree").kendoTreeView({
+            dataSource: treeDataSource,
+            dataBound: function (e) {
+                deptmenttree.select(".k-first");
+                deptmenttree.trigger("select", {
+                    node: $("#deptmenttree .k-first")[0]
+                });
+            },
+            select: function (e) {
+                var dataItem = deptmenttree.dataItem(e.node);
+                _deptmenttreeId = dataItem.id;
+                //刷新主列表
+                userGrid.dataSource.read();
+                userGrid.dataSource.page(1);
+            }
+        }).data("kendoTreeView");
+
+        //用户来自数据源
+        var dataUserFrom = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: String.format($.const.webapi.paramsbyname, "userfrom"),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8"
+                }
+            }
+        });
+
+        //选择用户列表
+        var userGrid = $("#usergrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: $.const.webapi.usersselect,
+                        data: function (d) {
+                            d.id = _deptmenttreeId;
+                            return d;
+                        },
+                        cache: false,
+                        dataType: "json"
+                    },
+                    parameterMap: function (options, operation) {
+                        kendoui_parameter_format(options);
+                        return options;
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "number" },
+                            UserName: { type: "string" },
+                            UserNickName: { type: "string" },
+                            UserNameFull: { type: "string" },
+                            UserImage: { type: "string" },
+                            UserImageFull: { type: "string" },
+                            UserFrom: { type: "string" },
+                            UserFromName: { type: "string" },
+                            CreateDate: { type: "date" },
+                            ModifyDate: { type: "date" },
+                            Remark: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                },
+                pageSize: 10
+            },
+            autoBind: false,
+            columns: [
+                {
+                    selectable: true,
+                    width: 50
+                },
+                {
+                    field: "Id",
+                    title: "编号",
+                    width: 100,
+                    hidden: true
+                },
+                {
+                    field: "UserName",
+                    title: "用户名",
+                    width: 100
+                },
+                {
+                    field: "UserNickName",
+                    title: "昵称",
+                    width: 100
+                },
+                {
+                    template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
+                    field: "UserImage",
+                    title: "头像",
+                    width: 100,
+                    attributes: { class: "user-img-td" }
+                },
+                {
+                    template: "#=UserFromName#",
+                    field: "UserFrom",
+                    title: "来自",
+                    width: 100,
+                    filterable: {
+                        multi: true,
+                        dataSource: dataUserFrom,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>"
+                        }
+                    }
+                },
+                {
+                    field: "CreateDate",
+                    title: "注册日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd}"
+                },
+                {
+                    field: "Remark",
+                    title: "备注",
+                    width: 100
+                }
+            ]
+        })).data("kendoGrid");
+
+    });
+</script>

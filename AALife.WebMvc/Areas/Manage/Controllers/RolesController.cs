@@ -56,6 +56,13 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Roles
+        //[AdminAuthorize]
+        public ActionResult Index6()
+        {
+            return View();
+        }
+
+        // GET: Manage/Roles
         public ActionResult Detail(int id)
         {
             ViewBag.Id = id;

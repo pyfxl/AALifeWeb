@@ -14,14 +14,9 @@ namespace AALife.Core.Domain.Configuration
     public partial class Parameter : OrderEntity
     {
         /// <summary>
-        /// 显示名称
+        /// 名称
         /// </summary>
         public string Name { get; set; }
-
-        /// <summary>
-        /// 键
-        /// </summary>
-        public string SystemName { get; set; }
 
         /// <summary>
         /// 值
@@ -39,9 +34,19 @@ namespace AALife.Core.Domain.Configuration
         public bool? IsLeaf { get; set; }
 
         /// <summary>
-        /// 默认
+        /// 默认值
         /// </summary>
         public bool? IsDefault { get; set; }
+
+        /// <summary>
+        /// 系统属性
+        /// </summary>
+        public bool? IsSystem { get; set; }
+
+        /// <summary>
+        /// 参数说明
+        /// </summary>
+        public string Notes { get; set; }
 
         /// <summary>
         /// 父亲

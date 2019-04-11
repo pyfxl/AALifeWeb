@@ -1,4 +1,5 @@
-﻿using AALife.Core.Infrastructure.Kendoui;
+﻿using AALife.Core.Domain.Logging;
+using AALife.Core.Infrastructure.Kendoui;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
 using AALife.Data.Domain;
@@ -38,7 +39,8 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var grid = result.AsEnumerable().Select(x =>
             {
                 var m = x.MapTo<UserDeptment, UserDeptmentModel>();
-                m.ParentName = x.Parent != null ? x.Parent.Name : "";
+                m.Parent = x.Parent;
+                m.CategoryName = _parameterService.GetParamsByName("DeptmentCategory").First(a => a.Value == x.Category).Name;
                 return m;
             });
 
@@ -55,7 +57,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = result.AsEnumerable().Select(x =>
                 {
                     var m = x.MapTo<UserDeptment, UserDeptmentModel>();
-                    m.ParentName = x.Parent.Name;
+                    m.Parent = x.Parent;
                     return m;
                 }),
                 Total = result.Count()
@@ -64,69 +66,57 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return Json(grid);
         }
 
-        //// POST: api/Deptments
-        //public IHttpActionResult Post([FromBody]UserDeptment model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var parent = _userDeptmentService.Get(model.ParentId.Value);
-
-        //        _userDeptmentService.Add(model);
-        //    }
-
-        //    return Json(HttpStatusCode.OK);
-        //}
-
         // POST: api/Deptments
-        public IHttpActionResult Post(IEnumerable<UserDeptment> models)
+        public IHttpActionResult Post(UserDeptment model)
         {
             if (ModelState.IsValid)
             {
-                _userDeptmentService.Add(models);
+                if (model.Parent != null)
+                {
+                    model.ParentId = model.Parent.Id;
+                    model.Parent = null;
+                }
+
+                _userDeptmentService.Add(model);
             }
+            
+            //activity log
+            _customerActivityService.InsertActivity(null, ActivityLogType.Insert, "插入部门记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
 
-        //// PUT: api/Deptments/5
-        //public IHttpActionResult Put([FromBody]UserDeptment model)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var parameter = _userDeptmentService.Get(model.Id);
-
-        //        parameter.Name = model.Name;
-
-        //        _userDeptmentService.Update(parameter);
-        //    }
-
-        //    return Json(HttpStatusCode.OK);
-        //}
-
         // PUT: api/Deptments/5
-        public IHttpActionResult Put(IEnumerable<UserDeptment> models)
+        public IHttpActionResult Put(UserDeptment model)
         {
             if (ModelState.IsValid)
             {
-                var items = new List<UserDeptment>();
-                models.ToList().ForEach(a =>
+                var item = _userDeptmentService.Get(model.Id);
+                item.Name = model.Name;
+                item.Category = model.Category;
+                item.Notes = model.Notes;
+                if (model.Parent != null)
                 {
-                    var item = _userDeptmentService.Get(a.Id);
-                    item.Name = a.Name;
-                    item.ParentId = a.ParentId;
-                    items.Add(item);
-                });
+                    item.ParentId = model.Parent.Id;
+                    model.Parent = null;
+                }
 
-                _userDeptmentService.Update(items);
+                _userDeptmentService.Update(item);
             }
+
+            //activity log
+            _customerActivityService.InsertActivity(null, ActivityLogType.Update, "更新部门记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
 
         // DELETE: api/Deptments/5
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(UserDeptment model)
         {
-            _userDeptmentService.Delete(id);
+            _userDeptmentService.Delete(model.Id);
+
+            //activity log
+            _customerActivityService.InsertActivity(null, ActivityLogType.Delete, "删除部门记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -151,6 +141,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return Json(tree);
         }
 
+        // 树方法
         private List<TreeViewModel> SortForTree(int? id = null, int? parentId = null)
         {
             var userDeptment = new List<UserDeptment>();
@@ -174,6 +165,41 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 model.Add(pm);
             }
             return model;
+        }
+
+        // 面包导航
+        [Route("api/v1/deptmentbreadcrumbapi")]
+        public IHttpActionResult GetFormattedBreadCrumb ()
+        {
+            var results = new List<UserDeptmentModel>();
+
+            var deptments = _userDeptmentService.Get();
+
+            //deptments = deptments.OrderBy(a => a.ParentId);
+
+            foreach (var pr in deptments)
+            {
+                results.Add(new UserDeptmentModel
+                {
+                    Id = pr.Id,
+                    Name = _userDeptmentService.GetFormattedBreadCrumb(pr),
+                    Category = pr.Category,
+                    Notes = pr.Notes
+                });
+            }
+
+            results = results.OrderBy(a => a.Name).ToList();
+
+            return Json(results);
+        }
+
+        // 获取组织类型
+        [Route("api/v1/deptmentcategoryapi")]
+        public IHttpActionResult GetDeptmentCategory()
+        {
+            var result = _parameterService.GetParamsByName("DeptmentCategory");
+
+            return Json(result);
         }
 
         #endregion

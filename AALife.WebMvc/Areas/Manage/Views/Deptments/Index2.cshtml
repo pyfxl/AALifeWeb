@@ -16,25 +16,6 @@
     <script>
         $(document).ready(function () {
 
-            //树数据源
-            var treeDataSource = new kendo.data.HierarchicalDataSource({
-                transport: {
-                    read: {
-                        url: $.const.webapi.deptmentstree,
-                        dataType: "json"
-                    }
-                },
-                schema: {
-                    model: {
-                        id: "id",
-                        hasChildren: "hasChildren",
-                        children: "items",
-                        expanded: true,
-                        value: "value"
-                    },
-                }
-            });
-
             //数据源
             var dataSource = new kendo.data.TreeListDataSource($.extend(true, {}, $.const.kendotree.dataSource, {
                 transport: {
@@ -52,7 +33,7 @@
                     },
                     parameterMap: function (options, operation) {
                         if (operation !== "read" && options.models) {
-                            return kendo.stringify(options.models);
+                            return kendo.stringify(options.models[0]);
                         }
                     }
                 },
@@ -62,9 +43,12 @@
                         id: "Id",
                         parentId: "ParentId",
                         fields: {
-                            Id: { type: "number", editable: false, nullable: false },
+                            Id: { type: "number", editable: false },
                             ParentId: { type: "string", defaultValue: null },
-                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } }
+                            Parent: { defaultValue: null },
+                            Category: { type: "string" },
+                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Notes: { type: "string" }
                         },
                         expanded: true
                     }
@@ -79,18 +63,6 @@
                 dataSource: dataSource,
                 toolbar: ["create"],
                 editable: true,
-                edit: function(e) {
-                    //checking if a cell from the Test column is opened for editing
-                    var dummyInput = e.container.find("input[name='ParentId']");
-                    if (dummyInput.length > 0) {
-                        var treeView = $(e.container).find(".treeViewEditor").data("kendoTreeView");
-                        var originalItem = treeView.findByText(dummyInput.val());
-                        if (originalItem != null) {
-                            // Select the item based on the field value
-                            treeView.select(originalItem);
-                        }
-                    }
-                },
                 columns: [
                     {
                         expandable: true,
@@ -99,43 +71,50 @@
                         width: 100
                     },
                     {
-                        //template: "#= ParentName #",
-                        field: "ParentId",
-                        values: [{ "text": "公司名称", "value": "24" }, { "text": "领导层", "value": "25" }, { "text": "行政部", "value": "26" }, { "text": "开发部", "value": "27" }, { "text": "销售部", "value": "28" }, { "text": "客服部", "value": "29" }, { "text": "财务部", "value": "30" }, { "text": "后勤部", "value": "31" }],
+                        template: "#= data.Parent ? Parent.Name : '' #",
+                        field: "Parent",
                         title: "上级部门",
                         width: 100,
                         editor: function (container, options) {
-                            var input = $("<input class='tveInput' style='display: none;'/>");
-                            input.attr("name", options.field);
-                            var tvDiv = $("<div class='treeViewEditor'></div>");
-                            $(tvDiv).kendoTreeView({
-                                animation: false,
-                                dataSource: treeDataSource,
-                                //select: function (e) {
-                                //    var clickedNode = $(e.node);
-                                //    var dataItem = this.dataItem(clickedNode);
-                                //    var dummyInput = clickedNode.closest("[role=row]").find("input[name='ParentName']");
-                                //    dummyInput.val(dataItem.text);
-                                //    dummyInput.trigger("change");
-                                //    var hidInput = clickedNode.closest("[role=row]").find("input[name='ParentId']");
-                                //    hidInput.val(dataItem.id);
-                                //    hidInput.trigger("change");
-                                //}
-                            });
-                            var treeView = $(tvDiv).data("kendoTreeView");
-                            $(tvDiv).on("mousedown", ".k-in", function (e) {
-                                var clickedNode = $(e.toElement).closest("[role=treeitem]");
-                                var dataItem = treeView.dataItem(clickedNode);
-                                var dummyInput = clickedNode.closest("[role=gridcell]").find("input[name='ParentId']");
-                                dummyInput.val(dataItem.id);
-                                dummyInput.trigger("change");
-                                //var hidInput = clickedNode.closest("[role=row]").find("input[name='ParentId']");
-                                //hidInput.val(dataItem.id);
-                                //hidInput.trigger("change");
-                            });
-                            tvDiv.appendTo(container);
-                            input.appendTo(container);
+                            $('<input name="' + options.field + '"/>')
+                                .appendTo(container)
+                                .kendoDropDownList({
+                                    autoBind: false,
+                                    dataTextField: "Name",
+                                    dataValueField: "Id",
+                                    dataSource: {
+                                        transport: {
+                                            read: "/api/v1/deptmentbreadcrumbapi"
+                                        }
+                                    }
+                                });
                         }
+                    },
+                    {
+                        template: "#= data.CategoryName ? CategoryName : '' #",
+                        field: "Category",
+                        title: "类型",
+                        width: 100,
+                        editor: function (container, options) {
+                            $('<input name="' + options.field + '"/>')
+                                .appendTo(container)
+                                .kendoDropDownList({
+                                    autoBind: false,
+                                    valuePrimitive: true,
+                                    dataTextField: "Name",
+                                    dataValueField: "Value",
+                                    dataSource: {
+                                        transport: {
+                                            read: "/api/v1/deptmentcategoryapi"
+                                        }
+                                    }
+                                });
+                        }
+                    },
+                    {
+                        field: "Notes",
+                        title: "描述",
+                        width: 100
                     },
                     {
                         command: [
@@ -146,10 +125,10 @@
                             "edit",
                             "destroy"
                         ],
-                        width: 100
+                        width: 150
                     }
                 ]
-            })).data("kendoTreeList");
+            }));
 
         });
     </script>

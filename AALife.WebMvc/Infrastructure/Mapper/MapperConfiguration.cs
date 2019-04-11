@@ -55,11 +55,16 @@ namespace AALife.WebMvc.Infrastructure.Mapper
 
                 //user role
                 cfg.CreateMap<UserTable, UserRoleViewModel>()
+                    .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
                     .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()));
 
                 //permission
                 cfg.CreateMap<PermissionViewModel, UserPermission>()
                     .ForMember(dest => dest.UserRoles, src => src.Ignore());
+
+                //deptment
+                cfg.CreateMap<UserDeptment, UserDeptmentModel>()
+                    .ForMember(dest => dest.CategoryName, src => src.Ignore());
 
             };
             return action;

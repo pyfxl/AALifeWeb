@@ -56,6 +56,11 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return View();
         }
 
+        public ActionResult Index3()
+        {
+            return View();
+        }
+
         public ActionResult Roles()
         {
             return View();

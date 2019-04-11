@@ -1,12 +1,9 @@
 ﻿using AALife.Core;
 using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web.Script.Serialization;
 
 namespace AALife.Data.Domain
 {
@@ -26,6 +23,19 @@ namespace AALife.Data.Domain
         public string Name { get; set; }
 
         /// <summary>
+        /// 描述
+        /// </summary>
+        [MaxLength(200)]
+        public string Notes { get; set; }
+
+        /// <summary>
+        /// 部门类别
+        /// </summary>
+        [MaxLength(20)]
+        [Required]
+        public string Category { get; set; }
+
+        /// <summary>
         /// 用户列表
         /// </summary>
         private ICollection<UserTable> _users;
@@ -41,10 +51,24 @@ namespace AALife.Data.Domain
         }
 
         /// <summary>
+        /// 岗位列表
+        /// </summary>
+        private ICollection<UserPosition> _positions;
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        [JsonIgnore]
+        public virtual ICollection<UserPosition> Positions
+        {
+            get { return _positions ?? (_positions = new List<UserPosition>()); }
+            protected set { _positions = value; }
+        }
+
+        /// <summary>
         /// 父部门
         /// </summary>
         [ForeignKey("ParentId")]
-        [JsonIgnore]
         public virtual UserDeptment Parent { get; set; }
 
         /// <summary>

@@ -94,12 +94,30 @@ namespace AALife.Data.Migrations
                 },
                 new UserPermission()
                 {
+                    Name = "部门管理",
+                    AreaName = "Manage",
+                    ControllerName = "Deptments",
+                    ActionName = "Index",
+                    Rank = 5,
+                    OrderNo = "05"
+                },
+                new UserPermission()
+                {
+                    Name = "岗位管理",
+                    AreaName = "Manage",
+                    ControllerName = "Positions",
+                    ActionName = "Index",
+                    Rank = 6,
+                    OrderNo = "06"
+                },
+                new UserPermission()
+                {
                     Name = "参数管理",
                     AreaName = "Manage",
                     ControllerName = "Parameters",
                     ActionName = "Index",
-                    Rank = 5,
-                    OrderNo = "05"
+                    Rank = 7,
+                    OrderNo = "07"
                 },
                 new UserPermission()
                 {
@@ -107,8 +125,8 @@ namespace AALife.Data.Migrations
                     AreaName = "Manage",
                     ControllerName = "MessageTemplates",
                     ActionName = "Index",
-                    Rank = 6,
-                    OrderNo = "06"
+                    Rank = 8,
+                    OrderNo = "08"
                 },
                 new UserPermission()
                 {
@@ -116,8 +134,8 @@ namespace AALife.Data.Migrations
                     AreaName = "Manage",
                     ControllerName = "ScheduleTasks",
                     ActionName = "Index",
-                    Rank = 7,
-                    OrderNo = "07"
+                    Rank = 9,
+                    OrderNo = "09"
                 },
                 new UserPermission()
                 {
@@ -125,8 +143,8 @@ namespace AALife.Data.Migrations
                     AreaName = "Manage",
                     ControllerName = "Settings",
                     ActionName = "Index",
-                    Rank = 8,
-                    OrderNo = "08"
+                    Rank = 10,
+                    OrderNo = "10"
                 }
             };
             var permissionSet = context.Set<UserPermission>();
@@ -137,29 +155,29 @@ namespace AALife.Data.Migrations
 
             #region 部门
 
-            var userDepts = new List<UserDeptment>
+            var userDept = new UserDeptment
             {
-                new UserDeptment { Name = "公司名称" },
-                new UserDeptment { Name = "领导层" },
-                new UserDeptment { Name = "行政部" },
-                new UserDeptment { Name = "开发部" },
-                new UserDeptment { Name = "销售部" },
-                new UserDeptment { Name = "财务部" }
+                Name = "总公司",
+                Category = "Group"
             };
             var userDeptSet = context.Set<UserDeptment>();
-            userDeptSet.AddOrUpdate(m => new { m.Name }, userDepts.ToArray());
+            userDeptSet.AddOrUpdate(m => new { m.Name }, userDept);
             context.SaveChanges();
 
-            var rootDept = context.UserDeptments.First(a => a.Name == "公司名称");
-            var otherDept = context.UserDeptments.Where(a => a.Name != "公司名称").ToList();
-            if (otherDept != null)
+            #endregion
+
+            #region 岗位
+
+            var userPositions = new List<UserPosition>
             {
-                otherDept.ForEach(a =>
-                {
-                    a.Parent = rootDept;
-                });
-                context.SaveChanges();
-            }
+                new UserPosition { Name = "员工" },
+                new UserPosition { Name = "部门负责人" },
+                new UserPosition { Name = "业务副总" },
+                new UserPosition { Name = "总经理" }
+            };
+            var userPositionSet = context.Set<UserPosition>();
+            userPositionSet.AddOrUpdate(m => new { m.Name }, userPositions.ToArray());
+            context.SaveChanges();
 
             #endregion
 

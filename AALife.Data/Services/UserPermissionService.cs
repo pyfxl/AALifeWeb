@@ -156,10 +156,15 @@ namespace AALife.Data.Services
 
             //deptments
             var userDeptments = user.UserDeptments;
+            var userPositions = user.UserPositions;
+
             foreach (var dept in userDeptments)
                 if (dept.UserPermissions.Count(a => a.ActionName == actionName && a.ControllerName == controllerName && a.AreaName == areaName) > 0)
-                    //yes, we have such permission
-                    return true;
+                {
+                    if (userPositions.SelectMany(p => p.UserPermissions.Where(a => a.ActionName == actionName && a.ControllerName == controllerName && a.AreaName == areaName)).Count() > 0)
+                        //yes, we have such permission
+                        return true;
+                }
 
             //no permission found
             return false;

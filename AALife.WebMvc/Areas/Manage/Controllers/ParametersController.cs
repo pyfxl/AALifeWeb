@@ -15,18 +15,6 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return View();
         }
 
-        // GET: Manage/Parameters
-        [AdminAuthorize]
-        public ActionResult Index2()
-        {
-            return View();
-        }
-
-        public ActionResult TreeView()
-        {
-            return View();
-        }
-
         // GET: Manage/Parameters/Details/5
         public ActionResult Details(int id)
         {

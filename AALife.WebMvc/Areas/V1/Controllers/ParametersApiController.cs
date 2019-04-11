@@ -4,6 +4,7 @@ using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Web.Http;
@@ -41,11 +42,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             var grid = new DataSourceResult
             {
-                Data = result.AsEnumerable().Select(x =>
-                {
-                    var m = x.MapTo<Parameter, ParameterViewModel>();
-                    return m;
-                }),
+                Data = result,
                 Total = result.Count()
             };
 
@@ -53,37 +50,38 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST: api/Parameters
-        public IHttpActionResult Post([FromBody]Parameter model)
+        public IHttpActionResult Post(int id, [FromBody]IEnumerable<Parameter> models)
         {
-            if (ModelState.IsValid)
+            var parent = _parameterService.Get(id);
+            models.ToList().ForEach(a =>
             {
-                var parent = _parameterService.Get(model.ParentId.GetValueOrDefault());
+                a.OrderNo = a.GetOrderNo(parent);
+                a.ParentId = id;
 
-                model.OrderNo = model.GetOrderNo(parent);
-
-                _parameterService.Add(model);
-            }
+                _parameterService.Add(a);
+            });
 
             return Json(HttpStatusCode.OK);
         }
 
         // PUT: api/Parameters/5
-        public IHttpActionResult Put([FromBody]Parameter model)
+        public IHttpActionResult Put(int id, [FromBody]IEnumerable<Parameter> models)
         {
-            if (ModelState.IsValid)
+            var parent = _parameterService.Get(id);
+            models.ToList().ForEach(a =>
             {
-                var parent = _parameterService.Get(model.ParentId.GetValueOrDefault());
-                var parameter = _parameterService.Get(model.Id);
+                var parameter = _parameterService.Get(a.Id);
 
-                parameter.Name = model.Name;
-                parameter.Rank = model.Rank;
-                parameter.IsDefault = model.IsDefault;
-                parameter.IsLeaf = model.IsLeaf;
-                parameter.OrderNo = model.GetOrderNo(parent);
+                parameter.Name = a.Name;
+                parameter.Rank = a.Rank;
+                parameter.IsDefault = a.IsDefault;
+                parameter.IsLeaf = a.IsLeaf;
+                parameter.OrderNo = a.GetOrderNo(parent);
+                parameter.Notes = a.Notes;
 
-                _parameterService.Update(parameter);
-            }
-
+                _parameterService.Update(a);
+            });
+            
             return Json(HttpStatusCode.OK);
         }
 

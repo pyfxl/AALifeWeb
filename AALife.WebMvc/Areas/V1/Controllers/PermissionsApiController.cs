@@ -17,16 +17,19 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         private readonly IUserPermissionService _permissionService;
         private readonly IUserRoleService _userRoleService;
         private readonly IUserDeptmentService _userDeptmentService;
+        private readonly IUserPositionService _userPositionService;
         private readonly ICustomerActivityService _customerActivityService;
 
         public PermissionsApiController(IUserPermissionService permissionService,
             IUserRoleService userRoleService,
             IUserDeptmentService userDeptmentService,
+            IUserPositionService userPositionService,
             ICustomerActivityService customerActivityService)
         {
             this._permissionService = permissionService;
             this._userRoleService = userRoleService;
             this._userDeptmentService = userDeptmentService;
+            this._userPositionService = userPositionService;
             this._customerActivityService = customerActivityService;
         }
 
@@ -104,6 +107,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 }
             };
 
+            //调用
             action(permission);
 
             //update
@@ -137,11 +141,11 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         #region 其它方法
 
         // 更新角色权限
-        [Route("api/v1/permissionsupdateapi")]
-        public void PermissionUpdate(PermissionInputModel param)
+        [Route("api/v1/permissionsroleupdateapi")]
+        public void PermissionUpdate(dynamic param)
         {
-            var role = _userRoleService.Get(param.rid);
-            var permission = _permissionService.Get(param.pid);
+            var role = _userRoleService.Get((int)param.id);
+            var permission = _permissionService.Get((int)param.pid);
 
             if (permission.UserRoles.Contains(role))
             {
@@ -153,15 +157,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             }
 
             _permissionService.Update(permission);
-
         }
 
         // 更新部门权限
         [Route("api/v1/permissionsdeptmentupdateapi")]
-        public void PermissionDeptmentUpdate(PermissionInputModel param)
+        public void PermissionDeptmentUpdate(dynamic param)
         {
-            var deptment = _userDeptmentService.Get(param.rid);
-            var permission = _permissionService.Get(param.pid);
+            var deptment = _userDeptmentService.Get((int)param.id);
+            var permission = _permissionService.Get((int)param.pid);
 
             if (permission.UserDeptments.Contains(deptment))
             {
@@ -173,7 +176,25 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             }
 
             _permissionService.Update(permission);
+        }
 
+        // 更新岗位权限
+        [Route("api/v1/permissionspositionupdateapi")]
+        public void PermissionPositionUpdate(dynamic param)
+        {
+            var position = _userPositionService.Get((int)param.id);
+            var permission = _permissionService.Get((int)param.pid);
+
+            if (permission.UserPositions.Contains(position))
+            {
+                permission.UserPositions.Remove(position);
+            }
+            else
+            {
+                permission.UserPositions.Add(position);
+            }
+
+            _permissionService.Update(permission);
         }
 
         // 获取权限列表树

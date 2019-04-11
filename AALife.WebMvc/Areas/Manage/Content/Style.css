@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: 'Microsoft YaHei', SimHei, Arial;
+    font-family: 'Microsoft YaHei', SimHei, Arial !important;
     background-color: #ecf0f5;
 }
 .container-fluid {
@@ -32,10 +32,14 @@
     background-color: #ecf0f5;
 }
 .user-block img {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     float: none;
     border: 2px solid #ccc;
+}
+.k-window .user-block img {
+    width: 26px;
+    height: 26px;
 }
 .user-img-td {
     text-align: center;
@@ -60,6 +64,9 @@
 .k-grid tbody .k-button {
     min-width: auto;
 }
+/*.k-grid td {
+    white-space: nowrap;
+}*/
 .k-i-filter:before {
     content: "\e015";
 }
@@ -117,4 +124,30 @@ html .k-upload {
 .searchbar button {
     margin-left: 5px;
     margin-right: 5px;
+}
+
+
+/*选择窗口样式*/
+.k-ext-dialog-grid-content .container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 100%;
+}
+.k-ext-dialog-grid-content .row {
+    height: 100%;
+}
+.k-ext-dialog-grid-content .col-xs-1,
+.k-ext-dialog-grid-content .col-xs-2,
+.k-ext-dialog-grid-content .col-xs-3,
+.k-ext-dialog-grid-content .col-xs-4,
+.k-ext-dialog-grid-content .col-xs-5,
+.k-ext-dialog-grid-content .col-xs-6,
+.k-ext-dialog-grid-content .col-xs-7,
+.k-ext-dialog-grid-content .col-xs-8,
+.k-ext-dialog-grid-content .col-xs-9,
+.k-ext-dialog-grid-content .col-xs-10,
+.k-ext-dialog-grid-content .col-xs-11,
+.k-ext-dialog-grid-content .col-xs-12 {
+    height: 100%;
+    padding: 0;
 }

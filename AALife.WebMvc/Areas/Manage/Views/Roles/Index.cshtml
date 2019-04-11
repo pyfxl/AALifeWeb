@@ -4,11 +4,20 @@
 
 <script>
     //全局变量
-    var _detailRow, _Id;
+    var _selectedId;
 
     function dialog_close(e) {
         kendoui_ajax_complete();
         _detailRow.find(".detailgrid").data("kendoGrid").dataSource.read();
+    }
+
+    //用户选择回调
+    function userselect_callback(dataItem) {
+        insert_rolesuser(_selectedId, dataItem, function () {
+            //dialog_close(e);
+            var grid = $("#grid").data("kendoGrid");
+            grid.dataSource.read();
+        });
     }
 </script>
 
@@ -202,16 +211,16 @@
                 //选择按钮事件
                 detailRow.find(".detailgrid .k-grid-toolbar").on("click", ".k-grid-userselect", function (e) {
                     e.preventDefault();
-                    _Id = keyId;
-                    _detailRow = detailRow;
+                    _selectedId = keyId;
+                    //_detailRow = detailRow;
                     $("#dialog").data("kendoDialog").open();
                 });
 
                 //删除按钮事件
                 detailRow.find(".detailgrid .k-grid-toolbar").on("click", ".k-grid-userdelete", function (e) {
                     e.preventDefault();
-                    _Id = keyId;
-                    _detailRow = detailRow;
+                    _selectedId = keyId;
+                    //_detailRow = detailRow;
 
                     var items = detailGrid.element.find("table tbody .k-state-selected");
                     if (items.length > 0) {
@@ -220,7 +229,7 @@
                             var dataItem = detailGrid.dataItem(items[i]);
                             result.push(dataItem);
                         }
-                        delete_userrole(keyId, result, function (d) {
+                        delete_rolesuser(keyId, result, function (d) {
                             kendoui_ajax_complete();
                             detailGrid.dataSource.read();
                         });
@@ -230,6 +239,7 @@
             }
 
         });
+
     </script>
 }
 

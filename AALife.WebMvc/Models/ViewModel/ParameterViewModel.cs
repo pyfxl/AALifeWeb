@@ -14,11 +14,6 @@ namespace AALife.WebMvc.Models.ViewModel
         public string Name { get; set; }
 
         /// <summary>
-        /// 键
-        /// </summary>
-        public string SystemName { get; set; }
-
-        /// <summary>
         /// 值
         /// </summary>
         public string Value { get; set; }
