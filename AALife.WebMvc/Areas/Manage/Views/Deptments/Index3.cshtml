@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "部门岗位";
 }
 
@@ -35,8 +34,8 @@
             schema: {
                 model: {
                     id: "id",
+                    parentId: "parentId",
                     hasChildren: "hasChildren",
-                    children: "items",
                     value: "value"
                 },
             }
@@ -76,6 +75,7 @@
                         id: "Id",
                         fields: {
                             Name: { type: "string" },
+                            Code: { type: "string" },
                             Notes: { type: "string" }
                         }
                     }
@@ -94,6 +94,11 @@
                 {
                     field: "Name",
                     title: "岗位名称",
+                    width: 100
+                },
+                {
+                    field: "Code",
+                    title: "岗位编码",
                     width: 100
                 },
                 {
@@ -140,5 +145,3 @@
         });
     }
 </script>
-
-@Html.Partial("PositionSelect")

@@ -14,7 +14,7 @@ namespace AALife.WebMvc.Models.ViewModel
             AvailableUserRoles = new List<UserRoleModel>();
             AvailableUserDeptments = new List<UserDeptmentModel>();
             AvailableUserPositions = new List<UserPositionModel>();
-            Allowed = new Dictionary<int, IDictionary<int, bool>>();
+            Allowed = new Dictionary<Guid, IDictionary<Guid, bool>>();
         }
         public IList<PermissionRecordModel> AvailablePermissions { get; set; }
         public IList<UserRoleModel> AvailableUserRoles { get; set; }
@@ -22,6 +22,6 @@ namespace AALife.WebMvc.Models.ViewModel
         public IList<UserPositionModel> AvailableUserPositions { get; set; }
 
         //[permission system name] / [customer role id] / [allowed]
-        public IDictionary<int, IDictionary<int, bool>> Allowed { get; set; }
+        public IDictionary<Guid, IDictionary<Guid, bool>> Allowed { get; set; }
     }
 }

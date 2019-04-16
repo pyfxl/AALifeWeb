@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using AALife.Core;
 using AALife.Core.Domain.Configuration;
 using AALife.Core.Services.Configuration;
@@ -23,7 +24,7 @@ namespace AALife.Core.Services.Common
         /// </summary>
         public void Execute()
         {
-            string url = _settingService.LoadSetting<SiteSettings>(0).SiteUrl + "/keepalive/index";
+            string url = _settingService.LoadSetting<SiteSettings>(default(Guid)).SiteUrl + "/keepalive/index";
             using (var wc = new WebClient())
             {
                 wc.DownloadString(url);

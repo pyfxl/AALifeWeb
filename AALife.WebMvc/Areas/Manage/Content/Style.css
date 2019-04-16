@@ -28,6 +28,9 @@
     padding: 5px;
     min-height: inherit;
 }
+.content .k-block {
+    margin-bottom: 10px;
+}
 .skin-blue .wrapper, .skin-blue .main-sidebar, .skin-blue .left-side {
     background-color: #ecf0f5;
 }

@@ -1,0 +1,158 @@
+﻿@{
+    ViewBag.Title = "岗位列表";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="left" class="col-xs-2 k-block">
+                <div class="k-header">部门列表</div>
+                <div id="treeview"></div>
+            </div>
+            <div id="main" class="col-xs-10">
+                <div id="grid"></div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+@section scripts {
+    <script src="~/Areas/Manage/Scripts/positions.js"></script>
+    <script>
+        //变量
+        var _selectedId = 0;
+
+        $(document).ready(function () {
+
+            //数据源
+            var treeDataSource = new kendo.data.HierarchicalDataSource({
+                transport: {
+                    read: {
+                        url: $.const.webapi.deptmentstree,
+                        dataType: "json"
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "id",
+                        parentId: "parentId",
+                        hasChildren: "hasChildren",
+                        value: "value"
+                    },
+                }
+            });
+
+            //列表
+            var treeview = $("#treeview").kendoTreeView({
+                dataSource: treeDataSource,
+                dataBound: function (e) {
+                    treeview.select(".k-first");
+                    treeview.trigger("select", {
+                        node: $("#treeview .k-first")[0]
+                    });
+                },
+                select: function (e) {
+                    var dataItem = treeview.dataItem(e.node);
+                    _selectedId = dataItem.id;
+                    //刷新主列表
+                    grid.dataSource.read({ id: _selectedId });
+                }
+            }).data("kendoTreeView");
+
+            //数据源
+            var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
+                transport: {
+                    read: {
+                        url: $.const.webapi.positions,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8"
+                    },
+                    update: {
+                        url: $.const.webapi.positions
+                    },
+                    destroy: {
+                        url: $.const.webapi.positions
+                    },
+                    create: {
+                        url: $.const.webapi.positions
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation === "destroy" && options.models) {
+                            return kendo.stringify(options.models[0]);
+                        }
+                        if (operation !== "read" && options.models) {
+                            return kendo.stringify(options.models);
+                        }
+                        return options;
+                    }
+                },
+                batch: true,
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "string", editable: false },
+                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Code: { type: "string" },
+                            Notes: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            }));
+
+            //列表
+            var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+                dataSource: dataSource,
+                toolbar: ["create", "save", "cancel", "destroy"],
+                editable: true,
+                autoBind: false,
+                columns: [
+                    {
+                        selectable: true,
+                        width: 100
+                    },
+                    {
+                        field: "Name",
+                        title: "岗位名称",
+                        width: 100
+                    },
+                    {
+                        field: "Code",
+                        title: "岗位编码",
+                        width: 100
+                    },
+                    {
+                        field: "Notes",
+                        title: "描述",
+                        width: 100
+                    }
+                ]
+            })).data("kendoGrid");
+
+            //删除按钮
+            $("#grid .k-grid-toolbar .k-grid-delete").on("click", function (e) {
+                e.preventDefault();
+                if (window.confirm("你确定要删除这条数据吗？")) {
+                    var selection = [];
+                    var grid = $("#grid").data("kendoGrid");
+                    grid.select().each(function () {
+                        var dataItem = grid.dataItem($(this));
+                        selection.push(dataItem);
+                    });
+                    if (selection.length > 0) {
+                        delete_positions(selection, function (d) {
+                            kendoui_ajax_complete();
+                            grid.dataSource.read();
+                        }, function (e) {
+                            kendoui_ajax_error(e);
+                        });
+                    }
+                }
+            });
+
+        });
+    </script>
+}

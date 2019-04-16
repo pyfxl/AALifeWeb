@@ -5,6 +5,7 @@ using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -15,25 +16,31 @@ namespace AALife.WebMvc.Areas.V1.Controllers
     public class PositionsApiController : BaseApiController
     {
         private readonly IUserPositionService _userPositionService;
+        private readonly IUserDeptmentService _userDeptmentService;
         private readonly ICustomerActivityService _customerActivityService;
 
         public PositionsApiController(IUserPositionService userPositionService,
+            IUserDeptmentService userDeptmentService,
             ICustomerActivityService customerActivityService)
         {
             this._userPositionService = userPositionService;
+            this._userDeptmentService = userDeptmentService;
             this._customerActivityService = customerActivityService;
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get()
+        public IHttpActionResult Get(Guid id)
         {
-            var result = _userPositionService.Get();
+            var positions = _userPositionService.FindAll(x => x.DeptmentId == id);
 
             var grid = new DataSourceResult
             {
-                Data = result,
-                Total = result.Count()
+                Data = positions,
+                Total = positions.Count()
             };
+
+            //activity log
+            _customerActivityService.InsertActivity(null, ActivityLogType.Query, "浏览部门岗位记录。{0}", id);
 
             return Json(grid);
         }
@@ -78,14 +85,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // DELETE api/<controller>/5
         public IHttpActionResult Delete(IEnumerable<UserPosition> models)
         {
-            var items = new List<UserPosition>();
+            var positions = new List<UserPosition>();
             models.ToList().ForEach(a =>
             {
-                var item = _userPositionService.Get(a.Id);
-                items.Add(item);
+                var position = _userPositionService.Get(a.Id);
+                positions.Add(position);
             });
 
-            _userPositionService.Delete(items);
+            _userPositionService.Delete(positions);
 
             //activity log
             _customerActivityService.InsertActivity(null, ActivityLogType.Delete, "删除岗位记录。{0}", models.ToJson());

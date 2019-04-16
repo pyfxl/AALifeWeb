@@ -23,7 +23,7 @@ namespace AALife.WebMvc.Infrastructure.DependencyManagement
         {
             //db
             builder.RegisterType<AALifeContext>().As<IDbContext>().Named<IDbContext>("aalife_context").InstancePerLifetimeScope();
-            builder.RegisterGeneric(typeof(EfRepository<>)).As(typeof(IRepository<>)).InstancePerLifetimeScope();
+            builder.RegisterGeneric(typeof(EfRepository<,>)).As(typeof(IRepository<,>)).InstancePerLifetimeScope();
 
             //work context
             builder.RegisterType<WebWorkContext>().As<IWorkContext>().InstancePerLifetimeScope();

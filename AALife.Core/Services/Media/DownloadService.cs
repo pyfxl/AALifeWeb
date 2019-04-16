@@ -11,7 +11,7 @@ namespace AALife.Core.Services.Media
     {
         #region Fields
 
-        private readonly IRepository<Download> _downloadRepository;
+        private readonly IRepository<Download, int> _downloadRepository;
 
         #endregion
 
@@ -22,7 +22,7 @@ namespace AALife.Core.Services.Media
         /// </summary>
         /// <param name="downloadRepository">Download repository</param>
         /// <param name="eventPubisher"></param>
-        public DownloadService(IRepository<Download> downloadRepository)
+        public DownloadService(IRepository<Download, int> downloadRepository)
         {
             _downloadRepository = downloadRepository;
         }

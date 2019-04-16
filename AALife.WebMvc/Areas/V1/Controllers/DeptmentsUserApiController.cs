@@ -21,31 +21,34 @@ namespace AALife.WebMvc.Areas.V1.Controllers
     {
         private readonly IUserService _userService;
         private readonly IUserDeptmentService _userDeptmentService;
+        private readonly IUserPositionService _userPositionService;
         private readonly ICustomerActivityService _customerActivityService;
         private readonly IParameterService _parameterService;
 
         public DeptmentsUserApiController(IUserService userService,
             IUserDeptmentService userDeptmentService,
+            IUserPositionService userPositionService,
             ICustomerActivityService customerActivityService,
             IParameterService parameterService)
         {
             this._userService = userService;
             this._userDeptmentService = userDeptmentService;
+            this._userPositionService = userPositionService;
             this._customerActivityService = customerActivityService;
             this._parameterService = parameterService;
         }
 
         // GET api/<controller>/5
-        public IHttpActionResult Get(int id, [FromUri]DataSourceRequest request)
+        public IHttpActionResult Get(Guid? id, [FromUri]DataSourceRequest request)
         {
-            var users = _userService.GetByPage(request, x => x.UserDeptments.Any(a => a.Id == id));
+            var users = _userService.GetByPage(request, a => a.UserDeptments.Any(b => b.Id == id));
 
             var grid = new DataSourceResult
             {
                 Data = users.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
+                    m.Position = x.UserPositions.FirstOrDefault(a => a.DeptmentId == id);
                     return m;
                 }),
                 Total = users.TotalCount
@@ -58,13 +61,13 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST api/<controller>/5
-        public void Post(int id, [FromBody]IEnumerable<UserTable> models)
+        public void Post(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
             var deptment = _userDeptmentService.Get(id);
             models.ToList().ForEach(a =>
             {
                 var user = _userService.Get(a.Id);
-                if(user != null)
+                if (user != null)
                     deptment.Users.Add(user);
             });
 
@@ -75,56 +78,57 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, UserTable model)
+        public void Put(Guid id, UserTable model)
         {
-            var role = _userDeptmentService.Get(id);
+            var deptment = _userDeptmentService.Get(id);
             var user = _userService.Get(model.Id);
 
-            if (role.Users.Contains(user))
+            if (deptment.Users.Contains(user))
             {
-                role.Users.Remove(user);
+                deptment.Users.Remove(user);
             }
             else
             {
-                role.Users.Add(user);
+                deptment.Users.Add(user);
             }
 
-            _userDeptmentService.Update(role);
+            _userDeptmentService.Update(deptment);
 
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Insert, "插入更新用户部门。{0}", user.ToJson());
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id, [FromBody]IEnumerable<UserTable> models)
+        public void Delete(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
-            var role = _userDeptmentService.Get(id);
+            var deptment = _userDeptmentService.Get(id);
             models.ToList().ForEach(a =>
             {
                 var user = _userService.Get(a.Id);
-                if(role.Users.Contains(user))
-                    role.Users.Remove(user);
+                if (deptment.Users.Contains(user))
+                    deptment.Users.Remove(user);
             });
 
-            _userDeptmentService.Update(role);
+            _userDeptmentService.Update(deptment);
 
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Delete, "删除用户部门。{0}", models.ToJson());
         }
 
         #region 其它方法
-
+        
         // 根据部门获取用户列表，支持获取子级部门，用于弹出窗口选择
-        [Route("api/v1/usersselectapi")]
-        public IHttpActionResult GetUsersSelect(int id, [FromUri]DataSourceRequest request)
+        [Route("api/v1/deptmentsuserselectapi")]
+        public IHttpActionResult GetDeptmentsUserSelect(Guid id, [FromUri]DataSourceRequest request)
         {
             var users = new List<UserTable>();
             var deptment = _userDeptmentService.Get(id);
-            
-            //查找部门下的用户
+
+            //查找部门下岗位的用户
             Action<UserDeptment> action = null;
             action = (item) =>
             {
+                //TODO: 性能慢，待优化
                 users.AddRange(item.Users);
                 foreach (var it in item.Children)
                 {
@@ -135,7 +139,8 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             //调用
             action(deptment);
 
-            //var users = _userService.GetByPage(request, x => x.UserDeptments.Any(a => a.Id == id));
+            //去重复
+            users = users.Where((x, i) => users.FindIndex(z => z.Id == x.Id) == i).ToList();
 
             var grid = new DataSourceResult
             {

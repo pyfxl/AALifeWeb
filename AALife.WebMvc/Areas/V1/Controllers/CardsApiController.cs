@@ -3,6 +3,7 @@ using AALife.Data;
 using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.jqGrid;
+using System;
 using System.Linq;
 using System.Web.Http;
 
@@ -18,7 +19,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(Guid id)
         {
             var result = _cardService.GetAll(id);
             var grid = new DataSourceResult
@@ -30,7 +31,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST api/<controller>
-        public IHttpActionResult Post(int id, CardTable model)
+        public IHttpActionResult Post(Guid id, CardTable model)
         {
             model.LiveOn();
             model.UserId = id;
@@ -42,7 +43,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // PUT api/<controller>/5
-        public IHttpActionResult Put(int id, CardTable model)
+        public IHttpActionResult Put(Guid id, CardTable model)
         {
             var item = _cardService.Get(model.Id);
 

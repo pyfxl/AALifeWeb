@@ -2,7 +2,7 @@
 
 namespace AALife.Core.Repositorys.Messages
 {
-    public partial interface IScheduleTaskRepository : IRepository<ScheduleTask>
+    public partial interface IScheduleTaskRepository : IRepository<ScheduleTask, int>
     {
     }
 }

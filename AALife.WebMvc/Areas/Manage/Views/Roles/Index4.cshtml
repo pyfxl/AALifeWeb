@@ -43,7 +43,7 @@
                 model: {
                     id: "Id",
                     fields: {
-                        Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
+                        Id: { type: "string", editable: false, nullable: false },
                         Name: { type: "string" },
                         SystemName: { type: "string" }
                     }
@@ -105,7 +105,7 @@
                     model: {
                         id: "Id",
                         fields: {
-                            Id: { type: "number" },
+                            Id: { type: "string" },
                             UserName: { type: "string" },
                             UserNickName: { type: "string" },
                             UserImage: { type: "string" },
@@ -133,7 +133,8 @@
                 {
                     field: "Id",
                     title: "编号",
-                    width: 100
+                    width: 100,
+                    hidden: true
                 },
                 {
                     field: "UserName",

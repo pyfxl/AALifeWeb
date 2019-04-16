@@ -1,4 +1,6 @@
 
+using System;
+
 namespace AALife.Core.Domain.Configuration
 {
     /// <summary>
@@ -8,7 +10,7 @@ namespace AALife.Core.Domain.Configuration
     {
         public Setting() { }
         
-        public Setting(string name, string value, int userId = 0) {
+        public Setting(string name, string value, Guid userId = default(Guid)) {
             this.Name = name;
             this.Value = value;
             this.UserId = userId;
@@ -27,7 +29,7 @@ namespace AALife.Core.Domain.Configuration
         /// <summary>
         /// Gets or sets the store for which this setting is valid. 0 is set when the setting is for all stores
         /// </summary>
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public override string ToString()
         {

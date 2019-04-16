@@ -1127,7 +1127,7 @@
                         name: "确定",
                         click: function (e) {
                             $("#extUserDialog").data("kendoExtDialog").close();
-                            var grid = $("#usergrid").data("kendoGrid");
+                            var grid = $("#dialog-usergrid").data("kendoGrid");
                             var selectedRows = grid.select();
                             var selectedDataItems = [];
                             for (var i = 0; i < selectedRows.length; i++) {
@@ -1145,7 +1145,7 @@
                     }],
                     close: function () {
                         setTimeout(function () {
-                            var grid = $("#usergrid").data("kendoGrid");
+                            var grid = $("#dialog-usergrid").data("kendoGrid");
                             grid.destroy();
                         });
                     },

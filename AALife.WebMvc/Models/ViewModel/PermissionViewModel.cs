@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public partial class PermissionViewModel : BaseViewModel
+    public partial class PermissionViewModel : BaseViewModel<Guid>
     {
-        public int? ParentId { get; set; }
+        public Guid? ParentId { get; set; }
 
         public string AreaName { get; set; }
 

@@ -2,7 +2,7 @@
 
 namespace AALife.Core.Repositorys.Configuration
 {
-    public partial class PictureRepository : EfRepository<Picture>, IPictureRepository
+    public partial class PictureRepository : EfRepository<Picture, int>, IPictureRepository
     {
         public PictureRepository(IDbContext context) : base(context)
         {

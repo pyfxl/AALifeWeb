@@ -34,7 +34,13 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         // GET: Manage/Common
         public ActionResult UserSelect()
         {
-            return PartialView();
+            return PartialView("_UserSelect");
+        }
+
+        // GET: Manage/Common
+        public ActionResult DeptmentUserSelect()
+        {
+            return PartialView("_DeptmentUserSelect");
         }
 
         [ChildActionOnly]
@@ -65,7 +71,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         /// </summary>
         /// <param name="parentId">父节点</param>
         /// <returns></returns>
-        public List<MenuViewModel> SortMenuForTree(int? parentId, IEnumerable<UserPermission> permissions)
+        public List<MenuViewModel> SortMenuForTree(Guid? parentId, IEnumerable<UserPermission> permissions)
         {
             var model = new List<MenuViewModel>();
             foreach (var p in permissions.Where(t => !t.IsButton && t.ParentId == parentId))

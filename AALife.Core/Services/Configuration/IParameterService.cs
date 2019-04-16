@@ -9,7 +9,7 @@ namespace AALife.Core.Services.Configuration
     /// <summary>
     /// Setting service interface
     /// </summary>
-    public partial interface IParameterService : IBaseService<Parameter>
+    public partial interface IParameterService : IBaseService<Parameter, int>
     {
         IEnumerable<Parameter> GetParamsByName(string name);
     }

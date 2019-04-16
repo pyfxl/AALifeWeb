@@ -36,7 +36,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>/5
-        public IHttpActionResult Get(int id, [FromUri]DataSourceRequest request)
+        public IHttpActionResult Get(Guid id, [FromUri]DataSourceRequest request)
         {
             var users = _userService.GetByPage(request, x => x.UserRoles.Any(a => a.Id == id));
 
@@ -58,7 +58,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST api/<controller>/5
-        public void Post(int id, [FromBody]IEnumerable<UserTable> models)
+        public void Post(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
             var role = _userRoleService.Get(id);
             models.ToList().ForEach(a =>
@@ -75,7 +75,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, UserTable model)
+        public void Put(Guid id, UserTable model)
         {
             var role = _userRoleService.Get(id);
             var user = _userService.Get(model.Id);
@@ -96,7 +96,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id, [FromBody]IEnumerable<UserTable> models)
+        public void Delete(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
             var role = _userRoleService.Get(id);
             models.ToList().ForEach(a =>
@@ -116,7 +116,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         // 获取用户角色列表，默认选中当前已有的角色
         [Route("api/v1/userroleselectsapi/{id}")]
-        public IHttpActionResult GetUserRoles(int id, [FromUri]DataSourceRequest common)
+        public IHttpActionResult GetUserRoles(Guid id, [FromUri]DataSourceRequest common)
         {
             var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter);
 

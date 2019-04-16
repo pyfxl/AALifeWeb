@@ -2,7 +2,7 @@
 
 namespace AALife.Core.Repositorys.Messages
 {
-    public partial interface IQueuedEmailRepository : IRepository<QueuedEmail>
+    public partial interface IQueuedEmailRepository : IRepository<QueuedEmail, int>
     {
     }
 }

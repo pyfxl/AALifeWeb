@@ -2,56 +2,12 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
-            <div class="col-xs-2" style="overflow: auto;">
-                <div id="deptmenttree"></div>
-            </div>
-            <div class="col-xs-10">
-                <div id="usergrid"></div>
-            </div>
+            <div id="dialog-usergrid"></div>
         </div>
     </div>
 </div>
 <script>
-    //变量
-    var _deptmenttreeId = 0;
-
     $(document).ready(function () {
-
-        //数据源
-        var treeDataSource = new kendo.data.HierarchicalDataSource({
-            transport: {
-                read: {
-                    url: $.const.webapi.deptmentstree,
-                    dataType: "json"
-                }
-            },
-            schema: {
-                model: {
-                    id: "id",
-                    hasChildren: "hasChildren",
-                    children: "items",
-                    value: "value"
-                },
-            }
-        });
-
-        //树列表
-        var deptmenttree = $("#deptmenttree").kendoTreeView({
-            dataSource: treeDataSource,
-            dataBound: function (e) {
-                deptmenttree.select(".k-first");
-                deptmenttree.trigger("select", {
-                    node: $("#deptmenttree .k-first")[0]
-                });
-            },
-            select: function (e) {
-                var dataItem = deptmenttree.dataItem(e.node);
-                _deptmenttreeId = dataItem.id;
-                //刷新主列表
-                userGrid.dataSource.read();
-                userGrid.dataSource.page(1);
-            }
-        }).data("kendoTreeView");
 
         //用户来自数据源
         var dataUserFrom = new kendo.data.DataSource({
@@ -65,15 +21,11 @@
         });
 
         //选择用户列表
-        var userGrid = $("#usergrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+        var dialog_usergrid = $("#dialog-usergrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
             dataSource: {
                 transport: {
                     read: {
                         url: $.const.webapi.usersselect,
-                        data: function (d) {
-                            d.id = _deptmenttreeId;
-                            return d;
-                        },
                         cache: false,
                         dataType: "json"
                     },
@@ -86,7 +38,7 @@
                     model: {
                         id: "Id",
                         fields: {
-                            Id: { type: "number" },
+                            Id: { type: "string" },
                             UserName: { type: "string" },
                             UserNickName: { type: "string" },
                             UserNameFull: { type: "string" },
@@ -95,7 +47,6 @@
                             UserFrom: { type: "string" },
                             UserFromName: { type: "string" },
                             CreateDate: { type: "date" },
-                            ModifyDate: { type: "date" },
                             Remark: { type: "string" }
                         }
                     }
@@ -105,11 +56,10 @@
                 },
                 pageSize: 10
             },
-            autoBind: false,
             columns: [
                 {
                     selectable: true,
-                    width: 50
+                    width: 100
                 },
                 {
                     field: "Id",
@@ -159,7 +109,7 @@
                     width: 100
                 }
             ]
-        })).data("kendoGrid");
+        }));
 
     });
 </script>

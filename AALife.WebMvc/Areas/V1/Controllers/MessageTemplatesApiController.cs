@@ -60,7 +60,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _messageTemplateService.InsertMessageTemplate(model);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Insert, "插入消息记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Insert, "插入消息记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -82,7 +82,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _messageTemplateService.UpdateMessageTemplate(template);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Update, "更新消息记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Update, "更新消息记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -106,7 +106,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var template = _messageTemplateService.GetMessageTemplateById(id);
 
-            var emailAccount = _settingService.LoadSetting<CommonSettings>(0);
+            var emailAccount = _settingService.LoadSetting<CommonSettings>(default(Guid));
 
             var email = new QueuedEmail
             {

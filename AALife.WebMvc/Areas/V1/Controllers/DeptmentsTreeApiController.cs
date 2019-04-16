@@ -2,7 +2,9 @@
 using AALife.Core.Services.Logging;
 using AALife.Data.Domain;
 using AALife.Data.Services;
+using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -27,28 +29,83 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             this._parameterService = parameterService;
         }
 
-        // GET: api/Deptments
-        public IHttpActionResult Get()
-        {
-            var tree = SortForTree();
-
-            return Json(tree);
-        }
-
         // GET: api/Deptments/5
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(Guid? id = null)
         {
-            var tree = SortForTree(id);
+            var result = _userDeptmentService.FindAll(a => a.ParentId == id);
 
-            return Json(tree);
+            var grid = result.AsEnumerable().Select(x =>
+            {
+                var pm = new TreeViewModel
+                {
+                    id = x.Id,
+                    text = x.Name,
+                    parentId = x.ParentId,
+                    value = x.Name,
+                    name = x.Name
+                };
+                pm.hasChildren = _userDeptmentService.IsExists(a => a.ParentId == pm.id);
+                pm.expanded = false;
+                return pm;
+            });
+
+            return Json(grid);
         }
 
         #region 其它方法 
 
-        private List<TreeViewModel> SortForTree(int? id = null, int? parentId = null)
+        // 组织岗位树
+        [Route("api/v1/deptmentspositiontreeapi")]
+        public IHttpActionResult GetDeptmentsPositionTree(Guid? id = null)
+        {
+            var result = _userDeptmentService.FindAll(a => a.ParentId == id);
+
+            //下级组织
+            var grid = result.AsEnumerable().Select(x =>
+            {
+                var hasChildren = _userDeptmentService.IsExists(a => a.ParentId == x.Id);
+                var pm = new TreeViewModel
+                {
+                    id = x.Id,
+                    text = x.Name,
+                    parentId = x.ParentId,
+                    value = x.Name,
+                    name = x.Name,
+                    code = x.Code
+                };
+                pm.hasChildren = hasChildren ? true : x.Positions.Any();
+                pm.expanded = false;
+                pm.isDeptment = true;
+                return pm;
+            }).ToList();
+
+            //取当前岗位
+            if (id != null)
+            {
+                var deptment = _userDeptmentService.Get(id.Value);
+                deptment.Positions.ToList().ForEach(x =>
+                {
+                    var pm = new TreeViewModel
+                    {
+                        id = x.Id,
+                        text = x.Name,
+                        parentId = x.ParentId,
+                        value = x.Name,
+                        name = x.Name,
+                        deptmentId = deptment.Id
+                    };
+                    pm.isPosition = true;
+                    grid.Add(pm);
+                });
+            }
+
+            return Json(grid);
+        }
+
+        private List<TreeViewModel> SortForTree(Guid? id = null, Guid? parentId = null)
         {
             var userDeptment = new List<UserDeptment>();
-            if(id != null)
+            if (id != null)
                 userDeptment = _userService.Get(id.GetValueOrDefault()).UserDeptments.ToList();
 
             var model = new List<TreeViewModel>();
@@ -58,13 +115,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     id = p.Id,
                     text = p.Name,
-                    parentId = p.ParentId.GetValueOrDefault(),
+                    parentId = p.ParentId,
                     value = p.Name,
                     name = p.Name,
-                    isChecked = userDeptment.Any() ? userDeptment.Any(a => a.Id == p.Id) : false
+                    //isChecked = userDeptment.Any() ? userDeptment.Any(a => a.Id == p.Id) : false
                 };
-                pm.items.AddRange(SortForTree(id, p.Id));
-                pm.hasChildren = pm.expanded = pm.items.Count > 0;
+                //pm.items.AddRange(SortForTree(id, p.Id));
+                pm.hasChildren = true;
+                pm.expanded = false;
                 model.Add(pm);
             }
             return model;

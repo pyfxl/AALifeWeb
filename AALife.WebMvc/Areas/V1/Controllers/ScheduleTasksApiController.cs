@@ -54,7 +54,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _scheduleTaskService.InsertTask(model);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Insert, "插入定时任务记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Insert, "插入定时任务记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -76,7 +76,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _scheduleTaskService.UpdateTask(model);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Insert, "更新定时任务记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Insert, "更新定时任务记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }

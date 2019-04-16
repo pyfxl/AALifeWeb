@@ -27,16 +27,19 @@ namespace AALife.Data.Migrations
 
             var crAdministrators = new UserRole
             {
+                Id = Guid.NewGuid(),
                 Name = "管理员",
                 SystemName = UserRoleNames.Administrators
             };
             var crRegistered = new UserRole
             {
+                Id = Guid.NewGuid(),
                 Name = "注册用户",
                 SystemName = UserRoleNames.Registered
             };
             var crGuests = new UserRole
             {
+                Id = Guid.NewGuid(),
                 Name = "游客",
                 SystemName = UserRoleNames.Guests
             };
@@ -58,91 +61,111 @@ namespace AALife.Data.Migrations
             {
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "用户管理",
                     AreaName = "Manage",
                     ControllerName = "Users",
                     ActionName = "Index",
+                    IconName = "fa fa-user",
                     Rank = 1,
                     OrderNo = "01"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "消费管理",
                     AreaName = "Manage",
                     ControllerName = "Items",
                     ActionName = "Index",
+                    IconName = "fa fa-gift",
                     Rank = 2,
                     OrderNo = "02"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "权限管理",
                     AreaName = "Manage",
                     ControllerName = "Permissions",
                     ActionName = "Index",
+                    IconName = "fa fa-lock",
                     Rank = 3,
                     OrderNo = "03"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "角色管理",
                     AreaName = "Manage",
                     ControllerName = "Roles",
                     ActionName = "Index",
+                    IconName = "fa fa-group",
                     Rank = 4,
                     OrderNo = "04"
                 },
                 new UserPermission()
                 {
-                    Name = "部门管理",
+                    Id = Guid.NewGuid(),
+                    Name = "组织管理",
                     AreaName = "Manage",
                     ControllerName = "Deptments",
                     ActionName = "Index",
+                    IconName = "fa fa-sitemap",
                     Rank = 5,
                     OrderNo = "05"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "岗位管理",
                     AreaName = "Manage",
                     ControllerName = "Positions",
                     ActionName = "Index",
+                    IconName = "fa fa-flag",
                     Rank = 6,
                     OrderNo = "06"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "参数管理",
                     AreaName = "Manage",
                     ControllerName = "Parameters",
                     ActionName = "Index",
+                    IconName = "fa fa-gears",
                     Rank = 7,
                     OrderNo = "07"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "邮件模板",
                     AreaName = "Manage",
                     ControllerName = "MessageTemplates",
                     ActionName = "Index",
+                    IconName = "fa fa-envelope",
                     Rank = 8,
                     OrderNo = "08"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "定时任务",
                     AreaName = "Manage",
                     ControllerName = "ScheduleTasks",
                     ActionName = "Index",
+                    IconName = "fa fa-history",
                     Rank = 9,
                     OrderNo = "09"
                 },
                 new UserPermission()
                 {
+                    Id = Guid.NewGuid(),
                     Name = "网站管理",
                     AreaName = "Manage",
                     ControllerName = "Settings",
                     ActionName = "Index",
+                    IconName = "fa fa-globe",
                     Rank = 10,
                     OrderNo = "10"
                 }
@@ -153,6 +176,7 @@ namespace AALife.Data.Migrations
 
             #endregion
 
+            /*
             #region 部门
 
             var userDept = new UserDeptment
@@ -180,20 +204,23 @@ namespace AALife.Data.Migrations
             context.SaveChanges();
 
             #endregion
+            */
 
             #region 管理员
 
             var adminUser = new UserTable()
             {
+                Id = Guid.NewGuid(),
                 UserName = "admin",
                 UserPassword = "password",
-                UserNickName = "管理员",
+                UserCode = "admin",
+                FirstName = "管理员",
+                UserEmail = "pyfxl@126.com",
                 UserTheme = "main",
                 UserLevel = 9,
                 UserFrom = "web",
                 CreateDate = DateTime.Now,
-                ModifyDate = DateTime.Now,
-                Synchronize = 1,
+                Synchronize = 0,
                 IsAdmin = true
             };
             var userSet = context.Set<UserTable>();
@@ -203,9 +230,7 @@ namespace AALife.Data.Migrations
             //设置角色和部门
             var admin = context.UserTables.First(a => a.UserName == "admin");
             var role = context.UserRoles.First(a => a.SystemName == UserRoleNames.Administrators);
-            var dept = context.UserDeptments.First(a => a.Name == "开发部");
             admin.UserRoles.Add(role);
-            admin.UserDeptments.Add(dept);
             context.SaveChanges();
 
             #endregion

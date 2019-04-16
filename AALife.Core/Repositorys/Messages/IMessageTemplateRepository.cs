@@ -2,7 +2,7 @@
 
 namespace AALife.Core.Repositorys.Messages
 {
-    public partial interface IMessageTemplateRepository : IRepository<MessageTemplate>
+    public partial interface IMessageTemplateRepository : IRepository<MessageTemplate, int>
     {
     }
 }

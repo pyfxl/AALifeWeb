@@ -1,4 +1,5 @@
 using AALife.Core.Domain.Media;
+using System;
 using System.Collections.Generic;
 
 namespace AALife.Core.Services.Media
@@ -112,7 +113,7 @@ namespace AALife.Core.Services.Media
         /// <returns>Picture</returns>
         Picture InsertPicture(byte[] pictureBinary, string mimeType, 
             string seoFilename, string fileExtName, int fileBytes, PictureType pictureType,
-            bool isNew = true, int customerId = 0);
+            bool isNew = true, Guid userId = default(Guid));
 
         /// <summary>
         /// Updates the picture

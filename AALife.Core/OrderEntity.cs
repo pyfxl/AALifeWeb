@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace AALife.Core
 {
-    public partial class OrderEntity : BaseEntity
+    public partial class OrderEntity<TPrimaryKey> : BaseEntity<TPrimaryKey>
     {
         public byte? Rank { get; set; }
 
         [MaxLength(20)]
         public string OrderNo { get; set; }
 
-        public string GetOrderNo(OrderEntity parent)
+        public string GetOrderNo(OrderEntity<TPrimaryKey> parent)
         {
             if (parent == null)
                 return this.Rank.Value.ToString("00");
@@ -23,4 +23,9 @@ namespace AALife.Core
         }
 
     }
+
+    public partial class OrderEntity : OrderEntity<int>
+    {
+    }
+
 }

@@ -38,7 +38,7 @@
                     model: {
                         id: "Id",
                         fields: {
-                            Id: { type: "number" },
+                            Id: { type: "string" },
                             UserName: { type: "string" },
                             UserNickName: { type: "string" },
                             UserImage: { type: "string" },
@@ -63,7 +63,8 @@
                 {
                     field: "Id",
                     title: "编号",
-                    width: 100
+                    width: 100,
+                    hidden: true
                 },
                 {
                     field: "UserName",

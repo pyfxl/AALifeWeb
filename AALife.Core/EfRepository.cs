@@ -9,7 +9,7 @@ namespace AALife.Core
     /// <summary>
     /// Entity Framework repository
     /// </summary>
-    public partial class EfRepository<T> : IRepository<T> where T : BaseEntity
+    public partial class EfRepository<T, TPrimaryKey> : IRepository<T, TPrimaryKey> where T : BaseEntity<TPrimaryKey>
     {
         #region Fields
 
@@ -56,7 +56,7 @@ namespace AALife.Core
         /// </summary>
         /// <param name="id">Identifier</param>
         /// <returns>Entity</returns>
-        public virtual T GetById(object id)
+        public virtual T GetById(TPrimaryKey id)
         {
             //see some suggested performance optimization (not tested)
             //http://stackoverflow.com/questions/11686225/dbset-find-method-ridiculously-slow-compared-to-singleordefault-on-id/11688189#comment34876113_11688189
@@ -169,7 +169,7 @@ namespace AALife.Core
         /// Delete entity
         /// </summary>
         /// <param name="id">Identifier</param>
-        public virtual void Delete(int id)
+        public virtual void Delete(TPrimaryKey id)
         {
             try
             {
@@ -241,7 +241,7 @@ namespace AALife.Core
             get
             {
                 if (_entities == null)
-                    _entities = _context.Set<T>();
+                    _entities = _context.Set<T, TPrimaryKey>();
                 return _entities;
             }
         }

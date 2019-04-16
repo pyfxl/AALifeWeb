@@ -15,7 +15,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="comment">The activity comment</param>
         /// <param name="commentParams">The activity comment parameters for string.Format() function.</param>
         /// <returns>Activity log item</returns>
-        ActivityLog InsertActivity(int? userId, ActivityLogType systemKeyword, string comment, params object[] commentParams);
+        ActivityLog InsertActivity(Guid? userId, ActivityLogType systemKeyword, string comment, params object[] commentParams);
 
         /// <summary>
         /// Inserts an activity log item
@@ -45,7 +45,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="ipAddress">IP address; null or empty to load all customers</param>
         /// <returns>Activity log items</returns>
         IPagedList<ActivityLog> GetAllActivities(DateTime? createdOnFrom = null,
-            DateTime? createdOnTo = null, int? customerId = null, int activityLogTypeId = 0,
+            DateTime? createdOnTo = null, Guid? userId = null, int activityLogTypeId = 0,
             int pageIndex = 0, int pageSize = int.MaxValue, string ipAddress = null);
         
         /// <summary>

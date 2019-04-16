@@ -82,7 +82,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _userService.Add(model);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Insert, "插入用户记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Insert, "插入用户记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -91,8 +91,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Put(UserTable model)
         {
             var user = _userService.Get(model.Id);
-
-            //AutoMapperConfiguration.Mapper.Map(model, user);
 
             user.UserName = model.UserName;
             user.UserNickName = model.UserNickName;
@@ -112,7 +110,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _userService.Update(user);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Update, "更新用户记录。{0}", user.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Update, "更新用户记录。{0}", user.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -122,14 +120,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var user = _userService.Get(model.Id);
 
+            //干掉用户角色
             user.UserRoles.Clear();
-            user.UserDeptments.Clear();
 
             //delete
             _userService.Delete(user);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Delete, "删除用户记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Delete, "删除用户记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -141,6 +139,26 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult GetUserSelects([FromUri]DataSourceRequest common, [FromUri]UsersQuery query)
         {
             var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, query.userId, query.startDate, query.endDate, query.keyWords);
+
+            var grid = new DataSourceResult
+            {
+                Data = result.Select(x =>
+                {
+                    var m = x.MapTo<UserTable, UserRoleViewModel>();
+                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
+                    return m;
+                }),
+                Total = result.TotalCount
+            };
+
+            return Json(grid);
+        }
+
+        // 获取用户列表，用于弹出窗口选择
+        [Route("api/v1/usersselectapi")]
+        public IHttpActionResult GetUsersSelect([FromUri]DataSourceRequest request)
+        {
+            var result = _userService.GetByPage(request, a => a.Id != null);
 
             var grid = new DataSourceResult
             {

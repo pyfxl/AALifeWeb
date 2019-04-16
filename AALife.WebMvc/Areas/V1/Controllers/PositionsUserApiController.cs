@@ -6,6 +6,7 @@ using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -18,23 +19,26 @@ namespace AALife.WebMvc.Areas.V1.Controllers
     public class PositionsUserApiController : BaseApiController
     {
         private readonly IUserService _userService;
+        private readonly IUserDeptmentService _userDeptmentService;
         private readonly IUserPositionService _userPositionService;
         private readonly ICustomerActivityService _customerActivityService;
         private readonly IParameterService _parameterService;
 
         public PositionsUserApiController(IUserService userService,
+            IUserDeptmentService userDeptmentService,
             IUserPositionService userPositionService,
             ICustomerActivityService customerActivityService,
             IParameterService parameterService)
         {
             this._userService = userService;
+            this._userDeptmentService = userDeptmentService;
             this._userPositionService = userPositionService;
             this._customerActivityService = customerActivityService;
             this._parameterService = parameterService;
         }
 
         // GET api/<controller>/5
-        public IHttpActionResult Get(int id, [FromUri]DataSourceRequest request)
+        public IHttpActionResult Get(Guid id, [FromUri]DataSourceRequest request)
         {
             var users = _userService.GetByPage(request, x => x.UserPositions.Any(a => a.Id == id));
 
@@ -56,55 +60,66 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST api/<controller>/5
-        public void Post(int id, [FromBody]IEnumerable<UserTable> models)
+        public void Post(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
-            var deptment = _userPositionService.Get(id);
+            var position = _userPositionService.Get(id);
+            var deptment = _userDeptmentService.Get(position.DeptmentId.Value);
             models.ToList().ForEach(a =>
             {
                 var user = _userService.Get(a.Id);
-                if(user != null)
+                if (user != null)
+                {
+                    position.Users.Add(user);
                     deptment.Users.Add(user);
+                }
             });
 
-            _userPositionService.Update(deptment);
+            _userPositionService.Update(position);
+
+            _userDeptmentService.Update(deptment);
 
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Insert, "插入用户岗位。{0}", models.ToJson());
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, UserTable model)
+        public void Put(Guid id, UserTable model)
         {
-            var role = _userPositionService.Get(id);
+            var position = _userPositionService.Get(id);
             var user = _userService.Get(model.Id);
 
-            if (role.Users.Contains(user))
+            if (position.Users.Contains(user))
             {
-                role.Users.Remove(user);
+                position.Users.Remove(user);
             }
             else
             {
-                role.Users.Add(user);
+                position.Users.Add(user);
             }
 
-            _userPositionService.Update(role);
+            _userPositionService.Update(position);
 
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Insert, "插入更新用户岗位。{0}", user.ToJson());
         }
 
         // DELETE api/<controller>/5
-        public void Delete(int id, [FromBody]IEnumerable<UserTable> models)
+        public void Delete(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
-            var role = _userPositionService.Get(id);
+            var position = _userPositionService.Get(id);
+            var deptment = _userDeptmentService.Get(position.DeptmentId.Value);
             models.ToList().ForEach(a =>
             {
                 var user = _userService.Get(a.Id);
-                if(role.Users.Contains(user))
-                    role.Users.Remove(user);
+                if (position.Users.Contains(user))
+                    position.Users.Remove(user);
+                if (deptment.Users.Contains(user))
+                    deptment.Users.Remove(user);
             });
 
-            _userPositionService.Update(role);
+            _userPositionService.Update(position);
+
+            _userDeptmentService.Update(deptment);
 
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Delete, "删除用户岗位。{0}", models.ToJson());

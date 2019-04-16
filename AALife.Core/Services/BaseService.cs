@@ -8,11 +8,11 @@ using System.Linq.Dynamic;
 
 namespace AALife.Core.Services
 {
-    public partial class BaseService<T> : IBaseService<T> where T : BaseEntity
+    public partial class BaseService<T, TPrimaryKey> : IBaseService<T, TPrimaryKey> where T : BaseEntity<TPrimaryKey>
     {
         protected readonly ICacheManager _cacheManager;
         protected readonly IDbContext _dbContext;
-        protected readonly IRepository<T> _repository;
+        protected readonly IRepository<T, TPrimaryKey> _repository;
 
         /// <summary>
         /// 构造
@@ -20,7 +20,7 @@ namespace AALife.Core.Services
         /// <param name="repository"></param>
         /// <param name="cacheManager"></param>
         /// <param name="dbContext"></param>
-        public BaseService(IRepository<T> repository,
+        public BaseService(IRepository<T, TPrimaryKey> repository,
             ICacheManager cacheManager,
             IDbContext dbContext)
         {
@@ -34,7 +34,7 @@ namespace AALife.Core.Services
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public T Get(int id)
+        public T Get(TPrimaryKey id)
         {
             return _repository.GetById(id);
         }
@@ -47,59 +47,6 @@ namespace AALife.Core.Services
         public IQueryable<T> Get()
         {
             return _repository.Table;
-        }
-
-        /// <summary>
-        /// 获取分页集合
-        /// </summary>
-        /// <param name="page"></param>
-        /// <param name="pageSize"></param>
-        /// <returns></returns>
-        public virtual IPagedList<T> GetByPage(DataSourceRequest request, Expression<Func<T, bool>> where = null)
-        {
-            var query = _repository.Table;
-
-            if (where != null)
-            {
-                query = query.Where(where);
-            }
-
-            if (request.Filter != null)
-            {
-                query = query.Filter(request.Filter);
-            }
-
-            if (request.Sort != null)
-            {
-                query = query.Sort(request.Sort);
-            }
-            else
-            {
-                query = query.OrderBy("Id desc");
-            }
-
-            var results = new PagedList<T>(query, request.Page - 1, request.PageSize);
-            return results;
-        }
-
-        /// <summary>
-        /// 条件获取实体
-        /// </summary>
-        /// <param name="where"></param>
-        /// <returns></returns>
-        public T Find(Expression<Func<T, bool>> where)
-        {
-            return _repository.Table.Where(where).SingleOrDefault();
-        }
-
-        /// <summary>
-        /// 条件获取集合
-        /// </summary>
-        /// <param name="where"></param>
-        /// <returns></returns>
-        public IQueryable<T> FindAll(Expression<Func<T, bool>> where)
-        {
-            return _repository.Table.Where(where);
         }
 
         /// <summary>
@@ -151,7 +98,7 @@ namespace AALife.Core.Services
         /// 删除
         /// </summary>
         /// <param name="id"></param>
-        public void Delete(int id)
+        public void Delete(TPrimaryKey id)
         {
             _repository.Delete(id);
         }
@@ -165,6 +112,87 @@ namespace AALife.Core.Services
             _repository.Delete(entities);
         }
 
+        #region 其它方法
+
+        /// <summary>
+        /// 获取分页集合
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public IQueryable<T> GetByRequest(DataSourceRequest request)
+        {
+            var query = _repository.Table;
+
+            if (request.Filter != null)
+            {
+                query = query.Filter(request.Filter);
+            }
+
+            if (request.Sort != null)
+            {
+                query = query.Sort(request.Sort);
+            }
+            else
+            {
+                query = query.OrderBy("Id desc");
+            }
+
+            return query;
+        }
+
+        /// <summary>
+        /// 获取分页集合
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public virtual IPagedList<T> GetByPage(DataSourceRequest request, Expression<Func<T, bool>> where = null)
+        {
+            var query = _repository.Table;
+
+            if (where != null)
+            {
+                query = query.Where(where);
+            }
+
+            if (request.Filter != null)
+            {
+                query = query.Filter(request.Filter);
+            }
+
+            if (request.Sort != null)
+            {
+                query = query.Sort(request.Sort);
+            }
+            else
+            {
+                query = query.OrderBy("Id desc");
+            }
+
+            var results = new PagedList<T>(query, request.Page - 1, request.PageSize);
+            return results;
+        }
+
+        /// <summary>
+        /// 条件获取实体
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public T Find(Expression<Func<T, bool>> where)
+        {
+            return _repository.Table.Where(where).SingleOrDefault();
+        }
+
+        /// <summary>
+        /// 条件获取集合
+        /// </summary>
+        /// <param name="where"></param>
+        /// <returns></returns>
+        public IQueryable<T> FindAll(Expression<Func<T, bool>> where)
+        {
+            return _repository.Table.Where(where);
+        }
+
         /// <summary>
         /// 根据条件判断是否存在
         /// </summary>
@@ -174,5 +202,7 @@ namespace AALife.Core.Services
         {
             return _repository.Table.Any(where);
         }
+
+        #endregion
     }
 }

@@ -15,7 +15,7 @@ namespace AALife.Core.Domain.Logging
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
-        public int? UserId { get; set; }
+        public Guid? UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the activity comment

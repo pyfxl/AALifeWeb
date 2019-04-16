@@ -1,0 +1,165 @@
+﻿<!--选择用户grid-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-2">
+                <div id="dialog-deptmenttree"></div>
+            </div>
+            <div class="col-xs-10">
+                <div id="dialog-deptmentusergrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //变量
+    var _dialog_selectedId = 0;
+
+    $(document).ready(function () {
+
+        //数据源
+        var treeDataSource = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: $.const.webapi.deptmentstree,
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "id",
+                    parentId: "parentId",
+                    hasChildren: "hasChildren",
+                    value: "value"
+                },
+            }
+        });
+
+        //树列表
+        var dialog_deptmenttree = $("#dialog-deptmenttree").kendoTreeView({
+            dataSource: treeDataSource,
+            dataBound: function (e) {
+                //dialog_deptmenttree.select(".k-first");
+                //dialog_deptmenttree.trigger("select", {
+                //    node: $("#dialog-deptmenttree .k-first")[0]
+                //});
+                $("#dialog-deptmenttree").height($("#dialog-deptmentusergrid").height());
+            },
+            select: function (e) {
+                var dataItem = dialog_deptmenttree.dataItem(e.node);
+                _dialog_selectedId = dataItem.id;
+                //刷新主列表
+                var user = $("#dialog-deptmentusergrid").data("kendoGrid");
+                user.dataSource.page(1);
+            }
+        }).data("kendoTreeView");
+
+        //用户来自数据源
+        var dataUserFrom = new kendo.data.DataSource({
+            transport: {
+                read: {
+                    url: String.format($.const.webapi.paramsbyname, "userfrom"),
+                    dataType: "json",
+                    contentType: "application/json; charset=utf-8"
+                }
+            }
+        });
+
+        //选择用户列表
+        var dialog_deptusergrid = $("#dialog-deptmentusergrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: $.const.webapi.deptmentsuserselect,
+                        data: function (d) {
+                            d.id = _dialog_selectedId;
+                            return d;
+                        },
+                        cache: false,
+                        dataType: "json"
+                    },
+                    parameterMap: function (options, operation) {
+                        kendoui_parameter_format(options);
+                        return options;
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "string" },
+                            UserName: { type: "string" },
+                            UserNickName: { type: "string" },
+                            UserNameFull: { type: "string" },
+                            UserImage: { type: "string" },
+                            UserImageFull: { type: "string" },
+                            UserFrom: { type: "string" },
+                            UserFromName: { type: "string" },
+                            CreateDate: { type: "date" },
+                            Remark: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                },
+                pageSize: 10
+            },
+            autoBind: false,
+            columns: [
+                {
+                    selectable: true,
+                    width: 100
+                },
+                {
+                    field: "Id",
+                    title: "编号",
+                    width: 100,
+                    hidden: true
+                },
+                {
+                    field: "UserName",
+                    title: "用户名",
+                    width: 100
+                },
+                {
+                    field: "UserNickName",
+                    title: "昵称",
+                    width: 100
+                },
+                {
+                    template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
+                    field: "UserImage",
+                    title: "头像",
+                    width: 100,
+                    attributes: { class: "user-img-td" }
+                },
+                {
+                    template: "#=UserFromName#",
+                    field: "UserFrom",
+                    title: "来自",
+                    width: 100,
+                    filterable: {
+                        multi: true,
+                        dataSource: dataUserFrom,
+                        itemTemplate: function (e) {
+                            return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>"
+                        }
+                    }
+                },
+                {
+                    field: "CreateDate",
+                    title: "注册日期",
+                    width: 100,
+                    format: "{0:yyyy/MM/dd}"
+                },
+                {
+                    field: "Remark",
+                    title: "备注",
+                    width: 100
+                }
+            ]
+        }));
+
+    });
+</script>

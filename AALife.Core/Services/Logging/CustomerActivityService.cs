@@ -96,7 +96,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="comment">The activity comment</param>
         /// <param name="commentParams">The activity comment parameters for string.Format() function.</param>
         /// <returns>Activity log item</returns>
-        public virtual ActivityLog InsertActivity(int? userId, ActivityLogType systemKeyword, string comment, params object[] commentParams)
+        public virtual ActivityLog InsertActivity(Guid? userId, ActivityLogType systemKeyword, string comment, params object[] commentParams)
         {
             comment = CommonHelper.EnsureNotNull(comment);
             comment = string.Format(comment, commentParams);
@@ -138,7 +138,7 @@ namespace AALife.Core.Services.Logging
         /// <param name="ipAddress">IP address; null or empty to load all activities</param>
         /// <returns>Activity log items</returns>
         public virtual IPagedList<ActivityLog> GetAllActivities(DateTime? createdOnFrom = null,
-            DateTime? createdOnTo = null, int? userId = null, int activityLogTypeId = 0,
+            DateTime? createdOnTo = null, Guid? userId = null, int activityLogTypeId = 0,
             int pageIndex = 0, int pageSize = int.MaxValue, string ipAddress = null)
         {
             var query = _activityLogRepository.Table;

@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public partial class UserRoleModel : BaseViewModel
+    public partial class UserRoleModel : BaseViewModel<Guid>
     {
         public string Name { get; set; }
 

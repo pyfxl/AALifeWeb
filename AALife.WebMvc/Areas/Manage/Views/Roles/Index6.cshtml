@@ -2,6 +2,25 @@
     ViewBag.Title = "角色列表";
 }
 
+<script>
+    //全局变量
+    var _selectedId;
+
+    function dialog_close(e) {
+        kendoui_ajax_complete();
+        _detailRow.find(".detailgrid").data("kendoGrid").dataSource.read();
+    }
+
+    //用户选择回调
+    function userselect_callback(dataItem) {
+        insert_rolesuser(_selectedId, dataItem, function () {
+            //dialog_close(e);
+            var grid = $("#grid").data("kendoGrid");
+            grid.dataSource.read();
+        });
+    }
+</script>
+
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -13,42 +32,37 @@
 </section>
 
 @section scripts {
+    <script src="~/Areas/Manage/Scripts/roles.js"></script>
     <script>
+
         $(document).ready(function () {
 
-            //数据源
+            //刷新高度
+            //resizeMain();
+
+            //列表数据源
             var dataSource = new kendo.data.DataSource($.extend(true, {}, $.const.kendolite.dataSource, {
                 transport: {
                     read: {
-                        url: $.const.webapi.roles
-                    },
-                    update: {
-                        url: $.const.webapi.roles
-                    },
-                    destroy: {
-                        url: $.const.webapi.roles
-                    },
-                    create: {
-                        url: $.const.webapi.roles
+                        url: $.const.webapi.roles,
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        cache: false
                     },
                     parameterMap: function (options, operation) {
-                        if (operation === "destroy" && options.models) {
+                        if (operation !== "read" && options.models) {
                             return kendo.stringify(options.models[0]);
                         }
-                        if (operation !== "read" && options.models) {
-                            return kendo.stringify(options.models);
-                        }
+                        return options;
                     }
                 },
-                batch: true,
                 schema: {
                     model: {
                         id: "Id",
                         fields: {
-                            Id: { type: "number", editable: false },
-                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
-                            SystemName: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
-                            Notes: { type: "string" }
+                            Id: { type: "string", editable: false, nullable: false },
+                            Name: { type: "string" },
+                            SystemName: { type: "string" }
                         }
                     }
                 },
@@ -57,12 +71,17 @@
                 }
             }));
 
-            //列表
+            //角色列表
             var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
                 dataSource: dataSource,
-                toolbar: ["create", "save", "cancel"],
-                editable: true,
+                detailTemplate: '<div class="detailgrid"></div>',
+                detailInit: detailInit,
                 columns: [
+                    {
+                        field: "Id",
+                        title: "编号",
+                        width: 100
+                    },
                     {
                         field: "Name",
                         title: "角色名称",
@@ -72,19 +91,157 @@
                         field: "SystemName",
                         title: "系统名称",
                         width: 100
-                    },
-                    {
-                        field: "Notes",
-                        title: "说明",
-                        width: 100
-                    },
-                    {
-                        command: ["destroy"],
-                        width: 100
                     }
                 ]
-            }));
+            })).data("kendoGrid");
+
+            //加载子列表
+            function detailInit(event) {
+                var keyId = event.data.Id;
+                var detailRow = event.detailRow;
+
+                //用户来自数据源
+                var dataUserFrom = new kendo.data.DataSource({
+                    transport: {
+                        read: {
+                            url: String.format($.const.webapi.paramsbyname, "userfrom"),
+                            dataType: "json",
+                            contentType: "application/json; charset=utf-8"
+                        }
+                    }
+                });
+
+                //角色子列表
+                var detailGrid = detailRow.find(".detailgrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+                    dataSource: {
+                        transport: {
+                            read: {
+                                url: String.format($.const.webapi.userroles, keyId),
+                                dataType: "json",
+                                contentType: "application/json; charset=utf-8",
+                                cache: false
+                            },
+                            parameterMap: function (options, type) {
+                                return options;
+                            }
+                        },
+                        schema: {
+                            model: {
+                                id: "Id",
+                                fields: {
+                                    Id: { type: "string" },
+                                    UserName: { type: "string" },
+                                    UserNickName: { type: "string" },
+                                    UserImage: { type: "string" },
+                                    UserImageFull: { type: "string" },
+                                    UserFrom: { type: "string" },
+                                    UserFromName: { type: "string" },
+                                    CreateDate: { type: "date" },
+                                    ModifyDate: { type: "date" },
+                                    Remark: { type: "string" }
+                                }
+                            }
+                        },
+                        error: function (e) {
+                            kendoui_grid_error(e);
+                        },
+                        pageSize: 10
+                    },
+                    toolbar: [{ name: "userselect", text: "选择", iconClass: "k-icon k-i-search" }, { name: "userdelete", text: "删除", iconClass: "k-icon k-i-delete" }],
+                    columns: [
+                        {
+                            selectable: true,
+                            width: 100
+                        },
+                        {
+                            field: "Id",
+                            title: "编号",
+                            width: 100,
+                            hidden: true
+                        },
+                        {
+                            field: "UserName",
+                            title: "用户名",
+                            width: 100
+                        },
+                        {
+                            field: "UserNickName",
+                            title: "昵称",
+                            width: 100
+                        },
+                        {
+                            template: "<div class='user-block'><img src='#=UserImageFull#' class='img-circle'/></div>",
+                            field: "UserImage",
+                            title: "头像",
+                            width: 100,
+                            attributes: { class: "user-img-td" }
+                        },
+                        {
+                            template: "#=UserFromName#",
+                            field: "UserFrom",
+                            title: "来自",
+                            width: 100,
+                            filterable: {
+                                multi: true,
+                                dataSource: dataUserFrom,
+                                itemTemplate: function (e) {
+                                    return "<li class='k-item'><label class='k-label'><input type='checkbox' name='" + e.field + "' value='#= data.Value #'/> #= data.Name || data.all #</label></li>"
+                                }
+                            }
+                        },
+                        {
+                            field: "CreateDate",
+                            title: "注册日期",
+                            width: 100,
+                            format: "{0:yyyy/MM/dd}"
+                        },
+                        {
+                            field: "ModifyDate",
+                            title: "修改日期",
+                            width: 100,
+                            format: "{0:yyyy/MM/dd}"
+                        },
+                        {
+                            field: "Remark",
+                            title: "备注",
+                            width: 100
+                        }
+                    ]
+                })).data("kendoGrid");
+
+                //选择按钮事件
+                detailRow.find(".detailgrid .k-grid-toolbar").on("click", ".k-grid-userselect", function (e) {
+                    e.preventDefault();
+                    _selectedId = keyId;
+                    //_detailRow = detailRow;
+                    $("#dialog").data("kendoDialog").open();
+                });
+
+                //删除按钮事件
+                detailRow.find(".detailgrid .k-grid-toolbar").on("click", ".k-grid-userdelete", function (e) {
+                    e.preventDefault();
+                    _selectedId = keyId;
+                    //_detailRow = detailRow;
+
+                    var items = detailGrid.element.find("table tbody .k-state-selected");
+                    if (items.length > 0) {
+                        var result = [];
+                        for (var i = 0; i < items.length; i++) {
+                            var dataItem = detailGrid.dataItem(items[i]);
+                            result.push(dataItem);
+                        }
+                        delete_rolesuser(keyId, result, function (d) {
+                            kendoui_ajax_complete();
+                            detailGrid.dataSource.read();
+                        });
+                    }
+                });
+
+            }
 
         });
+
     </script>
 }
+
+@Html.Partial("UserSelect")

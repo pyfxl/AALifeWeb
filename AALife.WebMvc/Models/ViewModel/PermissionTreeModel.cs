@@ -12,7 +12,7 @@ namespace AALife.WebMvc.Models.ViewModel
             items = new List<PermissionTreeModel>();
         }
 
-        public int id { get; set; }
+        public Guid id { get; set; }
 
         public string text { get; set; }
 

@@ -3,6 +3,7 @@ using AALife.Core.Services.Logging;
 using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -36,7 +37,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET: api/Roles/5
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(Guid id)
         {
             var tree = SortForTree(id);
 
@@ -45,14 +46,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         #region 其它方法 
 
-        private List<TreeViewModel> SortForTree(int? id = null, int? parentId = null)
+        private List<TreeViewModel> SortForTree(Guid? id = null, Guid? parentId = null)
         {
             var userRole = new List<UserRole>();
             if(id != null)
                 userRole = _userService.Get(id.GetValueOrDefault()).UserRoles.ToList();
 
             var model = new List<TreeViewModel>();
-            foreach (var p in _userRoleService.FindAll(a => a.Id > 0))
+            foreach (var p in _userRoleService.FindAll(a => a.Id != default(Guid)))
             {
                 var pm = new TreeViewModel
                 {

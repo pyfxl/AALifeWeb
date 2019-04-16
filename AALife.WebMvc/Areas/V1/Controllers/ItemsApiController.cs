@@ -220,7 +220,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         // GET api/<controller>
         [Route("api/v1/itemnamesapi")]
-        public IHttpActionResult GetItemNames(int? id, string term)
+        public IHttpActionResult GetItemNames(Guid? id, string term)
         {
             var all = _itemService.GetAllItem(id);
 

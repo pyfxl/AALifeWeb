@@ -10,7 +10,7 @@ namespace AALife.Core.Services.Configuration
     /// <summary>
     /// Setting manager
     /// </summary>
-    public partial class ParameterService : BaseService<Parameter>, IParameterService
+    public partial class ParameterService : BaseService<Parameter, int>, IParameterService
     {
         #region Constants
 

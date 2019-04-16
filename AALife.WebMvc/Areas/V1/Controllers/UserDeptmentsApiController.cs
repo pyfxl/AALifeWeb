@@ -2,6 +2,7 @@
 using AALife.Core.Services.Logging;
 using AALife.Data.Domain;
 using AALife.Data.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -30,7 +31,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // PUT api/<controller>/5
-        public void Put(int id, [FromBody]IEnumerable<UserDeptment> models)
+        public void Put(Guid id, [FromBody]IEnumerable<UserDeptment> models)
         {
             var user = _userService.Get(id);
 

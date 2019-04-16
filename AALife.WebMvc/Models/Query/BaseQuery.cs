@@ -4,7 +4,7 @@ namespace AALife.WebMvc.Models.Query
 {
     public class BaseQuery
     {
-        public int? userId { get; set; }
+        public Guid? userId { get; set; }
 
         public DateTime? startDate { get; set; }
 

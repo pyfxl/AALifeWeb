@@ -74,7 +74,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                 {
                     bool allowed = pr.UserRoles.Count(x => x.Id == cr.Id) > 0;
                     if (!model.Allowed.ContainsKey(pr.Id))
-                        model.Allowed[pr.Id] = new Dictionary<int, bool>();
+                        model.Allowed[pr.Id] = new Dictionary<Guid, bool>();
                     model.Allowed[pr.Id][cr.Id] = allowed;
                 }
 
@@ -116,7 +116,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                 {
                     bool allowed = pr.UserDeptments.Count(x => x.Id == cr.Id) > 0;
                     if (!model.Allowed.ContainsKey(pr.Id))
-                        model.Allowed[pr.Id] = new Dictionary<int, bool>();
+                        model.Allowed[pr.Id] = new Dictionary<Guid, bool>();
                     model.Allowed[pr.Id][cr.Id] = allowed;
                 }
 
@@ -157,7 +157,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                 {
                     bool allowed = pr.UserPositions.Count(x => x.Id == cr.Id) > 0;
                     if (!model.Allowed.ContainsKey(pr.Id))
-                        model.Allowed[pr.Id] = new Dictionary<int, bool>();
+                        model.Allowed[pr.Id] = new Dictionary<Guid, bool>();
                     model.Allowed[pr.Id][cr.Id] = allowed;
                 }
 

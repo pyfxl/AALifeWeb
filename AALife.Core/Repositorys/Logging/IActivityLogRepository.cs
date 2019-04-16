@@ -2,7 +2,7 @@
 
 namespace AALife.Core.Repositorys.Configuration
 {
-    public partial interface IActivityLogRepository : IRepository<ActivityLog>
+    public partial interface IActivityLogRepository : IRepository<ActivityLog, int>
     {
     }
 }

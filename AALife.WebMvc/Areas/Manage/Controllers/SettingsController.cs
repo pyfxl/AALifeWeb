@@ -33,7 +33,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         // GET: Manage/DefaultSettings
         public ActionResult Index()
         {
-            var model = _settingService.LoadSetting<DefaultSettings>(0);
+            var model = _settingService.LoadSetting<DefaultSettings>(default(Guid));
             return View(model);
         }
 
@@ -42,7 +42,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         {
             if (ModelState.IsValid)
             {
-                _settingService.SaveSetting(settings, 0);
+                _settingService.SaveSetting(settings, default(Guid));
             }
 
             //activity log
@@ -60,7 +60,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         // GET: Manage/SiteSettings
         public ActionResult Sites()
         {
-            var model = _settingService.LoadSetting<SiteSettings>(0);
+            var model = _settingService.LoadSetting<SiteSettings>(default(Guid));
             return View(model);
         }
 
@@ -69,7 +69,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         {
             if (ModelState.IsValid)
             {
-                _settingService.SaveSetting(settings, 0);
+                _settingService.SaveSetting(settings, default(Guid));
             }
 
             //activity log
@@ -87,7 +87,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         // GET: Manage/CommonSettings
         public ActionResult Commons()
         {
-            var model = _settingService.LoadSetting<CommonSettings>(0);
+            var model = _settingService.LoadSetting<CommonSettings>(default(Guid));
             return View(model);
         }
 
@@ -97,7 +97,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         {
             if (ModelState.IsValid)
             {
-                _settingService.SaveSetting(settings, 0);
+                _settingService.SaveSetting(settings, default(Guid));
             }
 
             //activity log

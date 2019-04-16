@@ -42,7 +42,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Users
-        [AdminAuthorize]
+        //[AdminAuthorize]
         public ActionResult Index2()
         {
             var dataTheme = _parameterService.GetParamsByName("theme");
@@ -66,7 +66,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return View();
         }
 
-        public ActionResult Details(int id)
+        public ActionResult Details(Guid id)
         {
             var dataItemType = _parameterService.GetParamsByName("ItemType");
             var dataRegionType = _parameterService.GetParamsByName("RegionType");

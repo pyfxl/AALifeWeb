@@ -1,6 +1,7 @@
 ﻿using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
 using AALife.WebMvc.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
@@ -34,7 +35,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var model = new List<TreeViewModel>();
             foreach (var p in _parameterService.FindAll(a => a.ParentId == parentId && (a.IsLeaf == null || !a.IsLeaf.Value)).OrderBy(a => a.OrderNo))
             {
-                var pm = new TreeViewModel
+                var pm = new ParameterTreeViewModel
                 {
                     id = p.Id,
                     text = p.Name,

@@ -19,7 +19,7 @@ namespace AALife.WebMvc.Controllers
 
         public ActionResult Index()
         {
-            var user = _userService.Get(1);
+            var user = _userService.Find(a => a.UserName == "admin");
             return View(user.ToModel());
         }
     }

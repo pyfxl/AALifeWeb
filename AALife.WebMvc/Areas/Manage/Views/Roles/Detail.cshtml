@@ -78,7 +78,7 @@
                     model: {
                         id: "Id",
                         fields: {
-                            Id: { type: "number" },
+                            Id: { type: "string" },
                             UserName: { type: "string" },
                             UserNickName: { type: "string" },
                             UserImage: { type: "string" },
@@ -104,7 +104,8 @@
                 {
                     field: "Id",
                     title: "编号",
-                    width: 100
+                    width: 100,
+                    hidden: true
                 },
                 {
                     field: "UserName",
@@ -203,7 +204,7 @@
                     id: "Id",
                     parentId: "ParentId",
                     fields: {
-                        Id: { type: "number", editable: false, nullable: false },
+                        Id: { type: "string", editable: false, nullable: false },
                         ParentId: { type: "string", defaultValue: null },
                         Name: { type: "string", validation: { required: true, validationMessage: "角色名称为必填项" } },
                         AreaName: { type: "string" },

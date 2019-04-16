@@ -15,26 +15,27 @@
 @section scripts {
     <script>
         $(document).ready(function () {
-
+            
             //数据源
             var dataSource = new kendo.data.TreeListDataSource($.extend(true, {}, $.const.kendotree.dataSource, {
                 transport: {
                     read: {
-                        url: $.const.webapi.deptments
+                        url: $.const.webapi.deptment
                     },
                     update: {
-                        url: $.const.webapi.deptments
+                        url: $.const.webapi.deptment
                     },
                     destroy: {
-                        url: $.const.webapi.deptments
+                        url: $.const.webapi.deptment
                     },
                     create: {
-                        url: $.const.webapi.deptments
+                        url: $.const.webapi.deptment
                     },
                     parameterMap: function (options, operation) {
                         if (operation !== "read" && options.models) {
                             return kendo.stringify(options.models[0]);
                         }
+                        return options;
                     }
                 },
                 batch: true,
@@ -43,14 +44,14 @@
                         id: "Id",
                         parentId: "ParentId",
                         fields: {
-                            Id: { type: "number", editable: false },
-                            ParentId: { type: "string", defaultValue: null },
+                            Id: { type: "string", editable: false, defaultValue: kendo.guid() },
+                            ParentId: { type: "string", nullable: true, defaultValue: null },
                             Parent: { defaultValue: null },
-                            Category: { type: "string" },
+                            Code: { type: "string" },
                             Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                             Notes: { type: "string" }
                         },
-                        expanded: true
+                        expanded: false
                     }
                 },
                 error: function (e) {
@@ -78,38 +79,33 @@
                         editor: function (container, options) {
                             $('<input name="' + options.field + '"/>')
                                 .appendTo(container)
-                                .kendoDropDownList({
-                                    autoBind: false,
+                                .kendoDropDownTree({
                                     dataTextField: "Name",
                                     dataValueField: "Id",
-                                    dataSource: {
+                                    height: "200px",
+                                    loadOnDemand: true,
+                                    dataSource: new kendo.data.HierarchicalDataSource({
                                         transport: {
-                                            read: "/api/v1/deptmentbreadcrumbapi"
+                                            read: {
+                                                url: $.const.webapi.deptments
+                                            }
+                                        },
+                                        schema: {
+                                            model: {
+                                                id: "Id",
+                                                parentId: "ParentId",
+                                                hasChildren: "hasChildren",
+                                                expanded: false
+                                            }
                                         }
-                                    }
+                                    })
                                 });
                         }
                     },
                     {
-                        template: "#= data.CategoryName ? CategoryName : '' #",
-                        field: "Category",
-                        title: "类型",
-                        width: 100,
-                        editor: function (container, options) {
-                            $('<input name="' + options.field + '"/>')
-                                .appendTo(container)
-                                .kendoDropDownList({
-                                    autoBind: false,
-                                    valuePrimitive: true,
-                                    dataTextField: "Name",
-                                    dataValueField: "Value",
-                                    dataSource: {
-                                        transport: {
-                                            read: "/api/v1/deptmentcategoryapi"
-                                        }
-                                    }
-                                });
-                        }
+                        field: "Code",
+                        title: "部门编码",
+                        width: 100
                     },
                     {
                         field: "Notes",

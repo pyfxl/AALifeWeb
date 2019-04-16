@@ -1,32 +1,47 @@
 ﻿@{
-    
+    ViewBag.Title = "用户测试 3";
 }
 
 <link href="~/Scripts/kendo-plugins/styles/kendo.web.plugins.css" rel="stylesheet" />
 <script src="~/Scripts/kendo-plugins/js/kendo.web.plugins.js"></script>
 
+<input id="deptmentuserselect" autocomplete="off" />
+
 <input id="userselect" autocomplete="off" />
 
 @*<span class="k-widget k-combobox k-selectdialog">
-    <span unselectable="on" class="k-dropdown-wrap k-state-default" tabindex="-1">
-        <input name="userselect" class="k-input" type="text" autocomplete="off" placeholder="请选择" />
-        <span unselectable="on" class="k-select" role="button" tabindex="-1"><span class="k-icon k-i-search"></span></span>
-    </span>
-</span>*@
+        <span unselectable="on" class="k-dropdown-wrap k-state-default" tabindex="-1">
+            <input name="userselect" class="k-input" type="text" autocomplete="off" placeholder="请选择" />
+            <span unselectable="on" class="k-select" role="button" tabindex="-1"><span class="k-icon k-i-search"></span></span>
+        </span>
+    </span>*@
 @*<button id="showOkCancelDialogButton" class="k-button">Show OK/Cancel Dialog</button>*@
 
 <script>
 
     $(function () {
+        $("#deptmentuserselect").kendoMyWidget({
+            dialog: {
+                width: "1000px",
+                height: "500px",
+                content: "/Manage/Home/DeptmentUserSelect",
+                title: "选择用户",
+                close: function (data) {
+                    console.log(data);
+                    $("#deptmentuserselect").val(data[0]["FirstName"]);
+                }
+            }
+        });
+
         $("#userselect").kendoMyWidget({
             dialog: {
                 width: "1000px",
                 height: "500px",
-                content: "/Manage/Home/Index",
+                content: "/Manage/Home/UserSelect",
                 title: "选择用户",
                 close: function (data) {
                     console.log(data);
-                    $("#userselect").val(data[0]["UserName"]);
+                    $("#userselect").val(data[0]["FirstName"]);
                 }
             }
         });

@@ -2,7 +2,7 @@
 
 namespace AALife.Core.Repositorys.Configuration
 {
-    public partial interface ILogRepository : IRepository<Log>
+    public partial interface ILogRepository : IRepository<Log, int>
     {
     }
 }

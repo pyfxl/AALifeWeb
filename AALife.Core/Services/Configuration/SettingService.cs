@@ -61,7 +61,7 @@ namespace AALife.Core.Services.Configuration
             public int Id { get; set; }
             public string Name { get; set; }
             public string Value { get; set; }
-            public int UserId { get; set; }
+            public Guid UserId { get; set; }
         }
 
         #endregion
@@ -206,7 +206,7 @@ namespace AALife.Core.Services.Configuration
         /// <param name="userId">Store identifier</param>
         /// <param name="loadSharedValueIfNotFound">A value indicating whether a shared (for all stores) value should be loaded if a value specific for a certain is not found</param>
         /// <returns>Setting</returns>
-        public virtual Setting GetSetting(string key, int userId = 0, bool loadSharedValueIfNotFound = false)
+        public virtual Setting GetSetting(string key, Guid userId = default(Guid), bool loadSharedValueIfNotFound = false)
         {
             if (String.IsNullOrEmpty(key))
                 return null;
@@ -219,8 +219,8 @@ namespace AALife.Core.Services.Configuration
                 var setting = settingsByKey.FirstOrDefault(x => x.UserId == userId);
 
                 //load shared value?
-                if (setting == null && userId > 0 && loadSharedValueIfNotFound)
-                    setting = settingsByKey.FirstOrDefault(x => x.UserId == 0);
+                if (setting == null && userId != default(Guid) && loadSharedValueIfNotFound)
+                    setting = settingsByKey.FirstOrDefault(x => x.UserId == default(Guid));
 
                 if (setting != null)
                     return GetSettingById(setting.Id);
@@ -239,7 +239,7 @@ namespace AALife.Core.Services.Configuration
         /// <param name="loadSharedValueIfNotFound">A value indicating whether a shared (for all stores) value should be loaded if a value specific for a certain is not found</param>
         /// <returns>Setting value</returns>
         public virtual T GetSettingByKey<T>(string key, T defaultValue = default(T), 
-            int userId = 0, bool loadSharedValueIfNotFound = false)
+            Guid userId = default(Guid), bool loadSharedValueIfNotFound = false)
         {
             if (String.IsNullOrEmpty(key))
                 return defaultValue;
@@ -252,8 +252,8 @@ namespace AALife.Core.Services.Configuration
                 var setting = settingsByKey.FirstOrDefault(x => x.UserId == userId);
 
                 //load shared value?
-                if (setting == null && userId > 0 && loadSharedValueIfNotFound)
-                    setting = settingsByKey.FirstOrDefault(x => x.UserId == 0);
+                if (setting == null && userId != default(Guid) && loadSharedValueIfNotFound)
+                    setting = settingsByKey.FirstOrDefault(x => x.UserId == default(Guid));
 
                 if (setting != null)
                     return CommonHelper.To<T>(setting.Value);
@@ -270,7 +270,7 @@ namespace AALife.Core.Services.Configuration
         /// <param name="value">Value</param>
         /// <param name="userId">Store identifier</param>
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
-        public virtual void SetSetting<T>(string key, T value, int userId = 0, bool clearCache = true)
+        public virtual void SetSetting<T>(string key, T value, Guid userId = default(Guid), bool clearCache = true)
         {
             if (key == null)
                 throw new ArgumentNullException("key");
@@ -323,7 +323,7 @@ namespace AALife.Core.Services.Configuration
         /// <param name="userId">Store identifier</param>
         /// <returns>true -setting exists; false - does not exist</returns>
         public virtual bool SettingExists<T, TPropType>(T settings, 
-            Expression<Func<T, TPropType>> keySelector, int userId = 0) 
+            Expression<Func<T, TPropType>> keySelector, Guid userId = default(Guid)) 
             where T : ISettings, new()
         {
             string key = settings.GetSettingKey(keySelector);
@@ -337,7 +337,7 @@ namespace AALife.Core.Services.Configuration
         /// </summary>
         /// <typeparam name="T">Type</typeparam>
         /// <param name="userId">Store identifier for which settigns should be loaded</param>
-        public virtual T LoadSetting<T>(int userId = 0) where T : ISettings, new()
+        public virtual T LoadSetting<T>(Guid userId = default(Guid)) where T : ISettings, new()
         {
             var settings = Activator.CreateInstance<T>();
 
@@ -374,7 +374,7 @@ namespace AALife.Core.Services.Configuration
         /// <typeparam name="T">Type</typeparam>
         /// <param name="userId">Store identifier</param>
         /// <param name="settings">Setting instance</param>
-        public virtual void SaveSetting<T>(T settings, int userId = 0) where T : ISettings, new()
+        public virtual void SaveSetting<T>(T settings, Guid userId = default(Guid)) where T : ISettings, new()
         {
             /* We do not clear cache after each setting update.
              * This behavior can increase performance because cached settings will not be cleared 
@@ -412,7 +412,7 @@ namespace AALife.Core.Services.Configuration
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
         public virtual void SaveSetting<T, TPropType>(T settings,
             Expression<Func<T, TPropType>> keySelector,
-            int userId = 0, bool clearCache = true) where T : ISettings, new()
+            Guid userId = default(Guid), bool clearCache = true) where T : ISettings, new()
         {
             var member = keySelector.Body as MemberExpression;
             if (member == null)
@@ -451,11 +451,11 @@ namespace AALife.Core.Services.Configuration
         /// <param name="clearCache">A value indicating whether to clear cache after setting update</param>
         public virtual void SaveSettingOverridablePerStore<T, TPropType>(T settings,
             Expression<Func<T, TPropType>> keySelector,
-            bool overrideForStore, int userId = 0, bool clearCache = true) where T : ISettings, new()
+            bool overrideForStore, Guid userId = default(Guid), bool clearCache = true) where T : ISettings, new()
         {
-            if (overrideForStore || userId == 0)
+            if (overrideForStore || userId == default(Guid))
                 SaveSetting(settings, keySelector, userId, clearCache);
-            else if (userId > 0)
+            else if (userId != default(Guid))
                 DeleteSetting(settings, keySelector, userId);
         }
 
@@ -485,7 +485,7 @@ namespace AALife.Core.Services.Configuration
         /// <param name="keySelector">Key selector</param>
         /// <param name="userId">Store ID</param>
         public virtual void DeleteSetting<T, TPropType>(T settings,
-            Expression<Func<T, TPropType>> keySelector, int userId = 0) where T : ISettings, new()
+            Expression<Func<T, TPropType>> keySelector, Guid userId = default(Guid)) where T : ISettings, new()
         {
             string key = settings.GetSettingKey(keySelector);
             key = key.Trim().ToLowerInvariant();

@@ -3,6 +3,7 @@ using AALife.Data;
 using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
+using System;
 using System.Web.Mvc;
 
 namespace AALife.WebMvc.Controllers
@@ -39,7 +40,7 @@ namespace AALife.WebMvc.Controllers
         [HttpPost]
         public virtual ActionResult SaveSettings(UserSettings settings)
         {
-            int userId = _workContext.CurrentUser.Id;
+            Guid userId = _workContext.CurrentUser.Id;
 
             if (ModelState.IsValid)
             {
@@ -52,7 +53,7 @@ namespace AALife.WebMvc.Controllers
         [HttpPost]
         public virtual ActionResult UserSettings(UserSettings settings)
         {
-            int userId = _workContext.CurrentUser.Id;
+            Guid userId = _workContext.CurrentUser.Id;
 
             if (ModelState.IsValid)
             {

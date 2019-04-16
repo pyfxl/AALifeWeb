@@ -25,7 +25,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Positions
-        [AdminAuthorize]
+        //[AdminAuthorize]
         public ActionResult Index2()
         {
             return View();

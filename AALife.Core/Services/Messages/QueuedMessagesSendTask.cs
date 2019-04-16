@@ -32,7 +32,7 @@ namespace AALife.Core.Services.Messages
         /// </summary>
         public virtual void Execute()
         {
-            var emailAccount = _settingService.LoadSetting<CommonSettings>(0);
+            var emailAccount = _settingService.LoadSetting<CommonSettings>(default(Guid));
 
             var maxTries = 30;
             var queuedEmails = _queuedEmailService.SearchEmails(null, null, null, null,

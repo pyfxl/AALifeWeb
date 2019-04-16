@@ -55,5 +55,5 @@ D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.CoreCompileInpu
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.CopyComplete
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.dll
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.pdb
-D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.AddIsSystem.resources
+D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.Migrations.Init1.resources
 D:\fxlweb\AALifeWeb2018\AALife.Core\obj\Debug\AALife.Core.csproj.GenerateResource.cache

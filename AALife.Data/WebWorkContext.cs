@@ -3,6 +3,7 @@ using AALife.Core.Services.Configuration;
 using AALife.Data.Authentication;
 using AALife.Data.Domain;
 using AALife.Data.Services;
+using System;
 
 namespace AALife.Data
 {
@@ -108,7 +109,7 @@ namespace AALife.Data
                 if (_cachedDefaultSettings != null)
                     return _cachedDefaultSettings;
 
-                DefaultSettings settings = _settingService.LoadSetting<DefaultSettings>(0);
+                DefaultSettings settings = _settingService.LoadSetting<DefaultSettings>(default(Guid));
 
                 //validation
                 if (settings != null)

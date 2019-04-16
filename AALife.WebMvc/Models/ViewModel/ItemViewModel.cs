@@ -35,7 +35,7 @@ namespace AALife.WebMvc.Models.ViewModel
         
         public string Remark { get; set; }
         
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         public DateTime? ItemBuyDateStart { get; set; }
         public DateTime? ItemBuyDateEnd { get; set; }

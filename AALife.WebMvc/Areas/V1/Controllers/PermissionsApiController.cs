@@ -67,7 +67,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _permissionService.Add(model);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Insert, "插入权限记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Insert, "插入权限记录。{0}", model.ToJson());
             
             return Json(HttpStatusCode.OK);
         }
@@ -114,7 +114,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _permissionService.Update(permission);
 
             //activity log
-            _customerActivityService.InsertActivity(1, ActivityLogType.Update, "更新权限记录。{0}", model.ToJson());
+            _customerActivityService.InsertActivity(null, ActivityLogType.Update, "更新权限记录。{0}", model.ToJson());
 
             return Json(HttpStatusCode.OK);
         }
@@ -144,8 +144,8 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         [Route("api/v1/permissionsroleupdateapi")]
         public void PermissionUpdate(dynamic param)
         {
-            var role = _userRoleService.Get((int)param.id);
-            var permission = _permissionService.Get((int)param.pid);
+            var role = _userRoleService.Get((Guid)param.id);
+            var permission = _permissionService.Get((Guid)param.pid);
 
             if (permission.UserRoles.Contains(role))
             {
@@ -163,8 +163,8 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         [Route("api/v1/permissionsdeptmentupdateapi")]
         public void PermissionDeptmentUpdate(dynamic param)
         {
-            var deptment = _userDeptmentService.Get((int)param.id);
-            var permission = _permissionService.Get((int)param.pid);
+            var deptment = _userDeptmentService.Get((Guid)param.id);
+            var permission = _permissionService.Get((Guid)param.pid);
 
             if (permission.UserDeptments.Contains(deptment))
             {
@@ -182,8 +182,8 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         [Route("api/v1/permissionspositionupdateapi")]
         public void PermissionPositionUpdate(dynamic param)
         {
-            var position = _userPositionService.Get((int)param.id);
-            var permission = _permissionService.Get((int)param.pid);
+            var position = _userPositionService.Get((Guid)param.id);
+            var permission = _permissionService.Get((Guid)param.pid);
 
             if (permission.UserPositions.Contains(position))
             {
@@ -206,7 +206,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return Json(permissionTree);
         }
 
-        private List<PermissionTreeModel> SortPermissionForTree(int parentId = 0)
+        private List<PermissionTreeModel> SortPermissionForTree(Guid parentId = default(Guid))
         {
             var model = new List<PermissionTreeModel>();
             foreach (var p in _permissionService.FindAll(a => a.ParentId == parentId).OrderBy(a => a.OrderNo))

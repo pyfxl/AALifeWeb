@@ -6,14 +6,14 @@ namespace AALife.Core
     /// <summary>
     /// Repository
     /// </summary>
-    public partial interface IRepository<T> where T : BaseEntity
+    public partial interface IRepository<T, TPrimaryKey> where T : BaseEntity<TPrimaryKey>
     {
         /// <summary>
         /// Get entity by identifier
         /// </summary>
         /// <param name="id">Identifier</param>
         /// <returns>Entity</returns>
-        T GetById(object id);
+        T GetById(TPrimaryKey id);
 
         /// <summary>
         /// Insert entity
@@ -49,7 +49,7 @@ namespace AALife.Core
         /// Delete entity
         /// </summary>
         /// <param name="id">Identifier</param>
-        void Delete(int id);
+        void Delete(TPrimaryKey id);
 
         /// <summary>
         /// Delete entities

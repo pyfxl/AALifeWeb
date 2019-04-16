@@ -2,6 +2,7 @@
 using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.jqGrid;
+using System;
 using System.Linq;
 using System.Web.Http;
 
@@ -17,7 +18,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(Guid id)
         {
             var result = _zhuanTiService.GetAll(id);
             var grid = new DataSourceResult
@@ -29,7 +30,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST api/<controller>
-        public IHttpActionResult Post(int id, ZhuanTiTable model)
+        public IHttpActionResult Post(Guid id, ZhuanTiTable model)
         {
             model.LiveOn();
             model.UserId = id;
@@ -41,7 +42,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // PUT api/<controller>/5
-        public IHttpActionResult Put(int id, ZhuanTiTable model)
+        public IHttpActionResult Put(Guid id, ZhuanTiTable model)
         {
             var item = _zhuanTiService.Get(model.Id);
             item.LiveOn();

@@ -28,21 +28,21 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Roles
-        [AdminAuthorize]
+        //[AdminAuthorize]
         public ActionResult Index2()
         {
             return View();
         }
 
         // GET: Manage/Roles
-        [AdminAuthorize]
+        //[AdminAuthorize]
         public ActionResult Index3()
         {
             return View();
         }
 
         // GET: Manage/Roles
-        [AdminAuthorize]
+        //[AdminAuthorize]
         public ActionResult Index4()
         {
             return View();
@@ -63,7 +63,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Roles
-        public ActionResult Detail(int id)
+        public ActionResult Detail(Guid id)
         {
             ViewBag.Id = id;
             var role = _userRoleService.Get(id);

@@ -60,52 +60,72 @@
     <Compile Include="Authentication\IAuthenticationService.cs" />
     <Compile Include="Constant.cs" />
     <Compile Include="DefaultSettings.cs" />
-    <Compile Include="Domain\CardTable.cs" />
-    <Compile Include="Domain\CategoryTypeTable.cs" />
-    <Compile Include="Domain\UserPosition.cs" />
-    <Compile Include="Domain\UserDeptment.cs" />
-    <Compile Include="Domain\UserPermission.cs" />
-    <Compile Include="Domain\ItemTable.cs" />
-    <Compile Include="Domain\OAuthTable.cs" />
-    <Compile Include="Domain\UserRole.cs" />
-    <Compile Include="Domain\UserRoleNames.cs" />
-    <Compile Include="Domain\UserSettings.cs" />
-    <Compile Include="Domain\UserTable.cs" />
-    <Compile Include="Domain\ZhuanTiTable.cs" />
-    <Compile Include="Domain\ZhuanZhangTable.cs" />
+    <Compile Include="Domain\Business\CardTable.cs" />
+    <Compile Include="Domain\Business\CategoryTypeTable.cs" />
+    <Compile Include="Domain\Users\UserPosition.cs" />
+    <Compile Include="Domain\Users\UserDeptment.cs" />
+    <Compile Include="Domain\Users\UserPermission.cs" />
+    <Compile Include="Domain\Business\ItemTable.cs" />
+    <Compile Include="Domain\Business\OAuthTable.cs" />
+    <Compile Include="Domain\Users\UserRole.cs" />
+    <Compile Include="Domain\Users\UserRoleNames.cs" />
+    <Compile Include="Domain\Users\UserSettings.cs" />
+    <Compile Include="Domain\Users\UserTable.cs" />
+    <Compile Include="Domain\Business\ZhuanTiTable.cs" />
+    <Compile Include="Domain\Business\ZhuanZhangTable.cs" />
     <Compile Include="AALifeContext.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IWorkContext.cs" />
-    <Compile Include="Migrations\201903300925443_XXX.cs" />
-    <Compile Include="Migrations\201903300925443_XXX.Designer.cs">
-      <DependentUpon>201903300925443_XXX.cs</DependentUpon>
+    <Compile Include="Migrations\201904122235045_Init-a.cs" />
+    <Compile Include="Migrations\201904122235045_Init-a.Designer.cs">
+      <DependentUpon>201904122235045_Init-a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904130944479_Init-b.cs" />
+    <Compile Include="Migrations\201904130944479_Init-b.Designer.cs">
+      <DependentUpon>201904130944479_Init-b.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131218128_Init-c.cs" />
+    <Compile Include="Migrations\201904131218128_Init-c.Designer.cs">
+      <DependentUpon>201904131218128_Init-c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904131328162_Init-d.cs" />
+    <Compile Include="Migrations\201904131328162_Init-d.Designer.cs">
+      <DependentUpon>201904131328162_Init-d.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904140853077_Init-e.cs" />
+    <Compile Include="Migrations\201904140853077_Init-e.Designer.cs">
+      <DependentUpon>201904140853077_Init-e.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904150908201_UpdateDeptmtnt.cs" />
+    <Compile Include="Migrations\201904150908201_UpdateDeptmtnt.Designer.cs">
+      <DependentUpon>201904150908201_UpdateDeptmtnt.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\BaseUserService.cs" />
-    <Compile Include="Services\CardService.cs" />
-    <Compile Include="Services\CategoryTypeService.cs" />
+    <Compile Include="Services\Business\CardService.cs" />
+    <Compile Include="Services\Business\CategoryTypeService.cs" />
     <Compile Include="Services\IBaseUserService.cs" />
-    <Compile Include="Services\ICardService.cs" />
-    <Compile Include="Services\ICategoryTypeService.cs" />
-    <Compile Include="Services\IItemService.cs" />
-    <Compile Include="Services\IUserPermissionService.cs" />
-    <Compile Include="Services\ItemService.cs" />
-    <Compile Include="Services\IUserDeptmentService.cs" />
-    <Compile Include="Services\IUserPositionService.cs" />
-    <Compile Include="Services\IUserRoleService.cs" />
-    <Compile Include="Services\IUserService.cs" />
-    <Compile Include="Services\IZhuanTiService.cs" />
-    <Compile Include="Services\IZhuanZhangService.cs" />
-    <Compile Include="Services\UserPermissionService.cs" />
-    <Compile Include="Services\UserExtensions.cs" />
-    <Compile Include="Services\UserDeptmentService.cs" />
-    <Compile Include="Services\UserPositionService.cs" />
-    <Compile Include="Services\UserRoleService.cs" />
-    <Compile Include="Services\UserService.cs" />
-    <Compile Include="Services\ZhuanTiService.cs" />
-    <Compile Include="Services\ZhuanZhangService.cs" />
+    <Compile Include="Services\Business\ICardService.cs" />
+    <Compile Include="Services\Business\ICategoryTypeService.cs" />
+    <Compile Include="Services\Business\IItemService.cs" />
+    <Compile Include="Services\Users\IUserPermissionService.cs" />
+    <Compile Include="Services\Business\ItemService.cs" />
+    <Compile Include="Services\Users\IUserDeptmentService.cs" />
+    <Compile Include="Services\Users\IUserPositionService.cs" />
+    <Compile Include="Services\Users\IUserRoleService.cs" />
+    <Compile Include="Services\Users\IUserService.cs" />
+    <Compile Include="Services\Business\IZhuanTiService.cs" />
+    <Compile Include="Services\Business\IZhuanZhangService.cs" />
+    <Compile Include="Services\Users\UserPermissionService.cs" />
+    <Compile Include="Services\Users\UserExtensions.cs" />
+    <Compile Include="Services\Users\UserDeptmentService.cs" />
+    <Compile Include="Services\Users\UserPositionService.cs" />
+    <Compile Include="Services\Users\UserRoleService.cs" />
+    <Compile Include="Services\Users\UserService.cs" />
+    <Compile Include="Services\Business\ZhuanTiService.cs" />
+    <Compile Include="Services\Business\ZhuanZhangService.cs" />
     <Compile Include="UserEntity.cs" />
     <Compile Include="WebWorkContext.cs" />
   </ItemGroup>
@@ -120,8 +140,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903300925443_XXX.resx">
-      <DependentUpon>201903300925443_XXX.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904122235045_Init-a.resx">
+      <DependentUpon>201904122235045_Init-a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904130944479_Init-b.resx">
+      <DependentUpon>201904130944479_Init-b.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131218128_Init-c.resx">
+      <DependentUpon>201904131218128_Init-c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904131328162_Init-d.resx">
+      <DependentUpon>201904131328162_Init-d.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904140853077_Init-e.resx">
+      <DependentUpon>201904140853077_Init-e.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904150908201_UpdateDeptmtnt.resx">
+      <DependentUpon>201904150908201_UpdateDeptmtnt.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

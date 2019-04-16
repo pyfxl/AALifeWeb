@@ -7,5 +7,7 @@ namespace AALife.WebMvc.Models.ViewModel
     public partial class UserRoleViewModel : UserViewModel
     {
         public bool IsCurrentRole { get; set; }
+
+        public virtual UserPosition Position { get; set; }
     }
 }

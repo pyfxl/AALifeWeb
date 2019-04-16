@@ -78,7 +78,7 @@
                 model: {
                     id: "Id",
                     fields: {
-                        Id: { type: "number", editable: false, nullable: false, defaultValue: '' },
+                        Id: { type: "string", editable: false, nullable: false, defaultValue: '' },
                         UserName: {
                             type: "string",
                             validation: {
@@ -103,7 +103,6 @@
                         UserLevelName: { type: "string" },
                         UserFrom: { type: "string" },
                         UserFromName: { type: "string" },
-                        ModifyDate: { type: "date", editable: false },
                         CreateDate: { type: "date", editable: false },
                         Synchronize: { type: "number", defaultValue: 1, validation: { min: 0, max: 1 } },
                         Remark: { type: "string" }
@@ -138,13 +137,14 @@
                     width: 100
                 },
                 {
-                    template: "<a href='@Url.Action("Details", "Users")?id=#:Id#'>#:Id#</a>",
                     field: "Id",
                     title: "编号",
                     width: 80,
-                    attributes: { class: "text-light-blue" }
+                    attributes: { class: "text-light-blue" },
+                    hidden: true
                 },
                 {
+                    template: "<a href='@Url.Action("Details", "Users")/#= Id #'>#= UserName #</a>",                        
                     field: "UserName",
                     title: "用户名",
                     width: 100,

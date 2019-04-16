@@ -10,7 +10,7 @@ namespace AALife.Data
     /// <summary>
     /// Base class for entities
     /// </summary>
-    public abstract partial class UserEntity : BaseEntity
+    public abstract partial class UserEntity : BaseEntity<int>
     {
         /// <summary>
         /// ø…”√∑Ò
@@ -46,7 +46,7 @@ namespace AALife.Data
         /// <summary>
         /// Gets or sets the customer identifier
         /// </summary>
-        public int UserId { get; set; }
+        public Guid UserId { get; set; }
 
         /// <summary>
         /// Gets or sets the customer

@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "部门树测试";
+}
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main">
+                <div id="example">
+                    <div id="treelist"></div>
+                    <script>
+                        $(document).ready(function () {
+                            var service = "https://demos.telerik.com/kendo-ui/service";
+
+                            $("#treelist").kendoTreeList({
+                                dataSource: {
+                                    type: "odata-v4",
+                                    transport: {
+                                        read: {
+                                            url: function (item) {
+                                                if (item.hasOwnProperty("id")) {
+                                                    return "https://demos.telerik.com/kendo-ui/service-v4/odata/Employees(" + item.id + ")/Subordinates";
+                                                } else {
+                                                    return "https://demos.telerik.com/kendo-ui/service-v4/odata/Employees/Default.TopEmployees()/";
+                                                }
+                                            }
+                                        }
+                                    },
+                                    schema: {
+                                        model: {
+                                            id: "EmployeeID",
+                                            parentId: "ReportsTo",
+                                            fields: {
+                                                ReportsTo: { field: "ReportsTo", nullable: true },
+                                                EmployeeID: { field: "EmployeeID", type: "number" }
+                                            }
+                                        }
+                                    }
+                                },
+                                filterable: true,
+                                sortable: true,
+                                columns: [
+                                    { field: "FirstName", title: "First Name", width: 280 },
+                                    { field: "LastName", title: "Last Name", width: 160 },
+                                    { field: "HomePhone", width: 200 },
+                                    { field: "Extension", width: 140 },
+                                    { field: "Address" }
+                                ]
+                            });
+                        });
+                    </script>
+                </div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="main">
+                <div class="demo-section k-content">
+                    <input id="dropdowntree" />
+                </div>
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
+
+<script>
+    $(function () {
+        var serviceRoot = "https://demos.telerik.com/kendo-ui/service";
+        homogeneous = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: "http://localhost:70/Employees/GetEmployees",
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "EmployeeId",
+                    hasChildren: "HasEmployees"
+                }
+            }
+        });
+
+        $("#dropdowntree").kendoDropDownTree({
+            placeholder: "Select ...",
+            dataSource: homogeneous,
+            height: "auto",
+            dataTextField: "Name",
+            loadOnDemand: true
+        });
+    });
+</script>

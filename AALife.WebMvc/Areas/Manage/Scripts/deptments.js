@@ -32,3 +32,27 @@ function update_userdeptments(uid, checkedNodes, callback) {
         data: JSON.stringify(checkedNodes)
     });
 }
+
+//部门岗位删除
+function delete_deptmentsposition(id, dataItems, callback) {
+    $.ajax({
+        url: String.format($.const.webapi.deptmentsposition_id, id),
+        dataType: "json",
+        type: "DELETE",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(dataItems),
+        success: callback
+    });
+}
+
+//部门删除
+function delete_deptments(id, dataItems, callback) {
+    $.ajax({
+        url: String.format($.const.webapi.deptments_id, id),
+        dataType: "json",
+        type: "DELETE",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(dataItems),
+        success: callback
+    });
+}

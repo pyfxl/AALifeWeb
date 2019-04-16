@@ -155,9 +155,9 @@
     <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
     <Compile Include="Mapping\Messages\QueuedEmailMap.cs" />
     <Compile Include="Mapping\Tasks\ScheduleTaskMap.cs" />
-    <Compile Include="Migrations\201903300457308_AddIsSystem.cs" />
-    <Compile Include="Migrations\201903300457308_AddIsSystem.Designer.cs">
-      <DependentUpon>201903300457308_AddIsSystem.cs</DependentUpon>
+    <Compile Include="Migrations\201904122232342_Init-1.cs" />
+    <Compile Include="Migrations\201904122232342_Init-1.Designer.cs">
+      <DependentUpon>201904122232342_Init-1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MimeTypes.cs" />
@@ -230,8 +230,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201903300457308_AddIsSystem.resx">
-      <DependentUpon>201903300457308_AddIsSystem.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904122232342_Init-1.resx">
+      <DependentUpon>201904122232342_Init-1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

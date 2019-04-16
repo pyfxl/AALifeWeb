@@ -66,6 +66,9 @@ namespace AALife.WebMvc.Infrastructure.Mapper
                 cfg.CreateMap<UserDeptment, UserDeptmentModel>()
                     .ForMember(dest => dest.CategoryName, src => src.Ignore());
 
+                //position
+                cfg.CreateMap<UserPosition, UserPositionModel>();
+
             };
             return action;
         }

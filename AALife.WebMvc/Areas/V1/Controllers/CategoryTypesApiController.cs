@@ -2,6 +2,7 @@
 using AALife.Data;
 using AALife.Data.Domain;
 using AALife.Data.Services;
+using System;
 using System.Linq;
 using System.Web.Http;
 
@@ -17,7 +18,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // GET api/<controller>
-        public IHttpActionResult Get(int id)
+        public IHttpActionResult Get(Guid id)
         {
             var result = _categoryTypeService.GetAll(id);
             var grid = new jqGrid.DataSourceResult
@@ -29,7 +30,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // POST api/<controller>
-        public IHttpActionResult Post(int id, CategoryTypeTable model)
+        public IHttpActionResult Post(Guid id, CategoryTypeTable model)
         {
             model.LiveOn();
             model.UserId = id;
@@ -41,7 +42,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // PUT api/<controller>/5
-        public IHttpActionResult Put(int id, CategoryTypeTable model)
+        public IHttpActionResult Put(Guid id, CategoryTypeTable model)
         {
             var item = _categoryTypeService.Get(model.Id);
             item.LiveOn();

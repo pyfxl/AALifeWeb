@@ -1,6 +1,7 @@
 ﻿using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Security;
 using AALife.Data;
+using AALife.Data.Domain;
 using AALife.Data.Services;
 using System.Linq;
 using System.Web;
@@ -45,7 +46,7 @@ namespace AALife.WebMvc.Controllers
         public ActionResult UpdatePassword(string returnUrl = "")
         {
             var users = _userService.Get();
-            var role = _userRoleService.Get(1);
+            var role = _userRoleService.Find(a => a.SystemName == UserRoleNames.Administrators);
             users.ToList().ForEach(a =>
             {
                 var saltKey = _encryptionService.CreateSaltKey(Constant.PasswordSaltSize);
@@ -53,7 +54,7 @@ namespace AALife.WebMvc.Controllers
                 a.UserPassword = _encryptionService.CreatePasswordHash(a.UserPassword, saltKey);
 
                 //权限
-                if(a.Id == 1)
+                if(a.UserName == "admin")
                 {
                     a.UserRoles.Add(role);
                 }

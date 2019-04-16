@@ -64,7 +64,7 @@ namespace AALife.Core
         /// </summary>
         /// <typeparam name="TEntity">Entity type</typeparam>
         /// <returns>DbSet</returns>
-        public new IDbSet<TEntity> Set<TEntity>() where TEntity : BaseEntity
+        public IDbSet<TEntity> Set<TEntity, TPrimaryKey>() where TEntity : BaseEntity<TPrimaryKey>
         {
             return base.Set<TEntity>();
         }
