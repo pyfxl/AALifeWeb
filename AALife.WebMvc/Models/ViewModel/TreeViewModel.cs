@@ -6,20 +6,21 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public partial class TreeViewModel
+
+    public partial class BaseTreeModel<TPrimaryKey>
     {
-        public TreeViewModel()
+        public BaseTreeModel()
         {
-            items = new List<TreeViewModel>();
+            items = new List<BaseTreeModel<TPrimaryKey>>();
         }
 
-        public virtual Guid id { get; set; }
-
-        public virtual Guid? parentId { get; set; }
+        public virtual TPrimaryKey Id { get; set; }
 
         public string text { get; set; }
 
-        public List<TreeViewModel> items { get; set; }
+        public string value { get; set; }
+
+        public virtual List<BaseTreeModel<TPrimaryKey>> items { get; set; }
 
         public bool hasChildren { get; set; }
 
@@ -27,37 +28,38 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string spriteCssClass { get; set; }
 
-        public string value { get; set; }
-
-        public string name { get; set; }
-
-        public string systemName { get; set; }
-
-        public byte? rank { get; set; }
-
         [JsonProperty(PropertyName = "checked")]
         public bool isChecked { get; set; }
 
-        public bool isDeptment { get; set; }
-
-        public bool isPosition { get; set; }
-
-        public string code { get; set; }
-
-        public Guid deptmentId { get; set; }
-
     }
 
-    public partial class ParameterTreeViewModel : TreeViewModel
+    public partial class TreeViewModel : BaseTreeModel<Guid>
     {
-        public new int id { get; set; }
-
-        public new int? parentId { get; set; }
-
+        public Guid? ParentId { get; set; }
     }
 
-    public partial class PositionTreeViewModel : TreeViewModel
+    public partial class ParameterTreeModel : BaseTreeModel<int>
     {
+        public int? ParentId { get; set; }
+    }
 
+    public partial class DeptmentPositionTreeModel : BaseTreeModel<Guid>
+    {
+        public Guid? ParentId { get; set; }
+
+        public string Name { get; set; }
+
+        public string Code { get; set; }
+
+        public Guid? DeptmentId { get; set; }
+
+        public bool IsDeptment { get; set; }
+
+        public bool IsPosition { get; set; }
+    }
+
+    public partial class PermissionTreeModel : BaseTreeModel<Guid>
+    {
+        public Guid? ParentId { get; set; }
     }
 }

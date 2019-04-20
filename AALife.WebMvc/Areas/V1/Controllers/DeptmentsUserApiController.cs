@@ -1,5 +1,4 @@
-﻿using AALife.Code.Services;
-using AALife.Core.Domain.Logging;
+﻿using AALife.Core.Domain.Logging;
 using AALife.Core.Infrastructure.Kendoui;
 using AALife.Core.Services.Configuration;
 using AALife.Core.Services.Logging;
@@ -15,7 +14,7 @@ using System.Web.Http;
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
     /// <summary>
-    /// 操作指定部门下的用户
+    /// 组织用户接口
     /// </summary>
     public class DeptmentsUserApiController : BaseApiController
     {
@@ -60,102 +59,5 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return Json(grid);
         }
 
-        // POST api/<controller>/5
-        public void Post(Guid id, [FromBody]IEnumerable<UserTable> models)
-        {
-            var deptment = _userDeptmentService.Get(id);
-            models.ToList().ForEach(a =>
-            {
-                var user = _userService.Get(a.Id);
-                if (user != null)
-                    deptment.Users.Add(user);
-            });
-
-            _userDeptmentService.Update(deptment);
-
-            //activity log
-            _customerActivityService.InsertActivity(id, ActivityLogType.Insert, "插入用户部门。{0}", models.ToJson());
-        }
-
-        // PUT api/<controller>/5
-        public void Put(Guid id, UserTable model)
-        {
-            var deptment = _userDeptmentService.Get(id);
-            var user = _userService.Get(model.Id);
-
-            if (deptment.Users.Contains(user))
-            {
-                deptment.Users.Remove(user);
-            }
-            else
-            {
-                deptment.Users.Add(user);
-            }
-
-            _userDeptmentService.Update(deptment);
-
-            //activity log
-            _customerActivityService.InsertActivity(id, ActivityLogType.Insert, "插入更新用户部门。{0}", user.ToJson());
-        }
-
-        // DELETE api/<controller>/5
-        public void Delete(Guid id, [FromBody]IEnumerable<UserTable> models)
-        {
-            var deptment = _userDeptmentService.Get(id);
-            models.ToList().ForEach(a =>
-            {
-                var user = _userService.Get(a.Id);
-                if (deptment.Users.Contains(user))
-                    deptment.Users.Remove(user);
-            });
-
-            _userDeptmentService.Update(deptment);
-
-            //activity log
-            _customerActivityService.InsertActivity(id, ActivityLogType.Delete, "删除用户部门。{0}", models.ToJson());
-        }
-
-        #region 其它方法
-        
-        // 根据部门获取用户列表，支持获取子级部门，用于弹出窗口选择
-        [Route("api/v1/deptmentsuserselectapi")]
-        public IHttpActionResult GetDeptmentsUserSelect(Guid id, [FromUri]DataSourceRequest request)
-        {
-            var users = new List<UserTable>();
-            var deptment = _userDeptmentService.Get(id);
-
-            //查找部门下岗位的用户
-            Action<UserDeptment> action = null;
-            action = (item) =>
-            {
-                //TODO: 性能慢，待优化
-                users.AddRange(item.Users);
-                foreach (var it in item.Children)
-                {
-                    action(it);
-                }
-            };
-
-            //调用
-            action(deptment);
-
-            //去重复
-            users = users.Where((x, i) => users.FindIndex(z => z.Id == x.Id) == i).ToList();
-
-            var grid = new DataSourceResult
-            {
-                Data = users.ToDataSourceResult(request).Select(x =>
-                {
-                    var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
-                    return m;
-                }),
-                Total = users.Count()
-            };
-
-            return Json(grid);
-        }
-
-        #endregion
     }
 }

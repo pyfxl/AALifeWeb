@@ -10,7 +10,7 @@ namespace AALife.Data.Domain
     /// <summary>
     /// Represents a permission record
     /// </summary>
-    [Table("tab_UserPermission")]
+    [Table("usr_UserPermission")]
     public partial class UserPermission : OrderEntity<Guid>
     {
         /// <summary>

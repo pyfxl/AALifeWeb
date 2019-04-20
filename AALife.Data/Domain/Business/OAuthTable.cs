@@ -26,12 +26,24 @@ namespace AALife.Data.Domain
         /// <summary>
         /// 用户Id
         /// </summary>
+        [ForeignKey("User")]
         public Guid UserId { get; set; }
+
+        /// <summary>
+        /// 用户Id
+        /// </summary>
+        public virtual UserTable User { get; set; }
 
         /// <summary>
         /// 旧用户Id
         /// </summary>
+        [ForeignKey("OldUser")]
         public Guid OldUserId { get; set; }
+
+        /// <summary>
+        /// 旧用户Id
+        /// </summary>
+        public virtual UserTable OldUser { get; set; }
 
         /// <summary>
         /// 绑定否

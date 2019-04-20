@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Data.Domain
 {
-    [Table("tab_UserTable")]
+    [Table("usr_UserTable")]
     public partial class UserTable : BaseEntity<Guid>
     {
         /// <summary>
@@ -30,12 +30,6 @@ namespace AALife.Data.Domain
         public string PasswordSalt { get; set; }
 
         /// <summary>
-        /// 昵称
-        /// </summary>
-        [MaxLength(50)]
-        public string UserNickName { get; set; }
-
-        /// <summary>
         /// 编码
         /// </summary>
         [MaxLength(20)]
@@ -45,7 +39,7 @@ namespace AALife.Data.Domain
         /// <summary>
         /// 姓名
         /// </summary>
-        [MaxLength(20)]
+        [MaxLength(50)]
         public string FirstName { get; set; }
 
         /// <summary>
@@ -129,11 +123,6 @@ namespace AALife.Data.Domain
         /// 专题列表
         /// </summary>
         public virtual ICollection<ZhuanTiTable> ZhuanTiTables { get; set; }
-
-        /// <summary>
-        /// OAuth列表
-        /// </summary>
-        public virtual ICollection<OAuthTable> OAuthTables { get; set; }
 
         /// <summary>
         /// 转账列表

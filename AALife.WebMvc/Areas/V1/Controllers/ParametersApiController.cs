@@ -86,10 +86,13 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // DELETE: api/Parameters/5
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete([FromBody]IEnumerable<Parameter> models)
         {
-            _parameterService.Delete(id);
-
+            models.ToList().ForEach(a =>
+            {
+                _parameterService.Delete(a.Id);
+            });
+            
             return Json(HttpStatusCode.OK);
         }
 

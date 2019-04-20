@@ -13,6 +13,9 @@ using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
+    /// <summary>
+    /// 组织管理接口
+    /// </summary>
     public class DeptmentsApiController : BaseApiController
     {
         private readonly IUserPositionService _userPositionService;
@@ -33,9 +36,27 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var deptments = _userDeptmentService.FindAll(x => x.ParentId == id);
 
+            //没有下级显示自身
+            if (deptments == null || !deptments.Any())
+            {
+                deptments = _userDeptmentService.FindAll(x => x.Id == id);
+            }
+
+            //没有找到就找岗位的组织
+            if (deptments == null || !deptments.Any())
+            {
+                var position = _userPositionService.Get(id.Value);
+                deptments = _userDeptmentService.FindAll(x => x.Id == position.DeptmentId);
+            }
+
             var grid = new DataSourceResult
             {
-                Data = deptments,
+                Data = deptments.ToList().Select(x => 
+                {
+                    var m = x.MapTo<UserDeptment, UserDeptmentModel>();
+                    m.Parent = x.Parent;
+                    return m;
+                }),
                 Total = deptments.Count()
             };
 
@@ -53,6 +74,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             models.ToList().ForEach(x =>
             {
+                x.Id = Guid.NewGuid();
                 x.ParentId = id;
                 if (x.Parent != null)
                 {
@@ -103,9 +125,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public IHttpActionResult Delete(Guid id, IEnumerable<UserDeptment> models)
         {
             var deptments = new List<UserDeptment>();
-            models.ToList().ForEach(a =>
+            models.ToList().ForEach(x =>
             {
-                var deptment = _userDeptmentService.Get(a.Id);
+                var deptment = _userDeptmentService.Get(x.Id);
                 deptments.Add(deptment);
             });
 

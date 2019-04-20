@@ -1,81 +1,143 @@
 ﻿@{
-    ViewBag.Title = "部门岗位";
+    ViewBag.Title = "测试 3";
 }
 
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
-            <div id="left" class="col-xs-2 k-block">
-                <div class="k-header">部门列表</div>
-                <div id="treeview"></div>
-            </div>
-            <div id="main" class="col-xs-10">
-                <div id="grid"></div>
-            </div>
+            <div id="grid"></div>
+            <div id="positiongrid"></div>
         </div><!-- /.col -->
     </div><!-- /.row -->
 </section>
 
-<script src="~/Areas/Manage/Scripts/positions.js"></script>
 <script>
-    //变量
-    var _selectedId = 0;
+
+    var _selectedId = 'ad33e3f6-587a-e611-80dd-00155d83030a';
 
     $(document).ready(function () {
+        //var crudServiceBaseUrl = "https://demos.telerik.com/kendo-ui/service";
 
-        //数据源
-        var treeDataSource = new kendo.data.HierarchicalDataSource({
-            transport: {
-                read: {
-                    url: $.const.webapi.deptmentstree,
-                    dataType: "json"
-                }
-            },
-            schema: {
-                model: {
-                    id: "id",
-                    parentId: "parentId",
-                    hasChildren: "hasChildren",
-                    value: "value"
-                },
-            }
-        });
+        //$("#grid").kendoGrid({
+        //    dataSource: {
+        //        transport: {
+        //            read: {
+        //                url: crudServiceBaseUrl + "/Products",
+        //                dataType: "jsonp"
+        //            },
+        //            update: {
+        //                url: crudServiceBaseUrl + "/Products/Update",
+        //                dataType: "jsonp"
+        //            },
+        //            destroy: {
+        //                url: crudServiceBaseUrl + "/Products/Destroy",
+        //                dataType: "jsonp"
+        //            },
+        //            create: {
+        //                url: crudServiceBaseUrl + "/Products/Create",
+        //                dataType: "jsonp"
+        //            },
+        //            parameterMap: function (options, operation) {
+        //                if (operation !== "read" && options.models) {
+        //                    return { models: kendo.stringify(options.models) };
+        //                }
+        //            }
+        //        },
+        //        batch: true,
+        //        pageSize: 20,
+        //        schema: {
+        //            model: {
+        //                id: "ProductID",
+        //                fields: {
+        //                    ProductID: { editable: false, nullable: true },
+        //                    ProductName: { validation: { required: true } },
+        //                    UnitPrice: { type: "number", validation: { required: true, min: 1 } },
+        //                    Discontinued: { type: "boolean" },
+        //                    UnitsInStock: { type: "number", validation: { min: 0, required: true } }
+        //                }
+        //            }
+        //        }
+        //    },
+        //    navigatable: true,
+        //    pageable: true,
+        //    height: 550,
+        //    toolbar: ["create", "save", "cancel"],
+        //    columns: [
+        //        "ProductName",
+        //        { field: "UnitPrice", title: "Unit Price", format: "{0:c}", width: 120 },
+        //        { field: "UnitsInStock", title: "Units In Stock", width: 120 },
+        //        { field: "Discontinued", width: 120, editor: customBoolEditor },
+        //        { command: "destroy", title: "&nbsp;", width: 150 }],
+        //    editable: true
+        //});
 
-        //列表
-        var treeview = $("#treeview").kendoTreeView({
-            dataSource:treeDataSource,
-            dataBound: function (e) {
-                treeview.select(".k-first");
-                treeview.trigger("select", {
-                    node: $("#treeview .k-first")[0]
-                });
-            },
-            select: function (e) {
-                var dataItem = treeview.dataItem(e.node);
-                _selectedId = dataItem.id;
-                //刷新主列表
-                grid.dataSource.read({ id: _selectedId });
-            }
-        }).data("kendoTreeView");
 
         //岗位列表
-        var grid = $("#grid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+        var position = $("#positiongrid").kendoGrid({
             dataSource: {
                 transport: {
                     read: {
-                        url: $.const.webapi.deptmentsposition,
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
-                        cache: false
+                        type: "GET",
+                        url: function (item) {
+                            return String.format($.const.webapi.positions_id, _selectedId);
+                        }
+                    },
+                    update: {
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "PUT",
+                        url: function (item) {
+                            return String.format($.const.webapi.positions_id, _selectedId);
+                        }
+                    },
+                    destroy: {
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "DELETE",
+                        url: function (item) {
+                            return String.format($.const.webapi.positions_id, _selectedId);
+                        }
+                    },
+                    create: {
+                        dataType: "json",
+                        contentType: "application/json; charset=utf-8",
+                        type: "POST",
+                        url: function (item) {
+                            return String.format($.const.webapi.positions_id, _selectedId);
+                        },
+                        complete: function (xhr, textStatus) {
+                            kendoui_grid_complete(textStatus);
+                            var grid = $("#positiongrid").data("kendoGrid");
+                            grid.dataSource.read();
+                        }
+                    },
+                    parameterMap: function (options, operation) {
+                        if (operation !== "read" && options.models) {
+                            return kendo.stringify(options.models);
+                        }
+                        return options;
                     }
                 },
-                pageSize: 10,
+                batch: true,
+                serverPaging: true,
+                serverSorting: true,
+                serverFiltering: true,
+                pageSize: 20,
                 schema: {
+                    data: "Data",
+                    total: "Total",
+                    errors: "Errors",
                     model: {
                         id: "Id",
                         fields: {
-                            Name: { type: "string" },
-                            Code: { type: "string" },
+                            Id: { type: "string", editable: false, defaultValue: kendo.guid() },
+                            ParentId: { type: "string", nullable: true, defaultValue: null },
+                            Parent: { type: "object", nullable: true, defaultValue: null },
+                            DeptmentId: { type: "string", nullable: true, defaultValue: null },
+                            Code: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                             Notes: { type: "string" }
                         }
                     }
@@ -84,8 +146,10 @@
                     kendoui_grid_error(e);
                 }
             },
-            autoBind: false,
-            toolbar: [{ name: "select", text: "选择", iconClass: "k-icon k-i-search" }, { name: "delete", text: "删除", iconClass: "k-icon k-i-delete" }],
+            autoBind: true,
+            editable: true,
+            pageable: true,
+            toolbar: ["create", "save", "cancel", "destroy"],
             columns: [
                 {
                     selectable: true,
@@ -94,7 +158,44 @@
                 {
                     field: "Name",
                     title: "岗位名称",
-                    width: 100
+                    width: 200
+                },
+                {
+                    template: "#= data.Parent ? Parent.Name : '' #",
+                    field: "Parent",
+                    title: "上级岗位",
+                    width: 200,
+                    editor: function (container, options) {
+                        $('<input name="' + options.field + '"/>')
+                            .appendTo(container)
+                            .kendoDropDownTree({
+                                template: "#= item.IsPosition ? '<i class=\"fa fa-sticky-note-o\"></i> ' : '' ##= item.Name #",
+                                dataTextField: "Name",
+                                //dataValueField: "id",
+                                height: "200px",
+                                loadOnDemand: true,
+                                dataSource: {
+                                    transport: {
+                                        read: {
+                                            url: $.const.webapi.deptmentspositiontree
+                                        }
+                                    },
+                                    schema: {
+                                        model: {
+                                            id: "Id",
+                                            parentId: "ParentId"
+                                        }
+                                    }
+                                },
+                                select: function (e) {
+                                    var dataItem = e.sender.dataItem(e.node);
+                                    if (!dataItem.IsPosition) {
+                                        e.preventDefault();
+                                        alert("所选不是岗位！");
+                                    }
+                                }
+                            });
+                    }
                 },
                 {
                     field: "Code",
@@ -105,43 +206,19 @@
                     field: "Notes",
                     title: "描述",
                     width: 100
+                },
+                {
+                    command: ["destroy"],
+                    width: 100
                 }
             ]
-        })).data("kendoGrid");
-
-        //选择按钮事件
-        $("#grid .k-grid-toolbar").on("click", ".k-grid-select", function (e) {
-            e.preventDefault();
-            positionselect_open();
-        });
-
-        //删除按钮事件
-        $("#grid .k-grid-toolbar").on("click", ".k-grid-delete", function (e) {
-            e.preventDefault();
-            if (window.confirm("你确定要删除这条数据吗？")) {
-                var items = $("#grid tbody .k-state-selected");
-                if (items.length > 0) {
-                    var result = [];
-                    for (var i = 0; i < items.length; i++) {
-                        var dataItem = grid.dataItem(items[i]);
-                        result.push(dataItem);
-                    }
-                    delete_deptmentsposition(_selectedId, result, function (d) {
-                        kendoui_ajax_complete();
-                        var grid = $("#grid").data("kendoGrid");
-                        grid.dataSource.read({ id: _selectedId });
-                    });
-                }
-            }
         });
 
     });
 
-    //用户选择回调
-    function positionselect_callback(dataItem) {
-        insert_deptmentsposition(_selectedId, dataItem, function () {
-            var grid = $("#grid").data("kendoGrid");
-            grid.dataSource.read({ id: _selectedId });
-        });
+    function customBoolEditor(container, options) {
+        var guid = kendo.guid();
+        $('<input class="k-checkbox" id="' + guid + '" type="checkbox" name="Discontinued" data-type="boolean" data-bind="checked:Discontinued">').appendTo(container);
+        $('<label class="k-checkbox-label" for="' + guid + '">&#8203;</label>').appendTo(container);
     }
 </script>

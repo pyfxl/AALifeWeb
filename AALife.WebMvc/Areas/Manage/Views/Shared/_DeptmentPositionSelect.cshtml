@@ -1,0 +1,113 @@
+﻿<!--有组织树选择岗位-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="col-xs-2">
+                <div id="dialog-deptmenttree"></div>
+            </div>
+            <div class="col-xs-10">
+                <div id="dialog-commongrid"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    //变量
+    var dialog_selectedId = null;
+
+    $(document).ready(function () {
+
+        //数据源
+        var treeDataSource = new kendo.data.HierarchicalDataSource({
+            transport: {
+                read: {
+                    url: $.const.webapi.deptmentstree,
+                    dataType: "json"
+                }
+            },
+            schema: {
+                model: {
+                    id: "Id",
+                    parentId: "ParentId",
+                    hasChildren: "hasChildren"
+                },
+            }
+        });
+
+        //树列表
+        var dialog_deptmenttree = $("#dialog-deptmenttree").kendoTreeView({
+            dataSource: treeDataSource,
+            dataBound: function (e) {
+                $("#dialog-deptmenttree").height($("#dialog-commongrid").height());
+            },
+            template: "#= item.Name #",
+            select: function (e) {
+                var dataItem = dialog_deptmenttree.dataItem(e.node);
+                dialog_selectedId = dataItem.Id;
+                //刷新主列表
+                var grid = $("#dialog-commongrid").data("kendoGrid");
+                grid.dataSource.read();
+            }
+        }).data("kendoTreeView");
+
+        //岗位列表
+        $("#dialog-commongrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: function (item) {
+                            return String.format($.const.webapi.positions_id, dialog_selectedId);
+                        }
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "string", editable: false, defaultValue: kendo.guid() },
+                            ParentId: { type: "string", nullable: true, defaultValue: null },
+                            Parent: { type: "object", defaultValue: null },
+                            DeptmentId: { type: "string", nullable: true, defaultValue: null },
+                            Code: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Notes: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            },
+            autoBind: false,
+            pageable: false,
+            columns: [
+                {
+                    selectable: true,
+                    width: 100
+                },
+                {
+                    field: "Name",
+                    title: "岗位名称",
+                    width: 200
+                },
+                {
+                    template: "#= data.Parent ? Parent.Name : '' #",
+                    field: "Parent",
+                    title: "上级岗位",
+                    width: 200
+                },
+                {
+                    field: "Code",
+                    title: "岗位编码",
+                    width: 100
+                },
+                {
+                    field: "Notes",
+                    title: "描述",
+                    width: 100
+                }
+            ]
+        }));
+
+    });
+</script>

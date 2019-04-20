@@ -57,13 +57,12 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             {
                 var pm = new TreeViewModel
                 {
-                    id = p.Id,
+                    Id = p.Id,
                     text = p.Name,
                     value = p.Name,
-                    name = p.Name,
                     isChecked = userRole.Any() ? userRole.Any(a => a.Id == p.Id) : false
                 };
-                //pm.items.AddRange(SortForTree(id, p.Id));
+                pm.items.AddRange(SortForTree(id, p.Id));
                 pm.hasChildren = pm.items.Count > 0;
                 model.Add(pm);
             }

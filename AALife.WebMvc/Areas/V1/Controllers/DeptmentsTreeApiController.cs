@@ -11,6 +11,9 @@ using System.Web.Http;
 
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
+    /// <summary>
+    /// 组织树接口
+    /// </summary>
     public class DeptmentsTreeApiController : BaseApiController
     {
         private readonly IUserService _userService;
@@ -34,110 +37,24 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var result = _userDeptmentService.FindAll(a => a.ParentId == id);
 
+            //下级组织
             var grid = result.AsEnumerable().Select(x =>
             {
-                var pm = new TreeViewModel
+                var hasChildren = _userDeptmentService.IsExists(a => a.ParentId == x.Id);
+                var pm = new DeptmentPositionTreeModel
                 {
-                    id = x.Id,
-                    text = x.Name,
-                    parentId = x.ParentId,
-                    value = x.Name,
-                    name = x.Name
+                    Id = x.Id,
+                    ParentId = x.ParentId,
+                    Name = x.Name,
+                    Code = x.Code
                 };
-                pm.hasChildren = _userDeptmentService.IsExists(a => a.ParentId == pm.id);
-                pm.expanded = false;
+                pm.hasChildren = hasChildren;
+                pm.IsDeptment = true;
                 return pm;
             });
 
             return Json(grid);
         }
 
-        #region 其它方法 
-
-        // 组织岗位树
-        [Route("api/v1/deptmentspositiontreeapi")]
-        public IHttpActionResult GetDeptmentsPositionTree(Guid? id = null)
-        {
-            var result = _userDeptmentService.FindAll(a => a.ParentId == id);
-
-            //下级组织
-            var grid = result.AsEnumerable().Select(x =>
-            {
-                var hasChildren = _userDeptmentService.IsExists(a => a.ParentId == x.Id);
-                var pm = new TreeViewModel
-                {
-                    id = x.Id,
-                    text = x.Name,
-                    parentId = x.ParentId,
-                    value = x.Name,
-                    name = x.Name,
-                    code = x.Code
-                };
-                pm.hasChildren = hasChildren ? true : x.Positions.Any();
-                pm.expanded = false;
-                pm.isDeptment = true;
-                return pm;
-            }).ToList();
-
-            //取当前岗位
-            if (id != null)
-            {
-                var deptment = _userDeptmentService.Get(id.Value);
-                deptment.Positions.ToList().ForEach(x =>
-                {
-                    var pm = new TreeViewModel
-                    {
-                        id = x.Id,
-                        text = x.Name,
-                        parentId = x.ParentId,
-                        value = x.Name,
-                        name = x.Name,
-                        deptmentId = deptment.Id
-                    };
-                    pm.isPosition = true;
-                    grid.Add(pm);
-                });
-            }
-
-            return Json(grid);
-        }
-
-        private List<TreeViewModel> SortForTree(Guid? id = null, Guid? parentId = null)
-        {
-            var userDeptment = new List<UserDeptment>();
-            if (id != null)
-                userDeptment = _userService.Get(id.GetValueOrDefault()).UserDeptments.ToList();
-
-            var model = new List<TreeViewModel>();
-            foreach (var p in _userDeptmentService.FindAll(a => a.ParentId == parentId))
-            {
-                var pm = new TreeViewModel
-                {
-                    id = p.Id,
-                    text = p.Name,
-                    parentId = p.ParentId,
-                    value = p.Name,
-                    name = p.Name,
-                    //isChecked = userDeptment.Any() ? userDeptment.Any(a => a.Id == p.Id) : false
-                };
-                //pm.items.AddRange(SortForTree(id, p.Id));
-                pm.hasChildren = true;
-                pm.expanded = false;
-                model.Add(pm);
-            }
-            return model;
-        }
-
-        private string GetTreeNameChild(UserDeptment dept)
-        {
-            if (dept.Positions.Count() > 0)
-            {
-                return string.Format("{0} ({1})", dept.Name, dept.Positions.Count());
-            }
-
-            return dept.Name;
-        }
-
-        #endregion
     }
 }

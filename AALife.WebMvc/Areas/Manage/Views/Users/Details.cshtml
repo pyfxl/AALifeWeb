@@ -41,10 +41,18 @@
                                 </div>
                                 <div class="box box-default">
                                     <div class="box-header with-border">
+                                        <h3 class="box-title">岗位</h3>
+                                    </div>
+                                    <div class="box-body">
+                                        <div id="positiongrid"></div>
+                                    </div>
+                                </div>
+                                <div class="box box-default">
+                                    <div class="box-header with-border">
                                         <h3 class="box-title">部门</h3>
                                     </div>
                                     <div class="box-body">
-                                        <button id="pickDeptmentButton" class="k-primary">查看所在部门</button>
+                                        <div id="deptmentgrid"></div>
                                     </div>
                                 </div>
                             </div>
@@ -69,22 +77,167 @@
     </div><!-- /.row -->
 </section>
 
-@Html.Partial("_UserDeptment")
+<script src="~/Areas/Manage/Scripts/users.js"></script>
 
-<script src="~/Areas/Manage/Scripts/deptments.js"></script>
 <script>
-    $(function () {
-        $("#pickDeptmentButton").kendoButton({
-            click: openDialog
+    $(document).ready(function () {
+
+        //组织列表
+        var deptment = $("#deptmentgrid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: String.format($.const.webapi.usersdeptment_id, '@Model.Id')
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "string", editable: false, defaultValue: kendo.guid() },
+                            Name: { type: "string" },
+                            Code: { type: "string" },
+                            ParentId: { type: "string", nullable: true, defaultValue: null },
+                            Parent: { defaultValue: null },
+                            Notes: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            },
+            filterable: false,
+            //toolbar: [{ name: "select", text: "选择", iconClass: "k-icon k-i-search" }, { name: "delete", text: "移除", iconClass: "k-icon k-i-delete" }],
+            columns: [
+                {
+                    selectable: true,
+                    width: 100
+                },
+                {
+                    field: "Name",
+                    title: "组织名称",
+                    width: 200
+                },
+                {
+                    template: "#= data.Parent ? Parent.Name : '' #",
+                    field: "Parent",
+                    title: "上级组织",
+                    width: 200
+                },
+                {
+                    field: "Code",
+                    title: "组织编码",
+                    width: 100
+                },
+                {
+                    field: "Notes",
+                    title: "描述",
+                    width: 100
+                }
+            ]
+        }));
+
+        //岗位列表
+        var position = $("#positiongrid").kendoGrid($.extend(true, {}, $.const.kendolite, {
+            dataSource: {
+                transport: {
+                    read: {
+                        url: String.format($.const.webapi.usersposition_id, '@Model.Id')
+                    }
+                },
+                schema: {
+                    model: {
+                        id: "Id",
+                        fields: {
+                            Id: { type: "string", editable: false, defaultValue: kendo.guid() },
+                            ParentId: { type: "string", nullable: true, defaultValue: null },
+                            Parent: { defaultValue: null },
+                            DeptmentId: { type: "string", nullable: true, defaultValue: null },
+                            Code: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
+                            Notes: { type: "string" }
+                        }
+                    }
+                },
+                error: function (e) {
+                    kendoui_grid_error(e);
+                }
+            },
+            filterable: false,
+            toolbar: [{ name: "select", text: "选择", iconClass: "k-icon k-i-search" }, { name: "delete", text: "移除", iconClass: "k-icon k-i-delete" }],
+            columns: [
+                {
+                    selectable: true,
+                    width: 100
+                },
+                {
+                    field: "Name",
+                    title: "岗位名称",
+                    width: 200
+                },
+                {
+                    template: "#= data.Parent ? Parent.Name : '' #",
+                    field: "Parent",
+                    title: "上级岗位",
+                    width: 200
+                },
+                {
+                    field: "Code",
+                    title: "岗位编码",
+                    width: 100
+                },
+                {
+                    field: "Notes",
+                    title: "描述",
+                    width: 100
+                }
+            ]
+        }));
+        
+        //岗位用户选择按钮事件
+        $("#positiongrid .k-grid-toolbar").on("click", ".k-grid-select", function (e) {
+            e.preventDefault();
+
+            // ext dialog
+            $.when(kendo.ui.ExtCommonDialog.show({
+                width: "1000px",
+                height: "500px",
+                content: "/Manage/Home/DeptmentPositionSelect",
+                title: "选择岗位"
+            })).done(function (response) {
+                if (response.selected) {
+                    insert_usersposition('@Model.Id', response.selected, function (d) {
+                        kendoui_ajax_complete();
+                        var grid = $("#positiongrid").data("kendoGrid");
+                        grid.dataSource.read();
+                        $("#deptmentgrid").data("kendoGrid").dataSource.read();
+                    });
+                }
+            });
         });
+
+        //岗位用户删除按钮事件
+        $("#positiongrid .k-grid-toolbar").on("click", ".k-grid-delete", function (e) {
+            e.preventDefault();
+
+            var items = $("#positiongrid tbody .k-state-selected");
+            if (items.length > 0) {
+                var result = [];
+                var grid = $("#positiongrid").data("kendoGrid");
+                for (var i = 0; i < items.length; i++) {
+                    var dataItem = grid.dataItem(items[i]);
+                    result.push(dataItem);
+                }
+                delete_usersposition('@Model.Id', result, function (d) {
+                    kendoui_ajax_complete();
+                    grid.dataSource.read();
+                    $("#deptmentgrid").data("kendoGrid").dataSource.read();
+                });
+            }
+        });
+
     });
-
-    function pick_deptment_callback(checkedNodes) {
-        if (checkedNodes.length > 0) {
-            update_userdeptments(@Model.Id, checkedNodes);
-        }
-    }
-
 </script>
 
 @section scripts {
@@ -103,7 +256,7 @@
                             contentType: "application/json; charset=utf-8",
                             cache: false,
                             data: function () {
-                                return { userId: @Model.Id }
+                                return { userId: '@Model.Id' }
                             }
                         }
                     },
@@ -301,7 +454,7 @@
                 dataSource: {
                     transport: {
                         read: {
-                            url: String.format($.const.webapi.categorytypes, @Model.Id),
+                            url: String.format($.const.webapi.categorytypes, '@Model.Id'),
                             dataType: "json",
                         }
                     },
@@ -333,7 +486,7 @@
                 dataSource: {
                     transport: {
                         read: {
-                            url: String.format($.const.webapi.cards, @Model.Id),
+                            url: String.format($.const.webapi.cards, '@Model.Id'),
                             dataType: "json"
                         }
                     },
@@ -365,7 +518,7 @@
                 dataSource: {
                     transport: {
                         read: {
-                            url: String.format($.const.webapi.zhuantis, @Model.Id),
+                            url: String.format($.const.webapi.zhuantis, '@Model.Id'),
                             dataType: "json"
                         }
                     },

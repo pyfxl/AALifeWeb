@@ -46,16 +46,14 @@ function delete_deptmentsposition(id, dataItems, callback) {
     });
 }
 
-
 //删除岗位
-function delete_positions(dataItems, callback, errorback) {
+function delete_positions(id, dataItems, callback) {
     $.ajax({
-        url: $.const.webapi.positions,
+        url: String.format($.const.webapi.positions_id, id),
         dataType: "json",
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback,
-        error: errorback
+        success: callback
     });
 }

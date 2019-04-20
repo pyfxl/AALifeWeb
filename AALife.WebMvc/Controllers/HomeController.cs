@@ -37,12 +37,14 @@ namespace AALife.WebMvc.Controllers
             throw new HttpException(500, "服务器错误");
         }
 
+        [AllowAnonymous]
         public ActionResult UpdatePassword()
         {
             return View();
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult UpdatePassword(string returnUrl = "")
         {
             var users = _userService.Get();

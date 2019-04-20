@@ -56,9 +56,6 @@
                     }
                 },
                 parameterMap: function (options, operation) {
-                    if (operation === "destroy" && options.models) {
-                        return kendo.stringify(options.models);
-                    }
                     if (operation !== "read" && options.models) {
                         return kendo.stringify(options.models[0]);
                     }

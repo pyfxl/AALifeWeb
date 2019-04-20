@@ -30,18 +30,17 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         #region 其它方法 
 
-        private List<TreeViewModel> SortForTree(int? parentId = null)
+        private List<ParameterTreeModel> SortForTree(int? parentId = null)
         {
-            var model = new List<TreeViewModel>();
+            var model = new List<ParameterTreeModel>();
             foreach (var p in _parameterService.FindAll(a => a.ParentId == parentId && (a.IsLeaf == null || !a.IsLeaf.Value)).OrderBy(a => a.OrderNo))
             {
-                var pm = new ParameterTreeViewModel
+                var pm = new ParameterTreeModel
                 {
-                    id = p.Id,
+                    Id = p.Id,
+                    ParentId = p.ParentId.GetValueOrDefault(),
                     text = p.Name,
-                    parentId = p.ParentId.GetValueOrDefault(),
-                    value = p.Value,
-                    rank = p.Rank
+                    value = p.Value
                 };
                 pm.items.AddRange(SortForTree(p.Id));
                 pm.hasChildren = pm.expanded = pm.items.Count > 0;

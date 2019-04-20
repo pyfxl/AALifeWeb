@@ -43,6 +43,12 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return PartialView("_DeptmentUserSelect");
         }
 
+        // GET: Manage/Common
+        public ActionResult DeptmentPositionSelect()
+        {
+            return PartialView("_DeptmentPositionSelect");
+        }
+
         [ChildActionOnly]
         public ActionResult SidebarMenu()
         {

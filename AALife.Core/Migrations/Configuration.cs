@@ -118,17 +118,17 @@ namespace AALife.Core.Migrations
             context.Set<Parameter>().AddOrUpdate(m => new { m.Id }, userLevel.ToArray());
             context.SaveChanges();
 
-            var deptmentCategory = new List<Parameter>
-            {
-                new Parameter{ Id = 52, Name = "组织类型", Value = "OrgType", Rank = 7, OrderNo = "01.07", ParentId = 1  },
-                new Parameter{ Id = 53, Name = "集团", Value = "Group", Rank = 1, OrderNo = "01.07.01", ParentId = 52, IsLeaf = true, IsDefault = true  },
-                new Parameter{ Id = 54, Name = "板块", Value = "Area", Rank = 2, OrderNo = "01.07.02", ParentId = 52, IsLeaf = true  },
-                new Parameter{ Id = 55, Name = "公司", Value = "Company", Rank = 3, OrderNo = "01.07.03", ParentId = 52, IsLeaf = true  },
-                new Parameter{ Id = 56, Name = "部门", Value = "Deptment", Rank = 4, OrderNo = "01.07.04", ParentId = 52, IsLeaf = true  },
-                new Parameter{ Id = 57, Name = "小组", Value = "Class", Rank = 5, OrderNo = "01.07.05", ParentId = 52, IsLeaf = true  }
-            };
-            context.Set<Parameter>().AddOrUpdate(m => new { m.Id }, deptmentCategory.ToArray());
-            context.SaveChanges();
+            //var deptmentCategory = new List<Parameter>
+            //{
+            //    new Parameter{ Id = 52, Name = "组织类型", Value = "OrgType", Rank = 7, OrderNo = "01.07", ParentId = 1  },
+            //    new Parameter{ Id = 53, Name = "集团", Value = "Group", Rank = 1, OrderNo = "01.07.01", ParentId = 52, IsLeaf = true, IsDefault = true  },
+            //    new Parameter{ Id = 54, Name = "板块", Value = "Area", Rank = 2, OrderNo = "01.07.02", ParentId = 52, IsLeaf = true  },
+            //    new Parameter{ Id = 55, Name = "公司", Value = "Company", Rank = 3, OrderNo = "01.07.03", ParentId = 52, IsLeaf = true  },
+            //    new Parameter{ Id = 56, Name = "部门", Value = "Deptment", Rank = 4, OrderNo = "01.07.04", ParentId = 52, IsLeaf = true  },
+            //    new Parameter{ Id = 57, Name = "小组", Value = "Class", Rank = 5, OrderNo = "01.07.05", ParentId = 52, IsLeaf = true  }
+            //};
+            //context.Set<Parameter>().AddOrUpdate(m => new { m.Id }, deptmentCategory.ToArray());
+            //context.SaveChanges();
 
             #endregion
 

@@ -8,6 +8,7 @@ namespace AALife.WebMvc.Models.ViewModel
     public abstract partial class BaseViewModel<TPrimaryKey>
     {
         public virtual TPrimaryKey Id { get; set; }
+
     }
 
     public abstract partial class BaseViewModel : BaseViewModel<int>

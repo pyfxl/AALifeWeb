@@ -15,10 +15,6 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public UserDeptment Parent { get; set; }
 
-        public string Category { get; set; }
-
-        public string CategoryName { get; set; }
-
         public string Notes { get; set; }
 
         public string Code { get; set; }

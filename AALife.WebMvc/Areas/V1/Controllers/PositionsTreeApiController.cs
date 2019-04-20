@@ -13,55 +13,45 @@ namespace AALife.WebMvc.Areas.V1.Controllers
     public class PositionsTreeApiController : BaseApiController
     {
         private readonly IUserService _userService;
+        private readonly IUserDeptmentService _userDeptmentService;
         private readonly IUserPositionService _userPositionService;
         private readonly ICustomerActivityService _customerActivityService;
         private readonly IParameterService _parameterService;
 
-        public PositionsTreeApiController(IUserService userService, 
+        public PositionsTreeApiController(IUserService userService,
+            IUserDeptmentService userDeptmentService,
             IUserPositionService userPositionService,
             ICustomerActivityService customerActivityService,
             IParameterService parameterService)
         {
             this._userService = userService;
+            this._userDeptmentService = userDeptmentService;
             this._userPositionService = userPositionService;
             this._customerActivityService = customerActivityService;
             this._parameterService = parameterService;
         }
 
-        // GET: api/Positions
-        public IHttpActionResult Get()
-        {
-            var tree = SortForTree();
-
-            return Json(tree);
-        }
-
         // GET: api/Positions/5
-        public IHttpActionResult Get(Guid id)
+        public IHttpActionResult Get(Guid? id)
         {
-            var tree = SortForTree(id);
+            //var tree = SortForTree(id);
 
-            return Json(tree);
+            return Json("");
         }
 
         #region 其它方法 
 
         private List<TreeViewModel> SortForTree(Guid? id = null, Guid? parentId = null)
         {
-            var userPosition = new List<UserPosition>();
-            if(id != null)
-                userPosition = _userService.Get(id.GetValueOrDefault()).UserPositions.ToList();
-
             var model = new List<TreeViewModel>();
             foreach (var p in _userPositionService.FindAll(a => a.Id != default(Guid)))
             {
                 var pm = new TreeViewModel
                 {
-                    id = p.Id,
+                    Id = p.Id,
+                    ParentId = p.ParentId.GetValueOrDefault(),
                     text = p.Name,
-                    parentId = p.ParentId.GetValueOrDefault(),
-                    value = p.Name,
-                    name = p.Name
+                    value = p.Name
                 };
                 pm.items.AddRange(SortForTree(id, p.Id));
                 pm.hasChildren = pm.items.Count > 0;

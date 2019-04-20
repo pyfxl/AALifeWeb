@@ -117,24 +117,13 @@ namespace AALife.Data.Migrations
                 new UserPermission()
                 {
                     Id = Guid.NewGuid(),
-                    Name = "岗位管理",
-                    AreaName = "Manage",
-                    ControllerName = "Positions",
-                    ActionName = "Index",
-                    IconName = "fa fa-flag",
-                    Rank = 6,
-                    OrderNo = "06"
-                },
-                new UserPermission()
-                {
-                    Id = Guid.NewGuid(),
                     Name = "参数管理",
                     AreaName = "Manage",
                     ControllerName = "Parameters",
                     ActionName = "Index",
                     IconName = "fa fa-gears",
-                    Rank = 7,
-                    OrderNo = "07"
+                    Rank = 6,
+                    OrderNo = "06"
                 },
                 new UserPermission()
                 {
@@ -144,8 +133,8 @@ namespace AALife.Data.Migrations
                     ControllerName = "MessageTemplates",
                     ActionName = "Index",
                     IconName = "fa fa-envelope",
-                    Rank = 8,
-                    OrderNo = "08"
+                    Rank = 7,
+                    OrderNo = "07"
                 },
                 new UserPermission()
                 {
@@ -155,8 +144,8 @@ namespace AALife.Data.Migrations
                     ControllerName = "ScheduleTasks",
                     ActionName = "Index",
                     IconName = "fa fa-history",
-                    Rank = 9,
-                    OrderNo = "09"
+                    Rank = 8,
+                    OrderNo = "08"
                 },
                 new UserPermission()
                 {
@@ -166,8 +155,8 @@ namespace AALife.Data.Migrations
                     ControllerName = "Settings",
                     ActionName = "Index",
                     IconName = "fa fa-globe",
-                    Rank = 10,
-                    OrderNo = "10"
+                    Rank = 9,
+                    OrderNo = "09"
                 }
             };
             var permissionSet = context.Set<UserPermission>();

@@ -39,16 +39,14 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return View();
         }
 
-        [AdminAuthorize]
-        public ActionResult Setting()
+        //[AdminAuthorize]
+        public ActionResult Setting2()
         {
             var model = new PermissionMappingModel();
 
             var permissionRecords = _permissionService.Get();
 
             permissionRecords = permissionRecords.OrderBy(a => a.OrderNo);
-
-            var userRoles = _userRoleService.Get();
 
             foreach (var pr in permissionRecords)
             {
@@ -59,6 +57,8 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                     Name = _permissionService.GetFormattedBreadCrumb(pr)
                 });
             }
+
+            var userRoles = _userRoleService.Get();
 
             foreach (var cr in userRoles)
             {
@@ -81,16 +81,14 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return View(model);
         }
 
-        [AdminAuthorize]
-        public ActionResult Setting2()
+        //[AdminAuthorize]
+        public ActionResult Setting4()
         {
             var model = new PermissionMappingModel();
 
             var permissionRecords = _permissionService.Get();
 
             permissionRecords = permissionRecords.OrderBy(a => a.OrderNo);
-
-            var userDeptments = _userDeptmentService.Get();
 
             foreach (var pr in permissionRecords)
             {
@@ -101,6 +99,8 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                     Name = _permissionService.GetFormattedBreadCrumb(pr)
                 });
             }
+
+            var userDeptments = _userDeptmentService.Get();
 
             foreach (var cr in userDeptments)
             {
@@ -123,7 +123,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return View(model);
         }
 
-        [AdminAuthorize]
+        //[AdminAuthorize]
         public ActionResult Setting3()
         {
             var model = new PermissionMappingModel();
@@ -131,8 +131,6 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             var permissionRecords = _permissionService.Get();
 
             permissionRecords = permissionRecords.OrderBy(a => a.OrderNo);
-
-            var userPositions = _userPositionService.Get();
 
             foreach (var pr in permissionRecords)
             {
@@ -142,6 +140,8 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                     Name = _permissionService.GetFormattedBreadCrumb(pr)
                 });
             }
+
+            var userPositions = _userPositionService.Get();
 
             foreach (var cr in userPositions)
             {
@@ -164,7 +164,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return View(model);
         }
 
-        [AdminAuthorize]
+        //[AdminAuthorize]
         public ActionResult SettingTree()
         {            
             return View();

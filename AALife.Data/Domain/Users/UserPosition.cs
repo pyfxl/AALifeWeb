@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace AALife.Data.Domain
 {
-    [Table("tab_UserPosition")]
+    [Table("usr_UserPosition")]
     public partial class UserPosition : BaseEntity<Guid>
     {
         /// <summary>
@@ -79,6 +79,7 @@ namespace AALife.Data.Domain
         /// 父部门
         /// </summary>
         [ForeignKey("ParentId")]
+        //[JsonIgnore]
         public virtual UserPosition Parent { get; set; }
 
         /// <summary>

@@ -14,5 +14,13 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string Notes { get; set; }
 
+        public UserPosition Parent { get; set; }
+
+        public Guid? ParentId { get; set; }
+
+        public Guid? DeptmentId { get; set; }
+
+        public bool hasChildren { get; set; }
+
     }
 }

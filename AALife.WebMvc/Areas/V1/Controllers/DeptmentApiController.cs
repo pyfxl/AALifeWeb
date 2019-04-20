@@ -42,7 +42,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 var m = x.MapTo<UserDeptment, UserDeptmentModel>();
                 m.Parent = x.Parent;
                 m.hasChildren = _userDeptmentService.IsExists(a => a.ParentId == m.Id);
-                m.CategoryName = m.Category;
                 return m;
             });
 
@@ -135,14 +134,13 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             {
                 var pm = new TreeViewModel
                 {
-                    id = p.Id,
+                    Id = p.Id,
+                    ParentId = p.ParentId.GetValueOrDefault(),
                     text = p.Name,
-                    parentId = p.ParentId.GetValueOrDefault(),
                     value = p.Name,
-                    name = p.Name,
                     isChecked = userDeptment.Any() ? userDeptment.Any(a => a.Id == p.Id) : false
                 };
-                //pm.items.AddRange(SortForTree(id, p.Id));
+                pm.items.AddRange(SortForTree(id, p.Id));
                 pm.hasChildren = pm.items.Count > 0;
                 model.Add(pm);
             }

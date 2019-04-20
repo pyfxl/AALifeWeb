@@ -25,7 +25,7 @@ function delete_deptmentsuser(id, dataItems, callback) {
 //更新用户部门
 function update_userdeptments(uid, checkedNodes, callback) {
     $.ajax({
-        url: String.format($.const.webapi.userdeptments, uid),
+        url: String.format($.const.webapi.usersdeptment, uid),
         dataType: "json",
         type: "PUT",
         contentType: "application/json; charset=utf-8",

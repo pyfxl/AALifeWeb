@@ -49,6 +49,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var viewModel = result.Select(x =>
             {
                 var m = x.MapTo<UserTable, UserManageViewModel>();
+                m.Position = x.UserPositions.FirstOrDefault();
                 return m;
             });
 
@@ -93,7 +94,8 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var user = _userService.Get(model.Id);
 
             user.UserName = model.UserName;
-            user.UserNickName = model.UserNickName;
+            user.UserCode = model.UserCode;
+            user.FirstName = model.FirstName;
             user.UserImage = model.UserImage;
             user.UserPassword = model.UserPassword;
             user.PasswordSalt = model.PasswordSalt;
@@ -134,47 +136,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
         #region 其它方法
 
-        // 获取用户列表，用于弹出窗口选择
-        [Route("api/v1/userselectsapi")]
-        public IHttpActionResult GetUserSelects([FromUri]DataSourceRequest common, [FromUri]UsersQuery query)
-        {
-            var result = _userService.GetAllUserByPage(common.Page - 1, common.PageSize, common.Sort, common.Filter, query.userId, query.startDate, query.endDate, query.keyWords);
-
-            var grid = new DataSourceResult
-            {
-                Data = result.Select(x =>
-                {
-                    var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
-                    return m;
-                }),
-                Total = result.TotalCount
-            };
-
-            return Json(grid);
-        }
-
-        // 获取用户列表，用于弹出窗口选择
-        [Route("api/v1/usersselectapi")]
-        public IHttpActionResult GetUsersSelect([FromUri]DataSourceRequest request)
-        {
-            var result = _userService.GetByPage(request, a => a.Id != null);
-
-            var grid = new DataSourceResult
-            {
-                Data = result.Select(x =>
-                {
-                    var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
-                    return m;
-                }),
-                Total = result.TotalCount
-            };
-
-            return Json(grid);
-        }
-
-        // GET api/<controller>
+        // 用与用户名框下拉
         [Route("api/v1/usernamesapi")]
         public IHttpActionResult GetUserNames(string term)
         {

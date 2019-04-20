@@ -213,7 +213,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             {
                 var pm = new PermissionTreeModel
                 {
-                    id = p.Id,
+                    Id = p.Id,
                     text = p.Name,
                 };
                 pm.items.AddRange(SortPermissionForTree(p.Id));

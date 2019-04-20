@@ -1,6 +1,6 @@
 ﻿function insert_update_userrole(id, dataItem) {
     $.ajax({
-        url: String.format($.const.webapi.userroles, id),
+        url: String.format($.const.webapi.usersrole_id, id),
         dataType: "json",
         type: "PUT",
         contentType: "application/json; charset=utf-8",

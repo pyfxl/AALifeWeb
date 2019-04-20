@@ -14,20 +14,10 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public string FirstName { get; set; }
 
-        public string UserNameFull { get; set; }
-
-        public string UserImage { get; set; }
-
         public string UserPhone { get; set; }
 
         public string UserEmail { get; set; }
-
-        public string UserImageFull { get; set; }
-
-        public string UserFrom { get; set; }
-
-        public string UserFromName { get; set; }
-
+        
         public DateTime CreateDate { get; set; }
 
         public DateTime ModifyDate { get; set; }
@@ -35,6 +25,8 @@ namespace AALife.WebMvc.Models.ViewModel
         public string Remark { get; set; }
 
         public bool IsAdmin { get; set; }
+
+        public virtual UserPosition Position { get; set; }
 
     }
 }

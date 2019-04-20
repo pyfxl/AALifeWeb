@@ -1108,15 +1108,15 @@
 
     /*
      *
-     * UserDialog
+     * CommonDialog
      *
      */
 
-    kendo.ui.ExtUserDialog = {
+    kendo.ui.ExtCommonDialog = {
         show: function (options) {
             return new $.Deferred(function (deferred) {
-                if ($("#extUserDialog").length > 0) {
-                    $("#extUserDialog").parent().remove();
+                if ($("#extCommonDialog").length > 0) {
+                    $("#extCommonDialog").parent().remove();
                 }
 
                 options = $.extend({
@@ -1126,8 +1126,8 @@
                     buttons: [{
                         name: "确定",
                         click: function (e) {
-                            $("#extUserDialog").data("kendoExtDialog").close();
-                            var grid = $("#dialog-usergrid").data("kendoGrid");
+                            $("#extCommonDialog").data("kendoExtDialog").close();
+                            var grid = $("#dialog-commongrid").data("kendoGrid");
                             var selectedRows = grid.select();
                             var selectedDataItems = [];
                             for (var i = 0; i < selectedRows.length; i++) {
@@ -1139,13 +1139,13 @@
                     }, {
                         name: "取消",
                         click: function (e) {
-                            $("#extUserDialog").data("kendoExtDialog").close();
+                            $("#extCommonDialog").data("kendoExtDialog").close();
                             deferred.resolve({ button: "Cancel" });
                         }
                     }],
                     close: function () {
                         setTimeout(function () {
-                            var grid = $("#dialog-usergrid").data("kendoGrid");
+                            var grid = $("#dialog-commongrid").data("kendoGrid");
                             grid.destroy();
                         });
                     },
@@ -1153,10 +1153,9 @@
                     visible: false
                 }, options);
 
-                $(document.body).append("<div id='extUserDialog' class='k-ext-dialog-grid-content' style='position:relative;padding-bottom:55px;overflow:hidden;'></div>");
-                $("#extUserDialog").kendoExtDialog(options);
-                //$("#extUserDialog").parent().find("div.k-window-titlebar div.k-window-actions").empty();
-                $("#extUserDialog").data("kendoExtDialog").center().open();
+                $(document.body).append("<div id='extCommonDialog' class='k-ext-dialog-grid-content' style='position:relative;padding-bottom:55px;overflow:hidden;'></div>");
+                $("#extCommonDialog").kendoExtDialog(options);
+                $("#extCommonDialog").data("kendoExtDialog").center().open();
             });
         }
     };

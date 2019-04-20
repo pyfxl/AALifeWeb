@@ -14,7 +14,7 @@ using System.Web.Http;
 namespace AALife.WebMvc.Areas.V1.Controllers
 {
     /// <summary>
-    /// 操作指定岗位下的用户
+    /// 岗位用户接口
     /// </summary>
     public class PositionsUserApiController : BaseApiController
     {
@@ -47,7 +47,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = users.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
+                    m.Position = x.UserPositions.First(a => a.Id == id);
                     return m;
                 }),
                 Total = users.TotalCount

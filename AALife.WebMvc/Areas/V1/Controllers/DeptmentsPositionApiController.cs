@@ -149,7 +149,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 return Json(grid);
             }
 
-            return Json("");
+            return Json(HttpStatusCode.OK);
         }
 
         #endregion

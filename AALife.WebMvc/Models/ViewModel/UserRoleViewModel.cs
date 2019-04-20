@@ -9,5 +9,9 @@ namespace AALife.WebMvc.Models.ViewModel
         public bool IsCurrentRole { get; set; }
 
         public virtual UserPosition Position { get; set; }
+
+        public virtual UserPosition ParentPosition { get; set; }
+
+        public Guid? ParentPositionId { get; set; }
     }
 }

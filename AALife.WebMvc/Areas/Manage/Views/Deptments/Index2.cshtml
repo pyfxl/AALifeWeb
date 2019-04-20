@@ -47,7 +47,7 @@
                             Id: { type: "string", editable: false, defaultValue: kendo.guid() },
                             ParentId: { type: "string", nullable: true, defaultValue: null },
                             Parent: { defaultValue: null },
-                            Code: { type: "string" },
+                            Code: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                             Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                             Notes: { type: "string" }
                         },
@@ -84,7 +84,7 @@
                                     dataValueField: "Id",
                                     height: "200px",
                                     loadOnDemand: true,
-                                    dataSource: new kendo.data.HierarchicalDataSource({
+                                    dataSource: {
                                         transport: {
                                             read: {
                                                 url: $.const.webapi.deptments
@@ -98,7 +98,7 @@
                                                 expanded: false
                                             }
                                         }
-                                    })
+                                    }
                                 });
                         }
                     },

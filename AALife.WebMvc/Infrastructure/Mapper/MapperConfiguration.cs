@@ -37,34 +37,25 @@ namespace AALife.WebMvc.Infrastructure.Mapper
                     .ForMember(dest => dest.ZhuanZhangToName, src => src.Ignore());
 
                 //user
-                cfg.CreateMap<UserTable, UserViewModel>()
-                    .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
-                    .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()));
+                cfg.CreateMap<UserTable, UserViewModel>();
 
                 //user manage
-                cfg.CreateMap<UserTable, UserManageViewModel>()
-                    .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
-                    .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()));
+                cfg.CreateMap<UserTable, UserManageViewModel>();
 
                 //user manage
                 cfg.CreateMap<UserTable, UserDetailViewModel>()
-                    .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
-                    .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()))
                     .ForMember(dest => dest.JoinDay, mo => mo.MapFrom(src => DateTime.Now.Subtract(src.CreateDate).Days + 1))
                     .ForMember(dest => dest.ItemCount, mo => mo.MapFrom(src => src.ItemTables.Count));
 
                 //user role
-                cfg.CreateMap<UserTable, UserRoleViewModel>()
-                    .ForMember(dest => dest.UserNameFull, mo => mo.MapFrom(src => src.UserNameFull()))
-                    .ForMember(dest => dest.UserImageFull, mo => mo.MapFrom(src => src.UserImageFull()));
+                cfg.CreateMap<UserTable, UserRoleViewModel>();
 
                 //permission
                 cfg.CreateMap<PermissionViewModel, UserPermission>()
                     .ForMember(dest => dest.UserRoles, src => src.Ignore());
 
                 //deptment
-                cfg.CreateMap<UserDeptment, UserDeptmentModel>()
-                    .ForMember(dest => dest.CategoryName, src => src.Ignore());
+                cfg.CreateMap<UserDeptment, UserDeptmentModel>();
 
                 //position
                 cfg.CreateMap<UserPosition, UserPositionModel>();

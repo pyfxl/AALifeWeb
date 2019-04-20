@@ -9,8 +9,10 @@ namespace AALife.Core.Mapping.Logging
         {
             this.ToTable("bse_Log");
             this.HasKey(l => l.Id);
-            this.Property(l => l.ShortMessage).IsRequired();
+            this.Property(l => l.ShortMessage).IsRequired().HasMaxLength(200);
             this.Property(l => l.IpAddress).HasMaxLength(200);
+            this.Property(l => l.PageUrl).HasMaxLength(200);
+            this.Property(l => l.ReferrerUrl).HasMaxLength(200);
 
             this.Ignore(l => l.LogLevel);
 

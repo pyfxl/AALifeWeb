@@ -715,7 +715,7 @@
                 dialog = that.options.dialog;
 
             // ext dialog
-            $.when(kendo.ui.ExtUserDialog.show({
+            $.when(kendo.ui.ExtCommonDialog.show({
                 width: dialog.width,
                 height: dialog.height,
                 content: dialog.content,

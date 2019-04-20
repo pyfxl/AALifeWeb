@@ -2,7 +2,7 @@
 @model PermissionMappingModel
 
 @{
-    ViewBag.Title = "部门权限";
+    ViewBag.Title = "角色权限";
 }
 
 <section class="content">
@@ -11,7 +11,7 @@
             <div id="main">
                 <script type="text/javascript">
                 $(document).ready(function () {
-                    @foreach (var cr in Model.AvailableUserDeptments)
+                    @foreach (var cr in Model.AvailableUserRoles)
                     {
                         <text>
                         //全选
@@ -22,7 +22,7 @@
                         $('.allow_@(cr.Id)').click(function () {
                             var id = $(this).data("role");
                             var pid = $(this).val();
-                            update_permission_deptment(pid, id);
+                            update_permission_role(pid, id);
                         });
                         </text>
                     }
@@ -37,7 +37,7 @@
                                     <strong>权限名称</strong>
                                 </div>
                             </th>
-                            @foreach (var cr in Model.AvailableUserDeptments)
+                            @foreach (var cr in Model.AvailableUserRoles)
                             {
                                 <th scope="col" class="text-center">
                                     <div class="checkbox">
@@ -55,7 +55,7 @@
                                 <td>
                                     <span>@pr.Name</span>
                                 </td>
-                                @foreach (var cr in Model.AvailableUserDeptments)
+                                @foreach (var cr in Model.AvailableUserRoles)
                                 {
                                     var allowed = Model.Allowed.ContainsKey(pr.Id) && Model.Allowed[pr.Id][cr.Id];
                                     <td class="text-center">

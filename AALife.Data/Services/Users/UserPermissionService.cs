@@ -83,7 +83,7 @@ namespace AALife.Data.Services
 
                 alreadyProcessedPermissionIds.Add(permission.Id);
 
-                permission = _repository.GetById(permission.ParentId.Value);
+                permission = _repository.GetById(permission.ParentId.GetValueOrDefault());
 
             }
 

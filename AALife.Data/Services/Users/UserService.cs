@@ -50,7 +50,7 @@ namespace AALife.Data.Services
 
             if (keyWords != null && keyWords != "")
             {
-                query = query.Where(c => c.UserName.Contains(keyWords) || c.UserNickName.Contains(keyWords) || c.UserEmail.Contains(keyWords));
+                query = query.Where(c => c.UserName.Contains(keyWords) || c.FirstName.Contains(keyWords) || c.UserEmail.Contains(keyWords));
             }
 
             if (sort != null)

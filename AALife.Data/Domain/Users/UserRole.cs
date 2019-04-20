@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AALife.Data.Domain
 {
-    [Table("tab_UserRole")]
+    [Table("usr_UserRole")]
     public partial class UserRole : BaseEntity<Guid>
     {
         /// <summary>

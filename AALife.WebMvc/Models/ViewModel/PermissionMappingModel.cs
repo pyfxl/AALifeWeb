@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AALife.WebMvc.Models.ViewModel
 {
-    public partial class PermissionMappingModel : BaseViewModel
+    public partial class PermissionMappingModel : BaseViewModel<Guid>
     {
         public PermissionMappingModel()
         {

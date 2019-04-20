@@ -66,7 +66,6 @@
     <Compile Include="Domain\Users\UserDeptment.cs" />
     <Compile Include="Domain\Users\UserPermission.cs" />
     <Compile Include="Domain\Business\ItemTable.cs" />
-    <Compile Include="Domain\Business\OAuthTable.cs" />
     <Compile Include="Domain\Users\UserRole.cs" />
     <Compile Include="Domain\Users\UserRoleNames.cs" />
     <Compile Include="Domain\Users\UserSettings.cs" />
@@ -76,29 +75,13 @@
     <Compile Include="AALifeContext.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="IWorkContext.cs" />
-    <Compile Include="Migrations\201904122235045_Init-a.cs" />
-    <Compile Include="Migrations\201904122235045_Init-a.Designer.cs">
-      <DependentUpon>201904122235045_Init-a.cs</DependentUpon>
+    <Compile Include="Migrations\201904201411010_Init-1.cs" />
+    <Compile Include="Migrations\201904201411010_Init-1.Designer.cs">
+      <DependentUpon>201904201411010_Init-1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201904130944479_Init-b.cs" />
-    <Compile Include="Migrations\201904130944479_Init-b.Designer.cs">
-      <DependentUpon>201904130944479_Init-b.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904131218128_Init-c.cs" />
-    <Compile Include="Migrations\201904131218128_Init-c.Designer.cs">
-      <DependentUpon>201904131218128_Init-c.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904131328162_Init-d.cs" />
-    <Compile Include="Migrations\201904131328162_Init-d.Designer.cs">
-      <DependentUpon>201904131328162_Init-d.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904140853077_Init-e.cs" />
-    <Compile Include="Migrations\201904140853077_Init-e.Designer.cs">
-      <DependentUpon>201904140853077_Init-e.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201904150908201_UpdateDeptmtnt.cs" />
-    <Compile Include="Migrations\201904150908201_UpdateDeptmtnt.Designer.cs">
-      <DependentUpon>201904150908201_UpdateDeptmtnt.cs</DependentUpon>
+    <Compile Include="Migrations\201904201424543_Init-2.cs" />
+    <Compile Include="Migrations\201904201424543_Init-2.Designer.cs">
+      <DependentUpon>201904201424543_Init-2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyType.cs" />
@@ -140,23 +123,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904122235045_Init-a.resx">
-      <DependentUpon>201904122235045_Init-a.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904201411010_Init-1.resx">
+      <DependentUpon>201904201411010_Init-1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904130944479_Init-b.resx">
-      <DependentUpon>201904130944479_Init-b.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904131218128_Init-c.resx">
-      <DependentUpon>201904131218128_Init-c.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904131328162_Init-d.resx">
-      <DependentUpon>201904131328162_Init-d.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904140853077_Init-e.resx">
-      <DependentUpon>201904140853077_Init-e.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201904150908201_UpdateDeptmtnt.resx">
-      <DependentUpon>201904150908201_UpdateDeptmtnt.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904201424543_Init-2.resx">
+      <DependentUpon>201904201424543_Init-2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

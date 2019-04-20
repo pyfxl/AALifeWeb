@@ -36,6 +36,7 @@ namespace AALife.Core
         public virtual IDbSet<Log> Logs { get; set; }
         public virtual IDbSet<ActivityLog> ActivityLogs { get; set; }
         public virtual IDbSet<Picture> Pictures { get; set; }
+        public virtual IDbSet<Download> Downloads { get; set; }
         public virtual IDbSet<Parameter> Parameters { get; set; }
         public virtual IDbSet<MessageTemplate> MessageTemplates { get; set; }
         public virtual IDbSet<QueuedEmail> QueuedEmails { get; set; }
@@ -47,6 +48,7 @@ namespace AALife.Core
             modelBuilder.Configurations.Add(new ActivityLogMap());
             modelBuilder.Configurations.Add(new LogMap());
             modelBuilder.Configurations.Add(new PictureMap());
+            modelBuilder.Configurations.Add(new DownloadMap());
             modelBuilder.Configurations.Add(new ParameterMap());
             modelBuilder.Configurations.Add(new MessageTemplateMap());
             modelBuilder.Configurations.Add(new QueuedEmailMap());

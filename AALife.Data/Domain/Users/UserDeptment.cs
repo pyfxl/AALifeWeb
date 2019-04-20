@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace AALife.Data.Domain
 {
-    [Table("tab_UserDeptment")]
+    [Table("usr_UserDeptment")]
     public partial class UserDeptment : BaseEntity<Guid>
     {
         /// <summary>
@@ -91,6 +91,7 @@ namespace AALife.Data.Domain
         /// 父部门
         /// </summary>
         [ForeignKey("ParentId")]
+        //[JsonIgnore]
         public virtual UserDeptment Parent { get; set; }
 
         /// <summary>

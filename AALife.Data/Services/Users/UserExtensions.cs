@@ -20,7 +20,7 @@ namespace AALife.Data.Services
             if (user == null)
                 throw new ArgumentNullException("user");
 
-            return string.IsNullOrWhiteSpace(user.UserNickName) ? user.UserName : user.UserNickName;
+            return string.IsNullOrWhiteSpace(user.FirstName) ? user.UserName : user.FirstName;
         }
     }
 }

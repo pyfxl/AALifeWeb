@@ -83,18 +83,18 @@
                             type: "string",
                             validation: {
                                 required: true,
-                                validationMessage: "用户名为必填项",
+                                validationMessage: "必填项。",
                                 usernamevalidation: function (input) {
                                     if (input.is("[name='UserName']") && input.val() != "") {
-                                        input.attr("data-usernamevalidation-msg", "用户名必须3-20位");
+                                        input.attr("data-usernamevalidation-msg", "必须3-20位。");
                                         return input.val().length >= 3 && input.val().length <= 20;
                                     }
                                     return true;
                                 }
                             }
                         },
-                        UserPassword: { type: "string", validation: { required: true, validationMessage: "密码为必填项" } },
-                        UserNickName: { type: "string" },
+                        UserCode: { type: "string", validation: { required: true, validationMessage: "必填项。" } },
+                        FirstName: { type: "string" },
                         UserImage: { type: "string" },
                         UserImageFull: { type: "string" },
                         UserTheme: { type: "string" },
@@ -154,13 +154,13 @@
                     }
                 },
                 {
-                    field: "UserPassword",
-                    title: "密码",
+                    field: "UserCode",
+                    title: "编码",
                     width: 100
                 },
                 {
-                    field: "UserNickName",
-                    title: "昵称",
+                    field: "FirstName",
+                    title: "姓名",
                     width: 100
                 },
                 {

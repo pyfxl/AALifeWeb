@@ -249,7 +249,7 @@
     color: #367fa9;
 }
 .k-grid-header th.k-state-focused, .k-list > .k-state-focused, .k-listview > .k-state-focused, .k-state-focused, td.k-state-focused {
-    box-shadow: inset 0 0 0 1px #3c8dbc;
+    box-shadow: inset 0 0 0 1px #3c8dbc !important;
 }
 .k-list > .k-state-focused.k-state-selected, .k-listview > .k-state-focused.k-state-selected, .k-state-focused.k-state-selected, td.k-state-focused.k-state-selected {
     box-shadow: inset 0 0 3px 1px #367fa9; /*#445b00;*/

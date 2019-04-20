@@ -137,6 +137,7 @@
     <Compile Include="Infrastructure\IEngine.cs" />
     <Compile Include="Infrastructure\IStartupTask.cs" />
     <Compile Include="Infrastructure\ITypeFinder.cs" />
+    <Compile Include="Infrastructure\Kendoui\KendoExtensions.cs" />
     <Compile Include="Infrastructure\Kendoui\DataSourceRequest.cs" />
     <Compile Include="Infrastructure\Kendoui\DataSourceResult.cs" />
     <Compile Include="Infrastructure\Kendoui\Filter.cs" />
@@ -151,13 +152,18 @@
     <Compile Include="Mapping\Configuration\SettingMap.cs" />
     <Compile Include="Mapping\Logging\ActivityLogMap.cs" />
     <Compile Include="Mapping\Logging\LogMap.cs" />
+    <Compile Include="Mapping\Media\DownloadMap.cs" />
     <Compile Include="Mapping\Media\PictureMap.cs" />
     <Compile Include="Mapping\Messages\MessageTemplateMap.cs" />
     <Compile Include="Mapping\Messages\QueuedEmailMap.cs" />
     <Compile Include="Mapping\Tasks\ScheduleTaskMap.cs" />
-    <Compile Include="Migrations\201904122232342_Init-1.cs" />
-    <Compile Include="Migrations\201904122232342_Init-1.Designer.cs">
-      <DependentUpon>201904122232342_Init-1.cs</DependentUpon>
+    <Compile Include="Migrations\201904201358272_Init-a.cs" />
+    <Compile Include="Migrations\201904201358272_Init-a.Designer.cs">
+      <DependentUpon>201904201358272_Init-a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904201613235_Init-b.cs" />
+    <Compile Include="Migrations\201904201613235_Init-b.Designer.cs">
+      <DependentUpon>201904201613235_Init-b.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MimeTypes.cs" />
@@ -222,7 +228,6 @@
     <Compile Include="Services\Tasks\Task.cs" />
     <Compile Include="Services\Tasks\TaskManager.cs" />
     <Compile Include="Services\Tasks\TaskThread.cs" />
-    <Compile Include="Services\BaseExtensions.cs" />
     <Compile Include="WebHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -230,8 +235,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201904122232342_Init-1.resx">
-      <DependentUpon>201904122232342_Init-1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201904201358272_Init-a.resx">
+      <DependentUpon>201904201358272_Init-a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904201613235_Init-b.resx">
+      <DependentUpon>201904201613235_Init-b.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

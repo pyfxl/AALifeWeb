@@ -45,7 +45,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = users.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
                     return m;
                 }),
                 Total = users.TotalCount
@@ -126,7 +125,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
                     m.IsCurrentRole = x.UserRoles.Any(w => w.Id == id);
-                    m.UserFromName = _parameterService.GetParamsByName("userfrom").First(a => a.Value == m.UserFrom).Name;
                     return m;
                 }),
                 Total = result.TotalCount

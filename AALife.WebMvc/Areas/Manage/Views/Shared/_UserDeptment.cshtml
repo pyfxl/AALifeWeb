@@ -20,7 +20,7 @@
         var hiDataSource = new kendo.data.HierarchicalDataSource({
             transport: {
                 read: {
-                    url: String.format($.const.webapi.deptmentstree_id, @Model.Id),
+                    url: String.format($.const.webapi.deptmentstree_id, '@Model.Id'),
                     dataType: "json"
                 }
             },
