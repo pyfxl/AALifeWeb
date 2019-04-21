@@ -225,14 +225,14 @@
         //组织删除按钮
         $("#deptmentgrid .k-grid-toolbar .k-grid-delete").on("click", function (e) {
             e.preventDefault();
-            if (window.confirm("你确定要删除这条数据吗？")) {
-                var selection = [];
-                var grid = $("#deptmentgrid").data("kendoGrid");
-                grid.select().each(function () {
-                    var dataItem = grid.dataItem($(this));
-                    selection.push(dataItem);
-                });
-                if (selection.length > 0) {
+            var selection = [];
+            var grid = $("#deptmentgrid").data("kendoGrid");
+            grid.select().each(function () {
+                var dataItem = grid.dataItem($(this));
+                selection.push(dataItem);
+            });
+            if (selection.length > 0) {
+                if (window.confirm("你确定要删除这条数据吗？")) {
                     delete_deptments(_selectedId, selection, function (d) {
                         kendoui_ajax_complete();
                         grid.dataSource.read({ id: _selectedId });
@@ -282,6 +282,8 @@
                             Id: { type: "string", editable: false, defaultValue: kendo.guid() },
                             ParentId: { type: "string", nullable: true, defaultValue: null },
                             Parent: { type: "object", nullable: true, defaultValue: null },
+                            TitleId: { type: "string" },
+                            Title: { type: "object" },
                             DeptmentId: { type: "string", nullable: true, defaultValue: null },
                             Code: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                             Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
@@ -354,6 +356,27 @@
                     }
                 },
                 {
+                    template: "#= data.Title ? Title.Name : '' #",
+                    field: "Title",
+                    title: "职位",
+                    width: 100,
+                    editor: function (container, options) {
+                        $('<input name="' + options.field + '"/>')
+                            .appendTo(container)
+                            .kendoDropDownList({
+                                dataTextField: "Name",
+                                dataValueField: "Id",
+                                dataSource: {
+                                    transport: {
+                                        read: {
+                                            url: "/api/v1/titlesapi"
+                                        }
+                                    }
+                                }
+                            });
+                    }
+                },
+                {
                     field: "Code",
                     title: "岗位编码",
                     width: 100
@@ -376,17 +399,21 @@
         //岗位删除按钮
         $("#positiongrid .k-grid-toolbar .k-grid-delete").on("click", function (e) {
             e.preventDefault();
-            if (window.confirm("你确定要删除这条数据吗？")) {
-                var selection = [];
-                var grid = $("#positiongrid").data("kendoGrid");
-                var view = grid.dataSource.view();
-                grid.items().each(function (index, row) {
-                    var checked = $(row).find("input[type=checkbox]").prop("checked");
-                    if (checked) {
-                        selection.push(view[index]);
-                    }
-                });
-                if (selection.length > 0) {
+            var selection = [];
+            var grid = $("#positiongrid").data("kendoGrid");
+            grid.select().each(function () {
+                var dataItem = grid.dataItem($(this));
+                selection.push(dataItem);
+            });
+            //var view = grid.dataSource.view();
+            //grid.items().each(function (index, row) {
+            //    var checked = $(row).find("input[type=checkbox]").prop("checked");
+            //    if (checked) {
+            //        selection.push(view[index]);
+            //    }
+            //});
+            if (selection.length > 0) {
+                if (window.confirm("你确定要删除这条数据吗？")) {
                     delete_positions(_selectedId, selection, function (d) {
                         kendoui_ajax_complete();
                         grid.dataSource.read();

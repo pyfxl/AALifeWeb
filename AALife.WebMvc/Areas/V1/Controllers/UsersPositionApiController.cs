@@ -71,7 +71,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     user.UserPositions.Add(position);
 
-                    var deptment = _userDeptmentService.Get(position.DeptmentId.Value);
+                    var deptment = _userDeptmentService.Get(position.DeptmentId);
 
                     user.UserDeptments.Add(deptment);
                 }
@@ -100,7 +100,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     user.UserPositions.Remove(position);
 
-                    var deptment = _userDeptmentService.Get(position.DeptmentId.Value);
+                    var deptment = _userDeptmentService.Get(position.DeptmentId);
 
                     user.UserDeptments.Remove(deptment);
                 }

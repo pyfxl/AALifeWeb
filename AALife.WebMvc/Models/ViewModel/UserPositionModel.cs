@@ -22,5 +22,9 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public bool hasChildren { get; set; }
 
+        public UserTitle Title { get; set; }
+
+        public Guid? TitleId { get; set; }
+
     }
 }

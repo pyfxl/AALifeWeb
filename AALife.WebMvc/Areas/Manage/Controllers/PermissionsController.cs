@@ -40,7 +40,7 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         //[AdminAuthorize]
-        public ActionResult Setting2()
+        public ActionResult Index2()
         {
             var model = new PermissionMappingModel();
 
@@ -73,89 +73,6 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                 foreach (var cr in userRoles)
                 {
                     bool allowed = pr.UserRoles.Count(x => x.Id == cr.Id) > 0;
-                    if (!model.Allowed.ContainsKey(pr.Id))
-                        model.Allowed[pr.Id] = new Dictionary<Guid, bool>();
-                    model.Allowed[pr.Id][cr.Id] = allowed;
-                }
-
-            return View(model);
-        }
-
-        //[AdminAuthorize]
-        public ActionResult Setting4()
-        {
-            var model = new PermissionMappingModel();
-
-            var permissionRecords = _permissionService.Get();
-
-            permissionRecords = permissionRecords.OrderBy(a => a.OrderNo);
-
-            foreach (var pr in permissionRecords)
-            {
-                model.AvailablePermissions.Add(new PermissionRecordModel
-                {
-                    Id = pr.Id,
-                    //Name = pr.Name,
-                    Name = _permissionService.GetFormattedBreadCrumb(pr)
-                });
-            }
-
-            var userDeptments = _userDeptmentService.Get();
-
-            foreach (var cr in userDeptments)
-            {
-                model.AvailableUserDeptments.Add(new UserDeptmentModel
-                {
-                    Id = cr.Id,
-                    Name = cr.Name
-                });
-            }
-
-            foreach (var pr in permissionRecords)
-                foreach (var cr in userDeptments)
-                {
-                    bool allowed = pr.UserDeptments.Count(x => x.Id == cr.Id) > 0;
-                    if (!model.Allowed.ContainsKey(pr.Id))
-                        model.Allowed[pr.Id] = new Dictionary<Guid, bool>();
-                    model.Allowed[pr.Id][cr.Id] = allowed;
-                }
-
-            return View(model);
-        }
-
-        //[AdminAuthorize]
-        public ActionResult Setting3()
-        {
-            var model = new PermissionMappingModel();
-
-            var permissionRecords = _permissionService.Get();
-
-            permissionRecords = permissionRecords.OrderBy(a => a.OrderNo);
-
-            foreach (var pr in permissionRecords)
-            {
-                model.AvailablePermissions.Add(new PermissionRecordModel
-                {
-                    Id = pr.Id,
-                    Name = _permissionService.GetFormattedBreadCrumb(pr)
-                });
-            }
-
-            var userPositions = _userPositionService.Get();
-
-            foreach (var cr in userPositions)
-            {
-                model.AvailableUserPositions.Add(new UserPositionModel
-                {
-                    Id = cr.Id,
-                    Name = cr.Name
-                });
-            }
-
-            foreach (var pr in permissionRecords)
-                foreach (var cr in userPositions)
-                {
-                    bool allowed = pr.UserPositions.Count(x => x.Id == cr.Id) > 0;
                     if (!model.Allowed.ContainsKey(pr.Id))
                         model.Allowed[pr.Id] = new Dictionary<Guid, bool>();
                     model.Allowed[pr.Id][cr.Id] = allowed;

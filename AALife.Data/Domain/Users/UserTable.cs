@@ -86,7 +86,7 @@ namespace AALife.Data.Domain
         /// <summary>
         /// 备注
         /// </summary>
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string Remark { get; set; }
         
         /// <summary>
@@ -103,6 +103,8 @@ namespace AALife.Data.Domain
         /// 是否管理员
         /// </summary>
         public bool IsAdmin { get; set; }
+
+        #region 业务
 
         /// <summary>
         /// 商品列表
@@ -128,6 +130,8 @@ namespace AALife.Data.Domain
         /// 转账列表
         /// </summary>
         public virtual ICollection<ZhuanZhangTable> ZhuanZhangTables { get; set; }
+
+        #endregion
 
         #region 角色
 

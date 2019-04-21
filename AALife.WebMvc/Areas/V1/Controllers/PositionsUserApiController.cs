@@ -63,7 +63,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public void Post(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
             var position = _userPositionService.Get(id);
-            var deptment = _userDeptmentService.Get(position.DeptmentId.Value);
+            var deptment = _userDeptmentService.Get(position.DeptmentId);
             models.ToList().ForEach(a =>
             {
                 var user = _userService.Get(a.Id);
@@ -107,7 +107,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         public void Delete(Guid id, [FromBody]IEnumerable<UserTable> models)
         {
             var position = _userPositionService.Get(id);
-            var deptment = _userDeptmentService.Get(position.DeptmentId.Value);
+            var deptment = _userDeptmentService.Get(position.DeptmentId);
             models.ToList().ForEach(a =>
             {
                 var user = _userService.Get(a.Id);

@@ -61,13 +61,6 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                 permissions = permissions.Union(rp).ToList();
             }
 
-            //depts
-            var deptPermissions = _workContextService.CurrentUser.UserDeptments.Select(t => t.UserPermissions.OrderBy(a => a.OrderNo)).ToList();
-            foreach (var dp in deptPermissions)
-            {
-                permissions = permissions.Union(dp).ToList();
-            }
-
             var model = SortMenuForTree(null, permissions);
             return PartialView(model);
         }

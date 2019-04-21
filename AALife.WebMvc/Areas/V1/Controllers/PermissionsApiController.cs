@@ -159,44 +159,6 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             _permissionService.Update(permission);
         }
 
-        // 更新部门权限
-        [Route("api/v1/permissionsdeptmentupdateapi")]
-        public void PermissionDeptmentUpdate(dynamic param)
-        {
-            var deptment = _userDeptmentService.Get((Guid)param.id);
-            var permission = _permissionService.Get((Guid)param.pid);
-
-            if (permission.UserDeptments.Contains(deptment))
-            {
-                permission.UserDeptments.Remove(deptment);
-            }
-            else
-            {
-                permission.UserDeptments.Add(deptment);
-            }
-
-            _permissionService.Update(permission);
-        }
-
-        // 更新岗位权限
-        [Route("api/v1/permissionspositionupdateapi")]
-        public void PermissionPositionUpdate(dynamic param)
-        {
-            var position = _userPositionService.Get((Guid)param.id);
-            var permission = _permissionService.Get((Guid)param.pid);
-
-            if (permission.UserPositions.Contains(position))
-            {
-                permission.UserPositions.Remove(position);
-            }
-            else
-            {
-                permission.UserPositions.Add(position);
-            }
-
-            _permissionService.Update(permission);
-        }
-
         // 获取权限列表树
         [Route("api/v1/permissiontreesapi")]
         public IHttpActionResult GetPermissionTrees()

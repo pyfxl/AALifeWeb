@@ -13,7 +13,7 @@ namespace AALife.Data.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201904201411010_Init-1"; }
+            get { return "201904211147098_Init-1"; }
         }
         
         string IMigrationMetadata.Source

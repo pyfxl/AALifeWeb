@@ -174,8 +174,11 @@
 .k-grid td.k-state-selected .text-light-blue a,
 .k-grid td.k-state-selected:hover .text-light-blue a,
 .k-grid tr:hover .text-light-blue a {
-    color: #fff;
+    color: #fff !important;
     text-decoration: underline;
+}
+.k-grid tr:hover .text-light-blue a:hover {
+    text-decoration: none;
 }
 .k-grid td.k-state-selected:hover, .k-grid tr:hover {
     color: #fff;

@@ -102,23 +102,5 @@ namespace AALife.Data.Domain
 
         #endregion
 
-        #region 权限
-
-        /// <summary>
-        /// 用户权限
-        /// </summary>
-        private ICollection<UserPermission> _userPermissions;
-
-        /// <summary>
-        /// 用户权限
-        /// </summary>
-        [JsonIgnore]
-        public virtual ICollection<UserPermission> UserPermissions
-        {
-            get { return _userPermissions ?? (_userPermissions = new List<UserPermission>()); }
-            protected set { _userPermissions = value; }
-        }
-
-        #endregion
     }
 }

@@ -121,7 +121,7 @@ namespace AALife.Data.Migrations
                     AreaName = "Manage",
                     ControllerName = "Parameters",
                     ActionName = "Index",
-                    IconName = "fa fa-gears",
+                    IconName = "fa fa-gear",
                     Rank = 6,
                     OrderNo = "06"
                 },
@@ -143,7 +143,7 @@ namespace AALife.Data.Migrations
                     AreaName = "Manage",
                     ControllerName = "ScheduleTasks",
                     ActionName = "Index",
-                    IconName = "fa fa-history",
+                    IconName = "fa fa-clock-o",
                     Rank = 8,
                     OrderNo = "08"
                 },

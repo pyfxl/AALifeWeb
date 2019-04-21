@@ -8,8 +8,6 @@ namespace AALife.WebMvc.Models.ViewModel
     {
         public string UserName { get; set; }
 
-        public string UserNickName { get; set; }
-
         public string UserCode { get; set; }
 
         public string FirstName { get; set; }
@@ -19,8 +17,6 @@ namespace AALife.WebMvc.Models.ViewModel
         public string UserEmail { get; set; }
         
         public DateTime CreateDate { get; set; }
-
-        public DateTime ModifyDate { get; set; }
 
         public string Remark { get; set; }
 

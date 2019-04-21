@@ -101,6 +101,11 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                     x.ParentId = x.Parent.Id;
                     x.Parent = null;
                 }
+                if (x.Title != null)
+                {
+                    x.TitleId = x.Title.Id;
+                    x.Title = null;
+                }
             });
 
             //insert
@@ -129,6 +134,10 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     position.ParentId = x.Parent.Id;
                     position.DeptmentId = x.Parent.DeptmentId;
+                }
+                if (x.Title != null)
+                {
+                    position.TitleId = x.Title.Id;
                 }
                 positions.Add(position);
             });

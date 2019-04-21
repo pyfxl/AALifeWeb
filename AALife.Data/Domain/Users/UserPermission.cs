@@ -49,6 +49,8 @@ namespace AALife.Data.Domain
         /// </summary>
         public bool IsButton { get; set; }
 
+        #region 角色
+
         /// <summary>
         /// 角色列表
         /// </summary>
@@ -63,33 +65,27 @@ namespace AALife.Data.Domain
             protected set { _userRoles = value; }
         }
 
+        #endregion
+
+        #region 职位
+
         /// <summary>
-        /// 部门列表
+        /// 职位
         /// </summary>
-        private ICollection<UserDeptment> _userDeptments;
+        private ICollection<UserTitle> _userTitles;
 
         /// <summary>
         /// Gets or sets discount usage history
         /// </summary>
-        public virtual ICollection<UserDeptment> UserDeptments
+        public virtual ICollection<UserTitle> UserTitles
         {
-            get { return _userDeptments ?? (_userDeptments = new List<UserDeptment>()); }
-            protected set { _userDeptments = value; }
+            get { return _userTitles ?? (_userTitles = new List<UserTitle>()); }
+            protected set { _userTitles = value; }
         }
 
-        /// <summary>
-        /// 岗位列表
-        /// </summary>
-        private ICollection<UserPosition> _userPositions;
+        #endregion
 
-        /// <summary>
-        /// Gets or sets discount usage history
-        /// </summary>
-        public virtual ICollection<UserPosition> UserPositions
-        {
-            get { return _userPositions ?? (_userPositions = new List<UserPosition>()); }
-            protected set { _userPositions = value; }
-        }
+        #region 父子
 
         /// <summary>
         /// 父Id
@@ -108,6 +104,8 @@ namespace AALife.Data.Domain
         /// </summary>
         [JsonIgnore]
         public virtual ICollection<UserPermission> Children { get; set; }
+
+        #endregion
 
     }
 }

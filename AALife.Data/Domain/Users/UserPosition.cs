@@ -58,13 +58,28 @@ namespace AALife.Data.Domain
         /// 部门列表
         /// </summary>
         [ForeignKey("Deptment")]
-        public Guid? DeptmentId { get; set; }
+        public Guid DeptmentId { get; set; }
 
         /// <summary>
         /// Gets or sets discount usage history
         /// </summary>
         [JsonIgnore]
         public virtual UserDeptment Deptment { get; set; }
+
+        #endregion
+
+        #region 职位
+
+        /// <summary>
+        /// 职位
+        /// </summary>
+        [ForeignKey("Title")]
+        public Guid TitleId { get; set; }
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        public virtual UserTitle Title { get; set; }
 
         #endregion
 
@@ -90,23 +105,5 @@ namespace AALife.Data.Domain
 
         #endregion
 
-        #region 权限
-
-        /// <summary>
-        /// 用户权限
-        /// </summary>
-        private ICollection<UserPermission> _userPermissions;
-
-        /// <summary>
-        /// 用户权限
-        /// </summary>
-        [JsonIgnore]
-        public virtual ICollection<UserPermission> UserPermissions
-        {
-            get { return _userPermissions ?? (_userPermissions = new List<UserPermission>()); }
-            protected set { _userPermissions = value; }
-        }
-
-        #endregion
     }
 }

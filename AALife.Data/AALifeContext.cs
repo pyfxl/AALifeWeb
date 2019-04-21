@@ -23,6 +23,7 @@ namespace AALife.Data
         public virtual IDbSet<UserPermission> UserPermissions { get; set; }
         public virtual IDbSet<UserDeptment> UserDeptments { get; set; }
         public virtual IDbSet<UserPosition> UserPositions { get; set; }
+        public virtual IDbSet<UserTitle> UserTitles { get; set; }
 
         public virtual IDbSet<ItemTable> ItemTables { get; set; }
         public virtual IDbSet<CategoryTypeTable> CategoryTypeTables { get; set; }

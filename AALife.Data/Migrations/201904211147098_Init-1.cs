@@ -25,11 +25,11 @@ namespace AALife.Data.Migrations
                         UserId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserId)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.tab_UserTable",
+                "dbo.usr_UserTable",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
@@ -45,7 +45,7 @@ namespace AALife.Data.Migrations
                         UserLevel = c.Byte(nullable: false),
                         UserFrom = c.String(nullable: false, maxLength: 10),
                         CreateDate = c.DateTime(nullable: false),
-                        Remark = c.String(maxLength: 100),
+                        Remark = c.String(maxLength: 200),
                         Synchronize = c.Byte(nullable: false),
                         ModifyDate = c.DateTime(),
                         IsAdmin = c.Boolean(nullable: false),
@@ -68,7 +68,7 @@ namespace AALife.Data.Migrations
                         UserId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserId)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
@@ -101,7 +101,7 @@ namespace AALife.Data.Migrations
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.tab_CardTable", t => t.CardId)
                 .ForeignKey("dbo.tab_CategoryTypeTable", t => t.CategoryTypeId)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserId)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserId)
                 .ForeignKey("dbo.tab_ZhuanTiTable", t => t.ZhuanTiId)
                 .Index(t => t.CategoryTypeId)
                 .Index(t => t.ZhuanTiId)
@@ -124,11 +124,11 @@ namespace AALife.Data.Migrations
                         UserId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserId)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserId)
                 .Index(t => t.UserId);
             
             CreateTable(
-                "dbo.tab_UserDeptment",
+                "dbo.usr_UserDeptment",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
@@ -140,28 +140,42 @@ namespace AALife.Data.Migrations
                         ParentId = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.tab_UserDeptment", t => t.ParentId)
+                .ForeignKey("dbo.usr_UserDeptment", t => t.ParentId)
                 .Index(t => t.ParentId);
             
             CreateTable(
-                "dbo.tab_UserPosition",
+                "dbo.usr_UserPosition",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
                         Name = c.String(nullable: false, maxLength: 200),
                         Code = c.String(nullable: false, maxLength: 20),
                         Notes = c.String(maxLength: 200),
-                        DeptmentId = c.Guid(),
+                        DeptmentId = c.Guid(nullable: false),
+                        TitleId = c.Guid(nullable: false),
                         ParentId = c.Guid(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.tab_UserPosition", t => t.ParentId)
-                .ForeignKey("dbo.tab_UserDeptment", t => t.DeptmentId)
+                .ForeignKey("dbo.usr_UserPosition", t => t.ParentId)
+                .ForeignKey("dbo.usr_UserDeptment", t => t.DeptmentId)
+                .ForeignKey("dbo.usr_UserTitle", t => t.TitleId)
                 .Index(t => t.DeptmentId)
+                .Index(t => t.TitleId)
                 .Index(t => t.ParentId);
             
             CreateTable(
-                "dbo.tab_UserPermission",
+                "dbo.usr_UserTitle",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        Name = c.String(nullable: false, maxLength: 200),
+                        Code = c.String(nullable: false, maxLength: 20),
+                        Notes = c.String(maxLength: 200),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.usr_UserPermission",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
@@ -176,11 +190,11 @@ namespace AALife.Data.Migrations
                         OrderNo = c.String(maxLength: 20),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.tab_UserPermission", t => t.ParentId)
+                .ForeignKey("dbo.usr_UserPermission", t => t.ParentId)
                 .Index(t => t.ParentId);
             
             CreateTable(
-                "dbo.tab_UserRole",
+                "dbo.usr_UserRole",
                 c => new
                     {
                         Id = c.Guid(nullable: false),
@@ -209,34 +223,8 @@ namespace AALife.Data.Migrations
                         UserId = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserId)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserId)
                 .Index(t => t.UserId);
-            
-            CreateTable(
-                "dbo.UserPermissionUserDeptments",
-                c => new
-                    {
-                        UserPermission_Id = c.Guid(nullable: false),
-                        UserDeptment_Id = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.UserPermission_Id, t.UserDeptment_Id })
-                .ForeignKey("dbo.tab_UserPermission", t => t.UserPermission_Id)
-                .ForeignKey("dbo.tab_UserDeptment", t => t.UserDeptment_Id)
-                .Index(t => t.UserPermission_Id)
-                .Index(t => t.UserDeptment_Id);
-            
-            CreateTable(
-                "dbo.UserPermissionUserPositions",
-                c => new
-                    {
-                        UserPermission_Id = c.Guid(nullable: false),
-                        UserPosition_Id = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.UserPermission_Id, t.UserPosition_Id })
-                .ForeignKey("dbo.tab_UserPermission", t => t.UserPermission_Id)
-                .ForeignKey("dbo.tab_UserPosition", t => t.UserPosition_Id)
-                .Index(t => t.UserPermission_Id)
-                .Index(t => t.UserPosition_Id);
             
             CreateTable(
                 "dbo.UserRoleUserPermissions",
@@ -246,8 +234,8 @@ namespace AALife.Data.Migrations
                         UserPermission_Id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UserRole_Id, t.UserPermission_Id })
-                .ForeignKey("dbo.tab_UserRole", t => t.UserRole_Id)
-                .ForeignKey("dbo.tab_UserPermission", t => t.UserPermission_Id)
+                .ForeignKey("dbo.usr_UserRole", t => t.UserRole_Id)
+                .ForeignKey("dbo.usr_UserPermission", t => t.UserPermission_Id)
                 .Index(t => t.UserRole_Id)
                 .Index(t => t.UserPermission_Id);
             
@@ -259,10 +247,23 @@ namespace AALife.Data.Migrations
                         UserTable_Id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UserRole_Id, t.UserTable_Id })
-                .ForeignKey("dbo.tab_UserRole", t => t.UserRole_Id)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserTable_Id)
+                .ForeignKey("dbo.usr_UserRole", t => t.UserRole_Id)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserTable_Id)
                 .Index(t => t.UserRole_Id)
                 .Index(t => t.UserTable_Id);
+            
+            CreateTable(
+                "dbo.UserPermissionUserTitles",
+                c => new
+                    {
+                        UserPermission_Id = c.Guid(nullable: false),
+                        UserTitle_Id = c.Guid(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.UserPermission_Id, t.UserTitle_Id })
+                .ForeignKey("dbo.usr_UserPermission", t => t.UserPermission_Id)
+                .ForeignKey("dbo.usr_UserTitle", t => t.UserTitle_Id)
+                .Index(t => t.UserPermission_Id)
+                .Index(t => t.UserTitle_Id);
             
             CreateTable(
                 "dbo.UserPositionUserTables",
@@ -272,8 +273,8 @@ namespace AALife.Data.Migrations
                         UserTable_Id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UserPosition_Id, t.UserTable_Id })
-                .ForeignKey("dbo.tab_UserPosition", t => t.UserPosition_Id)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserTable_Id)
+                .ForeignKey("dbo.usr_UserPosition", t => t.UserPosition_Id)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserTable_Id)
                 .Index(t => t.UserPosition_Id)
                 .Index(t => t.UserTable_Id);
             
@@ -285,8 +286,8 @@ namespace AALife.Data.Migrations
                         UserTable_Id = c.Guid(nullable: false),
                     })
                 .PrimaryKey(t => new { t.UserDeptment_Id, t.UserTable_Id })
-                .ForeignKey("dbo.tab_UserDeptment", t => t.UserDeptment_Id)
-                .ForeignKey("dbo.tab_UserTable", t => t.UserTable_Id)
+                .ForeignKey("dbo.usr_UserDeptment", t => t.UserDeptment_Id)
+                .ForeignKey("dbo.usr_UserTable", t => t.UserTable_Id)
                 .Index(t => t.UserDeptment_Id)
                 .Index(t => t.UserTable_Id);
             
@@ -294,47 +295,45 @@ namespace AALife.Data.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.tab_ZhuanZhangTable", "UserId", "dbo.tab_UserTable");
-            DropForeignKey("dbo.UserDeptmentUserTables", "UserTable_Id", "dbo.tab_UserTable");
-            DropForeignKey("dbo.UserDeptmentUserTables", "UserDeptment_Id", "dbo.tab_UserDeptment");
-            DropForeignKey("dbo.UserPositionUserTables", "UserTable_Id", "dbo.tab_UserTable");
-            DropForeignKey("dbo.UserPositionUserTables", "UserPosition_Id", "dbo.tab_UserPosition");
-            DropForeignKey("dbo.UserRoleUserTables", "UserTable_Id", "dbo.tab_UserTable");
-            DropForeignKey("dbo.UserRoleUserTables", "UserRole_Id", "dbo.tab_UserRole");
-            DropForeignKey("dbo.UserRoleUserPermissions", "UserPermission_Id", "dbo.tab_UserPermission");
-            DropForeignKey("dbo.UserRoleUserPermissions", "UserRole_Id", "dbo.tab_UserRole");
-            DropForeignKey("dbo.UserPermissionUserPositions", "UserPosition_Id", "dbo.tab_UserPosition");
-            DropForeignKey("dbo.UserPermissionUserPositions", "UserPermission_Id", "dbo.tab_UserPermission");
-            DropForeignKey("dbo.UserPermissionUserDeptments", "UserDeptment_Id", "dbo.tab_UserDeptment");
-            DropForeignKey("dbo.UserPermissionUserDeptments", "UserPermission_Id", "dbo.tab_UserPermission");
-            DropForeignKey("dbo.tab_UserPermission", "ParentId", "dbo.tab_UserPermission");
-            DropForeignKey("dbo.tab_UserPosition", "DeptmentId", "dbo.tab_UserDeptment");
-            DropForeignKey("dbo.tab_UserPosition", "ParentId", "dbo.tab_UserPosition");
-            DropForeignKey("dbo.tab_UserDeptment", "ParentId", "dbo.tab_UserDeptment");
+            DropForeignKey("dbo.tab_ZhuanZhangTable", "UserId", "dbo.usr_UserTable");
+            DropForeignKey("dbo.UserDeptmentUserTables", "UserTable_Id", "dbo.usr_UserTable");
+            DropForeignKey("dbo.UserDeptmentUserTables", "UserDeptment_Id", "dbo.usr_UserDeptment");
+            DropForeignKey("dbo.UserPositionUserTables", "UserTable_Id", "dbo.usr_UserTable");
+            DropForeignKey("dbo.UserPositionUserTables", "UserPosition_Id", "dbo.usr_UserPosition");
+            DropForeignKey("dbo.usr_UserPosition", "TitleId", "dbo.usr_UserTitle");
+            DropForeignKey("dbo.UserPermissionUserTitles", "UserTitle_Id", "dbo.usr_UserTitle");
+            DropForeignKey("dbo.UserPermissionUserTitles", "UserPermission_Id", "dbo.usr_UserPermission");
+            DropForeignKey("dbo.UserRoleUserTables", "UserTable_Id", "dbo.usr_UserTable");
+            DropForeignKey("dbo.UserRoleUserTables", "UserRole_Id", "dbo.usr_UserRole");
+            DropForeignKey("dbo.UserRoleUserPermissions", "UserPermission_Id", "dbo.usr_UserPermission");
+            DropForeignKey("dbo.UserRoleUserPermissions", "UserRole_Id", "dbo.usr_UserRole");
+            DropForeignKey("dbo.usr_UserPermission", "ParentId", "dbo.usr_UserPermission");
+            DropForeignKey("dbo.usr_UserPosition", "DeptmentId", "dbo.usr_UserDeptment");
+            DropForeignKey("dbo.usr_UserPosition", "ParentId", "dbo.usr_UserPosition");
+            DropForeignKey("dbo.usr_UserDeptment", "ParentId", "dbo.usr_UserDeptment");
             DropForeignKey("dbo.tab_ItemTable", "ZhuanTiId", "dbo.tab_ZhuanTiTable");
-            DropForeignKey("dbo.tab_ZhuanTiTable", "UserId", "dbo.tab_UserTable");
-            DropForeignKey("dbo.tab_ItemTable", "UserId", "dbo.tab_UserTable");
+            DropForeignKey("dbo.tab_ZhuanTiTable", "UserId", "dbo.usr_UserTable");
+            DropForeignKey("dbo.tab_ItemTable", "UserId", "dbo.usr_UserTable");
             DropForeignKey("dbo.tab_ItemTable", "CategoryTypeId", "dbo.tab_CategoryTypeTable");
             DropForeignKey("dbo.tab_ItemTable", "CardId", "dbo.tab_CardTable");
-            DropForeignKey("dbo.tab_CategoryTypeTable", "UserId", "dbo.tab_UserTable");
-            DropForeignKey("dbo.tab_CardTable", "UserId", "dbo.tab_UserTable");
+            DropForeignKey("dbo.tab_CategoryTypeTable", "UserId", "dbo.usr_UserTable");
+            DropForeignKey("dbo.tab_CardTable", "UserId", "dbo.usr_UserTable");
             DropIndex("dbo.UserDeptmentUserTables", new[] { "UserTable_Id" });
             DropIndex("dbo.UserDeptmentUserTables", new[] { "UserDeptment_Id" });
             DropIndex("dbo.UserPositionUserTables", new[] { "UserTable_Id" });
             DropIndex("dbo.UserPositionUserTables", new[] { "UserPosition_Id" });
+            DropIndex("dbo.UserPermissionUserTitles", new[] { "UserTitle_Id" });
+            DropIndex("dbo.UserPermissionUserTitles", new[] { "UserPermission_Id" });
             DropIndex("dbo.UserRoleUserTables", new[] { "UserTable_Id" });
             DropIndex("dbo.UserRoleUserTables", new[] { "UserRole_Id" });
             DropIndex("dbo.UserRoleUserPermissions", new[] { "UserPermission_Id" });
             DropIndex("dbo.UserRoleUserPermissions", new[] { "UserRole_Id" });
-            DropIndex("dbo.UserPermissionUserPositions", new[] { "UserPosition_Id" });
-            DropIndex("dbo.UserPermissionUserPositions", new[] { "UserPermission_Id" });
-            DropIndex("dbo.UserPermissionUserDeptments", new[] { "UserDeptment_Id" });
-            DropIndex("dbo.UserPermissionUserDeptments", new[] { "UserPermission_Id" });
             DropIndex("dbo.tab_ZhuanZhangTable", new[] { "UserId" });
-            DropIndex("dbo.tab_UserPermission", new[] { "ParentId" });
-            DropIndex("dbo.tab_UserPosition", new[] { "ParentId" });
-            DropIndex("dbo.tab_UserPosition", new[] { "DeptmentId" });
-            DropIndex("dbo.tab_UserDeptment", new[] { "ParentId" });
+            DropIndex("dbo.usr_UserPermission", new[] { "ParentId" });
+            DropIndex("dbo.usr_UserPosition", new[] { "ParentId" });
+            DropIndex("dbo.usr_UserPosition", new[] { "TitleId" });
+            DropIndex("dbo.usr_UserPosition", new[] { "DeptmentId" });
+            DropIndex("dbo.usr_UserDeptment", new[] { "ParentId" });
             DropIndex("dbo.tab_ZhuanTiTable", new[] { "UserId" });
             DropIndex("dbo.tab_ItemTable", new[] { "UserId" });
             DropIndex("dbo.tab_ItemTable", new[] { "CardId" });
@@ -344,19 +343,19 @@ namespace AALife.Data.Migrations
             DropIndex("dbo.tab_CardTable", new[] { "UserId" });
             DropTable("dbo.UserDeptmentUserTables");
             DropTable("dbo.UserPositionUserTables");
+            DropTable("dbo.UserPermissionUserTitles");
             DropTable("dbo.UserRoleUserTables");
             DropTable("dbo.UserRoleUserPermissions");
-            DropTable("dbo.UserPermissionUserPositions");
-            DropTable("dbo.UserPermissionUserDeptments");
             DropTable("dbo.tab_ZhuanZhangTable");
-            DropTable("dbo.tab_UserRole");
-            DropTable("dbo.tab_UserPermission");
-            DropTable("dbo.tab_UserPosition");
-            DropTable("dbo.tab_UserDeptment");
+            DropTable("dbo.usr_UserRole");
+            DropTable("dbo.usr_UserPermission");
+            DropTable("dbo.usr_UserTitle");
+            DropTable("dbo.usr_UserPosition");
+            DropTable("dbo.usr_UserDeptment");
             DropTable("dbo.tab_ZhuanTiTable");
             DropTable("dbo.tab_ItemTable");
             DropTable("dbo.tab_CategoryTypeTable");
-            DropTable("dbo.tab_UserTable");
+            DropTable("dbo.usr_UserTable");
             DropTable("dbo.tab_CardTable");
         }
     }

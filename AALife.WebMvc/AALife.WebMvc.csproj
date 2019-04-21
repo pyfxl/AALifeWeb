@@ -406,6 +406,7 @@
     <Compile Include="Areas\V1\Controllers\DeptmentsPositionApiController.cs" />
     <Compile Include="Areas\V1\Controllers\DeptmentsApiController.cs" />
     <Compile Include="Areas\V1\Controllers\DeptmentsPositionTreeApiController.cs" />
+    <Compile Include="Areas\V1\Controllers\TitlesApiController.cs" />
     <Compile Include="Areas\V1\Controllers\PositionsApiController.cs" />
     <Compile Include="Areas\V1\Controllers\PositionsUserApiController.cs" />
     <Compile Include="Areas\V1\Controllers\ParametersTreeApiController.cs" />
@@ -1756,7 +1757,7 @@
     <Content Include="Areas\Manage\Views\web.config" />
     <Content Include="Areas\Manage\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Manage\Views\Users\Index.cshtml" />
+    <Content Include="Areas\Manage\Views\Users\Index2.cshtml" />
     <Content Include="Areas\Manage\Views\Items\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -1787,18 +1788,18 @@
     <Content Include="Areas\Manage\Views\Roles\Detail.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\SidebarMenu.cshtml" />
     <Content Include="Areas\Manage\Views\Permissions\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Setting2.cshtml" />
+    <Content Include="Areas\Manage\Views\Permissions\Index2.cshtml" />
     <Content Include="Areas\Manage\Views\Permissions\SettingTree.cshtml" />
     <Content Include="Areas\Manage\Views\Parameters\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Roles\Index4.cshtml" />
     <Content Include="Areas\Manage\Views\MessageTemplates\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Users\Index2.cshtml" />
+    <Content Include="Areas\Manage\Views\Users\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Items\Index2.cshtml" />
     <Content Include="Areas\Manage\Views\Items\Index3.cshtml" />
     <Content Include="Areas\Manage\Views\ScheduleTasks\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Commons.cshtml" />
     <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Setting4.cshtml" />
+    <Content Include="Areas\Manage\Views\Permissions\Index4.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\_Permission.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\_UserRole.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\_UserDeptment.cshtml" />
@@ -1809,7 +1810,7 @@
     <Content Include="Areas\Manage\Views\Deptments\Index3.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\PositionSelect.cshtml" />
     <Content Include="Areas\Manage\Views\Positions\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Setting3.cshtml" />
+    <Content Include="Areas\Manage\Views\Permissions\Index3.cshtml" />
     <Content Include="Areas\Manage\Views\Users\Index3.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\_DeptmentUserSelect.cshtml" />
     <Content Include="Areas\Manage\Views\Deptments\TreeView.cshtml" />
