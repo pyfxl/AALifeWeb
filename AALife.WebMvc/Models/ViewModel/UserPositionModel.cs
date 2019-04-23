@@ -26,5 +26,8 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public Guid? TitleId { get; set; }
 
+        public bool? IsMainPosition { get; set; }
+
+        public bool? IsDeptmentLeader { get; set; }
     }
 }

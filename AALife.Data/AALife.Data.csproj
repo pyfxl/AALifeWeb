@@ -62,6 +62,7 @@
     <Compile Include="DefaultSettings.cs" />
     <Compile Include="Domain\Business\CardTable.cs" />
     <Compile Include="Domain\Business\CategoryTypeTable.cs" />
+    <Compile Include="Domain\Users\UsersPositions.cs" />
     <Compile Include="Domain\Users\UserTitle.cs" />
     <Compile Include="Domain\Users\UserPosition.cs" />
     <Compile Include="Domain\Users\UserDeptment.cs" />
@@ -80,6 +81,14 @@
     <Compile Include="Migrations\201904211147098_Init-1.Designer.cs">
       <DependentUpon>201904211147098_Init-1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904221241151_Add-1.cs" />
+    <Compile Include="Migrations\201904221241151_Add-1.Designer.cs">
+      <DependentUpon>201904221241151_Add-1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904221251026_Add-2.cs" />
+    <Compile Include="Migrations\201904221251026_Add-2.Designer.cs">
+      <DependentUpon>201904221251026_Add-2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -93,6 +102,7 @@
     <Compile Include="Services\Users\IUserPermissionService.cs" />
     <Compile Include="Services\Business\ItemService.cs" />
     <Compile Include="Services\Users\IUserDeptmentService.cs" />
+    <Compile Include="Services\Users\IUsersPositionsService.cs" />
     <Compile Include="Services\Users\IUserTitleService.cs" />
     <Compile Include="Services\Users\IUserPositionService.cs" />
     <Compile Include="Services\Users\IUserRoleService.cs" />
@@ -102,6 +112,7 @@
     <Compile Include="Services\Users\UserPermissionService.cs" />
     <Compile Include="Services\Users\UserExtensions.cs" />
     <Compile Include="Services\Users\UserDeptmentService.cs" />
+    <Compile Include="Services\Users\UsersPositionsService.cs" />
     <Compile Include="Services\Users\UserTitleService.cs" />
     <Compile Include="Services\Users\UserPositionService.cs" />
     <Compile Include="Services\Users\UserRoleService.cs" />
@@ -124,6 +135,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201904211147098_Init-1.resx">
       <DependentUpon>201904211147098_Init-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221241151_Add-1.resx">
+      <DependentUpon>201904221241151_Add-1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904221251026_Add-2.resx">
+      <DependentUpon>201904221251026_Add-2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

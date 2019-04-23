@@ -282,20 +282,20 @@
     background-color: #367fa9;
     border-color: #367fa9;
 }
-.k-checkbox:checked + .k-checkbox-label:before {
+.k-checkbox:checked+.k-checkbox-label:before {
     background-color: #fff;
     border-color: #dbdbdb;
     color: #3c8dbc;
 }
-.k-checkbox-label:hover:before, .k-checkbox:checked + .k-checkbox-label:hover:before, .k-checkbox:checked:hover + .k-checkbox-label:before, .k-checkbox:hover + .k-checkbox-label:before {
+.k-checkbox-label:hover:before, .k-checkbox:checked+.k-checkbox-label:hover:before, .k-checkbox:checked:hover+.k-checkbox-label:before, .k-checkbox:hover+.k-checkbox-label:before {
     border-color: #3c8dbc;
     box-shadow: none;
 }
-.k-checkbox-label:active:before, .k-checkbox:active + .k-checkbox-label:before {
+.k-checkbox-label:active:before, .k-checkbox:active+.k-checkbox-label:before {
     box-shadow: none;
     border-color: #3c8dbc;
 }
-.k-checkbox:focus + .k-checkbox-label:before, .k-checkbox:focus + .k-checkbox-label:hover:before {
+.k-checkbox:focus+.k-checkbox-label:before, .k-checkbox:focus+.k-checkbox-label:hover:before {
     border-color: #3c8dbc;
     box-shadow: none;
 }

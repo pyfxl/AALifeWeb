@@ -32,22 +32,21 @@ namespace AALife.Data.Domain
         /// </summary>
         [MaxLength(200)]
         public string Notes { get; set; }
-
-        #region 用户
+        
+        #region 用户岗位
 
         /// <summary>
-        /// 用户列表
+        /// 用户岗位
         /// </summary>
-        private ICollection<UserTable> _users;
+        private ICollection<UsersPositions> _usersPositions;
 
         /// <summary>
         /// Gets or sets discount usage history
         /// </summary>
-        [JsonIgnore]
-        public virtual ICollection<UserTable> Users
+        public virtual ICollection<UsersPositions> UsersPositions
         {
-            get { return _users ?? (_users = new List<UserTable>()); }
-            protected set { _users = value; }
+            get { return _usersPositions ?? (_usersPositions = new List<UsersPositions>()); }
+            protected set { _usersPositions = value; }
         }
 
         #endregion

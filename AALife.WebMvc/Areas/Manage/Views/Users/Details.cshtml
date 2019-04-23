@@ -153,6 +153,10 @@
                             Id: { type: "string", editable: false, defaultValue: kendo.guid() },
                             ParentId: { type: "string", nullable: true, defaultValue: null },
                             Parent: { defaultValue: null },
+                            TitleId: { type: "string" },
+                            Title: { type: "object" },
+                            IsMainPosition: { type: "boolean" },
+                            IsDeptmentLeader: { type: "boolean" },
                             DeptmentId: { type: "string", nullable: true, defaultValue: null },
                             Code: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
                             Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
@@ -185,6 +189,28 @@
                 {
                     field: "Code",
                     title: "岗位编码",
+                    width: 100
+                },
+                {
+                    template: "#= data.Title ? Title.Name : '' #",
+                    field: "Title",
+                    title: "职位",
+                    width: 100
+                },
+                {
+                    template: function (item) {
+                        return kendo.format("<input class='k-checkbox' id='{0}' type='checkbox' {1} data-id='{2}' onclick='update_usersmainposition(\"@Model.Id\", this)' /><label for='{0}' class='k-checkbox-label k-no-text'></label>", kendo.guid(), item.IsMainPosition ? "checked=\"checked\"" : "", item.Id);
+                    },
+                    field: "IsMainPosition",
+                    title: "主岗位",
+                    width: 100
+                },
+                {
+                    template: function (item) {
+                        return kendo.format("<input class='k-checkbox' id='{0}' type='checkbox' {1} data-id='{2}' onclick='update_usersdeptmentleader(\"@Model.Id\", this)' /><label for='{0}' class='k-checkbox-label k-no-text'></label>", kendo.guid(), item.IsDeptmentLeader ? "checked=\"checked\"" : "", item.Id);
+                    },
+                    field: "IsDeptmentLeader",
+                    title: "部门负责人",
                     width: 100
                 },
                 {
@@ -238,6 +264,7 @@
         });
 
     });
+
 </script>
 
 @section scripts {

@@ -49,7 +49,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var viewModel = result.Select(x =>
             {
                 var m = x.MapTo<UserTable, UserManageViewModel>();
-                m.Position = x.UserPositions.FirstOrDefault();
+                m.Position = x.UsersPositions.FirstOrDefault(a => a.IsMainPosition.GetValueOrDefault())?.Position;
                 return m;
             });
 

@@ -11,18 +11,10 @@
         @foreach (var userRole in userRoles)
         {
             var selected = Model.SelectedNames.Contains(userRole.Name);
-            <li class="checkbox">
-                <label>
-                    @if (selected)
-                    {
-                        <input type="checkbox" checked="checked" />
-                    }
-                    else
-                    {
-                        <input type="checkbox" />
-                    }
-                    @userRole.Name
-                </label>
+            var guid = Guid.NewGuid();
+            var isChecked = selected ? "checked=\"checked\"" : "";
+            <li>
+                <input class='k-checkbox' id='@guid' type='checkbox' @isChecked /><label for='@guid' class='k-checkbox-label k-no-text'></label>@userRole.Name
             </li>
         }
     </ul>

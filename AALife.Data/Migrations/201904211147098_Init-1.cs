@@ -205,6 +205,21 @@ namespace AALife.Data.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.usr_UserTablePositions",
+                c => new
+                    {
+                        Id = c.Guid(nullable: false),
+                        MainPosition = c.Boolean(),
+                        Position_Id = c.Guid(),
+                        User_Id = c.Guid(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.usr_UserPosition", t => t.Position_Id)
+                .ForeignKey("dbo.usr_UserTable", t => t.User_Id)
+                .Index(t => t.Position_Id)
+                .Index(t => t.User_Id);
+            
+            CreateTable(
                 "dbo.tab_ZhuanZhangTable",
                 c => new
                     {
@@ -266,19 +281,6 @@ namespace AALife.Data.Migrations
                 .Index(t => t.UserTitle_Id);
             
             CreateTable(
-                "dbo.UserPositionUserTables",
-                c => new
-                    {
-                        UserPosition_Id = c.Guid(nullable: false),
-                        UserTable_Id = c.Guid(nullable: false),
-                    })
-                .PrimaryKey(t => new { t.UserPosition_Id, t.UserTable_Id })
-                .ForeignKey("dbo.usr_UserPosition", t => t.UserPosition_Id)
-                .ForeignKey("dbo.usr_UserTable", t => t.UserTable_Id)
-                .Index(t => t.UserPosition_Id)
-                .Index(t => t.UserTable_Id);
-            
-            CreateTable(
                 "dbo.UserDeptmentUserTables",
                 c => new
                     {
@@ -298,8 +300,8 @@ namespace AALife.Data.Migrations
             DropForeignKey("dbo.tab_ZhuanZhangTable", "UserId", "dbo.usr_UserTable");
             DropForeignKey("dbo.UserDeptmentUserTables", "UserTable_Id", "dbo.usr_UserTable");
             DropForeignKey("dbo.UserDeptmentUserTables", "UserDeptment_Id", "dbo.usr_UserDeptment");
-            DropForeignKey("dbo.UserPositionUserTables", "UserTable_Id", "dbo.usr_UserTable");
-            DropForeignKey("dbo.UserPositionUserTables", "UserPosition_Id", "dbo.usr_UserPosition");
+            DropForeignKey("dbo.usr_UserTablePositions", "User_Id", "dbo.usr_UserTable");
+            DropForeignKey("dbo.usr_UserTablePositions", "Position_Id", "dbo.usr_UserPosition");
             DropForeignKey("dbo.usr_UserPosition", "TitleId", "dbo.usr_UserTitle");
             DropForeignKey("dbo.UserPermissionUserTitles", "UserTitle_Id", "dbo.usr_UserTitle");
             DropForeignKey("dbo.UserPermissionUserTitles", "UserPermission_Id", "dbo.usr_UserPermission");
@@ -320,8 +322,6 @@ namespace AALife.Data.Migrations
             DropForeignKey("dbo.tab_CardTable", "UserId", "dbo.usr_UserTable");
             DropIndex("dbo.UserDeptmentUserTables", new[] { "UserTable_Id" });
             DropIndex("dbo.UserDeptmentUserTables", new[] { "UserDeptment_Id" });
-            DropIndex("dbo.UserPositionUserTables", new[] { "UserTable_Id" });
-            DropIndex("dbo.UserPositionUserTables", new[] { "UserPosition_Id" });
             DropIndex("dbo.UserPermissionUserTitles", new[] { "UserTitle_Id" });
             DropIndex("dbo.UserPermissionUserTitles", new[] { "UserPermission_Id" });
             DropIndex("dbo.UserRoleUserTables", new[] { "UserTable_Id" });
@@ -329,6 +329,8 @@ namespace AALife.Data.Migrations
             DropIndex("dbo.UserRoleUserPermissions", new[] { "UserPermission_Id" });
             DropIndex("dbo.UserRoleUserPermissions", new[] { "UserRole_Id" });
             DropIndex("dbo.tab_ZhuanZhangTable", new[] { "UserId" });
+            DropIndex("dbo.usr_UserTablePositions", new[] { "User_Id" });
+            DropIndex("dbo.usr_UserTablePositions", new[] { "Position_Id" });
             DropIndex("dbo.usr_UserPermission", new[] { "ParentId" });
             DropIndex("dbo.usr_UserPosition", new[] { "ParentId" });
             DropIndex("dbo.usr_UserPosition", new[] { "TitleId" });
@@ -342,11 +344,11 @@ namespace AALife.Data.Migrations
             DropIndex("dbo.tab_CategoryTypeTable", new[] { "UserId" });
             DropIndex("dbo.tab_CardTable", new[] { "UserId" });
             DropTable("dbo.UserDeptmentUserTables");
-            DropTable("dbo.UserPositionUserTables");
             DropTable("dbo.UserPermissionUserTitles");
             DropTable("dbo.UserRoleUserTables");
             DropTable("dbo.UserRoleUserPermissions");
             DropTable("dbo.tab_ZhuanZhangTable");
+            DropTable("dbo.usr_UserTablePositions");
             DropTable("dbo.usr_UserRole");
             DropTable("dbo.usr_UserPermission");
             DropTable("dbo.usr_UserTitle");

@@ -135,15 +135,16 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var position = _userPositionService.Get(id);
             if (position != null)
             {
+                var users = position.UsersPositions.Select(a => a.User);
                 var grid = new DataSourceResult
                 {
-                    Data = position.Users.Skip(request.Skip).Take(request.Take).Select(x =>
+                    Data = users.Skip(request.Skip).Take(request.Take).Select(x =>
                     {
                         var m = x.MapTo<UserTable, UserRoleViewModel>();
-                        m.Position = x.UserPositions.FirstOrDefault(a => a.Id == id);
+                        m.Position = x.UsersPositions.First(a => a.IsMainPosition.GetValueOrDefault()).Position;
                         return m;
                     }),
-                    Total = position.Users.Count()
+                    Total = users.Count()
                 };
 
                 return Json(grid);

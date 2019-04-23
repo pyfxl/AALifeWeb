@@ -48,7 +48,11 @@ namespace AALife.WebMvc.Controllers
         public ActionResult UpdatePassword(string returnUrl = "")
         {
             var users = _userService.Get();
-            var role = _userRoleService.Find(a => a.SystemName == UserRoleNames.Administrators);
+
+            var roleAdmin = _userRoleService.Find(a => a.SystemName == UserRoleNames.Administrators);
+
+            var roleRegister = _userRoleService.Find(a => a.SystemName == UserRoleNames.Registered);
+            
             users.ToList().ForEach(a =>
             {
                 var saltKey = _encryptionService.CreateSaltKey(Constant.PasswordSaltSize);
@@ -58,7 +62,11 @@ namespace AALife.WebMvc.Controllers
                 //权限
                 if(a.UserName == "admin")
                 {
-                    a.UserRoles.Add(role);
+                    a.UserRoles.Add(roleAdmin);
+                }
+                else
+                {
+                    a.UserRoles.Add(roleRegister);
                 }
             });
 

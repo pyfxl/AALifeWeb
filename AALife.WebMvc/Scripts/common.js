@@ -367,7 +367,7 @@ function kendoui_ajax_error(e) {
         text = e.responseText;
     if (text) {
         let json = JSON.parse(text);
-        errors = json.Message;
+        errors = json.ExceptionMessage || json.Message;
     } else {
         errors = "出错了！";
     }

@@ -1,5 +1,6 @@
 ﻿using AALife.Data.Domain;
 using System;
+using System.Collections.Generic;
 using System.Web.Script.Serialization;
 
 namespace AALife.WebMvc.Models.ViewModel

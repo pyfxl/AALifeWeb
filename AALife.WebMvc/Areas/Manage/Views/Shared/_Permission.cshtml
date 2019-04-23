@@ -11,8 +11,10 @@
         @foreach (var permission in permissions)
         {
             var selected = Model.GrantedPermissionNames.Contains(permission.Name);
+            var guid = Guid.NewGuid();
             <li>
-                <input type="checkbox" />@permission.Name
+                <input class='k-checkbox' id='@guid' type='checkbox' /><label for='@guid' class='k-checkbox-label k-no-text'></label>
+                @permission.Name
             </li>
         }
     </ul>

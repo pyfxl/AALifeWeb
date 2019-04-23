@@ -21,18 +21,21 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         private readonly IUserService _userService;
         private readonly IUserDeptmentService _userDeptmentService;
         private readonly IUserPositionService _userPositionService;
+        private readonly IUsersPositionsService _usersPositionsService;
         private readonly ICustomerActivityService _customerActivityService;
         private readonly IParameterService _parameterService;
 
         public PositionsUserApiController(IUserService userService,
             IUserDeptmentService userDeptmentService,
             IUserPositionService userPositionService,
+            IUsersPositionsService usersPositionsService,
             ICustomerActivityService customerActivityService,
             IParameterService parameterService)
         {
             this._userService = userService;
             this._userDeptmentService = userDeptmentService;
             this._userPositionService = userPositionService;
+            this._usersPositionsService = usersPositionsService;
             this._customerActivityService = customerActivityService;
             this._parameterService = parameterService;
         }
@@ -40,14 +43,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         // GET api/<controller>/5
         public IHttpActionResult Get(Guid id, [FromUri]DataSourceRequest request)
         {
-            var users = _userService.GetByPage(request, x => x.UserPositions.Any(a => a.Id == id));
+            var users = _userService.GetByPage(request, x => x.UsersPositions.Select(a => a.Position).Any(a => a.Id == id));
 
             var grid = new DataSourceResult
             {
                 Data = users.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.Position = x.UserPositions.First(a => a.Id == id);
+                    m.Position = x.UsersPositions.First(a => a.IsMainPosition.GetValueOrDefault()).Position;
                     return m;
                 }),
                 Total = users.TotalCount
@@ -64,43 +67,28 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var position = _userPositionService.Get(id);
             var deptment = _userDeptmentService.Get(position.DeptmentId);
-            models.ToList().ForEach(a =>
-            {
-                var user = _userService.Get(a.Id);
+
+            models.ToList().ForEach(x =>
+            {                
+                var user = _userService.Get(x.Id);
                 if (user != null)
                 {
-                    position.Users.Add(user);
+                    var userPositions = new UsersPositions()
+                    {
+                        Position = position,
+                        User = user
+                    };
+                    _usersPositionsService.Add(userPositions);
+
                     deptment.Users.Add(user);
                 }
             });
 
-            _userPositionService.Update(position);
-
+            //insert
             _userDeptmentService.Update(deptment);
 
             //activity log
             _customerActivityService.InsertActivity(id, ActivityLogType.Insert, "插入用户岗位。{0}", models.ToJson());
-        }
-
-        // PUT api/<controller>/5
-        public void Put(Guid id, UserTable model)
-        {
-            var position = _userPositionService.Get(id);
-            var user = _userService.Get(model.Id);
-
-            if (position.Users.Contains(user))
-            {
-                position.Users.Remove(user);
-            }
-            else
-            {
-                position.Users.Add(user);
-            }
-
-            _userPositionService.Update(position);
-
-            //activity log
-            _customerActivityService.InsertActivity(id, ActivityLogType.Insert, "插入更新用户岗位。{0}", user.ToJson());
         }
 
         // DELETE api/<controller>/5
@@ -108,17 +96,19 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             var position = _userPositionService.Get(id);
             var deptment = _userDeptmentService.Get(position.DeptmentId);
-            models.ToList().ForEach(a =>
+
+            models.ToList().ForEach(x =>
             {
-                var user = _userService.Get(a.Id);
-                if (position.Users.Contains(user))
-                    position.Users.Remove(user);
+                var userPositions = _usersPositionsService.Find(a => a.Position.Id == id && a.User.Id == x.Id);
+                if (userPositions != null)
+                    _usersPositionsService.Delete(userPositions);
+
+                var user = _userService.Get(x.Id);
                 if (deptment.Users.Contains(user))
                     deptment.Users.Remove(user);
             });
 
-            _userPositionService.Update(position);
-
+            //delete
             _userDeptmentService.Update(deptment);
 
             //activity log

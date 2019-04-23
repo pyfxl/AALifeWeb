@@ -144,11 +144,9 @@
                     hidden: true
                 },
                 {
-                    template: "<a href='@Url.Action("Details", "Users")/#= Id #'>#= UserName #</a>",                        
                     field: "UserName",
                     title: "用户名",
                     width: 100,
-                    attributes: { class: "text-light-blue" },
                     searchbar: {
                         type: "autocomplete",
                         url: "/api/v1/usernamesapi"
@@ -160,9 +158,11 @@
                     width: 100
                 },
                 {
+                    template: "<a href='@Url.Action("Details", "Users")/#= Id #'>#= FirstName #</a>",                        
                     field: "FirstName",
                     title: "姓名",
-                    width: 100
+                    width: 100,
+                    attributes: { class: "text-light-blue" }
                 },
                 {
                     template: "<div class='user-block'><img src='#= UserImageFull ? UserImageFull : \"/images/users/user.gif\" #' class='img-circle'/></div>",

@@ -169,20 +169,20 @@ namespace AALife.Data.Domain
 
         #endregion
 
-        #region 岗位
+        #region 用户岗位
 
         /// <summary>
-        /// 岗位列表
+        /// 用户岗位
         /// </summary>
-        private ICollection<UserPosition> _userPositions;
+        private ICollection<UsersPositions> _usersPositions;
 
         /// <summary>
         /// Gets or sets discount usage history
         /// </summary>
-        public virtual ICollection<UserPosition> UserPositions
+        public virtual ICollection<UsersPositions> UsersPositions
         {
-            get { return _userPositions ?? (_userPositions = new List<UserPosition>()); }
-            protected set { _userPositions = value; }
+            get { return _usersPositions ?? (_usersPositions = new List<UsersPositions>()); }
+            protected set { _usersPositions = value; }
         }
 
         #endregion

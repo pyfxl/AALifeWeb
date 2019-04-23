@@ -5,6 +5,7 @@ using AALife.Core.Services.Tasks;
 using AALife.Data;
 using Autofac.Integration.WebApi;
 using AutoMapper;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace AALife.WebMvc
 
             //webapi返回json
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
-            
+
             //register dependencies
             RegisterDependencies();
 

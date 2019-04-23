@@ -47,14 +47,14 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 Data = users.Select(x =>
                 {
                     var m = x.MapTo<UserTable, UserRoleViewModel>();
-                    m.Position = x.UserPositions.FirstOrDefault(a => a.DeptmentId == id);
+                    m.Position = x.UsersPositions.FirstOrDefault(a => a.IsMainPosition.GetValueOrDefault())?.Position;
                     return m;
                 }),
                 Total = users.TotalCount
             };
 
             //activity log
-            _customerActivityService.InsertActivity(id, ActivityLogType.Query, "浏览用户部门记录。{0}", request.ToJson());
+            _customerActivityService.InsertActivity(id, ActivityLogType.Query, "浏览部门用户记录。{0}", request.ToJson());
 
             return Json(grid);
         }
