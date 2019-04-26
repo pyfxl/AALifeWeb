@@ -24,6 +24,8 @@ namespace AALife.WebMvc.Models.ViewModel
 
         public bool IsButton { get; set; }
 
+        public bool IsPage { get; set; }
+
         public string IconName { get; set; }
 
     }

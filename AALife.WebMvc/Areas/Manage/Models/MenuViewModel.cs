@@ -21,5 +21,7 @@ namespace AALife.WebMvc.Areas.Manage.Models
         public bool Selected { get; set; }
 
         public List<MenuViewModel> ChildMenus { get; set; }
+
+        public string IconName { get; set; }
     }
 }

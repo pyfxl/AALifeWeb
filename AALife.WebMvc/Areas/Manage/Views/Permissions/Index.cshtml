@@ -75,6 +75,7 @@
                         ActionName: { type: "string" },
                         IconName: { type: "string" },
                         IsButton: { type: "boolean" },
+                        IsPage: { type: "boolean" },
                         Rank: { type: "number", defaultValue: 1 }
                     },
                     expanded: false
@@ -94,12 +95,12 @@
                     expandable: true,
                     field: "Name",
                     title: "菜单名称",
-                    width: 100
+                    width: 50
                 },
                 {
                     field: "AreaName",
                     title: "区域",
-                    width: 100
+                    width: 50
                 },
                 {
                     field: "ControllerName",
@@ -109,7 +110,7 @@
                 {
                     field: "ActionName",
                     title: "动作",
-                    width: 100
+                    width: 50
                 },
                 {
                     template: function (dataItem) {
@@ -125,23 +126,29 @@
                     attributes: { class: "text-center" },
                     field: "IsButton",
                     title: "按钮否",
-                    width: 50
+                    width: 30,
+                    editor: customBoolEditor
+                },
+                {
+                    template: "#= IsPage ? '<i class=\"fa fa-check\"></i>' : '' #",
+                    attributes: { class: "text-center" },
+                    field: "IsPage",
+                    title: "页面否",
+                    width: 30,
+                    editor: customBoolEditor
                 },
                 {
                     attributes: { class: "text-center" },
                     field: "Rank",
                     title: "排序",
-                    width: 50,
+                    width: 30,
                     format: "{0:0}"
                 },
                 {
                     command: [
-                        {
-                            name: "createchild",
-                            text: "添加子项"
-                        },
-                        "edit",
-                        "destroy"
+                        { name: "createchild", text: "添加子项" },
+                        { name: "edit", text: " " },
+                        { name: "destroy", text: " " }
                     ],
                     width: 200
                 }
@@ -157,6 +164,12 @@
             }
         }));
 
+        function customBoolEditor(container, options) {
+            var guid = kendo.guid();
+            $('<input class="k-checkbox" id="' + guid + '" type="checkbox" name="' + options.field + '" data-type="boolean" data-bind="checked:' + options.field +'">').appendTo(container);
+            $('<label class="k-checkbox-label" for="' + guid + '">&#8203;</label>').appendTo(container);
+            container.addClass("text-center");
+        }
     });
 </script>
 }

@@ -1108,15 +1108,15 @@
 
     /*
      *
-     * CommonDialog
+     * GridDialog
      *
      */
 
-    kendo.ui.ExtCommonDialog = {
+    kendo.ui.ExtGridDialog = {
         show: function (options) {
             return new $.Deferred(function (deferred) {
-                if ($("#extCommonDialog").length > 0) {
-                    $("#extCommonDialog").parent().remove();
+                if ($("#extGridDialog").length > 0) {
+                    $("#extGridDialog").parent().remove();
                 }
 
                 options = $.extend({
@@ -1126,8 +1126,8 @@
                     buttons: [{
                         name: "确定",
                         click: function (e) {
-                            $("#extCommonDialog").data("kendoExtDialog").close();
-                            var grid = $("#dialog-commongrid").data("kendoGrid");
+                            $("#extGridDialog").data("kendoExtDialog").close();
+                            var grid = $("#dialog-grid").data("kendoGrid");
                             var selectedRows = grid.select();
                             var selectedDataItems = [];
                             for (var i = 0; i < selectedRows.length; i++) {
@@ -1139,13 +1139,13 @@
                     }, {
                         name: "取消",
                         click: function (e) {
-                            $("#extCommonDialog").data("kendoExtDialog").close();
+                            $("#extGridDialog").data("kendoExtDialog").close();
                             deferred.resolve({ button: "Cancel" });
                         }
                     }],
                     close: function () {
                         setTimeout(function () {
-                            var grid = $("#dialog-commongrid").data("kendoGrid");
+                            var grid = $("#dialog-grid").data("kendoGrid");
                             grid.destroy();
                         });
                     },
@@ -1153,9 +1153,76 @@
                     visible: false
                 }, options);
 
-                $(document.body).append("<div id='extCommonDialog' class='k-ext-dialog-grid-content' style='position:relative;padding-bottom:55px;overflow:hidden;'></div>");
-                $("#extCommonDialog").kendoExtDialog(options);
-                $("#extCommonDialog").data("kendoExtDialog").center().open();
+                $(document.body).append("<div id='extGridDialog' class='k-ext-dialog-grid-content' style='position:relative;padding-bottom:55px;overflow:hidden;'></div>");
+                $("#extGridDialog").kendoExtDialog(options);
+                $("#extGridDialog").data("kendoExtDialog").center().open();
+            });
+        }
+    };
+
+
+    /*
+     *
+     * TreeViewDialog
+     *
+     */
+
+    kendo.ui.ExtTreeViewDialog = {
+        show: function (options) {
+            return new $.Deferred(function (deferred) {
+                if ($("#extTreeViewDialog").length > 0) {
+                    $("#extTreeViewDialog").parent().remove();
+                }
+
+                options = $.extend({
+                    animation: false,
+                    width: "300px",
+                    height: "100px",
+                    buttons: [{
+                        name: "确定",
+                        click: function (e) {
+                            $("#extTreeViewDialog").data("kendoExtDialog").close();
+                            var checkedNodes = [];
+                            var treeView = $("#dialog-treeview").data("kendoTreeView");
+                            getCheckedNodes(treeView.dataSource.view(), checkedNodes);
+                            deferred.resolve({ button: "OK", selected: checkedNodes });
+                        }
+                    }, {
+                        name: "取消",
+                        click: function (e) {
+                            $("#extTreeViewDialog").data("kendoExtDialog").close();
+                            deferred.resolve({ button: "Cancel" });
+                        }
+                    }],
+                    close: function () {
+                        setTimeout(function () {
+                            var treeView = $("#dialog-treeview").data("kendoTreeView");
+                            treeView.destroy();
+                        });
+                    },
+                    modal: true,
+                    visible: false
+                }, options);
+
+                function getCheckedNodes(nodes, checkedNodes) {
+                    var node;
+
+                    for (var i = 0; i < nodes.length; i++) {
+                        node = nodes[i];
+
+                        if (node.checked) {
+                            checkedNodes.push({ text: node.text, id: node.id });
+                        }
+
+                        if (node.hasChildren) {
+                            getCheckedNodes(node.children.view(), checkedNodes);
+                        }
+                    }
+                }
+
+                $(document.body).append("<div id='extTreeViewDialog' class='k-ext-dialog-grid-content' style='position:relative;padding-bottom:55px;overflow:hidden;'></div>");
+                $("#extTreeViewDialog").kendoExtDialog(options);
+                $("#extTreeViewDialog").data("kendoExtDialog").center().open();
             });
         }
     };

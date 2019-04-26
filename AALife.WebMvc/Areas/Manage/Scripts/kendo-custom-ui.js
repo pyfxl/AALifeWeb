@@ -315,7 +315,7 @@
 })(jQuery);
 
 /*搜索栏插件*/
-; (function ($) {
+;(function ($) {
     // shorten references to variables. this is better for uglification
     var kendo = window.kendo,
         ui = kendo.ui,
@@ -743,4 +743,3 @@
     ui.plugin(MyWidget);
 
 })(jQuery);
-

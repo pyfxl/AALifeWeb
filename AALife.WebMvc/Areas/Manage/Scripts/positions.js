@@ -6,7 +6,10 @@ function insert_positionsuser(id, dataItems, callback) {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -18,7 +21,10 @@ function delete_positionsuser(id, dataItems, callback) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -30,7 +36,10 @@ function insert_deptmentsposition(id, dataItems, callback) {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -42,7 +51,10 @@ function delete_deptmentsposition(id, dataItems, callback) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -54,6 +66,24 @@ function delete_positions(id, dataItems, callback) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
+    });
+}
+
+//岗位授权
+function insert_positionspermission(id, dataItems, callback) {
+    $.ajax({
+        url: String.format("/api/v1/positionspermissionapi?id={0}", id),
+        dataType: "json",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(dataItems),
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }

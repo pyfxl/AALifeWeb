@@ -53,3 +53,6 @@ D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Init1.resou
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.csproj.GenerateResource.cache
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Add1.resources
 D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Add2.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Add3.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Add4.resources
+D:\fxlweb\AALifeWeb2018\AALife.Data\obj\Debug\AALife.Data.Migrations.Add5.resources

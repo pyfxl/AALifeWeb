@@ -5,7 +5,10 @@ function update_permission_role(pid, id) {
         dataType: "json",
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ "pid": pid, "id": id })
+        data: JSON.stringify({ "pid": pid, "id": id }),
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -16,7 +19,10 @@ function update_permission_deptment(pid, id) {
         dataType: "json",
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ "pid": pid, "id": id })
+        data: JSON.stringify({ "pid": pid, "id": id }),
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -27,6 +33,10 @@ function update_permission_position(pid, id) {
         dataType: "json",
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ "pid": pid, "id": id })
+        data: JSON.stringify({ "pid": pid, "id": id }),
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
+

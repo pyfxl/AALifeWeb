@@ -56,5 +56,36 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             return Json(grid);
         }
 
+        #region 其它方法
+
+        // 获取树路径
+        [Route("api/v1/deptmenttreepathapi")]
+        public IHttpActionResult GetDeptmentTreePath(Guid id)
+        {
+            var deptment = _userDeptmentService.Get(id);
+
+            var result = new List<dynamic>();
+
+            //取上级id
+            Action<UserDeptment> action = null;
+            action = (item) =>
+            {
+                result.Add(new { item.Id, item.Name });
+                if (item.Parent != null)
+                {
+                    action(item.Parent);
+                }                    
+            };
+
+            //调用
+            action(deptment);
+
+            //倒序
+            result.Reverse();
+
+            return Json(result);
+        }
+
+        #endregion
     }
 }

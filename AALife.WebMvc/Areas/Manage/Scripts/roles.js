@@ -4,7 +4,10 @@
         dataType: "json",
         type: "PUT",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(dataItem)
+        data: JSON.stringify(dataItem),
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -16,7 +19,10 @@ function delete_rolesuser(id, dataItems, callback) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -28,7 +34,10 @@ function insert_rolesuser(id, dataItems, callback) {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -38,7 +47,10 @@ function update_permission_roles(pid, rid) {
         dataType: "json",
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ "pid": pid, "rid": rid })
+        data: JSON.stringify({ "pid": pid, "rid": rid }),
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -48,6 +60,9 @@ function update_permission_deptments(pid, rid) {
         dataType: "json",
         type: "POST",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify({ "pid": pid, "rid": rid })
+        data: JSON.stringify({ "pid": pid, "rid": rid }),
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }

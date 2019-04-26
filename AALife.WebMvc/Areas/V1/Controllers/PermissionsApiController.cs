@@ -62,6 +62,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             //add role
             model.UserRoles.Add(adminRole);
             model.OrderNo = model.GetOrderNo(parent);
+            model.Id = Guid.NewGuid();
 
             //insert
             _permissionService.Add(model);
@@ -88,6 +89,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             permission.IconName = model.IconName;
             permission.Rank = model.Rank;
             permission.IsButton = model.IsButton;
+            permission.IsPage = model.IsPage;
             //permission.OrderNo = model.GetOrderNo(permission.ParentRecord);
 
             //更新子列表排序
@@ -160,15 +162,15 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // 获取权限列表树
-        [Route("api/v1/permissiontreesapi")]
-        public IHttpActionResult GetPermissionTrees()
+        [Route("api/v1/permissionstreeapi")]
+        public IHttpActionResult GetPermissionsTree(Guid id)
         {
-            var permissionTree = SortPermissionForTree();
+            var permissionTree = SortPermissionForTree(id, null);
 
             return Json(permissionTree);
         }
 
-        private List<PermissionTreeModel> SortPermissionForTree(Guid parentId = default(Guid))
+        private List<PermissionTreeModel> SortPermissionForTree(Guid id, Guid? parentId)
         {
             var model = new List<PermissionTreeModel>();
             foreach (var p in _permissionService.FindAll(a => a.ParentId == parentId).OrderBy(a => a.OrderNo))
@@ -178,8 +180,9 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                     Id = p.Id,
                     text = p.Name,
                 };
-                pm.items.AddRange(SortPermissionForTree(p.Id));
-                pm.hasChildren = pm.items.Count > 0;
+                pm.items.AddRange(SortPermissionForTree(id, p.Id));
+                pm.expanded = pm.items.Count > 0;
+                pm.isChecked = p.UserDeptments.Any(a => a.Id == id) ? true : p.UserPositions.Any(a => a.Id == id);
                 model.Add(pm);
             }
             return model;

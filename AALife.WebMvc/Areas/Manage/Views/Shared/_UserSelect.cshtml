@@ -2,7 +2,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-xs-12">
-            <div id="dialog-commongrid"></div>
+            <div id="dialog-grid"></div>
         </div>
     </div>
 </div>
@@ -10,7 +10,7 @@
     $(document).ready(function () {
 
         //用户列表
-        $("#dialog-commongrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+        $("#dialog-grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
             dataSource: {
                 transport: {
                     read: {
@@ -26,15 +26,7 @@
                 schema: {
                     model: {
                         id: "Id",
-                        fields: {
-                            Id: { type: "string" },
-                            UserName: { type: "string" },
-                            UserCode: { type: "string" },
-                            FirstName: { type: "string" },
-                            Position: { type: "object" },
-                            CreateDate: { type: "date" },
-                            Remark: { type: "string" }
-                        }
+                        fields: $.kendo.user.fields
                     }
                 },
                 error: function (e) {
@@ -42,44 +34,7 @@
                 },
                 pageSize: 10
             },
-            columns: [
-                {
-                    selectable: true,
-                    width: 100
-                },
-                {
-                    field: "Id",
-                    title: "编号",
-                    width: 100,
-                    hidden: true
-                },
-                {
-                    field: "FirstName",
-                    title: "姓名",
-                    width: 100
-                },
-                {
-                    field: "UserName",
-                    title: "用户名",
-                    width: 100
-                },
-                {
-                    field: "UserCode",
-                    title: "用户编码",
-                    width: 100
-                },
-                {
-                    template: "#= data.Position ? Position.Name : '' #",
-                    field: "Position",
-                    title: "所属岗位",
-                    width: 200
-                },
-                {
-                    field: "Remark",
-                    title: "备注",
-                    width: 100
-                }
-            ]
+            columns: $.kendo.user.columns
         }));
 
     });

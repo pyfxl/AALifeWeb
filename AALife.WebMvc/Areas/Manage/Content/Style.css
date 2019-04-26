@@ -65,7 +65,7 @@
     height: 100%;
 }
 .k-grid tbody .k-button {
-    min-width: auto;
+    min-width: auto !important;
 }
 /*.k-grid td {
     white-space: nowrap;
@@ -135,6 +135,7 @@ html .k-upload {
     padding-left: 15px;
     padding-right: 15px;
     height: 100%;
+    overflow: auto;
 }
 .k-ext-dialog-grid-content .row {
     height: 100%;

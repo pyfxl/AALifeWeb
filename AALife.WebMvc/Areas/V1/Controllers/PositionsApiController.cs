@@ -20,18 +20,21 @@ namespace AALife.WebMvc.Areas.V1.Controllers
     public class PositionsApiController : BaseApiController
     {
         private readonly IUserService _userService;
+        private readonly IUserPermissionService _permissionService;
         private readonly IUserDeptmentService _userDeptmentService;
         private readonly IUserPositionService _userPositionService;
         private readonly ICustomerActivityService _customerActivityService;
         private readonly IParameterService _parameterService;
 
         public PositionsApiController(IUserService userService,
+            IUserPermissionService permissionService,
             IUserDeptmentService userDeptmentService, 
             IUserPositionService userPositionService,
             ICustomerActivityService customerActivityService,
             IParameterService parameterService)
         {
             this._userService = userService;
+            this._permissionService = permissionService;
             this._userDeptmentService = userDeptmentService;
             this._userPositionService = userPositionService;
             this._customerActivityService = customerActivityService;
@@ -169,5 +172,29 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             return Json(HttpStatusCode.OK);
         }
+
+        #region 其它方法
+
+        // 更新岗位权限
+        [Route("api/v1/positionspermissionapi")]
+        public void PositionsPermission(Guid id, IEnumerable<dynamic> models)
+        {
+            var position = _userPositionService.Get(id);
+
+            //清除所有
+            position.UserPermissions.Clear();
+
+            models.ToList().ForEach(x =>
+            {
+                Guid pid = (Guid)x.id;
+                var permission = _permissionService.Get(pid);
+
+                position.UserPermissions.Add(permission);
+            });
+
+            _userPositionService.Update(position);
+        }
+
+        #endregion
     }
 }

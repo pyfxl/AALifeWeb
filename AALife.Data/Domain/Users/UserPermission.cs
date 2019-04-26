@@ -49,6 +49,11 @@ namespace AALife.Data.Domain
         /// </summary>
         public bool IsButton { get; set; }
 
+        /// <summary>
+        /// 是否页面
+        /// </summary>
+        public bool IsPage { get; set; }
+
         #region 角色
 
         /// <summary>
@@ -63,6 +68,42 @@ namespace AALife.Data.Domain
         {
             get { return _userRoles ?? (_userRoles = new List<UserRole>()); }
             protected set { _userRoles = value; }
+        }
+
+        #endregion
+
+        #region 组织
+
+        /// <summary>
+        /// 组织列表
+        /// </summary>
+        private ICollection<UserDeptment> _userDeptments;
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        public virtual ICollection<UserDeptment> UserDeptments
+        {
+            get { return _userDeptments ?? (_userDeptments = new List<UserDeptment>()); }
+            protected set { _userDeptments = value; }
+        }
+
+        #endregion
+
+        #region 岗位
+
+        /// <summary>
+        /// 岗位列表
+        /// </summary>
+        private ICollection<UserPosition> _userPositions;
+
+        /// <summary>
+        /// Gets or sets discount usage history
+        /// </summary>
+        public virtual ICollection<UserPosition> UserPositions
+        {
+            get { return _userPositions ?? (_userPositions = new List<UserPosition>()); }
+            protected set { _userPositions = value; }
         }
 
         #endregion

@@ -67,6 +67,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "Users",
                     ActionName = "Index",
                     IconName = "fa fa-user",
+                    IsPage = true,
                     Rank = 1,
                     OrderNo = "01"
                 },
@@ -78,6 +79,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "Items",
                     ActionName = "Index",
                     IconName = "fa fa-gift",
+                    IsPage = true,
                     Rank = 2,
                     OrderNo = "02"
                 },
@@ -89,6 +91,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "Permissions",
                     ActionName = "Index",
                     IconName = "fa fa-lock",
+                    IsPage = true,
                     Rank = 3,
                     OrderNo = "03"
                 },
@@ -100,6 +103,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "Roles",
                     ActionName = "Index",
                     IconName = "fa fa-group",
+                    IsPage = true,
                     Rank = 4,
                     OrderNo = "04"
                 },
@@ -111,6 +115,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "Deptments",
                     ActionName = "Index",
                     IconName = "fa fa-sitemap",
+                    IsPage = true,
                     Rank = 5,
                     OrderNo = "05"
                 },
@@ -122,6 +127,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "Parameters",
                     ActionName = "Index",
                     IconName = "fa fa-gear",
+                    IsPage = true,
                     Rank = 6,
                     OrderNo = "06"
                 },
@@ -133,6 +139,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "MessageTemplates",
                     ActionName = "Index",
                     IconName = "fa fa-envelope",
+                    IsPage = true,
                     Rank = 7,
                     OrderNo = "07"
                 },
@@ -144,6 +151,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "ScheduleTasks",
                     ActionName = "Index",
                     IconName = "fa fa-clock-o",
+                    IsPage = true,
                     Rank = 8,
                     OrderNo = "08"
                 },
@@ -155,6 +163,7 @@ namespace AALife.Data.Migrations
                     ControllerName = "Settings",
                     ActionName = "Index",
                     IconName = "fa fa-globe",
+                    IsPage = true,
                     Rank = 9,
                     OrderNo = "09"
                 }

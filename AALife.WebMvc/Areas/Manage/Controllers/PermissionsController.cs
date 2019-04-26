@@ -65,7 +65,8 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
                 model.AvailableUserRoles.Add(new UserRoleModel
                 {
                     Id = cr.Id,
-                    Name = cr.Name
+                    Name = cr.Name,
+                    SystemName = cr.SystemName
                 });
             }
 

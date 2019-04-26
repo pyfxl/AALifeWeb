@@ -15,11 +15,11 @@
                     {
                         <text>
                         //全选
-                        $('#selectall-@(cr.Id)').click(function () {
-                            $('.allow_@(cr.Id)').attr('checked', $(this).is(':checked')).change();
+                        $('input[name=selectall-@(cr.SystemName.ToLower())]').click(function () {
+                            $('input[name=allow-@(cr.SystemName.ToLower())]').attr('checked', $(this).is(':checked')).change();
                         });
                         //单选
-                        $('.allow_@(cr.Id)').click(function () {
+                        $('input[name=allow-@(cr.SystemName.ToLower())]').click(function () {
                             var id = $(this).data("role");
                             var pid = $(this).val();
                             update_permission_role(pid, id);
@@ -39,10 +39,11 @@
                             </th>
                             @foreach (var cr in Model.AvailableUserRoles)
                             {
+                                var guid = Guid.NewGuid();
                                 <th scope="col" class="text-center">
                                     <div class="checkbox">
                                         <label>
-                                            <input type="checkbox" id="selectall-@(cr.Id)" />
+                                            <input class="k-checkbox" id="@guid" type="checkbox" name="selectall-@(cr.SystemName.ToLower())" /><label for="@guid" class="k-checkbox-label k-no-text"></label>
                                             <strong>@cr.Name</strong>
                                         </label>
                                     </div>
@@ -57,10 +58,11 @@
                                 </td>
                                 @foreach (var cr in Model.AvailableUserRoles)
                                 {
+                                    var guid = Guid.NewGuid();
                                     var allowed = Model.Allowed.ContainsKey(pr.Id) && Model.Allowed[pr.Id][cr.Id];
-                                    <td class="text-center">
-                                        <input class="allow_@(cr.Id)" type="checkbox" data-role="@(cr.Id)" value="@(pr.Id)" name="allow_@(cr.Id)" @(allowed ? " checked=checked" : null) />
-                                    </td>
+                                <td class="text-center">
+                                    <input class="k-checkbox" id="@guid" type="checkbox" data-role="@(cr.Id)" value="@(pr.Id)" name="allow-@(cr.SystemName.ToLower())" @(allowed ? " checked=checked" : "") /><label for="@guid" class="k-checkbox-label k-no-text"></label>
+                                </td>
                                 }
                             </tr>
                         }

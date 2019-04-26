@@ -6,7 +6,10 @@ function insert_usersposition(id, dataItems, callback) {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -18,7 +21,10 @@ function delete_usersposition(id, dataItems, callback) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 

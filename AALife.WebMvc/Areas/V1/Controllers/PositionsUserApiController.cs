@@ -75,6 +75,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
                 {
                     var userPositions = new UsersPositions()
                     {
+                        Id = Guid.NewGuid(),
                         Position = position,
                         User = user
                     };

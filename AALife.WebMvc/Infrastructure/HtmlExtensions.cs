@@ -24,17 +24,16 @@ namespace AALife.WebMvc
         /// <param name="areaName"></param>
         /// <param name="controllerName"></param>
         /// <param name="actionName"></param>
-        /// <param name="userId"></param>
         /// <returns></returns>
-        public static MvcHtmlString CreateButton(this HtmlHelper helper, string areaName, string controllerName, string actionName, int userId)
+        public static MvcHtmlString CreateGridButton(this HtmlHelper helper, string areaName, string controllerName, string actionName)
         {
             var permissionService = EngineContext.Current.Resolve<IUserPermissionService>();
 
-            var parent = permissionService.Find(a => a.AreaName == areaName && a.ControllerName == controllerName && a.ActionName == actionName);
+            var permission = permissionService.Find(a => a.AreaName == areaName && a.ControllerName == controllerName && a.ActionName == actionName);
 
-            if(parent != null)
+            if(permission != null)
             {
-                var permissions = permissionService.FindAll(a => a.ParentId == parent.Id);
+                var permissions = permissionService.FindAll(a => a.ParentId == permission.Id).OrderBy(a => a.OrderNo);
 
                 if (permissions.Any())
                 {
@@ -42,7 +41,7 @@ namespace AALife.WebMvc
                     stringBuilder.AppendLine("<div class=\"k-header k-grid-toolbar\">");
                     permissions.ToList().ForEach(a=> 
                     {
-                        stringBuilder.AppendFormat("<a role=\"button\" class=\"k-button k-button-icontext k-grid-{0}\" href=\"javascript:k_func_{0}();\"><span class=\"k-icon {1}\"></span>{2}</a>", a.ActionName.ToLower(), a.IconName, a.Name);
+                        stringBuilder.AppendFormat("<a role=\"button\" class=\"k-button k-button-icontext k-grid-{0}\" href=\"#\"><span class=\"{1}\"></span>{2}</a>", a.ActionName.ToLower(), a.IconName, a.Name);
                     });
                     stringBuilder.AppendLine("</div>");
 

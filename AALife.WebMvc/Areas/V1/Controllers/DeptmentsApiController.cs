@@ -18,14 +18,17 @@ namespace AALife.WebMvc.Areas.V1.Controllers
     /// </summary>
     public class DeptmentsApiController : BaseApiController
     {
+        private readonly IUserPermissionService _permissionService;
         private readonly IUserPositionService _userPositionService;
         private readonly IUserDeptmentService _userDeptmentService;
         private readonly ICustomerActivityService _customerActivityService;
 
-        public DeptmentsApiController(IUserPositionService userPositionService,
+        public DeptmentsApiController(IUserPermissionService permissionService, 
+            IUserPositionService userPositionService,
             IUserDeptmentService userDeptmentService,
             ICustomerActivityService customerActivityService)
         {
+            this._permissionService = permissionService;
             this._userPositionService = userPositionService;
             this._userDeptmentService = userDeptmentService;
             this._customerActivityService = customerActivityService;
@@ -122,7 +125,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         }
 
         // DELETE api/<controller>/5
-        public IHttpActionResult Delete(Guid id, IEnumerable<UserDeptment> models)
+        public IHttpActionResult Delete(IEnumerable<UserDeptment> models)
         {
             var deptments = new List<UserDeptment>();
             models.ToList().ForEach(x =>
@@ -139,5 +142,29 @@ namespace AALife.WebMvc.Areas.V1.Controllers
 
             return Json(HttpStatusCode.OK);
         }
+
+        #region 其它方法
+
+        // 更新组织权限
+        [Route("api/v1/deptmentspermissionapi")]
+        public void DeptmentsPermission(Guid id, IEnumerable<dynamic> models)
+        {
+            var deptment = _userDeptmentService.Get(id);
+
+            //清除所有
+            deptment.UserPermissions.Clear();
+
+            models.ToList().ForEach(x =>
+            {
+                Guid pid = (Guid)x.id;
+                var permission = _permissionService.Get(pid);
+
+                deptment.UserPermissions.Add(permission);
+            });
+
+            _userDeptmentService.Update(deptment);
+        }
+
+        #endregion
     }
 }

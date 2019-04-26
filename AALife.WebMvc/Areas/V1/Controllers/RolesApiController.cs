@@ -5,6 +5,7 @@ using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Infrastructure.Mapper;
 using AALife.WebMvc.Models.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -43,6 +44,12 @@ namespace AALife.WebMvc.Areas.V1.Controllers
         {
             if (ModelState.IsValid)
             {
+                models.ToList().ForEach(x =>
+                {
+                    x.Id = Guid.NewGuid();
+                });
+
+                //insert
                 _userRoleService.Add(models);
             }
 

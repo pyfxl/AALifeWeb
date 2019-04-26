@@ -6,7 +6,10 @@ function insert_deptmentsuser(id, dataItems, callback) {
         type: "POST",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -18,7 +21,10 @@ function delete_deptmentsuser(id, dataItems, callback) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -29,7 +35,10 @@ function update_userdeptments(uid, checkedNodes, callback) {
         dataType: "json",
         type: "PUT",
         contentType: "application/json; charset=utf-8",
-        data: JSON.stringify(checkedNodes)
+        data: JSON.stringify(checkedNodes),
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
@@ -41,18 +50,53 @@ function delete_deptmentsposition(id, dataItems, callback) {
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }
 
 //部门删除
-function delete_deptments(id, dataItems, callback) {
+function delete_deptments(dataItems, callback) {
     $.ajax({
-        url: String.format($.const.webapi.deptments_id, id),
+        url: $.const.webapi.deptments,
         dataType: "json",
         type: "DELETE",
         contentType: "application/json; charset=utf-8",
         data: JSON.stringify(dataItems),
-        success: callback
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
+    });
+}
+
+//部门树路径
+function get_deptmentstreepath(id, callback) {
+    $.ajax({
+        url: String.format("/api/v1/deptmenttreepathapi?id={0}", id),
+        dataType: "json",
+        type: "GET",
+        contentType: "application/json; charset=utf-8",
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
+    });
+}
+
+//组织授权
+function insert_deptmentspermission(id, dataItems, callback) {
+    $.ajax({
+        url: String.format("/api/v1/deptmentspermissionapi?id={0}", id),
+        dataType: "json",
+        type: "POST",
+        contentType: "application/json; charset=utf-8",
+        data: JSON.stringify(dataItems),
+        success: callback,
+        error: function (e) {
+            kendoui_ajax_error(e);
+        }
     });
 }

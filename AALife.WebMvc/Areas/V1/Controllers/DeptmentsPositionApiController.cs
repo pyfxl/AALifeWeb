@@ -64,6 +64,7 @@ namespace AALife.WebMvc.Areas.V1.Controllers
             var deptment = _userDeptmentService.Get(id);
             models.ToList().ForEach(a =>
             {
+                a.Id = Guid.NewGuid();
                 if (a.Parent != null)
                 {
                     if (_userPositionService.IsExists(b => b.Id == a.Parent.Id))

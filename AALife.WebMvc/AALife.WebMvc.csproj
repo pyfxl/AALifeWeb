@@ -1357,6 +1357,7 @@
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.html" />
     <Content Include="Areas\Manage\Content\Style.css" />
+    <Content Include="Areas\Manage\Scripts\kendo-models.js" />
     <Content Include="Areas\Manage\Scripts\users.js" />
     <Content Include="Areas\Manage\Scripts\positions.js" />
     <Content Include="Areas\Manage\Scripts\deptments.js" />
@@ -1756,7 +1757,6 @@
     <Content Include="fonts\FontAwesome.otf" />
     <Content Include="Areas\Manage\Views\web.config" />
     <Content Include="Areas\Manage\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Manage\Views\Users\Index2.cshtml" />
     <Content Include="Areas\Manage\Views\Items\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -1819,6 +1819,9 @@
     <Content Include="Areas\Manage\Views\Deptments\Index.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\_DeptmentPositionSelect.cshtml" />
     <Content Include="libman.json" />
+    <Content Include="Areas\Manage\Views\Shared\_PermissionSelect.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Manage\Views\Shared\LeftMenu.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\chplayer\hls\LICENSE" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

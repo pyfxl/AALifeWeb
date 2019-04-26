@@ -2,6 +2,7 @@
 using AALife.Data.Domain;
 using AALife.Data.Services;
 using AALife.WebMvc.Areas.Manage.Models;
+using AALife.WebMvc.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,15 +39,21 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         }
 
         // GET: Manage/Common
-        public ActionResult DeptmentUserSelect()
+        public ActionResult DeptmentUserSelect(Guid? id)
         {
-            return PartialView("_DeptmentUserSelect");
+            return PartialView("_DeptmentUserSelect", id);
         }
 
         // GET: Manage/Common
         public ActionResult DeptmentPositionSelect()
         {
             return PartialView("_DeptmentPositionSelect");
+        }
+
+        // GET: Manage/Common
+        public ActionResult PermissionSelect(Guid? id)
+        {
+            return PartialView("_PermissionSelect", id);
         }
 
         [ChildActionOnly]
@@ -73,13 +80,14 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
         public List<MenuViewModel> SortMenuForTree(Guid? parentId, IEnumerable<UserPermission> permissions)
         {
             var model = new List<MenuViewModel>();
-            foreach (var p in permissions.Where(t => !t.IsButton && t.ParentId == parentId))
+            foreach (var p in permissions.Where(t => t.IsPage && t.ParentId == parentId))
             {
                 var menu = new MenuViewModel
                 {
                     Name = p.Name,
                     ControllerName = p.ControllerName,
-                    ActionName = p.ActionName
+                    ActionName = p.ActionName,
+                    IconName = p.IconName
                 };
                 menu.ChildMenus.AddRange(SortMenuForTree(p.Id, permissions));
                 model.Add(menu);
@@ -87,5 +95,21 @@ namespace AALife.WebMvc.Areas.Manage.Controllers
             return model;
         }
         
+        [ChildActionOnly]
+        public ActionResult LeftMenu()
+        {
+            var permissions = new List<UserPermission> { };
+
+            //roles
+            var rolePermissions = _workContextService.CurrentUser.UserRoles.Select(t => t.UserPermissions.OrderBy(a => a.OrderNo)).ToList();
+            foreach (var rp in rolePermissions)
+            {
+                permissions = permissions.Union(rp).ToList();
+            }
+
+            var model = SortMenuForTree(null, permissions);
+            return PartialView(model);
+        }
+
     }
 }

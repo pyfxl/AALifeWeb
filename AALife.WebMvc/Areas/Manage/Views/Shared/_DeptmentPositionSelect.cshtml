@@ -6,7 +6,7 @@
                 <div id="dialog-deptmenttree"></div>
             </div>
             <div class="col-xs-10">
-                <div id="dialog-commongrid"></div>
+                <div id="dialog-grid"></div>
             </div>
         </div>
     </div>
@@ -38,20 +38,20 @@
         var dialog_deptmenttree = $("#dialog-deptmenttree").kendoTreeView({
             dataSource: treeDataSource,
             dataBound: function (e) {
-                $("#dialog-deptmenttree").height($("#dialog-commongrid").height());
+                $("#dialog-deptmenttree").height($("#dialog-grid").height());
             },
             template: "#= item.Name #",
             select: function (e) {
                 var dataItem = dialog_deptmenttree.dataItem(e.node);
                 dialog_selectedId = dataItem.Id;
                 //刷新主列表
-                var grid = $("#dialog-commongrid").data("kendoGrid");
+                var grid = $("#dialog-grid").data("kendoGrid");
                 grid.dataSource.read();
             }
         }).data("kendoTreeView");
 
         //岗位列表
-        $("#dialog-commongrid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
+        $("#dialog-grid").kendoGrid($.extend(true, {}, $.const.kendogrid, {
             dataSource: {
                 transport: {
                     read: {
@@ -63,15 +63,7 @@
                 schema: {
                     model: {
                         id: "Id",
-                        fields: {
-                            Id: { type: "string", editable: false, defaultValue: kendo.guid() },
-                            ParentId: { type: "string", nullable: true, defaultValue: null },
-                            Parent: { type: "object", defaultValue: null },
-                            DeptmentId: { type: "string", nullable: true, defaultValue: null },
-                            Code: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
-                            Name: { type: "string", validation: { required: true, validationMessage: "必填项！" } },
-                            Notes: { type: "string" }
-                        }
+                        fields: $.kendo.position.fields
                     }
                 },
                 error: function (e) {
@@ -80,33 +72,7 @@
             },
             autoBind: false,
             pageable: false,
-            columns: [
-                {
-                    selectable: true,
-                    width: 100
-                },
-                {
-                    field: "Name",
-                    title: "岗位名称",
-                    width: 200
-                },
-                {
-                    template: "#= data.Parent ? Parent.Name : '' #",
-                    field: "Parent",
-                    title: "上级岗位",
-                    width: 200
-                },
-                {
-                    field: "Code",
-                    title: "岗位编码",
-                    width: 100
-                },
-                {
-                    field: "Notes",
-                    title: "描述",
-                    width: 100
-                }
-            ]
+            columns: $.kendo.position.columns
         }));
 
     });
