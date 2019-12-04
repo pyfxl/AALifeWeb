@@ -141,6 +141,37 @@ namespace AALife.Service.EF
                 return viewModel.Skip(pageModels.page).Take(pageModels.rows).ToList();
             }
         }
-                
+        
+        /// <summary>
+        /// 消费类别
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<ItemTypeTable> GetItemType()
+        {
+            using (var db = new AALifeDbContext())
+            {
+                //默认
+                var lists = db.Set<ItemTypeTable>()
+                    .AsNoTracking();
+
+                return lists.ToList();
+            }
+        }
+
+        /// <summary>
+        /// 固定类别
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<RegionTypeTable> GetRegionType()
+        {
+            using (var db = new AALifeDbContext())
+            {
+                //默认
+                var lists = db.Set<RegionTypeTable>()
+                    .AsNoTracking();
+
+                return lists.ToList();
+            }
+        }
     }
 }

@@ -101,6 +101,10 @@
     <Compile Include="Migrations\201904241546169_Add-5.Designer.cs">
       <DependentUpon>201904241546169_Add-5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911180700049_New-1.cs" />
+    <Compile Include="Migrations\201911180700049_New-1.Designer.cs">
+      <DependentUpon>201911180700049_New-1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NotifyType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -162,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904241546169_Add-5.resx">
       <DependentUpon>201904241546169_Add-5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911180700049_New-1.resx">
+      <DependentUpon>201911180700049_New-1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -403,30 +403,10 @@
     <Compile Include="Areas\Manage\Controllers\RolesController.cs" />
     <Compile Include="Areas\Manage\Models\BaseModel.cs" />
     <Compile Include="Areas\Manage\Models\MenuViewModel.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsPositionApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsPositionTreeApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\TitlesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\PositionsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\PositionsUserApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ParametersTreeApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsTreeApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\MessageTemplatesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ParametersApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\PermissionsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ScheduleTasksApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsUserApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersPositionApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersDeptmentApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UserDeptmentsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\RolesUserApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersRoleApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\RolesApiController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\KeepAliveController.cs" />
     <Compile Include="Infrastructure\AdminAuthorizeAttribute.cs" />
     <Compile Include="Infrastructure\Controllers\BaseApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ZhuanZhangsApiController.cs" />
     <Compile Include="Controllers\PictureController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
@@ -518,17 +498,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Manage\Controllers\BackupController.cs" />
-    <Compile Include="Areas\V1\Controllers\CardsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\CategoryTypesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ItemsApiController.cs" />
     <Compile Include="Areas\Manage\Controllers\ItemsController.cs" />
-    <Compile Include="Areas\V1\Controllers\UserImagesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersApiController.cs" />
     <Compile Include="Areas\Manage\Controllers\UsersController.cs" />
-    <Compile Include="Areas\V1\Controllers\ViewPagesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ViewsApiController.cs" />
     <Compile Include="Areas\Manage\Controllers\ViewsController.cs" />
-    <Compile Include="Areas\V1\Controllers\ZhuanTisApiController.cs" />
     <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
     <Compile Include="Areas\SexSpider\Controllers\ImageApiController.cs" />
     <Compile Include="Areas\SexSpider\Controllers\ListApiController.cs" />
@@ -536,7 +508,6 @@
     <Compile Include="Areas\SexSpider\Controllers\SiteApiController.cs" />
     <Compile Include="Areas\SexSpider\Controllers\SiteController.cs" />
     <Compile Include="Areas\SexSpider\SexSpiderAreaRegistration.cs" />
-    <Compile Include="Areas\V1\V1AreaRegistration.cs" />
     <Compile Include="AuthorLogin\OAuth.aspx.cs">
       <DependentUpon>OAuth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1775,7 +1746,6 @@
     <Content Include="Content\bootstrap-datepicker3.css.map" />
     <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
     <Content Include="Content\bootstrap-datepicker.css.map" />
-    <Content Include="Areas\V1\Views\web.config" />
     <Content Include="Web2018\api\ImageUpload.ashx" />
     <Content Include="Areas\Manage\Views\Settings\Sites.cshtml" />
     <Content Include="Areas\Manage\Views\Shared\Notifications.cshtml" />
@@ -2016,8 +1986,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\SexSpider\Models\" />
-    <Folder Include="Areas\V1\Models\" />
-    <Folder Include="Areas\V1\Views\Shared\" />
     <Folder Include="Backup\Bak\" />
     <Folder Include="Backup\Cloud\" />
     <Folder Include="Backup\Export\" />

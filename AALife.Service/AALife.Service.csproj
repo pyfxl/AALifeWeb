@@ -33,8 +33,8 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -46,7 +46,6 @@
     </Reference>
     <Reference Include="Kendo.DynamicLinq, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Kendo.DynamicLinq.1.1.2.0\lib\net40\Kendo.DynamicLinq.dll</HintPath>
-      <Private>True</Private>
     </Reference>
     <Reference Include="Mapster, Version=3.2.0.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
       <HintPath>..\packages\Mapster.3.2.0\lib\net45\Mapster.dll</HintPath>
@@ -72,9 +71,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Yanzi.Core.KendoDapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\YXProject\Yanzi\Yanzi.Core.KendoDapper\bin\Debug\net452\Yanzi.Core.KendoDapper.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dapper\BaseBLL.cs" />
+    <Compile Include="Dapper\DapperContext.cs" />
+    <Compile Include="Dapper\UserTableBLL.cs" />
     <Compile Include="Dapper\ItemTableBLL.cs" />
     <Compile Include="EF\BaseBLL.cs" />
     <Compile Include="EF\ItemTableBLL.cs" />
@@ -83,6 +88,9 @@
     <Compile Include="EF\ViewTableBLL.cs" />
     <Compile Include="EF\WorkDayBLL.cs" />
     <Compile Include="Constant.cs" />
+    <Compile Include="Kendoui\BaseService.cs" />
+    <Compile Include="Kendoui\ItemTableService.cs" />
+    <Compile Include="Kendoui\UserTableService.cs" />
     <Compile Include="Models\AALifeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -183,6 +191,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AALife.Core\AALife.Core.csproj">
+      <Project>{291A8D13-94D1-41EE-95AF-2BE8F6031C03}</Project>
+      <Name>AALife.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AALife.Model\AALife.Model.csproj">
       <Project>{e458099d-6c03-40ee-ac70-480ffd645987}</Project>
       <Name>AALife.Model</Name>

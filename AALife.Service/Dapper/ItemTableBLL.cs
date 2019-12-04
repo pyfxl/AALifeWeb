@@ -1,11 +1,14 @@
 ﻿using AALife.Service.Domain.Common;
 using AALife.Service.Domain.ViewModel;
+using AALife.Service.Models;
 using Dapper;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
+using System.Linq.Dynamic;
+using Yanzi.Core.KendoDapper;
 
 namespace AALife.Service.Dapper
 {
@@ -38,6 +41,19 @@ namespace AALife.Service.Dapper
                 count = param.Get<int>("@HowManyItems");
 
                 return lists;
+            }
+        }
+
+        public DataSourceResult GetDapperDataSource(DataSourceRequest request)
+        {
+            return "ItemTableView2019".ToDataSourceResult<ItemTableViewModel>(request, base.sqlConnection, "ItemID desc");
+        }
+
+        public IEnumerable<UserCategoryTable> GetUserCategoryTable(int userId)
+        {
+            using(var conn = new SqlConnection(base.sqlConnection))
+            {
+                return conn.Query<UserCategoryTable>(string.Format(@"SELECT * FROM CategoryTypeTableFunc_v5({0}) WHERE CategoryTypeLive = 1", userId));
             }
         }
     }

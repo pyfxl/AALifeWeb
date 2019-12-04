@@ -49,6 +49,7 @@
           <Property Name="ItemType" Type="nvarchar" MaxLength="10" />
           <Property Name="ZhuanTiID" Type="int" />
           <Property Name="CardID" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="ItemTypeTable">
           <Key>
@@ -487,6 +488,7 @@
           <Property Name="CardID" Type="Int32" />
           <NavigationProperty Name="ItemTypeTable" Relationship="AALifeModel.FK_ItemTable_ItemTypeTable" FromRole="ItemTable" ToRole="ItemTypeTable" />
           <NavigationProperty Name="UserTable" Relationship="AALifeModel.FK_ItemTable_UserTable" FromRole="ItemTable" ToRole="UserTable" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ItemTypeTable">
           <Key>
@@ -816,6 +818,7 @@
           <EntitySetMapping Name="ItemTable">
             <EntityTypeMapping TypeName="AALifeModel.ItemTable">
               <MappingFragment StoreEntitySet="ItemTable">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="CardID" ColumnName="CardID" />
                 <ScalarProperty Name="ZhuanTiID" ColumnName="ZhuanTiID" />
                 <ScalarProperty Name="ItemType" ColumnName="ItemType" />

@@ -1,7 +1,7 @@
 ﻿using AALife.Core.Infrastructure;
 using AALife.Core.Services.Logging;
 using AALife.Data;
-using AALife.Core.Infrastructure.Kendoui;
+using Yanzi.Core.Kendoui;
 using System;
 using System.Collections.Generic;
 using System.Linq;

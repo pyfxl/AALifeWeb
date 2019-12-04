@@ -1,5 +1,5 @@
 ﻿using AALife.Core.Infrastructure;
-using AALife.Core.Infrastructure.Kendoui;
+using Yanzi.Core.Kendoui;
 using AALife.Core.Services.Logging;
 using AALife.Data;
 using System;

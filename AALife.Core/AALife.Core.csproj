@@ -43,6 +43,9 @@
     <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -137,12 +140,18 @@
     <Compile Include="Infrastructure\IEngine.cs" />
     <Compile Include="Infrastructure\IStartupTask.cs" />
     <Compile Include="Infrastructure\ITypeFinder.cs" />
-    <Compile Include="Infrastructure\Kendoui\KendoExtensions.cs" />
-    <Compile Include="Infrastructure\Kendoui\DataSourceRequest.cs" />
-    <Compile Include="Infrastructure\Kendoui\DataSourceResult.cs" />
-    <Compile Include="Infrastructure\Kendoui\Filter.cs" />
-    <Compile Include="Infrastructure\Kendoui\QueryableExtensions.cs" />
-    <Compile Include="Infrastructure\Kendoui\Sort.cs" />
+    <Compile Include="Kendoui\Aggregate.cs" />
+    <Compile Include="Kendoui\EnumerableExtenstions.cs" />
+    <Compile Include="Kendoui\Extensions.cs" />
+    <Compile Include="Kendoui\Group.cs" />
+    <Compile Include="Kendoui\GroupResult.cs" />
+    <Compile Include="Kendoui\GroupSelector.cs" />
+    <Compile Include="Kendoui\KendoExtensions.cs" />
+    <Compile Include="Kendoui\DataSourceRequest.cs" />
+    <Compile Include="Kendoui\DataSourceResult.cs" />
+    <Compile Include="Kendoui\Filter.cs" />
+    <Compile Include="Kendoui\QueryableExtensions.cs" />
+    <Compile Include="Kendoui\Sort.cs" />
     <Compile Include="Infrastructure\Singleton.cs" />
     <Compile Include="Infrastructure\WebAppTypeFinder.cs" />
     <Compile Include="IWebHelper.cs" />

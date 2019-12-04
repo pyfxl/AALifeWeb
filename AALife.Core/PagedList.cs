@@ -1,4 +1,4 @@
-﻿using AALife.Core.Infrastructure.Kendoui;
+﻿using Yanzi.Core.Kendoui;
 using System;
 using System.Collections;
 using System.Collections.Generic;

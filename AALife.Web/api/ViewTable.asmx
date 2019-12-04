@@ -1,9 +1,9 @@
 ﻿<%@ WebService Language="C#" Class="ViewTable" %>
 
 using AALife.Service.EF;
-using AALife.Service.Model.Common;
+using AALife.Service.Domain.Common;
+using AALife.Service.Domain.ViewModel;
 using AALife.Service.Models;
-using AALife.Service.Model.ViewModel;
 using System;
 using System.Linq;
 using System.Web.Services;

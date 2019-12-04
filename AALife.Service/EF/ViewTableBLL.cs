@@ -1,16 +1,11 @@
-﻿using AALife.Service.Domain.Common;
-using AALife.Service.Domain.ViewModel;
+﻿using AALife.Service.Domain.ViewModel;
 using AALife.Service.Models;
+using Kendo.DynamicLinq;
 using Mapster;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Linq.Dynamic;
-using System.Threading.Tasks;
-using System.Data.Entity.Core.Objects;
-using Kendo.DynamicLinq;
 
 namespace AALife.Service.EF
 {
