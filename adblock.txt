@@ -1,0 +1,76 @@
+[Adblock Plus 2.0]
+! Title: Feng Filter List
+! Expires: 1 days (update frequency)
+! Version: 100
+! Last modified: 27 Jul 2019
+! Homepage: https://github.com/pyfxl/
+! License: https://mit-license.org/
+! Description: This filter disables browser based miners such as coin-hive
+!-------------------------------------------------------------------------------
+
+cao.ganfree.com##div[style="width:960px;margin-left: auto; margin-right:auto; margin-top:10px; margin-bottom:10px;overflow:hidden;"]
+cao.ganfree.com##div[style="margin-top:5px;margin-bottom:5px;"]
+cao.ganfree.com##div[style="margin-top:-3px;margin-bottom:6px;"]
+cao.ganfree.com###bottom-gg1
+lubobo345.com##.top-spon
+luduobao01.info##.ads
+99re20.com##.dmcenter
+99re20.com##.block.spots
+nn0q.com##.loc-home-top-adv-new
+nn0q.com##.loc-list-top-adv
+ava11.net##.box.top_box
+ttt999.net##.box.top_box
+caobi009.xyz###leftdiv
+caobi009.xyz###rightdiv
+||vip.cy1234.info/*.gif
+||wx*.sinaimg.cn/large/*.gif
+||vip.cy1234.info/*.jpg
+||128.1.68.225:65531/vns/*.gif
+||vip.cy1234.info/*.png
+||luduobao01.info/v-content/88378/88378_f.gif
+||luduobao01.info/v-content/88378/88378_b.gif
+||cbu01.alicdn.com/img/ibank/2018/366/093/9328390663_385160887.jpg
+||cbu01.alicdn.com/img/ibank/2018/679/656/9200656976_1409595492.jpg
+||cbu01.alicdn.com/img/ibank/2018/297/675/9530576792_1409595492.jpg
+||ww1.sinaimg.cn/large/006UFkbtgy1fwdr0e1ahzg309q01oads.gif
+||ww1.sinaimg.cn/large/006UFkbtgy1fwqfro73c3g309q01o792.gif
+||img.alicdn.com/imgextra/i3/4030691187/TB2mf2CwfiSBuNkSnhJXXbDcpXa_!!1-martrix_bbs.gif
+||wx2.sinaimg.cn/mw1024/006rI9rCgy1ffz43kvfmfg30qo028dg6.gif
+||ww1.sinaimg.cn/large/006UFkbtgy1fwn4rjev91g30aa01yn1c.gif
+||wx3.sinaimg.cn/mw690/0060lm7Tly1fslew7myfoj30b401e3zo.jpg
+||wx4.sinaimg.cn/mw690/0060lm7Tly1ftt3sespmrj308k01g3yq.jpg
+||wx4.sinaimg.cn/mw690/006UFkbtgy1fniq169sgjg309q01oq4i.gif
+||sc02.alicdn.com/kf/UTB8E7a5jXPJXKJkSahV5jXyzFXaG.gif
+||img.alicdn.com/imgextra/i4/3935085348/TB2rPAKpOAnBKNjSZFvXXaTKXXa_!!1-martrix_bbs.gif
+||cbu01.alicdn.com/img/ibank/2018/599/462/9273264995_1409595492.jpg
+||cbu01.alicdn.com/img/ibank/2018/098/197/9541791890_1409595492.jpg
+||cbu01.alicdn.com/img/ibank/2018/054/565/9075565450_385160887.jpg
+||imge.cfcglx.com/zs/3333.gif
+||imge.cfcglx.com/zs/mg370.gif
+||cbu01.alicdn.com/img/ibank/2018/614/729/8553927416_1995781528.jpg
+||ws1.sinaimg.cn/large/006RBEHAgy1fwp5ipcohvg30b401y3zl.gif
+||afg0306.yurivideo.com/voyeurhit/ba_lo2/?mg=OztPe1JdRnN8YQV9IH5gUFtpMjUPWwwEDVRVVmgCUCIDZ198RgoFN3JeAUA0WEt1XEEXLDUtUHgmcTVQCW9iMFxaUQJdUFEPZlJZJgBiUn8UWlBieV0%3D
+||img599.net/images/2019/02/28/04142c0.gif
+||dioimg.net/2019-0808.GIF
+||dioimg.net/2019-0630-960x80.gif
+||dioimg.net/960-80-2019-0417.gif
+||img599.net/images/2019/02/28/02267b3.gif
+||img599.net/images/2019/02/28/03fe65f.gif
+||s1.lmagestu.com/images/20170208/20700174304.png
+||thumbsnap.com/i/sDUjKVmZ.gif
+||thumbsnap.com/i/jSAABMCF.gif
+||thumbsnap.com/i/tPGj3DsV.gif
+||thumbsnap.com/i/t351Vx5W.gif
+||thumbsnap.com/i/Ez997U8v.gif
+||thumbsnap.com/i/Yu5m4itI.gif
+||thumbsnap.com/i/eu8Zh1b2.gif
+||thumbsnap.com/i/ibdBkVYI.gif
+||thumbsnap.com/i/ouPY4Dik.gif
+||thumbsnap.com/i/mjg8bBNL.gif
+||thumbsnap.com/i/kmqBzHgR.gif
+||thumbsnap.com/i/Z0GdrRk5.gif
+||thumbsnap.com/i/XfrQDBGL.gif
+||thumbsnap.com/i/dUMTtV11.gif
+||thumbsnap.com/i/s8BoVaIm.gif
+||thumbsnap.com/i/52xbwiJP.gif
+||thumbsnap.com/i/CFcd56mj.gif
