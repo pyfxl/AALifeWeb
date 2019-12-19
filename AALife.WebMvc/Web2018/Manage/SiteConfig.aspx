@@ -1,8 +1,6 @@
-﻿<%@ Page Title="后台管理 | 消费列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" ValidateRequest="false" AutoEventWireup="true" Inherits="Manage_SiteConfig" Codebehind="SiteConfig.aspx.cs" %>
+﻿<%@ Page Title="后台管理 | 消费列表" Language="C#" MasterPageFile="~/Web2018/Manage/MasterPage.master" ValidateRequest="false" AutoEventWireup="true" Inherits="Manage_SiteConfig" Codebehind="SiteConfig.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="assets/kendo-custom-ui.js"></script>
-    <script src="assets/kendo-main.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 <div class="row">

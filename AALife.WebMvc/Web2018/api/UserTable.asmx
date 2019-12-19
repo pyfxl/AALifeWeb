@@ -1,8 +1,8 @@
 ﻿<%@ WebService Language="C#" Class="UserTable" %>
 
 using AALife.Service.EF;
-using AALife.Service.Model.Common;
-using AALife.Service.Model.ViewModel;
+using AALife.Service.Domain.Common;
+using AALife.Service.Domain.ViewModel;
 using System;
 using System.Linq;
 using System.Web.Services;

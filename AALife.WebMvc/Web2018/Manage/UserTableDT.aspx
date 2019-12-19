@@ -1,7 +1,6 @@
-﻿<%@ Page Title="后台管理 | 用户列表DT" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" Inherits="Manage_UserTableDT" Codebehind="UserTableDT.aspx.cs" %>
+﻿<%@ Page Title="后台管理 | 用户列表DT" Language="C#" MasterPageFile="~/Web2018/Manage/MasterPage.master" AutoEventWireup="true" Inherits="Manage_UserTableDT" Codebehind="UserTableDT.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="assets/datatables-main.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="row">
@@ -83,7 +82,7 @@
                 "ajax": {
                     type: "POST",
                     contentType: "application/json; charset=utf-8",
-                    url: '/api/UserTable.asmx/GetUserTable',
+                    url: '/Web2018/api/UserTable.asmx/GetUserTable',
                     data: function (d) {
                         query.skip = d.start;
                         query.take = d.length;

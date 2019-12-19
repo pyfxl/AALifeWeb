@@ -114,27 +114,28 @@
                 <ul class="system_ul">
                 <asp:Repeater ID="SystemMenu" runat="server">
                     <ItemTemplate>
-                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click" Enabled='<%# Eval("MenuLive") %>'></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="<%# Eval("MenuURL") %>"><%# Eval("MenuName") %></a></li>
+                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click" Enabled='<%# Eval("MenuLive") %>'></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="/Web2018/<%# Eval("MenuURL") %>"><%# Eval("MenuName") %></a></li>
                     </ItemTemplate>
                 </asp:Repeater>  
                 </ul>
                 <ul class="query_ul" style='display:<%=this.QueryList.Items.Count==0 ? "none" : "block" %>;'>
                 <asp:Repeater ID="QueryList" runat="server">
                     <ItemTemplate>
-                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="<%# GetNewUrl(Eval("MenuURL").ToString()) %>"><%# Eval("MenuName") %></a></li>
+                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="/Web2018<%# GetNewUrl(Eval("MenuURL").ToString()) %>"><%# Eval("MenuName") %></a></li>
                     </ItemTemplate>
                 </asp:Repeater>
                 </ul>
                 <ul class="user_ul">
                 <asp:Repeater ID="UserMenu" runat="server">
                     <ItemTemplate>
-                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="<%# Eval("MenuURL") %>"><%# Eval("MenuName") %></a></li>
+                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="/Web2018/<%# Eval("MenuURL") %>"><%# Eval("MenuName") %></a></li>
                     </ItemTemplate>
                 </asp:Repeater>
                 </ul>
                 <ul style='display:<%=((Session["UserLevel"] != null && Session["UserLevel"].ToString() == "9") ? "block" : "none") %>;'>
                     <li><a href="/Web2015/AdminUserList.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/behome.gif" title="网站管理" /> 网站管理</a></li>
                     <li><a href="/Web2018/Manage/Home.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/n_b62.gif" title="后台管理" /> 后台管理</a></li>
+                    <li><a href="/Web2018/Manage2019/Home.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/f20.gif" title="后台管理" /> 后台2019</a></li>
                     <li><a href="/Web2018/Tools/ClearCache.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/e1closewin.gif" title="清除Cookie" /> 清除Cookie</a></li>
                     <li><a href="/Web2018/Tools/DeleteUserImage.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/m01.gif" title="删除头像" /> 删除头像</a></li>
                     <li><a href="/Web2018/Tools/QQLoginFix.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/f20.gif" title="修复头像" /> 修复头像</a></li>

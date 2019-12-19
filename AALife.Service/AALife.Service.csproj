@@ -33,8 +33,11 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Dapper, Version=1.50.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
+    <Reference Include="Dapper, Version=1.60.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.60.6\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExtreme.AspNet.Data, Version=2.5.1.0, Culture=neutral, PublicKeyToken=982f5dab1439d0f7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExtreme.AspNet.Data.2.5.1\lib\net452\DevExtreme.AspNet.Data.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -50,6 +53,9 @@
     </Reference>
     <Reference Include="Mapster, Version=3.2.0.0, Culture=neutral, PublicKeyToken=2f39883af23c29a8, processorArchitecture=MSIL">
       <HintPath>..\packages\Mapster.3.2.0\lib\net45\Mapster.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.5.11\lib\net45\NLog.dll</HintPath>
@@ -72,10 +78,14 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Yanzi.Core.KendoDapper">
+      <HintPath>..\..\..\YXProject\Yanzi\Yanzi.Core.KendoDapper\bin\Debug\net452\Yanzi.Core.KendoDapper.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dapper\BaseBLL.cs" />
     <Compile Include="Dapper\ItemTableBLL.cs" />
+    <Compile Include="Dapper\UserTableBLL.cs" />
     <Compile Include="EF\BaseBLL.cs" />
     <Compile Include="EF\ItemTableBLL.cs" />
     <Compile Include="EF\UserFromBLL.cs" />
@@ -107,6 +117,9 @@
     <Compile Include="Models\ItemTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ItemTableView2019.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ItemTypeTable.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
@@ -123,6 +136,9 @@
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserTable.cs">
+      <DependentUpon>AALifeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserTableView.cs">
       <DependentUpon>AALifeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewPageTable.cs">

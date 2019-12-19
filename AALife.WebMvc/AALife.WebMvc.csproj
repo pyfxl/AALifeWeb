@@ -51,17 +51,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Aspose.Cells.dll</HintPath>
     </Reference>
-    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
-    </Reference>
-    <Reference Include="Autofac.Integration.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.Mvc5.4.0.2\lib\net45\Autofac.Integration.Mvc.dll</HintPath>
-    </Reference>
-    <Reference Include="Autofac.Integration.WebApi, Version=4.2.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
-      <HintPath>..\packages\Autofac.WebApi2.4.2.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
-    </Reference>
-    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="DevExtreme.AspNet.Data, Version=2.5.1.0, Culture=neutral, PublicKeyToken=982f5dab1439d0f7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExtreme.AspNet.Data.2.5.1\lib\net452\DevExtreme.AspNet.Data.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -83,17 +74,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
-    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
-    </Reference>
     <Reference Include="System.Messaging" />
     <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
-    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -151,6 +136,10 @@
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Yanzi.Core.KendoDapper, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\YXProject\Yanzi\Yanzi.Core.KendoDapper\bin\Debug\net452\Yanzi.Core.KendoDapper.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -391,152 +380,10 @@
     <Compile Include="AALifeWeb\SyncZhuanZhangWebBack.aspx.designer.cs">
       <DependentUpon>SyncZhuanZhangWebBack.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Areas\Manage\Controllers\BaseAdminController.cs" />
-    <Compile Include="Areas\Manage\Controllers\HomeController.cs" />
-    <Compile Include="Areas\Manage\Controllers\MessageTemplatesController.cs" />
-    <Compile Include="Areas\Manage\Controllers\DeptmentsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\ParametersController.cs" />
-    <Compile Include="Areas\Manage\Controllers\PermissionsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\PositionsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\ScheduleTasksController.cs" />
-    <Compile Include="Areas\Manage\Controllers\SettingsController.cs" />
-    <Compile Include="Areas\Manage\Controllers\RolesController.cs" />
-    <Compile Include="Areas\Manage\Models\BaseModel.cs" />
-    <Compile Include="Areas\Manage\Models\MenuViewModel.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsPositionApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsPositionTreeApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\TitlesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\PositionsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\PositionsUserApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ParametersTreeApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsTreeApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\MessageTemplatesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ParametersApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\PermissionsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ScheduleTasksApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\DeptmentsUserApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersPositionApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersDeptmentApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UserDeptmentsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\RolesUserApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersRoleApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\RolesApiController.cs" />
-    <Compile Include="Controllers\EmployeesController.cs" />
-    <Compile Include="Controllers\KeepAliveController.cs" />
-    <Compile Include="Infrastructure\AdminAuthorizeAttribute.cs" />
-    <Compile Include="Infrastructure\Controllers\BaseApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ZhuanZhangsApiController.cs" />
-    <Compile Include="Controllers\PictureController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Controllers\BaseMvcController.cs" />
-    <Compile Include="Infrastructure\Controllers\BaseController.cs" />
-    <Compile Include="Infrastructure\Extensions\DateTimeExtensions.cs" />
-    <Compile Include="Infrastructure\DependencyManagement\DependencyRegistrar.cs" />
-    <Compile Include="Infrastructure\FormValueRequiredAttribute.cs" />
-    <Compile Include="Infrastructure\HtmlExtensions.cs" />
-    <Compile Include="Infrastructure\jqGrid\DataSourceRequest.cs" />
-    <Compile Include="Infrastructure\jqGrid\DataSourceResult.cs" />
-    <Compile Include="Infrastructure\jqGrid\Filter.cs" />
-    <Compile Include="Infrastructure\jqGrid\ModelStateExtensions.cs" />
-    <Compile Include="Infrastructure\jqGrid\QueryableExtensions.cs" />
-    <Compile Include="Infrastructure\jqGrid\Sort.cs" />
-    <Compile Include="Infrastructure\Extensions\JsonExtensions.cs" />
-    <Compile Include="Infrastructure\ActionResult\JsonLowercase.cs" />
-    <Compile Include="Infrastructure\JsonNetValueProviderFactory.cs" />
-    <Compile Include="Infrastructure\Mapper\MapperConfiguration.cs" />
-    <Compile Include="Infrastructure\Mapper\MappingExtensions.cs" />
-    <Compile Include="Models\Employee.cs" />
-    <Compile Include="Models\Query\UsersQuery.cs" />
-    <Compile Include="Models\ViewModel\MessageTemplateModel.cs" />
-    <Compile Include="Models\ViewModel\PermissionInputModel.cs" />
-    <Compile Include="Models\ViewModel\UserRoleListModel.cs" />
-    <Compile Include="Models\ViewModel\PermissionListModel.cs" />
-    <Compile Include="Models\ViewModel\PermissionRecordModel.cs" />
-    <Compile Include="Models\ViewModel\BaseViewModel.cs" />
-    <Compile Include="Models\ViewModel\ItemTotalModel.cs" />
-    <Compile Include="Models\ViewModel\PermissionMappingModel.cs" />
-    <Compile Include="Models\ViewModel\ParameterViewModel.cs" />
-    <Compile Include="Models\ViewModel\TreeViewModel.cs" />
-    <Compile Include="Models\ViewModel\PermissionViewModel.cs" />
-    <Compile Include="Models\ViewModel\UserLoginModel.cs" />
-    <Compile Include="Models\ViewModel\UserDetailViewModel.cs" />
-    <Compile Include="Models\ViewModel\UserDeptmentModel.cs" />
-    <Compile Include="Models\ViewModel\UserPositionModel.cs" />
-    <Compile Include="Models\ViewModel\UserRoleModel.cs" />
-    <Compile Include="Models\ViewModel\UserRoleViewModel.cs" />
-    <Compile Include="Models\ViewModel\UserManageViewModel.cs" />
-    <Compile Include="Models\ViewModel\ZhuanZhangViewModel.cs" />
-    <Compile Include="Web2018\App_Code\BackupHelper.cs" />
-    <Compile Include="Web2018\App_Code\Base\AdminPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\App_Code\Base\ApiBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\App_Code\Base\BasePage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\App_Code\Base\FirstPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\App_Code\Base\MsmqBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\App_Code\Base\SyncBase.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\App_Code\Base\WebPage.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\App_Code\CacheHelper.cs" />
-    <Compile Include="Web2018\App_Code\DateHelper.cs" />
-    <Compile Include="Web2018\App_Code\FileHelper.cs" />
-    <Compile Include="Web2018\App_Code\GenericDataAccess.cs" />
-    <Compile Include="Web2018\App_Code\ImageHelper.cs" />
-    <Compile Include="Web2018\App_Code\ItemHelper.cs" />
-    <Compile Include="Web2018\App_Code\JsonHelper.cs" />
-    <Compile Include="Web2018\App_Code\MenuHelper.cs" />
-    <Compile Include="Web2018\App_Code\Message.cs" />
-    <Compile Include="Web2018\App_Code\MsmqService.cs" />
-    <Compile Include="Web2018\App_Code\QQOAuth\OpenApi.cs" />
-    <Compile Include="Web2018\App_Code\QQOAuth\QPlusOpen.cs" />
-    <Compile Include="Web2018\App_Code\QQOAuth\QQInfoClass.cs" />
-    <Compile Include="Web2018\App_Code\QQOAuth\SnsNetWork.cs" />
-    <Compile Include="Web2018\App_Code\QQOAuth\SnsSigCheck.cs" />
-    <Compile Include="Web2018\App_Code\QQOAuth\SnsStat.cs" />
-    <Compile Include="Web2018\App_Code\QueryHelper.cs" />
-    <Compile Include="Web2018\App_Code\UserHelper.cs" />
-    <Compile Include="Web2018\App_Code\Utility.cs" />
-    <Compile Include="Web2018\App_Code\UtilityHelper.cs" />
-    <Compile Include="Web2018\App_Code\ValidHelper.cs" />
-    <Compile Include="Web2018\App_Code\WebConfiguration.cs" />
-    <Compile Include="Web2018\App_Code\XmlControl.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Areas\Manage\Controllers\BackupController.cs" />
-    <Compile Include="Areas\V1\Controllers\CardsApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\CategoryTypesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ItemsApiController.cs" />
-    <Compile Include="Areas\Manage\Controllers\ItemsController.cs" />
-    <Compile Include="Areas\V1\Controllers\UserImagesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\UsersApiController.cs" />
-    <Compile Include="Areas\Manage\Controllers\UsersController.cs" />
-    <Compile Include="Areas\V1\Controllers\ViewPagesApiController.cs" />
-    <Compile Include="Areas\V1\Controllers\ViewsApiController.cs" />
-    <Compile Include="Areas\Manage\Controllers\ViewsController.cs" />
-    <Compile Include="Areas\V1\Controllers\ZhuanTisApiController.cs" />
-    <Compile Include="Areas\Manage\ManageAreaRegistration.cs" />
-    <Compile Include="Areas\SexSpider\Controllers\ImageApiController.cs" />
-    <Compile Include="Areas\SexSpider\Controllers\ListApiController.cs" />
-    <Compile Include="Areas\SexSpider\Controllers\AppApiController.cs" />
-    <Compile Include="Areas\SexSpider\Controllers\SiteApiController.cs" />
-    <Compile Include="Areas\SexSpider\Controllers\SiteController.cs" />
-    <Compile Include="Areas\SexSpider\SexSpiderAreaRegistration.cs" />
-    <Compile Include="Areas\V1\V1AreaRegistration.cs" />
     <Compile Include="AuthorLogin\OAuth.aspx.cs">
       <DependentUpon>OAuth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -558,240 +405,26 @@
     <Compile Include="AuthorLogin\QZone.aspx.designer.cs">
       <DependentUpon>QZone.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Web2018\AutoItemCompareJson.aspx.cs">
-      <DependentUpon>AutoItemCompareJson.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\AutoItemCompareJson.aspx.designer.cs">
-      <DependentUpon>AutoItemCompareJson.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\AutoItemGroupJson.aspx.cs">
-      <DependentUpon>AutoItemGroupJson.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\AutoItemGroupJson.aspx.designer.cs">
-      <DependentUpon>AutoItemGroupJson.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Web2018\Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\ItemPivotGridController.cs" />
+    <Compile Include="Controllers\UserPivotGridController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\UserTableDapperController.cs" />
+    <Compile Include="Controllers\ItemTableDapperController.cs" />
+    <Compile Include="DataSourceLoadOptions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Web2018\Helper.aspx.cs">
-      <DependentUpon>Helper.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Helper.aspx.designer.cs">
-      <DependentUpon>Helper.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\ItemAddSmart.aspx.cs">
-      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\ItemAddSmart.aspx.designer.cs">
-      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\ItemCompare.aspx.cs">
-      <DependentUpon>ItemCompare.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\ItemCompare.aspx.designer.cs">
-      <DependentUpon>ItemCompare.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\ItemGroup.aspx.cs">
-      <DependentUpon>ItemGroup.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\ItemGroup.aspx.designer.cs">
-      <DependentUpon>ItemGroup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\ItemQuery.aspx.cs">
-      <DependentUpon>ItemQuery.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\ItemQuery.aspx.designer.cs">
-      <DependentUpon>ItemQuery.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Manage\BackupData.aspx.cs">
-      <DependentUpon>BackupData.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Manage\BackupData.aspx.designer.cs">
-      <DependentUpon>BackupData.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Manage\Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Manage\Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Manage\ItemTable.aspx.cs">
-      <DependentUpon>ItemTable.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Manage\ItemTable.aspx.designer.cs">
-      <DependentUpon>ItemTable.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Manage\MasterPage.master.cs">
-      <DependentUpon>MasterPage.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Manage\MasterPage.master.designer.cs">
-      <DependentUpon>MasterPage.master</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Manage\SiteConfig.aspx.cs">
-      <DependentUpon>SiteConfig.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Manage\SiteConfig.aspx.designer.cs">
-      <DependentUpon>SiteConfig.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Manage\UserTableDT.aspx.cs">
-      <DependentUpon>UserTableDT.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Manage\UserTableDT.aspx.designer.cs">
-      <DependentUpon>UserTableDT.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Manage\ViewTable.aspx.cs">
-      <DependentUpon>ViewTable.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Manage\ViewTable.aspx.designer.cs">
-      <DependentUpon>ViewTable.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Query\BaseQuery.cs" />
-    <Compile Include="Models\Query\ItemsQuery.cs" />
-    <Compile Include="Models\ViewModel\ItemViewModel.cs" />
-    <Compile Include="Models\ViewModel\UserViewModel.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Northwind.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Order_Detail.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Shipper.cs" />
+    <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Web2018\QuWeiTongJiNew.aspx.cs">
-      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\QuWeiTongJiNew.aspx.designer.cs">
-      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Tools\ClearCache.aspx.cs">
-      <DependentUpon>ClearCache.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Tools\ClearCache.aspx.designer.cs">
-      <DependentUpon>ClearCache.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Tools\DeleteUserImage.aspx.cs">
-      <DependentUpon>DeleteUserImage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Tools\DeleteUserImage.aspx.designer.cs">
-      <DependentUpon>DeleteUserImage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\Tools\QQLoginFix.aspx.cs">
-      <DependentUpon>QQLoginFix.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\Tools\QQLoginFix.aspx.designer.cs">
-      <DependentUpon>QQLoginFix.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserAdmin.aspx.cs">
-      <DependentUpon>UserAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserAdmin.aspx.designer.cs">
-      <DependentUpon>UserAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserBoundAdmin.aspx.cs">
-      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserBoundAdmin.aspx.designer.cs">
-      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserCardAdmin.aspx.cs">
-      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserCardAdmin.aspx.designer.cs">
-      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserCategoryAdmin.aspx.cs">
-      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserCategoryAdmin.aspx.designer.cs">
-      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserControl\MasterPage.master.cs">
-      <DependentUpon>MasterPage.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserControl\MasterPage.master.designer.cs">
-      <DependentUpon>MasterPage.master</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserControl\UserMenu.ascx.cs">
-      <DependentUpon>UserMenu.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserControl\UserMenu.ascx.designer.cs">
-      <DependentUpon>UserMenu.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserDataAdmin.aspx.cs">
-      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserDataAdmin.aspx.designer.cs">
-      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserFunctionSetting.aspx.cs">
-      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserFunctionSetting.aspx.designer.cs">
-      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserLogin.aspx.cs">
-      <DependentUpon>UserLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserLogin.aspx.designer.cs">
-      <DependentUpon>UserLogin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserLogout.aspx.cs">
-      <DependentUpon>UserLogout.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserLogout.aspx.designer.cs">
-      <DependentUpon>UserLogout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserRegister.aspx.cs">
-      <DependentUpon>UserRegister.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserRegister.aspx.designer.cs">
-      <DependentUpon>UserRegister.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserZhuanTi.aspx.cs">
-      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserZhuanTi.aspx.designer.cs">
-      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Web2018\UserZhuanZhangDetail.aspx.cs">
-      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Web2018\UserZhuanZhangDetail.aspx.designer.cs">
-      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Web2015\AdminBackupData.aspx.cs">
       <DependentUpon>AdminBackupData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1303,6 +936,302 @@
     <Compile Include="Web2015\UserZhuanZhangDetail.aspx.designer.cs">
       <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web2018\App_Code\BackupHelper.cs" />
+    <Compile Include="Web2018\App_Code\Base\AdminPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\App_Code\Base\ApiBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\App_Code\Base\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\App_Code\Base\FirstPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\App_Code\Base\MsmqBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\App_Code\Base\SyncBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\App_Code\Base\WebPage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\App_Code\CacheHelper.cs" />
+    <Compile Include="Web2018\App_Code\DateHelper.cs" />
+    <Compile Include="Web2018\App_Code\FileHelper.cs" />
+    <Compile Include="Web2018\App_Code\GenericDataAccess.cs" />
+    <Compile Include="Web2018\App_Code\ImageHelper.cs" />
+    <Compile Include="Web2018\App_Code\ItemHelper.cs" />
+    <Compile Include="Web2018\App_Code\JsonHelper.cs" />
+    <Compile Include="Web2018\App_Code\MenuHelper.cs" />
+    <Compile Include="Web2018\App_Code\Message.cs" />
+    <Compile Include="Web2018\App_Code\MsmqService.cs" />
+    <Compile Include="Web2018\App_Code\QQOAuth\OpenApi.cs" />
+    <Compile Include="Web2018\App_Code\QQOAuth\QPlusOpen.cs" />
+    <Compile Include="Web2018\App_Code\QQOAuth\QQInfoClass.cs" />
+    <Compile Include="Web2018\App_Code\QQOAuth\SnsNetWork.cs" />
+    <Compile Include="Web2018\App_Code\QQOAuth\SnsSigCheck.cs" />
+    <Compile Include="Web2018\App_Code\QQOAuth\SnsStat.cs" />
+    <Compile Include="Web2018\App_Code\QueryHelper.cs" />
+    <Compile Include="Web2018\App_Code\UserHelper.cs" />
+    <Compile Include="Web2018\App_Code\Utility.cs" />
+    <Compile Include="Web2018\App_Code\UtilityHelper.cs" />
+    <Compile Include="Web2018\App_Code\ValidHelper.cs" />
+    <Compile Include="Web2018\App_Code\WebConfiguration.cs" />
+    <Compile Include="Web2018\App_Code\XmlControl.cs" />
+    <Compile Include="Web2018\AutoItemCompareJson.aspx.cs">
+      <DependentUpon>AutoItemCompareJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\AutoItemCompareJson.aspx.designer.cs">
+      <DependentUpon>AutoItemCompareJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\AutoItemGroupJson.aspx.cs">
+      <DependentUpon>AutoItemGroupJson.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\AutoItemGroupJson.aspx.designer.cs">
+      <DependentUpon>AutoItemGroupJson.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Helper.aspx.cs">
+      <DependentUpon>Helper.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Helper.aspx.designer.cs">
+      <DependentUpon>Helper.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\ItemAddSmart.aspx.cs">
+      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\ItemAddSmart.aspx.designer.cs">
+      <DependentUpon>ItemAddSmart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\ItemCompare.aspx.cs">
+      <DependentUpon>ItemCompare.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\ItemCompare.aspx.designer.cs">
+      <DependentUpon>ItemCompare.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\ItemGroup.aspx.cs">
+      <DependentUpon>ItemGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\ItemGroup.aspx.designer.cs">
+      <DependentUpon>ItemGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\ItemQuery.aspx.cs">
+      <DependentUpon>ItemQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\ItemQuery.aspx.designer.cs">
+      <DependentUpon>ItemQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage2019\ItemPivotGrid.aspx.cs">
+      <DependentUpon>ItemPivotGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage2019\DevExpressUserControl.ascx.cs">
+      <DependentUpon>DevExpressUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage2019\DevExpressUserControl.ascx.designer.cs">
+      <DependentUpon>DevExpressUserControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage2019\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage2019\UserPivotGrid.aspx.cs">
+      <DependentUpon>UserPivotGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage2019\ItemTable.aspx.cs">
+      <DependentUpon>ItemTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage2019\MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\BackupData.aspx.cs">
+      <DependentUpon>BackupData.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\BackupData.aspx.designer.cs">
+      <DependentUpon>BackupData.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage\ItemTable.aspx.cs">
+      <DependentUpon>ItemTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\ItemTable.aspx.designer.cs">
+      <DependentUpon>ItemTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage\MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage\SiteConfig.aspx.cs">
+      <DependentUpon>SiteConfig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\SiteConfig.aspx.designer.cs">
+      <DependentUpon>SiteConfig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage\UserTableDT.aspx.cs">
+      <DependentUpon>UserTableDT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\UserTableDT.aspx.designer.cs">
+      <DependentUpon>UserTableDT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Manage\ViewTable.aspx.cs">
+      <DependentUpon>ViewTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Manage\ViewTable.aspx.designer.cs">
+      <DependentUpon>ViewTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\QuWeiTongJiNew.aspx.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\QuWeiTongJiNew.aspx.designer.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Tools\ClearCache.aspx.cs">
+      <DependentUpon>ClearCache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Tools\ClearCache.aspx.designer.cs">
+      <DependentUpon>ClearCache.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Tools\DeleteUserImage.aspx.cs">
+      <DependentUpon>DeleteUserImage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Tools\DeleteUserImage.aspx.designer.cs">
+      <DependentUpon>DeleteUserImage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\Tools\QQLoginFix.aspx.cs">
+      <DependentUpon>QQLoginFix.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\Tools\QQLoginFix.aspx.designer.cs">
+      <DependentUpon>QQLoginFix.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserAdmin.aspx.cs">
+      <DependentUpon>UserAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserAdmin.aspx.designer.cs">
+      <DependentUpon>UserAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserBoundAdmin.aspx.cs">
+      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserBoundAdmin.aspx.designer.cs">
+      <DependentUpon>UserBoundAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserCardAdmin.aspx.cs">
+      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserCardAdmin.aspx.designer.cs">
+      <DependentUpon>UserCardAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserCategoryAdmin.aspx.cs">
+      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserCategoryAdmin.aspx.designer.cs">
+      <DependentUpon>UserCategoryAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserControl\MasterPage.master.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserControl\MasterPage.master.designer.cs">
+      <DependentUpon>MasterPage.master</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserControl\UserMenu.ascx.cs">
+      <DependentUpon>UserMenu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserControl\UserMenu.ascx.designer.cs">
+      <DependentUpon>UserMenu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserDataAdmin.aspx.cs">
+      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserDataAdmin.aspx.designer.cs">
+      <DependentUpon>UserDataAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserFunctionSetting.aspx.cs">
+      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserFunctionSetting.aspx.designer.cs">
+      <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserLogin.aspx.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserLogin.aspx.designer.cs">
+      <DependentUpon>UserLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserLogout.aspx.cs">
+      <DependentUpon>UserLogout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserLogout.aspx.designer.cs">
+      <DependentUpon>UserLogout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserRegister.aspx.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserRegister.aspx.designer.cs">
+      <DependentUpon>UserRegister.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserZhuanTi.aspx.cs">
+      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserZhuanTi.aspx.designer.cs">
+      <DependentUpon>UserZhuanTi.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Web2018\UserZhuanZhangDetail.aspx.cs">
+      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\UserZhuanZhangDetail.aspx.designer.cs">
+      <DependentUpon>UserZhuanZhangDetail.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="AALifeWeb\GetPhoneMessage.aspx" />
@@ -1356,14 +1285,53 @@
     <Content Include="AALifeWeb\SyncZhuanZhang.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.html" />
-    <Content Include="Areas\Manage\Content\Style.css" />
-    <Content Include="Areas\Manage\Scripts\kendo-models.js" />
-    <Content Include="Areas\Manage\Scripts\users.js" />
-    <Content Include="Areas\Manage\Scripts\positions.js" />
-    <Content Include="Areas\Manage\Scripts\deptments.js" />
-    <Content Include="Areas\Manage\Scripts\permissions.js" />
-    <Content Include="Areas\Manage\Scripts\roles.js" />
+    <Content Include="Content\dx-diagram.css" />
+    <Content Include="Content\dx-diagram.min.css" />
+    <Content Include="Content\dx-gantt.css" />
+    <Content Include="Content\dx-gantt.min.css" />
+    <Content Include="Content\dx.carmine.compact.css" />
+    <Content Include="Content\dx.carmine.css" />
+    <Content Include="Content\dx.common.css" />
+    <Content Include="Content\dx.contrast.compact.css" />
+    <Content Include="Content\dx.contrast.css" />
+    <Content Include="Content\dx.dark.compact.css" />
+    <Content Include="Content\dx.dark.css" />
+    <Content Include="Content\dx.darkmoon.compact.css" />
+    <Content Include="Content\dx.darkmoon.css" />
+    <Content Include="Content\dx.darkviolet.compact.css" />
+    <Content Include="Content\dx.darkviolet.css" />
+    <Content Include="Content\dx.greenmist.compact.css" />
+    <Content Include="Content\dx.greenmist.css" />
+    <Content Include="Content\dx.ios7.default.css" />
+    <Content Include="Content\dx.light.compact.css" />
+    <Content Include="Content\dx.light.css" />
+    <Content Include="Content\dx.material.blue.dark.compact.css" />
+    <Content Include="Content\dx.material.blue.dark.css" />
+    <Content Include="Content\dx.material.blue.light.compact.css" />
+    <Content Include="Content\dx.material.blue.light.css" />
+    <Content Include="Content\dx.material.lime.dark.compact.css" />
+    <Content Include="Content\dx.material.lime.dark.css" />
+    <Content Include="Content\dx.material.lime.light.compact.css" />
+    <Content Include="Content\dx.material.lime.light.css" />
+    <Content Include="Content\dx.material.orange.dark.compact.css" />
+    <Content Include="Content\dx.material.orange.dark.css" />
+    <Content Include="Content\dx.material.orange.light.compact.css" />
+    <Content Include="Content\dx.material.orange.light.css" />
+    <Content Include="Content\dx.material.purple.dark.compact.css" />
+    <Content Include="Content\dx.material.purple.dark.css" />
+    <Content Include="Content\dx.material.purple.light.compact.css" />
+    <Content Include="Content\dx.material.purple.light.css" />
+    <Content Include="Content\dx.material.teal.dark.compact.css" />
+    <Content Include="Content\dx.material.teal.dark.css" />
+    <Content Include="Content\dx.material.teal.light.compact.css" />
+    <Content Include="Content\dx.material.teal.light.css" />
+    <Content Include="Content\dx.softblue.compact.css" />
+    <Content Include="Content\dx.softblue.css" />
     <Content Include="Images\Users\user.gif" />
+    <Content Include="Scripts\cldr.js" />
+    <Content Include="Scripts\cldr\event.js" />
+    <Content Include="Scripts\cldr\supplemental.js" />
+    <Content Include="Scripts\cldr\unresolved.js" />
     <Content Include="Scripts\const.js" />
     <Content Include="Scripts\datas\user-zhuanzhang.js" />
     <Content Include="Scripts\datas\user-zhuanti.js" />
@@ -1371,68 +1339,86 @@
     <Content Include="Scripts\datas\user-category.js" />
     <Content Include="Scripts\daterangepicker\daterangepicker.css" />
     <Content Include="Scripts\daterangepicker\daterangepicker.js" />
+    <Content Include="Content\icons\dxiconsmaterial.woff2" />
+    <Content Include="Content\icons\dxiconsmaterial.woff" />
+    <Content Include="Content\icons\dxiconsmaterial.ttf" />
+    <Content Include="Content\icons\dxiconsios.woff2" />
+    <Content Include="Content\icons\dxiconsios.woff" />
+    <Content Include="Content\icons\dxiconsios.ttf" />
+    <Content Include="Content\icons\dxicons.woff2" />
+    <Content Include="Content\icons\dxicons.woff" />
+    <Content Include="Content\icons\dxicons.ttf" />
+    <Content Include="Content\fonts\Roboto-700.woff2" />
+    <Content Include="Content\fonts\Roboto-700.woff" />
+    <Content Include="Content\fonts\Roboto-700.ttf" />
+    <Content Include="Content\fonts\Roboto-500.woff2" />
+    <Content Include="Content\fonts\Roboto-500.woff" />
+    <Content Include="Content\fonts\Roboto-500.ttf" />
+    <Content Include="Content\fonts\Roboto-400.woff2" />
+    <Content Include="Content\fonts\Roboto-400.woff" />
+    <Content Include="Content\fonts\Roboto-400.ttf" />
+    <Content Include="Content\fonts\Roboto-300.woff2" />
+    <Content Include="Content\fonts\Roboto-300.woff" />
+    <Content Include="Content\fonts\Roboto-300.ttf" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\devextreme-localization\dx.messages.de.js" />
+    <Content Include="Scripts\devextreme-localization\dx.messages.en.js" />
+    <Content Include="Scripts\devextreme-localization\dx.messages.ja.js" />
+    <Content Include="Scripts\devextreme-localization\dx.messages.ru.js" />
+    <Content Include="Scripts\devextreme-localization\dx.messages.zh.js" />
+    <Content Include="Scripts\dx-diagram.js" />
+    <Content Include="Scripts\dx-diagram.min.js" />
+    <Content Include="Scripts\dx-gantt.js" />
+    <Content Include="Scripts\dx-gantt.min.js" />
+    <Content Include="Scripts\dx.all.debug.js" />
+    <Content Include="Scripts\dx.all.js" />
+    <Content Include="Scripts\dx.aspnet.data.js" />
+    <Content Include="Scripts\dx.aspnet.mvc.js" />
+    <Content Include="Scripts\dx.viz-web.debug.js" />
+    <Content Include="Scripts\dx.viz-web.js" />
+    <Content Include="Scripts\dx.viz.debug.js" />
+    <Content Include="Scripts\dx.viz.js" />
+    <Content Include="Scripts\dx.web.debug.js" />
+    <Content Include="Scripts\dx.web.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\currency.js" />
+    <Content Include="Scripts\globalize\date.js" />
+    <Content Include="Scripts\globalize\message.js" />
+    <Content Include="Scripts\globalize\number.js" />
+    <Content Include="Scripts\globalize\plural.js" />
+    <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\globalize\unit.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-tmpl\jquery.tmpl.js" />
     <Content Include="Scripts\jquery-tmpl\jquery.tmpl.min.js" />
     <Content Include="Scripts\datas\user.js" />
     <Content Include="Scripts\datas\item.js" />
+    <Content Include="Scripts\jszip.js" />
+    <Content Include="Scripts\jszip.min.js" />
     <Content Include="Scripts\knockout-3.4.2.debug.js" />
     <Content Include="Scripts\knockout-3.4.2.js" />
-    <Content Include="Web2018\api\ItemTable.asmx" />
-    <Content Include="Web2018\api\UserFrom.asmx" />
-    <Content Include="Web2018\api\UserTable.asmx" />
-    <Content Include="Web2018\api\ViewTable.asmx" />
-    <Content Include="Web2018\api\WorkDay.asmx" />
-    <Content Include="Areas\Manage\Content\manage.default.css" />
     <Content Include="AuthorLogin\OAuth.aspx" />
     <Content Include="AuthorLogin\PengYou.aspx" />
     <Content Include="AuthorLogin\qq_login_ok.html" />
     <Content Include="AuthorLogin\QZone.aspx" />
-    <Content Include="Web2018\aspcheck.asp" />
-    <Content Include="Web2018\AutoItemCompareJson.aspx" />
-    <Content Include="Web2018\AutoItemGroupJson.aspx" />
     <Content Include="chromedriver.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Web2018\common\const-data.js" />
-    <Content Include="Web2018\common\dataTables.bootstrap.js" />
-    <Content Include="Web2018\common\dataTables.bootstrap.min.css" />
-    <Content Include="Web2018\common\fn-date.js" />
-    <Content Include="Web2018\common\jquery-1.10.2.js" />
-    <Content Include="Web2018\common\jquery.cookie.js" />
-    <Content Include="Web2018\common\jquery.cookie.min.js" />
-    <Content Include="Web2018\common\jquery.dataTables.js" />
-    <Content Include="Web2018\common\jquery.dataTables.min.css" />
-    <Content Include="Web2018\common\jquery.min.js" />
-    <Content Include="Web2018\common\jquery.multiselect.css" />
-    <Content Include="Web2018\common\jquery.multiselect.min.js" />
-    <Content Include="Web2018\common\jquery.multiselect.zh-cn.js" />
-    <Content Include="Web2018\common\jquery.ui.datepicker-zh-CN.js" />
-    <Content Include="Web2018\common\main.js" />
-    <Content Include="Web2018\common\master.css" />
-    <Content Include="Web2018\common\moment.js" />
     <Content Include="Content\bg.jpg" />
-    <Content Include="Content\bootstrap-datepicker.css" />
-    <Content Include="Content\bootstrap-datepicker.min.css" />
-    <Content Include="Content\bootstrap-datepicker.standalone.css" />
-    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
-    <Content Include="Content\bootstrap-datepicker3.css" />
-    <Content Include="Content\bootstrap-datepicker3.min.css" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
-    <Content Include="Areas\SexSpider\Content\sexspider.default.css" />
     <Content Include="Content\Site.css" />
-    <Content Include="Web2018\Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Web2018\Helper.aspx" />
     <Content Include="Images\Others\18.gif" />
     <Content Include="Images\Others\2_25.gif" />
     <Content Include="Images\Others\accept.png" />
@@ -1568,20 +1554,6 @@
     <Content Include="Images\ZhuanTi\zt_1_5570.jpg" />
     <Content Include="Images\ZhuanTi\zt_1_9926.jpg" />
     <Content Include="Images\ZhuanTi\zt_3_1.png" />
-    <Content Include="Web2018\ItemAddSmart.aspx" />
-    <Content Include="Web2018\ItemCompare.aspx" />
-    <Content Include="Web2018\ItemGroup.aspx" />
-    <Content Include="Web2018\ItemQuery.aspx" />
-    <Content Include="Web2018\Manage\assets\datatables-main.js" />
-    <Content Include="Web2018\Manage\assets\kendo-custom-ui.js" />
-    <Content Include="Web2018\Manage\assets\kendo-main.js" />
-    <Content Include="Web2018\Manage\assets\style.css" />
-    <Content Include="Web2018\Manage\BackupData.aspx" />
-    <Content Include="Web2018\Manage\Home.aspx" />
-    <Content Include="Web2018\Manage\ItemTable.aspx" />
-    <Content Include="Web2018\Manage\SiteConfig.aspx" />
-    <Content Include="Web2018\Manage\UserTableDT.aspx" />
-    <Content Include="Web2018\Manage\ViewTable.aspx" />
     <Content Include="ofcgwt\expressInstall.swf" />
     <Content Include="ofcgwt\open-flash-chart-SimplifiedChinese.swf" />
     <Content Include="ofcgwt\open-flash-chart-Wyrm.swf" />
@@ -1599,16 +1571,11 @@
     <Content Include="Scripts\jqGrid\js\grid.locale-cn.js" />
     <Content Include="Scripts\jqGrid\js\jquery.jqGrid.js" />
     <Content Include="Scripts\jqGrid\js\jquery.jqGrid.min.js" />
-    <Content Include="Web2018\QuWeiTongJiNew.aspx" />
     <Content Include="AALifeWeb\SyncCloudData.ashx" />
     <Content Include="AALifeWeb\SyncUserImage.ashx" />
-    <Content Include="Backup\AA生活记账导入模板.xlsx" />
-    <Content Include="Web2018\Manage\MasterPage.master" />
     <Content Include="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\bootstrap-datepicker.js" />
-    <Content Include="Scripts\bootstrap-datepicker.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\chplayer\chplayer.js" />
@@ -1619,13 +1586,20 @@
     <Content Include="Scripts\date-custom.js" />
     <Content Include="Scripts\jqthumb.js" />
     <Content Include="Scripts\jqthumb.min.js" />
-    <Content Include="Areas\Manage\Scripts\kendo-custom-ui.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
-    <Content Include="Areas\SexSpider\Scripts\sexspider.js" />
     <Content Include="Scripts\String.js" />
+    <Content Include="Scripts\vectormap-data\africa.js" />
+    <Content Include="Scripts\vectormap-data\canada.js" />
+    <Content Include="Scripts\vectormap-data\eurasia.js" />
+    <Content Include="Scripts\vectormap-data\europe.js" />
+    <Content Include="Scripts\vectormap-data\usa.js" />
+    <Content Include="Scripts\vectormap-data\world.js" />
+    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.debug.js" />
+    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.js" />
+    <Content Include="Scripts\vectormap-utils\dx.vectormaputils.node.js" />
     <Content Include="Web2015\AdminBackupData.aspx" />
     <Content Include="Web2015\AdminItemList.aspx" />
     <Content Include="Web2015\AdminSiteConfig.aspx" />
@@ -1744,21 +1718,11 @@
     <Content Include="Web2015\UserZhuanTi.aspx" />
     <Content Include="Web2015\UserZhuanTiShow.aspx" />
     <Content Include="Web2015\UserZhuanZhangDetail.aspx" />
-    <Content Include="Areas\SexSpider\Views\web.config" />
-    <Content Include="Areas\SexSpider\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\SexSpider\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\SexSpider\Views\Site\Image.cshtml" />
-    <Content Include="Areas\SexSpider\Views\Site\Index.cshtml" />
-    <Content Include="Areas\SexSpider\Views\Site\List.cshtml" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
     <Content Include="fonts\fontawesome-webfont.woff2" />
     <Content Include="fonts\FontAwesome.otf" />
-    <Content Include="Areas\Manage\Views\web.config" />
-    <Content Include="Areas\Manage\Views\_ViewStart.cshtml" />
-    <Content Include="Areas\Manage\Views\Users\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\Items\Index.cshtml" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
@@ -1767,68 +1731,76 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Areas\Manage\Views\Views\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Backup\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Users\Details.cshtml" />
     <Content Include="Scripts\jqGrid\data\data.json" />
-    <Content Include="Content\bootstrap-datepicker3.standalone.css.map" />
-    <Content Include="Content\bootstrap-datepicker3.css.map" />
-    <Content Include="Content\bootstrap-datepicker.standalone.css.map" />
-    <Content Include="Content\bootstrap-datepicker.css.map" />
-    <Content Include="Areas\V1\Views\web.config" />
-    <Content Include="Web2018\api\ImageUpload.ashx" />
-    <Content Include="Areas\Manage\Views\Settings\Sites.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\Notifications.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\UserSelect.cshtml" />
-    <Content Include="Areas\Manage\Views\Home\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\Index6.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\Index5.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\Index3.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\_RoleEdit.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\Detail.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\SidebarMenu.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\SettingTree.cshtml" />
-    <Content Include="Areas\Manage\Views\Parameters\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\Index4.cshtml" />
-    <Content Include="Areas\Manage\Views\MessageTemplates\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Users\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Items\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\Items\Index3.cshtml" />
-    <Content Include="Areas\Manage\Views\ScheduleTasks\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Settings\Commons.cshtml" />
-    <Content Include="Areas\Manage\Views\Settings\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Index4.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_Permission.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_UserRole.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_UserDeptment.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\Deptments\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\Roles\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Positions\Index3.cshtml" />
-    <Content Include="Areas\Manage\Views\Deptments\Index3.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\PositionSelect.cshtml" />
-    <Content Include="Areas\Manage\Views\Positions\Index2.cshtml" />
-    <Content Include="Areas\Manage\Views\Permissions\Index3.cshtml" />
-    <Content Include="Areas\Manage\Views\Users\Index3.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_DeptmentUserSelect.cshtml" />
-    <Content Include="Areas\Manage\Views\Deptments\TreeView.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_UserSelect.cshtml" />
-    <Content Include="Areas\Manage\Views\Positions\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Deptments\Index.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_DeptmentPositionSelect.cshtml" />
     <Content Include="libman.json" />
-    <Content Include="Areas\Manage\Views\Shared\_PermissionSelect.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Manage\Views\Shared\LeftMenu.cshtml" />
+    <Content Include="Web2018\api\ImageUpload.ashx" />
+    <Content Include="Web2018\api\ItemTable.asmx" />
+    <Content Include="Web2018\api\UserFrom.asmx" />
+    <Content Include="Web2018\api\UserTable.asmx" />
+    <Content Include="Web2018\api\ViewTable.asmx" />
+    <Content Include="Web2018\api\WorkDay.asmx" />
+    <Content Include="Web2018\aspcheck.asp" />
+    <Content Include="Web2018\AutoItemCompareJson.aspx" />
+    <Content Include="Web2018\AutoItemGroupJson.aspx" />
+    <Content Include="Web2018\common\const-data.js" />
+    <Content Include="Web2018\common\dataTables.bootstrap.js" />
+    <Content Include="Web2018\common\dataTables.bootstrap.min.css" />
+    <Content Include="Web2018\common\fn-date.js" />
+    <Content Include="Web2018\common\jquery-1.10.2.js" />
+    <Content Include="Web2018\common\jquery.cookie.js" />
+    <Content Include="Web2018\common\jquery.cookie.min.js" />
+    <Content Include="Web2018\common\jquery.dataTables.js" />
+    <Content Include="Web2018\common\jquery.dataTables.min.css" />
+    <Content Include="Web2018\common\jquery.min.js" />
+    <Content Include="Web2018\common\jquery.multiselect.css" />
+    <Content Include="Web2018\common\jquery.multiselect.min.js" />
+    <Content Include="Web2018\common\jquery.multiselect.zh-cn.js" />
+    <Content Include="Web2018\common\jquery.ui.datepicker-zh-CN.js" />
+    <Content Include="Web2018\common\kendo-custom-ui.js" />
+    <Content Include="Web2018\common\kendo-main.js" />
+    <Content Include="Web2018\common\main.js" />
+    <Content Include="Web2018\common\master.css" />
+    <Content Include="Web2018\common\moment.js" />
+    <Content Include="Web2018\Default.aspx" />
+    <Content Include="Web2018\Helper.aspx" />
+    <Content Include="Web2018\ItemAddSmart.aspx" />
+    <Content Include="Web2018\ItemCompare.aspx" />
+    <Content Include="Web2018\ItemGroup.aspx" />
+    <Content Include="Web2018\ItemQuery.aspx" />
+    <Content Include="Web2018\Manage2019\css\style.css" />
+    <Content Include="Web2018\Manage2019\ItemPivotGrid.aspx" />
+    <Content Include="Web2018\Manage2019\DevExpressUserControl.ascx" />
+    <Content Include="Web2018\Manage2019\Home.aspx" />
+    <Content Include="Web2018\Manage2019\UserPivotGrid.aspx" />
+    <Content Include="Web2018\Manage2019\ItemTable.aspx" />
+    <Content Include="Web2018\Manage\BackupData.aspx" />
+    <Content Include="Web2018\Manage\Home.aspx" />
+    <Content Include="Web2018\Manage\ItemTable.aspx" />
+    <Content Include="Web2018\Manage\MasterPage.master" />
+    <Content Include="Web2018\Manage\SiteConfig.aspx" />
+    <Content Include="Web2018\Manage\UserTableDT.aspx" />
+    <Content Include="Web2018\Manage\ViewTable.aspx" />
+    <Content Include="Web2018\QuWeiTongJiNew.aspx" />
+    <Content Include="Web2018\Tools\ClearCache.aspx" />
+    <Content Include="Web2018\Tools\DeleteUserImage.aspx" />
+    <Content Include="Web2018\Tools\QQLoginFix.aspx" />
+    <Content Include="Web2018\UserAdmin.aspx" />
+    <Content Include="Web2018\UserBoundAdmin.aspx" />
+    <Content Include="Web2018\UserCardAdmin.aspx" />
+    <Content Include="Web2018\UserCategoryAdmin.aspx" />
+    <Content Include="Web2018\UserControl\MasterPage.master" />
+    <Content Include="Web2018\UserControl\UserMenu.ascx" />
+    <Content Include="Web2018\UserDataAdmin.aspx" />
+    <Content Include="Web2018\UserFunctionSetting.aspx" />
+    <Content Include="Web2018\UserLogin.aspx" />
+    <Content Include="Web2018\UserLogout.aspx" />
+    <Content Include="Web2018\UserRegister.aspx" />
+    <Content Include="Web2018\UserZhuanTi.aspx" />
+    <Content Include="Web2018\UserZhuanZhangDetail.aspx" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\chplayer\hls\LICENSE" />
-    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
-    <Content Include="Scripts\jquery-3.3.1.js" />
-    <Content Include="Scripts\jquery-3.3.1.min.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.js" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -1966,21 +1938,6 @@
     <Content Include="theme\main\jquery-ui.theme.css" />
     <Content Include="theme\main\jquery-ui.theme.min.css" />
     <Content Include="theme\main\style.css" />
-    <Content Include="Web2018\Tools\ClearCache.aspx" />
-    <Content Include="Web2018\Tools\DeleteUserImage.aspx" />
-    <Content Include="Web2018\Tools\QQLoginFix.aspx" />
-    <Content Include="Web2018\UserAdmin.aspx" />
-    <Content Include="Web2018\UserBoundAdmin.aspx" />
-    <Content Include="Web2018\UserCardAdmin.aspx" />
-    <Content Include="Web2018\UserCategoryAdmin.aspx" />
-    <Content Include="Web2018\UserControl\UserMenu.ascx" />
-    <Content Include="Web2018\UserDataAdmin.aspx" />
-    <Content Include="Web2018\UserFunctionSetting.aspx" />
-    <Content Include="Web2018\UserLogin.aspx" />
-    <Content Include="Web2018\UserLogout.aspx" />
-    <Content Include="Web2018\UserRegister.aspx" />
-    <Content Include="Web2018\UserZhuanTi.aspx" />
-    <Content Include="Web2018\UserZhuanZhangDetail.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -1990,63 +1947,25 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Web.config" />
-    <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Web2018\UserControl\MasterPage.master" />
     <Content Include="Site.Config" />
     <Content Include="Web2015\UserControl\MasterPage.master" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ForgetPassword.cshtml" />
     <Content Include="Scripts\daterangepicker\daterangepicker.zh-CN.js" />
-    <Content Include="Views\Item\Index.cshtml" />
-    <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\_CategoryPage.cshtml" />
-    <Content Include="Views\User\_CardPage.cshtml" />
-    <Content Include="Views\User\_ZhuanTiPage.cshtml" />
-    <Content Include="Views\User\_ZhuanZhangPage.cshtml" />
-    <Content Include="Views\User\_SettingPage.cshtml" />
-    <Content Include="Views\Home\UpdatePassword.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Shared\_LoginLayout.cshtml" />
+    <Content Include="Web2018\Manage2019\MasterPage.master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\SexSpider\Models\" />
-    <Folder Include="Areas\V1\Models\" />
-    <Folder Include="Areas\V1\Views\Shared\" />
-    <Folder Include="Backup\Bak\" />
-    <Folder Include="Backup\Cloud\" />
-    <Folder Include="Backup\Export\" />
-    <Folder Include="Backup\Import\" />
-    <Folder Include="Backup\Template\" />
-    <Folder Include="Views\KeepAlive\" />
-    <Folder Include="Views\Picture\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
-    <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\AALife.BLL\AALife.BLL.csproj">
       <Project>{32b50478-4d92-4648-9a56-0e75639c97db}</Project>
       <Name>AALife.BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AALife.Core\AALife.Core.csproj">
-      <Project>{291a8d13-94d1-41ee-95af-2be8f6031c03}</Project>
-      <Name>AALife.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AALife.DAL\AALife.DAL.csproj">
       <Project>{ca2e36e5-6247-486b-818c-591d4a82fcaa}</Project>
       <Name>AALife.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AALife.Data\AALife.Data.csproj">
-      <Project>{B00AA0CF-570B-4A86-BFCE-BE2241D24223}</Project>
-      <Name>AALife.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\AALife.DBUtility\AALife.DBUtility.csproj">
       <Project>{023380f9-dd98-4d97-862a-9d4a965db1d4}</Project>
@@ -2063,10 +1982,6 @@
     <ProjectReference Include="..\AALife.Service\AALife.Service.csproj">
       <Project>{62c63866-f75c-489c-bd6a-1d2b92c0db80}</Project>
       <Name>AALife.Service</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SexSpider.Core\SexSpider.Core.csproj">
-      <Project>{0DED42F6-BA1E-42E8-ACEB-952CCBC6CDAD}</Project>
-      <Name>SexSpider.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -49,6 +49,7 @@
           <Property Name="ItemType" Type="nvarchar" MaxLength="10" />
           <Property Name="ZhuanTiID" Type="int" />
           <Property Name="CardID" Type="int" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="ItemTypeTable">
           <Key>
@@ -191,6 +192,72 @@
           <Property Name="UserID" Type="int" Nullable="false" />
           <Property Name="ZhuanZhangNote" Type="nvarchar" MaxLength="100" />
           <Property Name="ZZID" Type="int" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“bds261774413_db.dbo.ItemTableView2019”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="ItemTableView2019">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="CategoryTypeID" />
+            <PropertyRef Name="ItemPrice" />
+            <PropertyRef Name="ItemBuyDate" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Recommend" />
+            <PropertyRef Name="ModifyDate" />
+            <PropertyRef Name="Synchronize" />
+            <PropertyRef Name="CardID" />
+            <PropertyRef Name="ItemTypeName" />
+            <PropertyRef Name="CardName" />
+          </Key>
+          <Property Name="ItemID" Type="int" Nullable="false" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CategoryTypeID" Type="int" Nullable="false" />
+          <Property Name="ItemPrice" Type="decimal" Precision="10" Scale="3" Nullable="false" />
+          <Property Name="ItemBuyDate" Type="datetime" Nullable="false" />
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="Recommend" Type="tinyint" Nullable="false" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="Synchronize" Type="tinyint" Nullable="false" />
+          <Property Name="RegionType" Type="nvarchar" MaxLength="10" />
+          <Property Name="ItemType" Type="nvarchar" MaxLength="10" />
+          <Property Name="ZhuanTiID" Type="int" />
+          <Property Name="CardID" Type="int" Nullable="false" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryTypeName" Type="nvarchar" MaxLength="20" />
+          <Property Name="ItemTypeName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CardName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ZhuanTiName" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“bds261774413_db.dbo.UserTableView”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="UserTableView">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ModifyDate" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="UserWorkDay" />
+            <PropertyRef Name="Synchronize" />
+            <PropertyRef Name="UserFromName" />
+            <PropertyRef Name="UserThemeName" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="UserNickName" Type="nvarchar" MaxLength="50" />
+          <Property Name="UserImage" Type="nvarchar" MaxLength="200" />
+          <Property Name="UserPhone" Type="nvarchar" MaxLength="20" />
+          <Property Name="UserEmail" Type="nvarchar" MaxLength="100" />
+          <Property Name="ModifyDate" Type="datetime" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="UserTheme" Type="nvarchar" MaxLength="10" />
+          <Property Name="UserWorkDay" Type="nvarchar" MaxLength="2" Nullable="false" />
+          <Property Name="UserFrom" Type="nvarchar" MaxLength="10" />
+          <Property Name="Synchronize" Type="tinyint" Nullable="false" />
+          <Property Name="UserFromName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="WorkDayName" Type="nvarchar" MaxLength="10" />
+          <Property Name="UserThemeName" Type="varchar" MaxLength="6" Nullable="false" />
         </EntityType>
         <Association Name="FK_CardTable_UserTable">
           <End Role="UserTable" Type="Self.UserTable" Multiplicity="1" />
@@ -339,6 +406,48 @@
           <EntitySet Name="WorkDayTable" EntityType="Self.WorkDayTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZhuanTiTable" EntityType="Self.ZhuanTiTable" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ZhuanZhangTable" EntityType="Self.ZhuanZhangTable" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ItemTableView2019" EntityType="Self.ItemTableView2019" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ItemTableView2019].[ItemID] AS [ItemID], 
+    [ItemTableView2019].[ItemName] AS [ItemName], 
+    [ItemTableView2019].[CategoryTypeID] AS [CategoryTypeID], 
+    [ItemTableView2019].[ItemPrice] AS [ItemPrice], 
+    [ItemTableView2019].[ItemBuyDate] AS [ItemBuyDate], 
+    [ItemTableView2019].[UserID] AS [UserID], 
+    [ItemTableView2019].[Recommend] AS [Recommend], 
+    [ItemTableView2019].[ModifyDate] AS [ModifyDate], 
+    [ItemTableView2019].[Synchronize] AS [Synchronize], 
+    [ItemTableView2019].[RegionType] AS [RegionType], 
+    [ItemTableView2019].[ItemType] AS [ItemType], 
+    [ItemTableView2019].[ZhuanTiID] AS [ZhuanTiID], 
+    [ItemTableView2019].[CardID] AS [CardID], 
+    [ItemTableView2019].[Remark] AS [Remark], 
+    [ItemTableView2019].[CategoryTypeName] AS [CategoryTypeName], 
+    [ItemTableView2019].[ItemTypeName] AS [ItemTypeName], 
+    [ItemTableView2019].[UserName] AS [UserName], 
+    [ItemTableView2019].[CardName] AS [CardName], 
+    [ItemTableView2019].[ZhuanTiName] AS [ZhuanTiName]
+    FROM [dbo].[ItemTableView2019] AS [ItemTableView2019]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="UserTableView" EntityType="Self.UserTableView" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [UserTableView].[UserID] AS [UserID], 
+    [UserTableView].[UserName] AS [UserName], 
+    [UserTableView].[UserNickName] AS [UserNickName], 
+    [UserTableView].[UserImage] AS [UserImage], 
+    [UserTableView].[UserPhone] AS [UserPhone], 
+    [UserTableView].[UserEmail] AS [UserEmail], 
+    [UserTableView].[ModifyDate] AS [ModifyDate], 
+    [UserTableView].[CreateDate] AS [CreateDate], 
+    [UserTableView].[UserTheme] AS [UserTheme], 
+    [UserTableView].[UserWorkDay] AS [UserWorkDay], 
+    [UserTableView].[UserFrom] AS [UserFrom], 
+    [UserTableView].[Synchronize] AS [Synchronize], 
+    [UserTableView].[UserFromName] AS [UserFromName], 
+    [UserTableView].[WorkDayName] AS [WorkDayName], 
+    [UserTableView].[UserThemeName] AS [UserThemeName]
+    FROM [dbo].[UserTableView] AS [UserTableView]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_CardTable_UserTable" Association="Self.FK_CardTable_UserTable">
             <End Role="UserTable" EntitySet="UserTable" />
             <End Role="CardTable" EntitySet="CardTable" />
@@ -447,6 +556,8 @@
             <End Role="UserTable" EntitySet="UserTable" />
             <End Role="ViewTable" EntitySet="ViewTable" />
           </AssociationSet>
+          <EntitySet Name="ItemTableView2019" EntityType="AALifeModel.ItemTableView2019" />
+          <EntitySet Name="UserTableView" EntityType="AALifeModel.UserTableView" />
         </EntityContainer>
         <EntityType Name="CardTable">
           <Key>
@@ -487,6 +598,7 @@
           <Property Name="CardID" Type="Int32" />
           <NavigationProperty Name="ItemTypeTable" Relationship="AALifeModel.FK_ItemTable_ItemTypeTable" FromRole="ItemTable" ToRole="ItemTypeTable" />
           <NavigationProperty Name="UserTable" Relationship="AALifeModel.FK_ItemTable_UserTable" FromRole="ItemTable" ToRole="UserTable" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="ItemTypeTable">
           <Key>
@@ -789,6 +901,68 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ItemTableView2019">
+          <Key>
+            <PropertyRef Name="ItemID" />
+            <PropertyRef Name="ItemName" />
+            <PropertyRef Name="CategoryTypeID" />
+            <PropertyRef Name="ItemPrice" />
+            <PropertyRef Name="ItemBuyDate" />
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="Recommend" />
+            <PropertyRef Name="ModifyDate" />
+            <PropertyRef Name="Synchronize" />
+            <PropertyRef Name="CardID" />
+            <PropertyRef Name="ItemTypeName" />
+            <PropertyRef Name="CardName" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" />
+          <Property Name="ItemName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryTypeID" Type="Int32" Nullable="false" />
+          <Property Name="ItemPrice" Type="Decimal" Nullable="false" Precision="10" Scale="3" />
+          <Property Name="ItemBuyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="Recommend" Type="Byte" Nullable="false" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Synchronize" Type="Byte" Nullable="false" />
+          <Property Name="RegionType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemType" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ZhuanTiID" Type="Int32" />
+          <Property Name="CardID" Type="Int32" Nullable="false" />
+          <Property Name="Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryTypeName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ItemTypeName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CardName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ZhuanTiName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserTableView">
+          <Key>
+            <PropertyRef Name="UserID" />
+            <PropertyRef Name="UserName" />
+            <PropertyRef Name="ModifyDate" />
+            <PropertyRef Name="CreateDate" />
+            <PropertyRef Name="UserWorkDay" />
+            <PropertyRef Name="Synchronize" />
+            <PropertyRef Name="UserFromName" />
+            <PropertyRef Name="UserThemeName" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserNickName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UserImage" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="UserPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UserEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ModifyDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="UserTheme" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserWorkDay" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Name="UserFrom" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Synchronize" Type="Byte" Nullable="false" />
+          <Property Name="UserFromName" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="WorkDayName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UserThemeName" Type="String" Nullable="false" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -816,6 +990,7 @@
           <EntitySetMapping Name="ItemTable">
             <EntityTypeMapping TypeName="AALifeModel.ItemTable">
               <MappingFragment StoreEntitySet="ItemTable">
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
                 <ScalarProperty Name="CardID" ColumnName="CardID" />
                 <ScalarProperty Name="ZhuanTiID" ColumnName="ZhuanTiID" />
                 <ScalarProperty Name="ItemType" ColumnName="ItemType" />
@@ -993,6 +1168,52 @@
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
                 <ScalarProperty Name="PageID" ColumnName="PageID" />
                 <ScalarProperty Name="ViewID" ColumnName="ViewID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ItemTableView2019">
+            <EntityTypeMapping TypeName="AALifeModel.ItemTableView2019">
+              <MappingFragment StoreEntitySet="ItemTableView2019">
+                <ScalarProperty Name="ZhuanTiName" ColumnName="ZhuanTiName" />
+                <ScalarProperty Name="CardName" ColumnName="CardName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ItemTypeName" ColumnName="ItemTypeName" />
+                <ScalarProperty Name="CategoryTypeName" ColumnName="CategoryTypeName" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="CardID" ColumnName="CardID" />
+                <ScalarProperty Name="ZhuanTiID" ColumnName="ZhuanTiID" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="RegionType" ColumnName="RegionType" />
+                <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="Recommend" ColumnName="Recommend" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ItemBuyDate" ColumnName="ItemBuyDate" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="CategoryTypeID" ColumnName="CategoryTypeID" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTableView">
+            <EntityTypeMapping TypeName="AALifeModel.UserTableView">
+              <MappingFragment StoreEntitySet="UserTableView">
+                <ScalarProperty Name="UserThemeName" ColumnName="UserThemeName" />
+                <ScalarProperty Name="WorkDayName" ColumnName="WorkDayName" />
+                <ScalarProperty Name="UserFromName" ColumnName="UserFromName" />
+                <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />
+                <ScalarProperty Name="UserFrom" ColumnName="UserFrom" />
+                <ScalarProperty Name="UserWorkDay" ColumnName="UserWorkDay" />
+                <ScalarProperty Name="UserTheme" ColumnName="UserTheme" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="ModifyDate" ColumnName="ModifyDate" />
+                <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+                <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+                <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+                <ScalarProperty Name="UserNickName" ColumnName="UserNickName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

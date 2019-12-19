@@ -1,8 +1,6 @@
-﻿<%@ Page Title="后台管理 | 用户列表" Language="C#" MasterPageFile="~/Manage/MasterPage.master" AutoEventWireup="true" Inherits="Manage_Home" Codebehind="Home.aspx.cs" %>
+﻿<%@ Page Title="后台管理 | 用户列表" Language="C#" MasterPageFile="~/Web2018/Manage/MasterPage.master" AutoEventWireup="true" Inherits="Manage_Home" Codebehind="Home.aspx.cs" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-    <script src="assets/kendo-custom-ui.js"></script>
-    <script src="assets/kendo-main.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <span id="notification"></span>

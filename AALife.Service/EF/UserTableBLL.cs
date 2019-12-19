@@ -22,32 +22,32 @@ namespace AALife.Service.EF
         /// </summary>
         public UserTableBLL()
         {
-            TypeAdapterConfig<Models.UserTable, UserTableViewModel>.NewConfig()
-                .Map(dest => dest.UserID, src => src.UserID)
-                .Map(dest => dest.UserName, src => src.UserName)
-                .Map(dest => dest.UserPassword, src => src.UserPassword)
-                .Map(dest => dest.UserNickName, src => src.UserNickName)
-                .Map(dest => dest.UserImage, src => src.UserImage)
-                .Map(dest => dest.UserPhone, src => src.UserPhone)
-                .Map(dest => dest.UserEmail, src => src.UserEmail)
-                .Map(dest => dest.UserTheme, src => src.UserTheme)
-                .Map(dest => dest.UserLevel, src => src.UserLevel)
-                .Map(dest => dest.UserFrom, src => src.UserFrom)
-                .Map(dest => dest.UserFromName, src => src.UserFromTable.UserFromName)
-                .Map(dest => dest.ModifyDate, src => src.ModifyDate)
-                .Map(dest => dest.CreateDate, src => src.CreateDate)
-                .Map(dest => dest.UserCity, src => src.UserCity)
-                .Map(dest => dest.UserMoney, src => src.UserMoney)
-                .Map(dest => dest.UserWorkDay, src => src.UserWorkDay)
-                .Map(dest => dest.UserWorkDayName, src => src.WorkDayTable.WorkDayName)
-                .Map(dest => dest.UserFunction, src => src.UserFunction)
-                .Map(dest => dest.CategoryRate, src => src.CategoryRate)
-                .Map(dest => dest.Synchronize, src => src.Synchronize)
-                .Map(dest => dest.MoneyStart, src => src.MoneyStart)
-                .Map(dest => dest.IsUpdate, src => src.IsUpdate)
-                .Map(dest => dest.ItemCount, src => src.ItemTable.Count())
-                .Map(dest => dest.JoinDay, src => DbFunctions.DiffDays(src.CreateDate, DateTime.Now) + 1)
-                .Compile();
+            //TypeAdapterConfig<Models.UserTable, UserTableViewModel>.NewConfig()
+            //    .Map(dest => dest.UserID, src => src.UserID)
+            //    .Map(dest => dest.UserName, src => src.UserName)
+            //    .Map(dest => dest.UserPassword, src => src.UserPassword)
+            //    .Map(dest => dest.UserNickName, src => src.UserNickName)
+            //    .Map(dest => dest.UserImage, src => src.UserImage)
+            //    .Map(dest => dest.UserPhone, src => src.UserPhone)
+            //    .Map(dest => dest.UserEmail, src => src.UserEmail)
+            //    .Map(dest => dest.UserTheme, src => src.UserTheme)
+            //    .Map(dest => dest.UserLevel, src => src.UserLevel)
+            //    .Map(dest => dest.UserFrom, src => src.UserFrom)
+            //    .Map(dest => dest.UserFromName, src => src.UserFromTable.UserFromName)
+            //    .Map(dest => dest.ModifyDate, src => src.ModifyDate)
+            //    .Map(dest => dest.CreateDate, src => src.CreateDate)
+            //    .Map(dest => dest.UserCity, src => src.UserCity)
+            //    .Map(dest => dest.UserMoney, src => src.UserMoney)
+            //    .Map(dest => dest.UserWorkDay, src => src.UserWorkDay)
+            //    .Map(dest => dest.UserWorkDayName, src => src.WorkDayTable.WorkDayName)
+            //    .Map(dest => dest.UserFunction, src => src.UserFunction)
+            //    .Map(dest => dest.CategoryRate, src => src.CategoryRate)
+            //    .Map(dest => dest.Synchronize, src => src.Synchronize)
+            //    .Map(dest => dest.MoneyStart, src => src.MoneyStart)
+            //    .Map(dest => dest.IsUpdate, src => src.IsUpdate)
+            //    .Map(dest => dest.ItemCount, src => src.ItemTable.Count())
+            //    .Map(dest => dest.JoinDay, src => DbFunctions.DiffDays(src.CreateDate, DateTime.Now) + 1)
+            //    .Compile();
         }
 
         /// <summary>
@@ -275,6 +275,21 @@ namespace AALife.Service.EF
 
                 return exists;
             }
+        }
+
+        /// <summary>
+        /// 获取全部
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<UserTableView> GetAll()
+        {
+            var db = new AALifeDbContext();
+
+            //默认
+            var lists = db.Set<UserTableView>()
+                .AsNoTracking();
+
+            return lists;
         }
 
     }

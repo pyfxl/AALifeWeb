@@ -40,5 +40,7 @@ namespace AALife.Service.Models
         public virtual DbSet<RegionTypeTable> RegionTypeTable { get; set; }
         public virtual DbSet<ViewPageTable> ViewPageTable { get; set; }
         public virtual DbSet<ViewTable> ViewTable { get; set; }
+        public virtual DbSet<ItemTableView2019> ItemTableView2019 { get; set; }
+        public virtual DbSet<UserTableView> UserTableView { get; set; }
     }
 }

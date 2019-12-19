@@ -1,14 +1,4 @@
-﻿using AALife.Core.Infrastructure;
-using AALife.Core.Infrastructure.Mapper;
-using AALife.Core.Services.Logging;
-using AALife.Core.Services.Tasks;
-using AALife.Data;
-using Autofac.Integration.WebApi;
-using AutoMapper;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Text;
 using System.Web;
 using System.Web.Http;
@@ -22,9 +12,6 @@ namespace AALife.WebMvc
     {
         protected void Application_Start()
         {
-            //initialize engine context
-            EngineContext.Initialize(false);
-
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -34,60 +21,15 @@ namespace AALife.WebMvc
             //webapi返回json
             GlobalConfiguration.Configuration.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
 
-            //register dependencies
-            RegisterDependencies();
-
-            //register mapper configurations
-            //RegisterMapperConfiguration();
-
             //解决ModelState提示字段必需问题 TODO
             //ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
             //ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
 
-            //start scheduled tasks
-            TaskManager.Instance.Initialize();
-            TaskManager.Instance.Start();
-
-            //log application start
-            try
-            {
-                //log
-                var logger = EngineContext.Current.Resolve<ILogger>();
-                logger.Information("Application started", null);
-            }
-            catch (Exception)
-            {
-                //don't throw new exception if occurs
-            }
         }
 
-        /// <summary>
-        /// Register dependencies
-        /// </summary>
-        /// <param name="config">Config</param>
-        protected virtual void RegisterDependencies()
+        protected void Application_BeginRequest(object sender, EventArgs e)
         {
-            //container
-            var container = EngineContext.Current.ContainerManager.Container;
-
-            //webapi
-            GlobalConfiguration.Configuration.DependencyResolver = (new AutofacWebApiDependencyResolver(container));
-        }
-
-        /// <summary>
-        /// Register mapping
-        /// </summary>
-        protected virtual void RegisterMapperConfiguration()
-        {
-            //mapper
-            var mapper = new AALife.WebMvc.Infrastructure.Mapper.MapperConfiguration();
-
-            //configurations
-            var configurationActions = new List<Action<IMapperConfigurationExpression>>();
-            configurationActions.Add(mapper.GetConfiguration());
-
-            //register
-            AutoMapperConfiguration.Init(configurationActions);
+            if (Context.Request.FilePath == "/") Context.RewritePath("/Web2018/Default.aspx");
         }
 
         protected void Application_Error(Object sender, EventArgs e)
@@ -122,10 +64,7 @@ namespace AALife.WebMvc
 
             try
             {
-                //log
-                var logger = EngineContext.Current.Resolve<ILogger>();
-                var user = EngineContext.Current.Resolve<IWorkContext>().CurrentUser;
-                logger.Error(exc.Message, exc, user.Id);
+                
             }
             catch (Exception)
             {

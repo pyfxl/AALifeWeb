@@ -22,25 +22,24 @@ namespace AALife.Service.EF
         /// </summary>
         public ItemTableBLL()
         {
-            TypeAdapterConfig<ItemTable, ItemTableViewModel>.NewConfig()
-                .Map(dest => dest.ItemID, src => src.ItemID)
-                .Map(dest => dest.ItemName, src => src.ItemName)
-                .Map(dest => dest.CategoryTypeID, src => src.CategoryTypeID)
-                .Map(dest => dest.ItemPrice, src => src.ItemPrice)
-                .Map(dest => dest.ItemBuyDate, src => src.ItemBuyDate)
-                .Map(dest => dest.UserID, src => src.UserID)
-                .Map(dest => dest.Recommend, src => src.Recommend)
-                .Map(dest => dest.ModifyDate, src => src.ModifyDate)
-                .Map(dest => dest.Synchronize, src => src.Synchronize)
-                .Map(dest => dest.ItemAppID, src => src.ItemAppID)
-                .Map(dest => dest.RegionID, src => src.RegionID)
-                .Map(dest => dest.RegionType, src => src.RegionType)
-                .Map(dest => dest.ItemType, src => src.ItemType)
-                .Map(dest => dest.ZhuanTiID, src => src.ZhuanTiID)
-                .Map(dest => dest.CardID, src => src.CardID)
-                .Map(dest => dest.ItemTypeName, src => src.ItemTypeTable.ItemTypeName)
-                .Map(dest => dest.CardName, src => src.CardID)
-                .Compile();
+            //TypeAdapterConfig<ItemTable, ItemTableViewModel>.NewConfig()
+            //    .Map(dest => dest.ItemID, src => src.ItemID)
+            //    .Map(dest => dest.ItemName, src => src.ItemName)
+            //    .Map(dest => dest.CategoryTypeID, src => src.CategoryTypeID)
+            //    .Map(dest => dest.ItemPrice, src => src.ItemPrice)
+            //    .Map(dest => dest.ItemBuyDate, src => src.ItemBuyDate)
+            //    .Map(dest => dest.UserID, src => src.UserID)
+            //    .Map(dest => dest.Recommend, src => src.Recommend)
+            //    .Map(dest => dest.ModifyDate, src => src.ModifyDate)
+            //    .Map(dest => dest.Synchronize, src => src.Synchronize)
+            //    .Map(dest => dest.ItemAppID, src => src.ItemAppID)
+            //    .Map(dest => dest.RegionID, src => src.RegionID)
+            //    .Map(dest => dest.RegionType, src => src.RegionType)
+            //    .Map(dest => dest.ItemType, src => src.ItemType)
+            //    .Map(dest => dest.ZhuanTiID, src => src.ZhuanTiID)
+            //    .Map(dest => dest.CardID, src => src.CardID)
+            //    .Map(dest => dest.CardName, src => src.CardID)
+            //    .Compile();
         }
 
         /// <summary>
@@ -141,6 +140,53 @@ namespace AALife.Service.EF
                 return viewModel.Skip(pageModels.page).Take(pageModels.rows).ToList();
             }
         }
-                
+        
+        /// <summary>
+        /// 消费类别
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<ItemTypeTable> GetItemType()
+        {
+            using (var db = new AALifeDbContext())
+            {
+                //默认
+                var lists = db.Set<ItemTypeTable>()
+                    .AsNoTracking();
+
+                return lists.ToList();
+            }
+        }
+
+        /// <summary>
+        /// 固定类别
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<RegionTypeTable> GetRegionType()
+        {
+            using (var db = new AALifeDbContext())
+            {
+                //默认
+                var lists = db.Set<RegionTypeTable>()
+                    .AsNoTracking();
+
+                return lists.ToList();
+            }
+        }
+
+        /// <summary>
+        /// 获取全部
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<ItemTableView2019> GetAll()
+        {
+            var db = new AALifeDbContext();
+
+            //默认
+            var lists = db.Set<ItemTableView2019>()
+                .AsNoTracking();
+
+            return lists;
+        }
+
     }
 }
