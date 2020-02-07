@@ -22,13 +22,14 @@ namespace AALife.Service.Domain.ViewModel
         public string ItemType { get; set; }
         public Nullable<int> ZhuanTiID { get; set; }
         public Nullable<int> CardID { get; set; }
+        public string Remark { get; set; }
 
         public string ItemTypeName { get; set; }
         public string CategoryTypeName { get; set; }
         public string UserName { get; set; }
         public string RegionTypeName { get; set; }
+        public string RegionTypeFull { get; set; }
         public string CardName { get; set; }
         public string ZhuanTiName { get; set; }
-        public string Remark { get; set; }
     }
 }

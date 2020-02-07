@@ -135,7 +135,7 @@
                 <ul style='display:<%=((Session["UserLevel"] != null && Session["UserLevel"].ToString() == "9") ? "block" : "none") %>;'>
                     <li><a href="/Web2015/AdminUserList.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/behome.gif" title="网站管理" /> 网站管理</a></li>
                     <li><a href="/Web2018/Manage/Home.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/n_b62.gif" title="后台管理" /> 后台管理</a></li>
-                    <li><a href="/Web2018/Manage2019/Home.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/f20.gif" title="后台管理" /> 后台2019</a></li>
+                    <li><a href="/Web2018/Manage2019/Home.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/i_hexa.gif" title="后台2019" /> 后台2019</a></li>
                     <li><a href="/Web2018/Tools/ClearCache.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/e1closewin.gif" title="清除Cookie" /> 清除Cookie</a></li>
                     <li><a href="/Web2018/Tools/DeleteUserImage.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/m01.gif" title="删除头像" /> 删除头像</a></li>
                     <li><a href="/Web2018/Tools/QQLoginFix.aspx" target="_blank" onclick="menu_close();"><img src="/theme/images/f20.gif" title="修复头像" /> 修复头像</a></li>

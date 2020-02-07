@@ -384,6 +384,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\AppApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\ImageApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\ListApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\SiteApiController.cs" />
+    <Compile Include="Areas\SexSpider\Controllers\SiteController.cs" />
+    <Compile Include="Areas\SexSpider\SexSpiderAreaRegistration.cs" />
     <Compile Include="AuthorLogin\OAuth.aspx.cs">
       <DependentUpon>OAuth.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -406,6 +412,7 @@
       <DependentUpon>QZone.aspx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\ViewPivotGridController.cs" />
     <Compile Include="Controllers\ItemPivotGridController.cs" />
     <Compile Include="Controllers\UserPivotGridController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -415,6 +422,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ActionResult\JsonLowercase.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Employee.cs" />
@@ -1037,6 +1045,10 @@
     <Compile Include="Web2018\ItemQuery.aspx.designer.cs">
       <DependentUpon>ItemQuery.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web2018\Manage2019\ViewPivotGrid.aspx.cs">
+      <DependentUpon>ViewPivotGrid.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Web2018\Manage2019\ItemPivotGrid.aspx.cs">
       <DependentUpon>ItemPivotGrid.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1285,6 +1297,8 @@
     <Content Include="AALifeWeb\SyncZhuanZhang.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.aspx" />
     <Content Include="AALifeWeb\SyncZhuanZhangWebBack.html" />
+    <Content Include="Areas\SexSpider\Content\sexspider.default.css" />
+    <Content Include="Areas\SexSpider\Scripts\sexspider.js" />
     <Content Include="Content\dx-diagram.css" />
     <Content Include="Content\dx-diagram.min.css" />
     <Content Include="Content\dx-gantt.css" />
@@ -1360,6 +1374,12 @@
     <Content Include="Content\fonts\Roboto-300.woff2" />
     <Content Include="Content\fonts\Roboto-300.woff" />
     <Content Include="Content\fonts\Roboto-300.ttf" />
+    <Content Include="Areas\SexSpider\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\Image.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\Index.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\List.cshtml" />
+    <Content Include="Areas\SexSpider\Views\web.config" />
+    <Content Include="Areas\SexSpider\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.de.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.en.js" />
@@ -1398,8 +1418,6 @@
     <Content Include="Scripts\datas\item.js" />
     <Content Include="Scripts\jszip.js" />
     <Content Include="Scripts\jszip.min.js" />
-    <Content Include="Scripts\knockout-3.4.2.debug.js" />
-    <Content Include="Scripts\knockout-3.4.2.js" />
     <Content Include="AuthorLogin\OAuth.aspx" />
     <Content Include="AuthorLogin\PengYou.aspx" />
     <Content Include="AuthorLogin\qq_login_ok.html" />
@@ -1586,6 +1604,8 @@
     <Content Include="Scripts\date-custom.js" />
     <Content Include="Scripts\jqthumb.js" />
     <Content Include="Scripts\jqthumb.min.js" />
+    <Content Include="Scripts\knockout-3.5.1.debug.js" />
+    <Content Include="Scripts\knockout-3.5.1.js" />
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
@@ -1768,6 +1788,7 @@
     <Content Include="Web2018\ItemGroup.aspx" />
     <Content Include="Web2018\ItemQuery.aspx" />
     <Content Include="Web2018\Manage2019\css\style.css" />
+    <Content Include="Web2018\Manage2019\ViewPivotGrid.aspx" />
     <Content Include="Web2018\Manage2019\ItemPivotGrid.aspx" />
     <Content Include="Web2018\Manage2019\DevExpressUserControl.ascx" />
     <Content Include="Web2018\Manage2019\Home.aspx" />
@@ -1954,6 +1975,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\SexSpider\Models\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -1982,6 +2004,10 @@
     <ProjectReference Include="..\AALife.Service\AALife.Service.csproj">
       <Project>{62c63866-f75c-489c-bd6a-1d2b92c0db80}</Project>
       <Name>AALife.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SexSpider.Core\SexSpider.Core.csproj">
+      <Project>{0ded42f6-ba1e-42e8-aceb-952ccbc6cdad}</Project>
+      <Name>SexSpider.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -24,7 +24,7 @@ namespace AALife.WebMvc.Controllers
             catch (Exception ex)
             {
                 grid.Errors = "加载出错！";
-                log.Error(ex);
+                log.Info(ex);
             }
 
             return grid;

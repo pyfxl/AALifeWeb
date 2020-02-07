@@ -23,7 +23,7 @@ namespace AALife.WebMvc.Areas.SexSpider.Controllers
             var result = list.ToList();
 
             site.SiteLink = siteLink;
-            await SaveLastStart(result, site);
+            SaveLastStart(result, site);
 
             return new JsonLowercase(result, Request);
         }
@@ -50,14 +50,14 @@ namespace AALife.WebMvc.Areas.SexSpider.Controllers
         /// <summary>
         /// 某些json类型，保存下一页标记
         /// </summary>
-        private async Task SaveLastStart(List<ListModel> list, SexSpiders site) 
+        private void SaveLastStart(List<ListModel> list, SexSpiders site) 
         {
             if (!list.Any()) return;
             string lastStart = list.LastOrDefault().LastStart;
             if (lastStart != "") 
             {
                 site.LastStart = lastStart;
-                await service.Update(site);
+                service.Update(site);
             }
         }
     }

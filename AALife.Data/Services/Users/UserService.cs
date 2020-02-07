@@ -3,7 +3,7 @@ using AALife.Core.Caching;
 using AALife.Core.Services;
 using AALife.Core.Services.Security;
 using AALife.Data.Domain;
-using AALife.Core.Infrastructure.Kendoui;
+using Yanzi.Core.Kendoui;
 using System;
 using System.Collections.Generic;
 using System.Linq;

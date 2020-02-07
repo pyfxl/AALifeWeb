@@ -24,7 +24,7 @@
                 },
                 tooltip: {
                     enabled: true,
-                    format: { type: "decimal", precision: 3 },
+                    format: "decimal",
                     customizeTooltip: function(args) {
                         return {
                             html: args.seriesName + " | <div class='currency'>" + args.valueText + "</div>"
@@ -40,7 +40,7 @@
             }).dxChart("instance");
 
             var pivotGrid = $("#grid").dxPivotGrid({
-                height: 500,
+                //height: 500,
                 scrolling: { mode: "virtual" },
                 fieldPanel: { visible: false },
                 allowFiltering: true,
@@ -115,7 +115,7 @@
                         { dataField: "RegionTypeName", caption: "固定消费" },
                         { dataField: "RegionType", visible: false },
                         { dataField: "Recommend", caption: "推荐否" },
-                        { dataField: "ItemPrice", caption: "金额", dataType: "number", format: { type: "decimal", precision: 3 }, summaryType: "sum", area: "data" },
+                        { dataField: "ItemPrice", caption: "金额", dataType: "number", format: "decimal", summaryType: "sum", area: "data" },
                         //{ dataField: "ItemPrice", caption: "RunningTotal", dataType: "number", format: "decimal", summaryType: "sum", area: "data", runningTotal: "row", allowCrossGroupCalculation: true },
                         //{ dataField: "ItemPrice", caption: "平均", dataType: "number", format: { type: "fixedPoint", precision: 3 }, summaryType: "avg", area: "data" },
                         {
@@ -169,14 +169,15 @@
                     remoteOperations: true,
                     store: DevExpress.data.AspNet.createStore({
                         key: "ItemID",
-                        loadUrl: "/api/ItemPivotGrid"
+                        loadUrl: "/api/v1/ItemPivotGrid"
                     })
                 }
             }).dxPivotGrid("instance");
             
             pivotGrid.bindChart(pivotGridChart, {
                 dataFieldsDisplayMode: "splitPanes",
-                alternateDataFields: false
+                alternateDataFields: false,
+                inverted: true
             });
 
             //function expand() {

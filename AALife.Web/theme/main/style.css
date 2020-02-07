@@ -44,3 +44,7 @@
 .usermenu .on a:hover {
     color: #c00;
 }
+
+.k-i-filter:before {
+    content: "\e031";
+}

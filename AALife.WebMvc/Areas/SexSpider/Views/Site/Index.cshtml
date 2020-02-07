@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "站点列表";
 }
 
 <div class="row">
@@ -57,7 +57,7 @@
                         }
                     },
                     parameterMap: function (options, operation) {
-                        debugger;
+                        //debugger;
                         if (operation !== "read" && options.models) {
                             return kendo.stringify(options.models);
                         }

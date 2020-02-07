@@ -17,7 +17,7 @@
             var dataSource = new kendo.data.DataSource({
                 transport: {
                     read: {
-                        url: "/api/ItemTableDapper",
+                        url: "/api/v1/ItemTableDapper",
                         dataType: "json",
                         contentType: "application/json; charset=utf-8",
                         type: "GET",

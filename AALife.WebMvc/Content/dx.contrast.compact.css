@@ -1,7 +1,7 @@
 /**
 * DevExtreme (dx.contrast.compact.css)
-* Version: 19.2.4
-* Build date: Tue Nov 19 2019
+* Version: 19.2.5
+* Build date: Mon Dec 16 2019
 *
 * Copyright (c) 2012 - 2019 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -1903,23 +1903,39 @@
 .dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-state-disabled .dx-button-content {
   opacity: 0.6;
 }
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal {
+  background-color: #000;
+}
 .dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-state-hover {
   background-color: #cf00d7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-state-focused {
   background-color: #cf00d7;
 }
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected {
+  background-color: #ffffff;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected.dx-state-hover {
+  background-color: #ffffff;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected.dx-state-focused {
+  background-color: #ffffff;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected,
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected .dx-icon {
+  color: #000000;
+}
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected) {
-  background-color: transparent;
+  background-color: #000;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default {
   border-color: #52BBE7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default.dx-state-hover {
-  background-color: #ffffff;
+  background-color: #cf00d7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default.dx-state-focused {
-  background-color: #ffffff;
+  background-color: #cf00d7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default,
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default .dx-icon {
@@ -1929,10 +1945,10 @@
   border-color: #71C35E;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success.dx-state-hover {
-  background-color: #ffffff;
+  background-color: #cf00d7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success.dx-state-focused {
-  background-color: #ffffff;
+  background-color: #cf00d7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success,
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success .dx-icon {
@@ -1942,10 +1958,10 @@
   border-color: #EE5959;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger.dx-state-hover {
-  background-color: #ffffff;
+  background-color: #cf00d7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger.dx-state-focused {
-  background-color: #ffffff;
+  background-color: #cf00d7;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger,
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger .dx-icon {
@@ -1999,18 +2015,17 @@
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-danger.dx-state-focused {
   background-color: #ffffff;
 }
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal {
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal {
   background-color: #ffffff;
 }
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal.dx-state-hover {
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal.dx-state-hover,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal.dx-state-hover {
   background-color: #ffffff;
 }
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal.dx-state-focused {
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal.dx-state-focused,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal.dx-state-focused {
   background-color: #ffffff;
-}
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal,
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal .dx-icon {
-  color: #000000;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-success,
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-success {
@@ -2656,11 +2671,11 @@
 .dx-rtl .dx-switch .dx-switch-off,
 .dx-switch.dx-rtl .dx-switch-off {
   float: right;
-  padding-right: 1px;
 }
 .dx-rtl .dx-switch .dx-switch-on,
 .dx-switch.dx-rtl .dx-switch-on {
   padding-left: 14px;
+  padding-right: 1px;
 }
 .dx-rtl .dx-switch .dx-switch-off,
 .dx-switch.dx-rtl .dx-switch-off {
@@ -6386,6 +6401,9 @@
 }
 .dx-sortable-dragging > div > .dx-gridbase-container > .dx-datagrid-rowsview {
   border-color: #fff;
+  cursor: pointer;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 .dx-datagrid {
   color: #fff;
@@ -6563,26 +6581,6 @@
 .dx-datagrid-column-chooser textarea {
   font-family: 'Helvetica Neue', 'Segoe UI', Helvetica, Verdana, sans-serif;
   line-height: 1.33334;
-}
-.dx-datagrid-export-menu .dx-menu-item .dx-icon-exportxlsx {
-  width: 16px;
-  height: 16px;
-  background-position: 0px 0px;
-  background-size: 16px 16px;
-  padding: 0px;
-  font-size: 16px;
-  text-align: center;
-  line-height: 16px;
-}
-.dx-datagrid-export-menu .dx-menu-item .dx-icon-exportselected {
-  width: 16px;
-  height: 16px;
-  background-position: 0px 0px;
-  background-size: 16px 16px;
-  padding: 0px;
-  font-size: 16px;
-  text-align: center;
-  line-height: 16px;
 }
 .dx-datagrid-adaptive-more {
   cursor: pointer;
@@ -7332,6 +7330,9 @@
 .dx-datagrid-table .dx-data-row.dx-state-hover:not(.dx-selection):not(.dx-row-inserted):not(.dx-row-removed):not(.dx-edit-row):not(.dx-row-focused) > td:not(.dx-focused).dx-datagrid-group-space {
   border-right-color: #cf00d7;
 }
+.dx-datagrid-table .dx-data-row.dx-state-hover:not(.dx-selection):not(.dx-row-inserted):not(.dx-row-removed):not(.dx-edit-row):not(.dx-row-focused) > td:not(.dx-focused).dx-command-select {
+  overflow: inherit;
+}
 .dx-datagrid-table .dx-data-row.dx-state-hover:not(.dx-selection):not(.dx-row-inserted):not(.dx-row-removed):not(.dx-edit-row):not(.dx-row-focused) > .dx-datagrid-readonly .dx-texteditor .dx-texteditor-input {
   background-color: #cf00d7;
   color: #fff;
@@ -7544,7 +7545,7 @@
   line-height: 14px;
 }
 .dx-datagrid-export-button .dx-icon-export-excel-button:before {
-  content: "\f060";
+  content: "\f117";
 }
 .dx-datagrid-adaptive-more {
   width: 17px;
@@ -8258,16 +8259,6 @@
   margin-left: 5px;
   width: 14px;
 }
-.dx-pivotgrid .dx-menu-item .dx-icon {
-  width: 16px;
-  height: 16px;
-  background-position: 0px 0px;
-  background-size: 16px 16px;
-  padding: 0px;
-  font-size: 16px;
-  text-align: center;
-  line-height: 16px;
-}
 .dx-pivotgrid .dx-popup-content {
   padding: 6px;
 }
@@ -8621,6 +8612,9 @@
 }
 .dx-sortable-dragging > div > .dx-gridbase-container > .dx-treelist-rowsview {
   border-color: #fff;
+  cursor: pointer;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 .dx-treelist .dx-column-lines > td:first-child {
   border-left: none;
@@ -9261,6 +9255,9 @@
 .dx-treelist-table .dx-data-row.dx-state-hover:not(.dx-selection):not(.dx-row-inserted):not(.dx-row-removed):not(.dx-edit-row):not(.dx-row-focused) > td:not(.dx-focused).dx-treelist-group-space {
   border-right-color: #cf00d7;
 }
+.dx-treelist-table .dx-data-row.dx-state-hover:not(.dx-selection):not(.dx-row-inserted):not(.dx-row-removed):not(.dx-edit-row):not(.dx-row-focused) > td:not(.dx-focused).dx-command-select {
+  overflow: inherit;
+}
 .dx-treelist-table .dx-data-row.dx-state-hover:not(.dx-selection):not(.dx-row-inserted):not(.dx-row-removed):not(.dx-edit-row):not(.dx-row-focused) > .dx-treelist-readonly .dx-texteditor .dx-texteditor-input {
   background-color: #cf00d7;
   color: #fff;
@@ -9473,7 +9470,7 @@
   line-height: 14px;
 }
 .dx-treelist-export-button .dx-icon-export-excel-button:before {
-  content: "\f060";
+  content: "\f117";
 }
 .dx-treelist-adaptive-more {
   width: 17px;
@@ -14558,17 +14555,9 @@
   border-color: #fff;
   background-color: #000;
 }
-.dx-gantt .dx-gantt-tac {
-  height: calc(100% - 45px);
-}
 .dx-gantt .dx-gantt-si {
   padding-left: 16px;
   padding-right: 16px;
-}
-.dx-gantt .dx-gantt-si,
-.dx-gantt .dx-gantt-tsa .dx-gantt-vb {
-  height: 23px;
-  line-height: 23px;
 }
 .dx-gantt .dx-gantt-tsac,
 .dx-gantt .dx-gantt-tsa {
@@ -14602,11 +14591,6 @@
 .dx-gantt .dx-gantt-taskWrapper .dx-gantt-task.dx-gantt-smallTask .dx-gantt-titleIn {
   padding: 0 2px;
 }
-.dx-gantt .dx-gantt-taskWrapper .dx-gantt-task.dx-gantt-milestone {
-  background-image: linear-gradient(135deg, #fff, #fff);
-  width: 14px;
-  height: 14px;
-}
 .dx-gantt .dx-gantt-taskWrapper .dx-gantt-taskRes {
   color: #fff;
   background-color: #999;
@@ -14621,6 +14605,11 @@
 }
 .dx-gantt .dx-gantt-taskWrapper .dx-gantt-titleOut {
   padding-right: 20px;
+}
+.dx-gantt .dx-gantt-milestone {
+  background-image: linear-gradient(135deg, #fff, #fff);
+  width: 12px;
+  height: 12px;
 }
 .dx-gantt .dx-gantt-task-edit-wrapper {
   padding-top: 5px;

@@ -1,7 +1,7 @@
 /*!
  * DevExpress Diagram (dx-diagram)
- * Version: 0.1.46
- * Build date: Mon Nov 18 2019
+ * Version: 0.1.49
+ * Build date: Mon Dec 09 2019
  * 
  * Copyright (c) 2012 - 2019 Developer Express Inc. ALL RIGHTS RESERVED
  * Read about DevExpress licensing here: https://www.devexpress.com/Support/EULAs
@@ -1247,6 +1247,9 @@ var DiagramItem = /** @class */ (function () {
         var point = this.getConnectionPoint(index, targetPoint);
         return this.getConnectionPointSide(point, targetPoint);
     };
+    DiagramItem.prototype.getConnectionPointIndexForSide = function (side) {
+        return side;
+    };
     Object.defineProperty(DiagramItem.prototype, "enableText", {
         get: function () { return true; },
         enumerable: true,
@@ -1600,11 +1603,11 @@ var ModelUtils = /** @class */ (function () {
         var endContainer = connector.endItem && model.findItemCollapsedContainer(connector.endItem);
         var endAttachedToContainer = endContainer && (!connector.beginItem || !model.isContainerItem(endContainer, connector.beginItem));
         if (beginAttachedToContainer)
-            this.updateConnectorBeginPoint(history, connector, beginContainer, (endAttachedToContainer && endContainer) || connector.endItem, function (index) { return beginContainer.translateConnectionPointIndex(connector.beginItem, index); });
+            this.updateConnectorBeginPoint(history, connector, beginContainer, (endAttachedToContainer && endContainer) || connector.endItem, function (index) { return beginContainer.getConnectionPointIndexForItem(connector.beginItem, index); });
         else
             this.updateConnectorBeginPoint(history, connector, connector.beginItem, (endAttachedToContainer && endContainer) || connector.endItem);
         if (endAttachedToContainer)
-            this.updateConnectorEndPoint(history, connector, endContainer, function (index) { return endContainer.translateConnectionPointIndex(connector.beginItem, index); });
+            this.updateConnectorEndPoint(history, connector, endContainer, function (index) { return endContainer.getConnectionPointIndexForItem(connector.beginItem, index); });
         else
             this.updateConnectorEndPoint(history, connector, connector.endItem);
         history.endTransaction();
@@ -1650,7 +1653,7 @@ var ModelUtils = /** @class */ (function () {
                         if (!collapsedContainer)
                             _this.updateConnectorBeginPoint(history, connector, connector.beginItem, endCollapsedContainer || connector.endItem);
                         else {
-                            _this.updateConnectorBeginPoint(history, connector, collapsedContainer, endCollapsedContainer || connector.endItem, function (index) { return rootContainer.translateConnectionPointIndex(connector.beginItem, index); });
+                            _this.updateConnectorBeginPoint(history, connector, collapsedContainer, endCollapsedContainer || connector.endItem, function (index) { return rootContainer.getConnectionPointIndexForItem(connector.beginItem, index); });
                         }
                     }
                     if (endItemInContainer && !beginItemInContainer) {
@@ -1658,7 +1661,7 @@ var ModelUtils = /** @class */ (function () {
                         if (!collapsedContainer)
                             _this.updateConnectorEndPoint(history, connector, connector.endItem);
                         else {
-                            _this.updateConnectorEndPoint(history, connector, collapsedContainer, function (index) { return rootContainer.translateConnectionPointIndex(connector.endItem, index); });
+                            _this.updateConnectorEndPoint(history, connector, collapsedContainer, function (index) { return rootContainer.getConnectionPointIndexForItem(connector.endItem, index); });
                         }
                     }
                 });
@@ -2046,9 +2049,8 @@ var ModelUtils = /** @class */ (function () {
         }
     };
     // Layout
-    ModelUtils.applyLayout = function (history, model, container, graph, layout, settings, snapToGrid, gridSize) {
+    ModelUtils.applyLayout = function (history, model, container, graph, layout, nonGraphItems, settings, snapToGrid, gridSize) {
         history.beginTransaction();
-        var nonGraphItems = this.getNonGraphItems(model, container, layout.nodeToLayout);
         var occupiedRectangles = this.getOccupiedRectangles(nonGraphItems, container);
         layout = this.offsetLayoutToFreeSpace(layout, container && container.clientRectangle, occupiedRectangles, settings.columnSpacing);
         if (snapToGrid)
@@ -2059,12 +2061,17 @@ var ModelUtils = /** @class */ (function () {
         this.applyLayoutToConnectors(history, model, layout, graph.edges.map(function (e) { return model.findConnector(e.key); }));
         history.endTransaction();
     };
-    ModelUtils.getNonGraphItems = function (model, container, nodeKeyMap) {
+    ModelUtils.getNonGraphItems = function (model, container, nodeKeyMap, shapes, connectors) {
         var allItems = container ? model.getChildren(container) : model.items.filter(function (item) { return !item.container; });
-        return allItems.filter(function (i) {
-            if (i instanceof Connector_1.Connector)
-                return (!i.beginItem || !nodeKeyMap[i.beginItem.key]) && (!i.endItem || !nodeKeyMap[i.endItem.key]);
-            return !nodeKeyMap[i.key];
+        return allItems.filter(function (item) {
+            if (item instanceof Connector_1.Connector) {
+                return (!item.beginItem || !nodeKeyMap[item.beginItem.key]) && (!item.endItem || !nodeKeyMap[item.endItem.key]) &&
+                    connectors.indexOf(item) === -1;
+            }
+            if (item instanceof Shape_1.Shape) {
+                return !nodeKeyMap[item.key] &&
+                    shapes.indexOf(item) === -1;
+            }
         });
     };
     ModelUtils.getOccupiedRectangles = function (nonGraphItems, container) {
@@ -2135,10 +2142,12 @@ var ModelUtils = /** @class */ (function () {
         connectors.filter(function (c) { return c.beginItem && c.endItem; }).forEach(function (connector) {
             var edgeLayout = layout.edgeToPosition[connector.key];
             if (edgeLayout) {
-                if (edgeLayout.beginIndex !== connector.beginConnectionPointIndex)
-                    history.addAndRedo(new AddConnectionHistoryItem_1.SetConnectionPointIndexHistoryItem(connector, edgeLayout.beginIndex, Connector_1.ConnectorPosition.Begin));
-                if (edgeLayout.endIndex !== connector.endConnectionPointIndex)
-                    history.addAndRedo(new AddConnectionHistoryItem_1.SetConnectionPointIndexHistoryItem(connector, edgeLayout.endIndex, Connector_1.ConnectorPosition.End));
+                var beginIndex = connector.beginItem.getConnectionPointIndexForSide(edgeLayout.beginIndex);
+                if (beginIndex !== connector.beginConnectionPointIndex)
+                    history.addAndRedo(new AddConnectionHistoryItem_1.SetConnectionPointIndexHistoryItem(connector, beginIndex, Connector_1.ConnectorPosition.Begin));
+                var endIndex = connector.endItem.getConnectionPointIndexForSide(edgeLayout.endIndex);
+                if (endIndex !== connector.endConnectionPointIndex)
+                    history.addAndRedo(new AddConnectionHistoryItem_1.SetConnectionPointIndexHistoryItem(connector, endIndex, Connector_1.ConnectorPosition.End));
             }
             _this.updateConnectorAttachedPoints(history, model, connector);
             if (edgeLayout) {
@@ -2154,11 +2163,6 @@ var ModelUtils = /** @class */ (function () {
             layout.nodeToLayout[key].position.y = _this.getSnappedPos(model, gridSize, layout.nodeToLayout[key].position.y, false);
         });
     };
-    ModelUtils.getGraphInfoBySelection = function (model, selection) {
-        var shapes = selection.getSelectedShapes(false, true);
-        var connectors = selection.getSelectedConnectors(false, true);
-        return this.getGraphInfoByItems(model, shapes, connectors);
-    };
     ModelUtils.getGraphInfoByItems = function (model, shapes, connectors) {
         var itemsByContainerKey = {};
         var items = [].concat(shapes).concat(connectors);
@@ -2172,14 +2176,12 @@ var ModelUtils = /** @class */ (function () {
         for (var key in itemsByContainerKey) {
             if (!itemsByContainerKey.hasOwnProperty(key))
                 continue;
-            if (itemsByContainerKey[key].length) {
-                var container = itemsByContainerKey[key][0].container;
-                if (!container || container.expanded) {
-                    var containerKey = container && container.key;
-                    var graph = this.getGraphByItems(model, itemsByContainerKey[key], containerKey);
-                    if (graph.nodes.length > 1)
-                        result.push(new GraphInfo_1.GraphInfo(container, graph));
-                }
+            var container = key && model.findContainer(key);
+            if (!container || container.expanded) {
+                var containerKey = container && container.key;
+                var graph = this.getGraphByItems(model, itemsByContainerKey[key], containerKey);
+                if (graph.nodes.length > 1)
+                    result.push(new GraphInfo_1.GraphInfo(container, graph));
             }
         }
         return result;
@@ -2483,8 +2485,11 @@ var ShapeDescription = /** @class */ (function () {
     };
     ShapeDescription.prototype.processConnectionPoint = function (shape, point) {
     };
-    ShapeDescription.prototype.translateConnectionPointIndex = function (item, connectionPointIndex) {
+    ShapeDescription.prototype.getConnectionPointIndexForItem = function (item, connectionPointIndex) {
         return connectionPointIndex;
+    };
+    ShapeDescription.prototype.getConnectionPointIndexForSide = function (side) {
+        return side;
     };
     ShapeDescription.prototype.createParameters = function (parameters) {
     };
@@ -2875,8 +2880,11 @@ var Shape = /** @class */ (function (_super) {
             return DiagramItem_1.ConnectionPointSide.West;
         }
     };
-    Shape.prototype.translateConnectionPointIndex = function (item, connectionPointIndex) {
-        return this.description.translateConnectionPointIndex(item, connectionPointIndex);
+    Shape.prototype.getConnectionPointIndexForItem = function (item, connectionPointIndex) {
+        return this.description.getConnectionPointIndexForItem(item, connectionPointIndex);
+    };
+    Shape.prototype.getConnectionPointIndexForSide = function (side) {
+        return this.description.getConnectionPointIndexForSide(side);
     };
     Shape.prototype.toggleExpandedSize = function () {
         if (!this.expanded) {
@@ -5534,14 +5542,22 @@ var ShapeDescriptionManager = /** @class */ (function () {
         return this.descriptions[ShapeTypes_1.ShapeTypes.Rectangle];
     };
     ShapeDescriptionManager.getTypesByCategory = function (category) {
-        var _this = this;
-        return Object.keys(this.descriptionCategories).filter(function (key) { return _this.descriptionCategories[key] === category; });
+        return this.descriptionTypes[category];
+    };
+    ShapeDescriptionManager.getCategoryByType = function (type) {
+        return this.descriptionCategories[type];
+    };
+    ShapeDescriptionManager.getCategoryByDescription = function (description) {
+        return ShapeDescriptionManager.getCategoryByType(description.key);
     };
     ShapeDescriptionManager.register = function (description, category, type) {
         if (type === void 0) { type = description.key; }
         if (this.descriptions[type] !== undefined)
             throw Error("Description key is duplicated");
         this.descriptions[type] = description;
+        if (!this.descriptionTypes[category])
+            this.descriptionTypes[category] = [];
+        this.descriptionTypes[category].push(type);
         this.descriptionCategories[type] = category;
     };
     ShapeDescriptionManager.registerCustomShape = function (shape) {
@@ -5555,11 +5571,17 @@ var ShapeDescriptionManager = /** @class */ (function () {
     ShapeDescriptionManager.unregisterCustomShape = function (shapeType) {
         var description = this.descriptions[shapeType];
         if (description instanceof CustomShapeDescription_1.CustomShapeDescription) {
+            var category = this.descriptionCategories[shapeType];
             delete this.descriptions[shapeType];
             delete this.descriptionCategories[shapeType];
+            var index = this.descriptionTypes[category].indexOf(shapeType);
+            this.descriptionTypes[category].splice(index, 1);
+            if (this.descriptionTypes[category].length === 0)
+                delete this.descriptionTypes[category];
         }
     };
     ShapeDescriptionManager.descriptions = {};
+    ShapeDescriptionManager.descriptionTypes = {};
     ShapeDescriptionManager.descriptionCategories = {};
     return ShapeDescriptionManager;
 }());
@@ -8059,7 +8081,7 @@ var GraphIterator = /** @class */ (function () {
     GraphIterator.prototype.iterateCore = function (nodeKey) {
         var _this = this;
         var node = this.graph.getNode(nodeKey);
-        if (this.skipNode && this.skipNode(node) || (this.visitEachNodeOnce && this.isNodeVisited(nodeKey)))
+        if (!node || (this.skipNode && this.skipNode(node)) || (this.visitEachNodeOnce && this.isNodeVisited(nodeKey)))
             return;
         this.visitedNodes[nodeKey] = true;
         this.onNode && this.onNode(node);
@@ -8476,12 +8498,14 @@ var AutoLayoutCommandBase = /** @class */ (function (_super) {
     AutoLayoutCommandBase.prototype.executeCore = function (state, parameter) {
         var _this = this;
         this.control.history.beginTransaction();
-        var graphInfo = ModelUtils_1.ModelUtils.getGraphInfoBySelection(this.control.model, this.control.selection);
+        var shapes = this.control.selection.getSelectedShapes(false, true);
+        var connectors = this.control.selection.getSelectedConnectors(false, true);
+        var graphInfo = ModelUtils_1.ModelUtils.getGraphInfoByItems(this.control.model, shapes, connectors);
         var settings = this.createLayoutSettings();
         graphInfo.forEach(function (info) {
-            var graph = info.getNodeInfoGraph();
-            var layout = _this.createLayout(settings, graph);
-            ModelUtils_1.ModelUtils.applyLayout(_this.control.history, _this.control.model, info.container, graph, layout, settings, _this.control.settings.snapToGrid, _this.control.settings.gridSize);
+            var layout = _this.createLayout(settings, info.graph);
+            var nonGraphItems = ModelUtils_1.ModelUtils.getNonGraphItems(_this.control.model, info.container, layout.nodeToLayout, shapes, connectors);
+            ModelUtils_1.ModelUtils.applyLayout(_this.control.history, _this.control.model, info.container, info.graph, layout, nonGraphItems, settings, _this.control.settings.snapToGrid, _this.control.settings.gridSize);
         });
         ModelUtils_1.ModelUtils.tryUpdateModelSize(this.control.history, this.control.model);
         this.control.history.endTransaction();
@@ -11546,6 +11570,7 @@ var CanvasSelectionManager = /** @class */ (function (_super) {
     };
     CanvasSelectionManager.prototype.notifyConnectionPointsShow = function (key, points, activePointIndex, showOutside) {
         var _this = this;
+        this.hideConnectionPoints();
         points.forEach(function (p, index) {
             var point = p.point.multiply(_this.actualZoom);
             if (showOutside) {
@@ -12861,11 +12886,14 @@ var ContainerDescription = /** @class */ (function (_super) {
             new ConnectionPoint_1.ConnectionPoint(0, 0.25, DiagramItem_1.ConnectionPointSide.West)
         ];
     };
-    ContainerDescription.prototype.translateConnectionPointIndex = function (item, connectionPointIndex) {
+    ContainerDescription.prototype.getConnectionPointIndexForItem = function (item, connectionPointIndex) {
         var shapeConnectionPoints = item.getConnectionPoints();
         if (shapeConnectionPoints.length === 4)
             return connectionPointIndex * 3 + 1;
         return connectionPointIndex;
+    };
+    ContainerDescription.prototype.getConnectionPointIndexForSide = function (side) {
+        return side * 3 + 1;
     };
     ContainerDescription.prototype.createShapePrimitives = function (shape, forToolbox) {
         var _a = shape.rectangle, left = _a.left, top = _a.top, width = _a.width, height = _a.height;
@@ -20724,12 +20752,19 @@ exports.ChangeContainerLockedHistoryItem = ChangeContainerLockedHistoryItem;
 Object.defineProperty(exports, "__esModule", { value: true });
 var LayoutUtils_1 = __webpack_require__(195);
 var GraphInfo = /** @class */ (function () {
-    function GraphInfo(container, graph) {
+    function GraphInfo(container, sourceGraph) {
         this.container = container;
-        this.graph = graph;
+        this.sourceGraph = sourceGraph;
     }
+    Object.defineProperty(GraphInfo.prototype, "graph", {
+        get: function () {
+            return this._graph || (this._graph = this.getNodeInfoGraph());
+        },
+        enumerable: true,
+        configurable: true
+    });
     GraphInfo.prototype.getNodeInfoGraph = function () {
-        return this.graph.cast(LayoutUtils_1.LayoutUtils.shapeToLayout);
+        return this.sourceGraph.cast(LayoutUtils_1.LayoutUtils.shapeToLayout);
     };
     return GraphInfo;
 }());
@@ -21576,7 +21611,10 @@ var Tree = /** @class */ (function () {
         var parentToChildren = {};
         iterator.skipEdge = (function (e) { return e.to === undefined || iterator.isNodeVisited(e.to); });
         iterator.onNode = function (n) { return parentToChildren[n.key] = []; };
-        iterator.onEdge = function (e) { return parentToChildren[e.from].push(component.getNode(e.to)); };
+        iterator.onEdge = function (e) {
+            var node = component.getNode(e.to);
+            node && parentToChildren[e.from].push(node);
+        };
         iterator.iterate(rootKey);
         return new Tree(component.getNode(rootKey), parentToChildren);
     };
@@ -22466,9 +22504,9 @@ var ImportBPMNCommand = /** @class */ (function (_super) {
         var settings = new LayoutSettings_1.LayoutSettings();
         var graphInfo = ModelUtils_1.ModelUtils.getGraphInfoByItems(this.control.model, shapes, connectors);
         graphInfo.forEach(function (info) {
-            var graph = info.getNodeInfoGraph();
-            var layout = new Sugiyama_1.SugiyamaLayoutBuilder(settings, graph).build();
-            ModelUtils_1.ModelUtils.applyLayout(_this.control.history, _this.control.model, undefined, graph, layout, settings, _this.control.settings.snapToGrid, _this.control.settings.gridSize);
+            var layout = new Sugiyama_1.SugiyamaLayoutBuilder(settings, info.graph).build();
+            var nonGraphItems = ModelUtils_1.ModelUtils.getNonGraphItems(_this.control.model, info.container, layout.nodeToLayout, shapes, connectors);
+            ModelUtils_1.ModelUtils.applyLayout(_this.control.history, _this.control.model, undefined, info.graph, layout, nonGraphItems, settings, _this.control.settings.snapToGrid, _this.control.settings.gridSize);
         });
         ModelUtils_1.ModelUtils.tryUpdateModelSize(this.control.history, this.control.model);
         this.control.history.endTransaction();
@@ -25722,7 +25760,7 @@ var MouseHandlerMoveConnectorSideState = /** @class */ (function (_super) {
     MouseHandlerMoveConnectorSideState.prototype.onMouseDown = function (evt) {
         this.startPoint = evt.modelPoint;
         this.connectorKey = evt.source.key;
-        this.pointIndex = parseInt(evt.source.value);
+        this.pointIndex = parseInt(evt.source.value) + 1;
         _super.prototype.onMouseDown.call(this, evt);
     };
     MouseHandlerMoveConnectorSideState.prototype.onApplyChanges = function (evt) {
@@ -26466,11 +26504,11 @@ var MouseHandlerSelectionState = /** @class */ (function (_super) {
         return _this;
     }
     MouseHandlerSelectionState.prototype.finish = function () {
+        this.handler.raiseDragEnd([]);
         this.visualizerManager.resetSelectionRectangle();
         _super.prototype.finish.call(this);
     };
     MouseHandlerSelectionState.prototype.cancelChanges = function () {
-        this.handler.raiseDragEnd([]);
     };
     MouseHandlerSelectionState.prototype.onMouseDown = function (evt) {
         this.startPoint = evt.modelPoint;
@@ -26479,17 +26517,17 @@ var MouseHandlerSelectionState = /** @class */ (function (_super) {
     MouseHandlerSelectionState.prototype.onMouseMove = function (evt) {
         if (evt.button !== Event_1.MouseButton.Left) {
             this.handler.switchToDefaultState();
-            return;
         }
-        this.rectangle = Utils_1.Rectangle.createByPoints(this.startPoint, evt.modelPoint);
-        this.visualizerManager.setSelectionRectangle(this.rectangle);
+        else {
+            this.rectangle = Utils_1.Rectangle.createByPoints(this.startPoint, evt.modelPoint);
+            this.visualizerManager.setSelectionRectangle(this.rectangle);
+        }
     };
     MouseHandlerSelectionState.prototype.onMouseUp = function (evt) {
         if (this.rectangle !== undefined)
             this.selection.selectRect(this.rectangle);
         else
             this.selection.set([]);
-        this.handler.raiseDragEnd([]);
         this.rectangle = undefined;
         this.handler.switchToDefaultState();
     };
@@ -28772,9 +28810,9 @@ var DataSource = /** @class */ (function () {
         if (layoutParameters !== undefined) {
             var graphInfo = ModelUtils_1.ModelUtils.getGraphInfoByItems(model, shapes, connectors);
             graphInfo.forEach(function (info) {
-                var graph = info.getNodeInfoGraph();
-                var layout = layoutParameters.getLayoutBuilder(graph).build();
-                ModelUtils_1.ModelUtils.applyLayout(history, model, info.container, graph, layout, layoutParameters.layoutSettings, snapToGrid, gridSize);
+                var layout = layoutParameters.getLayoutBuilder(info.graph).build();
+                var nonGraphItems = ModelUtils_1.ModelUtils.getNonGraphItems(model, info.container, layout.nodeToLayout, shapes, connectors);
+                ModelUtils_1.ModelUtils.applyLayout(history, model, info.container, info.graph, layout, nonGraphItems, layoutParameters.layoutSettings, snapToGrid, gridSize);
             });
         }
         if (selectItems) {

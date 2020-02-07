@@ -380,6 +380,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="ViewPivotGrid.aspx">
+                            <i class="ace-icon fa fa-eye"></i>
+                            访问分析
+                        </a>
+                    </li>
+                    <li>
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             Overview
                             &nbsp;

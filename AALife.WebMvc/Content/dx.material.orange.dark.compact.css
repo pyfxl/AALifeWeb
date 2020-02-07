@@ -1,7 +1,7 @@
 /**
 * DevExtreme (dx.material.orange.dark.compact.css)
-* Version: 19.2.4
-* Build date: Tue Nov 19 2019
+* Version: 19.2.5
+* Build date: Mon Dec 16 2019
 *
 * Copyright (c) 2012 - 2019 Developer Express Inc. ALL RIGHTS RESERVED
 * Read about DevExtreme licensing here: https://js.devexpress.com/Licensing/
@@ -1422,17 +1422,17 @@
 }
 .dx-field-value.dx-attention {
   color: #E91E63;
-  padding-left: 26px;
+  padding-left: 24px;
 }
 .dx-field-value.dx-attention:before {
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
-  width: 18px;
-  height: 18px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
   text-align: center;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 13px;
   font-weight: 500;
   background-color: #E91E63;
@@ -1485,7 +1485,7 @@
 .dx-field-value.dx-attention {
   padding: 21px 8px 20px;
   position: relative;
-  padding-left: 26px;
+  padding-left: 24px;
 }
 .dx-field-value.dx-attention:before {
   left: 0;
@@ -2283,116 +2283,137 @@
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-state-disabled .dx-button-content {
   opacity: 0.6;
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-state-focused {
-  background-color: #494956;
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal {
+  background-color: #363640;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-state-hover {
   background-color: #494956;
 }
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-state-focused {
+  background-color: #494956;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected {
+  background-color: #606072;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected.dx-state-hover {
+  background-color: #525261;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected.dx-state-focused {
+  background-color: #525261;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected,
+.dx-buttongroup-item.dx-button.dx-button-mode-contained.dx-button-normal.dx-item-selected .dx-icon {
+  color: #fff;
+}
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected) {
   background-color: #363640;
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success.dx-state-focused {
-  background-color: rgba(139, 195, 74, 0.08);
-}
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success.dx-state-hover {
-  background-color: rgba(139, 195, 74, 0.08);
+  background-color: #3d4141;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success.dx-state-focused {
+  background-color: #3d4141;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success,
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-success .dx-icon {
   color: #8BC34A;
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default.dx-state-focused {
-  background-color: rgba(255, 87, 34, 0.08);
-}
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default.dx-state-hover {
-  background-color: rgba(255, 87, 34, 0.08);
+  background-color: #46393e;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default.dx-state-focused {
+  background-color: #46393e;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default,
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-default .dx-icon {
   color: #FF5722;
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger.dx-state-focused {
-  background-color: rgba(233, 30, 99, 0.08);
-}
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger.dx-state-hover {
-  background-color: rgba(233, 30, 99, 0.08);
+  background-color: #443443;
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger.dx-state-focused {
+  background-color: #443443;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger,
 .dx-buttongroup-item.dx-button.dx-button-mode-contained:not(.dx-item-selected).dx-button-danger .dx-icon {
   color: #E91E63;
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-state-focused {
-  background-color: rgba(255, 255, 255, 0.08);
-}
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-state-hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-success.dx-state-focused {
-  background-color: rgba(139, 195, 74, 0.08);
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-state-focused {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-success.dx-state-hover {
   background-color: rgba(139, 195, 74, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-default.dx-state-focused {
-  background-color: rgba(255, 87, 34, 0.08);
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-success.dx-state-focused {
+  background-color: rgba(139, 195, 74, 0.08);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-default.dx-state-hover {
   background-color: rgba(255, 87, 34, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-danger.dx-state-focused {
-  background-color: rgba(233, 30, 99, 0.08);
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-default.dx-state-focused {
+  background-color: rgba(255, 87, 34, 0.08);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-danger.dx-state-hover {
   background-color: rgba(233, 30, 99, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-state-focused {
-  background-color: rgba(255, 255, 255, 0.08);
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-button-danger.dx-state-focused {
+  background-color: rgba(233, 30, 99, 0.08);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-state-hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-success.dx-state-focused {
-  background-color: rgba(139, 195, 74, 0.08);
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-state-focused {
+  background-color: rgba(255, 255, 255, 0.08);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-success.dx-state-hover {
   background-color: rgba(139, 195, 74, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-default.dx-state-focused {
-  background-color: rgba(255, 87, 34, 0.08);
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-success.dx-state-focused {
+  background-color: rgba(139, 195, 74, 0.08);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-default.dx-state-hover {
   background-color: rgba(255, 87, 34, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-danger.dx-state-focused {
-  background-color: rgba(233, 30, 99, 0.08);
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-default.dx-state-focused {
+  background-color: rgba(255, 87, 34, 0.08);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-danger.dx-state-hover {
   background-color: rgba(233, 30, 99, 0.08);
 }
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal {
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-button-danger.dx-state-focused {
+  background-color: rgba(233, 30, 99, 0.08);
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal {
   background-color: rgba(255, 255, 255, 0.18);
 }
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal.dx-state-focused {
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal.dx-state-hover,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal.dx-state-hover {
   background-color: rgba(255, 255, 255, 0.12);
 }
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal.dx-state-hover {
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal.dx-state-focused,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal.dx-state-focused {
   background-color: rgba(255, 255, 255, 0.12);
 }
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal,
-.dx-buttongroup-item.dx-button.dx-item-selected.dx-button-normal .dx-icon {
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal,
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-normal .dx-icon,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-normal .dx-icon {
   color: #fff;
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-success,
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-success {
   background-color: rgba(139, 195, 74, 0.22);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-success.dx-state-focused,
-.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-success.dx-state-focused {
-  background-color: rgba(139, 195, 74, 0.14);
-}
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-success.dx-state-hover,
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-success.dx-state-hover {
+  background-color: rgba(139, 195, 74, 0.14);
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-success.dx-state-focused,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-success.dx-state-focused {
   background-color: rgba(139, 195, 74, 0.14);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-success,
@@ -2405,12 +2426,12 @@
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-default {
   background-color: rgba(255, 87, 34, 0.22);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-default.dx-state-focused,
-.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-default.dx-state-focused {
-  background-color: rgba(255, 87, 34, 0.14);
-}
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-default.dx-state-hover,
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-default.dx-state-hover {
+  background-color: rgba(255, 87, 34, 0.14);
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-default.dx-state-focused,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-default.dx-state-focused {
   background-color: rgba(255, 87, 34, 0.14);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-default,
@@ -2423,12 +2444,12 @@
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-danger {
   background-color: rgba(233, 30, 99, 0.22);
 }
-.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-danger.dx-state-focused,
-.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-danger.dx-state-focused {
-  background-color: rgba(233, 30, 99, 0.14);
-}
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-danger.dx-state-hover,
 .dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-danger.dx-state-hover {
+  background-color: rgba(233, 30, 99, 0.14);
+}
+.dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-danger.dx-state-focused,
+.dx-buttongroup-item.dx-button.dx-button-mode-text.dx-item-selected.dx-button-danger.dx-state-focused {
   background-color: rgba(233, 30, 99, 0.14);
 }
 .dx-buttongroup-item.dx-button.dx-button-mode-outlined.dx-item-selected.dx-button-danger,
@@ -3219,6 +3240,10 @@
   margin-left: 0;
   margin-right: -18px;
 }
+.dx-rtl .dx-switch .dx-switch-wrapper,
+.dx-switch.dx-rtl .dx-switch-wrapper {
+  left: 10px;
+}
 .dx-rtl .dx-switch .dx-switch-container,
 .dx-switch.dx-rtl .dx-switch-container {
   margin: 0 0 0 -6px;
@@ -3516,13 +3541,13 @@
 }
 .dx-texteditor.dx-invalid .dx-texteditor-input-container:after,
 .dx-texteditor.dx-valid .dx-texteditor-input-container:after {
-  right: 5px;
+  right: 5.5px;
 }
 .dx-rtl .dx-texteditor.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl .dx-texteditor.dx-valid .dx-texteditor-input-container:after,
 .dx-rtl.dx-texteditor.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl.dx-texteditor.dx-valid .dx-texteditor-input-container:after {
-  left: 5px;
+  left: 5.5px;
   right: auto;
 }
 .dx-texteditor.dx-validation-pending.dx-editor-underlined .dx-texteditor-input {
@@ -3553,11 +3578,11 @@
   right: auto;
 }
 .dx-texteditor.dx-validation-pending .dx-texteditor-input-container .dx-pending-indicator {
-  right: 5px;
+  right: 5.5px;
 }
 .dx-rtl .dx-texteditor.dx-validation-pending .dx-texteditor-input-container .dx-pending-indicator,
 .dx-rtl.dx-texteditor.dx-validation-pending .dx-texteditor-input-container .dx-pending-indicator {
-  left: 5px;
+  left: 5.5px;
   right: auto;
 }
 .dx-texteditor.dx-editor-filled .dx-texteditor-buttons-container,
@@ -3750,13 +3775,13 @@
 }
 .dx-show-clear-button:not(.dx-texteditor-empty).dx-invalid .dx-texteditor-input-container:after,
 .dx-show-clear-button:not(.dx-texteditor-empty).dx-valid .dx-texteditor-input-container:after {
-  right: 5px;
+  right: 5.5px;
 }
 .dx-rtl .dx-show-clear-button:not(.dx-texteditor-empty).dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl .dx-show-clear-button:not(.dx-texteditor-empty).dx-valid .dx-texteditor-input-container:after,
 .dx-rtl.dx-show-clear-button:not(.dx-texteditor-empty).dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl.dx-show-clear-button:not(.dx-texteditor-empty).dx-valid .dx-texteditor-input-container:after {
-  left: 5px;
+  left: 5.5px;
   right: auto;
 }
 .dx-show-clear-button:not(.dx-texteditor-empty).dx-validation-pending.dx-editor-underlined .dx-texteditor-input {
@@ -3787,11 +3812,11 @@
   right: auto;
 }
 .dx-show-clear-button:not(.dx-texteditor-empty).dx-validation-pending .dx-texteditor-input-container .dx-pending-indicator {
-  right: 5px;
+  right: 5.5px;
 }
 .dx-rtl .dx-show-clear-button:not(.dx-texteditor-empty).dx-validation-pending .dx-texteditor-input-container .dx-pending-indicator,
 .dx-rtl.dx-show-clear-button:not(.dx-texteditor-empty).dx-validation-pending .dx-texteditor-input-container .dx-pending-indicator {
-  left: 5px;
+  left: 5.5px;
   right: auto;
 }
 .dx-placeholder {
@@ -3816,11 +3841,11 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
-  width: 18px;
-  height: 18px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
   text-align: center;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 13px;
   font-weight: 500;
   background-color: #E91E63;
@@ -3935,11 +3960,11 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
-  width: 18px;
-  height: 18px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
   text-align: center;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 13px;
   font-size: 19px;
   font-weight: bold;
@@ -3956,9 +3981,9 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
-  width: 18px;
-  height: 18px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
 }
 .dx-rtl .dx-placeholder,
 .dx-rtl .dx-placeholder:before {
@@ -5043,20 +5068,20 @@
 }
 .dx-autocomplete.dx-invalid .dx-texteditor-buttons-container:after,
 .dx-autocomplete.dx-valid .dx-texteditor-buttons-container:after {
-  right: 10px;
+  right: 11px;
 }
 .dx-rtl .dx-autocomplete.dx-invalid .dx-texteditor-buttons-container:after,
 .dx-rtl .dx-autocomplete.dx-valid .dx-texteditor-buttons-container:after,
 .dx-rtl.dx-autocomplete.dx-invalid .dx-texteditor-buttons-container:after,
 .dx-rtl.dx-autocomplete.dx-valid .dx-texteditor-buttons-container:after {
-  left: 10px;
+  left: 11px;
 }
 .dx-autocomplete.dx-validation-pending .dx-texteditor-buttons-container .dx-pending-indicator {
-  right: 10px;
+  right: 11px;
 }
 .dx-rtl .dx-autocomplete.dx-validation-pending .dx-texteditor-buttons-container .dx-pending-indicator,
 .dx-rtl.dx-autocomplete.dx-validation-pending .dx-texteditor-buttons-container .dx-pending-indicator {
-  left: 10px;
+  left: 11px;
 }
 .dx-numberbox-spin-container {
   overflow: hidden;
@@ -5143,13 +5168,13 @@
 }
 .dx-numberbox-spin.dx-numberbox-box.dx-editor-underlined.dx-invalid .dx-texteditor-input-container:after,
 .dx-numberbox-spin.dx-numberbox-box.dx-editor-underlined.dx-valid .dx-texteditor-input-container:after {
-  right: 5px;
+  right: 5.5px;
 }
 .dx-rtl .dx-numberbox-spin.dx-numberbox-box.dx-editor-underlined.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl .dx-numberbox-spin.dx-numberbox-box.dx-editor-underlined.dx-valid .dx-texteditor-input-container:after,
 .dx-rtl.dx-numberbox-spin.dx-numberbox-box.dx-editor-underlined.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl.dx-numberbox-spin.dx-numberbox-box.dx-editor-underlined.dx-valid .dx-texteditor-input-container:after {
-  left: 5px;
+  left: 5.5px;
   right: auto;
 }
 .dx-numberbox-spin.dx-numberbox-box.dx-editor-filled .dx-texteditor-input,
@@ -5223,7 +5248,7 @@
 .dx-numberbox-spin.dx-numberbox-box.dx-editor-outlined.dx-invalid .dx-texteditor-input-container:after,
 .dx-numberbox-spin.dx-numberbox-box.dx-editor-filled.dx-valid .dx-texteditor-input-container:after,
 .dx-numberbox-spin.dx-numberbox-box.dx-editor-outlined.dx-valid .dx-texteditor-input-container:after {
-  right: 5px;
+  right: 5.5px;
 }
 .dx-rtl .dx-numberbox-spin.dx-numberbox-box.dx-editor-filled.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl .dx-numberbox-spin.dx-numberbox-box.dx-editor-outlined.dx-invalid .dx-texteditor-input-container:after,
@@ -5233,7 +5258,7 @@
 .dx-rtl.dx-numberbox-spin.dx-numberbox-box.dx-editor-outlined.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl.dx-numberbox-spin.dx-numberbox-box.dx-editor-filled.dx-valid .dx-texteditor-input-container:after,
 .dx-rtl.dx-numberbox-spin.dx-numberbox-box.dx-editor-outlined.dx-valid .dx-texteditor-input-container:after {
-  left: 5px;
+  left: 5.5px;
   right: auto;
 }
 .dx-numberbox-spin-touch-friendly.dx-invalid.dx-editor-underlined .dx-texteditor-input,
@@ -5277,13 +5302,13 @@
 }
 .dx-numberbox-spin-touch-friendly.dx-invalid .dx-texteditor-input-container:after,
 .dx-numberbox-spin-touch-friendly.dx-valid .dx-texteditor-input-container:after {
-  right: 5px;
+  right: 5.5px;
 }
 .dx-rtl .dx-numberbox-spin-touch-friendly.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl .dx-numberbox-spin-touch-friendly.dx-valid .dx-texteditor-input-container:after,
 .dx-rtl.dx-numberbox-spin-touch-friendly.dx-invalid .dx-texteditor-input-container:after,
 .dx-rtl.dx-numberbox-spin-touch-friendly.dx-valid .dx-texteditor-input-container:after {
-  left: 5px;
+  left: 5.5px;
   right: auto;
 }
 .dx-numberbox-spin-touch-friendly .dx-numberbox-spin-container {
@@ -5856,25 +5881,25 @@
 }
 .dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-underlined .dx-texteditor-input,
 .dx-datebox:not(.dx-texteditor-empty).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-underlined .dx-texteditor-input {
-  padding-right: 28px;
+  padding-right: 27px;
 }
 .dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-underlined.dx-rtl .dx-texteditor-input,
 .dx-datebox:not(.dx-texteditor-empty).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-underlined.dx-rtl .dx-texteditor-input {
   padding-right: 0;
-  padding-left: 28px;
+  padding-left: 27px;
 }
 .dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-filled .dx-texteditor-input,
 .dx-datebox:not(.dx-texteditor-empty).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-filled .dx-texteditor-input,
 .dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-outlined .dx-texteditor-input,
 .dx-datebox:not(.dx-texteditor-empty).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-outlined .dx-texteditor-input {
-  padding-right: 36px;
+  padding-right: 35px;
 }
 .dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-filled.dx-rtl .dx-texteditor-input,
 .dx-datebox:not(.dx-texteditor-empty).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-filled.dx-rtl .dx-texteditor-input,
 .dx-datebox.dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-outlined.dx-rtl .dx-texteditor-input,
 .dx-datebox:not(.dx-texteditor-empty).dx-auto-width.dx-dropdowneditor-button-visible.dx-editor-outlined.dx-rtl .dx-texteditor-input {
   padding-right: 8px;
-  padding-left: 36px;
+  padding-left: 35px;
 }
 .dx-device-ios .dx-datebox.dx-texteditor-empty .dx-texteditor-input {
   min-height: 33px;
@@ -6624,13 +6649,13 @@
 .dx-invalid.dx-dropdowneditor-button-visible.dx-editor-underlined .dx-texteditor-input,
 .dx-valid.dx-dropdowneditor-button-visible.dx-editor-underlined .dx-texteditor-input,
 .dx-validation-pending.dx-dropdowneditor-button-visible.dx-editor-underlined .dx-texteditor-input {
-  padding-right: 28px;
+  padding-right: 27px;
 }
 .dx-invalid.dx-dropdowneditor-button-visible.dx-editor-underlined.dx-rtl .dx-texteditor-input,
 .dx-valid.dx-dropdowneditor-button-visible.dx-editor-underlined.dx-rtl .dx-texteditor-input,
 .dx-validation-pending.dx-dropdowneditor-button-visible.dx-editor-underlined.dx-rtl .dx-texteditor-input {
   padding-right: 0;
-  padding-left: 28px;
+  padding-left: 27px;
 }
 .dx-invalid.dx-dropdowneditor-button-visible.dx-editor-filled .dx-texteditor-input,
 .dx-valid.dx-dropdowneditor-button-visible.dx-editor-filled .dx-texteditor-input,
@@ -6638,7 +6663,7 @@
 .dx-invalid.dx-dropdowneditor-button-visible.dx-editor-outlined .dx-texteditor-input,
 .dx-valid.dx-dropdowneditor-button-visible.dx-editor-outlined .dx-texteditor-input,
 .dx-validation-pending.dx-dropdowneditor-button-visible.dx-editor-outlined .dx-texteditor-input {
-  padding-right: 36px;
+  padding-right: 35px;
 }
 .dx-invalid.dx-dropdowneditor-button-visible.dx-editor-filled.dx-rtl .dx-texteditor-input,
 .dx-valid.dx-dropdowneditor-button-visible.dx-editor-filled.dx-rtl .dx-texteditor-input,
@@ -6647,7 +6672,7 @@
 .dx-valid.dx-dropdowneditor-button-visible.dx-editor-outlined.dx-rtl .dx-texteditor-input,
 .dx-validation-pending.dx-dropdowneditor-button-visible.dx-editor-outlined.dx-rtl .dx-texteditor-input {
   padding-right: 8px;
-  padding-left: 36px;
+  padding-left: 35px;
 }
 .dx-dropdowneditor.dx-dropdowneditor-active .dx-dropdowneditor-icon,
 .dx-dropdowneditor-button.dx-state-active .dx-dropdowneditor-icon {
@@ -6676,25 +6701,25 @@
 }
 .dx-invalid.dx-dropdowneditor .dx-texteditor-buttons-container:after,
 .dx-valid.dx-dropdowneditor .dx-texteditor-buttons-container:after {
-  right: 23px;
+  right: 23.5px;
 }
 .dx-rtl .dx-invalid.dx-dropdowneditor .dx-texteditor-buttons-container:after,
 .dx-rtl .dx-valid.dx-dropdowneditor .dx-texteditor-buttons-container:after,
 .dx-rtl.dx-invalid.dx-dropdowneditor .dx-texteditor-buttons-container:after,
 .dx-rtl.dx-valid.dx-dropdowneditor .dx-texteditor-buttons-container:after {
   right: auto;
-  left: 23px;
+  left: 23.5px;
 }
 .dx-invalid.dx-dropdowneditor.dx-show-clear-button:not(.dx-texteditor-empty) .dx-texteditor-buttons-container:after,
 .dx-valid.dx-dropdowneditor.dx-show-clear-button:not(.dx-texteditor-empty) .dx-texteditor-buttons-container:after {
-  right: 41px;
+  right: 41.5px;
 }
 .dx-rtl .dx-invalid.dx-dropdowneditor.dx-show-clear-button:not(.dx-texteditor-empty) .dx-texteditor-buttons-container:after,
 .dx-rtl .dx-valid.dx-dropdowneditor.dx-show-clear-button:not(.dx-texteditor-empty) .dx-texteditor-buttons-container:after,
 .dx-rtl.dx-invalid.dx-dropdowneditor.dx-show-clear-button:not(.dx-texteditor-empty) .dx-texteditor-buttons-container:after,
 .dx-rtl.dx-valid.dx-dropdowneditor.dx-show-clear-button:not(.dx-texteditor-empty) .dx-texteditor-buttons-container:after {
   right: auto;
-  left: 41px;
+  left: 41.5px;
 }
 .dx-dropdowneditor-overlay.dx-popup-wrapper .dx-overlay-content {
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -7165,11 +7190,11 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
-  width: 18px;
-  height: 18px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
   text-align: center;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 13px;
   font-weight: 500;
   background-color: #E91E63;
@@ -7187,11 +7212,11 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
-  width: 18px;
-  height: 18px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
   text-align: center;
-  line-height: 19px;
+  line-height: 17px;
   font-size: 13px;
   font-size: 19px;
   font-weight: bold;
@@ -7214,9 +7239,9 @@
   pointer-events: none;
   position: absolute;
   top: 50%;
-  margin-top: -9px;
-  width: 18px;
-  height: 18px;
+  margin-top: -8px;
+  width: 16px;
+  height: 16px;
   right: 18px;
 }
 .dx-lookup.dx-validation-pending.dx-rtl .dx-lookup-field-wrapper .dx-pending-indicator,
@@ -7381,20 +7406,20 @@
 }
 .dx-tagbox.dx-invalid .dx-texteditor-container:after,
 .dx-tagbox.dx-valid .dx-texteditor-container:after {
-  right: 10px;
+  right: 11px;
 }
 .dx-rtl .dx-tagbox.dx-invalid .dx-texteditor-container:after,
 .dx-rtl .dx-tagbox.dx-valid .dx-texteditor-container:after,
 .dx-rtl.dx-tagbox.dx-invalid .dx-texteditor-container:after,
 .dx-rtl.dx-tagbox.dx-valid .dx-texteditor-container:after {
-  left: 10px;
+  left: 11px;
 }
 .dx-tagbox.dx-validation-pending .dx-texteditor-container .dx-pending-indicator {
-  right: 10px;
+  right: 11px;
 }
 .dx-rtl .dx-tagbox.dx-validation-pending .dx-texteditor-container .dx-pending-indicator,
 .dx-rtl.dx-tagbox.dx-validation-pending .dx-texteditor-container .dx-pending-indicator {
-  left: 10px;
+  left: 11px;
 }
 .dx-tagbox-popup-wrapper .dx-list-select-all {
   border-bottom: 1px solid #515159;
@@ -7868,6 +7893,9 @@
 }
 .dx-sortable-dragging > div > .dx-gridbase-container > .dx-datagrid-rowsview {
   border-color: rgba(255, 87, 34, 0.5);
+  cursor: pointer;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 .dx-datagrid {
   color: #fff;
@@ -8045,26 +8073,6 @@
 .dx-datagrid-column-chooser textarea {
   font-family: "Roboto", "RobotoFallback", "Helvetica", "Arial", sans-serif;
   line-height: 1.2857;
-}
-.dx-datagrid-export-menu .dx-menu-item .dx-icon-exportxlsx {
-  width: 16px;
-  height: 16px;
-  background-position: 0px 0px;
-  background-size: 16px 16px;
-  padding: 0px;
-  font-size: 16px;
-  text-align: center;
-  line-height: 16px;
-}
-.dx-datagrid-export-menu .dx-menu-item .dx-icon-exportselected {
-  width: 16px;
-  height: 16px;
-  background-position: 0px 0px;
-  background-size: 16px 16px;
-  padding: 0px;
-  font-size: 16px;
-  text-align: center;
-  line-height: 16px;
 }
 .dx-datagrid-adaptive-more {
   cursor: pointer;
@@ -8898,7 +8906,7 @@
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-valid .dx-texteditor-input,
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending .dx-texteditor-input {
-  padding-right: 28px;
+  padding-right: 27px;
 }
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-invalid.dx-rtl .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-invalid.dx-rtl .dx-texteditor-input,
@@ -8907,7 +8915,7 @@
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending.dx-rtl .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending.dx-rtl .dx-texteditor-input {
   padding-right: 0;
-  padding-left: 28px;
+  padding-left: 27px;
 }
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid .dx-texteditor-input,
@@ -8915,7 +8923,7 @@
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-valid .dx-texteditor-input,
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending .dx-texteditor-input {
-  padding-right: 28px;
+  padding-right: 27px;
 }
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid.dx-rtl .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid.dx-rtl .dx-texteditor-input,
@@ -8924,7 +8932,7 @@
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending.dx-rtl .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending.dx-rtl .dx-texteditor-input {
   padding-right: 0;
-  padding-left: 28px;
+  padding-left: 27px;
 }
 .dx-datagrid-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-rtl .dx-texteditor-input,
 .dx-datagrid-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-rtl .dx-texteditor-input {
@@ -9317,9 +9325,9 @@
   line-height: 18px;
 }
 .dx-datagrid-export-button .dx-icon-export-excel-button:before {
-  content: "\f060";
+  content: "\f117";
 }
-.dx-datagrid-export-menu .dx-menu-item .dx-icon-exportxlsx {
+.dx-datagrid-export-menu .dx-menu-item .dx-icon-xlsxfile {
   width: 18px;
   height: 18px;
   background-position: 0px 0px;
@@ -9451,6 +9459,15 @@
 .dx-datagrid-rowsview .dx-row-focused.dx-data-row .dx-command-edit .dx-link:focus {
   background-color: #363640;
   color: #FF5722;
+}
+.dx-datagrid-rowsview .dx-row-focused.dx-data-row > td,
+.dx-datagrid-rowsview .dx-row-focused.dx-data-row > tr:last-child > td {
+  border-bottom: 1px solid #FF5722;
+}
+.dx-datagrid-rowsview .dx-row-focused.dx-data-row:not(.dx-row-lines) > td,
+.dx-datagrid-rowsview .dx-row-focused.dx-data-row:not(.dx-row-lines) > tr:first-child > td {
+  border-top: 1px solid #FF5722;
+  border-bottom: 1px solid #FF5722;
 }
 .dx-datagrid-rowsview .dx-row-focused.dx-data-row.dx-edit-row > td.dx-editor-cell:not(.dx-command-select),
 .dx-datagrid-rowsview .dx-row-focused.dx-data-row.dx-edit-row > tr > td.dx-editor-cell:not(.dx-command-select) {
@@ -10137,16 +10154,6 @@
   margin-left: 5px;
   width: 14px;
 }
-.dx-pivotgrid .dx-menu-item .dx-icon {
-  width: 16px;
-  height: 16px;
-  background-position: 0px 0px;
-  background-size: 16px 16px;
-  padding: 0px;
-  font-size: 16px;
-  text-align: center;
-  line-height: 16px;
-}
 .dx-pivotgrid .dx-popup-content {
   padding: 8px;
 }
@@ -10670,6 +10677,9 @@
 }
 .dx-sortable-dragging > div > .dx-gridbase-container > .dx-treelist-rowsview {
   border-color: rgba(255, 87, 34, 0.5);
+  cursor: pointer;
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
 }
 .dx-treelist .dx-column-lines > td:first-child {
   border-left: none;
@@ -11327,7 +11337,7 @@
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-valid .dx-texteditor-input,
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending .dx-texteditor-input {
-  padding-right: 28px;
+  padding-right: 27px;
 }
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-invalid.dx-rtl .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-invalid.dx-rtl .dx-texteditor-input,
@@ -11336,7 +11346,7 @@
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending.dx-rtl .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-show-clear-button.dx-validation-pending.dx-rtl .dx-texteditor-input {
   padding-right: 0;
-  padding-left: 28px;
+  padding-left: 27px;
 }
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid .dx-texteditor-input,
@@ -11344,7 +11354,7 @@
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-valid .dx-texteditor-input,
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending .dx-texteditor-input {
-  padding-right: 28px;
+  padding-right: 27px;
 }
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid.dx-rtl .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-invalid.dx-rtl .dx-texteditor-input,
@@ -11353,7 +11363,7 @@
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending.dx-rtl .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-validation-pending.dx-rtl .dx-texteditor-input {
   padding-right: 0;
-  padding-left: 28px;
+  padding-left: 27px;
 }
 .dx-treelist-headers .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-rtl .dx-texteditor-input,
 .dx-treelist-rowsview .dx-dropdowneditor-button-visible.dx-dropdowneditor.dx-rtl .dx-texteditor-input {
@@ -11746,9 +11756,9 @@
   line-height: 18px;
 }
 .dx-treelist-export-button .dx-icon-export-excel-button:before {
-  content: "\f060";
+  content: "\f117";
 }
-.dx-datagrid-export-menu .dx-menu-item .dx-icon-exportxlsx {
+.dx-datagrid-export-menu .dx-menu-item .dx-icon-xlsxfile {
   width: 18px;
   height: 18px;
   background-position: 0px 0px;
@@ -11880,6 +11890,15 @@
 .dx-treelist-rowsview .dx-row-focused.dx-data-row .dx-command-edit .dx-link:focus {
   background-color: #363640;
   color: #FF5722;
+}
+.dx-treelist-rowsview .dx-row-focused.dx-data-row > td,
+.dx-treelist-rowsview .dx-row-focused.dx-data-row > tr:last-child > td {
+  border-bottom: 1px solid #FF5722;
+}
+.dx-treelist-rowsview .dx-row-focused.dx-data-row:not(.dx-row-lines) > td,
+.dx-treelist-rowsview .dx-row-focused.dx-data-row:not(.dx-row-lines) > tr:first-child > td {
+  border-top: 1px solid #FF5722;
+  border-bottom: 1px solid #FF5722;
 }
 .dx-treelist-rowsview .dx-row-focused.dx-data-row.dx-edit-row > td.dx-editor-cell:not(.dx-command-select),
 .dx-treelist-rowsview .dx-row-focused.dx-data-row.dx-edit-row > tr > td.dx-editor-cell:not(.dx-command-select) {
@@ -17435,17 +17454,9 @@
   border-color: #515159;
   background-color: #363640;
 }
-.dx-gantt .dx-gantt-tac {
-  height: calc(100% - 51px);
-}
 .dx-gantt .dx-gantt-si {
   padding-left: 16px;
   padding-right: 16px;
-}
-.dx-gantt .dx-gantt-si,
-.dx-gantt .dx-gantt-tsa .dx-gantt-vb {
-  height: 26px;
-  line-height: 26px;
 }
 .dx-gantt .dx-gantt-tsac,
 .dx-gantt .dx-gantt-tsa {
@@ -17480,11 +17491,6 @@
 .dx-gantt .dx-gantt-taskWrapper .dx-gantt-task.dx-gantt-smallTask .dx-gantt-titleIn {
   padding: 0 2px;
 }
-.dx-gantt .dx-gantt-taskWrapper .dx-gantt-task.dx-gantt-milestone {
-  background-image: linear-gradient(135deg, #515159, #fff);
-  width: 18px;
-  height: 18px;
-}
 .dx-gantt .dx-gantt-taskWrapper .dx-gantt-taskRes {
   color: #fff;
   background-color: #999;
@@ -17499,6 +17505,11 @@
 }
 .dx-gantt .dx-gantt-taskWrapper .dx-gantt-titleOut {
   padding-right: 20px;
+}
+.dx-gantt .dx-gantt-milestone {
+  background-image: linear-gradient(135deg, #515159, #fff);
+  width: 14px;
+  height: 14px;
 }
 .dx-gantt .dx-gantt-task-edit-wrapper {
   padding-top: 9px;

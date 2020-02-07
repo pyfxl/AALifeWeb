@@ -1,16 +1,11 @@
-﻿using AALife.Service.Domain.Common;
-using AALife.Service.Domain.ViewModel;
+﻿using AALife.Service.Domain.ViewModel;
 using AALife.Service.Models;
+using Kendo.DynamicLinq;
 using Mapster;
-using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
 using System.Linq.Dynamic;
-using System.Threading.Tasks;
-using System.Data.Entity.Core.Objects;
-using Kendo.DynamicLinq;
 
 namespace AALife.Service.EF
 {
@@ -21,26 +16,26 @@ namespace AALife.Service.EF
         /// </summary>
         public ViewTableBLL()
         {
-            TypeAdapterConfig<ViewTable, ViewTableViewModel>.NewConfig()
-                .Map(dest => dest.ViewID, src => src.ViewID)
-                .Map(dest => dest.PageID, src => src.PageID)
-                .Map(dest => dest.UserID, src => src.UserID)
-                .Map(dest => dest.DateStart, src => src.DateStart)
-                .Map(dest => dest.DateEnd, src => src.DateEnd)
-                .Map(dest => dest.ViewSeconds, src => DbFunctions.DiffSeconds(src.DateStart, src.DateEnd))
-                .Map(dest => dest.Portal, src => src.Portal)
-                .Map(dest => dest.Version, src => src.Version)
-                .Map(dest => dest.Browser, src => src.Browser)
-                .Map(dest => dest.Width, src => src.Width)
-                .Map(dest => dest.Height, src => src.Height)
-                .Map(dest => dest.IP, src => src.IP)
-                .Map(dest => dest.Synchronize, src => src.Synchronize)
-                .Map(dest => dest.Remark, src => src.Remark)
-                .Map(dest => dest.Network, src => src.Network)
-                .Map(dest => dest.CreateDate, src => src.CreateDate)
-                .Map(dest => dest.PageName, src => src.ViewPageTable.PageName)
-                .Map(dest => dest.PageTitle, src => src.ViewPageTable.PageTitle)
-                .Compile();
+            //TypeAdapterConfig<ViewTable, ViewTableViewModel>.NewConfig()
+            //    .Map(dest => dest.ViewID, src => src.ViewID)
+            //    .Map(dest => dest.PageID, src => src.PageID)
+            //    .Map(dest => dest.UserID, src => src.UserID)
+            //    .Map(dest => dest.DateStart, src => src.DateStart)
+            //    .Map(dest => dest.DateEnd, src => src.DateEnd)
+            //    .Map(dest => dest.ViewSeconds, src => DbFunctions.DiffSeconds(src.DateStart, src.DateEnd))
+            //    .Map(dest => dest.Portal, src => src.Portal)
+            //    .Map(dest => dest.Version, src => src.Version)
+            //    .Map(dest => dest.Browser, src => src.Browser)
+            //    .Map(dest => dest.Width, src => src.Width)
+            //    .Map(dest => dest.Height, src => src.Height)
+            //    .Map(dest => dest.IP, src => src.IP)
+            //    .Map(dest => dest.Synchronize, src => src.Synchronize)
+            //    .Map(dest => dest.Remark, src => src.Remark)
+            //    .Map(dest => dest.Network, src => src.Network)
+            //    .Map(dest => dest.CreateDate, src => src.CreateDate)
+            //    .Map(dest => dest.PageName, src => src.ViewPageTable.PageName)
+            //    .Map(dest => dest.PageTitle, src => src.ViewPageTable.PageTitle)
+            //    .Compile();
         }
 
         /// <summary>
@@ -91,5 +86,21 @@ namespace AALife.Service.EF
                 return lists.ToList();
             }
         }
+
+        /// <summary>
+        /// 获取全部
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<ViewTable> GetAll()
+        {
+            var db = new AALifeDbContext();
+
+            //默认
+            var lists = db.Set<ViewTable>()
+                .AsNoTracking();
+
+            return lists;
+        }
+
     }
 }

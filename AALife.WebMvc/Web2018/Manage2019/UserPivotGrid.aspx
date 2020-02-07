@@ -40,7 +40,7 @@
             }).dxChart("instance");
 
             var pivotGrid = $("#grid").dxPivotGrid({
-                height: 500,
+                //height: 500,
                 scrolling: { mode: "virtual" },
                 fieldPanel: { visible: false },
                 allowFiltering: true,
@@ -101,6 +101,7 @@
                 },
                 dataSource: {
                     fields: [
+                        { dataField: "UserID", caption: "用户ID" },
                         { dataField: "UserName", caption: "用户名" },
                         { dataField: "UserNickName", caption: "用户昵称" },
                         { dataField: "UserImage", caption: "用户头像" },
@@ -117,9 +118,9 @@
                         { groupName: "CreateDate", caption: "创建日期", groupInterval: "quarter", visible: false },
                         { dataField: "UserFrom", visible: false },
                         { dataField: "UserFromName", caption: "用户来自", width: 150, area: "row", sortBySummaryField: "UserID", sortOrder: "desc" },
-                        { dataField: "UserID", caption: "数量", format: { type: "fixedPoint", precision: 0 }, summaryType: "count", area: "data" },
+                        { caption: "数量", format: { type: "fixedPoint", precision: 0 }, summaryType: "count", area: "data" },
                         {
-                            dataField: "UserID", caption: COLUMN_ZZL, dataType: "number", area: "data", format: "decimal", summaryType: "count", calculateSummaryValue: function (cell) {
+                            caption: COLUMN_ZZL, dataType: "number", area: "data", format: "decimal", summaryType: "count", calculateSummaryValue: function (cell) {
                                 //Running total algorithm
                                 var prevCell = cell.prev("column"),
                                     value = cell.value(),
@@ -138,7 +139,7 @@
                             }
                         },
                         {
-                            dataField: "UserID", caption: COLUMN_ZB, dataType: "number", format: "decimal", summaryType: "sum", calculateSummaryValue: function (cell) {
+                            caption: COLUMN_ZB, dataType: "number", format: "decimal", summaryType: "count", calculateSummaryValue: function (cell) {
                                 var grandTotal = cell.grandTotal("row"),
                                     value = cell.value(),
                                     grandTotalValue = grandTotal && grandTotal.value();
@@ -160,14 +161,15 @@
                     remoteOperations: true,
                     store: DevExpress.data.AspNet.createStore({
                         key: "UserID",
-                        loadUrl: "/api/UserPivotGrid"
+                        loadUrl: "/api/v1/UserPivotGrid"
                     })
                 }
             }).dxPivotGrid("instance");
             
             pivotGrid.bindChart(pivotGridChart, {
                 dataFieldsDisplayMode: "splitPanes",
-                alternateDataFields: false
+                alternateDataFields: false,
+                inverted: true
             });
 
         });
