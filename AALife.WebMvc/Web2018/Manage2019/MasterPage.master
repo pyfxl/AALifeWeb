@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Manage2019_MasterPage" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="AALife.WebMvc.Web2018.Manage2019.Manage_MasterPage" %>
 
 <!DOCTYPE html>
 

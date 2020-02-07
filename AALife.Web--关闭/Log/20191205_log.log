@@ -1,0 +1,119 @@
+2019-12-05 00:05:17.4385|ERROR|ItemTable|Operator '==' incompatible with operand types 'DateTime' and 'String' (at index 37)
+2019-12-05 09:29:01.9453|ERROR|ItemTable|System.ArgumentException: 从索引 0 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 Yanzi.Core.KendoDapper.EnumerableExtenstions.Aggregate[T,T1](String table, String connString, IEnumerable`1 aggregates, IEnumerable`1 groupValues)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 52
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 34
+2019-12-05 09:30:34.8603|ERROR|ItemTable|System.ArgumentException: 从索引 0 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 Yanzi.Core.KendoDapper.EnumerableExtenstions.Aggregate[T,T1](String table, String connString, IEnumerable`1 aggregates, IEnumerable`1 groupValues)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 49
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 34
+2019-12-05 09:35:15.8715|ERROR|ItemTable|System.Data.SqlClient.SqlException (0x80131904): 列名 'UserName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__138`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 49
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 34
+ClientConnectionId:0b2ef6b4-b983-4d07-a688-b75f7882dabb
+Error Number:207,State:1,Class:16
+2019-12-05 09:35:31.9975|ERROR|ItemTable|System.Data.SqlClient.SqlException (0x80131904): 列名 'UserName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__138`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 49
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 34
+ClientConnectionId:0b2ef6b4-b983-4d07-a688-b75f7882dabb
+Error Number:207,State:1,Class:16
+2019-12-05 09:36:27.1196|ERROR|ItemTable|System.Data.SqlClient.SqlException (0x80131904): 列名 'UserName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__138`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 49
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 34
+ClientConnectionId:0b2ef6b4-b983-4d07-a688-b75f7882dabb
+Error Number:207,State:1,Class:16
+2019-12-05 09:36:39.9299|ERROR|ItemTable|System.Data.SqlClient.SqlException (0x80131904): 列名 'UserName' 无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__138`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 49
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 34
+ClientConnectionId:0b2ef6b4-b983-4d07-a688-b75f7882dabb
+Error Number:207,State:1,Class:16

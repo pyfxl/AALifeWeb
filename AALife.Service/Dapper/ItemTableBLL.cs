@@ -45,7 +45,7 @@ namespace AALife.Service.Dapper
 
         public DataSourceResult GetDapperDataSource(DataSourceRequest request)
         {
-            return request.ToDataSourceResult<ItemTableView2019, ItemTable>(base.sqlConnection, "ItemID desc");
+            return request.ToDataSourceResult<ItemTableView2019, ItemTable>(base.sqlConnection, "sql2008", "ItemID desc");
         }
 
         public IEnumerable<UserCategoryTable> GetUserCategoryTable(int userId)

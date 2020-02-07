@@ -148,7 +148,7 @@ namespace SexSpider.Core.Helper
                 }
                 else
                 {
-                    link = item.GetAttribute("src");
+                    link = item.GetAttribute("src") ?? item.GetAttribute("href");
                 }
 
                 if (String.IsNullOrEmpty(link)) continue;
@@ -268,7 +268,7 @@ namespace SexSpider.Core.Helper
         }
 
         /// <summary>
-        /// 取html内容
+        /// 取html内容2
         /// </summary>
         public static string GetHtmlContent2(string url, string encoding, string domain)
         {
@@ -311,7 +311,7 @@ namespace SexSpider.Core.Helper
         }
 
         /// <summary>
-        /// 同步获取html方法
+        /// 异步获取html方法
         /// </summary>
         public static async Task<string> GetHtmlContent3(string url, string encode, string domain)
         {

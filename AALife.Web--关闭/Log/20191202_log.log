@@ -1,0 +1,42 @@
+2019-12-02 18:46:16.4517|ERROR|ItemTable|System.ArgumentException: 从索引 0 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T](String connString, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String defaultOrder) 位置 D:\fxlweb\AALifeWeb2018\AALife.Core\KendoDapper\QueryableExtensions.cs:行号 43
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T](DataSourceRequest request, String connString, String defaultOrder) 位置 D:\fxlweb\AALifeWeb2018\AALife.Core\KendoDapper\QueryableExtensions.cs:行号 26
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 51
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 35
+2019-12-02 18:46:29.3153|ERROR|ItemTable|System.ArgumentException: 从索引 0 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T](String connString, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String defaultOrder) 位置 D:\fxlweb\AALifeWeb2018\AALife.Core\KendoDapper\QueryableExtensions.cs:行号 43
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T](DataSourceRequest request, String connString, String defaultOrder) 位置 D:\fxlweb\AALifeWeb2018\AALife.Core\KendoDapper\QueryableExtensions.cs:行号 26
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 51
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 35
+2019-12-02 18:47:02.9510|ERROR|ItemTable|System.ArgumentException: 从索引 0 处开始，初始化字符串的格式不符合规范。
+   在 System.Data.Common.DbConnectionOptions.GetKeyValuePair(String connectionString, Int32 currentPosition, StringBuilder buffer, Boolean useOdbcRules, String& keyname, String& keyvalue)
+   在 System.Data.Common.DbConnectionOptions.ParseInternal(Hashtable parsetable, String connectionString, Boolean buildChain, Hashtable synonyms, Boolean firstKey)
+   在 System.Data.Common.DbConnectionOptions..ctor(String connectionString, Hashtable synonyms, Boolean useOdbcRules)
+   在 System.Data.SqlClient.SqlConnectionString..ctor(String connectionString)
+   在 System.Data.SqlClient.SqlConnectionFactory.CreateConnectionOptions(String connectionString, DbConnectionOptions previous)
+   在 System.Data.ProviderBase.DbConnectionFactory.GetConnectionPoolGroup(DbConnectionPoolKey key, DbConnectionPoolGroupOptions poolOptions, DbConnectionOptions& userConnectionOptions)
+   在 System.Data.SqlClient.SqlConnection.ConnectionString_Set(DbConnectionPoolKey key)
+   在 System.Data.SqlClient.SqlConnection.set_ConnectionString(String value)
+   在 System.Data.SqlClient.SqlConnection..ctor(String connectionString, SqlCredential credential)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T](String connString, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String defaultOrder) 位置 D:\fxlweb\AALifeWeb2018\AALife.Core\KendoDapper\QueryableExtensions.cs:行号 43
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T](DataSourceRequest request, String connString, String defaultOrder) 位置 D:\fxlweb\AALifeWeb2018\AALife.Core\KendoDapper\QueryableExtensions.cs:行号 26
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 51
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 35

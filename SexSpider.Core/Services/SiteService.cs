@@ -56,11 +56,13 @@ namespace SexSpider.Core.Services
         {
             await Task.Run(()=> 
             {
-                models.ToList().ForEach(async model =>
+                models.ToList().ForEach(model =>
                 {
-                    await Update(model);
+                    Update(model);
                 });
             });
+
+            await Task.WhenAll();
         }
 
         /// <summary>
@@ -68,12 +70,12 @@ namespace SexSpider.Core.Services
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public async Task Update(SexSpiders model)
+        public void Update(SexSpiders model)
         {
             db.SexSpiders.Attach(model);
             DbEntityEntry<SexSpiders> entry = db.Entry(model);
             entry.State = EntityState.Modified;
-            await db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         /// <summary>

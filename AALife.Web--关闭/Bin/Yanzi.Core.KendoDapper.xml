@@ -1,0 +1,540 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Yanzi.Core.KendoDapper</name>
+    </assembly>
+    <members>
+        <member name="T:Yanzi.Core.KendoDapper.Aggregator">
+            <summary>
+            Represents a aggregate expression of Kendo DataSource.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Aggregator.field">
+            <summary>
+            Gets or sets the name of the aggregated field (property).
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Aggregator.aggregate">
+            <summary>
+            Gets or sets the aggregate.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Aggregator.columns">
+            <summary>
+            Gets or sets the aggregate.
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Aggregator.ToExpression">
+            <summary>
+            Gets or sets the aggregate.
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Aggregator.MethodInfo(System.Type)">
+            <summary>
+            Get MethodInfo.
+            </summary>
+            <param name="type">Specifies the type of querable data.</param>
+            <returns>A MethodInfo for field.</returns>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.DataSourceRequest">
+            <summary>
+            Describes a Kendo Datasource request.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.Page">
+            <summary>
+            Specifies how many items to page.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.PageSize">
+            <summary>
+            Specifies how many items to size.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.Take">
+            <summary>
+            Specifies how many items to take.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.Skip">
+            <summary>
+            Specifies how many items to skip.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.Sort">
+            <summary>
+            Specifies the requested sort order.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.Group">
+            <summary>
+            Specifies the requested grouping.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.Aggregate">
+            <summary>
+            Specifies the requested aggregators.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceRequest.Filter">
+            <summary>
+            Specifies the requested filter.
+            </summary>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.DataSourceResult">
+            <summary>
+            Describes the result of Kendo DataSource read operation.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceResult.ExtraData">
+            <summary>
+            aggregates
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceResult.Data">
+            <summary>
+            Represents a single page of processed data.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceResult.Total">
+            <summary>
+            The total number of records available.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceResult.Errors">
+            <summary>
+            Error messages
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.DataSourceResult.Group">
+            <summary>
+            Represents a single page of processed grouped data.
+            </summary>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.EnumerableExtenstions">
+            <summary>
+            处理分组的扩展
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.EnumerableExtenstions.GroupByMany``2(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Group})">
+            <summary>
+            分组函数
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <typeparam name="T1">数据库表的名字</typeparam>
+            <param name="elements">要分组的列表</param>
+            <param name="connString">连接字符串</param>
+            <param name="filterStr">过滤字符串</param>
+            <param name="groupSelectors">分组规则</param>
+            <returns>分组对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.EnumerableExtenstions.GroupByMany``2(System.Collections.Generic.IEnumerable{``0},System.String,System.String,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.GroupValue},Yanzi.Core.KendoDapper.GroupSelector{``0}[])">
+            <summary>
+            分组递归函数
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <typeparam name="T1">数据库表的名字</typeparam>
+            <param name="elements">要分组的列表</param>
+            <param name="connString">连接字符串</param>
+            <param name="filterStr">过滤字符串</param>
+            <param name="groupValues">保存的分组的值</param>
+            <param name="groupSelectors">分组规则</param>
+            <returns>分组对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.EnumerableExtenstions.Aggregate``2(System.String,System.String,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Aggregator},System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.GroupValue})">
+            <summary>
+            Dapper汇总函数
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <typeparam name="T1">数据库表的名字</typeparam>
+            <param name="connString">连接字符串</param>
+            <param name="filterStr">过滤字符串</param>
+            <param name="aggregates">汇总规则</param>
+            <param name="groupValues">保存的分组的值</param>
+            <returns>分组对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.EnumerableExtenstions.GroupByMany``2(System.String,System.String,System.String,System.String,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.GroupValue},Yanzi.Core.KendoDapper.GroupSelector{``0}[])">
+            <summary>
+            分组递归函数
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <typeparam name="T1">数据库表的名字</typeparam>
+            <param name="connString">连接字符串</param>
+            <param name="filterStr">过滤字符串</param>
+            <param name="pageSql">列表分页Sql</param>
+            <param name="whereSql">过滤条件Sql</param>
+            <param name="groupValues">保存的分组的值</param>
+            <param name="groupSelectors">分组规则</param>
+            <returns>分组对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.EnumerableExtenstions.GroupByMany``1(System.Collections.Generic.IEnumerable{``0},System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Group})">
+            <summary>
+            分组函数
+            </summary>
+            <typeparam name="TElement">返回的实体</typeparam>
+            <param name="elements">要分组的列表</param>
+            <param name="queryable">汇总列表</param>
+            <param name="groupSelectors">分组规则</param>
+            <returns>分组对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.EnumerableExtenstions.GroupByMany``1(System.Collections.Generic.IEnumerable{``0},System.Linq.IQueryable{``0},Yanzi.Core.KendoDapper.GroupSelector{``0}[])">
+            <summary>
+            分组递归函数
+            </summary>
+            <typeparam name="TElement">返回的实体</typeparam>
+            <param name="elements">要分组的列表</param>
+            <param name="queryable">汇总列表</param>
+            <param name="groupSelectors">分组规则</param>
+            <returns>分组对象</returns>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.Extensions">
+            <summary>
+            系统扩展
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Extensions.IsNumeric(System.Object)">
+            <summary>
+            对象是否是数字
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Extensions.IsDateTime(System.Object)">
+            <summary>
+            对象是否是日期
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Extensions.IsBoolean(System.Object)">
+            <summary>
+            对象是否是布尔
+            </summary>
+            <param name="o"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.Filter">
+            <summary>
+            Represents a filter expression of Kendo DataSource.
+            </summary>
+        </member>
+        <member name="F:Yanzi.Core.KendoDapper.Filter._tempValue">
+            <summary>
+            temp variable
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Filter.Field">
+            <summary>
+            Gets or sets the name of the sorted field (property). Set to <c>null</c> if the <c>Filters</c> property is set.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Filter.Operator">
+            <summary>
+            Gets or sets the filtering operator. Set to <c>null</c> if the <c>Filters</c> property is set.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Filter.Value">
+            <summary>
+            Gets or sets the filtering value. Set to <c>null</c> if the <c>Filters</c> property is set.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Filter.Logic">
+            <summary>
+            Gets or sets the filtering logic. Can be set to "or" or "and". Set to <c>null</c> unless <c>Filters</c> is set.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Filter.Filters">
+            <summary>
+            Gets or sets the child filter expressions. Set to <c>null</c> if there are no child expressions.
+            </summary>
+        </member>
+        <member name="F:Yanzi.Core.KendoDapper.Filter.operators">
+            <summary>
+            Mapping of Kendo DataSource filtering operators to Dynamic Linq
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Filter.All">
+            <summary>
+            Get a flattened list of all child filter expressions.
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Filter.Collect(System.Collections.Generic.IList{Yanzi.Core.KendoDapper.Filter})">
+            <summary>
+            Collect
+            </summary>
+            <param name="filters"></param>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Filter.ToExpression(System.Collections.Generic.IList{Yanzi.Core.KendoDapper.Filter})">
+            <summary>
+            Converts the filter expression to a predicate suitable for Dynamic Linq e.g. "Field1 = @1 and Field2.Contains(@2)"
+            </summary>
+            <param name="filters">A list of flattened filters.</param>
+        </member>
+        <member name="F:Yanzi.Core.KendoDapper.Filter.operatorsDapper">
+            <summary>
+            Mapping of Kendo DataSource filtering operators to Dynamic Linq
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Filter.ToExpressionDapper(System.Collections.Generic.IList{Yanzi.Core.KendoDapper.Filter})">
+            <summary>
+            Converts the filter expression to a predicate suitable for Dynamic Linq e.g. "Field1 = @1 and Field2.Contains(@2)"
+            </summary>
+            <param name="filters">A list of flattened filters.</param>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.Group">
+            <summary>
+            Group
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Group.Aggregates">
+            <summary>
+            Aggregates
+            </summary>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.GroupResult`1">
+            <summary>
+            Group Result
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.value">
+            <summary>
+            分组的值
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.field">
+            <summary>
+            分组的字段
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.selectorField">
+            <summary>
+            显示的字段
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.count">
+            <summary>
+            总数
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.aggregates">
+            <summary>
+            汇总对象
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.items">
+            <summary>
+            分组后的列表
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.itemAll">
+            <summary>
+            计算汇总的列表
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupResult`1.hasSubgroups">
+            <summary>
+            是否有子分组
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.GroupResult`1.ToString">
+            <summary>
+            显示字段
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.GroupSelector`1">
+            <summary>
+            Group Selector
+            </summary>
+            <typeparam name="TElement"></typeparam>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupSelector`1.Selector">
+            <summary>
+            Selector
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupSelector`1.Field">
+            <summary>
+             Field
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupSelector`1.Aggregates">
+            <summary>
+            Aggregates
+            </summary>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.GroupValue">
+            <summary>
+            保存分组的值的对象
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.GroupValue.#ctor(System.String,System.Object)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="field"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.GroupValue.#ctor">
+            <summary>
+            构造函数
+            </summary>
+        </member>
+        <member name="F:Yanzi.Core.KendoDapper.GroupValue._tempValue">
+            <summary>
+            临时变量
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupValue.Field">
+            <summary>
+            字段
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.GroupValue.Value">
+            <summary>
+            值
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.GroupValue.ToExpression">
+            <summary>
+            组合的字符串
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.QueryableExtensions">
+            <summary>
+            获取Kendo数据源的扩展
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult``2(Yanzi.Core.KendoDapper.DataSourceRequest,System.String,System.String,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            使用Dapper获取Kendo数据源，适用于视图复杂处理
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <typeparam name="T1">数据库表的名字</typeparam>
+            <param name="request">Kendo请求对象</param>
+            <param name="connString">连接字符串</param>
+            <param name="order">默认排序</param>
+            <param name="func">委托对象</param>
+            <returns>返回Kendo数据源对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult``2(System.String,System.Int32,System.Int32,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Sort},Yanzi.Core.KendoDapper.Filter,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Aggregator},System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Group},System.String,System.Func{System.Collections.Generic.IEnumerable{``0},System.Collections.Generic.IEnumerable{``0}})">
+            <summary>
+            使用Dapper获取Kendo数据源，使用明细参数
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <typeparam name="T1">数据库表的名字</typeparam>
+            <param name="connString">连接字符串</param>
+            <param name="page">页码</param>
+            <param name="pageSize">分页大小</param>
+            <param name="sort">排序</param>
+            <param name="filter">过滤</param>
+            <param name="aggregates">汇总</param>
+            <param name="group">分组</param>
+            <param name="order">默认排序</param>
+            <param name="func">委托对象</param>
+            <returns>返回Kendo数据源对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.Filter(Yanzi.Core.KendoDapper.Filter)">
+            <summary>
+            获取过滤规则
+            </summary>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult``1(System.Linq.IQueryable{``0},Yanzi.Core.KendoDapper.DataSourceRequest,System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Func{System.Linq.IQueryable{``0},System.Linq.IQueryable{``0}})">
+            <summary>
+            使用Linq获取Kendo数据源，适用于EF简单处理
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <param name="queryable">实体对象</param>
+            <param name="request">Kendo请求对象</param>
+            <param name="order">默认排序</param>
+            <param name="func">委托对象</param>
+            <returns>返回Kendo数据源对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult``1(System.Linq.IQueryable{``0},System.Int32,System.Int32,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Sort},Yanzi.Core.KendoDapper.Filter,System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Aggregator},System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Group},System.Linq.Expressions.Expression{System.Func{``0,System.Object}},System.Func{System.Linq.IQueryable{``0},System.Linq.IQueryable{``0}})">
+            <summary>
+            使用Linq获取Kendo数据源，使用明细参数
+            </summary>
+            <typeparam name="T">返回的实体</typeparam>
+            <param name="queryable">实体对象</param>
+            <param name="take">分页数量</param>
+            <param name="skip">跳过的数</param>
+            <param name="sort">排序</param>
+            <param name="filter">过滤</param>
+            <param name="aggregates">汇总</param>
+            <param name="group">分组</param>
+            <param name="order">默认排序</param>
+            <param name="func">委托对象</param>
+            <returns>返回Kendo数据源对象</returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.Append``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            添加对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.Prepend``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            添加对象
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.Filter``1(System.Linq.IQueryable{``0},Yanzi.Core.KendoDapper.Filter)">
+            <summary>
+            获取过滤规则
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryable"></param>
+            <param name="filter"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.Aggregate``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Aggregator})">
+            <summary>
+            Linq汇总函数
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryable"></param>
+            <param name="aggregates"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.QueryableExtensions.Sort``1(System.Linq.IQueryable{``0},System.Collections.Generic.IEnumerable{Yanzi.Core.KendoDapper.Sort},System.Linq.Expressions.Expression{System.Func{``0,System.Object}})">
+            <summary>
+            获取排序规则
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="queryable"></param>
+            <param name="sort"></param>
+            <param name="order"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Yanzi.Core.KendoDapper.Sort">
+            <summary>
+            Represents a sort expression of Kendo DataSource.
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Sort.Field">
+            <summary>
+            Gets or sets the name of the sorted field (property).
+            </summary>
+        </member>
+        <member name="P:Yanzi.Core.KendoDapper.Sort.Dir">
+            <summary>
+            Gets or sets the sort direction. Should be either "asc" or "desc".
+            </summary>
+        </member>
+        <member name="M:Yanzi.Core.KendoDapper.Sort.ToExpression">
+            <summary>
+            Converts to form required by Dynamic Linq e.g. "Field1 desc"
+            </summary>
+        </member>
+    </members>
+</doc>

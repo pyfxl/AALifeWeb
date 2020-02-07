@@ -1,9 +1,0 @@
-﻿<button class="btn btn-flat btn-sm bg-maroon" id="btn-add-zhuanti"><i class="fa fa-plus"></i> 添加</button>
-<table id="ztGrid"></table>
-<script src="~/Scripts/datas/user-zhuanti.js"></script>
-<script>
-    //添加按钮
-    $("#btn-add-zhuanti").on("click", function () {
-        jQuery("#ztGrid").jqGrid('addRow', { useDefValues: true, useFormatter: true });
-    });
-</script>

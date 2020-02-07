@@ -1,0 +1,11 @@
+2017-11-11 14:52:17.7899|INFO|AALifeWeb_SyncLoginNew| UserName:test | Type:1 | IsUpdate:1
+2017-11-11 14:52:28.9002|INFO|AALifeWeb_SyncGetItemListWeb| UserID:3 | Type:0
+2017-11-11 14:52:33.6960|INFO|AALifeWeb_SyncGetItemListWeb| UserID:3 | Type:0
+2017-11-11 14:52:34.3023|INFO|AALifeWeb_SyncLoginNew| UserName:test | Type:0 | IsUpdate:1
+2017-11-11 14:53:44.0560|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:0, AppID:85, CatID:1, Name:q, Price:1.0, Date:2017/11/11 14:53:18, CardID:0, Type: zc, Recommend: 0, ReginID: 0, ReginType: , ZTID: 0
+2017-11-11 15:09:20.2758|INFO|AALifeWeb_SyncLoginNew| UserName:test | Type:1 | IsUpdate:1
+2017-11-11 15:09:26.8191|INFO|AALifeWeb_SyncGetItemListWeb| UserID:3 | Type:0
+2017-11-11 15:09:33.0811|INFO|AALifeWeb_SyncGetItemListWeb| UserID:3 | Type:0
+2017-11-11 15:09:35.5352|INFO|AALifeWeb_SyncLoginNew| UserName:test | Type:0 | IsUpdate:1
+2017-11-11 15:10:24.9080|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:1277424, AppID:85, CatID:1, Name:qq, Price:11.0, Date:2017/11/11 15:10:10, CardID:0, Type: zc, Recommend: 0, ReginID: 0, ReginType: , ZTID: 0
+2017-11-11 15:12:15.3725|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:0, AppID:86, CatID:1, Name:w, Price:1.0, Date:2017/11/11 15:12:32, CardID:0, Type: zc, Recommend: 0, ReginID: 0, ReginType: , ZTID: 0

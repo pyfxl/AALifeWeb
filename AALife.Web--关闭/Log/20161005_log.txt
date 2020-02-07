@@ -1,0 +1,305 @@
+2016-10-05 01:04:02.3358|INFO|AALifeWeb_SyncLoginNew| UserName:15144235767 | Type:1 | IsUpdate:1
+2016-10-05 01:59:36.7832|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq84930, Nick:鞠心叵测, Image:http://q.qlogo.cn/qqapp/100761541/69CD3E0A5AE5460E95F1FF548D93EB1A/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 01:59:36.7832|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:69CD3E0A5AE5460E95F1FF548D93EB1A, Token:9D1F1027193AB5DA871A4A9B98A83C04, From:sjqq
+2016-10-05 02:22:33.4841|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26015, ItemID:0, AppID:590, CatID:50, Name:領3000, Price:3000.0, Date:2016-10-4 2:19:39, CardID:0
+2016-10-05 02:22:33.8748|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26015, ItemID:0, AppID:591, CatID:50, Name:整天吃喝共花了, Price:151.0, Date:2016-10-4 2:20:29, CardID:0
+2016-10-05 02:22:34.2498|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26015, ItemID:0, AppID:592, CatID:50, Name:轉帳至郵局做測試, Price:115.0, Date:2016-10-4 2:21:20, CardID:2
+2016-10-05 02:22:34.6404|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26015, ItemID:0, AppID:593, CatID:50, Name:兆轉115, Price:100.0, Date:2016-10-4 2:21:58, CardID:6
+2016-10-05 02:22:35.0154|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26015, ItemID:0, AppID:594, CatID:50, Name:提出3000, Price:3000.0, Date:2016-10-4 2:22:18, CardID:6
+2016-10-05 02:31:14.1873|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:883268, AppID:35, CatID:72, Name:运费险, Price:10.0, Date:2016-8-25 1:02:25, CardID:6
+2016-10-05 02:31:14.3904|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:885409, AppID:36, CatID:54, Name:瞌睡兔-中国风连衣裙+杏色卫衣, Price:151.52, Date:2016-8-29 3:24:23, CardID:8
+2016-10-05 02:31:14.5779|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:896753, AppID:46, CatID:54, Name:葵酱-宫廷衬衣淡紫色, Price:128.0, Date:2016-9-6 3:10:47, CardID:8
+2016-10-05 02:31:14.7654|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:902151, AppID:47, CatID:54, Name:包大人-牛仔衣+蓝色针织衫, Price:224.2, Date:2016-9-7 3:10:52, CardID:8
+2016-10-05 02:31:14.9529|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:903673, AppID:50, CatID:60, Name:小米5手机壳*2, Price:21.44, Date:2016-9-13 3:11:21, CardID:8
+2016-10-05 02:31:15.1091|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:909754, AppID:182, CatID:54, Name:巫婆-黑色长裤, Price:94.0, Date:2016-9-19 3:09:42, CardID:8
+2016-10-05 02:31:15.2810|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:918344, AppID:411, CatID:52, Name:大眼妹-兰蔻眼部精华等, Price:330.99, Date:2016-9-22 3:08:43, CardID:14
+2016-10-05 02:31:15.4685|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:926574, AppID:480, CatID:54, Name:晴朗-拼接衬衣粉色, Price:118.0, Date:2016-9-30 3:13:35, CardID:8
+2016-10-05 02:31:15.6560|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:0, AppID:488, CatID:54, Name:小M-毛球包包, Price:150.0, Date:2016-10-2 1:27:32, CardID:14
+2016-10-05 02:31:15.7810|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:0, AppID:493, CatID:62, Name:快乐番薯-奶盖绿2+双皮奶+奶茶+香肠5, Price:37.0, Date:2016-10-3 11:37:35, CardID:0
+2016-10-05 02:31:15.9373|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:0, AppID:494, CatID:62, Name:烧烤, Price:78.0, Date:2016-10-3 11:37:44, CardID:0
+2016-10-05 02:31:16.1091|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:0, AppID:495, CatID:70, Name:妹妹-木琴玩具组合, Price:25.8, Date:2016-10-3 11:38:19, CardID:0
+2016-10-05 02:31:16.2498|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:0, AppID:496, CatID:54, Name:米阁娜-粉格子长T+破洞牛仔裤, Price:118.0, Date:2016-10-5 2:30:22, CardID:6
+2016-10-05 02:31:16.4216|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:0, AppID:497, CatID:54, Name:米阁娜-粉格子长T+破洞牛仔裤, Price:118.0, Date:2016-10-5 2:30:22, CardID:6
+2016-10-05 02:41:15.2966|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:879470, AppID:18, CatID:72, Name:手机话费, Price:50.0, Date:2016-8-10 2:40:26, CardID:0
+2016-10-05 02:41:15.5154|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:894259, AppID:41, CatID:62, Name:klfs-柠檬绿*2+烧仙草奶茶, Price:19.0, Date:2016-9-3 2:34:52, CardID:0
+2016-10-05 02:41:15.7185|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:896752, AppID:45, CatID:72, Name:手机话费, Price:50.0, Date:2016-9-5 2:40:57, CardID:0
+2016-10-05 02:41:15.9373|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:902152, AppID:48, CatID:72, Name:手机话费, Price:50.0, Date:2016-9-9 2:40:50, CardID:0
+2016-10-05 02:41:16.1404|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:907689, AppID:51, CatID:50, Name:试玩提现, Price:100.0, Date:2016-9-12 2:36:20, CardID:18
+2016-10-05 02:41:16.3748|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:918349, AppID:415, CatID:62, Name:klfs-烧仙草奶茶2, Price:10.0, Date:2016-9-23 2:35:26, CardID:0
+2016-10-05 02:41:16.5466|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:918350, AppID:416, CatID:62, Name:klfs-奶茶*2, Price:10.0, Date:2016-9-24 2:35:09, CardID:0
+2016-10-05 02:41:16.7341|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:928741, AppID:493, CatID:62, Name:klfs-奶盖绿2+双皮奶+奶茶+香肠5, Price:37.0, Date:2016-10-3 2:33:56, CardID:0
+2016-10-05 02:41:16.9373|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:928745, AppID:497, CatID:54, Name:米阁娜-粉格子长T+破洞牛仔裤, Price:118.0, Date:2016-10-5 2:30:22, CardID:6
+2016-10-05 02:41:17.1560|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26823, ItemID:0, AppID:498, CatID:68, Name:暖暖环游世界月卡, Price:30.0, Date:2016-9-30 2:39:21, CardID:18
+2016-10-05 08:55:40.7029|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:747, CatID:14, Name:1号收入, Price:3234.0, Date:2016-10-1 0:08:07, CardID:0
+2016-10-05 08:55:40.9216|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:748, CatID:18, Name:扇贝, Price:100.0, Date:2016-10-1 0:08:22, CardID:0
+2016-10-05 08:55:41.0779|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:749, CatID:18, Name:生蚝, Price:95.0, Date:2016-10-1 0:08:33, CardID:0
+2016-10-05 08:55:41.2810|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:750, CatID:18, Name:亮平, Price:580.0, Date:2016-10-1 0:08:45, CardID:0
+2016-10-05 08:55:41.4373|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:751, CatID:18, Name:耀河, Price:684.0, Date:2016-10-1 0:08:55, CardID:0
+2016-10-05 08:55:41.6091|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:752, CatID:20, Name:纸巾, Price:180.0, Date:2016-10-1 0:09:12, CardID:0
+2016-10-05 08:55:41.7966|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:753, CatID:26, Name:收费碗筷, Price:150.0, Date:2016-10-1 0:09:25, CardID:0
+2016-10-05 08:55:41.9998|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:754, CatID:20, Name:奶粉, Price:590.0, Date:2016-10-1 0:09:38, CardID:0
+2016-10-05 08:55:42.1873|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:755, CatID:14, Name:2号收入, Price:5965.0, Date:2016-10-2 23:22:46, CardID:0
+2016-10-05 08:55:42.3748|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:756, CatID:18, Name:耀强, Price:260.0, Date:2016-10-2 23:23:02, CardID:0
+2016-10-05 08:55:42.5310|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:757, CatID:18, Name:扇贝, Price:100.0, Date:2016-10-2 23:23:11, CardID:0
+2016-10-05 08:55:42.6873|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:758, CatID:26, Name:收费碗筷, Price:150.0, Date:2016-10-2 23:23:24, CardID:0
+2016-10-05 08:55:42.8591|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:759, CatID:14, Name:3号收入, Price:11146.0, Date:2016-10-3 1:13:09, CardID:0
+2016-10-05 08:55:43.0310|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:760, CatID:16, Name:菜钱, Price:1000.0, Date:2016-10-3 1:13:54, CardID:0
+2016-10-05 08:55:43.2185|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:761, CatID:22, Name:米等, Price:318.0, Date:2016-10-3 1:14:14, CardID:0
+2016-10-05 08:55:43.3748|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:762, CatID:32, Name:饮料, Price:200.0, Date:2016-10-3 1:14:33, CardID:0
+2016-10-05 08:55:43.5779|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:763, CatID:28, Name:煤气, Price:400.0, Date:2016-10-3 1:14:57, CardID:0
+2016-10-05 08:55:43.7498|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:764, CatID:18, Name:小鱿鱼, Price:790.0, Date:2016-10-3 1:15:17, CardID:0
+2016-10-05 08:55:43.8904|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:765, CatID:18, Name:虾姑, Price:250.0, Date:2016-10-3 1:15:42, CardID:0
+2016-10-05 08:55:44.0623|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:766, CatID:16, Name:菜钱, Price:25.0, Date:2016-10-3 1:16:38, CardID:0
+2016-10-05 08:55:44.2341|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:767, CatID:18, Name:扇贝, Price:160.0, Date:2016-10-3 1:16:59, CardID:0
+2016-10-05 08:55:44.4529|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:768, CatID:18, Name:海胆, Price:500.0, Date:2016-10-3 1:17:20, CardID:0
+2016-10-05 08:55:44.6091|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:769, CatID:34, Name:耀河, Price:60.0, Date:2016-10-3 1:17:39, CardID:0
+2016-10-05 08:55:44.7654|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:770, CatID:34, Name:苗姐, Price:250.0, Date:2016-10-3 1:17:55, CardID:0
+2016-10-05 08:55:44.9529|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:771, CatID:26, Name:收费碗筷, Price:150.0, Date:2016-10-3 1:18:13, CardID:0
+2016-10-05 08:55:45.1248|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:772, CatID:14, Name:4号收入, Price:7470.0, Date:2016-10-4 8:52:55, CardID:0
+2016-10-05 08:55:45.2810|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:773, CatID:22, Name:米和油, Price:639.0, Date:2016-10-4 8:53:31, CardID:0
+2016-10-05 08:55:45.5310|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:774, CatID:18, Name:鑫叔公, Price:87.0, Date:2016-10-4 8:53:56, CardID:0
+2016-10-05 08:55:45.6716|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:775, CatID:18, Name:耀河, Price:800.0, Date:2016-10-4 8:54:09, CardID:0
+2016-10-05 08:55:45.8123|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25511, ItemID:0, AppID:776, CatID:18, Name:青脚, Price:384.0, Date:2016-10-4 8:54:36, CardID:0
+2016-10-05 09:06:03.7498|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq32072 | Type:0 | IsUpdate:1
+2016-10-05 09:07:51.5466|INFO|AALifeWeb_SyncLoginNew| UserName:阿潘同学 | Type:1 | IsUpdate:1
+2016-10-05 09:08:21.2810|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq84467, Nick:小盆友, Image:http://q.qlogo.cn/qqapp/100761541/F1DF96E3C402F4632B2050A5497A7BE9/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 09:08:21.2810|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:F1DF96E3C402F4632B2050A5497A7BE9, Token:6355F74C2C071C7E2CEFB57A595CA492, From:sjqq
+2016-10-05 09:14:45.8748|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24703, ItemID:0, AppID:372, CatID:6, Name:行李箱, Price:128.0, Date:2016-7-8 22:58:22, CardID:0
+2016-10-05 09:14:46.2498|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24703, ItemID:0, AppID:373, CatID:9, Name:车费, Price:61.5, Date:2016-10-5 9:14:38, CardID:0
+2016-10-05 09:54:56.6560|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14470, ItemID:0, AppID:863, CatID:14, Name:槟榔, Price:13.0, Date:2016-10-4 19:53:25, CardID:0
+2016-10-05 09:54:56.8591|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14470, ItemID:0, AppID:864, CatID:14, Name:平时, Price:200.0, Date:2016-10-4 20:16:32, CardID:0
+2016-10-05 09:54:57.0310|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14470, ItemID:0, AppID:865, CatID:14, Name:吃酒梁斌, Price:500.0, Date:2016-10-4 20:32:53, CardID:0
+2016-10-05 09:54:57.3435|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14470, ItemID:0, AppID:866, CatID:21, Name:超市, Price:66.0, Date:2016-10-4 8:58:07, CardID:0
+2016-10-05 09:54:57.5154|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14470, ItemID:0, AppID:867, CatID:21, Name:早餐, Price:10.0, Date:2016-10-5 9:39:44, CardID:0
+2016-10-05 09:54:57.7654|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14470, ItemID:0, AppID:868, CatID:21, Name:超市菜, Price:56.0, Date:2016-10-5 9:39:53, CardID:0
+2016-10-05 09:54:57.9373|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14470, ItemID:0, AppID:869, CatID:21, Name:豆浆, Price:3.0, Date:2016-10-5 9:54:49, CardID:0
+2016-10-05 09:56:44.3435|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq48457, Nick:挖机18419138386, Image:http://q.qlogo.cn/qqapp/100761541/6A2890D93066E2A455BD0F926E25F475/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 09:56:44.3435|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:6A2890D93066E2A455BD0F926E25F475, Token:D6980E1E59AD9075A55DD6BEF2D23913, From:sjqq
+2016-10-05 10:43:48.0310|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq99590, Nick:温柔_小女人＇, Image:http://q.qlogo.cn/qqapp/100761541/B046F945FE7AEC6E891388E9B8B1885C/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 10:43:48.0466|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:B046F945FE7AEC6E891388E9B8B1885C, Token:500B7903D779B8C21DFAEF4B52571285, From:sjqq
+2016-10-05 10:43:52.4841|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27455, ItemID:0, AppID:1, CatID:1, Name:宝宝早餐🍚, Price:6.5, Date:2016-10-5 10:42:02, CardID:4
+2016-10-05 10:44:10.5310|INFO|AALifeWeb_SyncLoginNew| UserName:Afeier | Type:0 | IsUpdate:1
+2016-10-05 10:44:20.8123|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:19478, Pass:***, Name:Afeier, Nick:Crown, Image:tu_19478.jpg, From:5.7.1_tx, IsUpdate:1
+2016-10-05 10:46:23.5466|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, Pass:***, Name:小疯子, Nick:小疯子, Image:user.gif, From:5.7.1_360, IsUpdate:1
+2016-10-05 10:46:33.4685|INFO|AALifeWeb_SyncLoginNew| UserName:小疯子 | Type:1 | IsUpdate:1
+2016-10-05 10:49:03.5310|INFO|AALifeWeb_SyncLoginNew| UserName:小疯子 | Type:0 | IsUpdate:1
+2016-10-05 10:49:12.5310|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:27456, Pass:***, Name:小疯子, Nick:小疯子, Image:user.gif, From:5.7.1_360, IsUpdate:1
+2016-10-05 10:49:33.2966|INFO|AALifeWeb_SyncLoginNew| UserName:小疯子 | Type:0 | IsUpdate:1
+2016-10-05 10:49:39.0154|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:27456, Pass:***, Name:小疯子, Nick:小疯子, Image:user.gif, From:5.7.1_360, IsUpdate:1
+2016-10-05 10:50:15.8748|INFO|AALifeWeb_SyncLoginNew| UserName:小疯子 | Type:0 | IsUpdate:1
+2016-10-05 10:50:31.5154|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:27456, Pass:***, Name:小疯子, Nick:小疯子, Image:user.gif, From:5.7.1_360, IsUpdate:1
+2016-10-05 11:02:17.9685|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17915, ItemID:0, AppID:2349, CatID:10, Name:繁星, Price:300.0, Date:2016-10-3 22:45:41, CardID:0
+2016-10-05 11:02:18.1873|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17915, ItemID:0, AppID:2350, CatID:12, Name:体育, Price:3.0, Date:2016-10-3 22:45:54, CardID:0
+2016-10-05 11:02:18.3435|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17915, ItemID:0, AppID:2351, CatID:12, Name:福利, Price:34.0, Date:2016-10-4 11:01:33, CardID:0
+2016-10-05 11:02:18.5310|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17915, ItemID:0, AppID:2352, CatID:2, Name:早饭, Price:10.0, Date:2016-10-4 11:01:44, CardID:0
+2016-10-05 11:02:18.7185|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17915, ItemID:0, AppID:2353, CatID:2, Name:中饭, Price:15.0, Date:2016-10-4 11:01:52, CardID:0
+2016-10-05 11:02:18.8904|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17915, ItemID:0, AppID:2354, CatID:3, Name:啤酒, Price:5.0, Date:2016-10-4 11:02:03, CardID:0
+2016-10-05 11:52:11.6873|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq36370, Nick:Audrey, Image:http://q.qlogo.cn/qqapp/100761541/870DD9D698F048B5A03782F9EF4B7467/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 11:52:11.6873|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:870DD9D698F048B5A03782F9EF4B7467, Token:C76CB4F3ED6907EDB38382E1ECD15EFF, From:sjqq
+2016-10-05 12:00:14.9216|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18234, ItemID:918539, AppID:85, CatID:1, Name:地瓜, Price:2.0, Date:2016-9-26 11:21:52, CardID:0
+2016-10-05 12:00:15.6091|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18234, ItemID:0, AppID:97, CatID:6, Name:储物箱, Price:96.0, Date:2016-9-23 11:26:57, CardID:0
+2016-10-05 12:00:16.3748|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18234, ItemID:0, AppID:98, CatID:6, Name:威露士消毒水, Price:24.8, Date:2016-10-5 11:53:04, CardID:0
+2016-10-05 12:00:19.8123|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18234, ItemID:0, AppID:99, CatID:6, Name:羊羊小枕头, Price:9.9, Date:2016-10-5 11:54:04, CardID:0
+2016-10-05 12:00:20.3435|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18234, ItemID:0, AppID:100, CatID:4, Name:河马莉薯条, Price:26.0, Date:2016-10-5 11:54:22, CardID:0
+2016-10-05 12:00:23.6091|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18234, ItemID:0, AppID:101, CatID:8, Name:内裤, Price:26.8, Date:2016-10-5 11:58:14, CardID:0
+2016-10-05 12:00:23.9060|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18234, ItemID:0, AppID:102, CatID:6, Name:尼龙奶瓶刷, Price:5.9, Date:2016-10-5 11:58:44, CardID:0
+2016-10-05 12:14:08.3591|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 5527, ItemID:0, AppID:1645, CatID:5, Name:葡萄, Price:12.0, Date:2016-10-5 12:12:58, CardID:0
+2016-10-05 12:14:09.2966|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 5527, ItemID:0, AppID:1646, CatID:1, Name:莴笋, Price:3.5, Date:2016-10-5 12:13:15, CardID:0
+2016-10-05 12:14:10.2029|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 5527, ItemID:0, AppID:1647, CatID:1, Name:仔鸡, Price:27.0, Date:2016-10-5 12:13:41, CardID:0
+2016-10-05 12:14:11.1560|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 5527, ItemID:0, AppID:1648, CatID:4, Name:菱角, Price:6.0, Date:2016-10-5 12:13:55, CardID:0
+2016-10-05 12:16:02.0935|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 5527, ItemID:0, AppID:1649, CatID:9, Name:晗九月份生活费, Price:1000.0, Date:2016-9-30 12:15:54, CardID:0
+2016-10-05 13:14:56.4060|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq68861, Nick: 宁静致远, Image:http://q.qlogo.cn/qqapp/100761541/8C7C607A4F96418073547D66094838F5/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 13:14:56.4060|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:8C7C607A4F96418073547D66094838F5, Token:AE2E33866CAFAC6E29D3E89A1908A1A6, From:sjqq
+2016-10-05 13:15:05.2029|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27458, ItemID:0, AppID:1, CatID:1, Name:活动经费, Price:3200.0, Date:2015-12-6 21:09:20, CardID:0
+2016-10-05 13:15:05.4060|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27458, ItemID:0, AppID:2, CatID:1, Name:韩帝温泉汗蒸馆, Price:385.0, Date:2015-12-6 21:11:54, CardID:0
+2016-10-05 13:15:05.6091|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27458, ItemID:0, AppID:3, CatID:12, Name:韩帝温泉汗蒸馆, Price:231.0, Date:2015-12-5 19:42:47, CardID:0
+2016-10-05 13:15:05.7966|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27458, ItemID:0, AppID:4, CatID:12, Name:蓝宫双人西餐3份, Price:504.0, Date:2015-12-11 19:41:38, CardID:0
+2016-10-05 13:15:05.9998|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27458, ItemID:0, AppID:5, CatID:12, Name:蓝宫双人西餐1份, Price:168.0, Date:2015-12-13 17:11:25, CardID:0
+2016-10-05 13:15:06.2029|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27458, ItemID:0, AppID:6, CatID:12, Name:张太和（金沙路店）午餐, Price:307.0, Date:2016-10-4 21:22:55, CardID:0
+2016-10-05 13:15:06.3748|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27458, ItemID:0, AppID:7, CatID:12, Name:伊兰楼（现场B2F）晚餐, Price:800.0, Date:2016-10-4 21:23:07, CardID:0
+2016-10-05 13:15:16.1404|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq68861 | Type:0 | IsUpdate:1
+2016-10-05 13:15:41.7341|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq68861 | Type:0 | IsUpdate:1
+2016-10-05 13:19:51.7966|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18381, ItemID:0, AppID:585, CatID:2, Name:过桥米线, Price:22.0, Date:2016-9-26 18:02:45, CardID:0
+2016-10-05 13:19:51.9685|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18381, ItemID:0, AppID:586, CatID:6, Name:家用, Price:136.5, Date:2016-10-2 9:00:01, CardID:0
+2016-10-05 13:19:52.1248|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18381, ItemID:0, AppID:587, CatID:9, Name:火车票, Price:162.0, Date:2016-10-4 9:12:00, CardID:0
+2016-10-05 13:19:52.2810|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 18381, ItemID:0, AppID:588, CatID:4, Name:清江野鱼, Price:116.0, Date:2016-10-5 12:30:25, CardID:0
+2016-10-05 14:00:42.0466|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24919, ItemID:928267, AppID:274, CatID:28, Name:滴滴, Price:38.0, Date:2016-10-3 21:19:26, CardID:0
+2016-10-05 14:09:03.5466|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq38004, Nick:五习习✨, Image:http://q.qlogo.cn/qqapp/100761541/FBEB8FF20EE31976C8FD3DBD8C59A2D5/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 14:09:03.5466|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:FBEB8FF20EE31976C8FD3DBD8C59A2D5, Token:4B523B207A3DA2CFB15A24FBCE2D092A, From:sjqq
+2016-10-05 14:27:55.8123|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 23047, ItemID:0, AppID:574, CatID:2, Name:饼干, Price:24.0, Date:2016-10-2 15:45:51, CardID:0
+2016-10-05 15:08:00.4373|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq73277, Nick:就這樣☆離開, Image:http://q.qlogo.cn/qqapp/100761541/78BF8ADE9BC96621C82EC2B503294F6F/100, From:5.6.3_az, IsUpdate:1
+2016-10-05 15:08:00.4373|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:78BF8ADE9BC96621C82EC2B503294F6F, Token:BBA57B7DEBF3A2F26A809ADFED65755B, From:sjqq
+2016-10-05 15:27:05.0623|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, Pass:***, Name:小会计, Nick:会计, Image:user.gif, From:5.7.1_tx, IsUpdate:1
+2016-10-05 15:27:16.4060|INFO|AALifeWeb_SyncLoginNew| UserName:小会计 | Type:1 | IsUpdate:1
+2016-10-05 15:27:18.8591|INFO|AALifeWeb_SyncLoginNew| UserName:小会计 | Type:1 | IsUpdate:1
+2016-10-05 15:27:22.3123|INFO|AALifeWeb_SyncLoginNew| UserName:小会计 | Type:1 | IsUpdate:1
+2016-10-05 15:27:34.4685|INFO|AALifeWeb_SyncLoginNew| UserName:小会计 | Type:1 | IsUpdate:1
+2016-10-05 15:50:01.7810|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17283, ItemID:0, AppID:1771, CatID:16, Name:海马回款, Price:2786.0, Date:2016-10-5 15:49:59, CardID:0
+2016-10-05 16:12:08.5737|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17624, ItemID:0, AppID:1987, CatID:6, Name:超市, Price:55.0, Date:2016-10-5 16:10:38, CardID:0
+2016-10-05 16:12:08.7612|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 17624, ItemID:0, AppID:1988, CatID:30, Name:公交卡, Price:50.0, Date:2016-10-5 16:10:54, CardID:0
+2016-10-05 16:12:52.2451|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25577, ItemID:0, AppID:187, CatID:16, Name:存钱计划, Price:75.0, Date:2016-10-5 14:31:16, CardID:0
+2016-10-05 16:12:52.5576|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 25577, ItemID:0, AppID:188, CatID:12, Name:袜子, Price:3.0, Date:2016-10-5 15:38:58, CardID:0
+2016-10-05 17:35:33.9308|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:848885, AppID:111, CatID:9, Name:吃饭, Price:26.0, Date:2016-9-10 10:41:36, CardID:0
+2016-10-05 17:35:34.1183|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:848886, AppID:112, CatID:9, Name:买烟, Price:14.0, Date:2016-9-10 10:41:52, CardID:0
+2016-10-05 17:35:34.2902|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:848887, AppID:113, CatID:9, Name:最近三天, Price:180.0, Date:2016-9-16 17:56:20, CardID:0
+2016-10-05 17:35:34.4620|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:848888, AppID:114, CatID:9, Name:芬必得, Price:26.9, Date:2016-9-18 18:11:18, CardID:0
+2016-10-05 17:35:34.6495|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:848889, AppID:115, CatID:9, Name:给她娘, Price:200.0, Date:2016-9-19 8:20:56, CardID:0
+2016-10-05 17:35:34.8058|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:848890, AppID:116, CatID:9, Name:中午饭, Price:15.0, Date:2016-9-19 14:11:05, CardID:0
+2016-10-05 17:35:35.0089|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:848891, AppID:117, CatID:9, Name:给她娘, Price:300.0, Date:2016-9-21 18:27:54, CardID:0
+2016-10-05 17:35:35.1808|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855582, AppID:118, CatID:9, Name:最近一周吃饭，买烟, Price:200.0, Date:2016-9-25 18:28:35, CardID:0
+2016-10-05 17:35:35.3370|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855583, AppID:119, CatID:9, Name:超意兴吃饭, Price:42.0, Date:2016-9-26 20:03:25, CardID:0
+2016-10-05 17:35:35.4933|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855584, AppID:120, CatID:9, Name:吃饭, Price:15.0, Date:2016-9-27 20:03:37, CardID:0
+2016-10-05 17:35:35.6495|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855585, AppID:121, CatID:9, Name:网上买橘子, Price:20.0, Date:2016-9-27 20:07:58, CardID:0
+2016-10-05 17:35:35.8058|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855586, AppID:122, CatID:9, Name:吃饭喝水买饮料, Price:40.0, Date:2016-9-29 19:43:28, CardID:0
+2016-10-05 17:35:35.9933|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855587, AppID:123, CatID:9, Name:买烟买饭买水, Price:50.0, Date:2016-9-30 13:08:38, CardID:0
+2016-10-05 17:35:36.1339|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855588, AppID:124, CatID:9, Name:给她娘转账, Price:1500.0, Date:2016-9-30 13:20:21, CardID:0
+2016-10-05 17:35:36.2589|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855589, AppID:125, CatID:9, Name:给她娘转账, Price:1000.0, Date:2016-9-30 13:30:25, CardID:0
+2016-10-05 17:35:36.3995|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855590, AppID:126, CatID:9, Name:水果, Price:25.0, Date:2016-9-30 19:26:01, CardID:0
+2016-10-05 17:35:36.5558|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855591, AppID:127, CatID:9, Name:大学城吃饭, Price:100.0, Date:2016-10-2 20:08:33, CardID:0
+2016-10-05 17:35:36.7120|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:855592, AppID:128, CatID:9, Name:园博园买东西, Price:20.0, Date:2016-10-2 20:09:13, CardID:0
+2016-10-05 17:35:36.8995|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 22578, ItemID:0, AppID:129, CatID:9, Name:最近三天吃饭买烟, Price:80.0, Date:2016-10-5 17:35:05, CardID:0
+2016-10-05 18:07:01.7589|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 19637, ItemID:0, AppID:713, CatID:1, Name:饭费（早餐）, Price:1.0, Date:2016-10-5 18:06:15, CardID:0
+2016-10-05 18:07:02.7277|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 19637, ItemID:0, AppID:714, CatID:1, Name:饭费（晚餐）, Price:5.0, Date:2016-10-5 18:06:43, CardID:0
+2016-10-05 18:07:03.1339|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 19637, ItemID:0, AppID:715, CatID:9, Name:还给三弟钱, Price:1700.0, Date:2016-10-4 18:07:13, CardID:0
+2016-10-05 18:38:13.8370|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq54173, Nick:realllllmino, Image:http://q.qlogo.cn/qqapp/100761541/DA51EA94A5BFBBA55B277436D9D7D162/100, From:5.7.1_wdj, IsUpdate:1
+2016-10-05 18:38:13.8370|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:DA51EA94A5BFBBA55B277436D9D7D162, Token:AF3ED4C4569FDA87E8FC471931608F79, From:sjqq
+2016-10-05 18:38:18.1027|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq54173 | Type:0 | IsUpdate:1
+2016-10-05 18:38:50.6183|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:27462, Pass:***, Name:就不告诉你, Nick:就不告诉你, Image:http://q.qlogo.cn/qqapp/100761541/DA51EA94A5BFBBA55B277436D9D7D162/100, From:5.7.1_wdj, IsUpdate:1
+2016-10-05 18:43:46.8683|INFO|AALifeWeb_SyncLoginNew| UserName:就不告诉你 | Type:0 | IsUpdate:1
+2016-10-05 18:43:55.2433|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:27462, Pass:***, Name:就不告诉你, Nick:就不告诉你, Image:http://q.qlogo.cn/qqapp/100761541/DA51EA94A5BFBBA55B277436D9D7D162/100, From:5.7.1_wdj, IsUpdate:1
+2016-10-05 18:50:33.9464|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq25090, Nick:surname, Image:http://q.qlogo.cn/qqapp/100761541/989CD59E755FA6D9518EE4B60ADEF94D/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 18:50:33.9464|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:989CD59E755FA6D9518EE4B60ADEF94D, Token:88945756FE61B3F7530922B5C1AAD548, From:sjqq
+2016-10-05 18:50:38.7902|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq25090 | Type:0 | IsUpdate:1
+2016-10-05 18:51:10.1808|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:27463, Pass:***, Name:surname, Nick:surname, Image:http://q.qlogo.cn/qqapp/100761541/989CD59E755FA6D9518EE4B60ADEF94D/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 18:54:02.7745|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 4786, ItemID:0, AppID:724, CatID:11, Name:卷饼, Price:4.0, Date:2016-10-5 18:53:51, CardID:0
+2016-10-05 18:54:03.0558|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 4786, ItemID:0, AppID:725, CatID:11, Name:馄饨, Price:3.0, Date:2016-10-5 18:53:57, CardID:0
+2016-10-05 19:14:46.2080|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:1, CatID:9, Name:艳充话费, Price:30.0, Date:2016-10-1 7:44:36, CardID:0
+2016-10-05 19:14:46.5518|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:2, CatID:2, Name:早餐, Price:8.0, Date:2016-10-1 9:36:07, CardID:0
+2016-10-05 19:14:46.9268|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:3, CatID:9, Name:佰充话费, Price:180.0, Date:2016-10-1 11:58:06, CardID:0
+2016-10-05 19:14:47.2705|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:4, CatID:1, Name:菜, Price:36.0, Date:2016-10-1 18:48:22, CardID:0
+2016-10-05 19:14:47.5986|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:5, CatID:8, Name:逛三福(艳衣服十护肤品十皮筋), Price:172.0, Date:2016-10-1 22:33:35, CardID:0
+2016-10-05 19:14:47.9424|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:6, CatID:6, Name:逛人人购物(毛巾十沐浴露), Price:83.0, Date:2016-10-1 22:34:35, CardID:0
+2016-10-05 19:14:48.2080|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:7, CatID:7, Name:手机套, Price:28.0, Date:2016-10-2 14:26:21, CardID:0
+2016-10-05 19:14:48.5518|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:8, CatID:5, Name:柚子, Price:11.0, Date:2016-10-2 22:51:18, CardID:0
+2016-10-05 19:14:48.8330|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:9, CatID:3, Name:饮料, Price:5.0, Date:2016-10-2 22:51:33, CardID:0
+2016-10-05 19:14:49.1143|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:10, CatID:1, Name:菜, Price:30.0, Date:2016-10-3 12:17:44, CardID:0
+2016-10-05 19:14:49.3955|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:11, CatID:4, Name:女儿甜品, Price:9.0, Date:2016-10-3 18:21:23, CardID:0
+2016-10-05 19:14:49.6768|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:12, CatID:1, Name:菜十香瓜, Price:40.0, Date:2016-10-4 10:46:49, CardID:0
+2016-10-05 19:14:50.0205|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:13, CatID:2, Name:早餐, Price:4.0, Date:2016-10-4 10:46:58, CardID:0
+2016-10-05 19:14:50.3330|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:14, CatID:2, Name:咸骨粥十炒粉, Price:24.0, Date:2016-10-4 22:22:11, CardID:0
+2016-10-05 19:14:50.6299|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:15, CatID:5, Name:柚子, Price:10.0, Date:2016-10-5 15:30:36, CardID:0
+2016-10-05 19:14:50.9424|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:16, CatID:1, Name:菜十牛奶十盐, Price:29.0, Date:2016-10-5 15:34:07, CardID:0
+2016-10-05 19:14:51.2392|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:17, CatID:3, Name:2桶装水, Price:20.0, Date:2016-10-5 15:34:26, CardID:0
+2016-10-05 19:14:51.5205|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27189, ItemID:0, AppID:18, CatID:8, Name:女儿衣服, Price:165.0, Date:2016-10-5 17:27:52, CardID:0
+2016-10-05 19:38:55.1831|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq64941, Nick:幸福生活我创造, Image:http://q.qlogo.cn/qqapp/100761541/817970DF8F8CBD5AEDEC711964C7A143/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 19:38:55.1831|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:817970DF8F8CBD5AEDEC711964C7A143, Token:DB1036879F48AF77EC2579910274F52F, From:sjqq
+2016-10-05 19:39:18.0892|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:1, CatID:2, Name:伦聚会, Price:200.0, Date:2016-10-2 10:48:07, CardID:0
+2016-10-05 19:39:18.3080|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:2, CatID:10, Name:伦家唱戏奶, Price:38.0, Date:2016-10-2 10:49:03, CardID:0
+2016-10-05 19:39:18.5424|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:3, CatID:10, Name:伦爸买药, Price:78.0, Date:2016-10-2 10:49:31, CardID:0
+2016-10-05 19:39:18.7455|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:4, CatID:9, Name:宇书, Price:18.0, Date:2016-10-2 10:50:01, CardID:0
+2016-10-05 19:39:18.9798|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:5, CatID:9, Name:宇舞鞋, Price:12.0, Date:2016-10-2 10:50:25, CardID:0
+2016-10-05 19:39:19.1830|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:6, CatID:10, Name:笨玩具9沙5, Price:14.0, Date:2016-10-2 10:51:02, CardID:0
+2016-10-05 19:39:19.3861|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:7, CatID:12, Name:加油, Price:50.0, Date:2016-10-2 10:53:14, CardID:0
+2016-10-05 19:39:19.5580|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:8, CatID:1, Name:肉, Price:10.0, Date:2016-10-2 10:53:41, CardID:0
+2016-10-05 19:39:19.7455|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:9, CatID:9, Name:儿童写字桌, Price:152.0, Date:2016-10-3 14:41:12, CardID:0
+2016-10-05 19:39:19.9330|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:10, CatID:7, Name:手机支架姐, Price:3.8, Date:2016-10-3 14:41:45, CardID:0
+2016-10-05 19:39:20.1048|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:11, CatID:6, Name:牙膏,洗衣机清洗剂, Price:39.0, Date:2016-10-4 17:36:28, CardID:0
+2016-10-05 19:39:20.3548|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:12, CatID:9, Name:花盆垫，塑料花盆, Price:17.0, Date:2016-10-4 17:37:11, CardID:0
+2016-10-05 19:39:20.5267|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:13, CatID:2, Name:擀面皮3碗, Price:12.0, Date:2016-10-4 17:38:01, CardID:0
+2016-10-05 19:39:20.6830|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:14, CatID:2, Name:米线肉丸，猪头肉夹饼，小布丁，灌肠, Price:18.0, Date:2016-10-5 17:06:56, CardID:0
+2016-10-05 19:39:21.0267|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:15, CatID:10, Name:划船, Price:30.0, Date:2016-10-5 17:07:10, CardID:0
+2016-10-05 19:39:21.2142|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27464, ItemID:0, AppID:16, CatID:1, Name:馒头, Price:10.0, Date:2016-10-5 17:07:34, CardID:0
+2016-10-05 19:42:09.9006|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14828, ItemID:0, AppID:979, CatID:24, Name:电影, Price:50.0, Date:2016-10-5 19:41:58, CardID:12
+2016-10-05 19:42:10.1038|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14828, ItemID:0, AppID:980, CatID:4, Name:爆米花, Price:15.0, Date:2016-10-5 19:42:07, CardID:12
+2016-10-05 20:26:59.0921|INFO|AALifeWeb_SyncNewUser| UserInfo -> UserID:0, Pass:***, Name:周雅琴, Nick:周雅琴ZYQ, Image:user.gif, From:5.7.1_tx, IsUpdate:1
+2016-10-05 20:27:12.1077|INFO|AALifeWeb_SyncLoginNew| UserName:周雅琴 | Type:1 | IsUpdate:1
+2016-10-05 20:30:08.8265|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:6, CatID:5, Name:葡萄, Price:8.5, Date:2016-9-30 7:59:21, CardID:0
+2016-10-05 20:30:08.9515|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:7, CatID:9, Name:车费, Price:10.0, Date:2016-10-1 8:00:48, CardID:0
+2016-10-05 20:30:09.1233|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:8, CatID:8, Name:外套, Price:359.0, Date:2016-10-1 16:10:39, CardID:0
+2016-10-05 20:30:09.2640|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:9, CatID:8, Name:打底衫, Price:268.0, Date:2016-10-1 16:11:00, CardID:0
+2016-10-05 20:30:09.4046|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:10, CatID:8, Name:海衣服三件, Price:758.0, Date:2016-10-1 16:12:33, CardID:0
+2016-10-05 20:30:09.5452|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:11, CatID:8, Name:宝羽绒服, Price:158.0, Date:2016-10-1 16:14:03, CardID:0
+2016-10-05 20:30:09.6858|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:12, CatID:8, Name:海爸妈羽绒服, Price:448.0, Date:2016-10-1 16:14:59, CardID:0
+2016-10-05 20:30:09.8265|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:13, CatID:6, Name:佰草集水乳, Price:520.0, Date:2016-10-1 16:16:57, CardID:0
+2016-10-05 20:30:09.9515|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:14, CatID:9, Name:寿光路费, Price:10.0, Date:2016-10-1 16:18:23, CardID:0
+2016-10-05 20:30:10.1077|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:15, CatID:4, Name:奶饼干等, Price:78.0, Date:2016-10-2 20:27:28, CardID:0
+2016-10-05 20:30:10.2640|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:16, CatID:9, Name:泡沫垫, Price:32.0, Date:2016-10-3 20:28:33, CardID:0
+2016-10-05 20:30:10.4046|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27363, ItemID:0, AppID:17, CatID:9, Name:玩具, Price:25.0, Date:2016-10-3 20:28:53, CardID:0
+2016-10-05 20:53:24.3265|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 20507, ItemID:0, AppID:789, CatID:3, Name:烟，纸, Price:157.0, Date:2016-10-5 20:50:47, CardID:0
+2016-10-05 20:53:24.5452|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 20507, ItemID:0, AppID:790, CatID:9, Name:脚垫, Price:198.0, Date:2016-10-5 20:51:17, CardID:0
+2016-10-05 20:53:24.7640|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 20507, ItemID:0, AppID:791, CatID:9, Name:加油, Price:200.0, Date:2016-10-5 20:52:18, CardID:0
+2016-10-05 20:53:24.9046|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 20507, ItemID:0, AppID:792, CatID:9, Name:取款, Price:800.0, Date:2016-10-5 20:53:17, CardID:0
+2016-10-05 20:54:42.8421|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14588, ItemID:0, AppID:1880, CatID:9, Name:生活费, Price:300.0, Date:2016-10-5 12:59:25, CardID:0
+2016-10-05 20:54:43.1233|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14588, ItemID:0, AppID:1881, CatID:2, Name:麦当劳, Price:57.5, Date:2016-10-5 12:59:47, CardID:0
+2016-10-05 20:54:43.3577|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14588, ItemID:0, AppID:1882, CatID:9, Name:手机费, Price:100.0, Date:2016-10-5 17:56:51, CardID:0
+2016-10-05 20:54:43.6233|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 14588, ItemID:0, AppID:1883, CatID:14, Name:淘渡客, Price:33.0, Date:2016-10-5 20:54:34, CardID:0
+2016-10-05 21:06:15.5921|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq74826, Nick:幸运小天使, Image:http://q.qlogo.cn/qqapp/100761541/DC37168995DB38881863FA3D2247E9D1/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 21:06:15.5921|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:DC37168995DB38881863FA3D2247E9D1, Token:B0B1CFD7FD40EAF723A30C74E845B2B0, From:sjqq
+2016-10-05 21:06:20.6546|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27466, ItemID:0, AppID:1, CatID:1, Name:可可奶, Price:11.0, Date:2016-10-2 21:01:05, CardID:0
+2016-10-05 21:06:20.9827|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27466, ItemID:0, AppID:2, CatID:2, Name:早餐, Price:10.0, Date:2016-10-3 21:01:28, CardID:0
+2016-10-05 21:06:21.2015|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27466, ItemID:0, AppID:3, CatID:18, Name:辣子, Price:0.6, Date:2016-10-5 21:02:39, CardID:0
+2016-10-05 21:06:21.3890|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27466, ItemID:0, AppID:4, CatID:16, Name:晚餐, Price:34.0, Date:2016-10-5 21:03:18, CardID:0
+2016-10-05 21:06:21.6077|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 27466, ItemID:0, AppID:5, CatID:2, Name:早餐, Price:6.5, Date:2016-10-1 21:05:38, CardID:0
+2016-10-05 21:07:39.9827|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 5527, ItemID:0, AppID:1650, CatID:5, Name:枣子, Price:6.0, Date:2016-10-5 21:07:22, CardID:0
+2016-10-05 21:07:40.2796|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 5527, ItemID:0, AppID:1651, CatID:5, Name:石榴, Price:28.0, Date:2016-10-4 21:07:34, CardID:0
+2016-10-05 21:09:52.3577|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:89, CatID:2, Name:粥, Price:12.9, Date:2016-9-30 21:03:17, CardID:14
+2016-10-05 21:09:52.6390|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:90, CatID:22, Name:福建, Price:49.9, Date:2016-10-1 10:04:06, CardID:14
+2016-10-05 21:09:52.8577|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:91, CatID:22, Name:陈忠新, Price:30.0, Date:2016-10-2 18:35:31, CardID:14
+2016-10-05 21:22:23.7483|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24919, ItemID:0, AppID:280, CatID:28, Name:优步, Price:26.0, Date:2016-10-5 21:22:17, CardID:0
+2016-10-05 21:22:53.9827|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24919, ItemID:928267, AppID:274, CatID:28, Name:优步, Price:38.0, Date:2016-10-3 21:22:48, CardID:0
+2016-10-05 21:28:17.7952|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:928890, AppID:89, CatID:2, Name:蚝干粥, Price:12.9, Date:2016-9-30 21:14:20, CardID:14
+2016-10-05 21:28:18.0608|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:92, CatID:12, Name:莆田→青口, Price:35.0, Date:2016-10-1 21:12:00, CardID:4
+2016-10-05 21:28:18.2483|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:93, CatID:12, Name:青口回, Price:5.0, Date:2016-10-1 21:19:16, CardID:4
+2016-10-05 21:28:18.7015|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:94, CatID:12, Name:路口→上街, Price:5.0, Date:2016-10-3 21:19:56, CardID:4
+2016-10-05 21:28:18.9983|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:95, CatID:2, Name:鸡腿饭＋甜筒, Price:22.5, Date:2016-10-5 21:24:58, CardID:14
+2016-10-05 21:28:19.2483|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:96, CatID:12, Name:滴滴, Price:7.5, Date:2016-10-5 21:25:33, CardID:14
+2016-10-05 21:28:19.5452|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:97, CatID:12, Name:动车票（福州→莆田）, Price:30.5, Date:2016-10-5 21:26:18, CardID:14
+2016-10-05 21:28:19.8265|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:98, CatID:22, Name:福建, Price:9.98, Date:2016-10-5 21:26:38, CardID:14
+2016-10-05 21:28:20.0921|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26863, ItemID:0, AppID:99, CatID:9, Name:不记名, Price:5.0, Date:2016-10-5 21:28:12, CardID:4
+2016-10-05 21:52:28.8890|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq34917, Nick:G i 乐意, Image:http://q.qlogo.cn/qqapp/100761541/1B5BD8E5FD3CB9F0C592796F7B4C624E/100, From:5.7.1_360, IsUpdate:1
+2016-10-05 21:52:28.8890|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:1B5BD8E5FD3CB9F0C592796F7B4C624E, Token:F2F80FEB796EB1C581131E1F441C09C5, From:sjqq
+2016-10-05 22:36:21.2015|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:116, CatID:9, Name:早饭, Price:7.0, Date:2016-10-1 7:59:02, CardID:0
+2016-10-05 22:36:21.9046|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:117, CatID:9, Name:公交费, Price:2.4, Date:2016-10-1 18:20:45, CardID:0
+2016-10-05 22:36:22.5608|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:118, CatID:9, Name:午饭, Price:9.5, Date:2016-10-1 15:11:15, CardID:0
+2016-10-05 22:36:24.0296|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:119, CatID:9, Name:买拖鞋, Price:17.7, Date:2016-10-3 13:30:22, CardID:0
+2016-10-05 22:36:24.7952|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:120, CatID:9, Name:加油费, Price:100.0, Date:2016-10-4 19:35:42, CardID:0
+2016-10-05 22:36:26.2640|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:121, CatID:9, Name:幺儿鞋子, Price:30.0, Date:2016-10-4 19:35:54, CardID:0
+2016-10-05 22:36:26.9515|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:122, CatID:9, Name:买包子, Price:3.0, Date:2016-10-5 8:21:25, CardID:0
+2016-10-05 22:36:27.6390|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:123, CatID:9, Name:看邱云, Price:200.0, Date:2016-10-5 8:21:56, CardID:0
+2016-10-05 22:36:28.4827|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26631, ItemID:0, AppID:124, CatID:9, Name:晚饭糕点, Price:26.0, Date:2016-10-5 22:48:12, CardID:0
+2016-10-05 22:38:46.4358|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26571, ItemID:0, AppID:349, CatID:40, Name:加油卡充值, Price:400.0, Date:2016-10-3 22:36:18, CardID:0
+2016-10-05 22:38:47.0765|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26571, ItemID:0, AppID:350, CatID:1, Name:食材, Price:15.3, Date:2016-10-5 22:37:04, CardID:0
+2016-10-05 22:38:47.7171|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26571, ItemID:0, AppID:351, CatID:18, Name:洗碗布, Price:10.0, Date:2016-10-5 22:37:31, CardID:0
+2016-10-05 22:38:48.1858|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26571, ItemID:0, AppID:352, CatID:18, Name:无痕挂钩, Price:4.0, Date:2016-10-5 22:38:35, CardID:0
+2016-10-05 22:48:02.7171|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24292, ItemID:0, AppID:155, CatID:9, Name:羊城通, Price:100.0, Date:2016-9-24 20:24:41, CardID:0
+2016-10-05 22:48:02.9983|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24292, ItemID:0, AppID:156, CatID:10, Name:金博KTV, Price:30.0, Date:2016-9-29 20:25:12, CardID:0
+2016-10-05 22:48:03.2640|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24292, ItemID:0, AppID:157, CatID:7, Name:三星电池, Price:60.0, Date:2016-9-29 20:25:34, CardID:0
+2016-10-05 22:48:03.5452|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24292, ItemID:0, AppID:158, CatID:7, Name:维修手机, Price:150.0, Date:2016-9-29 20:25:58, CardID:0
+2016-10-05 22:48:03.7952|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24292, ItemID:0, AppID:159, CatID:9, Name:小米4手机壳, Price:5.8, Date:2016-10-4 17:15:54, CardID:0
+2016-10-05 22:48:04.0452|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24292, ItemID:0, AppID:160, CatID:2, Name:鸡包饭, Price:11.8, Date:2016-10-5 22:47:12, CardID:0
+2016-10-05 22:48:04.3265|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24292, ItemID:0, AppID:161, CatID:10, Name:金博KTV, Price:44.0, Date:2016-10-5 22:47:46, CardID:0
+2016-10-05 22:48:04.8421|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq49212 | Type:0 | IsUpdate:1
+2016-10-05 22:48:05.6390|INFO|AALifeWeb_SyncGetItemListWeb| UserID:24292 | Type:0
+2016-10-05 22:48:45.4515|INFO|AALifeWeb_SyncGetItemListWeb| UserID:24292 | Type:0
+2016-10-05 22:59:42.5296|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq49925, Nick:🍺🍺🍺, Image:http://q.qlogo.cn/qqapp/100761541/255ED55527FAB252FB01BBA7EC1432D5/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 22:59:42.5296|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:255ED55527FAB252FB01BBA7EC1432D5, Token:B9300B758B92D40B83E4C92B939B922B, From:sjqq
+2016-10-05 23:19:11.0296|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 24759, ItemID:859716, AppID:22, CatID:20, Name:苏江彪, Price:2600.0, Date:2016-7-31 23:24:40, CardID:0
+2016-10-05 23:27:56.6546|INFO|AALifeWeb_SyncLoginQQNew| UserInfo -> UserID:0, Pass:***, Name:sjqq30611, Nick:橘姑娘Sey,, Image:http://q.qlogo.cn/qqapp/100761541/D8D094BAAD1DD731DAACA12344241908/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 23:27:56.6546|INFO|AALifeWeb_SyncLoginQQNew| OAuthInfo -> UserID:0, OldUserID:0, OauthID:0, OpenID:D8D094BAAD1DD731DAACA12344241908, Token:9D2E17458889651F116324CB6EC10B78, From:sjqq
+2016-10-05 23:28:13.1390|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq30611 | Type:0 | IsUpdate:1
+2016-10-05 23:28:20.9671|INFO|AALifeWeb_SyncUserEdit| UserInfo -> UserID:27468, Pass:***, Name:sjqq30611, Nick:橘姑娘Sey,, Image:http://q.qlogo.cn/qqapp/100761541/D8D094BAAD1DD731DAACA12344241908/100, From:5.7.1_tx, IsUpdate:1
+2016-10-05 23:28:37.3577|INFO|AALifeWeb_SyncLoginNew| UserName:sjqq30611 | Type:0 | IsUpdate:1
+2016-10-05 23:33:53.2483|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:75, CatID:2, Name:猪肚鸡, Price:80.0, Date:2016-10-1 21:49:51, CardID:0
+2016-10-05 23:33:53.7327|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:76, CatID:1, Name:鸡蛋, Price:5.9, Date:2016-10-1 21:50:08, CardID:0
+2016-10-05 23:33:54.2483|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:77, CatID:1, Name:青菜, Price:10.2, Date:2016-10-2 18:40:18, CardID:0
+2016-10-05 23:33:54.7327|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:78, CatID:1, Name:生姜, Price:5.0, Date:2016-10-2 18:39:23, CardID:0
+2016-10-05 23:33:55.1858|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:79, CatID:1, Name:青菜, Price:2.0, Date:2016-10-3 13:25:23, CardID:0
+2016-10-05 23:33:55.6858|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:80, CatID:1, Name:猪肉, Price:6.0, Date:2016-10-3 13:25:38, CardID:0
+2016-10-05 23:33:56.4358|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:81, CatID:1, Name:鸡蛋, Price:7.5, Date:2016-10-3 13:25:52, CardID:0
+2016-10-05 23:33:56.8577|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:82, CatID:3, Name:水, Price:19.0, Date:2016-10-5 23:33:40, CardID:0
+2016-10-05 23:33:57.4671|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 26977, ItemID:0, AppID:83, CatID:2, Name:油茶, Price:12.0, Date:2016-10-5 23:32:41, CardID:0
+2016-10-05 23:51:00.8265|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 16245, ItemID:0, AppID:712, CatID:40, Name:阿杜, Price:180.0, Date:2016-9-26 12:40:14, CardID:10
+2016-10-05 23:51:01.0608|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 16245, ItemID:0, AppID:713, CatID:18, Name:日用品, Price:363.5, Date:2016-10-5 23:48:37, CardID:10
+2016-10-05 23:51:01.3265|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 16245, ItemID:0, AppID:714, CatID:18, Name:日用品, Price:45.5, Date:2016-9-29 23:47:26, CardID:10
+2016-10-05 23:51:01.5452|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 16245, ItemID:0, AppID:715, CatID:18, Name:贾哥, Price:50.0, Date:2016-9-29 23:47:52, CardID:10
+2016-10-05 23:51:01.7640|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 16245, ItemID:0, AppID:716, CatID:18, Name:日用品, Price:19.0, Date:2016-10-4 23:48:29, CardID:10

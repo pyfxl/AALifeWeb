@@ -1,0 +1,72 @@
+2019-12-06 09:24:43.1235|ERROR|ItemTable|System.Data.SqlClient.SqlException (0x80131904): 关键字 'desc' 附近有语法错误。
+关键字 'with' 附近有语法错误。如果此语句是公用表表达式、xmlnamespaces 子句或者更改跟踪上下文子句，那么前一个语句必须以分号结尾。
+在 FETCH 语句中选项 NEXT 的用法无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__138`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 48
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 35
+ClientConnectionId:2c8d2e9c-e28c-4012-804b-37f4c6823002
+Error Number:156,State:1,Class:15
+2019-12-06 09:26:21.3053|ERROR|ItemTable|System.Data.SqlClient.SqlException (0x80131904): 关键字 'desc' 附近有语法错误。
+关键字 'with' 附近有语法错误。如果此语句是公用表表达式、xmlnamespaces 子句或者更改跟踪上下文子句，那么前一个语句必须以分号结尾。
+在 FETCH 语句中选项 NEXT 的用法无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__138`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 48
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 35
+ClientConnectionId:2c8d2e9c-e28c-4012-804b-37f4c6823002
+Error Number:156,State:1,Class:15
+2019-12-06 09:29:28.1235|ERROR|ItemTable|System.Data.SqlClient.SqlException (0x80131904): 关键字 'desc' 附近有语法错误。
+关键字 'with' 附近有语法错误。如果此语句是公用表表达式、xmlnamespaces 子句或者更改跟踪上下文子句，那么前一个语句必须以分号结尾。
+在 FETCH 语句中选项 NEXT 的用法无效。
+   在 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   在 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   在 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   在 System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   在 System.Data.SqlClient.SqlDataReader.get_MetaData()
+   在 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   在 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   在 System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   在 Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior)
+   在 Dapper.SqlMapper.<QueryImpl>d__138`1.MoveNext()
+   在 System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   在 System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   在 Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](String connString, String table, Int32 page, Int32 pageSize, IEnumerable`1 sort, Filter filter, IEnumerable`1 aggregates, IEnumerable`1 group, String order, Func`2 func)
+   在 Yanzi.Core.KendoDapper.QueryableExtensions.ToDataSourceResult[T,T1](DataSourceRequest request, String connString, String table, String order, Func`2 func)
+   在 AALife.Service.Dapper.ItemTableBLL.GetDapperDataSource(DataSourceRequest request) 位置 D:\fxlweb\AALifeWeb2018\AALife.Service\Dapper\ItemTableBLL.cs:行号 48
+   在 ItemTable.GetItemTable(DataSourceRequest query) 位置 d:\fxlweb\AALifeWeb2018\AALife.Web\api\ItemTableDapper.asmx:行号 35
+ClientConnectionId:2c8d2e9c-e28c-4012-804b-37f4c6823002
+Error Number:156,State:1,Class:15

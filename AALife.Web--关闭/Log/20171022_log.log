@@ -1,0 +1,5 @@
+2017-10-22 20:09:06.2678|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:1277422, AppID:0, CatID:0, Name:, Price:0, Date:0001/1/1 0:00:00, CardID:0, Type: , Recommend: 0, ReginID: 0, ReginType: , ZTID: 0
+2017-10-22 20:13:23.7711|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:1277422, AppID:0, CatID:0, Name:, Price:0, Date:2017/10/22 20:13:18, CardID:0, Type: , Recommend: 0, ReginID: 0, ReginType: , ZTID: 0
+2017-10-22 20:15:53.2580|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:1277422, AppID:0, CatID:2, Name:早餐, Price:1.000, Date:2017/10/21 13:02:47, CardID:0, Type: zc, Recommend: 0, ReginID: 0, ReginType: , ZTID: 0
+2017-10-22 20:18:37.7604|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:1277422, AppID:0, CatID:2, Name:早餐, Price:1.000, Date:2017/10/21 13:02:47, CardID:0, Type: zc, Recommend: 0, ReginID: 0, ReginType: , ZTID: 0
+2017-10-22 20:20:21.8604|INFO|AALifeWeb_SyncItemList| ItemInfo -> UserID: 3, ItemID:1277422, AppID:0, CatID:2, Name:早餐, Price:1.000, Date:2017/10/21 13:02:47, CardID:0, Type: zc, Recommend: 0, ReginID: 0, ReginType: , ZTID: 0

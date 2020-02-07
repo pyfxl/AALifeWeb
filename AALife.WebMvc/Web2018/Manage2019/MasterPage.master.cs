@@ -5,10 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class Manage2019_MasterPage : System.Web.UI.MasterPage
+namespace AALife.WebMvc.Web2018.Manage2019
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class Manage_MasterPage : System.Web.UI.MasterPage
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
