@@ -22,24 +22,24 @@ namespace AALife.Service.EF
         /// </summary>
         public ItemTableBLL()
         {
-            //TypeAdapterConfig<ItemTable, ItemTableViewModel>.NewConfig()
-            //    .Map(dest => dest.ItemID, src => src.ItemID)
-            //    .Map(dest => dest.ItemName, src => src.ItemName)
-            //    .Map(dest => dest.CategoryTypeID, src => src.CategoryTypeID)
-            //    .Map(dest => dest.ItemPrice, src => src.ItemPrice)
-            //    .Map(dest => dest.ItemBuyDate, src => src.ItemBuyDate)
-            //    .Map(dest => dest.UserID, src => src.UserID)
-            //    .Map(dest => dest.Recommend, src => src.Recommend)
-            //    .Map(dest => dest.ModifyDate, src => src.ModifyDate)
-            //    .Map(dest => dest.Synchronize, src => src.Synchronize)
-            //    .Map(dest => dest.ItemAppID, src => src.ItemAppID)
-            //    .Map(dest => dest.RegionID, src => src.RegionID)
-            //    .Map(dest => dest.RegionType, src => src.RegionType)
-            //    .Map(dest => dest.ItemType, src => src.ItemType)
-            //    .Map(dest => dest.ZhuanTiID, src => src.ZhuanTiID)
-            //    .Map(dest => dest.CardID, src => src.CardID)
-            //    .Map(dest => dest.CardName, src => src.CardID)
-            //    .Compile();
+            TypeAdapterConfig<ItemTable, ItemTableViewModel>.NewConfig()
+                .Map(dest => dest.ItemID, src => src.ItemID)
+                .Map(dest => dest.ItemName, src => src.ItemName)
+                .Map(dest => dest.CategoryTypeID, src => src.CategoryTypeID)
+                .Map(dest => dest.ItemPrice, src => src.ItemPrice)
+                .Map(dest => dest.ItemBuyDate, src => src.ItemBuyDate)
+                .Map(dest => dest.UserID, src => src.UserID)
+                .Map(dest => dest.Recommend, src => src.Recommend)
+                .Map(dest => dest.ModifyDate, src => src.ModifyDate)
+                .Map(dest => dest.Synchronize, src => src.Synchronize)
+                .Map(dest => dest.ItemAppID, src => src.ItemAppID)
+                .Map(dest => dest.RegionID, src => src.RegionID)
+                .Map(dest => dest.RegionType, src => src.RegionType)
+                .Map(dest => dest.ItemType, src => src.ItemType)
+                .Map(dest => dest.ZhuanTiID, src => src.ZhuanTiID)
+                .Map(dest => dest.CardID, src => src.CardID)
+                .Map(dest => dest.CardName, src => src.CardID)
+                .Compile();
         }
 
         /// <summary>

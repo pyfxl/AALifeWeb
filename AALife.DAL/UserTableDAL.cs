@@ -313,6 +313,27 @@ namespace AALife.DAL
         }
 
         /// <summary>
+        /// 根据dt用户名取用户
+        /// </summary>
+        public UserInfo GetUserByDtUser(string userName)
+        {
+            UserInfo user = new UserInfo();
+
+            SqlParameter parm = new SqlParameter(PARM_USER_NAME, SqlDbType.NVarChar, 20);
+            parm.Value = userName;
+
+            using (SqlDataReader rdr = SqlHelper.ExecuteReader(SqlHelper.ConnectionString, CommandType.Text, string.Format(@"select * from UserTable with(nolock) where DtUser collate Chinese_PRC_CS_AS_WS = {0}", PARM_USER_NAME), parm))
+            {
+                while (rdr.Read())
+                {
+                    user = DataToModel(rdr);
+                }
+            }
+
+            return user;
+        }
+
+        /// <summary>
         /// 用户实体转参数
         /// </summary>
         public static SqlParameter[] ModelToParms(UserInfo user)
@@ -337,7 +358,9 @@ namespace AALife.DAL
                     new SqlParameter("@CategoryRate", SqlDbType.Int),
                     new SqlParameter("@Synchronize", SqlDbType.TinyInt),
                     new SqlParameter("@MoneyStart", SqlDbType.Decimal),
-                    new SqlParameter("@IsUpdate", SqlDbType.TinyInt)
+                    new SqlParameter("@IsUpdate", SqlDbType.TinyInt),
+                    new SqlParameter("@DtUser", SqlDbType.NVarChar, 50),
+                    new SqlParameter("@WxUser", SqlDbType.NVarChar, 50)
             };
             parms[0].Value = user.UserID;
             parms[1].Value = user.UserName;
@@ -359,6 +382,8 @@ namespace AALife.DAL
             parms[17].Value = user.Synchronize;
             parms[18].Value = user.MoneyStart;
             parms[19].Value = user.IsUpdate;
+            parms[20].Value = user.DtUser;
+            parms[21].Value = user.WxUser;
 
             return parms;
         }
@@ -389,6 +414,8 @@ namespace AALife.DAL
             if (!rdr.IsDBNull(17)) user.Synchronize = rdr.GetByte(17);
             if (!rdr.IsDBNull(18)) user.MoneyStart = rdr.GetDecimal(18);
             if (!rdr.IsDBNull(19)) user.IsUpdate = rdr.GetByte(19);
+            if (!rdr.IsDBNull(20)) user.DtUser = rdr.GetString(20);
+            if (!rdr.IsDBNull(21)) user.WxUser = rdr.GetString(21);
 
             return user;
         }

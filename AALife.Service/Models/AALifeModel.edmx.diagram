@@ -8,9 +8,9 @@
         <EntityTypeShape EntityType="AALifeModel.CardTable" Width="1.5" PointX="11.25" PointY="3.375" />
         <EntityTypeShape EntityType="AALifeModel.ItemTable" Width="1.5" PointX="3.625" PointY="0.625" />
         <EntityTypeShape EntityType="AALifeModel.ItemTypeTable" Width="1.5" PointX="0.875" PointY="0.875" />
-        <EntityTypeShape EntityType="AALifeModel.OAuthTable" Width="1.5" PointX="6.125" PointY="10.75" />
+        <EntityTypeShape EntityType="AALifeModel.OAuthTable" Width="1.5" PointX="10.125" PointY="12.5" />
         <AssociationConnector Association="AALifeModel.FK_ItemTable_ItemTypeTable" />
-        <EntityTypeShape EntityType="AALifeModel.UserFromTable" Width="1.5" PointX="10.75" PointY="10.375" />
+        <EntityTypeShape EntityType="AALifeModel.UserFromTable" Width="1.5" PointX="6.125" PointY="11.375" />
         <EntityTypeShape EntityType="AALifeModel.UserTable" Width="1.5" PointX="8.375" PointY="3.625" />
         <AssociationConnector Association="AALifeModel.FK_CardTable_UserTable" />
         <AssociationConnector Association="AALifeModel.FK_ItemTable_UserTable" ManuallyRouted="false" >
@@ -24,16 +24,16 @@
         <AssociationConnector Association="AALifeModel.FK_ZhuanTiTable_UserTable" />
         <AssociationConnector Association="AALifeModel.FK_ZhuanZhangTable_UserTable" />
         <EntityTypeShape EntityType="AALifeModel.CategoryTypeTable" Width="1.5" PointX="6.5" PointY="0.5" />
-        <EntityTypeShape EntityType="AALifeModel.UserCategoryTable" Width="1.5" PointX="11.375" PointY="7.25" />
+        <EntityTypeShape EntityType="AALifeModel.UserCategoryTable" Width="1.5" PointX="11.25" PointY="7.25" />
         <AssociationConnector Association="AALifeModel.FK_UserCategoryTable_UserTable" />
         <EntityTypeShape EntityType="AALifeModel.RegionTypeTable" Width="1.5" PointX="0.75" PointY="3.75" />
         <EntityTypeShape EntityType="AALifeModel.ViewPageTable" Width="1.5" PointX="0.75" PointY="13" />
         <EntityTypeShape EntityType="AALifeModel.ViewTable" Width="1.5" PointX="3" PointY="12" />
         <AssociationConnector Association="AALifeModel.FK_ViewTable_UserTable" />
         <AssociationConnector Association="AALifeModel.FK_ViewTable_UserTable1" ManuallyRouted="true" >
-          <ConnectorPoint PointX="8.8593725" PointY="9.9802864583333335" />
-          <ConnectorPoint PointX="8.8593725" PointY="14.242330729166667" />
-          <ConnectorPoint PointX="4.5" PointY="14.242330729166667" />
+          <ConnectorPoint PointX="8.99218625" PointY="10.349874674479166" />
+          <ConnectorPoint PointX="8.99218625" PointY="14.804830729166667" />
+          <ConnectorPoint PointX="4.5" PointY="14.804830729166667" />
         </AssociationConnector>
         <EntityTypeShape EntityType="AALifeModel.ItemTableView2019" Width="1.5" PointX="13.375" PointY="4.875" />
         <EntityTypeShape EntityType="AALifeModel.UserTableView" Width="1.5" PointX="13.375" PointY="0.75" />

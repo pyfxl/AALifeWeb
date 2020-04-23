@@ -28,6 +28,8 @@ namespace AALife.Model
             Synchronize = 0;
             MoneyStart = 0m;
             IsUpdate = 0;
+            DtUser = "";
+            WxUser = "";
         }
         #region Model
         private int _userid;
@@ -50,6 +52,9 @@ namespace AALife.Model
         private byte _synchronize;
         private decimal _moneystart;
         private byte _isupdate;
+        private string _dtUser;
+        private string _wxUser;
+
         /// <summary>
         /// 编号
         /// </summary>
@@ -209,6 +214,16 @@ namespace AALife.Model
         {
             set { _isupdate = value; }
             get { return _isupdate; }
+        }
+        public string DtUser
+        {
+            set { _dtUser = value; }
+            get { return _dtUser; }
+        }
+        public string WxUser
+        {
+            set { _wxUser = value; }
+            get { return _wxUser; }
         }
         #endregion Model
 

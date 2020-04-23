@@ -46,6 +46,8 @@ namespace AALife.Service.Models
         public byte Synchronize { get; set; }
         public Nullable<decimal> MoneyStart { get; set; }
         public Nullable<byte> IsUpdate { get; set; }
+        public string DtUser { get; set; }
+        public string WxUser { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CardTable> CardTable { get; set; }

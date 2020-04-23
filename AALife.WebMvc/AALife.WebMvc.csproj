@@ -51,8 +51,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>lib\Aspose.Cells.dll</HintPath>
     </Reference>
-    <Reference Include="DevExtreme.AspNet.Data, Version=2.5.1.0, Culture=neutral, PublicKeyToken=982f5dab1439d0f7, processorArchitecture=MSIL">
-      <HintPath>..\packages\DevExtreme.AspNet.Data.2.5.1\lib\net452\DevExtreme.AspNet.Data.dll</HintPath>
+    <Reference Include="DevExtreme.AspNet.Data, Version=2.6.1.0, Culture=neutral, PublicKeyToken=982f5dab1439d0f7, processorArchitecture=MSIL">
+      <HintPath>..\packages\DevExtreme.AspNet.Data.2.6.1\lib\net452\DevExtreme.AspNet.Data.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
@@ -128,6 +128,9 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="TopSdk">
+      <HintPath>Lib\TopSdk.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -380,51 +383,51 @@
     <Compile Include="AALifeWeb\SyncZhuanZhangWebBack.aspx.designer.cs">
       <DependentUpon>SyncZhuanZhangWebBack.aspx</DependentUpon>
     </Compile>
-    <Compile Include="AppCode\BackupHelper.cs" />
-    <Compile Include="AppCode\Base\AdminPage.cs">
+    <Compile Include="App_Code_Old\BackupHelper.cs" />
+    <Compile Include="App_Code_Old\Base\AdminPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppCode\Base\ApiBase.cs">
+    <Compile Include="App_Code_Old\Base\ApiBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppCode\Base\BasePage.cs">
+    <Compile Include="App_Code_Old\Base\BasePage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppCode\Base\FirstPage.cs">
+    <Compile Include="App_Code_Old\Base\FirstPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppCode\Base\MsmqBase.cs">
+    <Compile Include="App_Code_Old\Base\MsmqBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppCode\Base\SyncBase.cs">
+    <Compile Include="App_Code_Old\Base\SyncBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppCode\Base\WebPage.cs">
+    <Compile Include="App_Code_Old\Base\WebPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="AppCode\CacheHelper.cs" />
-    <Compile Include="AppCode\DateHelper.cs" />
-    <Compile Include="AppCode\FileHelper.cs" />
-    <Compile Include="AppCode\GenericDataAccess.cs" />
-    <Compile Include="AppCode\ImageHelper.cs" />
-    <Compile Include="AppCode\ItemHelper.cs" />
-    <Compile Include="AppCode\JsonHelper.cs" />
-    <Compile Include="AppCode\MenuHelper.cs" />
-    <Compile Include="AppCode\Message.cs" />
-    <Compile Include="AppCode\MsmqService.cs" />
-    <Compile Include="AppCode\QQOAuth\OpenApi.cs" />
-    <Compile Include="AppCode\QQOAuth\QPlusOpen.cs" />
-    <Compile Include="AppCode\QQOAuth\QQInfoClass.cs" />
-    <Compile Include="AppCode\QQOAuth\SnsNetWork.cs" />
-    <Compile Include="AppCode\QQOAuth\SnsSigCheck.cs" />
-    <Compile Include="AppCode\QQOAuth\SnsStat.cs" />
-    <Compile Include="AppCode\QueryHelper.cs" />
-    <Compile Include="AppCode\UserHelper.cs" />
-    <Compile Include="AppCode\Utility.cs" />
-    <Compile Include="AppCode\UtilityHelper.cs" />
-    <Compile Include="AppCode\ValidHelper.cs" />
-    <Compile Include="AppCode\WebConfiguration.cs" />
-    <Compile Include="AppCode\XmlControl.cs" />
+    <Compile Include="App_Code_Old\CacheHelper.cs" />
+    <Compile Include="App_Code_Old\DateHelper.cs" />
+    <Compile Include="App_Code_Old\FileHelper.cs" />
+    <Compile Include="App_Code_Old\GenericDataAccess.cs" />
+    <Compile Include="App_Code_Old\ImageHelper.cs" />
+    <Compile Include="App_Code_Old\ItemHelper.cs" />
+    <Compile Include="App_Code_Old\JsonHelper.cs" />
+    <Compile Include="App_Code_Old\MenuHelper.cs" />
+    <Compile Include="App_Code_Old\Message.cs" />
+    <Compile Include="App_Code_Old\MsmqService.cs" />
+    <Compile Include="App_Code_Old\QQOAuth\OpenApi.cs" />
+    <Compile Include="App_Code_Old\QQOAuth\QPlusOpen.cs" />
+    <Compile Include="App_Code_Old\QQOAuth\QQInfoClass.cs" />
+    <Compile Include="App_Code_Old\QQOAuth\SnsNetWork.cs" />
+    <Compile Include="App_Code_Old\QQOAuth\SnsSigCheck.cs" />
+    <Compile Include="App_Code_Old\QQOAuth\SnsStat.cs" />
+    <Compile Include="App_Code_Old\QueryHelper.cs" />
+    <Compile Include="App_Code_Old\UserHelper.cs" />
+    <Compile Include="App_Code_Old\Utility.cs" />
+    <Compile Include="App_Code_Old\UtilityHelper.cs" />
+    <Compile Include="App_Code_Old\ValidHelper.cs" />
+    <Compile Include="App_Code_Old\WebConfiguration.cs" />
+    <Compile Include="App_Code_Old\XmlControl.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -464,6 +467,14 @@
     <Compile Include="Controllers\UserTableDapperController.cs" />
     <Compile Include="Controllers\ItemTableDapperController.cs" />
     <Compile Include="DataSourceLoadOptions.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MsgHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -478,6 +489,13 @@
     <Compile Include="Models\Shipper.cs" />
     <Compile Include="Models\Supplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuWeiTongJiNew.aspx.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="QuWeiTongJiNew.aspx.designer.cs">
+      <DependentUpon>QuWeiTongJiNew.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web2015\AdminBackupData.aspx.cs">
       <DependentUpon>AdminBackupData.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1010,6 +1028,16 @@
     <Compile Include="Web2018\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DingClient.cs" />
+    <Compile Include="DingHelper.cs" />
+    <Compile Include="Web2018\DingUser.aspx.cs">
+      <DependentUpon>DingUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\DingUser.aspx.designer.cs">
+      <DependentUpon>DingUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EncryptHelper.cs" />
     <Compile Include="Web2018\Helper.aspx.cs">
       <DependentUpon>Helper.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1209,6 +1237,13 @@
     <Compile Include="Web2018\UserFunctionSetting.aspx.designer.cs">
       <DependentUpon>UserFunctionSetting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Web2018\DingLogin.aspx.cs">
+      <DependentUpon>DingLogin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Web2018\DingLogin.aspx.designer.cs">
+      <DependentUpon>DingLogin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Web2018\UserLogin.aspx.cs">
       <DependentUpon>UserLogin.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1341,7 +1376,9 @@
     <Content Include="Content\dx.material.teal.light.css" />
     <Content Include="Content\dx.softblue.compact.css" />
     <Content Include="Content\dx.softblue.css" />
+    <Content Include="Default.aspx" />
     <Content Include="Images\Users\user.gif" />
+    <Content Include="QuWeiTongJiNew.aspx" />
     <Content Include="Scripts\cldr.js" />
     <Content Include="Scripts\cldr\event.js" />
     <Content Include="Scripts\cldr\supplemental.js" />
@@ -1353,6 +1390,12 @@
     <Content Include="Scripts\datas\user-category.js" />
     <Content Include="Scripts\daterangepicker\daterangepicker.css" />
     <Content Include="Scripts\daterangepicker\daterangepicker.js" />
+    <Content Include="Areas\SexSpider\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\Image.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\Index.cshtml" />
+    <Content Include="Areas\SexSpider\Views\Site\List.cshtml" />
+    <Content Include="Areas\SexSpider\Views\web.config" />
+    <Content Include="Areas\SexSpider\Views\_ViewStart.cshtml" />
     <Content Include="Content\icons\dxiconsmaterial.woff2" />
     <Content Include="Content\icons\dxiconsmaterial.woff" />
     <Content Include="Content\icons\dxiconsmaterial.ttf" />
@@ -1374,12 +1417,6 @@
     <Content Include="Content\fonts\Roboto-300.woff2" />
     <Content Include="Content\fonts\Roboto-300.woff" />
     <Content Include="Content\fonts\Roboto-300.ttf" />
-    <Content Include="Areas\SexSpider\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\SexSpider\Views\Site\Image.cshtml" />
-    <Content Include="Areas\SexSpider\Views\Site\Index.cshtml" />
-    <Content Include="Areas\SexSpider\Views\Site\List.cshtml" />
-    <Content Include="Areas\SexSpider\Views\web.config" />
-    <Content Include="Areas\SexSpider\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.de.js" />
     <Content Include="Scripts\devextreme-localization\dx.messages.en.js" />
@@ -1915,6 +1952,7 @@
     <Content Include="Web2018\common\master.css" />
     <Content Include="Web2018\common\moment.js" />
     <Content Include="Web2018\Default.aspx" />
+    <Content Include="Web2018\DingUser.aspx" />
     <Content Include="Web2018\Helper.aspx" />
     <Content Include="Web2018\ItemAddSmart.aspx" />
     <Content Include="Web2018\ItemCompare.aspx" />
@@ -1946,6 +1984,7 @@
     <Content Include="Web2018\UserControl\UserMenu.ascx" />
     <Content Include="Web2018\UserDataAdmin.aspx" />
     <Content Include="Web2018\UserFunctionSetting.aspx" />
+    <Content Include="Web2018\DingLogin.aspx" />
     <Content Include="Web2018\UserLogin.aspx" />
     <Content Include="Web2018\UserLogout.aspx" />
     <Content Include="Web2018\UserRegister.aspx" />

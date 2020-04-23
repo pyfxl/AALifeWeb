@@ -127,6 +127,8 @@
           <Property Name="Synchronize" Type="tinyint" Nullable="false" />
           <Property Name="MoneyStart" Type="decimal" Precision="10" Scale="3" />
           <Property Name="IsUpdate" Type="tinyint" />
+          <Property Name="DtUser" Type="nvarchar" MaxLength="50" />
+          <Property Name="WxUser" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ViewPageTable">
           <Key>
@@ -678,6 +680,8 @@
           <NavigationProperty Name="ZhuanZhangTable" Relationship="AALifeModel.FK_ZhuanZhangTable_UserTable" FromRole="UserTable" ToRole="ZhuanZhangTable" />
           <NavigationProperty Name="UserCategoryTable" Relationship="AALifeModel.FK_UserCategoryTable_UserTable" FromRole="UserTable" ToRole="UserCategoryTable" />
           <NavigationProperty Name="ViewTable" Relationship="AALifeModel.FK_ViewTable_UserTable1" FromRole="UserTable" ToRole="ViewTable" />
+          <Property Name="DtUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="WxUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <Association Name="FK_CardTable_UserTable">
           <End Type="AALifeModel.UserTable" Role="UserTable" Multiplicity="1" />
@@ -1045,6 +1049,8 @@
           <EntitySetMapping Name="UserTable">
             <EntityTypeMapping TypeName="AALifeModel.UserTable">
               <MappingFragment StoreEntitySet="UserTable">
+                <ScalarProperty Name="WxUser" ColumnName="WxUser" />
+                <ScalarProperty Name="DtUser" ColumnName="DtUser" />
                 <ScalarProperty Name="IsUpdate" ColumnName="IsUpdate" />
                 <ScalarProperty Name="MoneyStart" ColumnName="MoneyStart" />
                 <ScalarProperty Name="Synchronize" ColumnName="Synchronize" />

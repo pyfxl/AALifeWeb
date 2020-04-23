@@ -7,7 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><%="\r\n" %>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/><%="\r\n" %>
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><%="\r\n" %>
-<title><%=Page.Header.Title %> - <%=WebConfiguration.SiteName %></title><%="\r\n" %>
+<title><%=WebConfiguration.SiteName %></title><%="\r\n" %>
 <%="<meta name=\"Keywords\" content=\"" + WebConfiguration.SiteKeywords + "\"/>" + "\r\n" %>
 <%="<meta name=\"Description\" content=\"" + WebConfiguration.SiteDescription + "\"/>" + "\r\n" %>
 <link rel="stylesheet" type="text/css" href="/Web2018/common/jquery.multiselect.css" />
@@ -77,6 +77,11 @@
             }
         });
     }
+    
+    function fullmonth(num) {
+        return num < 10 ? "0" + num : num;
+    }
+
 </script>
 <asp:ContentPlaceHolder id="js" runat="server">
 </asp:ContentPlaceHolder>
@@ -111,6 +116,7 @@
                 </ul>
             </div>
             <div id="menu_div">
+                <!--第1列-->
                 <ul class="system_ul">
                 <asp:Repeater ID="SystemMenu" runat="server">
                     <ItemTemplate>
@@ -118,13 +124,15 @@
                     </ItemTemplate>
                 </asp:Repeater>  
                 </ul>
+                <!--第2列-->
                 <ul class="query_ul" style='display:<%=this.QueryList.Items.Count==0 ? "none" : "block" %>;'>
                 <asp:Repeater ID="QueryList" runat="server">
                     <ItemTemplate>
-                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="/Web2018<%# GetNewUrl(Eval("MenuURL").ToString()) %>"><%# Eval("MenuName") %></a></li>
+                    <li><asp:CheckBox ID="MenuBox" runat="server" AutoPostBack="true" OnCheckedChanged="Button1_Click"></asp:CheckBox>&nbsp;&nbsp;<asp:HiddenField ID="MenuIDHid" runat="server" Value='<%# Eval("MenuID") %>' /><a href="<%# GetNewUrl(Eval("MenuURL").ToString()) %>"><%# Eval("MenuName") %></a></li>
                     </ItemTemplate>
                 </asp:Repeater>
                 </ul>
+                <!--第3列-->
                 <ul class="user_ul">
                 <asp:Repeater ID="UserMenu" runat="server">
                     <ItemTemplate>
@@ -161,5 +169,6 @@
     </form>    
     <asp:ContentPlaceHolder id="end" runat="server">        
     </asp:ContentPlaceHolder>
+    <div style="position: fixed; left: 0; bottom: 0;"><a href="http://www.beian.miit.gov.cn" target="_blank">粤ICP备07071013号</a></div>
 </body>
 </html>

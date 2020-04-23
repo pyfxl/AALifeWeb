@@ -5,6 +5,8 @@ using System.Web;
 
 public partial class AALifeWeb_SyncSendEmail : SyncBase
 {
+    public static string EmailPass = System.Configuration.ConfigurationManager.AppSettings["emailpass"];
+
     protected void Page_Load(object sender, EventArgs e)
     {
         string userName = Request.Form["username"].ToString();
@@ -25,6 +27,9 @@ public partial class AALifeWeb_SyncSendEmail : SyncBase
         string mBody = Message.GetBody(userName, userImage, content, userEmail);
         //string sUrl = "SyncSendEmail.asp?subject=" + HttpUtility.UrlEncode(mSubject) + "&body=" + HttpUtility.UrlEncode(mBody) + "&email=" + HttpUtility.UrlEncode(userEmail);
         //Response.Redirect(sUrl);
+
+        //ding
+        AALife.WebMvc.MsgHelper.DingMessage(string.Format("用户建议和反馈\n\n来自：{0}\n\n内容：{1}", userName, content));
 
         bool flag = SendEmail(userEmail, mSubject, mBody);
         if (flag)
@@ -78,7 +83,7 @@ public partial class AALifeWeb_SyncSendEmail : SyncBase
         catch (SmtpException ex)
         {
             log.Info(mailTo + " | "+ mailContent);
-            log.Error(ex);
+            log.Info(ex);
             return false;
         }
     }
@@ -97,7 +102,7 @@ public partial class AALifeWeb_SyncSendEmail : SyncBase
         // 设置发送方的邮件信息,例如使用网易的smtp
         string smtpServer = "smtp.qq.com"; //SMTP服务器
         string mailFrom = "67936108@qq.com"; //登陆用户名
-        string userPassword = "agwgckczozptbidf";//登陆密码
+        string userPassword = EmailPass;//登陆密码，需要发送短信“配置邮件客户端”到1069070069开通，有可能会自动关闭，又要重新开通
 
         System.Web.Mail.MailMessage mail = new System.Web.Mail.MailMessage();
         try
@@ -120,7 +125,7 @@ public partial class AALifeWeb_SyncSendEmail : SyncBase
         catch (Exception ex)
         {
 
-            log.Error(ex);
+            log.Info(ex);
             return false;
         }
     }

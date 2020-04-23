@@ -145,5 +145,13 @@ namespace AALife.BLL
             return dal.UpdateSyncByUserId(userId);
         }
 
+        /// <summary>
+        /// 根据dt用户名取用户
+        /// </summary>
+        public UserInfo GetUserByDtUser(string userName)
+        {
+            return dal.GetUserByDtUser(userName);
+        }
+
     }
 }

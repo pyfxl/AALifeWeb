@@ -1,0 +1,26 @@
+2020-04-23 08:52:52.7183|INFO|AALife.WebMvc.MsgHelper|用户建议和反馈
+
+来自：fengxiangling
+
+内容：ok
+2020-04-23 08:52:53.1185|INFO|SyncBase|pyfxl@126.com | <p>fengxiangling 说：ok</p><p>（邮箱：pyfxl@126.com）</p><p><img src='http://www.fxlweb.com/Images/Users/user.gif' title='查看详情' style='width:50px;height:50px;' /></p>
+2020-04-23 08:54:07.5132|INFO|AALife.WebMvc.MsgHelper|用户建议和反馈
+
+来自：fengxiangling
+
+内容：ok
+2020-04-23 08:54:33.4865|INFO|SyncBase|pyfxl@126.com | <p>fengxiangling 说：ok</p><p>（邮箱：pyfxl@126.com）</p><p><img src='http://www.fxlweb.com/Images/Users/user.gif' title='查看详情' style='width:50px;height:50px;' /></p>
+2020-04-23 08:54:50.2811|INFO|AALife.WebMvc.MsgHelper|用户建议和反馈
+
+来自：fengxiangling
+
+内容：ok
+2020-04-23 08:55:16.6946|INFO|SyncBase|pyfxl@126.com | <p>fengxiangling 说：ok</p><p>（邮箱：pyfxl@126.com）</p><p><img src='http://www.fxlweb.com/Images/Users/user.gif' title='查看详情' style='width:50px;height:50px;' /></p>
+2020-04-23 08:58:07.1475|INFO|AALife.WebMvc.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 08:58:07.1987|INFO|AALife.WebMvc.MsgHelper|用户建议和反馈
+
+来自：fengxiangling
+
+内容：ok
+2020-04-23 08:58:07.4658|INFO|AALife.WebMvc.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 08:58:07.4658|INFO|SyncBase|pyfxl@126.com | <p>fengxiangling 说：ok</p><p>（邮箱：pyfxl@126.com）</p><p><img src='http://www.fxlweb.com/Images/Users/user.gif' title='查看详情' style='width:50px;height:50px;' /></p>

@@ -78,7 +78,7 @@ public partial class AALifeWeb_SyncSendEmail : SyncBase
         catch (SmtpException ex)
         {
             log.Info(mailTo + " | "+ mailContent);
-            log.Error(ex);
+            log.Info(ex);
             return false;
         }
     }
@@ -120,7 +120,7 @@ public partial class AALifeWeb_SyncSendEmail : SyncBase
         catch (Exception ex)
         {
 
-            log.Error(ex);
+            log.Info(ex);
             return false;
         }
     }
