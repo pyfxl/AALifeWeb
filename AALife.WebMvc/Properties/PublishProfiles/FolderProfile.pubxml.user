@@ -703,16 +703,16 @@
       <publishTime>07/28/2016 15:16:53</publishTime>
     </File>
     <File Include="bin/AALife.BLL.dll">
-      <publishTime>04/22/2020 10:50:38</publishTime>
+      <publishTime>05/11/2020 15:29:57</publishTime>
     </File>
     <File Include="bin/AALife.BLL.pdb">
-      <publishTime>04/22/2020 10:50:38</publishTime>
+      <publishTime>05/11/2020 15:29:57</publishTime>
     </File>
     <File Include="bin/AALife.DAL.dll">
-      <publishTime>04/22/2020 10:50:38</publishTime>
+      <publishTime>05/06/2020 23:07:17</publishTime>
     </File>
     <File Include="bin/AALife.DAL.pdb">
-      <publishTime>04/22/2020 10:50:38</publishTime>
+      <publishTime>05/06/2020 23:07:17</publishTime>
     </File>
     <File Include="bin/AALife.DBUtility.dll">
       <publishTime>04/21/2020 10:31:09</publishTime>
@@ -736,19 +736,19 @@
       <publishTime>04/22/2020 10:25:44</publishTime>
     </File>
     <File Include="bin/AALife.Service.dll">
-      <publishTime>04/22/2020 10:25:45</publishTime>
+      <publishTime>05/07/2020 09:40:02</publishTime>
     </File>
     <File Include="bin/AALife.Service.dll.config">
-      <publishTime>02/07/2020 11:02:22</publishTime>
+      <publishTime>04/23/2020 14:16:07</publishTime>
     </File>
     <File Include="bin/AALife.Service.pdb">
-      <publishTime>04/22/2020 10:25:45</publishTime>
+      <publishTime>05/07/2020 09:40:02</publishTime>
     </File>
     <File Include="bin/AALife.WebMvc.dll">
-      <publishTime>04/23/2020 08:59:12</publishTime>
+      <publishTime>05/11/2020 15:32:26</publishTime>
     </File>
     <File Include="bin/AALife.WebMvc.pdb">
-      <publishTime>04/23/2020 08:59:12</publishTime>
+      <publishTime>05/11/2020 15:32:26</publishTime>
     </File>
     <File Include="bin/AngleSharp.dll">
       <publishTime>11/22/2018 22:35:38</publishTime>
@@ -764,6 +764,24 @@
     </File>
     <File Include="bin/chromedriver.exe">
       <publishTime>12/12/2018 00:32:52</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.dll">
+      <publishTime>12/19/2015 01:56:04</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.Core.pdb">
+      <publishTime>12/19/2015 01:56:04</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.dll">
+      <publishTime>12/19/2015 01:56:04</publishTime>
+    </File>
+    <File Include="bin/Common.Logging.pdb">
+      <publishTime>12/19/2015 01:56:04</publishTime>
+    </File>
+    <File Include="bin/CrystalQuartz.Core.dll">
+      <publishTime>07/20/2018 14:51:42</publishTime>
+    </File>
+    <File Include="bin/CrystalQuartz.Web.dll">
+      <publishTime>07/20/2018 14:51:42</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>03/30/2019 17:21:38</publishTime>
@@ -783,11 +801,32 @@
     <File Include="bin/Mapster.dll">
       <publishTime>09/09/2018 02:19:50</publishTime>
     </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.dll">
+      <publishTime>04/03/2019 00:30:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.Core.pdb">
+      <publishTime>04/03/2019 07:19:50</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.dll">
+      <publishTime>04/03/2019 00:30:56</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.SignalR.SystemWeb.pdb">
+      <publishTime>04/03/2019 07:20:50</publishTime>
+    </File>
     <File Include="bin/Microsoft.AspNet.TelemetryCorrelation.dll">
       <publishTime>06/28/2017 15:05:26</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>02/13/2018 16:28:04</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>02/13/2018 16:28:12</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>02/13/2018 16:28:16</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 11:48:56</publishTime>
@@ -807,11 +846,20 @@
     <File Include="bin/NReco.PhantomJS.dll">
       <publishTime>06/02/2017 11:35:24</publishTime>
     </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>11/13/2012 12:19:34</publishTime>
+    </File>
     <File Include="bin/phantomjs-license.txt">
       <publishTime>12/25/2018 11:28:41</publishTime>
     </File>
     <File Include="bin/phantomjs.exe">
       <publishTime>02/02/2016 20:53:48</publishTime>
+    </File>
+    <File Include="bin/Quartz.dll">
+      <publishTime>05/27/2018 11:18:32</publishTime>
+    </File>
+    <File Include="bin/Quartz.pdb">
+      <publishTime>05/27/2018 11:18:32</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -960,6 +1008,12 @@
     <File Include="bin/zh-Hans/EntityFramework.SqlServer.resources.dll">
       <publishTime>10/23/2017 13:15:34</publishTime>
     </File>
+    <File Include="bin/zh-Hans/Microsoft.AspNet.SignalR.Core.resources.dll">
+      <publishTime>04/03/2019 00:30:56</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.AspNet.SignalR.SystemWeb.resources.dll">
+      <publishTime>04/03/2019 00:30:56</publishTime>
+    </File>
     <File Include="bin/zh-Hans/System.Net.Http.Formatting.resources.dll">
       <publishTime>02/01/2018 12:17:22</publishTime>
     </File>
@@ -989,6 +1043,18 @@
     </File>
     <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
       <publishTime>02/01/2018 12:21:00</publishTime>
+    </File>
+    <File Include="BookDemo/Client.aspx">
+      <publishTime>04/25/2020 14:35:28</publishTime>
+    </File>
+    <File Include="BookDemo/LoginCode.aspx">
+      <publishTime>04/25/2020 14:35:34</publishTime>
+    </File>
+    <File Include="BookDemo/Main.aspx">
+      <publishTime>04/25/2020 14:46:31</publishTime>
+    </File>
+    <File Include="BookDemo/Scan.aspx">
+      <publishTime>04/25/2020 14:39:50</publishTime>
     </File>
     <File Include="chromedriver.exe">
       <publishTime>12/12/2018 00:32:52</publishTime>
@@ -1066,130 +1132,130 @@
       <publishTime>12/26/2018 19:26:26</publishTime>
     </File>
     <File Include="Content/dx-diagram.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:53</publishTime>
     </File>
     <File Include="Content/dx-diagram.min.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx-gantt.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx-gantt.min.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.carmine.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.carmine.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.common.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.contrast.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.contrast.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.dark.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.dark.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.darkmoon.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.darkmoon.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.darkviolet.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.darkviolet.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.greenmist.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:52</publishTime>
     </File>
     <File Include="Content/dx.greenmist.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.ios7.default.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.light.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.light.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.blue.dark.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.blue.dark.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.blue.light.compact.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.blue.light.css">
-      <publishTime>02/08/2020 11:45:47</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.lime.dark.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.lime.dark.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.lime.light.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.lime.light.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.orange.dark.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.orange.dark.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.orange.light.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.orange.light.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:51</publishTime>
     </File>
     <File Include="Content/dx.material.purple.dark.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.material.purple.dark.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.material.purple.light.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.material.purple.light.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.material.teal.dark.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.material.teal.dark.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.material.teal.light.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.material.teal.light.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.softblue.compact.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/dx.softblue.css">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/font-awesome.css">
       <publishTime>08/21/2018 15:26:07</publishTime>
@@ -1198,67 +1264,67 @@
       <publishTime>08/21/2018 15:26:07</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-300.ttf">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-300.woff">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-300.woff2">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-400.ttf">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-400.woff">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-400.woff2">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-500.ttf">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-500.woff">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-500.woff2">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-700.ttf">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-700.woff">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/fonts/Roboto-700.woff2">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/icons/dxicons.ttf">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/icons/dxicons.woff">
-      <publishTime>02/08/2020 11:45:46</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/icons/dxicons.woff2">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/icons/dxiconsios.ttf">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/icons/dxiconsios.woff">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:50</publishTime>
     </File>
     <File Include="Content/icons/dxiconsios.woff2">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Content/icons/dxiconsmaterial.ttf">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Content/icons/dxiconsmaterial.woff">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Content/icons/dxiconsmaterial.woff2">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Content/sexspider.default.css">
       <publishTime>12/25/2018 15:06:26</publishTime>
@@ -1921,61 +1987,61 @@
       <publishTime>01/11/2019 17:53:01</publishTime>
     </File>
     <File Include="Scripts/devextreme-localization/dx.messages.de.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/devextreme-localization/dx.messages.en.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/devextreme-localization/dx.messages.ja.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/devextreme-localization/dx.messages.ru.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/devextreme-localization/dx.messages.zh.js">
       <publishTime>02/09/2020 11:43:13</publishTime>
     </File>
     <File Include="Scripts/dx-diagram.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx-diagram.min.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx-gantt.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx-gantt.min.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.all.debug.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.all.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.aspnet.data.js">
       <publishTime>12/09/2019 21:14:33</publishTime>
     </File>
     <File Include="Scripts/dx.aspnet.mvc.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.viz-web.debug.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.viz-web.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.viz.debug.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.viz.js">
-      <publishTime>02/08/2020 11:45:45</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.web.debug.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/dx.web.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/globalize.js">
       <publishTime>12/10/2019 14:19:06</publishTime>
@@ -2073,6 +2139,9 @@
     <File Include="Scripts/jquery-3.4.1.slim.min.map">
       <publishTime>12/10/2019 14:19:04</publishTime>
     </File>
+    <File Include="Scripts/jquery-barcode.min.js">
+      <publishTime>02/22/2019 06:38:35</publishTime>
+    </File>
     <File Include="Scripts/jquery-tmpl/jquery.tmpl.js">
       <publishTime>03/27/2014 05:40:02</publishTime>
     </File>
@@ -2108,6 +2177,12 @@
     </File>
     <File Include="Scripts/jquery-validation/LICENSE.md">
       <publishTime>12/13/2018 11:53:28</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.4.1.js">
+      <publishTime>04/24/2020 12:05:03</publishTime>
+    </File>
+    <File Include="Scripts/jquery.signalR-2.4.1.min.js">
+      <publishTime>04/24/2020 12:05:03</publishTime>
     </File>
     <File Include="Scripts/jquery.validate.js">
       <publishTime>12/24/2018 23:40:46</publishTime>
@@ -3507,6 +3582,9 @@
     <File Include="Scripts/moment.min.js">
       <publishTime>12/26/2018 08:51:54</publishTime>
     </File>
+    <File Include="Scripts/qrcode.min.js">
+      <publishTime>11/25/2015 02:43:20</publishTime>
+    </File>
     <File Include="Scripts/sexspider.js">
       <publishTime>12/25/2018 17:43:52</publishTime>
     </File>
@@ -3514,31 +3592,31 @@
       <publishTime>12/25/2018 17:20:19</publishTime>
     </File>
     <File Include="Scripts/vectormap-data/africa.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/vectormap-data/canada.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/vectormap-data/eurasia.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:49</publishTime>
     </File>
     <File Include="Scripts/vectormap-data/europe.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:48</publishTime>
     </File>
     <File Include="Scripts/vectormap-data/usa.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:48</publishTime>
     </File>
     <File Include="Scripts/vectormap-data/world.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:48</publishTime>
     </File>
     <File Include="Scripts/vectormap-utils/dx.vectormaputils.debug.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:48</publishTime>
     </File>
     <File Include="Scripts/vectormap-utils/dx.vectormaputils.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:48</publishTime>
     </File>
     <File Include="Scripts/vectormap-utils/dx.vectormaputils.node.js">
-      <publishTime>02/08/2020 11:45:44</publishTime>
+      <publishTime>05/06/2020 15:24:48</publishTime>
     </File>
     <File Include="Site.Config">
       <publishTime>02/07/2020 12:20:45</publishTime>
@@ -4168,7 +4246,7 @@
       <publishTime>12/24/2018 23:40:42</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>04/23/2020 08:44:07</publishTime>
+      <publishTime>05/06/2020 23:07:22</publishTime>
     </File>
     <File Include="Web2015/AdminBackupData.aspx">
       <publishTime>12/10/2019 11:19:24</publishTime>
@@ -5188,7 +5266,7 @@
       <publishTime>01/20/2020 15:16:40</publishTime>
     </File>
     <File Include="Web2018/Manage2019/MasterPage.master">
-      <publishTime>02/07/2020 14:19:55</publishTime>
+      <publishTime>05/09/2020 21:11:13</publishTime>
     </File>
     <File Include="Web2018/Manage2019/UserPivotGrid.aspx">
       <publishTime>01/20/2020 15:17:09</publishTime>
@@ -5209,7 +5287,7 @@
       <publishTime>05/06/2019 13:01:33</publishTime>
     </File>
     <File Include="Web2018/UserAdmin.aspx">
-      <publishTime>05/06/2019 13:01:33</publishTime>
+      <publishTime>04/24/2020 15:45:51</publishTime>
     </File>
     <File Include="Web2018/UserBoundAdmin.aspx">
       <publishTime>05/06/2019 13:01:33</publishTime>

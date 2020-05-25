@@ -24,3 +24,25 @@
 内容：ok
 2020-04-23 08:58:07.4658|INFO|AALife.WebMvc.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
 2020-04-23 08:58:07.4658|INFO|SyncBase|pyfxl@126.com | <p>fengxiangling 说：ok</p><p>（邮箱：pyfxl@126.com）</p><p><img src='http://www.fxlweb.com/Images/Users/user.gif' title='查看详情' style='width:50px;height:50px;' /></p>
+2020-04-23 16:58:36.4819|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 16:58:36.7947|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 16:59:36.9202|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 16:59:37.0717|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:05:36.6331|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:05:36.8397|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:33:36.8910|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:33:37.2029|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:34:37.4612|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:34:37.5885|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:36:08.0090|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:36:08.2126|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:37:08.4362|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:37:08.5826|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:38:08.8057|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:38:08.9260|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:39:09.1501|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:39:09.2814|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:40:09.5096|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:40:09.6350|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-04-23 17:41:09.8440|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-04-23 17:41:09.9603|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response

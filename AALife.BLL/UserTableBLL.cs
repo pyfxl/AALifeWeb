@@ -1,5 +1,6 @@
 ﻿using AALife.DAL;
 using AALife.Model;
+using AALife.Service;
 using System;
 using System.Data;
 
@@ -153,5 +154,14 @@ namespace AALife.BLL
             return dal.GetUserByDtUser(userName);
         }
 
+        /// <summary>
+        /// 取用户来自名称
+        /// </summary>
+        /// <param name="userFrom"></param>
+        /// <returns></returns>
+        public string GetUserFromName(string userFrom)
+        {
+            return dal.GetUserFromName(userFrom);
+        }
     }
 }

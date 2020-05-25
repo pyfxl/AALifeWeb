@@ -49,6 +49,10 @@ public partial class AuthorLogin_OAuth : FirstPage
                 success = oauth_bll.InsertOAuth(oauth);
 
                 ts.Complete();
+
+                //ding
+                AALife.WebMvc.MsgHelper.DingMessage(string.Format("新用户注册成功消息\n\n姓名：{0}\n\n昵称：{1}\n\n来自：{2}\n\n日期：{3}", user.UserName, user.UserNickName, bll.GetUserFromName(user.UserFrom), user.CreateDate));
+
             }
             if (!success)
             {

@@ -1,0 +1,49 @@
+2020-05-06 15:56:28.7985|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-05-06 15:56:29.1591|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-05-06 16:01:25.3251|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiGettokenResponse
+2020-05-06 16:01:25.4472|INFO|AALife.Service.DingHelper|DingTalk.Api.Response.OapiMessageCorpconversationAsyncsendV2Response
+2020-05-06 16:05:13.7094|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"c95d8affc4f731ac85d2feb23e941707","errmsg":"ok","expires_in":7200}
+2020-05-06 16:05:14.0086|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":88,"sub_code":"60020","sub_msg":"请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=116.21.1.146 appKey(dingcsaeusqene9ajnlb)","errmsg":"ding talk error[subcode=60020,submsg=请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=116.21.1.146 appKey(dingcsaeusqene9ajnlb)]","request_id":"zv6zgpb0pw5v"}
+2020-05-06 16:05:38.4362|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"c95d8affc4f731ac85d2feb23e941707","errmsg":"ok","expires_in":7200}
+2020-05-06 16:05:38.5455|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":88,"sub_code":"60020","sub_msg":"请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=116.21.1.146 appKey(dingcsaeusqene9ajnlb)","errmsg":"ding talk error[subcode=60020,submsg=请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=116.21.1.146 appKey(dingcsaeusqene9ajnlb)]","request_id":"11ggzqasihmxo"}
+2020-05-06 16:07:33.6998|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"c95d8affc4f731ac85d2feb23e941707","errmsg":"ok","expires_in":7200}
+2020-05-06 16:07:33.8222|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":0,"task_id":195380744669,"request_id":"7dmf09tp715w"}
+2020-05-06 16:10:10.3487|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"c95d8affc4f731ac85d2feb23e941707","errmsg":"ok","expires_in":7200}
+2020-05-06 16:10:10.4869|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":0,"task_id":196282006058,"request_id":"vl81h7xy7q8f"}
+2020-05-06 16:15:10.6753|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"c95d8affc4f731ac85d2feb23e941707","errmsg":"ok","expires_in":7200}
+2020-05-06 16:15:10.7983|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":0,"task_id":196278022442,"request_id":"14hbqplngbmmr"}
+2020-05-06 16:16:33.1541|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"c95d8affc4f731ac85d2feb23e941707","errmsg":"ok","expires_in":7200}
+2020-05-06 16:16:33.3641|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":0,"task_id":196909980399,"request_id":"6jxwsswvmg82"}
+2020-05-06 22:41:38.2144|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"137c184af1c73dd9b82bb5a5324d13a6","errmsg":"ok","expires_in":7200}
+2020-05-06 22:41:38.3237|INFO|AALife.WebMvc.MsgHelper|新用户注册成功消息
+
+姓名：A1
+
+昵称：A1
+
+来自：网站
+
+日期：2020/5/6 22:40:58
+2020-05-06 22:41:38.8634|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":88,"sub_code":"60020","sub_msg":"请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=117.136.31.217 appKey(dingcsaeusqene9ajnlb)","errmsg":"ding talk error[subcode=60020,submsg=请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=117.136.31.217 appKey(dingcsaeusqene9ajnlb)]","request_id":"ifma9pg1xg3k"}
+2020-05-06 23:02:43.0225|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"137c184af1c73dd9b82bb5a5324d13a6","errmsg":"ok","expires_in":7200}
+2020-05-06 23:02:43.1860|INFO|AALife.WebMvc.MsgHelper|新用户注册成功消息
+
+姓名：A2
+
+昵称：A2
+
+来自：网站
+
+日期：2020/5/6 23:01:11
+2020-05-06 23:02:43.6121|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":88,"sub_code":"60020","sub_msg":"请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=117.136.31.217 appKey(dingcsaeusqene9ajnlb)","errmsg":"ding talk error[subcode=60020,submsg=请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=117.136.31.217 appKey(dingcsaeusqene9ajnlb)]","request_id":"571kdmuin8nt"}
+2020-05-06 23:03:40.7318|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"137c184af1c73dd9b82bb5a5324d13a6","errmsg":"ok","expires_in":7200}
+2020-05-06 23:03:40.7318|INFO|AALife.WebMvc.MsgHelper|新用户注册成功消息
+
+姓名：A3
+
+昵称：A3
+
+来自：网站
+
+日期：2020/5/6 23:02:58
+2020-05-06 23:03:40.9163|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":88,"sub_code":"60020","sub_msg":"请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=117.136.31.217 appKey(dingcsaeusqene9ajnlb)","errmsg":"ding talk error[subcode=60020,submsg=请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=117.136.31.217 appKey(dingcsaeusqene9ajnlb)]","request_id":"pvo0bdio556i"}

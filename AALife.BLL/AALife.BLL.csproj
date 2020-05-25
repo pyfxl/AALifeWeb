@@ -61,6 +61,10 @@
       <Project>{e458099d-6c03-40ee-ac70-480ffd645987}</Project>
       <Name>AALife.Model</Name>
     </ProjectReference>
+    <ProjectReference Include="..\AALife.Service\AALife.Service.csproj">
+      <Project>{62C63866-F75C-489C-BD6A-1D2B92C0DB80}</Project>
+      <Name>AALife.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

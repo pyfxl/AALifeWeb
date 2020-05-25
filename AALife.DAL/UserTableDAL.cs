@@ -287,6 +287,27 @@ namespace AALife.DAL
         }
 
         /// <summary>
+        /// 取用户来自名称
+        /// </summary>
+        /// <param name="userFrom"></param>
+        /// <returns></returns>
+        public string GetUserFromName(string userFrom)
+        {
+            SqlParameter parm = new SqlParameter("@UserFrom", SqlDbType.NVarChar, 10);
+            parm.Value = userFrom;
+
+            var result = SqlHelper.ExecuteScalar(SqlHelper.ConnectionString, CommandType.Text, "select UserFromName from UserFromTable with(nolock) where UserFrom = @UserFrom", parm);
+            if (result != null)
+            {
+                return result.ToString();
+            }
+            else
+            {
+                return userFrom;
+            }
+        }
+
+        /// <summary>
         /// 修改用户同步返回
         /// </summary>
         public bool UpdateUserListWebBack(int userId)

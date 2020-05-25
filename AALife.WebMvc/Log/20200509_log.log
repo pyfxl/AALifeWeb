@@ -1,0 +1,44 @@
+2020-05-09 21:15:48.0582|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"56046ebdfa6d3c8c978f3b054d683227","errmsg":"ok","expires_in":7200}
+2020-05-09 21:15:48.1503|INFO|AALife.WebMvc.MsgHelper|新用户注册成功消息
+
+姓名：A1
+
+昵称：A1
+
+来自：网站
+
+日期：2020/5/9 21:15:46
+2020-05-09 21:15:48.7671|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":88,"sub_code":"60020","sub_msg":"请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=223.73.116.157 appKey(dingcsaeusqene9ajnlb)","errmsg":"ding talk error[subcode=60020,submsg=请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=223.73.116.157 appKey(dingcsaeusqene9ajnlb)]","request_id":"ve38ucvp5wn6"}
+2020-05-09 21:17:07.8832|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"56046ebdfa6d3c8c978f3b054d683227","errmsg":"ok","expires_in":7200}
+2020-05-09 21:17:18.2147|INFO|AALife.WebMvc.MsgHelper|新用户注册成功消息
+
+姓名：A2
+
+昵称：A2
+
+来自：网站
+
+日期：2020/5/9 21:16:40
+2020-05-09 21:17:48.7961|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":88,"sub_code":"60020","sub_msg":"请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=223.73.116.157 appKey(dingcsaeusqene9ajnlb)","errmsg":"ding talk error[subcode=60020,submsg=请参考FAQ：https://open-doc.dingtalk.com/microapp/faquestions/cvbtph。错误原因：访问ip不在白名单之中,request ip=223.73.116.157 appKey(dingcsaeusqene9ajnlb)]","request_id":"sk83irst9s8k"}
+2020-05-09 21:18:53.6163|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"56046ebdfa6d3c8c978f3b054d683227","errmsg":"ok","expires_in":7200}
+2020-05-09 21:18:53.6163|INFO|AALife.WebMvc.MsgHelper|新用户注册成功消息
+
+姓名：A3
+
+昵称：A3
+
+来自：网站
+
+日期：2020/5/9 21:18:53
+2020-05-09 21:19:00.5155|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":0,"task_id":199102204706,"request_id":"6f9jlhd3elnd"}
+2020-05-09 21:21:48.8732|INFO|AALife.Service.DingHelper|GetAccessToken: {"errcode":0,"access_token":"56046ebdfa6d3c8c978f3b054d683227","errmsg":"ok","expires_in":7200}
+2020-05-09 21:21:48.8732|INFO|AALife.WebMvc.MsgHelper|新用户注册成功消息
+
+姓名：A4
+
+昵称：A4
+
+来自：网站
+
+日期：2020/5/9 21:21:48
+2020-05-09 21:21:49.1456|INFO|AALife.Service.DingHelper|SendMessage: {"errcode":0,"task_id":198138601935,"request_id":"555kvjhq9znb"}

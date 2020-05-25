@@ -43,7 +43,7 @@ public class ItemHelper
         {
             if (name.Length < 5) return "***";
             //result = name.Remove(name.Length - 2) + "**";
-            result = name.Replace(name.Substring(name.Length-5, 3), "***");
+            result = name.Replace(name.Substring(name.Length - 5, 3), "***");
         }
 
         return result;

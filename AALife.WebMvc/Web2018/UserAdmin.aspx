@@ -3,8 +3,16 @@
 <%@ Register Src="UserControl/UserMenu.ascx" TagName="UserMenu" TagPrefix="uc6" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="js" Runat="Server">
+<script src="/Scripts/qrcode.min.js"></script>
 <script type="text/javascript">
     $(function () {
+        //钉钉二维码
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+            width : 150,
+            height : 150
+        });
+        qrcode.makeCode("<%= dtUser %>");
+
         //定位用户资料
         if (window.location.href.lastIndexOf("#info") > 0) {
             $("#r_tablemenu").scrollTop($("#r_tablemenu").height());
@@ -26,6 +34,10 @@
                 <tr>
                     <th>荣　耀　</th>
                     <td>您已记账 <asp:Label ID="JoinDay" runat="server"></asp:Label> 天，共添加消费 <asp:Label ID="ItemCount" runat="server"></asp:Label> 笔。</td>
+                </tr>
+                <tr>
+                    <th>钉钉二维码</th>
+                    <td><div id="qrcode"></div></td>
                 </tr>
                 <tr class="userline">
                     <th></th>

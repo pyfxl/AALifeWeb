@@ -8,8 +8,8 @@ using NLog;
 
 public partial class AALifeWeb_SyncLoginQQNew : SyncBase
 {
-    private ItemTableBLL bll = new ItemTableBLL();
-    private UserTableBLL user_bll = new UserTableBLL();
+    private ItemTableBLL item_bll = new ItemTableBLL();
+    private UserTableBLL bll = new UserTableBLL();
     private OAuthTableBLL oauth_bll = new OAuthTableBLL();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -30,7 +30,7 @@ public partial class AALifeWeb_SyncLoginQQNew : SyncBase
             userFrom = userFrom.Substring(5);
         }
 
-        UserInfo user = user_bll.GetUserByUserName(userName);
+        UserInfo user = bll.GetUserByUserName(userName);
         if (userName == "") user.UserName = UserHelper.GetUserName(oAuthFrom);
         if (userName == "") user.UserPassword = "aalife";
         user.UserNickName = nickName;
@@ -60,14 +60,17 @@ public partial class AALifeWeb_SyncLoginQQNew : SyncBase
             {
                 if (user.UserID > 0)
                 {
-                    success = user_bll.UpdateUser(user);
+                    success = bll.UpdateUser(user);
                 }
                 else
                 {
-                    success = user_bll.InsertUser(user);
-                    user = user_bll.GetUserByUserPassword(user.UserName, user.UserPassword);
+                    success = bll.InsertUser(user);
+                    user = bll.GetUserByUserPassword(user.UserName, user.UserPassword);
+
+                    //ding
+                    AALife.WebMvc.MsgHelper.DingMessage(string.Format("新用户注册成功消息\n\n姓名：{0}\n\n昵称：{1}\n\n来自：{2}\n\n日期：{3}", user.UserName, user.UserNickName, bll.GetUserFromName(user.UserFrom), user.CreateDate));
                 }
-                
+
                 oauth.UserID = user.UserID;
                 oauth.OldUserID = user.UserID;
                 success = oauth_bll.InsertOAuth(oauth);
@@ -86,7 +89,7 @@ public partial class AALifeWeb_SyncLoginQQNew : SyncBase
         if (success)
         {
             oauth = oauth_bll.GetOAuthByOpenId(openId);
-            user = user_bll.GetUserByUserId(oauth.UserID);
+            user = bll.GetUserByUserId(oauth.UserID);
             
             decimal userMoney = user.UserMoney;
             if (isUpdate == "1")
@@ -107,10 +110,10 @@ public partial class AALifeWeb_SyncLoginQQNew : SyncBase
 
             if (type == 1)
             {
-                user_bll.UpdateSyncByUserId(user.UserID);
+                bll.UpdateSyncByUserId(user.UserID);
             }
 
-            DataTable dt = bll.GetItemListWithSync(user.UserID);
+            DataTable dt = item_bll.GetItemListWithSync(user.UserID);
             if (dt.Rows.Count > 0)
             {
                 result += "\"hassync\":\"1\",";

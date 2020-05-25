@@ -83,6 +83,7 @@ namespace AALife.WebMvc.Web2018
             user.UserEmail = userEmail;
             user.UserWorkDay = userWorkDay;
             user.UserTheme = userTheme;
+            user.UserFrom = "web";
             user.IsUpdate = 1;
 
             success = bll.InsertUser(user);
@@ -94,7 +95,7 @@ namespace AALife.WebMvc.Web2018
                 UserHelper.SaveSession(newUser);
 
                 //ding
-                AALife.WebMvc.MsgHelper.DingMessage(string.Format("新用户注册成功消息\n\n姓名：{0}\n\n昵称：{1}\n\n来自：{2}\n\n日期：{3}", user.UserName, user.UserNickName, user.UserFrom, user.CreateDate));
+                AALife.WebMvc.MsgHelper.DingMessage(string.Format("新用户注册成功消息\n\n姓名：{0}\n\n昵称：{1}\n\n来自：{2}\n\n日期：{3}", user.UserName, user.UserNickName, bll.GetUserFromName(user.UserFrom), user.CreateDate));
 
                 Utility.Alert(this, "注册成功。", "Default.aspx");
             }

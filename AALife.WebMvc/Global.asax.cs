@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AALife.Service.Tasks;
+using AALife.WebMvc.JobBase;
+using System;
 using System.Text;
 using System.Web;
 using System.Web.Http;
@@ -25,6 +27,19 @@ namespace AALife.WebMvc
             //ValueProviderFactories.Factories.Remove(ValueProviderFactories.Factories.OfType<JsonValueProviderFactory>().FirstOrDefault());
             //ValueProviderFactories.Factories.Add(new JsonValueProviderFactory());
 
+            try
+            {
+                //start scheduled tasks
+                //TaskManager.Instance.Initialize();
+                //TaskManager.Instance.Start();
+
+                //quartz.net
+                JobManager.Start();
+            }
+            catch (Exception ex)
+            {
+                LogException(ex);
+            }
         }
 
         protected void Application_BeginRequest(object sender, EventArgs e)

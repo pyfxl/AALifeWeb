@@ -14,10 +14,15 @@ namespace AALife.WebMvc.Web2018
         private int userId = 0;
         private UserInfo user = new UserInfo();
 
+        public static string dtUser = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             userId = Convert.ToInt32(Session["UserID"]);
             user = bll.GetUserByUserId(userId);
+
+            //钉钉user
+            dtUser = user.DtUser;
 
             //未绑定帐号跳转
             OAuthInfo oauth = oauth_bll.GetOAuthByUserId(userId);

@@ -65,7 +65,7 @@ public partial class AALifeWeb_SyncNewUser : SyncBase
             success = bll.InsertUser(user);
             if (success)
             {
-                AALife.WebMvc.MsgHelper.DingMessage(string.Format("新用户注册成功消息\n\n姓名：{0}\n\n昵称：{1}\n\n来自：{2}\n\n日期：{3}", user.UserName, user.UserNickName, user.UserFrom, user.CreateDate));
+                AALife.WebMvc.MsgHelper.DingMessage(string.Format("新用户注册成功消息\n\n姓名：{0}\n\n昵称：{1}\n\n来自：{2}\n\n日期：{3}", user.UserName, user.UserNickName, bll.GetUserFromName(user.UserFrom), user.CreateDate));
                 result += "\"result\":\"1\"";
             }
             else
